@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import ScrollingBanner from '../common/ScrollingBanner';
 
 const Footer: React.FC = () => {
   return (
@@ -100,6 +101,11 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Scrolling Banner */}
+        <div className="relative z-10 -mx-4 my-8 overflow-hidden">
+          <ScrollingBanner text="THE BEST AMONG THE REST!" />
         </div>
 
         <div className="border-t border-white/10 pt-5 sm:pt-6 mt-6 relative z-10">
