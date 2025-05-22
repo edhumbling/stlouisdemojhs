@@ -42,17 +42,31 @@ const Header: React.FC = () => {
               alt="St. Louis Demonstration Junior High School"
               className="h-8 xs:h-10 sm:h-12 w-auto"
             />
-            <div className={`md:hidden transition-colors duration-300 ${
+            <div className={`md:hidden flex items-center transition-colors duration-300 ${
               scrolled ? 'text-white' : 'text-primary-800'
             }`}>
-              <h1 className="text-xs sm:text-sm font-bold leading-tight tracking-tight">St. Louis Demonstration</h1>
-              <p className="text-[10px] sm:text-xs leading-tight tracking-tight">Junior High School</p>
+              <div>
+                <h1 className="text-xs sm:text-sm font-bold leading-tight tracking-tight">St. Louis Demonstration</h1>
+                <p className="text-[10px] sm:text-xs leading-tight tracking-tight">Junior High School</p>
+              </div>
+              <img
+                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqAHf0GQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
+                alt="School Badge"
+                className="h-6 w-auto ml-2"
+              />
             </div>
-            <div className={`hidden md:block transition-colors duration-300 ${
+            <div className={`hidden md:flex items-center transition-colors duration-300 ${
               scrolled ? 'text-white' : 'text-primary-800'
             }`}>
-              <h1 className="text-lg font-bold leading-tight">St. Louis Demonstration</h1>
-              <p className="text-xs">Junior High School</p>
+              <div>
+                <h1 className="text-lg font-bold leading-tight">St. Louis Demonstration</h1>
+                <p className="text-xs">Junior High School</p>
+              </div>
+              <img
+                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqAHf0GQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
+                alt="School Badge"
+                className="h-8 w-auto ml-3"
+              />
             </div>
           </NavLink>
 
