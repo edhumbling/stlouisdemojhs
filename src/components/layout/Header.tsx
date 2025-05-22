@@ -40,8 +40,13 @@ const Header: React.FC = () => {
             <img
               src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
               alt="St. Louis Demonstration Junior High School"
-              className="h-12 w-auto"
+              className="h-10 sm:h-12 w-auto"
             />
+            <div className={`md:hidden transition-colors duration-300 ${
+              scrolled ? 'text-white' : 'text-primary-800'
+            }`}>
+              <h1 className="text-sm font-bold leading-tight">St. Louis</h1>
+            </div>
             <div className={`hidden md:block transition-colors duration-300 ${
               scrolled ? 'text-white' : 'text-primary-800'
             }`}>
@@ -79,7 +84,7 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-primary-800"
+            className="md:hidden text-primary-800 p-2 rounded-full hover:bg-white/10 transition-colors"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? (
@@ -100,20 +105,29 @@ const Header: React.FC = () => {
           transition={{ duration: 0.3 }}
           className="md:hidden glass-dark shadow-lg"
         >
-          <ul className="py-4">
-            {navLinks.map((link) => (
-              <li key={link.path} className="px-4 py-2">
+          <ul className="py-6 px-2">
+            {navLinks.map((link, index) => (
+              <motion.li
+                key={link.path}
+                className="mb-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.2, delay: index * 0.05 }}
+              >
                 <NavLink
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
                   className={({ isActive }) => `
-                    block py-2 font-medium
-                    ${isActive ? 'text-primary-700' : 'text-gray-800 hover:text-primary-600'}
+                    block py-3 px-4 font-medium rounded-lg text-center text-base
+                    ${isActive
+                      ? 'bg-green-600 text-white'
+                      : 'text-white hover:bg-white/10'
+                    }
                   `}
                 >
                   {link.label}
                 </NavLink>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </motion.nav>
