@@ -8,11 +8,7 @@ interface ScrollingBannerProps {
 
 const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ text, className = '' }) => {
   return (
-    <div className={`w-full overflow-hidden bg-zinc-900/80 backdrop-blur-sm border-y border-zinc-800 py-2 relative ${className}`}>
-      {/* Gradient overlays for fade effect on edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-zinc-900 to-transparent z-10"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-zinc-900 to-transparent z-10"></div>
-
+    <div className={`w-full overflow-hidden py-12 relative bg-black/20 ${className}`}>
       <div className="relative whitespace-nowrap">
         {/* We duplicate the text multiple times to ensure continuous scrolling */}
         <motion.div
@@ -24,22 +20,23 @@ const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ text, className = '' 
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 25,
+              duration: 60, // Much slower scrolling
               ease: "linear",
             },
           }}
         >
-          {[...Array(10)].map((_, i) => (
+          {[...Array(5)].map((_, i) => (
             <span
               key={i}
-              className="inline-block px-8 text-gray-400 text-opacity-40 font-extrabold text-[8vw] md:text-[7vw] lg:text-[6vw] tracking-tighter uppercase"
+              className="inline-block px-12 text-white text-opacity-90 font-extrabold text-[25vw] md:text-[22vw] lg:text-[20vw] tracking-tighter uppercase"
               style={{
-                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                fontStretch: 'condensed'
+                textShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                fontFamily: "'Anton', sans-serif",
+                letterSpacing: '-0.02em'
               }}
             >
               {text}
-              <span className="text-green-500 text-opacity-30 mx-4">•</span>
+              <span className="text-white text-opacity-30 mx-6">•</span>
             </span>
           ))}
         </motion.div>

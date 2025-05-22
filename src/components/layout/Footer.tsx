@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Scrolling Banner */}
-        <div className="relative z-10 -mx-4 my-8 overflow-hidden">
+        <div className="relative z-10 -mx-4 my-12 overflow-hidden">
           <ScrollingBanner text="THE BEST AMONG THE REST!" />
         </div>
 
