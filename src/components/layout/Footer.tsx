@@ -146,7 +146,7 @@ const Footer: React.FC = () => {
         {/* Footer image at the bottom */}
         <div className="mt-10 -mx-4 -mb-6 overflow-hidden">
           <img
-            src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mn0YSWgt9y8N3iHUJVO0kYQWC9fPR7SmMj2g1"
+            src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
             alt="Footer decoration"
             className="w-full h-auto"
             style={{
