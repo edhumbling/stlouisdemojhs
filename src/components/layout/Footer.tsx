@@ -104,11 +104,11 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Scrolling Banner */}
-        <div className="relative z-10 -mx-4 my-12 overflow-hidden">
+        <div className="relative z-10 -mx-4 mt-8 mb-0 overflow-hidden">
           <ScrollingBanner text="THE BEST AMONG THE REST!" />
         </div>
 
-        <div className="border-t border-white/10 pt-5 sm:pt-6 mt-6 relative z-10">
+        <div className="border-t border-white/10 pt-4 sm:pt-5 mt-0 relative z-10">
           <div className="flex flex-col md:flex-row md:justify-between items-center">
             <p className="text-xs sm:text-sm text-gray-500 text-center md:text-left">
               &copy; {new Date().getFullYear()} St. Louis Demonstration Junior High School. All rights reserved.

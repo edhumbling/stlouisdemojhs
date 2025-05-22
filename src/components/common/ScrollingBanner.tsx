@@ -8,7 +8,7 @@ interface ScrollingBannerProps {
 
 const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ text, className = '' }) => {
   return (
-    <div className={`w-full overflow-hidden py-12 relative bg-black/20 ${className}`}>
+    <div className={`w-full overflow-hidden py-6 sm:py-8 relative bg-black/20 ${className}`}>
       <div className="relative whitespace-nowrap">
         {/* We duplicate the text multiple times to ensure continuous scrolling */}
         <motion.div
@@ -28,7 +28,7 @@ const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ text, className = '' 
           {[...Array(3)].map((_, i) => (
             <span
               key={i}
-              className="inline-block px-12 text-white text-opacity-90 font-extrabold text-[25vw] md:text-[22vw] lg:text-[20vw] tracking-tighter uppercase"
+              className="inline-block px-0 sm:px-2 text-white text-opacity-90 font-extrabold text-[25vw] md:text-[22vw] lg:text-[20vw] tracking-tighter uppercase"
               style={{
                 textShadow: '0 4px 12px rgba(0,0,0,0.3)',
                 fontFamily: "'Anton', sans-serif",
@@ -36,7 +36,7 @@ const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ text, className = '' 
               }}
             >
               {text}
-              <span className="inline-flex items-center justify-center mx-16 md:mx-20 relative">
+              <span className="inline-flex items-center justify-center mx-4 sm:mx-6 relative">
                 <div className="absolute inset-0 bg-white/10 rounded-full blur-xl animate-pulse"></div>
                 <motion.img
                   animate={{
