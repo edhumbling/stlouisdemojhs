@@ -36,17 +36,17 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <NavLink to="/" className="flex items-center space-x-3">
+          <NavLink to="/" className="flex items-center space-x-2 sm:space-x-3">
             <img
               src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
               alt="St. Louis Demonstration Junior High School"
-              className="h-10 sm:h-12 w-auto"
+              className="h-8 xs:h-10 sm:h-12 w-auto"
             />
             <div className={`md:hidden transition-colors duration-300 ${
               scrolled ? 'text-white' : 'text-primary-800'
             }`}>
-              <h1 className="text-sm font-bold leading-tight">St. Louis</h1>
-              <p className="text-xs leading-tight">Demo. JHS</p>
+              <h1 className="text-xs sm:text-sm font-bold leading-tight tracking-tight">St. Louis Demonstration</h1>
+              <p className="text-[10px] sm:text-xs leading-tight tracking-tight">Junior High School</p>
             </div>
             <div className={`hidden md:block transition-colors duration-300 ${
               scrolled ? 'text-white' : 'text-primary-800'
