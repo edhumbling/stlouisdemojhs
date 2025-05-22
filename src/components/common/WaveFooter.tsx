@@ -1,58 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 interface WaveFooterProps {
   className?: string;
 }
 
 const WaveFooter: React.FC<WaveFooterProps> = ({ className = '' }) => {
-  // Create an array of wave segments with different heights
-  const waveSegments = Array.from({ length: 24 }, (_, i) => {
-    // Create a wave pattern with heights ranging from 8px to 23px
-    return {
-      height: 8 + Math.floor(Math.sin(i * 0.5) * 15 + 15)
-    };
-  });
-
-  // State to track animated heights
-  const [animatedHeights, setAnimatedHeights] = useState<number[]>(
-    waveSegments.map(segment => segment.height)
-  );
-
-  // Animation effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Create a wave-like animation by adjusting heights
-      setAnimatedHeights(prevHeights => {
-        // Create a new array with slightly modified heights
-        return prevHeights.map((height, index) => {
-          // Calculate a new height with a wave-like variation
-          const time = Date.now() / 1000;
-          const phaseOffset = index * 0.3; // Different phase for each segment
-          const variation = Math.sin(time + phaseOffset) * 3;
-          const newHeight = Math.max(8, Math.min(38, waveSegments[index].height + variation));
-          return newHeight;
-        });
-      });
-    }, 100); // Update every 100ms for smooth animation
-
-    return () => clearInterval(interval);
-  }, []);
+  // Create an array of segments for the wave
+  const segments = Array.from({ length: 12 }, (_, i) => i);
 
   return (
-    <div id="waveContainer" className={`flex flex-row w-full justify-between ${className}`}>
-      {waveSegments.map((segment, index) => (
-        <div
-          key={index}
-          className="wave-segment"
-          style={{
-            marginTop: '0px',
-            height: `${animatedHeights[index]}px`,
-            backgroundColor: 'rgb(255, 255, 255)',
-            transition: '0.1s',
-            width: `${100 / waveSegments.length}%`
-          }}
-        ></div>
-      ))}
+    <div className={`w-full h-32 relative overflow-hidden ${className}`}>
+      {/* Solid bar at the bottom (always visible) */}
+      <div className="absolute bottom-0 left-0 right-0 h-6 bg-white"></div>
+
+      {/* Animated segments */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 flex gap-[1px]">
+        {segments.map((segment) => (
+          <motion.div
+            key={segment}
+            className="bg-white"
+            style={{ width: `${100 / segments.length}%` }}
+            animate={{
+              height: ["6px", "24px", "6px"],
+              y: ["0px", "-80px", "0px"],
+              marginLeft: ["0px", segment % 2 === 0 ? "6px" : "-6px", "0px"],
+              marginRight: ["0px", segment % 2 === 0 ? "-6px" : "6px", "0px"]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: segment * 0.15, // More pronounced staggered delay
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 };
