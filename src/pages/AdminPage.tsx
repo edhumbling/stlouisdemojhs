@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 import { motion } from 'framer-motion';
 import { Settings, Image, FileText, LogOut } from 'lucide-react';
 import ContentEditor from '../components/admin/ContentEditor';
+import MediaLibrary from '../components/admin/MediaLibrary';
 
 const AdminPage: React.FC = () => {
   const [session, setSession] = useState(null);
@@ -127,7 +128,7 @@ const AdminPage: React.FC = () => {
               {activeTab === 'media' && (
                 <div>
                   <h2 className="text-xl font-semibold mb-4">Media Library</h2>
-                  {/* Media library interface will be added here */}
+                  <MediaLibrary />
                 </div>
               )}
 
