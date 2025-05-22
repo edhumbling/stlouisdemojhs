@@ -50,7 +50,7 @@ const Header: React.FC = () => {
                 <p className="text-[10px] sm:text-xs leading-tight tracking-tight">Junior High School</p>
               </div>
               <img
-                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqAHf0GQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
+                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MhQQRoQ5lei2Xoxy0tQ8z7rZTRLfvgpmsuw35"
                 alt="School Badge"
                 className="h-6 w-auto ml-2"
               />
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
                 <p className="text-xs">Junior High School</p>
               </div>
               <img
-                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqAHf0GQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
+                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MhQQRoQ5lei2Xoxy0tQ8z7rZTRLfvgpmsuw35"
                 alt="School Badge"
                 className="h-8 w-auto ml-3"
               />
