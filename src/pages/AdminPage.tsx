@@ -4,6 +4,7 @@ import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { supabase } from '../lib/supabase';
 import { motion } from 'framer-motion';
 import { Settings, Image, FileText, LogOut } from 'lucide-react';
+import ContentEditor from '../components/admin/ContentEditor';
 
 const AdminPage: React.FC = () => {
   const [session, setSession] = useState(null);
@@ -119,7 +120,7 @@ const AdminPage: React.FC = () => {
               {activeTab === 'content' && (
                 <div>
                   <h2 className="text-xl font-semibold mb-4">Content Management</h2>
-                  {/* Content management interface will be added here */}
+                  <ContentEditor />
                 </div>
               )}
 
