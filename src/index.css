@@ -12,7 +12,7 @@
   }
   
   .glass-dark {
-    @apply bg-primary-950/70 backdrop-blur-md border border-primary-200/5;
+    @apply bg-primary-900/70 backdrop-blur-md border border-primary-200/5;
   }
 }
 
