@@ -8,6 +8,7 @@ export const navLinks: NavLink[] = [
   { label: 'News & Events', path: '/news' },
   { label: 'Gallery', path: '/gallery' },
   { label: 'Contact', path: '/contact' },
+  { label: 'Admin', path: '/admin' },
 ];
 
 export const upcomingEvents: Event[] = [

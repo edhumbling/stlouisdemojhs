@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogIn } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { navLinks } from '../../data';
 
@@ -51,9 +51,9 @@ const Header: React.FC = () => {
           </NavLink>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
+          <nav className="hidden md:flex items-center space-x-8">
             <ul className="flex space-x-8">
-              {navLinks.map((link) => (
+              {navLinks.filter(link => link.path !== '/admin').map((link) => (
                 <li key={link.path}>
                   <NavLink
                     to={link.path}
@@ -74,6 +74,23 @@ const Header: React.FC = () => {
                 </li>
               ))}
             </ul>
+            <NavLink
+              to="/admin"
+              className={({ isActive }) => `
+                relative font-medium transition-colors duration-300 hover:text-accent-500 flex items-center
+                ${scrolled 
+                  ? isActive 
+                    ? 'text-accent-300' 
+                    : 'text-white' 
+                  : isActive 
+                    ? 'text-primary-700' 
+                    : 'text-primary-800'
+                }
+              `}
+            >
+              <LogIn size={18} className="mr-2" />
+              Login
+            </NavLink>
           </nav>
 
           {/* Mobile Menu Button */}
