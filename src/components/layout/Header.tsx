@@ -46,6 +46,7 @@ const Header: React.FC = () => {
               scrolled ? 'text-white' : 'text-primary-800'
             }`}>
               <h1 className="text-sm font-bold leading-tight">St. Louis</h1>
+              <p className="text-xs leading-tight">Demo. JHS</p>
             </div>
             <div className={`hidden md:block transition-colors duration-300 ${
               scrolled ? 'text-white' : 'text-primary-800'
