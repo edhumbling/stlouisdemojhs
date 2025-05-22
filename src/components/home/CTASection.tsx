@@ -43,14 +43,14 @@ const CTASection: React.FC = () => {
           >
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-700 font-medium rounded-full shadow-lg hover:bg-blue-50 transition-colors duration-300"
+              className="inline-flex items-center justify-center px-6 py-3 bg-orange-500 text-white font-medium rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300"
             >
               Schedule a Visit
               <ArrowRight size={18} className="ml-2" />
             </Link>
             <Link
               to="/admissions"
-              className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-green-300 text-green-100 font-medium rounded-full hover:bg-green-500 hover:text-blue-100 hover:border-green-500 transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-medium rounded-full shadow-lg hover:bg-green-700 transition-colors duration-300"
             >
               Apply Now
             </Link>

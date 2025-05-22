@@ -31,7 +31,7 @@ const AboutSection: React.FC = () => {
     <section className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -40,22 +40,22 @@ const AboutSection: React.FC = () => {
           >
             Welcome to St. Louis Demonstration Junior High School
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-gray-700"
           >
-            For over three decades, we have been committed to academic excellence, character development, and preparing students 
-            for success in high school and beyond. Our dedicated faculty and staff provide a nurturing environment 
+            For over three decades, we have been committed to academic excellence, character development, and preparing students
+            for success in high school and beyond. Our dedicated faculty and staff provide a nurturing environment
             where students can explore their interests, develop their talents, and achieve their potential.
           </motion.p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {features.map((feature, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -71,9 +71,9 @@ const AboutSection: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <Link 
-            to="/about" 
-            className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-medium rounded-full shadow-md hover:bg-primary-700 transition-colors duration-300"
+          <Link
+            to="/about"
+            className="inline-flex items-center justify-center px-6 py-3 bg-orange-500 text-white font-medium rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300"
           >
             Learn More About Us
           </Link>
