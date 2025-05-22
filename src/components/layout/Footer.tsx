@@ -141,6 +141,26 @@ const Footer: React.FC = () => {
               </ul>
             </div>
           </div>
+
+          {/* Creator credit with glowing effect */}
+          <div className="mt-6 text-center">
+            <p className="text-xs sm:text-sm text-gray-400">
+              Made with <span className="text-red-500">❤️</span> by{" "}
+              <a
+                href="https://www.linkedin.com/in/edhumbling"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-block px-1 py-0.5 group"
+              >
+                <span className="relative z-10 font-medium text-yellow-300 group-hover:text-yellow-200 transition-colors">
+                  Emmanuel Dwamena
+                </span>
+                <span className="absolute inset-0 -m-1 bg-yellow-400/30 blur-md animate-pulse rounded-lg group-hover:bg-yellow-400/40 transition-colors"></span>
+                <span className="absolute inset-0 -m-0.5 bg-yellow-300/20 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+              </a>
+              {" "}- 2012 Alumnus
+            </p>
+          </div>
         </div>
 
         {/* Footer image at the bottom */}
