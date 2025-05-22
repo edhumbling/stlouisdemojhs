@@ -2,10 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import ScrollingBanner from '../common/ScrollingBanner';
+import WaveFooter from '../common/WaveFooter';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="glass-dark text-white pt-10 md:pt-12 pb-6 relative">
+    <footer className="glass-dark text-white pt-8 md:pt-10 pb-6 relative">
+      {/* Wave effect at the top of the footer */}
+      <div className="absolute top-0 left-0 right-0 -translate-y-full">
+        <WaveFooter />
+      </div>
+
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
