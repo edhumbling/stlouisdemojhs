@@ -1,80 +1,58 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 
 interface WaveFooterProps {
   className?: string;
 }
 
 const WaveFooter: React.FC<WaveFooterProps> = ({ className = '' }) => {
+  // Create an array of wave segments with different heights
+  const waveSegments = Array.from({ length: 24 }, (_, i) => {
+    // Create a wave pattern with heights ranging from 8px to 23px
+    return {
+      height: 8 + Math.floor(Math.sin(i * 0.5) * 15 + 15)
+    };
+  });
+
+  // State to track animated heights
+  const [animatedHeights, setAnimatedHeights] = useState<number[]>(
+    waveSegments.map(segment => segment.height)
+  );
+
+  // Animation effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Create a wave-like animation by adjusting heights
+      setAnimatedHeights(prevHeights => {
+        // Create a new array with slightly modified heights
+        return prevHeights.map((height, index) => {
+          // Calculate a new height with a wave-like variation
+          const time = Date.now() / 1000;
+          const phaseOffset = index * 0.3; // Different phase for each segment
+          const variation = Math.sin(time + phaseOffset) * 3;
+          const newHeight = Math.max(8, Math.min(38, waveSegments[index].height + variation));
+          return newHeight;
+        });
+      });
+    }, 100); // Update every 100ms for smooth animation
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className={`relative w-full overflow-hidden ${className}`}>
-      {/* Single wave with flapping animation */}
-      <div className="relative w-full h-[70px] sm:h-[100px] md:h-[120px]">
-        <svg
-          className="absolute w-full h-full"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
+    <div id="waveContainer" className={`flex flex-row w-full justify-between ${className}`}>
+      {waveSegments.map((segment, index) => (
+        <div
+          key={index}
+          className="wave-segment"
           style={{
-            filter: 'drop-shadow(0 -5px 5px rgba(0,0,0,0.1))'
+            marginTop: '0px',
+            height: `${animatedHeights[index]}px`,
+            backgroundColor: 'rgb(255, 255, 255)',
+            transition: '0.1s',
+            width: `${100 / waveSegments.length}%`
           }}
-        >
-          {/* Background wave */}
-          <path
-            d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,218.7C672,235,768,245,864,234.7C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            className="fill-blue-700"
-          ></path>
-        </svg>
-
-        {/* Animated wave sections */}
-        <motion.svg
-          className="absolute w-full h-full"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          {/* First animated section */}
-          <motion.path
-            d="M0,224L48,224C96,224,192,224,288,213.3C384,203,480,181,576,186.7C672,192,768,224,864,229.3C960,235,1056,213,1152,202.7C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            className="fill-green-600"
-            animate={{
-              d: [
-                "M0,224L48,224C96,224,192,224,288,213.3C384,203,480,181,576,186.7C672,192,768,224,864,229.3C960,235,1056,213,1152,202.7C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
-                "M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,218.7C672,235,768,245,864,234.7C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-              ]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut"
-            }}
-          ></motion.path>
-        </motion.svg>
-
-        {/* Second animated layer */}
-        <motion.svg
-          className="absolute w-full h-full"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <motion.path
-            d="M0,256L48,261.3C96,267,192,277,288,277.3C384,277,480,267,576,240C672,213,768,171,864,165.3C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            className="fill-blue-500/70"
-            animate={{
-              d: [
-                "M0,256L48,261.3C96,267,192,277,288,277.3C384,277,480,267,576,240C672,213,768,171,864,165.3C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
-                "M0,288L48,282.7C96,277,192,267,288,250.7C384,235,480,213,576,213.3C672,213,768,235,864,245.3C960,256,1056,256,1152,234.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-              ]
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-              delay: 0.5
-            }}
-          ></motion.path>
-        </motion.svg>
-      </div>
+        ></div>
+      ))}
     </div>
   );
 };

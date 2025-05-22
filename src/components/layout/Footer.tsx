@@ -7,8 +7,8 @@ import WaveFooter from '../common/WaveFooter';
 const Footer: React.FC = () => {
   return (
     <footer className="glass-dark text-white pt-8 md:pt-10 pb-6 relative">
-      {/* Wave effect at the top of the footer */}
-      <div className="absolute top-0 left-0 right-0 -translate-y-full">
+      {/* Wave effect at the bottom of the screen */}
+      <div className="absolute bottom-0 left-0 right-0 h-10">
         <WaveFooter />
       </div>
 
