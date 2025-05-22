@@ -44,7 +44,7 @@ export const upcomingEvents: Event[] = [
 export const newsItems: NewsItem[] = [
   {
     id: 1,
-    title: 'St. Louis Students Win Regional Math Competition',
+    title: 'St. Louis Demonstration Students Win Regional Math Competition',
     date: 'May 10, 2025',
     summary: 'Our mathematics team secured first place at the regional competition.',
     content: 'We are proud to announce that our talented mathematics team has won first place at the Regional Mathematics Olympiad. The team, consisting of five students from grades 7 and 8, demonstrated exceptional problem-solving skills and mathematical reasoning.',
@@ -62,7 +62,7 @@ export const newsItems: NewsItem[] = [
     id: 3,
     title: 'School Receives Excellence in Education Award',
     date: 'March 15, 2025',
-    summary: 'St. Louis JHS recognized for outstanding educational programs.',
+    summary: 'St. Louis Demonstration JHS recognized for outstanding educational programs.',
     content: 'St. Louis Demonstration Junior High School has been recognized with the Excellence in Education Award for its outstanding academic programs and student achievements. This prestigious award acknowledges our commitment to providing quality education and fostering a supportive learning environment.',
     image: 'https://images.pexels.com/photos/4778611/pexels-photo-4778611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
@@ -83,7 +83,7 @@ export const staffMembers: StaffMember[] = [
     position: 'Vice Principal',
     department: 'Administration',
     image: 'https://images.pexels.com/photos/8422419/pexels-photo-8422419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    bio: 'Mr. Chen has been with St. Louis for 8 years and specializes in curriculum development. He works closely with teachers to ensure high-quality educational programs.'
+    bio: 'Mr. Chen has been with St. Louis Demonstration for 8 years and specializes in curriculum development. He works closely with teachers to ensure high-quality educational programs.'
   },
   {
     id: 3,
@@ -115,7 +115,7 @@ export const staffMembers: StaffMember[] = [
     position: 'Physical Education',
     department: 'Athletics',
     image: 'https://images.pexels.com/photos/6326377/pexels-photo-6326377.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    bio: 'Coach Thompson has been with St. Louis for 10 years. He believes in promoting physical fitness and teamwork through a variety of sports and activities.'
+    bio: 'Coach Thompson has been with St. Louis Demonstration for 10 years. He believes in promoting physical fitness and teamwork through a variety of sports and activities.'
   }
 ];
 
@@ -200,21 +200,21 @@ export const galleryImages: GalleryImage[] = [
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    quote: "St. Louis has provided my child with an exceptional education and supportive environment. The teachers are dedicated and truly care about each student's success.",
+    quote: "St. Louis Demonstration has provided my child with an exceptional education and supportive environment. The teachers are dedicated and truly care about each student's success.",
     author: "Jane Cooper",
     role: "Parent",
     image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
     id: 2,
-    quote: "The STEM program at St. Louis inspired my passion for science. The hands-on approach and dedicated teachers made learning exciting and meaningful.",
+    quote: "The STEM program at St. Louis Demonstration inspired my passion for science. The hands-on approach and dedicated teachers made learning exciting and meaningful.",
     author: "Michael Brown",
     role: "Former Student",
     image: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
     id: 3,
-    quote: "As a community partner, we've witnessed the incredible impact St. Louis has on developing well-rounded, thoughtful, and prepared young individuals.",
+    quote: "As a community partner, we've witnessed the incredible impact St. Louis Demonstration has on developing well-rounded, thoughtful, and prepared young individuals.",
     author: "Sarah Johnson",
     role: "Community Partner",
     image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"

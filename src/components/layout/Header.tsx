@@ -29,7 +29,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
         scrolled ? 'glass-dark shadow-md' : 'bg-transparent'
       }`}
@@ -37,16 +37,16 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <NavLink to="/" className="flex items-center space-x-3">
-            <img 
-              src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" 
-              alt="St. Louis Demonstration Junior High School" 
+            <img
+              src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
+              alt="St. Louis Demonstration Junior High School"
               className="h-12 w-auto"
             />
             <div className={`hidden md:block transition-colors duration-300 ${
               scrolled ? 'text-white' : 'text-primary-800'
             }`}>
-              <h1 className="text-lg font-bold leading-tight">St. Louis</h1>
-              <p className="text-xs">Demonstration Junior High School</p>
+              <h1 className="text-lg font-bold leading-tight">St. Louis Demonstration</h1>
+              <p className="text-xs">Junior High School</p>
             </div>
           </NavLink>
 
@@ -59,12 +59,12 @@ const Header: React.FC = () => {
                     to={link.path}
                     className={({ isActive }) => `
                       relative font-medium transition-colors duration-300 hover:text-accent-500
-                      ${scrolled 
-                        ? isActive 
-                          ? 'text-accent-300' 
-                          : 'text-white' 
-                        : isActive 
-                          ? 'text-primary-700' 
+                      ${scrolled
+                        ? isActive
+                          ? 'text-accent-300'
+                          : 'text-white'
+                        : isActive
+                          ? 'text-primary-700'
                           : 'text-primary-800'
                       }
                     `}
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
                   className={({ isActive }) => `
-                    block py-2 font-medium 
+                    block py-2 font-medium
                     ${isActive ? 'text-primary-700' : 'text-gray-800 hover:text-primary-600'}
                   `}
                 >

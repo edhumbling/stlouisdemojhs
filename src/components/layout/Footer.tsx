@@ -14,19 +14,19 @@ const Footer: React.FC = () => {
           {/* School Info */}
           <div className="flex flex-col relative z-10">
             <div className="flex items-center mb-4">
-              <img 
-                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" 
-                alt="St. Louis Demonstration Junior High School" 
+              <img
+                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
+                alt="St. Louis Demonstration Junior High School"
                 className="h-12 w-auto mr-3"
               />
               <div>
-                <h3 className="text-lg font-bold">St. Louis</h3>
-                <p className="text-xs">Demonstration Junior High School</p>
+                <h3 className="text-lg font-bold">St. Louis Demonstration</h3>
+                <p className="text-xs">Junior High School</p>
               </div>
             </div>
             <p className="text-gray-400 mb-4">
-              Providing quality education and nurturing young minds since 1985. 
-              Our mission is to create a supportive learning environment where 
+              Providing quality education and nurturing young minds since 1985.
+              Our mission is to create a supportive learning environment where
               students can develop academically, socially, and emotionally.
             </p>
             <div className="flex space-x-4 mt-auto">
