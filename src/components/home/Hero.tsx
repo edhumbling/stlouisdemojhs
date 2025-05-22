@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
             <div className="relative w-64 h-64 md:w-96 md:h-96">
               <div className="absolute inset-0 bg-white rounded-full opacity-10"></div>
               <img 
-                src="https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg" 
+                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" 
                 alt="St. Louis Demonstration Junior High School" 
                 className="relative z-10 w-full h-full object-contain p-8"
               />
