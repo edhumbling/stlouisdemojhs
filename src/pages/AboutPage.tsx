@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { History, Award, Target, BookOpen } from 'lucide-react';
+import SectionDivider from '../components/common/SectionDivider';
 
 const AboutPage: React.FC = () => {
   return (
@@ -39,6 +40,7 @@ const AboutPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
+      <SectionDivider position="bottom" />
 
       {/* History Section */}
       <section className="py-12 md:py-16 bg-white">
@@ -90,6 +92,7 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
+      <SectionDivider position="bottom" flip={true} />
 
       {/* Mission & Values Section */}
       <section className="py-12 md:py-16 bg-gray-50">
@@ -172,6 +175,7 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
+      <SectionDivider position="bottom" />
 
       {/* Facilities Section */}
       <section className="py-12 md:py-16 bg-white">
@@ -251,6 +255,7 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
+      <SectionDivider position="bottom" flip={true} />
 
       {/* Achievements Section */}
       <section className="py-12 md:py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-green-700 text-white relative overflow-hidden">

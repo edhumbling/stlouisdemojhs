@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import SectionDivider from '../components/common/SectionDivider';
 
 const ContactPage: React.FC = () => {
   return (
@@ -39,6 +40,7 @@ const ContactPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
+      <SectionDivider position="bottom" />
 
       {/* Contact Information */}
       <section className="py-12 md:py-16 bg-white">
@@ -209,6 +211,7 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
+      <SectionDivider position="bottom" flip={true} />
 
       {/* Map Section */}
       <section className="py-12 md:py-16 bg-gray-50">
