@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 const CTASection: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-yellow-500 via-yellow-600 to-green-700 text-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-green-700 text-white relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
@@ -43,14 +43,14 @@ const CTASection: React.FC = () => {
           >
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-green-700 font-medium rounded-full shadow-lg hover:bg-yellow-50 transition-colors duration-300"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-700 font-medium rounded-full shadow-lg hover:bg-blue-50 transition-colors duration-300"
             >
               Schedule a Visit
               <ArrowRight size={18} className="ml-2" />
             </Link>
             <Link
               to="/admissions"
-              className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-yellow-300 text-yellow-100 font-medium rounded-full hover:bg-yellow-400 hover:text-green-800 hover:border-yellow-400 transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-green-300 text-green-100 font-medium rounded-full hover:bg-green-500 hover:text-blue-100 hover:border-green-500 transition-all duration-300"
             >
               Apply Now
             </Link>
