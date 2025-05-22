@@ -4,25 +4,25 @@
 
 @layer utilities {
   .glass {
-    @apply bg-primary-900/30 backdrop-blur-md border border-primary-200/10;
+    @apply bg-black/30 backdrop-blur-md border border-white/10;
   }
   
   .glass-card {
-    @apply bg-secondary-900/50 backdrop-blur-md border border-secondary-200/10;
+    @apply bg-zinc-900/50 backdrop-blur-md border border-white/10;
   }
   
   .glass-dark {
-    @apply bg-primary-900/70 backdrop-blur-md border border-primary-200/5;
+    @apply bg-zinc-950/70 backdrop-blur-md border border-white/5;
   }
 }
 
 :root {
   --background: 240 10% 3.9%;
-  --foreground: 142 76% 36%;
+  --foreground: 0 0% 98%;
   --card: 240 10% 3.9%;
-  --card-foreground: 142 76% 36%;
+  --card-foreground: 0 0% 98%;
   --popover: 240 10% 3.9%;
-  --popover-foreground: 142 76% 36%;
+  --popover-foreground: 0 0% 98%;
   --primary: 0 0% 98%;
   --primary-foreground: 240 5.9% 10%;
   --secondary: 240 3.7% 15.9%;
@@ -39,61 +39,61 @@
 }
 
 body {
-  @apply bg-gradient-to-br from-primary-900 via-secondary-900 to-primary-950 text-white min-h-screen;
+  @apply bg-black text-white;
 }
 
 .bg-white {
-  @apply bg-white/10 backdrop-blur-md border border-white/10 hover:bg-white/20 transition-colors duration-300;
+  @apply glass-card;
 }
 
 .bg-gray-50 {
-  @apply bg-primary-900/30 backdrop-blur-md border border-primary-200/10;
+  @apply glass;
 }
 
 .bg-gray-100 {
-  @apply bg-secondary-900/30 backdrop-blur-md border border-secondary-200/10;
+  @apply glass-dark;
 }
 
 .text-gray-700 {
-  @apply text-primary-100;
+  @apply text-gray-300;
 }
 
 .text-gray-600 {
-  @apply text-secondary-200;
+  @apply text-gray-400;
 }
 
 .text-gray-900 {
-  @apply text-primary-50;
+  @apply text-white;
 }
 
 .shadow-md {
-  @apply shadow-primary-900/20;
+  @apply shadow-black/20;
 }
 
 .shadow-lg {
-  @apply shadow-secondary-900/30;
+  @apply shadow-black/30;
 }
 
 .border-gray-300 {
-  @apply border-primary-700;
+  @apply border-zinc-700;
 }
 
 .hover\:bg-gray-100:hover {
-  @apply hover:bg-primary-800/50;
+  @apply hover:bg-zinc-800;
 }
 
 .bg-primary-50 {
-  @apply bg-primary-900/80;
+  @apply bg-zinc-900;
 }
 
 .bg-primary-100 {
-  @apply bg-primary-800/80;
+  @apply bg-zinc-800;
 }
 
 .text-primary-800 {
-  @apply text-primary-100;
+  @apply text-white;
 }
 
 .text-primary-600 {
-  @apply text-primary-300;
+  @apply text-gray-300;
 }
