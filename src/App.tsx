@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import FacultyPage from './pages/FacultyPage';
+import AdmissionsPage from './pages/AdmissionsPage';
 import AdminPage from './pages/AdminPage';
 
 const App: React.FC = () => {
@@ -21,6 +22,7 @@ const App: React.FC = () => {
           <Route path="about" element={<AboutPage />} />
           <Route path="faculty" element={<FacultyPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="admissions" element={<AdmissionsPage />} />
           <Route path="admin" element={<AdminPage />} />
           {/* Additional routes will be added here */}
         </Route>
