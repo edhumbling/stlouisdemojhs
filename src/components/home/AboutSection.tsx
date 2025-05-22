@@ -61,7 +61,7 @@ const AboutSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="glass-card p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:bg-zinc-900/60"
             >
               <div className="mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>

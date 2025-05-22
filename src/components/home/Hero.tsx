@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative h-screen flex items-center bg-gradient-to-br from-primary-700 via-primary-600 to-secondary-700">
+    <section className="relative h-screen flex items-center bg-gradient-to-br from-black via-zinc-900 to-black">
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
       </div>
       
       <div className="container mx-auto px-4 z-10">
@@ -30,14 +30,14 @@ const Hero: React.FC = () => {
             <div className="flex flex-wrap gap-4">
               <Link 
                 to="/about" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-700 font-medium rounded-full shadow-lg hover:bg-gray-100 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 glass font-medium rounded-full shadow-lg hover:bg-white/20 transition-colors duration-300"
               >
                 Learn More
                 <ArrowRight size={18} className="ml-2" />
               </Link>
               <Link 
                 to="/contact" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-full hover:bg-white hover:text-primary-700 transition-all duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 glass-dark border border-white/10 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300"
               >
                 Contact Us
               </Link>

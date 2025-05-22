@@ -31,7 +31,7 @@ const Header: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
-        scrolled ? 'bg-primary-700 shadow-md' : 'bg-transparent'
+        scrolled ? 'glass-dark shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 py-4">
@@ -98,7 +98,7 @@ const Header: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-white shadow-lg"
+          className="md:hidden glass-dark shadow-lg"
         >
           <ul className="py-4">
             {navLinks.map((link) => (

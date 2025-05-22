@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .glass {
+    @apply bg-black/30 backdrop-blur-md border border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-zinc-900/50 backdrop-blur-md border border-white/10;
+  }
+  
+  .glass-dark {
+    @apply bg-zinc-950/70 backdrop-blur-md border border-white/5;
+  }
+}
+
 :root {
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
@@ -29,15 +43,15 @@ body {
 }
 
 .bg-white {
-  @apply bg-black;
+  @apply glass-card;
 }
 
 .bg-gray-50 {
-  @apply bg-zinc-900;
+  @apply glass;
 }
 
 .bg-gray-100 {
-  @apply bg-zinc-800;
+  @apply glass-dark;
 }
 
 .text-gray-700 {
@@ -53,11 +67,11 @@ body {
 }
 
 .shadow-md {
-  @apply shadow-zinc-800;
+  @apply shadow-black/20;
 }
 
 .shadow-lg {
-  @apply shadow-zinc-800;
+  @apply shadow-black/30;
 }
 
 .border-gray-300 {
