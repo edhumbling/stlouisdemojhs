@@ -67,7 +67,7 @@ const NewsEventsSection: React.FC = () => {
             <div className="mt-8 text-center">
               <Link
                 to="/news"
-                className="inline-flex items-center justify-center px-5 py-2 bg-orange-500 text-white font-medium rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-5 py-2 bg-yellow-500 text-black font-medium rounded-full shadow-lg hover:bg-yellow-400 transition-colors duration-300"
               >
                 View All News
               </Link>

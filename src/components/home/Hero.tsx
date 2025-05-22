@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center px-6 py-3 bg-orange-500 text-white font-medium rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-6 py-3 bg-yellow-500 text-black font-medium rounded-full shadow-lg hover:bg-yellow-400 transition-colors duration-300"
               >
                 Learn More
                 <ArrowRight size={18} className="ml-2" />
