@@ -6,52 +6,70 @@ const AboutPage: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-20 pb-12 md:pt-32 md:pb-20 bg-primary-700 text-white">
-        <div className="container mx-auto px-4">
+      <section className="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-br from-blue-600 via-blue-700 to-green-700 text-white relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+          <div className="absolute inset-0 opacity-5 bg-[linear-gradient(45deg,#fff_1px,transparent_1px)] [background-size:30px_30px]"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About Our School</h1>
-            <p className="text-lg md:text-xl text-gray-100">
-              Learn about our history, mission, values, and what makes 
+            <motion.h1
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6"
+            >
+              About Our School
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-base sm:text-lg md:text-xl text-gray-100 max-w-2xl mx-auto"
+            >
+              Learn about our history, mission, values, and what makes
               St. Louis Demonstration Junior High School a special place for learning.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* History Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="order-2 md:order-1"
             >
               <div className="flex items-center mb-4">
-                <History size={28} className="text-primary-600 mr-3" />
-                <h2 className="text-3xl font-bold text-gray-900">Our History</h2>
+                <History size={24} className="text-green-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Our History</h2>
               </div>
-              <p className="text-gray-700 mb-4">
-                Founded in 1985, St. Louis Demonstration Junior High School began with a vision 
-                to provide quality education to students in the St. Louis area. What started as 
-                a small school with just five classrooms and ten teachers has grown into a 
+              <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">
+                Founded in 1985, St. Louis Demonstration Junior High School began with a vision
+                to provide quality education to students in the St. Louis area. What started as
+                a small school with just five classrooms and ten teachers has grown into a
                 respected institution with state-of-the-art facilities and a team of dedicated educators.
               </p>
-              <p className="text-gray-700 mb-4">
-                Over the decades, our school has continually evolved to meet the changing needs of 
-                students while maintaining our commitment to academic excellence and character development. 
-                We have graduated thousands of students who have gone on to succeed in high school, 
+              <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">
+                Over the decades, our school has continually evolved to meet the changing needs of
+                students while maintaining our commitment to academic excellence and character development.
+                We have graduated thousands of students who have gone on to succeed in high school,
                 college, and their chosen careers.
               </p>
-              <p className="text-gray-700">
-                Today, St. Louis Demonstration Junior High School stands as a testament to the 
-                power of vision, dedication, and community support in creating an exceptional 
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                Today, St. Louis Demonstration Junior High School stands as a testament to the
+                power of vision, dedication, and community support in creating an exceptional
                 educational environment.
               </p>
             </motion.div>
@@ -60,11 +78,12 @@ const AboutPage: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="rounded-lg overflow-hidden shadow-xl"
+              className="rounded-lg overflow-hidden shadow-xl order-1 md:order-2 mb-6 md:mb-0"
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
-              <img 
-                src="https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="Historical school building" 
+              <img
+                src="https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Historical school building"
                 className="w-full h-auto"
               />
             </motion.div>
@@ -73,9 +92,9 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Mission & Values Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-16">
+          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -83,26 +102,27 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="flex items-center justify-center mb-4"
             >
-              <Target size={28} className="text-primary-600 mr-3" />
-              <h2 className="text-3xl font-bold text-gray-900">Our Mission & Values</h2>
+              <Target size={24} className="text-green-600 mr-3 flex-shrink-0" />
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Our Mission & Values</h2>
             </motion.div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white p-6 sm:p-8 rounded-lg shadow-md"
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
-              <h3 className="text-2xl font-bold text-primary-700 mb-4">Our Mission</h3>
-              <p className="text-gray-700">
-                Our mission at St. Louis Demonstration Junior High School is to provide a 
-                comprehensive, high-quality education in a supportive environment that 
-                promotes academic excellence, personal growth, and social responsibility. 
-                We are committed to nurturing the intellectual, physical, emotional, and 
-                social development of each student, preparing them to be lifelong learners 
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-700 mb-3 md:mb-4">Our Mission</h3>
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                Our mission at St. Louis Demonstration Junior High School is to provide a
+                comprehensive, high-quality education in a supportive environment that
+                promotes academic excellence, personal growth, and social responsibility.
+                We are committed to nurturing the intellectual, physical, emotional, and
+                social development of each student, preparing them to be lifelong learners
                 and responsible citizens in an ever-changing global society.
               </p>
             </motion.div>
@@ -112,37 +132,38 @@ const AboutPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white p-6 sm:p-8 rounded-lg shadow-md"
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
-              <h3 className="text-2xl font-bold text-primary-700 mb-4">Our Values</h3>
-              <ul className="space-y-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-700 mb-3 md:mb-4">Our Values</h3>
+              <ul className="space-y-3 sm:space-y-4">
                 <li className="flex">
-                  <span className="text-primary-600 mr-3">•</span>
-                  <div>
+                  <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
+                  <div className="text-sm sm:text-base">
                     <span className="font-semibold">Excellence:</span> We strive for excellence in all areas of education and personal development.
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="text-primary-600 mr-3">•</span>
-                  <div>
+                  <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
+                  <div className="text-sm sm:text-base">
                     <span className="font-semibold">Respect:</span> We foster mutual respect among students, staff, and the community.
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="text-primary-600 mr-3">•</span>
-                  <div>
+                  <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
+                  <div className="text-sm sm:text-base">
                     <span className="font-semibold">Integrity:</span> We uphold honesty, ethics, and accountability in all actions.
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="text-primary-600 mr-3">•</span>
-                  <div>
+                  <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
+                  <div className="text-sm sm:text-base">
                     <span className="font-semibold">Diversity:</span> We celebrate diversity and promote inclusivity in our community.
                   </div>
                 </li>
                 <li className="flex">
-                  <span className="text-primary-600 mr-3">•</span>
-                  <div>
+                  <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
+                  <div className="text-sm sm:text-base">
                     <span className="font-semibold">Innovation:</span> We embrace innovation and creativity in teaching and learning.
                   </div>
                 </li>
@@ -153,26 +174,26 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Facilities Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center mb-16"
+            className="max-w-3xl mx-auto text-center mb-10 md:mb-16"
           >
             <div className="flex items-center justify-center mb-4">
-              <BookOpen size={28} className="text-primary-600 mr-3" />
-              <h2 className="text-3xl font-bold text-gray-900">Our Facilities</h2>
+              <BookOpen size={24} className="text-green-600 mr-3 flex-shrink-0" />
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Our Facilities</h2>
             </div>
-            <p className="text-lg text-gray-700">
-              Our campus is designed to provide a safe, inspiring environment 
+            <p className="text-sm sm:text-base text-gray-700 px-1">
+              Our campus is designed to provide a safe, inspiring environment
               that supports diverse learning activities and student development.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
                 title: 'Modern Classrooms',
@@ -212,17 +233,18 @@ const AboutPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 h-full"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <div className="h-48 overflow-hidden">
-                  <img 
-                    src={facility.image} 
-                    alt={facility.title} 
+                <div className="h-40 sm:h-48 overflow-hidden">
+                  <img
+                    src={facility.image}
+                    alt={facility.title}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{facility.title}</h3>
-                  <p className="text-gray-700">{facility.description}</p>
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-semibold text-blue-700 mb-1 sm:mb-2">{facility.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-700">{facility.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -231,26 +253,31 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Achievements Section */}
-      <section className="py-16 bg-primary-700 text-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-green-700 text-white relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+          <div className="absolute inset-0 opacity-5 bg-[linear-gradient(45deg,#fff_1px,transparent_1px)] [background-size:30px_30px]"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center mb-16"
+            className="max-w-3xl mx-auto text-center mb-10 md:mb-16"
           >
             <div className="flex items-center justify-center mb-4">
-              <Award size={28} className="text-accent-300 mr-3" />
-              <h2 className="text-3xl font-bold">School Achievements</h2>
+              <Award size={24} className="text-yellow-300 mr-3 flex-shrink-0" />
+              <h2 className="text-2xl sm:text-3xl font-bold">School Achievements</h2>
             </div>
-            <p className="text-lg text-gray-100">
-              Our school community takes pride in the recognition and accomplishments 
+            <p className="text-sm sm:text-base text-gray-100 px-1">
+              Our school community takes pride in the recognition and accomplishments
               we've achieved over the years.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 year: '2024',
@@ -291,10 +318,11 @@ const AboutPage: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="bg-primary-800 rounded-lg p-6 hover:bg-primary-900 transition-colors duration-300"
+                className="bg-blue-800/50 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-blue-700/60 transition-all duration-300 border border-white/10"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <p className="text-accent-300 font-bold mb-2">{achievement.year}</p>
-                <p className="text-white">{achievement.achievement}</p>
+                <p className="text-yellow-300 font-bold mb-1 sm:mb-2 text-sm sm:text-base">{achievement.year}</p>
+                <p className="text-white text-sm sm:text-base">{achievement.achievement}</p>
               </motion.div>
             ))}
           </div>
