@@ -20,12 +20,12 @@ const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ text, className = '' 
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 60, // Much slower scrolling
+              duration: 80, // Even slower scrolling to showcase the logo
               ease: "linear",
             },
           }}
         >
-          {[...Array(5)].map((_, i) => (
+          {[...Array(3)].map((_, i) => (
             <span
               key={i}
               className="inline-block px-12 text-white text-opacity-90 font-extrabold text-[25vw] md:text-[22vw] lg:text-[20vw] tracking-tighter uppercase"
@@ -36,7 +36,23 @@ const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ text, className = '' 
               }}
             >
               {text}
-              <span className="text-white text-opacity-30 mx-6">•</span>
+              <span className="inline-flex items-center justify-center mx-16 md:mx-20 relative">
+                <div className="absolute inset-0 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+                <motion.img
+                  animate={{
+                    scale: [1, 1.05, 1],
+                    rotate: [-2, 2, -2]
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                  src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
+                  alt="School Logo"
+                  className="h-[18vw] md:h-[16vw] lg:h-[14vw] w-auto object-contain inline-block drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+                />
+              </span>
             </span>
           ))}
         </motion.div>
