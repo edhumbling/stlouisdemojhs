@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import FacultyPage from './pages/FacultyPage';
+import AdminPage from './pages/AdminPage';
 
 const App: React.FC = () => {
   // Scroll to top on page change
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path="about" element={<AboutPage />} />
           <Route path="faculty" element={<FacultyPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="admin" element={<AdminPage />} />
           {/* Additional routes will be added here */}
         </Route>
       </Routes>
