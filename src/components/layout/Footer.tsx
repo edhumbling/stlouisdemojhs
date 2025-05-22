@@ -5,7 +5,21 @@ import ScrollingBanner from '../common/ScrollingBanner';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="glass-dark text-white pt-10 md:pt-12 pb-6 relative">
+    <footer className="glass-dark text-white pt-10 md:pt-12 pb-16 relative">
+      {/* Footer image with tip at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden z-0 pointer-events-none">
+        <img
+          src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mn0YSWgt9y8N3iHUJVO0kYQWC9fPR7SmMj2g1"
+          alt="Footer decoration"
+          className="w-full object-cover h-auto max-h-[300px] object-bottom"
+          style={{
+            transform: 'scale(2.5)',
+            transformOrigin: 'bottom center',
+            marginBottom: '-5px', // Ensure it touches the bottom edge perfectly
+            opacity: 0.8 // Make it slightly transparent to blend better
+          }}
+        />
+      </div>
 
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden">
