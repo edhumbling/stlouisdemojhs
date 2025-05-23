@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage';
 import FacultyPage from './pages/FacultyPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WhatsAppButton from './components/common/WhatsAppButton';
+import FacebookButton from './components/common/FacebookButton';
 
 const App: React.FC = () => {
   // Scroll to top on page change
@@ -16,7 +17,8 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      {/* WhatsApp floating button */}
+      {/* Social media floating buttons */}
+      <FacebookButton url="https://www.facebook.com/stlouisdemojhs" />
       <WhatsAppButton url="https://whatsapp.com/channel/0029VbBO7RD7IUYZjOnapG3q" />
 
       <Routes>
