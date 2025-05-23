@@ -29,7 +29,7 @@ const DonateButton: React.FC<DonateButtonProps> = ({
   const baseClasses = "inline-flex items-center justify-center font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 relative overflow-hidden";
 
   const variantClasses = {
-    header: "px-3 py-1.5 text-xs bg-red-600 hover:bg-red-700 text-white rounded-full md:rounded-lg md:px-4 md:py-2 md:text-sm",
+    header: "px-3 py-1.5 text-xs bg-red-600 hover:bg-red-700 text-white rounded-l-full md:rounded-lg md:px-4 md:py-2 md:text-sm",
     footer: "px-6 py-3 text-base bg-red-600 hover:bg-red-700 text-white rounded-full",
     standalone: "px-8 py-4 text-lg bg-red-600 hover:bg-red-700 text-white rounded-full"
   };
@@ -53,10 +53,10 @@ const DonateButton: React.FC<DonateButtonProps> = ({
         <span className="relative z-10 font-bold text-white neon-text-glow">Donate</span>
 
         {/* Neon red glowing effect */}
-        <span className="absolute inset-0 bg-red-500 opacity-40 animate-pulse rounded-full md:rounded-lg"></span>
-        <span className="absolute inset-0 bg-red-400 opacity-30 animate-ping rounded-full md:rounded-lg" style={{ animationDelay: '0.5s' }}></span>
-        <span className="absolute -inset-1 bg-red-500 opacity-25 blur-md animate-pulse rounded-full md:rounded-lg" style={{ animationDelay: '1s' }}></span>
-        <span className="absolute -inset-2 bg-red-600 opacity-15 blur-lg animate-pulse rounded-full md:rounded-lg" style={{ animationDelay: '1.5s' }}></span>
+        <span className={`absolute inset-0 bg-red-500 opacity-40 animate-pulse ${variant === 'header' ? 'rounded-l-full md:rounded-lg' : 'rounded-full'}`}></span>
+        <span className={`absolute inset-0 bg-red-400 opacity-30 animate-ping ${variant === 'header' ? 'rounded-l-full md:rounded-lg' : 'rounded-full'}`} style={{ animationDelay: '0.5s' }}></span>
+        <span className={`absolute -inset-1 bg-red-500 opacity-25 blur-md animate-pulse ${variant === 'header' ? 'rounded-l-full md:rounded-lg' : 'rounded-full'}`} style={{ animationDelay: '1s' }}></span>
+        <span className={`absolute -inset-2 bg-red-600 opacity-15 blur-lg animate-pulse ${variant === 'header' ? 'rounded-l-full md:rounded-lg' : 'rounded-full'}`} style={{ animationDelay: '1.5s' }}></span>
       </Link>
     </motion.div>
   );
