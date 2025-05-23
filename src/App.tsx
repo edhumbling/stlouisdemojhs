@@ -8,7 +8,7 @@ import FacultyPage from './pages/FacultyPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WhatsAppButton from './components/common/WhatsAppButton';
 import FacebookButton from './components/common/FacebookButton';
-import ScrollButton from './components/common/ScrollButton';
+import ScrollButton from './components/common/ScrollButtonNew';
 
 const App: React.FC = () => {
   // Scroll to top on page change
