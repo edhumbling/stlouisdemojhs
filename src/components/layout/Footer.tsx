@@ -146,7 +146,7 @@ const Footer: React.FC = () => {
               animation: 'shimmer 3s ease-in-out infinite alternate'
             }}
           >
-            Primus Intaparis
+Primus Intaparis
           </h2>
         </div>
 
