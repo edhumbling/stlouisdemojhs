@@ -117,6 +117,39 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Primus Intaparis Text */}
+        <div className="relative z-10 text-center mt-12 mb-8 overflow-hidden">
+          <h2
+            className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] font-bold leading-none tracking-tight relative"
+            style={{
+              fontFamily: "'Dancing Script', cursive",
+              background: `
+                radial-gradient(circle at 15% 25%, #3b82f6 2px, transparent 3px),
+                radial-gradient(circle at 85% 15%, #10b981 1.5px, transparent 2.5px),
+                radial-gradient(circle at 35% 65%, #1d4ed8 2.5px, transparent 3.5px),
+                radial-gradient(circle at 95% 75%, #059669 1px, transparent 2px),
+                radial-gradient(circle at 5% 85%, #2563eb 2px, transparent 3px),
+                radial-gradient(circle at 75% 5%, #047857 1.5px, transparent 2.5px),
+                radial-gradient(circle at 55% 45%, #3b82f6 1px, transparent 2px),
+                radial-gradient(circle at 25% 85%, #10b981 2px, transparent 3px),
+                radial-gradient(circle at 65% 25%, #1d4ed8 1.5px, transparent 2.5px),
+                radial-gradient(circle at 45% 15%, #059669 2.5px, transparent 3.5px),
+                radial-gradient(circle at 85% 55%, #2563eb 1px, transparent 2px),
+                radial-gradient(circle at 15% 75%, #047857 2px, transparent 3px),
+                linear-gradient(135deg, #3b82f6 0%, #10b981 25%, #1d4ed8 50%, #059669 75%, #2563eb 100%)
+              `,
+              backgroundSize: '20px 20px, 15px 15px, 25px 25px, 10px 10px, 20px 20px, 15px 15px, 10px 10px, 20px 20px, 15px 15px, 25px 25px, 10px 10px, 20px 20px, 100% 100%',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              filter: 'drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4)) drop-shadow(0 2px 6px rgba(16, 185, 129, 0.3))',
+              animation: 'shimmer 3s ease-in-out infinite alternate'
+            }}
+          >
+            Primus Intaparis
+          </h2>
+        </div>
+
         {/* Scrolling Banner */}
         <div className="relative z-10 -mx-4 mt-8 mb-0 overflow-hidden">
           <ScrollingBanner text="THE BEST AMONG THE REST!" />
