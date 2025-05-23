@@ -64,9 +64,9 @@ const ContactPage: React.FC = () => {
                   <div>
                     <h3 className="font-semibold text-base sm:text-lg text-gray-900 mb-1">Address</h3>
                     <p className="text-sm sm:text-base text-gray-700">
-                      123 Education Avenue<br />
-                      St. Louis, MO 63101<br />
-                      United States
+                      P.O. Box 3041<br />
+                      Kumasi, Ashanti Region<br />
+                      Ghana
                     </p>
                   </div>
                 </motion.div>
@@ -78,8 +78,9 @@ const ContactPage: React.FC = () => {
                   <Phone size={20} className="text-green-600 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-base sm:text-lg text-gray-900 mb-1">Phone</h3>
-                    <p className="text-sm sm:text-base text-gray-700">Main Office: (123) 456-7890</p>
-                    <p className="text-sm sm:text-base text-gray-700">Admissions: (123) 456-7891</p>
+                    <p className="text-sm sm:text-base text-gray-700">📱 0244758575</p>
+                    <p className="text-sm sm:text-base text-gray-700">📱 0244730726</p>
+                    <p className="text-sm sm:text-base text-gray-700">📱 0548696528</p>
                   </div>
                 </motion.div>
 
@@ -90,8 +91,8 @@ const ContactPage: React.FC = () => {
                   <Mail size={20} className="text-green-600 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-base sm:text-lg text-gray-900 mb-1">Email</h3>
-                    <p className="text-sm sm:text-base text-gray-700">info@stlouisdemo.edu</p>
-                    <p className="text-sm sm:text-base text-gray-700">admissions@stlouisdemo.edu</p>
+                    <p className="text-sm sm:text-base text-gray-700">support@stlouisdemojhs.com</p>
+                    <p className="text-sm sm:text-base text-gray-700">info@stlouisdemojhs.edu.gh</p>
                   </div>
                 </motion.div>
 
@@ -102,8 +103,8 @@ const ContactPage: React.FC = () => {
                   <Clock size={20} className="text-green-600 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-base sm:text-lg text-gray-900 mb-1">Office Hours</h3>
-                    <p className="text-sm sm:text-base text-gray-700">Monday - Friday: 7:30 AM - 4:30 PM</p>
-                    <p className="text-sm sm:text-base text-gray-700">Saturday: 9:00 AM - 12:00 PM (By appointment only)</p>
+                    <p className="text-sm sm:text-base text-gray-700">Monday - Friday: 7:00 AM - 4:00 PM (GMT)</p>
+                    <p className="text-sm sm:text-base text-gray-700">Saturday: 8:00 AM - 12:00 PM (By appointment only)</p>
                     <p className="text-sm sm:text-base text-gray-700">Sunday: Closed</p>
                   </div>
                 </motion.div>
@@ -246,7 +247,7 @@ const ContactPage: React.FC = () => {
                   <MapPin size={36} className="mx-auto text-green-600 mb-3" />
                 </motion.div>
                 <p className="text-gray-800 font-medium text-sm sm:text-base">
-                  123 Education Avenue, St. Louis, MO 63101
+                  P.O. Box 3041, Kumasi, Ashanti Region, Ghana
                 </p>
                 <p className="text-xs sm:text-sm text-gray-600 mt-2">
                   (Google Maps would be embedded here in a production environment)

@@ -58,21 +58,22 @@ const AboutPage: React.FC = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Our History</h2>
               </div>
               <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">
-                Founded in 1985, St. Louis Demonstration Junior High School began with a vision
-                to provide quality education to students in the St. Louis area. What started as
-                a small school with just five classrooms and ten teachers has grown into a
-                respected institution with state-of-the-art facilities and a team of dedicated educators.
+                Established in 1977, St. Louis Demonstration Junior High School is a distinguished
+                public junior high school located in Kumasi, Ghana. As part of the esteemed St. Louis
+                Educational Complex, the school has built a strong reputation for academic excellence,
+                moral uprightness, and spiritual grounding.
               </p>
               <p className="text-sm sm:text-base text-gray-700 mb-4 leading-relaxed">
-                Over the decades, our school has continually evolved to meet the changing needs of
-                students while maintaining our commitment to academic excellence and character development.
-                We have graduated thousands of students who have gone on to succeed in high school,
-                college, and their chosen careers.
+                Guided by our motto "UT SINT UNUM – DIEU LE VEUT" ("That they may be one – God wills it"),
+                we foster unity, discipline, and service among our students. Over the decades, our school
+                has earned recognition across the Ashanti Region for producing well-rounded students who
+                excel in academics, sports, and leadership.
               </p>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                Today, St. Louis Demonstration Junior High School stands as a testament to the
-                power of vision, dedication, and community support in creating an exceptional
-                educational environment.
+                Today, St. Louis Demonstration JHS stands as more than just a school — it's a community
+                of excellence where faith, knowledge, and purpose shape the future. We continue to uphold
+                our slogan "The Best Amongst the Rest" through our commitment to developing critical thinking,
+                creativity, collaboration, and character among our learners.
               </p>
             </motion.div>
             <motion.div
@@ -121,12 +122,12 @@ const AboutPage: React.FC = () => {
             >
               <h3 className="text-xl sm:text-2xl font-bold text-blue-700 mb-3 md:mb-4">Our Mission</h3>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                Our mission at St. Louis Demonstration Junior High School is to provide a
-                comprehensive, high-quality education in a supportive environment that
-                promotes academic excellence, personal growth, and social responsibility.
-                We are committed to nurturing the intellectual, physical, emotional, and
-                social development of each student, preparing them to be lifelong learners
-                and responsible citizens in an ever-changing global society.
+                Our mission at St. Louis Demonstration Junior High School is to deliver the
+                NaCCA-based Common Core Programme (CCP) that develops critical thinking, creativity,
+                collaboration, and character among learners. We provide a comprehensive, high-quality
+                education in a supportive environment that promotes academic excellence, moral uprightness,
+                and spiritual grounding. We prepare our pupils to thrive in senior high school and
+                contribute meaningfully to national development.
               </p>
             </motion.div>
 
@@ -143,31 +144,31 @@ const AboutPage: React.FC = () => {
                 <li className="flex">
                   <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
                   <div className="text-sm sm:text-base">
-                    <span className="font-semibold">Excellence:</span> We strive for excellence in all areas of education and personal development.
+                    <span className="font-semibold">Unity:</span> Guided by "UT SINT UNUM" - we foster unity and togetherness in our school community.
                   </div>
                 </li>
                 <li className="flex">
                   <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
                   <div className="text-sm sm:text-base">
-                    <span className="font-semibold">Respect:</span> We foster mutual respect among students, staff, and the community.
+                    <span className="font-semibold">Excellence:</span> We strive to be "The Best Amongst the Rest" in all areas of education and character development.
                   </div>
                 </li>
                 <li className="flex">
                   <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
                   <div className="text-sm sm:text-base">
-                    <span className="font-semibold">Integrity:</span> We uphold honesty, ethics, and accountability in all actions.
+                    <span className="font-semibold">Discipline:</span> We maintain high standards of discipline and moral uprightness in all our activities.
                   </div>
                 </li>
                 <li className="flex">
                   <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
                   <div className="text-sm sm:text-base">
-                    <span className="font-semibold">Diversity:</span> We celebrate diversity and promote inclusivity in our community.
+                    <span className="font-semibold">Service:</span> We encourage service to God, community, and nation as part of our spiritual grounding.
                   </div>
                 </li>
                 <li className="flex">
                   <span className="text-green-600 mr-2 sm:mr-3 text-lg">•</span>
                   <div className="text-sm sm:text-base">
-                    <span className="font-semibold">Innovation:</span> We embrace innovation and creativity in teaching and learning.
+                    <span className="font-semibold">Leadership:</span> We develop well-rounded students who excel in academics, sports, and leadership.
                   </div>
                 </li>
               </ul>

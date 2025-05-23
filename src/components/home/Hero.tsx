@@ -23,9 +23,9 @@ const Hero: React.FC = () => {
               Nurturing Minds,<br />Shaping Futures
             </h1>
             <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 text-gray-100 max-w-lg mx-auto md:mx-0">
-              St. Louis Demonstration Junior High School provides a supportive
-              and challenging environment where students develop the skills,
-              knowledge, and character to excel in an ever-changing world.
+              Located in Kumasi, Ghana, we deliver the NaCCA-based Common Core Programme
+              with a focus on developing critical thinking, creativity, collaboration, and character.
+              Guided by "UT SINT UNUM" - fostering unity, discipline, and service since 1977.
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <Link
