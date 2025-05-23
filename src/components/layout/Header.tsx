@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { navLinks } from '../../data';
+import DonateButton from '../common/DonateButton';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,28 +73,31 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex space-x-8">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <NavLink
-                    to={link.path}
-                    className={({ isActive }) => `
-                      relative font-medium transition-colors duration-300 hover:text-accent-500
-                      ${scrolled
-                        ? isActive
-                          ? 'text-accent-300'
-                          : 'text-white'
-                        : isActive
-                          ? 'text-primary-700'
-                          : 'text-primary-800'
-                      }
-                    `}
-                  >
-                    {link.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
+            <div className="flex items-center space-x-8">
+              <ul className="flex space-x-8">
+                {navLinks.map((link) => (
+                  <li key={link.path}>
+                    <NavLink
+                      to={link.path}
+                      className={({ isActive }) => `
+                        relative font-medium transition-colors duration-300 hover:text-accent-500
+                        ${scrolled
+                          ? isActive
+                            ? 'text-accent-300'
+                            : 'text-white'
+                          : isActive
+                            ? 'text-primary-700'
+                            : 'text-primary-800'
+                        }
+                      `}
+                    >
+                      {link.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+              <DonateButton variant="header" />
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -144,6 +148,14 @@ const Header: React.FC = () => {
                 </NavLink>
               </motion.li>
             ))}
+            <motion.li
+              className="mt-4 px-4"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.2, delay: navLinks.length * 0.05 }}
+            >
+              <DonateButton variant="footer" className="w-full" />
+            </motion.li>
           </ul>
         </motion.nav>
       )}

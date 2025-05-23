@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Mail, Phone, MapPin } from 'lucide-react';
 import ScrollingBanner from '../common/ScrollingBanner';
+import DonateButton from '../common/DonateButton';
 
 const Footer: React.FC = () => {
   return (
@@ -63,6 +64,17 @@ const Footer: React.FC = () => {
                   </svg>
                   <span className="sr-only">WhatsApp</span>
                 </a>
+              </div>
+            </div>
+
+            {/* Donate Section */}
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <div className="text-center">
+                <h4 className="text-white font-semibold mb-3 text-sm sm:text-base">Support Our Mission</h4>
+                <p className="text-gray-400 text-xs sm:text-sm mb-4 max-w-md mx-auto">
+                  Help us modernize education for the AI era. Support teachers, students, and facilities development.
+                </p>
+                <DonateButton variant="footer" />
               </div>
             </div>
           </div>
