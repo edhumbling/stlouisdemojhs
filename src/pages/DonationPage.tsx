@@ -28,74 +28,73 @@ const DonationPage: React.FC = () => {
   }, []);
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Section */}
-      <section className="bg-gradient-to-br from-blue-600 via-green-600 to-blue-700 text-white pt-20 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      {/* Header Section - Mobile Optimized */}
+      <section className="bg-gradient-to-br from-blue-600 via-green-600 to-blue-700 text-white pt-16 pb-8 relative overflow-hidden cute-font">
+        <div className="absolute inset-0 bg-black/10"></div>
 
-        {/* Back Button - Fixed Position */}
-        <div className="fixed top-24 left-4 z-50">
+        {/* Back Button - Mobile Friendly */}
+        <div className="absolute top-20 left-3 z-50">
           <Link
             to="/"
             onClick={() => triggerHapticFeedback('light')}
-            className="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-400 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform"
+            className="inline-flex items-center px-3 py-2 bg-green-500 hover:bg-green-400 text-white font-medium sharp-container shadow-md hover:shadow-lg transition-all duration-300"
           >
-            <ArrowLeft size={18} className="mr-2" />
-            <span className="hidden sm:inline">Back to Home</span>
-            <span className="sm:hidden">Back</span>
+            <ArrowLeft size={16} className="mr-1" />
+            <span className="text-sm">Back</span>
           </Link>
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
+        <div className="px-3 relative z-10">
+          <div className="max-w-sm mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-8"
+              transition={{ duration: 0.5 }}
+              className="mb-6"
             >
-              <div className="flex flex-col items-center mb-8">
-                <div className="p-6 bg-gradient-to-br from-green-500 to-blue-500 rounded-full mb-6 shadow-2xl">
-                  <Heart className="w-16 h-16 text-white" />
+              <div className="flex flex-col items-center">
+                <div className="p-4 bg-gradient-to-br from-green-500 to-blue-500 sharp-container mb-4 shadow-lg">
+                  <Heart className="w-10 h-10 text-white" />
                 </div>
                 <div className="text-center">
-                  <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-green-100 bg-clip-text text-transparent">
-                    Support Our School
+                  <h1 className="text-2xl font-bold mb-2 text-white">
+                    💝 Support Our School
                   </h1>
-                  <p className="text-xl md:text-2xl text-blue-100 font-medium">
-                    Building Tomorrow's Leaders Today
+                  <p className="text-sm text-blue-100 font-medium">
+                    Building Tomorrow's Leaders
                   </p>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="space-y-4"
             >
-              <p className="text-lg md:text-xl text-white max-w-4xl mx-auto leading-relaxed">
-                Join our <span className="text-green-200 font-bold">alumni and community</span> in supporting the next generation of leaders at
-                St. Louis Demonstration Junior High School. Your contribution helps us integrate
-                <span className="text-blue-200 font-semibold"> modern technology</span> and prepare students for the future.
+              <p className="text-sm text-white leading-relaxed px-2">
+                Join our <span className="text-green-200 font-semibold">alumni community</span> in supporting
+                St. Louis Demonstration JHS with <span className="text-blue-200 font-semibold">modern technology</span>
+                for the future.
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-3xl mx-auto">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <div className="text-2xl mb-2">💻</div>
-                  <div className="text-sm font-medium text-green-100">Smart Classrooms</div>
+              <div className="grid grid-cols-2 gap-2 mt-4">
+                <div className="bg-white/15 backdrop-blur-sm sharp-container mini-container border border-white/20">
+                  <div className="text-lg mb-1">💻</div>
+                  <div className="text-xs font-medium text-green-100">Smart Tech</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <div className="text-2xl mb-2">📚</div>
-                  <div className="text-sm font-medium text-blue-100">Modern Library</div>
+                <div className="bg-white/15 backdrop-blur-sm sharp-container mini-container border border-white/20">
+                  <div className="text-lg mb-1">📚</div>
+                  <div className="text-xs font-medium text-blue-100">Library</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <div className="text-2xl mb-2">🔬</div>
-                  <div className="text-sm font-medium text-green-100">Science Labs</div>
+                <div className="bg-white/15 backdrop-blur-sm sharp-container mini-container border border-white/20">
+                  <div className="text-lg mb-1">🔬</div>
+                  <div className="text-xs font-medium text-green-100">Labs</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <div className="text-2xl mb-2">🎓</div>
-                  <div className="text-sm font-medium text-blue-100">Teacher Training</div>
+                <div className="bg-white/15 backdrop-blur-sm sharp-container mini-container border border-white/20">
+                  <div className="text-lg mb-1">🎓</div>
+                  <div className="text-xs font-medium text-blue-100">Training</div>
                 </div>
               </div>
             </motion.div>
@@ -105,72 +104,72 @@ const DonationPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-5 gap-8">
+      {/* Main Content - Mobile First */}
+      <section className="py-6 cute-font">
+        <div className="px-3">
+          <div className="max-w-sm mx-auto">
+            <div className="space-y-4">
 
-              {/* Left side - Information */}
-              <div className="lg:col-span-2 space-y-8">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="text-center mb-8">
-                    <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent mb-4">
-                      Your Impact Matters
-                    </h2>
-                    <p className="text-lg text-gray-600 max-w-md mx-auto">
-                      See how your <span className="text-green-600 font-bold">generous donation</span> transforms lives and builds Ghana's future leaders
-                    </p>
-                  </div>
+              {/* Impact Cards - Mobile Optimized */}
+              <div className="space-y-3">
+                <div className="text-center mb-4">
+                  <h2 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent mb-2">
+                    ✨ Your Impact
+                  </h2>
+                  <p className="text-sm text-gray-600">
+                    See how your <span className="text-green-600 font-semibold">donation</span> transforms lives
+                  </p>
+                </div>
 
-                  <div className="space-y-6">
-                    <motion.div
-                      className="flex items-start space-x-4 p-4 rounded-lg hover:bg-green-50 transition-colors cursor-pointer"
-                      whileHover={{ scale: 1.02 }}
-                      onHoverStart={() => triggerHapticFeedback('light')}
-                    >
-                      <div className="p-3 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex-shrink-0 shadow-md">
-                        <Laptop className="w-6 h-6 text-green-700" />
+                <div className="space-y-3">
+                  <motion.div
+                    className="bg-white sharp-container mini-container shadow-sm border border-green-100 hover:shadow-md transition-all"
+                    whileHover={{ scale: 1.02 }}
+                    onHoverStart={() => triggerHapticFeedback('light')}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-gradient-to-br from-green-100 to-green-200 sharp-container flex-shrink-0">
+                        <Laptop className="w-4 h-4 text-green-700" />
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-2 text-green-800">Modern Technology Integration</h3>
-                        <p className="text-gray-600">Support the integration of <span className="text-blue-600 font-medium">AI and modern educational technologies</span> to prepare students for the digital future. Help us equip classrooms with smart boards, computers, and learning software.</p>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 text-sm text-green-800">💻 Smart Tech</h3>
+                        <p className="text-xs text-gray-600 mt-1">AI tools & modern classrooms for digital learning</p>
                       </div>
-                    </motion.div>
+                    </div>
+                  </motion.div>
 
-                    <motion.div
-                      className="flex items-start space-x-4 p-4 rounded-lg hover:bg-blue-50 transition-colors cursor-pointer"
-                      whileHover={{ scale: 1.02 }}
-                      onHoverStart={() => triggerHapticFeedback('light')}
-                    >
-                      <div className="p-3 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex-shrink-0 shadow-md">
-                        <GraduationCap className="w-6 h-6 text-blue-700" />
+                  <motion.div
+                    className="bg-white sharp-container mini-container shadow-sm border border-blue-100 hover:shadow-md transition-all"
+                    whileHover={{ scale: 1.02 }}
+                    onHoverStart={() => triggerHapticFeedback('light')}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-gradient-to-br from-blue-100 to-blue-200 sharp-container flex-shrink-0">
+                        <GraduationCap className="w-4 h-4 text-blue-700" />
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-2 text-blue-800">Teacher Development</h3>
-                        <p className="text-gray-600">Help us provide <span className="text-green-600 font-medium">professional development opportunities</span>, training programs, and resources for our dedicated teaching staff to enhance their skills in modern pedagogy.</p>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 text-sm text-blue-800">👨‍🏫 Teacher Growth</h3>
+                        <p className="text-xs text-gray-600 mt-1">Training & resources for excellent education</p>
                       </div>
-                    </motion.div>
+                    </div>
+                  </motion.div>
 
-                    <motion.div
-                      className="flex items-start space-x-4 p-4 rounded-lg hover:bg-green-50 transition-colors cursor-pointer"
-                      whileHover={{ scale: 1.02 }}
-                      onHoverStart={() => triggerHapticFeedback('light')}
-                    >
-                      <div className="p-3 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex-shrink-0 shadow-md">
-                        <Users className="w-6 h-6 text-green-700" />
+                  <motion.div
+                    className="bg-white sharp-container mini-container shadow-sm border border-green-100 hover:shadow-md transition-all"
+                    whileHover={{ scale: 1.02 }}
+                    onHoverStart={() => triggerHapticFeedback('light')}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-gradient-to-br from-green-100 to-green-200 sharp-container flex-shrink-0">
+                        <Users className="w-4 h-4 text-green-700" />
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-2 text-green-800">Student Progress & Facilities</h3>
-                        <p className="text-gray-600">Enable <span className="text-blue-600 font-medium">faster academic progress</span> through improved facilities, modern laboratories, library resources, and learning materials that support the NaCCA-based Common Core Programme.</p>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 text-sm text-green-800">🎓 Better Facilities</h3>
+                        <p className="text-xs text-gray-600 mt-1">Modern labs & library for faster progress</p>
                       </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
+                    </div>
+                  </motion.div>
+                </div>
 
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
@@ -210,58 +209,57 @@ const DonationPage: React.FC = () => {
                 </motion.div>
               </div>
 
-              {/* Right side - Donation Form */}
-              <div className="lg:col-span-3">
+              {/* Donation Form - Mobile Optimized */}
+              <div className="mt-6">
                 <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="bg-white sharp-container shadow-md overflow-hidden"
                 >
-                  <div className="bg-gradient-to-r from-green-600 to-blue-600 px-6 py-6 text-white">
-                    <div className="text-center mb-4">
-                      <h3 className="text-2xl font-bold mb-2">Donate Securely Now</h3>
-                      <p className="text-green-100 text-sm">Bank-level security • Instant processing • Immediate receipt</p>
+                  <div className="bg-gradient-to-r from-green-600 to-blue-600 p-4 text-white">
+                    <div className="text-center mb-3">
+                      <h3 className="text-lg font-bold mb-1">💳 Donate Now</h3>
+                      <p className="text-green-100 text-xs">Secure • Instant • Direct Impact</p>
                     </div>
 
-                    {/* Payment Methods */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-4">
-                      <h4 className="text-white font-semibold mb-3 text-center">All Ghanaian Payment Networks Accepted</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-                        <div className="bg-white/20 rounded-lg p-2 text-center">
-                          <Smartphone className="w-5 h-5 mx-auto mb-1 text-green-200" />
-                          <div className="font-medium">MTN Mobile Money</div>
+                    {/* Payment Methods - Compact */}
+                    <div className="bg-white/15 backdrop-blur-sm sharp-container p-3 mb-3">
+                      <h4 className="text-white font-medium mb-2 text-center text-sm">🇬🇭 All Ghana Networks</h4>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div className="bg-white/20 sharp-container p-2 text-center">
+                          <Smartphone className="w-4 h-4 mx-auto mb-1 text-green-200" />
+                          <div className="font-medium">MTN MoMo</div>
                         </div>
-                        <div className="bg-white/20 rounded-lg p-2 text-center">
-                          <Smartphone className="w-5 h-5 mx-auto mb-1 text-blue-200" />
-                          <div className="font-medium">Vodafone Cash</div>
+                        <div className="bg-white/20 sharp-container p-2 text-center">
+                          <Smartphone className="w-4 h-4 mx-auto mb-1 text-blue-200" />
+                          <div className="font-medium">Vodafone</div>
                         </div>
-                        <div className="bg-white/20 rounded-lg p-2 text-center">
-                          <Smartphone className="w-5 h-5 mx-auto mb-1 text-green-200" />
-                          <div className="font-medium">AirtelTigo Money</div>
+                        <div className="bg-white/20 sharp-container p-2 text-center">
+                          <Smartphone className="w-4 h-4 mx-auto mb-1 text-green-200" />
+                          <div className="font-medium">AirtelTigo</div>
                         </div>
-                        <div className="bg-white/20 rounded-lg p-2 text-center">
-                          <CreditCard className="w-5 h-5 mx-auto mb-1 text-blue-200" />
-                          <div className="font-medium">Bank Cards</div>
+                        <div className="bg-white/20 sharp-container p-2 text-center">
+                          <CreditCard className="w-4 h-4 mx-auto mb-1 text-blue-200" />
+                          <div className="font-medium">Cards</div>
                         </div>
                       </div>
 
-                      <div className="mt-3 flex justify-center gap-4 text-sm">
-                        <span className="bg-blue-500/20 px-3 py-1 rounded-full">Visa</span>
-                        <span className="bg-green-500/20 px-3 py-1 rounded-full">Mastercard</span>
-                        <span className="bg-blue-500/20 px-3 py-1 rounded-full">Bank Transfer</span>
+                      <div className="mt-2 flex justify-center gap-2 text-xs">
+                        <span className="bg-blue-500/20 px-2 py-1 sharp-container">Visa</span>
+                        <span className="bg-green-500/20 px-2 py-1 sharp-container">Mastercard</span>
                       </div>
                     </div>
 
                     <div className="text-center text-xs text-green-100">
-                      <span className="font-semibold">Instant donations</span> • <span className="font-semibold">100% secure</span> • <span className="font-semibold">Direct impact</span>
+                      ⚡ <span className="font-medium">Instant</span> • 🛡️ <span className="font-medium">Secure</span> • 🎯 <span className="font-medium">Direct</span>
                     </div>
                   </div>
 
                   <div
                     className="relative overflow-auto"
                     style={{
-                      height: '600px',
+                      height: '400px',
                       scrollBehavior: 'smooth',
                       WebkitOverflowScrolling: 'touch'
                     }}
@@ -283,43 +281,42 @@ const DonationPage: React.FC = () => {
                       }}
                     />
 
-                    {/* Loading overlay */}
+                    {/* Loading overlay - Mobile Optimized */}
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50 flex items-center justify-center z-10">
-                      <div className="text-center max-w-sm mx-auto p-6">
-                        <div className="relative mb-6">
-                          <div className="animate-spin rounded-full h-16 w-16 border-4 border-green-200 border-t-green-600 mx-auto"></div>
-                          <Heart className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 text-green-600 animate-pulse" />
+                      <div className="text-center max-w-xs mx-auto p-4">
+                        <div className="relative mb-4">
+                          <div className="animate-spin rounded-full h-12 w-12 border-4 border-green-200 border-t-green-600 mx-auto"></div>
+                          <Heart className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 text-green-600 animate-pulse" />
                         </div>
 
-                        <h3 className="text-xl font-bold text-gray-800 mb-2">Loading Your Impact Portal</h3>
-                        <p className="text-gray-600 text-sm mb-4">Preparing secure donation form...</p>
+                        <h3 className="text-lg font-bold text-gray-800 mb-2">🚀 Loading Portal</h3>
+                        <p className="text-gray-600 text-sm mb-3">Preparing secure form...</p>
 
-                        <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 mb-4">
-                          <h4 className="font-semibold text-green-700 mb-2">Ready to Accept:</h4>
-                          <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div className="bg-white/80 backdrop-blur-sm sharp-container p-3 mb-3">
+                          <h4 className="font-medium text-green-700 mb-2 text-sm">Ready to Accept:</h4>
+                          <div className="grid grid-cols-2 gap-1 text-xs">
                             <div className="flex items-center text-green-600">
-                              <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                              MTN Mobile Money
+                              <span className="w-2 h-2 bg-green-500 rounded-full mr-1"></span>
+                              MTN MoMo
                             </div>
                             <div className="flex items-center text-blue-600">
-                              <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                              Vodafone Cash
+                              <span className="w-2 h-2 bg-blue-500 rounded-full mr-1"></span>
+                              Vodafone
                             </div>
                             <div className="flex items-center text-green-600">
-                              <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                              AirtelTigo Money
+                              <span className="w-2 h-2 bg-green-500 rounded-full mr-1"></span>
+                              AirtelTigo
                             </div>
                             <div className="flex items-center text-blue-600">
-                              <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                              Bank Cards
+                              <span className="w-2 h-2 bg-blue-500 rounded-full mr-1"></span>
+                              Cards
                             </div>
                           </div>
                         </div>
 
                         <div className="text-xs text-gray-500 space-y-1">
-                          <p><span className="font-semibold text-green-600">Bank-level security</span> by Paystack</p>
-                          <p><span className="font-semibold text-blue-600">Instant processing</span> & receipts</p>
-                          <p><span className="font-semibold text-green-600">100% goes to school</span> development</p>
+                          <p><span className="font-medium text-green-600">Secure</span> by Paystack</p>
+                          <p><span className="font-medium text-blue-600">Instant</span> processing</p>
                         </div>
                       </div>
                     </div>

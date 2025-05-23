@@ -1,6 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Cute mobile-friendly styles */
+.cute-font {
+  font-family: 'Nunito', sans-serif;
+}
+
+.sharp-container {
+  border-radius: 0.375rem; /* 6px - sharp but not harsh */
+}
+
+.mini-container {
+  padding: 0.75rem; /* 12px */
+  margin: 0.5rem 0; /* 8px vertical */
+}
 
 /* Neon Red Glow Animation for Donate Buttons */
 @keyframes neon-glow {
