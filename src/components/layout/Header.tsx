@@ -100,18 +100,21 @@ const Header: React.FC = () => {
             </div>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden text-primary-800 p-2 rounded-full hover:bg-white/10 transition-colors"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {isMenuOpen ? (
-              <X size={24} className={scrolled ? 'text-white' : 'text-primary-800'} />
-            ) : (
-              <Menu size={24} className={scrolled ? 'text-white' : 'text-primary-800'} />
-            )}
-          </button>
+          {/* Mobile Navigation - Donate Button and Menu */}
+          <div className="md:hidden flex items-center space-x-2">
+            <DonateButton variant="header" className="px-3 py-1.5 text-xs" />
+            <button
+              onClick={toggleMenu}
+              className="text-primary-800 p-2 rounded-full hover:bg-white/10 transition-colors"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMenuOpen ? (
+                <X size={24} className={scrolled ? 'text-white' : 'text-primary-800'} />
+              ) : (
+                <Menu size={24} className={scrolled ? 'text-white' : 'text-primary-800'} />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -148,14 +151,6 @@ const Header: React.FC = () => {
                 </NavLink>
               </motion.li>
             ))}
-            <motion.li
-              className="mt-4 px-4"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.2, delay: navLinks.length * 0.05 }}
-            >
-              <DonateButton variant="footer" className="w-full" />
-            </motion.li>
           </ul>
         </motion.nav>
       )}

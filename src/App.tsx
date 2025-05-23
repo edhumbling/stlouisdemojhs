@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import FacultyPage from './pages/FacultyPage';
+import DonationPage from './pages/DonationPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WhatsAppButton from './components/common/WhatsAppButton';
 import FacebookButton from './components/common/FacebookButton';
@@ -30,6 +31,7 @@ const App: React.FC = () => {
           <Route path="about" element={<AboutPage />} />
           <Route path="faculty" element={<FacultyPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="donate" element={<DonationPage />} />
           {/* Additional routes will be added here */}
 
           {/* Catch-all route for paths within the layout */}

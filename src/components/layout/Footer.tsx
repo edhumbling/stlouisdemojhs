@@ -13,27 +13,31 @@ const Footer: React.FC = () => {
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
       </div>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
-          {/* School Info */}
-          <div className="flex flex-col relative z-10">
-            <div className="flex items-center mb-4">
-              <img
-                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
-                alt="St. Louis Demonstration Junior High School"
-                className="h-10 sm:h-12 w-auto mr-3"
-              />
-              <div>
-                <h3 className="text-base sm:text-lg font-bold">St. Louis Demonstration</h3>
-                <p className="text-xs">Junior High School</p>
+        <div className="space-y-8 mb-8">
+          {/* Top Row - School Info and Social Media */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10">
+            {/* School Info */}
+            <div className="flex flex-col">
+              <div className="flex items-center mb-4">
+                <img
+                  src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
+                  alt="St. Louis Demonstration Junior High School"
+                  className="h-10 sm:h-12 w-auto mr-3"
+                />
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold">St. Louis Demonstration</h3>
+                  <p className="text-xs">Junior High School</p>
+                </div>
               </div>
+              <p className="text-gray-400 text-sm sm:text-base">
+                Established in 1977, providing quality education and nurturing young minds in Kumasi, Ghana.
+                Guided by "UT SINT UNUM – DIEU LE VEUT" - fostering unity, discipline, and service
+                while delivering the NaCCA-based Common Core Programme.
+              </p>
             </div>
-            <p className="text-gray-400 mb-4 text-sm sm:text-base">
-              Established in 1977, providing quality education and nurturing young minds in Kumasi, Ghana.
-              Guided by "UT SINT UNUM – DIEU LE VEUT" - fostering unity, discipline, and service
-              while delivering the NaCCA-based Common Core Programme.
-            </p>
-            {/* Call to Action */}
-            <div className="mt-6 mb-4">
+
+            {/* Social Media */}
+            <div className="flex flex-col">
               <h4 className="text-white font-semibold mb-3 text-sm sm:text-base">Connect With Us</h4>
               <p className="text-gray-400 text-xs sm:text-sm mb-4">
                 Stay updated with school news, events, and announcements. Follow us on social media!
@@ -66,77 +70,80 @@ const Footer: React.FC = () => {
                 </a>
               </div>
             </div>
+          </div>
 
-            {/* Donate Section */}
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <div className="text-center">
-                <h4 className="text-white font-semibold mb-3 text-sm sm:text-base">Support Our Mission</h4>
-                <p className="text-gray-400 text-xs sm:text-sm mb-4 max-w-md mx-auto">
-                  Help us modernize education for the AI era. Support teachers, students, and facilities development.
-                </p>
-                <DonateButton variant="footer" />
-              </div>
+          {/* Middle Row - Quick Links and Contact */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10">
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Quick Links</h3>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                <li>
+                  <Link to="/about" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/academics" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                    Academic Programs
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/faculty" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                    Faculty & Staff
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/admissions" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                    Admissions
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/news" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                    News & Events
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/gallery" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                    Photo Gallery
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Contact Us</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li className="flex items-start">
+                  <MapPin size={16} className="mr-2 sm:mr-3 mt-1 flex-shrink-0 text-white/60 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">P.O. Box 3041, Kumasi, Ashanti Region, Ghana</span>
+                </li>
+                <li className="flex items-start">
+                  <Phone size={16} className="mr-2 sm:mr-3 mt-1 flex-shrink-0 text-white/60 sm:w-5 sm:h-5" />
+                  <div className="text-sm sm:text-base">
+                    <div>📱 0244758575</div>
+                    <div>📱 0244730726</div>
+                    <div>📱 0548696528</div>
+                  </div>
+                </li>
+                <li className="flex items-center">
+                  <Mail size={16} className="mr-2 sm:mr-3 flex-shrink-0 text-white/60 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">support@stlouisdemojhs.com</span>
+                </li>
+              </ul>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="relative z-10">
-            <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Quick Links</h3>
-            <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-2">
-              <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/academics" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
-                  Academic Programs
-                </Link>
-              </li>
-              <li>
-                <Link to="/faculty" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
-                  Faculty & Staff
-                </Link>
-              </li>
-              <li>
-                <Link to="/admissions" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
-                  Admissions
-                </Link>
-              </li>
-              <li>
-                <Link to="/news" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
-                  News & Events
-                </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
-                  Photo Gallery
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="relative z-10">
-            <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Contact Us</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              <li className="flex items-start">
-                <MapPin size={16} className="mr-2 sm:mr-3 mt-1 flex-shrink-0 text-white/60 sm:w-5 sm:h-5" />
-                <span className="text-sm sm:text-base">P.O. Box 3041, Kumasi, Ashanti Region, Ghana</span>
-              </li>
-              <li className="flex items-start">
-                <Phone size={16} className="mr-2 sm:mr-3 mt-1 flex-shrink-0 text-white/60 sm:w-5 sm:h-5" />
-                <div className="text-sm sm:text-base">
-                  <div>📱 0244758575</div>
-                  <div>📱 0244730726</div>
-                  <div>📱 0548696528</div>
-                </div>
-              </li>
-              <li className="flex items-center">
-                <Mail size={16} className="mr-2 sm:mr-3 flex-shrink-0 text-white/60 sm:w-5 sm:h-5" />
-                <span className="text-sm sm:text-base">support@stlouisdemojhs.com</span>
-              </li>
-            </ul>
+          {/* Bottom Row - Donate Section (Centered) */}
+          <div className="border-t border-white/10 pt-6 relative z-10">
+            <div className="text-center max-w-md mx-auto">
+              <h4 className="text-white font-semibold mb-3 text-sm sm:text-base">Support Our Mission</h4>
+              <p className="text-gray-400 text-xs sm:text-sm mb-4">
+                Help us modernize education for the AI era. Support teachers, students, and facilities development.
+              </p>
+              <DonateButton variant="footer" />
+            </div>
           </div>
         </div>
 
