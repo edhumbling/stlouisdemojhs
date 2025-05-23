@@ -101,17 +101,17 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Navigation - Donate Button and Menu */}
-          <div className="md:hidden flex items-center">
-            <DonateButton variant="header" className="rounded-r-none border-r-0" />
+          <div className="md:hidden flex items-center space-x-2">
+            <DonateButton variant="header" />
             <button
               onClick={toggleMenu}
-              className="text-primary-800 p-2 rounded-l-none rounded-r-full bg-red-600 hover:bg-red-700 border-l-0 transition-colors"
+              className="text-primary-800 p-2 rounded-full hover:bg-white/10 transition-colors"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
-                <X size={24} className="text-white" />
+                <X size={24} className={scrolled ? 'text-white' : 'text-primary-800'} />
               ) : (
-                <Menu size={24} className="text-white" />
+                <Menu size={24} className={scrolled ? 'text-white' : 'text-primary-800'} />
               )}
             </button>
           </div>
