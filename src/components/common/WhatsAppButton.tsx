@@ -15,12 +15,12 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-16 right-3 sm:bottom-20 sm:right-4 z-40 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-green-500 shadow-lg hover:shadow-xl hover:z-60 ${className}`}
+      className={`fixed bottom-16 right-6 sm:bottom-20 sm:right-8 md:bottom-24 md:right-10 z-40 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-green-500 shadow-lg hover:shadow-2xl hover:z-60 hover:-translate-y-1 transition-all duration-200 ${className}`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.3, delay: 0.4 }}
     >
       {/* WhatsApp Logo */}
       <svg
