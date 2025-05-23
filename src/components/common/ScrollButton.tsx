@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronUp, ChevronDown } from 'lucide-react';
+import { ArrowUp, ArrowDown } from 'lucide-react';
 
 interface ScrollButtonProps {
   className?: string;
@@ -11,21 +11,31 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = '' }) => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
 
   useEffect(() => {
-    const toggleVisibility = () => {
+    const handleScroll = () => {
       const scrolled = document.documentElement.scrollTop;
       const maxScroll = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      
-      if (scrolled > 300) {
+      const scrollPercentage = scrolled / maxScroll;
+
+      // Show button after scrolling 200px
+      if (scrolled > 200) {
         setIsVisible(true);
-        // Show up arrow when not at bottom, down arrow when near bottom
-        setScrollDirection(scrolled > maxScroll * 0.8 ? 'down' : 'up');
+
+        // Change direction based on scroll position
+        // Show up arrow when in upper half, down arrow when in lower half
+        if (scrollPercentage < 0.5) {
+          setScrollDirection('up');
+        } else {
+          setScrollDirection('down');
+        }
       } else {
         setIsVisible(false);
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
@@ -55,22 +65,27 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = '' }) => {
       {isVisible && (
         <motion.button
           onClick={handleClick}
-          className={`fixed bottom-6 right-4 z-30 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-yellow-500 shadow-lg hover:shadow-xl hover:bg-yellow-400 transition-colors ${className}`}
+          className={`fixed bottom-6 right-4 z-30 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-yellow-500 shadow-lg hover:shadow-xl hover:bg-yellow-400 transition-all duration-200 ${className}`}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.3 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.2 }}
         >
-          {scrollDirection === 'up' ? (
-            <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-black" />
-          ) : (
-            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-black" />
-          )}
-          
-          {/* Pulse effect */}
-          <span className="absolute w-full h-full rounded-full bg-yellow-500 animate-ping opacity-75"></span>
+          <motion.div
+            key={scrollDirection}
+            initial={{ opacity: 0, y: scrollDirection === 'up' ? 10 : -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: scrollDirection === 'up' ? -10 : 10 }}
+            transition={{ duration: 0.2 }}
+          >
+            {scrollDirection === 'up' ? (
+              <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-black font-bold" strokeWidth={3} />
+            ) : (
+              <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-black font-bold" strokeWidth={3} />
+            )}
+          </motion.div>
         </motion.button>
       )}
     </AnimatePresence>
