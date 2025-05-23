@@ -13,12 +13,12 @@ const DonateButton: React.FC<DonateButtonProps> = ({
   className = ''
 }) => {
 
-  const baseClasses = "inline-flex items-center justify-center font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 relative overflow-hidden";
+  const baseClasses = "inline-flex items-center justify-center font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 relative overflow-hidden";
 
   const variantClasses = {
-    header: "px-3 py-1.5 text-xs bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl rounded-full md:rounded-lg md:px-4 md:py-2 md:text-sm",
-    footer: "px-6 py-3 text-base bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl rounded-full",
-    standalone: "px-8 py-4 text-lg bg-green-600 hover:bg-green-700 text-white shadow-xl hover:shadow-2xl rounded-full"
+    header: "px-3 py-1.5 text-xs bg-red-600 hover:bg-red-700 text-white shadow-lg hover:shadow-xl rounded-full md:rounded-lg md:px-4 md:py-2 md:text-sm shadow-red-500/50 hover:shadow-red-500/70",
+    footer: "px-6 py-3 text-base bg-red-600 hover:bg-red-700 text-white shadow-lg hover:shadow-xl rounded-full shadow-red-500/50 hover:shadow-red-500/70",
+    standalone: "px-8 py-4 text-lg bg-red-600 hover:bg-red-700 text-white shadow-xl hover:shadow-2xl rounded-full shadow-red-500/50 hover:shadow-red-500/70"
   };
 
   return (
@@ -36,9 +36,10 @@ const DonateButton: React.FC<DonateButtonProps> = ({
         <Heart className={`${variant === 'header' ? 'w-3 h-3 md:w-4 md:h-4' : 'w-4 h-4'} mr-2 fill-current relative z-10`} />
         <span className="relative z-10">Donate</span>
 
-        {/* Yellow buzzing effect */}
-        <span className="absolute inset-0 bg-yellow-400 opacity-20 animate-pulse rounded-full md:rounded-lg"></span>
-        <span className="absolute inset-0 bg-yellow-300 opacity-10 animate-ping rounded-full md:rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+        {/* Red glowing effect */}
+        <span className="absolute inset-0 bg-red-400 opacity-30 animate-pulse rounded-full md:rounded-lg"></span>
+        <span className="absolute inset-0 bg-red-300 opacity-20 animate-ping rounded-full md:rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+        <span className="absolute -inset-1 bg-red-500 opacity-20 blur-sm animate-pulse rounded-full md:rounded-lg"></span>
       </Link>
     </motion.div>
   );
