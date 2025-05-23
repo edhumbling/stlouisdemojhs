@@ -101,8 +101,8 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Navigation - Donate Button and Menu */}
-          <div className="md:hidden flex items-center space-x-2">
-            <DonateButton variant="header" className="px-3 py-1.5 text-xs" />
+          <div className="md:hidden flex items-center space-x-3">
+            <DonateButton variant="header" />
             <button
               onClick={toggleMenu}
               className="text-primary-800 p-2 rounded-full hover:bg-white/10 transition-colors"

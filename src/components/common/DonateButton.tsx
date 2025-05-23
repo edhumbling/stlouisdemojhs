@@ -13,12 +13,12 @@ const DonateButton: React.FC<DonateButtonProps> = ({
   className = ''
 }) => {
 
-  const baseClasses = "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2";
+  const baseClasses = "inline-flex items-center justify-center font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 relative overflow-hidden";
 
   const variantClasses = {
-    header: "px-3 py-1.5 text-xs bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl",
-    footer: "px-6 py-3 text-base bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl",
-    standalone: "px-8 py-4 text-lg bg-green-600 hover:bg-green-700 text-white shadow-xl hover:shadow-2xl"
+    header: "px-3 py-1.5 text-xs bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl rounded-full md:rounded-lg md:px-4 md:py-2 md:text-sm",
+    footer: "px-6 py-3 text-base bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl rounded-full",
+    standalone: "px-8 py-4 text-lg bg-green-600 hover:bg-green-700 text-white shadow-xl hover:shadow-2xl rounded-full"
   };
 
   return (
@@ -31,13 +31,14 @@ const DonateButton: React.FC<DonateButtonProps> = ({
     >
       <Link
         to="/donate"
-        className={`${baseClasses} ${variantClasses[variant]} ${className} relative overflow-hidden`}
+        className={`${baseClasses} ${variantClasses[variant]} ${className}`}
       >
-        <Heart className={`${variant === 'header' ? 'w-3 h-3' : 'w-4 h-4'} mr-2 fill-current`} />
-        <span>Donate</span>
+        <Heart className={`${variant === 'header' ? 'w-3 h-3 md:w-4 md:h-4' : 'w-4 h-4'} mr-2 fill-current relative z-10`} />
+        <span className="relative z-10">Donate</span>
 
-        {/* Pulse effect */}
-        <span className="absolute inset-0 rounded-full bg-green-400 opacity-0 animate-ping"></span>
+        {/* Yellow buzzing effect */}
+        <span className="absolute inset-0 bg-yellow-400 opacity-20 animate-pulse rounded-full md:rounded-lg"></span>
+        <span className="absolute inset-0 bg-yellow-300 opacity-10 animate-ping rounded-full md:rounded-lg" style={{ animationDelay: '0.5s' }}></span>
       </Link>
     </motion.div>
   );
