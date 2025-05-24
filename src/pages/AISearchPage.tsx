@@ -91,11 +91,10 @@ const AISearchPage: React.FC = () => {
 
   // If an engine is selected, show the full-page iframe view - Like LearnHub
   if (selectedEngine && selectedEngineData) {
-    // Use white background for Index.Globe, dark for others
-    const containerBg = selectedEngineData.hasWhiteBackground ? 'bg-white' : 'bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900';
+    // All AI engines use their original white backgrounds when opened
 
     return (
-      <div className={`fixed inset-0 z-50 ${containerBg}`}>
+      <div className="fixed inset-0 z-50 bg-white">
         {/* Header - Original Style */}
         <div className="fixed top-0 left-0 right-0 z-10 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
@@ -129,9 +128,9 @@ const AISearchPage: React.FC = () => {
           {isLoading && (
             <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-20">
               <div className="text-center">
-                <div className="w-12 h-12 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-gray-700 font-medium">Loading {selectedEngineData.name}...</p>
-                <p className="text-gray-500 text-sm mt-1">Please wait while we load the AI search engine</p>
+                <div className="w-12 h-12 border-4 border-gray-300 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-gray-800 font-medium">Loading {selectedEngineData.name}...</p>
+                <p className="text-gray-600 text-sm mt-1">Please wait while we load the AI search engine</p>
               </div>
             </div>
           )}
@@ -141,8 +140,8 @@ const AISearchPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-16">
-      {/* Back Button and Title Section - Original Style */}
+    <div className="min-h-screen bg-black pt-16">
+      {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
@@ -158,22 +157,6 @@ const AISearchPage: React.FC = () => {
               AI Search
             </h1>
           </div>
-        </div>
-      </div>
-
-      {/* Header Section */}
-      <div className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 py-6 sm:py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-3 mb-4">
-            <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-              AI Search Hub
-            </h2>
-          </div>
-
-          <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-3xl" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-            Explore the future of search with cutting-edge AI-powered engines. Choose from our curated collection of advanced search platforms designed to enhance your research and discovery experience.
-          </p>
         </div>
       </div>
 

@@ -115,11 +115,11 @@ const LearnHubPage: React.FC = () => {
 
           {/* Loading Overlay */}
           {isLoading && (
-            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-20">
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-20">
               <div className="text-center">
-                <div className="w-12 h-12 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-gray-700 font-medium">Loading {selectedResource.title}...</p>
-                <p className="text-gray-500 text-sm mt-1">Please wait while we load the resource</p>
+                <div className="w-12 h-12 border-4 border-gray-600 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-white font-medium">Loading {selectedResource.title}...</p>
+                <p className="text-gray-300 text-sm mt-1">Please wait while we load the resource</p>
               </div>
             </div>
           )}
@@ -129,8 +129,8 @@ const LearnHubPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-16">
-      {/* Back Button and Title Section - Original Style */}
+    <div className="min-h-screen bg-black pt-16">
+      {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
@@ -146,22 +146,6 @@ const LearnHubPage: React.FC = () => {
               LearnHub
             </h1>
           </div>
-        </div>
-      </div>
-
-      {/* Header Section */}
-      <div className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 py-6 sm:py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-3 mb-4">
-            <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-              LearnHub
-            </h2>
-          </div>
-
-          <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-3xl" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-            Your comprehensive learning resource center with curated educational tools, audiobooks, exam materials, and AI-powered learning assistants.
-          </p>
         </div>
       </div>
 

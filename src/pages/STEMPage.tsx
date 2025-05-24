@@ -197,8 +197,8 @@ const STEMPage: React.FC = () => {
   // If a category is selected, show the dedicated category page
   if (selectedCategory) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-16">
-        {/* Back Button and Title Section - Original Style */}
+      <div className="min-h-screen bg-black pt-16">
+        {/* Back Button and Title Section */}
         <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
@@ -213,29 +213,6 @@ const STEMPage: React.FC = () => {
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                 {selectedCategory.title}
               </h1>
-            </div>
-          </div>
-        </div>
-
-        {/* Category Header */}
-        <div className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 py-6 sm:py-8">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 mb-4">
-              <div
-                className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center text-white"
-                style={{ backgroundColor: selectedCategory.color }}
-              >
-                {selectedCategory.icon}
-              </div>
-              <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
-                    style={{ fontFamily: 'Arial, sans-serif' }}>
-                  {selectedCategory.title}
-                </h2>
-                <p className="text-gray-200 text-sm sm:text-base" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  {selectedCategory.description}
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -281,8 +258,8 @@ const STEMPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-16">
-      {/* Back Button and Title Section - Original Style */}
+    <div className="min-h-screen bg-black pt-16">
+      {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
@@ -298,22 +275,6 @@ const STEMPage: React.FC = () => {
               STEM Resources
             </h1>
           </div>
-        </div>
-      </div>
-
-      {/* Header Section */}
-      <div className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 py-6 sm:py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-3 mb-4">
-            <Atom className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-              STEM Learning Hub
-            </h2>
-          </div>
-
-          <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-3xl" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-            Empowering our students with cutting-edge Science, Technology, Engineering, and Mathematics resources to build tomorrow's innovators and problem-solvers.
-          </p>
         </div>
       </div>
 
