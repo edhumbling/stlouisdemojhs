@@ -285,167 +285,172 @@ const STEMPage: React.FC = () => {
                 </ul>
               </div>
 
-                {/* Government STEM Initiatives */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-school-blue flex items-center">
-                    <Lightbulb className="w-6 h-6 mr-2" />
-                    Government STEM Initiatives
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {governmentInitiatives.map((initiative, index) => (
-                      <li key={index} className="mb-1">
-                        <a
-                          href={initiative.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={index % 2 === 0 ? yellowLinkClass : blueLinkClass}
-                        >
-                          {initiative.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Science Games and Apps */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-school-green flex items-center">
-                    <Atom className="w-6 h-6 mr-2" />
-                    Science Games and Apps
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-                    {scienceGamesApps.map((app, index) => (
-                      <li key={index} className="mb-1">
-                        <a
-                          href={app.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={index % 3 === 0 ? greenLinkClass : index % 3 === 1 ? blueLinkClass : yellowLinkClass}
-                        >
-                          {app.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Math Games and Apps */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-school-yellow flex items-center">
-                    <Calculator className="w-6 h-6 mr-2" />
-                    Math Games and Apps
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {mathGamesApps.map((app, index) => (
-                      <li key={index} className="mb-1">
-                        <a
-                          href={app.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={index % 2 === 0 ? yellowLinkClass : greenLinkClass}
-                        >
-                          {app.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* STEM Camps and Programs */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-school-blue flex items-center">
-                    <Rocket className="w-6 h-6 mr-2" />
-                    STEM Camps and Programs
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-                    {stemCamps.map((camp, index) => (
-                      <li key={index} className="mb-1">
-                        <a
-                          href={camp.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={index % 3 === 0 ? blueLinkClass : index % 3 === 1 ? yellowLinkClass : greenLinkClass}
-                        >
-                          {camp.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Books */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-school-green flex items-center">
-                    <Microscope className="w-6 h-6 mr-2" />
-                    Recommended Books
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {books.map((book, index) => (
-                      <li key={index} className="mb-1">
-                        <a
-                          href={book.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={index % 2 === 0 ? greenLinkClass : blueLinkClass}
-                        >
-                          {book.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Teachers/Educators */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-school-yellow flex items-center">
-                    <Cpu className="w-6 h-6 mr-2" />
-                    Resources for Teachers/Educators
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {teachersEducators.map((resource, index) => (
-                      <li key={index} className="mb-1">
-                        <a
-                          href={resource.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={index % 2 === 0 ? yellowLinkClass : greenLinkClass}
-                        >
-                          {resource.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {/* Government STEM Initiatives */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
+                  <Lightbulb className="w-7 h-7 mr-3 text-school-blue" />
+                  Government STEM Initiatives
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {governmentInitiatives.map((initiative, index) => (
+                    <li key={index}>
+                      <a
+                        href={initiative.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {initiative.name}
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Call to Action */}
-              <div className="mt-8 p-6 bg-gradient-to-r from-school-blue/20 via-school-green/20 to-school-yellow/20 rounded-lg border border-white/20">
-                <h4 className="text-xl font-bold text-white mb-3 text-center">Ready to Explore STEM?</h4>
-                <p className="text-gray-300 text-center mb-4">
-                  These resources are carefully curated to support our students' STEM journey at St. Louis Demonstration JHS.
-                  Start exploring and discover the exciting world of Science, Technology, Engineering, and Mathematics!
-                </p>
-                <div className="flex justify-center space-x-4">
-                  <div className="flex items-center space-x-2 text-school-yellow">
-                    <Atom className="w-5 h-5" />
-                    <span className="text-sm font-medium">Science</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-school-blue">
-                    <Cpu className="w-5 h-5" />
-                    <span className="text-sm font-medium">Technology</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-school-green">
-                    <Lightbulb className="w-5 h-5" />
-                    <span className="text-sm font-medium">Engineering</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-school-yellow">
-                    <Calculator className="w-5 h-5" />
-                    <span className="text-sm font-medium">Mathematics</span>
-                  </div>
+              {/* Science Games and Apps */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
+                  <Atom className="w-7 h-7 mr-3 text-school-green" />
+                  Science Games and Apps
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {scienceGamesApps.map((app, index) => (
+                    <li key={index}>
+                      <a
+                        href={app.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {app.name}
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Math Games and Apps */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
+                  <Calculator className="w-7 h-7 mr-3 text-school-yellow" />
+                  Math Games and Apps
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {mathGamesApps.map((app, index) => (
+                    <li key={index}>
+                      <a
+                        href={app.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {app.name}
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* STEM Camps and Programs */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
+                  <Rocket className="w-7 h-7 mr-3 text-school-blue" />
+                  STEM Camps and Programs
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {stemCamps.map((camp, index) => (
+                    <li key={index}>
+                      <a
+                        href={camp.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {camp.name}
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Books */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
+                  <Microscope className="w-7 h-7 mr-3 text-school-green" />
+                  Recommended Books
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {books.map((book, index) => (
+                    <li key={index}>
+                      <a
+                        href={book.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {book.name}
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Teachers/Educators */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
+                  <Cpu className="w-7 h-7 mr-3 text-school-yellow" />
+                  Resources for Teachers/Educators
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {teachersEducators.map((resource, index) => (
+                    <li key={index}>
+                      <a
+                        href={resource.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {resource.name}
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Call to Action */}
+            <div className="mt-16 p-8 bg-gradient-to-r from-school-blue/10 via-school-green/10 to-school-yellow/10 rounded-lg border border-gray-200">
+              <h4 className="text-2xl font-bold text-gray-900 mb-4 text-center">Ready to Explore STEM?</h4>
+              <p className="text-gray-700 text-center mb-6 text-lg max-w-3xl mx-auto">
+                These resources are carefully curated to support our students' STEM journey at St. Louis Demonstration JHS.
+                Start exploring and discover the exciting world of Science, Technology, Engineering, and Mathematics!
+              </p>
+              <div className="flex justify-center flex-wrap gap-6">
+                <div className="flex items-center space-x-2 text-school-yellow">
+                  <Atom className="w-6 h-6" />
+                  <span className="font-medium">Science</span>
+                </div>
+                <div className="flex items-center space-x-2 text-school-blue">
+                  <Cpu className="w-6 h-6" />
+                  <span className="font-medium">Technology</span>
+                </div>
+                <div className="flex items-center space-x-2 text-school-green">
+                  <Lightbulb className="w-6 h-6" />
+                  <span className="font-medium">Engineering</span>
+                </div>
+                <div className="flex items-center space-x-2 text-school-yellow">
+                  <Calculator className="w-6 h-6" />
+                  <span className="font-medium">Mathematics</span>
                 </div>
               </div>
-            </motion.section>
-          </div>
+            </div>
+          </motion.section>
         </div>
       </main>
     </div>
