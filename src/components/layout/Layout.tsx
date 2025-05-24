@@ -7,7 +7,7 @@ const Layout: React.FC = () => {
   const location = useLocation();
 
   // Pages that should not show the footer
-  const noFooterPages = ['/news', '/calendar'];
+  const noFooterPages = ['/news', '/calendar', '/ai-search'];
   const shouldShowFooter = !noFooterPages.includes(location.pathname);
 
   return (
