@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft } from 'lucide-react';
 
 const LearnHubPage: React.FC = () => {
   const [selectedResource, setSelectedResource] = useState<any>(null);
+  const navigate = useNavigate();
+
+  const handleMainBack = () => {
+    navigate(-1); // Go back to previous page
+  };
 
   const resources = [
     {
@@ -67,18 +73,24 @@ const LearnHubPage: React.FC = () => {
   // If a resource is selected, show the iframe view
   if (selectedResource) {
     return (
-      <div className="flex min-h-screen flex-col bg-gray-50">
-        {/* Header with back button */}
-        <div className="bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between">
-          <button
-            onClick={handleBack}
-            className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-medium">Back to LearnHub</span>
-          </button>
-          <h1 className="text-lg font-semibold text-gray-900">{selectedResource.title}</h1>
-          <div className="w-24"></div> {/* Spacer for centering */}
+      <div className="flex min-h-screen flex-col bg-gray-50 pt-16">
+        {/* Back Button and Title Section - Original Style */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={handleBack}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                {selectedResource.title}
+              </h1>
+            </div>
+          </div>
         </div>
 
         {/* Iframe container */}
@@ -86,7 +98,7 @@ const LearnHubPage: React.FC = () => {
           <iframe
             src={selectedResource.url}
             className="w-full h-full border-0"
-            style={{ minHeight: 'calc(100vh - 80px)' }}
+            style={{ minHeight: 'calc(100vh - 140px)' }}
             title={selectedResource.title}
             sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
           />
@@ -96,14 +108,33 @@ const LearnHubPage: React.FC = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-gray-50">
+    <div className="flex min-h-screen flex-col bg-gray-50 pt-16">
+      {/* Back Button and Title Section - Original Style */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleMainBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              LearnHub
+            </h1>
+          </div>
+        </div>
+      </div>
+
       {/* Clean Header */}
       <div className="bg-white border-b border-gray-200 px-4 py-6 sm:py-8">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2"
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2"
               style={{ fontFamily: 'Arial, sans-serif' }}>
-            LearnHub
-          </h1>
+            Learning Resources
+          </h2>
           <p className="text-gray-600 text-sm sm:text-base">
             Educational resources for St. Louis Demonstration JHS
           </p>

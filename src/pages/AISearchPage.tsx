@@ -82,26 +82,21 @@ const AISearchPage: React.FC = () => {
   if (selectedEngine && selectedEngineData) {
     return (
       <div className="min-h-screen bg-black pt-16">
-        {/* Back Button and Title Section */}
+        {/* Back Button and Title Section - Original Style */}
         <div className={`bg-gradient-to-r ${selectedEngineData.color} py-3 sm:py-4`}>
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-white/30 flex-shrink-0"
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
                 <span>Back</span>
               </button>
 
-              <div className="flex items-center gap-3">
-                <div className="text-white">
-                  {selectedEngineData.icon}
-                </div>
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                  {selectedEngineData.name}
-                </h1>
-              </div>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                {selectedEngineData.name}
+              </h1>
             </div>
           </div>
         </div>
@@ -150,24 +145,33 @@ const AISearchPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-16">
-      {/* Header Section */}
-      <div className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 py-6 sm:py-8">
+      {/* Back Button and Title Section - Original Style */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6 mb-4">
+          <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleBack}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-white/30 flex-shrink-0"
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
             >
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
 
-            <div className="flex items-center gap-3">
-              <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-                AI Search Hub
-              </h1>
-            </div>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              AI Search
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 py-6 sm:py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-3 mb-4">
+            <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+              AI Search Hub
+            </h2>
           </div>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-3xl" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>

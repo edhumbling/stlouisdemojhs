@@ -27,22 +27,30 @@ const DonationPage: React.FC = () => {
     };
   }, []);
   return (
-    <div className="min-h-screen bg-gray-50 lg:overflow-hidden">
-      {/* Header Section - Professional Design */}
-      <section className="bg-gradient-to-br from-blue-600 via-green-600 to-blue-700 text-white pt-4 pb-8 lg:pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
+    <div className="min-h-screen bg-gray-50 lg:overflow-hidden pt-16">
+      {/* Back Button and Title Section - Original Style */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <Link
+              to="/"
+              onClick={() => triggerHapticFeedback('light')}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </Link>
 
-        {/* Back Button - Top Positioned */}
-        <div className="absolute top-4 left-4 lg:left-8 z-50">
-          <Link
-            to="/"
-            onClick={() => triggerHapticFeedback('light')}
-            className="inline-flex items-center px-4 py-2 lg:px-6 lg:py-3 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-medium rounded-lg border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <ArrowLeft size={18} className="mr-2" />
-            <span className="text-sm lg:text-base font-semibold">Back</span>
-          </Link>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Donate
+            </h1>
+          </div>
         </div>
+      </div>
+
+      {/* Header Section - Professional Design */}
+      <section className="bg-gradient-to-br from-blue-600 via-green-600 to-blue-700 text-white pb-8 lg:pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
 
         <div className="px-4 lg:px-8 pt-16 lg:pt-20 relative z-10">
           <div className="max-w-sm lg:max-w-5xl mx-auto text-center">

@@ -228,7 +228,7 @@ const Header: React.FC = () => {
                   <span className="absolute -inset-2 bg-red-600 opacity-15 blur-lg animate-pulse rounded-full" style={{ animationDelay: '1.5s' }}></span>
                 </Link>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </motion.nav>
       )}
