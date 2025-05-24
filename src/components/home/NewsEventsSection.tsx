@@ -174,16 +174,14 @@ const NewsEventsSection: React.FC = () => {
                       📅 Stay updated with all school events and important dates
                     </p>
                   </div>
-                  <a
-                    href="https://calendar.google.com/calendar/embed?src=f774a22b7db5c45f12b13c391cddbf261522e8afa5061bdf9696b2d599d9d7f7%40group.calendar.google.com&ctz=Africa%2FAbidjan"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/calendar"
                     className="group/btn inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm"
                   >
                     <Calendar size={14} />
                     View Full Calendar
                     <ExternalLink size={14} className="group-hover/btn:translate-x-1 transition-transform duration-200" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
