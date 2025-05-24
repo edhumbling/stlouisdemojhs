@@ -36,7 +36,7 @@ const Header: React.FC = () => {
     if (isHomePage) {
       return scrolled
         ? 'glass-homepage shadow-2xl'
-        : 'bg-transparent';
+        : 'glass-homepage shadow-lg';
     } else {
       return scrolled
         ? 'glass-dark shadow-md'
@@ -48,8 +48,8 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${getHeaderClasses()}`}
       style={{
-        backdropFilter: scrolled || !isHomePage ? 'blur(20px) saturate(180%)' : 'none',
-        WebkitBackdropFilter: scrolled || !isHomePage ? 'blur(20px) saturate(180%)' : 'none'
+        backdropFilter: 'blur(20px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(20px) saturate(180%)'
       }}
     >
       <div className="container mx-auto px-4 py-4">
