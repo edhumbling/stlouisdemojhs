@@ -176,27 +176,7 @@ const AcademicsPage: React.FC = () => {
             ))}
           </div>
 
-          {/* First Image - Distributed */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-4 rounded-lg overflow-hidden shadow-sm relative"
-          >
-            <img
-              src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6995.HEIC"
-              alt="Interactive Learning"
-              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
-            />
-            {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-            {/* Text overlay */}
-            <div className="absolute bottom-2 left-2 right-2">
-              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
-                Interactive Learning Environment
-              </p>
-            </div>
-          </motion.div>
+
 
           {/* Remaining Subjects */}
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1.5 sm:gap-2 mb-4">
@@ -244,100 +224,75 @@ const AcademicsPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Second Image - Distributed */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-lg overflow-hidden shadow-sm relative"
-          >
-            <img
-              src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7010.HEIC"
-              alt="Collaborative Learning"
-              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
-            />
-            {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-            {/* Text overlay */}
-            <div className="absolute bottom-2 left-2 right-2">
-              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
-                Collaborative Learning Approach
-              </p>
-            </div>
-          </motion.div>
+
         </div>
       </section>
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Mobile-First Academic Features */}
-      <section className="py-4 sm:py-6 md:py-12 bg-gray-50">
-        <div className="container mx-auto px-2 sm:px-4">
+      {/* Why Choose Our Academic Program - With Background Image */}
+      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7055.HEIC"
+            alt="Academic Excellence Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/60"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center mb-4 sm:mb-6"
+            className="max-w-4xl mx-auto text-center mb-6 sm:mb-8"
           >
-            <h2 className="text-base sm:text-lg md:text-xl font-bold text-primary-800 mb-2 sm:mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               🌟 Why Choose Our Academic Program?
             </h2>
-            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed px-2">
-              Excellence in education since 1977
+            <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Excellence in education since 1977 - Shaping tomorrow's leaders through innovative teaching and comprehensive development
             </p>
           </motion.div>
 
-          {/* Compact Feature Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-4">
+          {/* Enhanced Feature Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {[
-              { icon: '🏆', title: 'Premier School', desc: 'Leading educational institution' },
-              { icon: '👨‍🏫', title: 'Expert Faculty', desc: 'Qualified teachers' },
-              { icon: '💡', title: 'Innovation', desc: 'Modern teaching methods' },
-              { icon: '🌍', title: 'Global View', desc: 'International perspective' }
+              { icon: '🏆', title: 'Premier School', desc: 'Leading educational institution in Ghana with 47+ years of excellence' },
+              { icon: '👨‍🏫', title: 'Expert Faculty', desc: 'Highly qualified and dedicated teachers committed to student success' },
+              { icon: '💡', title: 'Innovation', desc: 'Modern teaching methods integrated with cutting-edge technology' },
+              { icon: '🌍', title: 'Global View', desc: 'International perspective preparing students for global opportunities' }
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-white rounded-lg p-2 sm:p-3 shadow-sm text-center hover:shadow-md transition-all duration-200"
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 text-center hover:bg-white/20 transition-all duration-300 border border-white/20 hover:border-white/40"
               >
-                <div className="text-lg sm:text-xl mb-1">{feature.icon}</div>
-                <h3 className="text-xs font-semibold text-gray-800 mb-1">{feature.title}</h3>
-                <p className="text-xs text-gray-600 leading-tight">{feature.desc}</p>
+                <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>{feature.icon}</div>
+                <h3 className="text-sm sm:text-base md:text-lg font-bold text-white mb-1 sm:mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{feature.title}</h3>
+                <p className="text-xs sm:text-sm md:text-base text-gray-200 leading-tight" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{feature.desc}</p>
               </motion.div>
             ))}
           </div>
 
-          {/* Third Image - Distributed */}
+          {/* Achievement Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 rounded-lg overflow-hidden shadow-sm relative"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 max-w-2xl mx-auto"
           >
-            <img
-              src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7055.HEIC"
-              alt="Modern Facilities"
-              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
-            />
-            {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-            {/* Text overlay */}
-            <div className="absolute bottom-2 left-2 right-2">
-              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
-                Modern Learning Facilities
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Achievement Stats */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4">
             {[
-              { number: '47+', label: 'Years' },
-              { number: '11', label: 'Subjects' },
-              { number: '30K+', label: 'Graduates' }
+              { number: '47+', label: 'Years of Excellence' },
+              { number: '11', label: 'Core Subjects' },
+              { number: '30K+', label: 'Successful Graduates' }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -345,55 +300,113 @@ const AcademicsPage: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-white rounded-lg p-2 sm:p-3 text-center shadow-sm"
+                className="bg-white/15 backdrop-blur-sm rounded-lg p-3 sm:p-4 md:p-6 text-center border border-white/30"
               >
-                <div className="text-lg sm:text-xl font-bold text-yellow-600">{stat.number}</div>
-                <div className="text-xs text-gray-600">{stat.label}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-400 mb-1 sm:mb-2" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{stat.number}</div>
+                <div className="text-xs sm:text-sm md:text-base text-white font-medium" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+      <SectionDivider position="bottom" />
+
+      {/* Academic Life at St. Louis - Image Gallery */}
+      <section className="py-6 sm:py-8 md:py-12 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto text-center mb-6 sm:mb-8 md:mb-12"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
+              📚 Academic Life at St. Louis
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Experience the vibrant academic environment where students thrive through interactive learning, collaborative projects,
+              state-of-the-art facilities, and dedicated faculty guidance. Our campus buzzes with intellectual curiosity,
+              creative expression, and the pursuit of excellence that has defined St. Louis Educational Institute for nearly five decades.
+            </p>
+          </motion.div>
+
+          {/* Beautiful Image Gallery */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            {[
+              {
+                src: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6995.HEIC",
+                alt: "Interactive Learning Environment"
+              },
+              {
+                src: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7010.HEIC",
+                alt: "Collaborative Learning Approach"
+              },
+              {
+                src: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7118.HEIC",
+                alt: "Academic Excellence in Action"
+              },
+              {
+                src: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7006.HEIC",
+                alt: "Dedicated Faculty & Staff"
+              }
+            ].map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group cursor-pointer"
+              >
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 object-contain bg-gradient-to-br from-gray-100 to-gray-200 group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Fourth Image - Distributed */}
+          {/* Bragging Section */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 rounded-lg overflow-hidden shadow-sm relative"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-8 sm:mt-12 md:mt-16 text-center max-w-4xl mx-auto"
           >
-            <img
-              src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7118.HEIC"
-              alt="Academic Excellence"
-              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
-            />
-            {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-            {/* Text overlay */}
-            <div className="absolute bottom-2 left-2 right-2">
-              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
-                Academic Excellence in Action
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Final Image - Distributed */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-lg overflow-hidden shadow-sm relative"
-          >
-            <img
-              src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7006.HEIC"
-              alt="Dedicated Faculty"
-              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
-            />
-            {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-            {/* Text overlay */}
-            <div className="absolute bottom-2 left-2 right-2">
-              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
-                Dedicated Faculty & Staff
-              </p>
+            <div className="bg-gradient-to-r from-blue-50 via-white to-green-50 rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg border border-gray-200">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">
+                🎓 Where Excellence Meets Innovation
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-left">
+                <div>
+                  <h4 className="font-semibold text-blue-700 mb-2 text-sm sm:text-base">🏆 Academic Achievements</h4>
+                  <ul className="text-xs sm:text-sm text-gray-600 space-y-1">
+                    <li>• Top-performing students in national examinations</li>
+                    <li>• Award-winning science and mathematics programs</li>
+                    <li>• Outstanding BECE results year after year</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-green-700 mb-2 text-sm sm:text-base">🌟 What Sets Us Apart</h4>
+                  <ul className="text-xs sm:text-sm text-gray-600 space-y-1">
+                    <li>• State-of-the-art computer laboratory</li>
+                    <li>• Well-equipped science laboratories</li>
+                    <li>• Comprehensive library resources</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg border-l-4 border-yellow-400">
+                <p className="text-xs sm:text-sm md:text-base text-gray-700 italic font-medium">
+                  "At St. Louis Educational Institute, we don't just educate students - we shape future leaders,
+                  innovators, and change-makers who will transform Ghana and the world. Our legacy of excellence
+                  speaks for itself through the thousands of successful graduates who credit their foundation to our institution."
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
