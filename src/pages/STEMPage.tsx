@@ -261,28 +261,29 @@ const STEMPage: React.FC = () => {
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Comprehensive STEM Resources</h2>
             </div>
 
-              <div className="space-y-8">
-                {/* Cool STEM Websites */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 text-school-yellow flex items-center">
-                    <Calculator className="w-6 h-6 mr-2" />
-                    Cool STEM Websites
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-                    {stemWebsites.map((site, index) => (
-                      <li key={index} className="mb-1">
-                        <a
-                          href={site.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={index % 3 === 0 ? yellowLinkClass : index % 3 === 1 ? greenLinkClass : blueLinkClass}
-                        >
-                          {site.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <div className="space-y-12">
+              {/* Cool STEM Websites */}
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
+                  <Calculator className="w-7 h-7 mr-3 text-school-yellow" />
+                  STEM Websites
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {stemWebsites.map((site, index) => (
+                    <li key={index}>
+                      <a
+                        href={site.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {site.name}
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
                 {/* Government STEM Initiatives */}
                 <div>
