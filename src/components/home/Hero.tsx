@@ -19,8 +19,8 @@ const Hero: React.FC = () => {
     {
       url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MRZwFWWpo7s1MlWNERCjA3OUSQ9nHvY65ui4I',
       isPortrait: true, // Portrait image with students holding books
-      mobilePosition: 'center 75%', // Show students from beneath on mobile
-      desktopPosition: 'center 70%' // Show students from beneath on desktop
+      mobilePosition: 'center 80%', // Show more of the bottom on mobile
+      desktopPosition: 'center 75%' // Show more of the bottom on desktop
     },
     {
       url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mwf9R6zhW0NcVsvA1quWUypQ6IChZY53j4PSK',
@@ -161,11 +161,6 @@ const Hero: React.FC = () => {
                 opacity: 0, // Start invisible, fade in when loaded
               }}
             />
-            {/* Dark gradient overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"></div>
-            {/* Additional overlay for mobile */}
-            <div className="absolute inset-0 bg-black/20 md:bg-transparent"></div>
           </div>
         ))}
       </div>
@@ -180,29 +175,36 @@ const Hero: React.FC = () => {
             className="text-white"
           >
             {/* Main Heading */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3">
-              The <span className="text-yellow-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.8)] animate-pulse">Leading</span> Forces in <span className="text-yellow-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.8)] animate-pulse">Education</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
+              The <span className="text-yellow-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.8)] animate-pulse">Leading</span> Forces in Excellent & Wholistic <span className="text-yellow-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.8)] animate-pulse">Education</span>
             </h1>
 
             {/* Subtext */}
             <p className="text-xs sm:text-sm md:text-base text-gray-200 mb-6 max-w-2xl">
-              Educating the Next Generation of Ghana's Brightest since 1977
+              Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
             </p>
 
-            {/* Glass-like Small Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+            {/* Glass-like Small Buttons - Horizontal on Mobile */}
+            <div className="flex flex-row gap-2 sm:gap-3">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2 bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 hover:bg-blue-600/30 hover:border-blue-400/50 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 hover:bg-blue-600/30 hover:border-blue-400/50 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm"
               >
                 Our Story
               </Link>
 
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2 bg-green-600/20 backdrop-blur-sm border border-green-400/30 hover:bg-green-600/30 hover:border-green-400/50 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-green-600/20 backdrop-blur-sm border border-green-400/30 hover:bg-green-600/30 hover:border-green-400/50 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm"
               >
                 Visit Us
+              </Link>
+
+              <Link
+                to="/donate"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-red-600/20 backdrop-blur-sm border border-red-400/30 hover:bg-red-600/30 hover:border-red-400/50 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm"
+              >
+                Donate
               </Link>
             </div>
           </motion.div>
