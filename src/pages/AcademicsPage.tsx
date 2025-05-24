@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Lightbulb, Award, Globe, Palette, Calculator, Microscope, Music, Computer, Heart } from 'lucide-react';
+import { BookOpen, Users, Lightbulb, Award, Globe, Palette, Calculator, Microscope, Music, Computer } from 'lucide-react';
 import SectionDivider from '../components/common/SectionDivider';
+import DonateButton from '../components/common/DonateButton';
 
 const AcademicsPage: React.FC = () => {
   const subjects = [
@@ -83,30 +84,81 @@ const AcademicsPage: React.FC = () => {
           <div className="absolute inset-0 opacity-5 bg-[linear-gradient(45deg,#fff_1px,transparent_1px)] [background-size:30px_30px]"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center px-3"
-          >
-            <motion.h1
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4"
-              style={{ fontFamily: 'Arial, sans-serif' }}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center max-w-6xl mx-auto">
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center lg:text-left order-2 lg:order-1"
             >
-              Academic Excellence at St. Louis Demonstration JHS
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-xs sm:text-sm md:text-base text-gray-100 max-w-2xl mx-auto leading-relaxed"
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6"
+                style={{ fontFamily: 'Arial, sans-serif' }}
+              >
+                Academic Excellence at St. Louis Demonstration JHS
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-100 leading-relaxed mb-4 lg:mb-6"
+              >
+                Our comprehensive curriculum develops well-rounded students through rigorous academics, technology integration, and character formation since 1977.
+              </motion.p>
+
+              {/* Achievement Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="inline-flex items-center gap-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-3 py-1.5 sm:px-4 sm:py-2"
+              >
+                <span className="text-yellow-400 text-sm sm:text-base">🏆</span>
+                <span className="text-yellow-300 text-xs sm:text-sm font-semibold">Award-Winning Institution</span>
+              </motion.div>
+            </motion.div>
+
+            {/* Award Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex justify-center lg:justify-end order-1 lg:order-2"
             >
-              Our comprehensive curriculum develops well-rounded students through rigorous academics, technology integration, and character formation since 1977.
-            </motion.p>
-          </motion.div>
+              <div className="relative group">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-110"></div>
+
+                {/* Image Container */}
+                <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-4 md:p-6 border border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:scale-105">
+                  <img
+                    src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.50_8a783049.png?updatedAt=1748113864722"
+                    alt="Academic Excellence Award - St. Louis Demonstration JHS"
+                    className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 object-contain mx-auto drop-shadow-2xl"
+                  />
+
+                  {/* Floating Particles */}
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-yellow-400/60 rounded-full animate-ping"></div>
+                  <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-yellow-300/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute top-1/2 right-1 w-1 h-1 bg-yellow-500/50 rounded-full animate-bounce" style={{ animationDelay: '2s' }}></div>
+                </div>
+
+                {/* Award Label */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-600 to-yellow-500 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg"
+                >
+                  Excellence Award
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
       <SectionDivider position="bottom" />
@@ -421,10 +473,23 @@ const AcademicsPage: React.FC = () => {
       </section>
 
       {/* Full-Width Donation Appeal Section */}
-      <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-red-900 via-orange-800 to-yellow-700 relative overflow-hidden">
+      <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-green-700 relative overflow-hidden">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7109.HEIC?updatedAt=1748099386709"
+            alt="St. Louis Demonstration JHS Campus"
+            className="w-full h-full object-cover opacity-20"
+            style={{ objectPosition: 'center center' }}
+          />
+          {/* Blue-Green overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 via-blue-700/85 to-green-700/80"></div>
+        </div>
+
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:20px_20px]"></div>
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+          <div className="absolute inset-0 opacity-5 bg-[linear-gradient(45deg,#fff_1px,transparent_1px)] [background-size:30px_30px]"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -473,7 +538,7 @@ const AcademicsPage: React.FC = () => {
               ))}
             </div>
 
-            {/* Donation Button - Same as Header */}
+            {/* Donation Button - Exact Same as Header/Footer */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -481,27 +546,7 @@ const AcademicsPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex justify-center mb-6 sm:mb-8"
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-              >
-                <a
-                  href="https://paystack.com/pay/stlouisdemojhs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 relative overflow-hidden px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl bg-red-600 hover:bg-red-700 text-white rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6),0_0_40px_rgba(239,68,68,0.4),0_0_60px_rgba(239,68,68,0.2)] hover:shadow-[0_0_25px_rgba(239,68,68,0.8),0_0_50px_rgba(239,68,68,0.6),0_0_75px_rgba(239,68,68,0.4)]"
-                >
-                  <Heart className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 mr-3 fill-current relative z-10 text-white" />
-                  <span className="relative z-10 font-bold text-white">Donate Now - Transform Education</span>
-
-                  {/* Neon red glowing effect */}
-                  <span className="absolute inset-0 bg-red-500 opacity-40 animate-pulse rounded-full"></span>
-                  <span className="absolute inset-0 bg-red-400 opacity-30 animate-ping rounded-full" style={{ animationDelay: '0.5s' }}></span>
-                  <span className="absolute -inset-1 bg-red-500 opacity-25 blur-md animate-pulse rounded-full" style={{ animationDelay: '1s' }}></span>
-                  <span className="absolute -inset-2 bg-red-600 opacity-15 blur-lg animate-pulse rounded-full" style={{ animationDelay: '1.5s' }}></span>
-                </a>
-              </motion.div>
+              <DonateButton variant="standalone" />
             </motion.div>
 
             {/* Bottom Message */}
