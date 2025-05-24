@@ -223,7 +223,7 @@ const Hero: React.FC = () => {
 
 
       {/* Content - Mobile High, Desktop Low Positioning */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-start sm:items-start md:items-end lg:items-end justify-start pt-16 sm:pt-12 md:pt-0 lg:pt-0 pb-4 sm:pb-8 md:pb-16 lg:pb-24 h-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-start sm:items-start md:items-end lg:items-end justify-start pt-20 sm:pt-16 md:pt-0 lg:pt-0 pb-4 sm:pb-8 md:pb-16 lg:pb-24 h-full">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
