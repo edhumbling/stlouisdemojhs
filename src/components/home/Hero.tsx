@@ -220,35 +220,7 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      {/* Beautiful Shaped Overlay for Text Areas */}
-      <div className="absolute bottom-0 left-0 right-0 z-5">
-        {/* Organic shaped overlay that covers text areas - Mobile optimized */}
-        <div className="relative h-64 sm:h-72 md:h-80 lg:h-96">
-          {/* Main overlay shape */}
-          <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
 
-          {/* Artistic curved overlay */}
-          <div className="absolute bottom-0 left-0 right-0 h-3/4">
-            <svg viewBox="0 0 1200 400" className="w-full h-full">
-              <defs>
-                <linearGradient id="overlayGradient" x1="0%" y1="100%" x2="0%" y2="0%">
-                  <stop offset="0%" stopColor="rgba(0,0,0,0.8)" />
-                  <stop offset="50%" stopColor="rgba(0,0,0,0.5)" />
-                  <stop offset="100%" stopColor="rgba(0,0,0,0)" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M0,400 C300,350 500,320 800,340 C900,350 1000,360 1200,320 L1200,400 Z"
-                fill="url(#overlayGradient)"
-              />
-            </svg>
-          </div>
-
-          {/* Additional artistic elements */}
-          <div className="absolute bottom-16 left-8 w-32 h-32 bg-black/30 rounded-full blur-xl transform -rotate-12"></div>
-          <div className="absolute bottom-24 right-16 w-24 h-24 bg-black/20 rounded-full blur-lg transform rotate-45"></div>
-        </div>
-      </div>
 
       {/* Content - Mobile High, Desktop Low Positioning */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-start sm:items-start md:items-end lg:items-end justify-start pt-16 sm:pt-12 md:pt-0 lg:pt-0 pb-4 sm:pb-8 md:pb-16 lg:pb-24 h-full">
@@ -289,6 +261,16 @@ const Hero: React.FC = () => {
                 <span className="relative z-10">Visit Us</span>
                 <span className="absolute inset-0 bg-green-500 opacity-40 animate-pulse rounded-lg"></span>
                 <span className="absolute inset-0 bg-green-400 opacity-30 animate-ping rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+              </Link>
+
+              <Link
+                to="/news"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(147,51,234,0.6),0_0_40px_rgba(147,51,234,0.4),0_0_60px_rgba(147,51,234,0.2)] hover:shadow-[0_0_25px_rgba(147,51,234,0.8),0_0_50px_rgba(147,51,234,0.6),0_0_75px_rgba(147,51,234,0.4)] transition-all duration-300 text-xs sm:text-sm relative overflow-hidden"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              >
+                <span className="relative z-10">News & Updates</span>
+                <span className="absolute inset-0 bg-purple-500 opacity-40 animate-pulse rounded-lg"></span>
+                <span className="absolute inset-0 bg-purple-400 opacity-30 animate-ping rounded-lg" style={{ animationDelay: '0.5s' }}></span>
               </Link>
 
               <Link
