@@ -1,13 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { staffMembers } from '../data';
-import { Mail } from 'lucide-react';
+import { Mail, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const FacultyPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1); // Go back to previous page
+  };
+
   return (
-    <>
+    <div className="min-h-screen bg-white pt-16">
+      {/* Back Button and Title Section */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Our Faculty & Staff
+            </h1>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="pt-20 pb-12 md:pt-32 md:pb-20 bg-primary-700 text-white">
+      <section className="pt-12 pb-12 md:pt-20 md:pb-20 bg-primary-700 text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -17,7 +43,7 @@ const FacultyPage: React.FC = () => {
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Faculty & Staff</h1>
             <p className="text-lg md:text-xl text-gray-100">
-              Meet the dedicated educators and professionals who make St. Louis 
+              Meet the dedicated educators and professionals who make St. Louis
               Demonstration Junior High School a center of excellence.
             </p>
           </motion.div>
@@ -50,9 +76,9 @@ const FacultyPage: React.FC = () => {
                   className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row"
                 >
                   <div className="md:w-2/5">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
+                    <img
+                      src={member.image}
+                      alt={member.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -97,9 +123,9 @@ const FacultyPage: React.FC = () => {
                   className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="h-64 overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
+                    <img
+                      src={member.image}
+                      alt={member.name}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />
                   </div>
@@ -139,8 +165,8 @@ const FacultyPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-gray-100 mb-8"
             >
-              We're always looking for passionate educators and staff to join our community. 
-              If you're interested in making a difference in the lives of our students, 
+              We're always looking for passionate educators and staff to join our community.
+              If you're interested in making a difference in the lives of our students,
               check out our current openings.
             </motion.p>
             <motion.button
@@ -155,7 +181,7 @@ const FacultyPage: React.FC = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

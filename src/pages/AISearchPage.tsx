@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Search, Globe, Zap, Brain, Sparkles, Bot, Maximize2 } from 'lucide-react';
+import { ArrowLeft, Search, Globe, Zap, Brain, Sparkles, Bot } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Iframe from 'react-iframe';
 
 const AISearchPage: React.FC = () => {
   const navigate = useNavigate();
@@ -38,8 +37,7 @@ const AISearchPage: React.FC = () => {
       description: 'Intelligent AI search platform with advanced reasoning capabilities',
       icon: <Brain className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-teal-600 to-blue-600',
-      glowColor: '#0891b2',
-      needsBrowser: true
+      glowColor: '#0891b2'
     },
     {
       id: 'farfalle',
@@ -86,10 +84,7 @@ const AISearchPage: React.FC = () => {
   };
 
   const handleIframeLoad = () => {
-    // Fast loading - hide loading state quickly
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 50);
+    setIsLoading(false);
   };
 
   const selectedEngineData = aiEngines.find(engine => engine.id === selectedEngine);
@@ -119,64 +114,27 @@ const AISearchPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Native Browser Experience or Regular Iframe */}
-        <div className="w-full h-full pt-16 relative bg-white">
-          {selectedEngineData.needsBrowser ? (
-            <>
-              {/* Browser-like Address Bar */}
-              <div className="absolute top-16 left-0 right-0 bg-gray-100 border-b border-gray-300 px-4 py-2 z-10">
-                <div className="flex items-center gap-3">
-                  <Globe className="w-4 h-4 text-gray-500" />
-                  <div className="flex-1 bg-white rounded-md px-3 py-1 text-sm text-gray-600 border border-gray-300 truncate">
-                    {selectedEngineData.url}
-                  </div>
-                  <Maximize2 className="w-4 h-4 text-gray-500" />
-                </div>
-              </div>
+        {/* Full viewport iframe - No footer */}
+        <div className="w-full h-full pt-16 relative">
+          <iframe
+            src={selectedEngineData.url}
+            className="w-full h-full border-0"
+            title={selectedEngineData.name}
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
+            onLoad={handleIframeLoad}
+            style={selectedEngineData.hasWhiteBackground ? {
+              filter: 'invert(1) hue-rotate(180deg)',
+              background: 'white'
+            } : {}}
+          />
 
-              {/* Enhanced Iframe with Browser */}
-              <Iframe
-                url={selectedEngineData.url}
-                width="100%"
-                height="100%"
-                className="border-0"
-                display="block"
-                position="relative"
-                allowFullScreen
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads"
-                onLoad={handleIframeLoad}
-                loading="eager"
-                styles={{
-                  backgroundColor: 'white',
-                  colorScheme: 'light',
-                  marginTop: '40px'
-                }}
-              />
-            </>
-          ) : (
-            /* Regular Iframe */
-            <iframe
-              src={selectedEngineData.url}
-              className="w-full h-full border-0"
-              title={selectedEngineData.name}
-              sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads"
-              onLoad={handleIframeLoad}
-              loading="eager"
-              style={selectedEngineData.hasWhiteBackground ? {
-                filter: 'invert(1) hue-rotate(180deg)',
-                background: 'white'
-              } : {
-                background: 'white'
-              }}
-            />
-          )}
-
-          {/* Fast Loading Overlay */}
+          {/* Loading Overlay */}
           {isLoading && (
-            <div className="absolute inset-0 bg-white/90 backdrop-blur-md flex items-center justify-center z-20 transition-opacity duration-200">
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-20">
               <div className="text-center">
-                <div className="w-8 h-8 border-3 border-gray-300 border-t-purple-600 rounded-full animate-spin mx-auto mb-3"></div>
-                <p className="text-gray-800 font-medium text-sm">Loading {selectedEngineData.name}...</p>
+                <div className="w-12 h-12 border-4 border-gray-300 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-gray-800 font-medium">Loading {selectedEngineData.name}...</p>
+                <p className="text-gray-600 text-sm mt-1">Please wait while we load the AI search engine</p>
               </div>
             </div>
           )}
@@ -186,9 +144,9 @@ const AISearchPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black pt-16">
       {/* Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 mt-16">
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
