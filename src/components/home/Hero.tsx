@@ -170,9 +170,9 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      {/* Content - Organized Overlay */}
+      {/* Content - Clean Overlay */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-5xl">
+        <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -180,58 +180,37 @@ const Hero: React.FC = () => {
             className="text-white"
           >
             {/* Main Heading */}
-            <div className="mb-6 md:mb-8">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
-                Excellence in<br />
-                <span className="text-yellow-400 drop-shadow-lg">Education</span>
-              </h1>
-            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
+              Where Giants Begin
+            </h1>
 
-            {/* Subtitle Section - Compact & Organized */}
-            <div className="max-w-3xl mb-8 md:mb-10">
-              <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-2 md:mb-3 text-yellow-100 leading-relaxed font-medium">
-                  Nurturing minds and shaping futures since 1977.
-                </p>
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-200 leading-relaxed">
-                  Where academic excellence meets character development in the heart of Kumasi.
-                </p>
-              </div>
-            </div>
+            {/* Subtext */}
+            <p className="text-sm sm:text-base md:text-lg text-gray-200 mb-8 max-w-2xl">
+              Educating the Next Generation of Ghana's Brightest since 1977
+            </p>
 
-            {/* Super Cute Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-lg">
+            {/* Crisp School-Colored Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 to="/about"
-                className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 text-sm sm:text-base overflow-hidden"
+                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
               >
-                {/* Cute shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                <span className="relative z-10 flex items-center">
-                  ✨ Discover Our Story
-                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
+                Our Story
               </Link>
 
               <Link
                 to="/contact"
-                className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/15 backdrop-blur-md text-white font-semibold rounded-full border-2 border-white/40 shadow-xl hover:bg-white/25 hover:border-white/60 hover:shadow-2xl transition-all duration-300 text-sm sm:text-base"
+                className="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
               >
-                <span className="relative z-10 flex items-center">
-                  🏫 Visit Our Campus
-                </span>
-                {/* Cute glow effect */}
-                <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                Visit Us
               </Link>
-            </div>
 
-            {/* School Badge/Motto - Cute Addition */}
-            <div className="mt-8 md:mt-10">
-              <div className="inline-flex items-center bg-gradient-to-r from-blue-500/20 to-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30">
-                <span className="text-xs sm:text-sm text-white/90 font-medium">
-                  🎓 "The Best Amongst the Rest" • Est. 1977
-                </span>
-              </div>
+              <Link
+                to="/donate"
+                className="inline-flex items-center justify-center px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
+              >
+                Donate to Support
+              </Link>
             </div>
           </motion.div>
         </div>
