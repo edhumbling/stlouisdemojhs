@@ -39,7 +39,8 @@ const ProgramsSection: React.FC = () => {
                 'French',
                 'Career Technology',
                 'Computing (ICT)',
-                'Creative Arts & Design'
+                'Creative Arts & Design',
+                'Music'
               ].map((subject, index) => (
                 <motion.div
                   key={subject}

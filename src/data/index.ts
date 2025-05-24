@@ -124,19 +124,19 @@ export const programs: Program[] = [
     id: 1,
     title: 'Core Academic Subjects',
     description: 'English Language, Mathematics, Integrated Science, and Social Studies form the foundation of our rigorous academic curriculum, developing critical thinking and analytical skills.',
-    image: 'https://images.pexels.com/photos/4260325/pexels-photo-4260325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?updatedAt=1748101842702'
   },
   {
     id: 2,
     title: 'Technology & Computing',
     description: 'Computing (ICT) and Career Technology (formerly BDT) prepare students for the digital age with hands-on experience in technology, design, and innovation.',
-    image: 'https://images.pexels.com/photos/8636603/pexels-photo-8636603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6993.HEIC'
   },
   {
     id: 3,
     title: 'Cultural & Creative Arts',
-    description: 'Creative Arts and Design, Ghanaian Language and Culture (Asante Twi), and French foster creativity, cultural awareness, and global communication skills.',
-    image: 'https://images.pexels.com/photos/7520697/pexels-photo-7520697.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    description: 'Creative Arts and Design, Music, Ghanaian Language and Culture (Asante Twi), and French foster creativity, cultural awareness, and global communication skills.',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7058.HEIC'
   },
   {
     id: 4,
