@@ -18,9 +18,9 @@ const Hero: React.FC = () => {
     },
     {
       url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MRZwFWWpo7s1MlWNERCjA3OUSQ9nHvY65ui4I',
-      isPortrait: false, // Landscape image
-      mobilePosition: 'center 35%', // Standard positioning
-      desktopPosition: 'center 30%' // Standard positioning
+      isPortrait: true, // Portrait image with students holding books
+      mobilePosition: 'center 75%', // Show students from beneath on mobile
+      desktopPosition: 'center 70%' // Show students from beneath on desktop
     },
     {
       url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mwf9R6zhW0NcVsvA1quWUypQ6IChZY53j4PSK',
@@ -63,7 +63,8 @@ const Hero: React.FC = () => {
       link.rel = 'preload';
       link.as = 'image';
       link.href = image.url;
-      if (index === 0) {
+      // High priority for first two images for faster slideshow start
+      if (index <= 1) {
         link.fetchPriority = 'high';
       }
       document.head.appendChild(link);
@@ -89,8 +90,8 @@ const Hero: React.FC = () => {
           img.onload = () => resolve(img);
           img.onerror = reject;
           img.src = image.url;
-          // Set priority for first image
-          if (index === 0) {
+          // High priority for first two images for faster slideshow
+          if (index <= 1) {
             img.fetchPriority = 'high';
           }
         });
@@ -111,14 +112,13 @@ const Hero: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!imagesLoaded) return;
-
+    // Start slideshow immediately, don't wait for all images to load
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 5000); // Change image every 5 seconds (faster with more images)
+    }, 4000); // Faster slideshow - 4 seconds per image
 
     return () => clearInterval(interval);
-  }, [images.length, imagesLoaded]);
+  }, [images.length]);
 
   return (
     <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden">
@@ -143,11 +143,12 @@ const Hero: React.FC = () => {
             <img
               src={image.url}
               alt={`St. Louis Demonstration Junior High School ${index + 1}`}
-              className="w-full h-full object-cover transition-opacity duration-500"
-              loading={index === 0 ? "eager" : "lazy"}
+              className="w-full h-full object-cover transition-opacity duration-300"
+              loading={index <= 1 ? "eager" : "lazy"} // Eager load first two images
               decoding="async"
+              fetchPriority={index <= 1 ? "high" : "auto"}
               onLoad={(e) => {
-                // Smooth fade-in when image loads
+                // Faster fade-in when image loads
                 e.currentTarget.style.opacity = '1';
               }}
               style={{
@@ -169,62 +170,98 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      {/* Content */}
+      {/* Content - Organized Overlay */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight">
-              Excellence in<br />
-              <span className="text-yellow-400">Education</span>
-            </h1>
-
-            <div className="max-w-2xl mb-8 md:mb-12">
-              <p className="text-lg sm:text-xl md:text-2xl mb-4 text-gray-100 leading-relaxed">
-                Nurturing minds and shaping futures since 1977.
-              </p>
-              <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed">
-                Where academic excellence meets character development in the heart of Kumasi.
-              </p>
+            {/* Main Heading */}
+            <div className="mb-6 md:mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
+                Excellence in<br />
+                <span className="text-yellow-400 drop-shadow-lg">Education</span>
+              </h1>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            {/* Subtitle Section - Compact & Organized */}
+            <div className="max-w-3xl mb-8 md:mb-10">
+              <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-white/20">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-2 md:mb-3 text-yellow-100 leading-relaxed font-medium">
+                  Nurturing minds and shaping futures since 1977.
+                </p>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-200 leading-relaxed">
+                  Where academic excellence meets character development in the heart of Kumasi.
+                </p>
+              </div>
+            </div>
+
+            {/* Super Cute Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-lg">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-yellow-500 text-black font-semibold rounded-full shadow-xl hover:bg-yellow-400 hover:shadow-2xl transition-all duration-300 text-base sm:text-lg group"
+                className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 text-sm sm:text-base overflow-hidden"
               >
-                Discover Our Story
-                <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                {/* Cute shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <span className="relative z-10 flex items-center">
+                  ✨ Discover Our Story
+                  <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
               </Link>
+
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/30 shadow-xl hover:bg-white/20 hover:border-white/50 transition-all duration-300 text-base sm:text-lg"
+                className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/15 backdrop-blur-md text-white font-semibold rounded-full border-2 border-white/40 shadow-xl hover:bg-white/25 hover:border-white/60 hover:shadow-2xl transition-all duration-300 text-sm sm:text-base"
               >
-                Visit Our Campus
+                <span className="relative z-10 flex items-center">
+                  🏫 Visit Our Campus
+                </span>
+                {/* Cute glow effect */}
+                <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
+            </div>
+
+            {/* School Badge/Motto - Cute Addition */}
+            <div className="mt-8 md:mt-10">
+              <div className="inline-flex items-center bg-gradient-to-r from-blue-500/20 to-green-500/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30">
+                <span className="text-xs sm:text-sm text-white/90 font-medium">
+                  🎓 "The Best Amongst the Rest" • Est. 1977
+                </span>
+              </div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Image indicators */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImage(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentImage
-                ? 'bg-yellow-400 scale-125'
-                : 'bg-white/50 hover:bg-white/70'
-            }`}
-            aria-label={`View image ${index + 1}`}
-          />
-        ))}
+      {/* Super Cute Image Indicators */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="bg-black/30 backdrop-blur-sm rounded-full px-4 py-3 border border-white/20">
+          <div className="flex space-x-3">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImage(index)}
+                className={`relative w-3 h-3 rounded-full transition-all duration-300 group ${
+                  index === currentImage
+                    ? 'bg-yellow-400 scale-125 shadow-lg shadow-yellow-400/50'
+                    : 'bg-white/50 hover:bg-white/70 hover:scale-110'
+                }`}
+                aria-label={`View image ${index + 1}`}
+              >
+                {/* Cute pulse effect for active indicator */}
+                {index === currentImage && (
+                  <div className="absolute inset-0 rounded-full bg-yellow-400 animate-ping opacity-30"></div>
+                )}
+                {/* Cute hover glow */}
+                <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
