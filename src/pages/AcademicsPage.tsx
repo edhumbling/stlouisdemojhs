@@ -85,131 +85,155 @@ const AcademicsPage: React.FC = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center max-w-6xl mx-auto">
-            {/* Text Content */}
+            {/* Text Content - Professional & Organized */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center lg:text-left order-2 lg:order-1"
+              className="text-center lg:text-left order-2 lg:order-1 space-y-4 sm:space-y-6 lg:space-y-8"
             >
-              <motion.h1
+              {/* Main Heading */}
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6"
-                style={{ fontFamily: 'Arial, sans-serif' }}
+                className="space-y-2 sm:space-y-3"
               >
-                Academic Excellence at St. Louis Demonstration JHS
-              </motion.h1>
-              <motion.p
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white"
+                    style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                  Academic Excellence at
+                </h1>
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight text-yellow-300"
+                    style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                  St. Louis Demonstration JHS
+                </h2>
+              </motion.div>
+
+              {/* Description */}
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-100 leading-relaxed mb-4 lg:mb-6"
+                className="max-w-2xl mx-auto lg:mx-0"
               >
-                Our comprehensive curriculum develops well-rounded students through rigorous academics, technology integration, and character formation since 1977.
-              </motion.p>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 leading-relaxed"
+                   style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  Our comprehensive curriculum develops well-rounded students through rigorous academics,
+                  technology integration, and character formation since 1977.
+                </p>
+              </motion.div>
 
               {/* Achievement Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="inline-flex items-center gap-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-3 py-1.5 sm:px-4 sm:py-2"
+                className="flex justify-center lg:justify-start"
               >
-                <span className="text-yellow-400 text-sm sm:text-base">🏆</span>
-                <span className="text-yellow-300 text-xs sm:text-sm font-semibold">Award-Winning Institution</span>
+                <div className="inline-flex items-center gap-2 sm:gap-3 bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-4 py-2 sm:px-6 sm:py-3 shadow-lg">
+                  <span className="text-yellow-400 text-lg sm:text-xl">🏆</span>
+                  <span className="text-yellow-300 text-sm sm:text-base font-semibold">Award-Winning Institution</span>
+                </div>
+              </motion.div>
+
+              {/* Key Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-lg mx-auto lg:mx-0"
+              >
+                <div className="text-center lg:text-left">
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-yellow-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                    47+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-300">Years Excellence</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-blue-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                    11
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-300">Core Subjects</div>
+                </div>
+                <div className="text-center lg:text-left col-span-2 sm:col-span-1">
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-green-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                    500+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-300">Students Served</div>
+                </div>
               </motion.div>
             </motion.div>
 
-            {/* Awards Collection - Tree Branch Layout */}
+            {/* Awards Collection - Professional Layout */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex justify-center lg:justify-end order-1 lg:order-2"
             >
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem]">
-                {/* Global Glow Effect */}
-                <div className="absolute inset-0 bg-yellow-400/15 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-125"></div>
-
-                {/* Main Award (Center-Right) */}
+              <div className="relative">
+                {/* Certificate Award (Top) */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  initial={{ opacity: 0, y: -20, rotate: -5 }}
+                  animate={{ opacity: 1, y: 0, rotate: -3 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
-                  className="absolute top-1/2 right-0 transform -translate-y-1/2 group"
+                  className="relative z-10 mb-4"
                 >
-                  <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-2 sm:p-3 md:p-4 border border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:scale-105 rotate-3 hover:rotate-0">
-                    <img
-                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.50_8a783049.png?updatedAt=1748113864722"
-                      alt="Academic Excellence Award - St. Louis Demonstration JHS"
-                      className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain mx-auto drop-shadow-2xl"
-                    />
-                    {/* Floating Particles */}
-                    <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-yellow-400/60 rounded-full animate-ping"></div>
-                    <div className="absolute bottom-2 left-2 w-1 h-1 bg-yellow-300/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                  </div>
-                </motion.div>
-
-                {/* Second Award (Top-Left, Overlapping) */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8, rotate: 15 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 10 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                  className="absolute top-8 left-4 sm:top-12 sm:left-8 md:top-16 md:left-12 group z-10"
-                >
-                  <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-2 sm:p-3 md:p-4 border border-white/20 hover:border-blue-400/50 transition-all duration-500 hover:scale-105 -rotate-12 hover:-rotate-6">
-                    <img
-                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.49_8e4315da.png?updatedAt=1748114499850"
-                      alt="Achievement Award - St. Louis Demonstration JHS"
-                      className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain mx-auto drop-shadow-2xl"
-                    />
-                    {/* Floating Particles */}
-                    <div className="absolute top-1 right-1 w-1 h-1 bg-blue-400/60 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
-                    <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-blue-300/40 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-                  </div>
-                </motion.div>
-
-                {/* Third Award (Bottom-Center, Overlapping) */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                  animate={{ opacity: 1, scale: 1, rotate: -8 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
-                  className="absolute bottom-4 left-1/2 transform -translate-x-1/2 sm:bottom-8 md:bottom-12 group z-20"
-                >
-                  <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-2 sm:p-3 md:p-4 border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:scale-105 rotate-6 hover:rotate-2">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20 hover:border-blue-400/50 transition-all duration-500 hover:scale-105 transform -rotate-3 hover:rotate-0 shadow-xl">
                     <img
                       src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2015.25.49_a13217f5.png?updatedAt=1748114499952"
-                      alt="Recognition Award - St. Louis Demonstration JHS"
-                      className="w-18 h-18 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain mx-auto drop-shadow-2xl"
+                      alt="Recognition Certificate - St. Louis Demonstration JHS"
+                      className="w-32 h-24 sm:w-40 sm:h-32 md:w-48 md:h-36 lg:w-56 lg:h-42 object-contain mx-auto drop-shadow-2xl"
                     />
                     {/* Floating Particles */}
-                    <div className="absolute top-1 left-1 w-1 h-1 bg-green-400/60 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
-                    <div className="absolute bottom-2 right-1 w-1.5 h-1.5 bg-green-300/40 rounded-full animate-pulse" style={{ animationDelay: '0.8s' }}></div>
+                    <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-blue-400/60 rounded-full animate-ping"></div>
                   </div>
                 </motion.div>
 
-                {/* Connecting Lines (Tree Branch Effect) */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" viewBox="0 0 400 400">
-                  <motion.path
-                    d="M200 200 Q150 120 80 80 M200 200 Q250 300 200 350 M200 200 Q320 180 380 200"
-                    stroke="rgba(251, 191, 36, 0.3)"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeDasharray="5,5"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 2, delay: 1.2 }}
-                  />
-                </svg>
+                {/* Trophy Award (Center-Right) */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20, rotate: 5 }}
+                  animate={{ opacity: 1, x: 0, rotate: 2 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                  className="relative z-20 ml-8 sm:ml-12 md:ml-16"
+                >
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 md:p-6 border border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:scale-105 transform rotate-2 hover:rotate-0 shadow-xl">
+                    <img
+                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.50_8a783049.png?updatedAt=1748113864722"
+                      alt="Academic Excellence Trophy - St. Louis Demonstration JHS"
+                      className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain mx-auto drop-shadow-2xl"
+                    />
+                    {/* Floating Particles */}
+                    <div className="absolute top-2 right-2 w-2 h-2 bg-yellow-400/60 rounded-full animate-ping"></div>
+                    <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-yellow-300/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  </div>
+                </motion.div>
+
+                {/* Plaque Award (Bottom-Left, Overlapping) */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20, rotate: 8 }}
+                  animate={{ opacity: 1, y: 0, rotate: 5 }}
+                  transition={{ duration: 0.8, delay: 0.9 }}
+                  className="relative z-30 -mt-6 sm:-mt-8 md:-mt-10 -ml-4 sm:-ml-6"
+                >
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:scale-105 transform rotate-5 hover:rotate-1 shadow-xl">
+                    <img
+                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.49_8e4315da.png?updatedAt=1748114499850"
+                      alt="Achievement Plaque - St. Louis Demonstration JHS"
+                      className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 object-contain mx-auto drop-shadow-2xl"
+                    />
+                    {/* Floating Particles */}
+                    <div className="absolute top-1 left-1 w-1 h-1 bg-green-400/60 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-green-300/40 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                  </div>
+                </motion.div>
 
                 {/* Awards Label */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.4 }}
-                  className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-600 via-blue-600 to-green-600 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-lg"
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                  className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-600 via-blue-600 to-green-600 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-lg whitespace-nowrap"
                 >
                   🏆 Award-Winning Excellence 🏆
                 </motion.div>
