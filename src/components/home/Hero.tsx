@@ -167,8 +167,8 @@ const Hero: React.FC = () => {
 
       {/* Beautiful Shaped Overlay for Text Areas */}
       <div className="absolute bottom-0 left-0 right-0 z-5">
-        {/* Organic shaped overlay that covers text areas */}
-        <div className="relative h-80 md:h-96">
+        {/* Organic shaped overlay that covers text areas - Mobile optimized */}
+        <div className="relative h-64 sm:h-72 md:h-80 lg:h-96">
           {/* Main overlay shape */}
           <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
 
@@ -195,8 +195,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Content - Clean Text - Positioned Lower */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-end pb-20 md:pb-24 h-full">
+      {/* Content - Clean Text - Mobile Optimized Positioning */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-end pb-12 sm:pb-16 md:pb-20 lg:pb-24 h-full">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -204,37 +204,46 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white"
           >
-            {/* Main Heading - Clean */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>
-              The <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse">Leading</span> Forces in Excellent & Wholistic <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse">Education</span>
+            {/* Main Heading - Dark Glow - Mobile Compact */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2 sm:mb-3 drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6)' }}>
+              The <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.8)' }}>Leading</span> Forces in Excellent & Wholistic <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.8)' }}>Education</span>
             </h1>
 
-            {/* Subtext - Clean */}
-            <p className="text-xs sm:text-sm md:text-base text-gray-100 mb-6 max-w-2xl">
+            {/* Subtext - Dark Glow - Mobile Compact */}
+            <p className="text-xs sm:text-sm md:text-base text-gray-100 mb-4 sm:mb-6 max-w-2xl drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
               Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
             </p>
 
-            {/* Neon Glowing Buttons - Horizontal on Mobile */}
+            {/* Deep Color Glowing Buttons - Horizontal on Mobile */}
             <div className="flex flex-row gap-2 sm:gap-3">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-blue-600/40 backdrop-blur-sm border-2 border-blue-400/60 hover:bg-blue-600/60 hover:border-blue-400/80 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:shadow-[0_0_30px_rgba(59,130,246,0.8)] transition-all duration-300 text-xs sm:text-sm neon-blue-glow"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.6),0_0_40px_rgba(59,130,246,0.4),0_0_60px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8),0_0_50px_rgba(59,130,246,0.6),0_0_75px_rgba(59,130,246,0.4)] transition-all duration-300 text-xs sm:text-sm relative overflow-hidden"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
-                Our Story
+                <span className="relative z-10">Our Story</span>
+                <span className="absolute inset-0 bg-blue-500 opacity-40 animate-pulse rounded-lg"></span>
+                <span className="absolute inset-0 bg-blue-400 opacity-30 animate-ping rounded-lg" style={{ animationDelay: '0.5s' }}></span>
               </Link>
 
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-green-600/40 backdrop-blur-sm border-2 border-green-400/60 hover:bg-green-600/60 hover:border-green-400/80 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300 text-xs sm:text-sm neon-green-glow"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(34,197,94,0.6),0_0_40px_rgba(34,197,94,0.4),0_0_60px_rgba(34,197,94,0.2)] hover:shadow-[0_0_25px_rgba(34,197,94,0.8),0_0_50px_rgba(34,197,94,0.6),0_0_75px_rgba(34,197,94,0.4)] transition-all duration-300 text-xs sm:text-sm relative overflow-hidden"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
-                Visit Us
+                <span className="relative z-10">Visit Us</span>
+                <span className="absolute inset-0 bg-green-500 opacity-40 animate-pulse rounded-lg"></span>
+                <span className="absolute inset-0 bg-green-400 opacity-30 animate-ping rounded-lg" style={{ animationDelay: '0.5s' }}></span>
               </Link>
 
               <Link
                 to="/donate"
-                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-red-600/40 backdrop-blur-sm border-2 border-red-400/60 hover:bg-red-600/60 hover:border-red-400/80 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(239,68,68,0.6)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 text-xs sm:text-sm neon-red-glow"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(239,68,68,0.6),0_0_40px_rgba(239,68,68,0.4),0_0_60px_rgba(239,68,68,0.2)] hover:shadow-[0_0_25px_rgba(239,68,68,0.8),0_0_50px_rgba(239,68,68,0.6),0_0_75px_rgba(239,68,68,0.4)] transition-all duration-300 text-xs sm:text-sm relative overflow-hidden"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
-                Donate
+                <span className="relative z-10">Donate</span>
+                <span className="absolute inset-0 bg-red-500 opacity-40 animate-pulse rounded-lg"></span>
+                <span className="absolute inset-0 bg-red-400 opacity-30 animate-ping rounded-lg" style={{ animationDelay: '0.5s' }}></span>
               </Link>
             </div>
           </motion.div>
