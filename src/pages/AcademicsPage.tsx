@@ -122,39 +122,96 @@ const AcademicsPage: React.FC = () => {
               </motion.div>
             </motion.div>
 
-            {/* Award Image */}
+            {/* Awards Collection - Tree Branch Layout */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex justify-center lg:justify-end order-1 lg:order-2"
             >
-              <div className="relative group">
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-110"></div>
+              <div className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[32rem] lg:h-[32rem]">
+                {/* Global Glow Effect */}
+                <div className="absolute inset-0 bg-yellow-400/15 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-125"></div>
 
-                {/* Image Container */}
-                <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-4 md:p-6 border border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:scale-105">
-                  <img
-                    src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.50_8a783049.png?updatedAt=1748113864722"
-                    alt="Academic Excellence Award - St. Louis Demonstration JHS"
-                    className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 object-contain mx-auto drop-shadow-2xl"
+                {/* Main Award (Center-Right) */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="absolute top-1/2 right-0 transform -translate-y-1/2 group"
+                >
+                  <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-2 sm:p-3 md:p-4 border border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:scale-105 rotate-3 hover:rotate-0">
+                    <img
+                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.50_8a783049.png?updatedAt=1748113864722"
+                      alt="Academic Excellence Award - St. Louis Demonstration JHS"
+                      className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain mx-auto drop-shadow-2xl"
+                    />
+                    {/* Floating Particles */}
+                    <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-yellow-400/60 rounded-full animate-ping"></div>
+                    <div className="absolute bottom-2 left-2 w-1 h-1 bg-yellow-300/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  </div>
+                </motion.div>
+
+                {/* Second Award (Top-Left, Overlapping) */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, rotate: 15 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 10 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                  className="absolute top-8 left-4 sm:top-12 sm:left-8 md:top-16 md:left-12 group z-10"
+                >
+                  <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-2 sm:p-3 md:p-4 border border-white/20 hover:border-blue-400/50 transition-all duration-500 hover:scale-105 -rotate-12 hover:-rotate-6">
+                    <img
+                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.49_8e4315da.png?updatedAt=1748114499850"
+                      alt="Achievement Award - St. Louis Demonstration JHS"
+                      className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain mx-auto drop-shadow-2xl"
+                    />
+                    {/* Floating Particles */}
+                    <div className="absolute top-1 right-1 w-1 h-1 bg-blue-400/60 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="absolute bottom-1 left-1 w-1.5 h-1.5 bg-blue-300/40 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                  </div>
+                </motion.div>
+
+                {/* Third Award (Bottom-Center, Overlapping) */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                  animate={{ opacity: 1, scale: 1, rotate: -8 }}
+                  transition={{ duration: 0.8, delay: 0.9 }}
+                  className="absolute bottom-4 left-1/2 transform -translate-x-1/2 sm:bottom-8 md:bottom-12 group z-20"
+                >
+                  <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-2 sm:p-3 md:p-4 border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:scale-105 rotate-6 hover:rotate-2">
+                    <img
+                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2015.25.49_a13217f5.png?updatedAt=1748114499952"
+                      alt="Recognition Award - St. Louis Demonstration JHS"
+                      className="w-18 h-18 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain mx-auto drop-shadow-2xl"
+                    />
+                    {/* Floating Particles */}
+                    <div className="absolute top-1 left-1 w-1 h-1 bg-green-400/60 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+                    <div className="absolute bottom-2 right-1 w-1.5 h-1.5 bg-green-300/40 rounded-full animate-pulse" style={{ animationDelay: '0.8s' }}></div>
+                  </div>
+                </motion.div>
+
+                {/* Connecting Lines (Tree Branch Effect) */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" viewBox="0 0 400 400">
+                  <motion.path
+                    d="M200 200 Q150 120 80 80 M200 200 Q250 300 200 350 M200 200 Q320 180 380 200"
+                    stroke="rgba(251, 191, 36, 0.3)"
+                    strokeWidth="2"
+                    fill="none"
+                    strokeDasharray="5,5"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 2, delay: 1.2 }}
                   />
+                </svg>
 
-                  {/* Floating Particles */}
-                  <div className="absolute top-2 right-2 w-2 h-2 bg-yellow-400/60 rounded-full animate-ping"></div>
-                  <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-yellow-300/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                  <div className="absolute top-1/2 right-1 w-1 h-1 bg-yellow-500/50 rounded-full animate-bounce" style={{ animationDelay: '2s' }}></div>
-                </div>
-
-                {/* Award Label */}
+                {/* Awards Label */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-600 to-yellow-500 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-lg"
+                  transition={{ duration: 0.6, delay: 1.4 }}
+                  className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-600 via-blue-600 to-green-600 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-lg"
                 >
-                  Excellence Award
+                  🏆 Award-Winning Excellence 🏆
                 </motion.div>
               </div>
             </motion.div>
