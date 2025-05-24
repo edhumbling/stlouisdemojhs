@@ -255,13 +255,13 @@ const STEMPage: React.FC = () => {
                     href={resource.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block bg-white rounded-xl p-4 border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-md group"
+                    className="block bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 group"
                   >
                     <div className="flex items-center justify-between">
-                      <h3 className="text-sm sm:text-base font-medium text-gray-900 group-hover:text-blue-600 transition-colors leading-tight">
+                      <h3 className="text-sm sm:text-base font-medium text-white group-hover:text-blue-400 transition-colors leading-tight">
                         {resource.name}
                       </h3>
-                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-2" />
+                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-400 transition-colors flex-shrink-0 ml-2" />
                     </div>
                   </a>
                 </motion.div>
@@ -331,7 +331,7 @@ const STEMPage: React.FC = () => {
                 className="group"
               >
                 <div
-                  className="w-full bg-white rounded-2xl p-3 sm:p-4 border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-md cursor-pointer"
+                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 cursor-pointer"
                   onClick={() => handleCategoryClick(category)}
                 >
                   {/* Icon */}
@@ -343,12 +343,12 @@ const STEMPage: React.FC = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1 leading-tight group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight group-hover:text-blue-400 transition-colors">
                     {category.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-500 leading-tight mb-3">
+                  <p className="text-xs sm:text-sm text-gray-300 leading-tight mb-3">
                     {category.description}
                   </p>
 
@@ -360,7 +360,7 @@ const STEMPage: React.FC = () => {
                         href={resource.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block text-xs text-blue-600 hover:text-blue-800 hover:underline transition-colors truncate"
+                        className="block text-xs text-blue-400 hover:text-blue-300 hover:underline transition-colors truncate"
                         onClick={(e) => e.stopPropagation()}
                       >
                         {resource.name}
@@ -371,12 +371,12 @@ const STEMPage: React.FC = () => {
                   {/* View All Link */}
                   <div className="flex items-center justify-between">
                     {category.resources.length > 3 && (
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-gray-500">
                         +{category.resources.length - 3} more
                       </span>
                     )}
                     <button
-                      className="text-xs text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                      className="text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleCategoryClick(category);

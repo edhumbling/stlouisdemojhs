@@ -91,8 +91,11 @@ const AISearchPage: React.FC = () => {
 
   // If an engine is selected, show the full-page iframe view - Like LearnHub
   if (selectedEngine && selectedEngineData) {
+    // Use white background for Index.Globe, dark for others
+    const containerBg = selectedEngineData.hasWhiteBackground ? 'bg-white' : 'bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900';
+
     return (
-      <div className="fixed inset-0 z-50 bg-white">
+      <div className={`fixed inset-0 z-50 ${containerBg}`}>
         {/* Header - Original Style */}
         <div className="fixed top-0 left-0 right-0 z-10 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
@@ -189,7 +192,7 @@ const AISearchPage: React.FC = () => {
               >
                 <button
                   onClick={() => handleEngineClick(engine.id)}
-                  className="w-full bg-white rounded-2xl p-3 sm:p-4 border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-md active:scale-95 text-left"
+                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left"
                 >
                   {/* Icon */}
                   <div
@@ -202,12 +205,12 @@ const AISearchPage: React.FC = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1 leading-tight">
+                  <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
                     {engine.name}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-500 leading-tight">
+                  <p className="text-xs sm:text-sm text-gray-300 leading-tight">
                     {engine.description}
                   </p>
                 </button>
