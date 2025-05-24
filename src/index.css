@@ -94,7 +94,16 @@
   }
 
   .glass-dark {
-    @apply bg-zinc-950/70 backdrop-blur-md border border-white/5;
+    @apply bg-zinc-950/80 backdrop-blur-xl border border-white/10;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+
+  .glass-homepage {
+    @apply bg-black/85 backdrop-blur-2xl border-b border-white/20;
+    backdrop-filter: blur(24px) saturate(200%) brightness(120%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%) brightness(120%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -122,6 +131,22 @@
 
 body {
   @apply bg-black text-white;
+  /* Prevent white flash/edge blinking */
+  background-color: #000000 !important;
+  overflow-x: hidden;
+}
+
+/* Prevent white edges and layout shifts */
+html {
+  background-color: #000000 !important;
+  overflow-x: hidden;
+}
+
+/* Smooth header transitions */
+header {
+  will-change: background-color, backdrop-filter, box-shadow;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .bg-white {
