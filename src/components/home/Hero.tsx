@@ -10,8 +10,36 @@ const Hero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const images = [
-    'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MvnyEMdmbxU06Mca57V3tJ1r8NOShqgZsCH9p',
-    'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MRZwFWWpo7s1MlWNERCjA3OUSQ9nHvY65ui4I'
+    {
+      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MvnyEMdmbxU06Mca57V3tJ1r8NOShqgZsCH9p',
+      isPortrait: true, // This image needs bottom portion visible
+      mobilePosition: 'center 70%', // Show more of the bottom on mobile
+      desktopPosition: 'center 65%' // Show more of the bottom on desktop
+    },
+    {
+      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MRZwFWWpo7s1MlWNERCjA3OUSQ9nHvY65ui4I',
+      isPortrait: false, // Landscape image
+      mobilePosition: 'center 35%', // Standard positioning
+      desktopPosition: 'center 30%' // Standard positioning
+    },
+    {
+      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mwf9R6zhW0NcVsvA1quWUypQ6IChZY53j4PSK',
+      isPortrait: false, // Landscape image
+      mobilePosition: 'center 40%', // Slightly lower for better composition
+      desktopPosition: 'center 35%' // Balanced positioning
+    },
+    {
+      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MC9tZ4UzDLioRYz5qf92ZpIJwTgmKdEu6AcFh',
+      isPortrait: false, // Landscape image
+      mobilePosition: 'center 45%', // Show middle portion
+      desktopPosition: 'center 40%' // Balanced view
+    },
+    {
+      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MSsSuPjLzTgIL0eaoWJ8UQBqvRNFysYxGXktA',
+      isPortrait: false, // Landscape image
+      mobilePosition: 'center 35%', // Standard positioning
+      desktopPosition: 'center 30%' // Standard positioning
+    }
   ];
 
   // Handle responsive design
@@ -30,11 +58,11 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const preloadLinks: HTMLLinkElement[] = [];
 
-    images.forEach((src, index) => {
+    images.forEach((image, index) => {
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
-      link.href = src;
+      link.href = image.url;
       if (index === 0) {
         link.fetchPriority = 'high';
       }
@@ -55,12 +83,12 @@ const Hero: React.FC = () => {
   // Preload images for better performance
   useEffect(() => {
     const preloadImages = async () => {
-      const imagePromises = images.map((src, index) => {
+      const imagePromises = images.map((image, index) => {
         return new Promise<HTMLImageElement>((resolve, reject) => {
           const img = new Image();
           img.onload = () => resolve(img);
           img.onerror = reject;
-          img.src = src;
+          img.src = image.url;
           // Set priority for first image
           if (index === 0) {
             img.fetchPriority = 'high';
@@ -87,26 +115,19 @@ const Hero: React.FC = () => {
 
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 6000); // Change image every 6 seconds
+    }, 5000); // Change image every 5 seconds (faster with more images)
 
     return () => clearInterval(interval);
   }, [images.length, imagesLoaded]);
 
   return (
     <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden">
-      {/* Loading State */}
-      {!imagesLoaded && (
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black flex items-center justify-center">
-          <div className="text-center text-white">
-            <div className="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-lg font-medium">Loading...</p>
-          </div>
-        </div>
-      )}
-
       {/* Background Images with Overlay */}
       <div className="absolute inset-0">
-        {imagesLoaded && images.map((image, index) => (
+        {/* Fallback gradient background while images load */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black"></div>
+
+        {images.map((image, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -120,18 +141,23 @@ const Hero: React.FC = () => {
             }}
           >
             <img
-              src={image}
+              src={image.url}
               alt={`St. Louis Demonstration Junior High School ${index + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-opacity duration-500"
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
+              onLoad={(e) => {
+                // Smooth fade-in when image loads
+                e.currentTarget.style.opacity = '1';
+              }}
               style={{
                 imageRendering: 'auto',
                 transform: 'translateZ(0)', // Hardware acceleration
-                objectPosition: isMobile ? 'center 35%' : 'center 30%', // Show more of the important parts
+                objectPosition: isMobile ? image.mobilePosition : image.desktopPosition,
                 objectFit: 'cover',
                 minHeight: '100%',
                 minWidth: '100%',
+                opacity: 0, // Start invisible, fade in when loaded
               }}
             />
             {/* Dark gradient overlay for better text readability */}
@@ -148,8 +174,8 @@ const Hero: React.FC = () => {
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: imagesLoaded ? 1 : 0, y: imagesLoaded ? 0 : 30 }}
-            transition={{ duration: 0.8, delay: imagesLoaded ? 0.3 : 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight">
@@ -186,22 +212,20 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Image indicators */}
-      {imagesLoaded && (
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentImage(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentImage
-                  ? 'bg-yellow-400 scale-125'
-                  : 'bg-white/50 hover:bg-white/70'
-              }`}
-              aria-label={`View image ${index + 1}`}
-            />
-          ))}
-        </div>
-      )}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImage(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentImage
+                ? 'bg-yellow-400 scale-125'
+                : 'bg-white/50 hover:bg-white/70'
+            }`}
+            aria-label={`View image ${index + 1}`}
+          />
+        ))}
+      </div>
     </section>
   );
 };
