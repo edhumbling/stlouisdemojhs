@@ -5,35 +5,134 @@ import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<HTMLImageElement[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   const images = [
     'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MvnyEMdmbxU06Mca57V3tJ1r8NOShqgZsCH9p',
     'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MRZwFWWpo7s1MlWNERCjA3OUSQ9nHvY65ui4I'
   ];
 
+  // Handle responsive design
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Add preload link tags to document head for better performance
+  useEffect(() => {
+    const preloadLinks: HTMLLinkElement[] = [];
+
+    images.forEach((src, index) => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      if (index === 0) {
+        link.fetchPriority = 'high';
+      }
+      document.head.appendChild(link);
+      preloadLinks.push(link);
+    });
+
+    // Cleanup function to remove preload links
+    return () => {
+      preloadLinks.forEach(link => {
+        if (document.head.contains(link)) {
+          document.head.removeChild(link);
+        }
+      });
+    };
+  }, []);
+
+  // Preload images for better performance
+  useEffect(() => {
+    const preloadImages = async () => {
+      const imagePromises = images.map((src, index) => {
+        return new Promise<HTMLImageElement>((resolve, reject) => {
+          const img = new Image();
+          img.onload = () => resolve(img);
+          img.onerror = reject;
+          img.src = src;
+          // Set priority for first image
+          if (index === 0) {
+            img.fetchPriority = 'high';
+          }
+        });
+      });
+
+      try {
+        const loadedImgs = await Promise.all(imagePromises);
+        setLoadedImages(loadedImgs);
+        setImagesLoaded(true);
+      } catch (error) {
+        console.error('Error preloading images:', error);
+        // Still show the component even if preloading fails
+        setImagesLoaded(true);
+      }
+    };
+
+    preloadImages();
+  }, []);
+
+  useEffect(() => {
+    if (!imagesLoaded) return;
+
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 6000); // Change image every 6 seconds
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images.length, imagesLoaded]);
 
   return (
-    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+    <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden">
+      {/* Loading State */}
+      {!imagesLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black flex items-center justify-center">
+          <div className="text-center text-white">
+            <div className="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-lg font-medium">Loading...</p>
+          </div>
+        </div>
+      )}
+
       {/* Background Images with Overlay */}
       <div className="absolute inset-0">
-        {images.map((image, index) => (
+        {imagesLoaded && images.map((image, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ${
               index === currentImage ? 'opacity-100' : 'opacity-0'
             }`}
+            style={{
+              // Ensure full coverage without gaps
+              width: '100%',
+              height: '100%',
+              overflow: 'hidden',
+            }}
           >
             <img
               src={image}
               alt={`St. Louis Demonstration Junior High School ${index + 1}`}
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              style={{
+                imageRendering: 'auto',
+                transform: 'translateZ(0)', // Hardware acceleration
+                objectPosition: isMobile ? 'center 35%' : 'center 30%', // Show more of the important parts
+                objectFit: 'cover',
+                minHeight: '100%',
+                minWidth: '100%',
+              }}
             />
             {/* Dark gradient overlay for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
@@ -49,8 +148,8 @@ const Hero: React.FC = () => {
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            animate={{ opacity: imagesLoaded ? 1 : 0, y: imagesLoaded ? 0 : 30 }}
+            transition={{ duration: 0.8, delay: imagesLoaded ? 0.3 : 0 }}
             className="text-white"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight">
@@ -87,20 +186,22 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Image indicators */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImage(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentImage
-                ? 'bg-yellow-400 scale-125'
-                : 'bg-white/50 hover:bg-white/70'
-            }`}
-            aria-label={`View image ${index + 1}`}
-          />
-        ))}
-      </div>
+      {imagesLoaded && (
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImage(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentImage
+                  ? 'bg-yellow-400 scale-125'
+                  : 'bg-white/50 hover:bg-white/70'
+              }`}
+              aria-label={`View image ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 };
