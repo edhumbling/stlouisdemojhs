@@ -165,7 +165,37 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      {/* Content - Clean Overlay - Positioned Lower */}
+      {/* Beautiful Shaped Overlay for Text Areas */}
+      <div className="absolute bottom-0 left-0 right-0 z-5">
+        {/* Organic shaped overlay that covers text areas */}
+        <div className="relative h-80 md:h-96">
+          {/* Main overlay shape */}
+          <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+
+          {/* Artistic curved overlay */}
+          <div className="absolute bottom-0 left-0 right-0 h-3/4">
+            <svg viewBox="0 0 1200 400" className="w-full h-full">
+              <defs>
+                <linearGradient id="overlayGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stopColor="rgba(0,0,0,0.8)" />
+                  <stop offset="50%" stopColor="rgba(0,0,0,0.5)" />
+                  <stop offset="100%" stopColor="rgba(0,0,0,0)" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M0,400 C300,350 500,320 800,340 C900,350 1000,360 1200,320 L1200,400 Z"
+                fill="url(#overlayGradient)"
+              />
+            </svg>
+          </div>
+
+          {/* Additional artistic elements */}
+          <div className="absolute bottom-16 left-8 w-32 h-32 bg-black/30 rounded-full blur-xl transform -rotate-12"></div>
+          <div className="absolute bottom-24 right-16 w-24 h-24 bg-black/20 rounded-full blur-lg transform rotate-45"></div>
+        </div>
+      </div>
+
+      {/* Content - Clean Text - Positioned Lower */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-end pb-20 md:pb-24 h-full">
         <div className="max-w-4xl">
           <motion.div
@@ -174,21 +204,15 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white"
           >
-            {/* Main Heading with Individual Background */}
-            <div className="relative inline-block mb-3">
-              <div className="absolute -inset-2 bg-gradient-to-r from-black/70 via-black/50 to-black/70 rounded-2xl transform -rotate-1 blur-sm"></div>
-              <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>
-                The <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse">Leading</span> Forces in Excellent & Wholistic <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse">Education</span>
-              </h1>
-            </div>
+            {/* Main Heading - Clean */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>
+              The <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse">Leading</span> Forces in Excellent & Wholistic <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse">Education</span>
+            </h1>
 
-            {/* Subtext with Individual Background */}
-            <div className="relative inline-block mb-6">
-              <div className="absolute -inset-1 bg-gradient-to-r from-black/60 via-black/40 to-black/60 rounded-xl transform rotate-1"></div>
-              <p className="relative text-xs sm:text-sm md:text-base text-gray-100 max-w-2xl">
-                Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
-              </p>
-            </div>
+            {/* Subtext - Clean */}
+            <p className="text-xs sm:text-sm md:text-base text-gray-100 mb-6 max-w-2xl">
+              Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
+            </p>
 
             {/* Neon Glowing Buttons - Horizontal on Mobile */}
             <div className="flex flex-row gap-2 sm:gap-3">
