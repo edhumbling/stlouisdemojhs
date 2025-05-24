@@ -196,7 +196,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Content - Clean Text - High Mobile Positioning */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-center justify-start pt-20 pb-6 sm:pb-12 md:pb-16 lg:pb-20 h-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-start justify-start pt-16 pb-4 sm:pb-8 md:pb-12 lg:pb-16 h-full">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -204,13 +204,13 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white"
           >
-            {/* Main Heading - Dark Glow - Mobile Compact */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-2 sm:mb-3 drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6)' }}>
+            {/* Main Heading - Dark Glow - Ultra Compact Mobile */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-1 sm:mb-2 md:mb-3 drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6)' }}>
               The <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.8)' }}>Leading</span> Forces in Excellent & Wholistic <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.8)' }}>Education</span>
             </h1>
 
-            {/* Subtext - Dark Glow - Mobile Compact */}
-            <p className="text-xs sm:text-sm md:text-base text-gray-100 mb-4 sm:mb-6 max-w-2xl drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
+            {/* Subtext - Dark Glow - Ultra Compact Mobile */}
+            <p className="text-xs sm:text-sm md:text-base text-gray-100 mb-2 sm:mb-3 md:mb-4 lg:mb-6 max-w-2xl drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
               Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
             </p>
 
@@ -250,8 +250,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Super Cute Image Indicators */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
+      {/* Super Cute Image Indicators - Mobile Visible */}
+      <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 z-20">
         <div className="bg-black/30 backdrop-blur-sm rounded-full px-4 py-3 border border-white/20">
           <div className="flex space-x-3">
             {images.map((_, index) => (
