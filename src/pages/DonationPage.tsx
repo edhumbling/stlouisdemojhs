@@ -114,152 +114,9 @@ const DonationPage: React.FC = () => {
         <div className="px-3 lg:px-8">
           <div className="max-w-sm lg:max-w-7xl mx-auto">
 
-            {/* Desktop: Two-column layout, Mobile: Single column */}
-            <div className="lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-16 space-y-8 lg:space-y-0">
-
-              {/* Left Column: Impact Information */}
-              <div className="space-y-6 lg:space-y-8">
-                {/* Impact Cards Header */}
-                <div className="text-center lg:text-left mb-4 lg:mb-8">
-                  <h2 className="text-lg lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent mb-2 lg:mb-4">
-                    ✨ Your Impact
-                  </h2>
-                  <p className="text-sm lg:text-lg xl:text-xl text-gray-600">
-                    See how your <span className="text-green-600 font-semibold">donation</span> transforms lives and builds the future
-                  </p>
-                </div>
-
-                {/* Impact Cards - Enhanced for Desktop */}
-                <div className="space-y-3 lg:space-y-6">
-                  <motion.div
-                    className="bg-white sharp-container mini-container lg:p-6 shadow-sm border border-green-100 hover:shadow-lg transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    onHoverStart={() => triggerHapticFeedback('light')}
-                  >
-                    <div className="flex items-center space-x-3 lg:space-x-6">
-                      <div className="p-2 lg:p-4 bg-gradient-to-br from-green-100 to-green-200 sharp-container flex-shrink-0">
-                        <Laptop className="w-4 h-4 lg:w-8 lg:h-8 text-green-700" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 text-sm lg:text-xl text-green-800">💻 Smart Technology</h3>
-                        <p className="text-xs lg:text-base text-gray-600 mt-1 lg:mt-2">AI tools, modern computers, and digital classrooms for 21st-century learning</p>
-                        <div className="hidden lg:block mt-3">
-                          <div className="flex flex-wrap gap-2">
-                            <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">AI Tools</span>
-                            <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Digital Boards</span>
-                            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">Computers</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    className="bg-white sharp-container mini-container lg:p-6 shadow-sm border border-blue-100 hover:shadow-lg transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    onHoverStart={() => triggerHapticFeedback('light')}
-                  >
-                    <div className="flex items-center space-x-3 lg:space-x-6">
-                      <div className="p-2 lg:p-4 bg-gradient-to-br from-blue-100 to-blue-200 sharp-container flex-shrink-0">
-                        <GraduationCap className="w-4 h-4 lg:w-8 lg:h-8 text-blue-700" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 text-sm lg:text-xl text-blue-800">👨‍🏫 Teacher Development</h3>
-                        <p className="text-xs lg:text-base text-gray-600 mt-1 lg:mt-2">Professional training, workshops, and resources for excellent education delivery</p>
-                        <div className="hidden lg:block mt-3">
-                          <div className="flex flex-wrap gap-2">
-                            <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Workshops</span>
-                            <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Training</span>
-                            <span className="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs rounded-full">Resources</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    className="bg-white sharp-container mini-container lg:p-6 shadow-sm border border-green-100 hover:shadow-lg transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    onHoverStart={() => triggerHapticFeedback('light')}
-                  >
-                    <div className="flex items-center space-x-3 lg:space-x-6">
-                      <div className="p-2 lg:p-4 bg-gradient-to-br from-green-100 to-green-200 sharp-container flex-shrink-0">
-                        <Users className="w-4 h-4 lg:w-8 lg:h-8 text-green-700" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 text-sm lg:text-xl text-green-800">🎓 Modern Facilities</h3>
-                        <p className="text-xs lg:text-base text-gray-600 mt-1 lg:mt-2">Upgraded labs, library, and infrastructure for enhanced learning experiences</p>
-                        <div className="hidden lg:block mt-3">
-                          <div className="flex flex-wrap gap-2">
-                            <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Science Labs</span>
-                            <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Library</span>
-                            <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">Infrastructure</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Alumni Support Section - Enhanced */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="bg-gradient-to-br from-green-50 to-blue-50 p-6 lg:p-8 rounded-xl border border-green-200 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-                  whileHover={{ scale: 1.02 }}
-                  onHoverStart={() => triggerHapticFeedback('medium')}
-                >
-                  <div className="flex items-center mb-3 lg:mb-6">
-                    <Star className="w-5 h-5 lg:w-8 lg:h-8 text-yellow-500 mr-2 lg:mr-4" />
-                    <h3 className="font-semibold lg:text-2xl text-green-900">🎓 Alumni & Community Support</h3>
-                  </div>
-                  <p className="text-green-700 lg:text-lg mb-4 lg:mb-6 leading-relaxed">
-                    Join <span className="text-blue-600 font-semibold">fellow alumni and community members</span> in supporting our beloved school.
-                    Every contribution, no matter the size, makes a meaningful difference in
-                    modernizing education and maintaining our reputation as <span className="text-yellow-600 font-bold">"The Best Amongst the Rest."</span>
-                  </p>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 text-sm lg:text-base">
-                    <div className="flex items-center text-green-600">
-                      <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-500 rounded-full mr-2 lg:mr-3"></div>
-                      <span>🔒 Secure Paystack payments</span>
-                    </div>
-                    <div className="flex items-center text-blue-600">
-                      <div className="w-2 h-2 lg:w-3 lg:h-3 bg-blue-500 rounded-full mr-2 lg:mr-3"></div>
-                      <span>💳 Visa/Mastercard accepted</span>
-                    </div>
-                    <div className="flex items-center text-purple-600">
-                      <div className="w-2 h-2 lg:w-3 lg:h-3 bg-purple-500 rounded-full mr-2 lg:mr-3"></div>
-                      <span>📱 Mobile Money (MTN, Vodafone, AirtelTigo)</span>
-                    </div>
-                    <div className="flex items-center text-orange-600">
-                      <div className="w-2 h-2 lg:w-3 lg:h-3 bg-orange-500 rounded-full mr-2 lg:mr-3"></div>
-                      <span>📧 Instant donation receipts</span>
-                    </div>
-                  </div>
-
-                  {/* Additional info for desktop */}
-                  <div className="hidden lg:block mt-6 pt-6 border-t border-green-200">
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div className="bg-white/60 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-green-600">500+</div>
-                        <div className="text-sm text-green-700">Alumni Connected</div>
-                      </div>
-                      <div className="bg-white/60 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-blue-600">₵50K+</div>
-                        <div className="text-sm text-blue-700">Raised This Year</div>
-                      </div>
-                      <div className="bg-white/60 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-purple-600">100%</div>
-                        <div className="text-sm text-purple-700">Goes to School</div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Right Column: Payment Form - Enhanced for Desktop */}
-              <div className="lg:sticky lg:top-8 lg:h-fit">
+            {/* Payment Form - Full Width */}
+            <div className="w-full">
+              <div className="lg:max-w-4xl lg:mx-auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -267,56 +124,11 @@ const DonationPage: React.FC = () => {
                   className="bg-white sharp-container shadow-md lg:shadow-2xl overflow-hidden"
                 >
 
-                  {/* Payment Form Header - Enhanced */}
-                  <div className="bg-gradient-to-r from-green-600 to-blue-600 p-4 lg:p-8 text-white">
-                    <div className="text-center mb-3 lg:mb-6">
-                      <h3 className="text-lg lg:text-3xl font-bold mb-1 lg:mb-3">💳 Donate Now</h3>
-                      <p className="text-green-100 text-xs lg:text-base">Secure • Instant • Direct Impact</p>
-                    </div>
-
-                    {/* Payment Methods - Enhanced for Desktop */}
-                    <div className="bg-white/15 backdrop-blur-sm sharp-container p-3 lg:p-6 mb-3 lg:mb-6">
-                      <h4 className="text-white font-medium mb-2 lg:mb-4 text-center text-sm lg:text-lg">🇬🇭 All Ghana Payment Networks</h4>
-                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4 text-xs lg:text-sm">
-                        <div className="bg-white/20 sharp-container p-2 lg:p-4 text-center hover:bg-white/30 transition-all">
-                          <Smartphone className="w-4 h-4 lg:w-6 lg:h-6 mx-auto mb-1 lg:mb-2 text-green-200" />
-                          <div className="font-medium">MTN MoMo</div>
-                          <div className="text-xs text-green-200 hidden lg:block">Mobile Money</div>
-                        </div>
-                        <div className="bg-white/20 sharp-container p-2 lg:p-4 text-center hover:bg-white/30 transition-all">
-                          <Smartphone className="w-4 h-4 lg:w-6 lg:h-6 mx-auto mb-1 lg:mb-2 text-blue-200" />
-                          <div className="font-medium">Vodafone</div>
-                          <div className="text-xs text-blue-200 hidden lg:block">Cash</div>
-                        </div>
-                        <div className="bg-white/20 sharp-container p-2 lg:p-4 text-center hover:bg-white/30 transition-all">
-                          <Smartphone className="w-4 h-4 lg:w-6 lg:h-6 mx-auto mb-1 lg:mb-2 text-green-200" />
-                          <div className="font-medium">AirtelTigo</div>
-                          <div className="text-xs text-green-200 hidden lg:block">Money</div>
-                        </div>
-                        <div className="bg-white/20 sharp-container p-2 lg:p-4 text-center hover:bg-white/30 transition-all">
-                          <CreditCard className="w-4 h-4 lg:w-6 lg:h-6 mx-auto mb-1 lg:mb-2 text-blue-200" />
-                          <div className="font-medium">Cards</div>
-                          <div className="text-xs text-blue-200 hidden lg:block">Visa/Master</div>
-                        </div>
-                      </div>
-
-                      <div className="mt-2 lg:mt-4 flex justify-center gap-2 lg:gap-4 text-xs lg:text-sm">
-                        <span className="bg-blue-500/20 px-2 py-1 lg:px-4 lg:py-2 sharp-container">Visa</span>
-                        <span className="bg-green-500/20 px-2 py-1 lg:px-4 lg:py-2 sharp-container">Mastercard</span>
-                        <span className="bg-purple-500/20 px-2 py-1 lg:px-4 lg:py-2 sharp-container hidden lg:inline">International</span>
-                      </div>
-                    </div>
-
-                    <div className="text-center text-xs lg:text-base text-green-100">
-                      ⚡ <span className="font-medium">Instant Processing</span> • 🛡️ <span className="font-medium">Bank-Level Security</span> • 🎯 <span className="font-medium">Direct to School</span>
-                    </div>
-                  </div>
-
-                  {/* Payment Form Container - Much Larger on Desktop */}
+                  {/* Payment Form Container - Full Width and Much Larger */}
                   <div
                     className="relative overflow-auto"
                     style={{
-                      height: '400px',
+                      height: '500px',
                       scrollBehavior: 'smooth',
                       WebkitOverflowScrolling: 'touch'
                     }}
@@ -326,12 +138,17 @@ const DonationPage: React.FC = () => {
                       {`
                         @media (min-width: 1024px) {
                           .payment-container {
-                            height: 700px !important;
+                            height: 900px !important;
                           }
                         }
                         @media (min-width: 1280px) {
                           .payment-container {
-                            height: 800px !important;
+                            height: 1000px !important;
+                          }
+                        }
+                        @media (min-width: 1536px) {
+                          .payment-container {
+                            height: 1100px !important;
                           }
                         }
                       `}
