@@ -47,20 +47,7 @@ const CalendarPage: React.FC = () => {
         />
       </div>
 
-      {/* Fallback Link - Fixed at Bottom */}
-      <div className="bg-blue-900/20 py-2 text-center">
-        <p className="text-blue-200 text-xs sm:text-sm">
-          Having trouble viewing the calendar?{' '}
-          <a
-            href="https://calendar.google.com/calendar/embed?src=f774a22b7db5c45f12b13c391cddbf261522e8afa5061bdf9696b2d599d9d7f7%40group.calendar.google.com&ctz=Africa%2FAbidjan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-300 underline font-medium"
-          >
-            Visit our calendar directly
-          </a>
-        </p>
-      </div>
+
     </div>
   );
 };

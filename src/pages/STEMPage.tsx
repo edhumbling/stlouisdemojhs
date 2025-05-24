@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Atom, Calculator, Microscope, Cpu, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen } from 'lucide-react';
 
 const STEMPage: React.FC = () => {
   const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState<any>(null);
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
+  };
+
+  const handleCategoryBack = () => {
+    setSelectedCategory(null);
+  };
+
+  const handleCategoryClick = (category: any) => {
+    setSelectedCategory(category);
   };
 
   // STEM Resources organized like LearnHub
@@ -162,6 +171,92 @@ const STEMPage: React.FC = () => {
     { name: "Code School", url: "https://www.pluralsight.com/codeschool" }
   ];
 
+  // If a category is selected, show the dedicated category page
+  if (selectedCategory) {
+    return (
+      <div className="min-h-screen bg-gray-50 pt-16">
+        {/* Back Button and Title Section - Original Style */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={handleCategoryBack}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                {selectedCategory.title}
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        {/* Category Header */}
+        <div className="bg-white border-b border-gray-200 px-4 py-6 sm:py-8">
+          <div className="container mx-auto max-w-4xl">
+            <div className="flex items-center gap-4 mb-4">
+              <div
+                className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center text-white"
+                style={{ backgroundColor: selectedCategory.color }}
+              >
+                {selectedCategory.icon}
+              </div>
+              <div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900"
+                    style={{ fontFamily: 'Arial, sans-serif' }}>
+                  {selectedCategory.title}
+                </h2>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  {selectedCategory.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* All Resources */}
+        <main className="flex-1 py-6 sm:py-8">
+          <div className="container mx-auto px-3 sm:px-4 max-w-4xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {selectedCategory.resources.map((resource: any, index: number) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-white rounded-xl p-4 border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-md group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-sm sm:text-base font-medium text-gray-900 group-hover:text-blue-600 transition-colors leading-tight">
+                        {resource.name}
+                      </h3>
+                      <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-2" />
+                    </div>
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Footer Message */}
+            <div className="mt-8 text-center">
+              <p className="text-sm text-gray-500">
+                {selectedCategory.resources.length} resources in {selectedCategory.title}
+              </p>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 pt-16">
       {/* Back Button and Title Section - Below Header */}
@@ -209,7 +304,10 @@ const STEMPage: React.FC = () => {
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 className="group"
               >
-                <div className="w-full bg-white rounded-2xl p-3 sm:p-4 border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-md">
+                <div
+                  className="w-full bg-white rounded-2xl p-3 sm:p-4 border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-md cursor-pointer"
+                  onClick={() => handleCategoryClick(category)}
+                >
                   {/* Icon */}
                   <div
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
@@ -219,7 +317,7 @@ const STEMPage: React.FC = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1 leading-tight">
+                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1 leading-tight group-hover:text-blue-600 transition-colors">
                     {category.title}
                   </h3>
 
@@ -229,7 +327,7 @@ const STEMPage: React.FC = () => {
                   </p>
 
                   {/* Resources List */}
-                  <div className="space-y-1">
+                  <div className="space-y-1 mb-3">
                     {category.resources.slice(0, 3).map((resource, idx) => (
                       <a
                         key={idx}
@@ -237,15 +335,29 @@ const STEMPage: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block text-xs text-blue-600 hover:text-blue-800 hover:underline transition-colors truncate"
+                        onClick={(e) => e.stopPropagation()}
                       >
                         {resource.name}
                       </a>
                     ))}
+                  </div>
+
+                  {/* View All Link */}
+                  <div className="flex items-center justify-between">
                     {category.resources.length > 3 && (
-                      <p className="text-xs text-gray-400">
+                      <span className="text-xs text-gray-400">
                         +{category.resources.length - 3} more
-                      </p>
+                      </span>
                     )}
+                    <button
+                      className="text-xs text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCategoryClick(category);
+                      }}
+                    >
+                      View All
+                    </button>
                   </div>
                 </div>
               </motion.div>
@@ -255,7 +367,7 @@ const STEMPage: React.FC = () => {
           {/* Simple Footer Message */}
           <div className="text-center">
             <p className="text-sm text-gray-500">
-              Click any category above to explore STEM resources
+              Click any category card or "View All" to explore all resources in that category
             </p>
           </div>
         </div>

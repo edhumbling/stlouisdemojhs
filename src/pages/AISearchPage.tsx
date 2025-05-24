@@ -125,20 +125,7 @@ const AISearchPage: React.FC = () => {
           />
         </div>
 
-        {/* Fallback Link */}
-        <div className={`bg-gradient-to-r ${selectedEngineData.color} bg-opacity-20 py-2 text-center`}>
-          <p className="text-gray-200 text-xs sm:text-sm">
-            Having trouble loading {selectedEngineData.name}?{' '}
-            <a
-              href={selectedEngineData.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 underline font-medium"
-            >
-              Visit {selectedEngineData.name} directly
-            </a>
-          </p>
-        </div>
+
       </div>
     );
   }

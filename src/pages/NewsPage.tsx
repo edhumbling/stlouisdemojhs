@@ -47,20 +47,7 @@ const NewsPage: React.FC = () => {
         />
       </div>
 
-      {/* Fallback Link - Fixed at Bottom */}
-      <div className="bg-purple-900/20 py-2 text-center">
-        <p className="text-purple-200 text-xs sm:text-sm">
-          Having trouble viewing the blog?{' '}
-          <a
-            href="https://stlouisdemojhs.blogspot.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-purple-400 hover:text-purple-300 underline font-medium"
-          >
-            Visit our blog directly
-          </a>
-        </p>
-      </div>
+
     </div>
   );
 };

@@ -70,12 +70,12 @@ const LearnHubPage: React.FC = () => {
     setSelectedResource(null);
   };
 
-  // If a resource is selected, show the iframe view
+  // If a resource is selected, show the iframe view - Full page without footer
   if (selectedResource) {
     return (
-      <div className="flex min-h-screen flex-col bg-gray-50 pt-16">
-        {/* Back Button and Title Section - Original Style */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+      <div className="fixed inset-0 z-50 bg-white">
+        {/* Header */}
+        <div className="fixed top-0 left-0 right-0 z-10 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -93,12 +93,11 @@ const LearnHubPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Iframe container */}
-        <div className="flex-1 bg-white">
+        {/* Full viewport iframe - No footer */}
+        <div className="w-full h-full pt-16">
           <iframe
             src={selectedResource.url}
             className="w-full h-full border-0"
-            style={{ minHeight: 'calc(100vh - 140px)' }}
             title={selectedResource.title}
             sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
           />
