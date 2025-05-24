@@ -1,12 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Atom, Calculator, Microscope, Cpu, Lightbulb, Rocket } from 'lucide-react';
+import { Atom, Calculator, Microscope, Cpu, Lightbulb, Rocket, ExternalLink } from 'lucide-react';
 
 const STEMPage: React.FC = () => {
-  // CSS for the simple colored links using school colors
-  const yellowLinkClass = "font-medium text-school-yellow hover:underline hover:text-yellow-400 transition-colors";
-  const greenLinkClass = "font-medium text-school-green hover:underline hover:text-emerald-600 transition-colors";
-  const blueLinkClass = "font-medium text-school-blue hover:underline hover:text-blue-400 transition-colors";
+  // CSS for blue external links
+  const linkClass = "inline-flex items-center gap-1 font-medium text-blue-600 hover:text-blue-800 hover:underline transition-colors";
 
   // STEM Resources data
   const stemWebsites = [
@@ -111,15 +109,15 @@ const STEMPage: React.FC = () => {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800">
+    <div className="flex min-h-screen flex-col bg-white">
       {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
+      <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-school-blue via-school-green to-school-yellow">
         {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-school-blue/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-school-yellow/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-school-green/20 rounded-full blur-lg animate-pulse delay-500"></div>
-          <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white/20 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/20 rounded-full blur-lg animate-pulse delay-500"></div>
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-6 max-w-6xl relative z-10">
@@ -135,25 +133,25 @@ const STEMPage: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="p-3 bg-school-blue/20 rounded-full"
+                  className="p-3 bg-white/20 rounded-full"
                 >
-                  <Atom className="w-8 h-8 text-school-blue" />
+                  <Atom className="w-8 h-8 text-white" />
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="p-3 bg-school-green/20 rounded-full"
+                  className="p-3 bg-white/20 rounded-full"
                 >
-                  <Cpu className="w-8 h-8 text-school-green" />
+                  <Cpu className="w-8 h-8 text-white" />
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
-                  className="p-3 bg-school-yellow/20 rounded-full"
+                  className="p-3 bg-white/20 rounded-full"
                 >
-                  <Rocket className="w-8 h-8 text-school-yellow" />
+                  <Rocket className="w-8 h-8 text-white" />
                 </motion.div>
               </div>
             </div>
@@ -161,11 +159,11 @@ const STEMPage: React.FC = () => {
                 style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               STEM Resources for
             </h1>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-school-yellow"
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white"
                 style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               St. Louis Demonstration JHS
             </h2>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            <p className="text-lg sm:text-xl text-white max-w-3xl mx-auto leading-relaxed"
                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               Empowering our students with cutting-edge Science, Technology, Engineering, and Mathematics resources
               to build tomorrow's innovators and problem-solvers.
@@ -175,94 +173,93 @@ const STEMPage: React.FC = () => {
       </section>
 
       {/* Main Content */}
-      <main className="flex-1 pb-12">
+      <main className="flex-1 py-12 bg-white">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="prose prose-lg max-w-none space-y-8">
-            {/* What is STEM Section */}
-            <motion.section
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="glass-card p-6 sm:p-8 rounded-xl shadow-xl border border-white/20"
-            >
-              <div className="flex items-center mb-6">
-                <Lightbulb className="w-8 h-8 text-school-yellow mr-3" />
-                <h2 className="text-2xl sm:text-3xl font-bold text-school-blue mb-0">What is STEM?</h2>
-              </div>
-              <p className="leading-relaxed text-gray-300 mb-4">
-                STEM stands for Science, Technology, Engineering, and Mathematics. It is an educational approach that integrates these four disciplines to promote critical thinking, problem-solving, and innovation skills among students.
-              </p>
-              <p className="leading-relaxed text-gray-300 mb-4">
-                The relevance of STEM for our students at St. Louis Demonstration JHS is multifaceted and crucial in today's rapidly changing world. Here are some key reasons why STEM education is important for our children:
-              </p>
-              <div className="grid md:grid-cols-2 gap-6 mt-6">
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-school-green rounded-full flex items-center justify-center text-white text-sm font-bold mt-1">1</div>
-                    <div>
-                      <h4 className="font-semibold text-school-green mb-2">Fostering Curiosity and Exploration</h4>
-                      <p className="text-gray-300 text-sm">STEM activities encourage children to ask questions, explore their surroundings, and develop a deep understanding of the world around them.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-school-blue rounded-full flex items-center justify-center text-white text-sm font-bold mt-1">2</div>
-                    <div>
-                      <h4 className="font-semibold text-school-blue mb-2">Developing Problem-Solving Skills</h4>
-                      <p className="text-gray-300 text-sm">STEM education emphasizes hands-on learning experiences that challenge children to think critically and devise creative solutions.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-school-yellow rounded-full flex items-center justify-center text-white text-sm font-bold mt-1">3</div>
-                    <div>
-                      <h4 className="font-semibold text-school-yellow mb-2">Preparing for Future Careers</h4>
-                      <p className="text-gray-300 text-sm">Many of the fastest-growing and highest-paying jobs are in STEM fields, opening up wide career opportunities.</p>
-                    </div>
+          {/* What is STEM Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <div className="flex items-center mb-8">
+              <Lightbulb className="w-8 h-8 text-school-yellow mr-3" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">What is STEM?</h2>
+            </div>
+            <p className="text-lg leading-relaxed text-gray-700 mb-6 max-w-4xl">
+              STEM stands for Science, Technology, Engineering, and Mathematics. It is an educational approach that integrates these four disciplines to promote critical thinking, problem-solving, and innovation skills among students.
+            </p>
+            <p className="text-lg leading-relaxed text-gray-700 mb-8 max-w-4xl">
+              The relevance of STEM for our students at St. Louis Demonstration JHS is multifaceted and crucial in today's rapidly changing world. Here are some key reasons why STEM education is important for our children:
+            </p>
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-school-green rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">1</div>
+                  <div>
+                    <h4 className="font-semibold text-school-green mb-2 text-lg">Fostering Curiosity and Exploration</h4>
+                    <p className="text-gray-600">STEM activities encourage children to ask questions, explore their surroundings, and develop a deep understanding of the world around them.</p>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-school-green rounded-full flex items-center justify-center text-white text-sm font-bold mt-1">4</div>
-                    <div>
-                      <h4 className="font-semibold text-school-green mb-2">Promoting Innovation and Creativity</h4>
-                      <p className="text-gray-300 text-sm">STEM activities involve designing, building, and experimenting, fostering creativity and innovative thinking.</p>
-                    </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-school-blue rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">2</div>
+                  <div>
+                    <h4 className="font-semibold text-school-blue mb-2 text-lg">Developing Problem-Solving Skills</h4>
+                    <p className="text-gray-600">STEM education emphasizes hands-on learning experiences that challenge children to think critically and devise creative solutions.</p>
                   </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-school-blue rounded-full flex items-center justify-center text-white text-sm font-bold mt-1">5</div>
-                    <div>
-                      <h4 className="font-semibold text-school-blue mb-2">Enhancing Logical Thinking</h4>
-                      <p className="text-gray-300 text-sm">STEM subjects require logical and analytical thinking skills essential for academic success and real-world applications.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-6 h-6 bg-school-yellow rounded-full flex items-center justify-center text-white text-sm font-bold mt-1">6</div>
-                    <div>
-                      <h4 className="font-semibold text-school-yellow mb-2">Building Confidence</h4>
-                      <p className="text-gray-300 text-sm">Overcoming STEM challenges instills confidence and perseverance, teaching the value of persistence in the face of setbacks.</p>
-                    </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-school-yellow rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">3</div>
+                  <div>
+                    <h4 className="font-semibold text-school-yellow mb-2 text-lg">Preparing for Future Careers</h4>
+                    <p className="text-gray-600">Many of the fastest-growing and highest-paying jobs are in STEM fields, opening up wide career opportunities.</p>
                   </div>
                 </div>
               </div>
-              <div className="mt-6 p-4 bg-school-blue/10 rounded-lg border border-school-blue/20">
-                <p className="text-gray-300 text-center italic">
-                  "By introducing STEM education at an early age, our students at St. Louis Demonstration JHS develop a strong foundation in these critical areas, setting them up for success in an increasingly technology-driven and innovation-focused world."
-                </p>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-school-green rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">4</div>
+                  <div>
+                    <h4 className="font-semibold text-school-green mb-2 text-lg">Promoting Innovation and Creativity</h4>
+                    <p className="text-gray-600">STEM activities involve designing, building, and experimenting, fostering creativity and innovative thinking.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-school-blue rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">5</div>
+                  <div>
+                    <h4 className="font-semibold text-school-blue mb-2 text-lg">Enhancing Logical Thinking</h4>
+                    <p className="text-gray-600">STEM subjects require logical and analytical thinking skills essential for academic success and real-world applications.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-school-yellow rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">6</div>
+                  <div>
+                    <h4 className="font-semibold text-school-yellow mb-2 text-lg">Building Confidence</h4>
+                    <p className="text-gray-600">Overcoming STEM challenges instills confidence and perseverance, teaching the value of persistence in the face of setbacks.</p>
+                  </div>
+                </div>
               </div>
-            </motion.section>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-school-blue">
+              <p className="text-gray-700 text-center italic text-lg">
+                "By introducing STEM education at an early age, our students at St. Louis Demonstration JHS develop a strong foundation in these critical areas, setting them up for success in an increasingly technology-driven and innovation-focused world."
+              </p>
+            </div>
+          </motion.section>
 
-            {/* STEM Resources Section */}
-            <motion.section
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="glass-card p-6 sm:p-8 rounded-xl shadow-xl border border-white/20"
-            >
-              <div className="flex items-center mb-6">
-                <Microscope className="w-8 h-8 text-school-green mr-3" />
-                <h2 className="text-2xl sm:text-3xl font-bold text-school-green mb-0">Comprehensive STEM Resources for St. Louis Demonstration JHS</h2>
-              </div>
+          {/* STEM Resources Section */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-16"
+          >
+            <div className="flex items-center mb-8">
+              <Microscope className="w-8 h-8 text-school-green mr-3" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Comprehensive STEM Resources</h2>
+            </div>
 
               <div className="space-y-8">
                 {/* Cool STEM Websites */}
