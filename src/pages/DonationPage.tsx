@@ -27,7 +27,7 @@ const DonationPage: React.FC = () => {
     };
   }, []);
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 lg:overflow-hidden">
       {/* Header Section - Responsive Design */}
       <section className="bg-gradient-to-br from-blue-600 via-green-600 to-blue-700 text-white pt-16 pb-8 lg:pb-16 relative overflow-hidden cute-font">
         <div className="absolute inset-0 bg-black/10"></div>
@@ -109,51 +109,56 @@ const DonationPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
-      {/* Main Content - Responsive Two-Column Layout */}
-      <section className="py-6 lg:py-16 cute-font">
-        <div className="px-3 lg:px-8">
-          <div className="max-w-sm lg:max-w-7xl mx-auto">
+      {/* Main Content - Full Screen Payment Form */}
+      <section className="py-6 lg:py-0 lg:h-screen cute-font payment-section">
+        <div className="px-3 lg:px-0 lg:h-full">
+          <div className="max-w-sm lg:max-w-none lg:w-full lg:h-full mx-auto lg:mx-0">
 
-            {/* Payment Form - Full Width */}
-            <div className="w-full">
-              <div className="lg:max-w-4xl lg:mx-auto">
+            {/* Payment Form - Full Screen */}
+            <div className="w-full lg:w-full lg:h-full">
+              <div className="lg:w-full lg:h-full">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="bg-white sharp-container shadow-md lg:shadow-2xl overflow-hidden"
+                  className="bg-white sharp-container shadow-md lg:shadow-none lg:w-full lg:h-full overflow-hidden"
                 >
 
-                  {/* Payment Form Container - Full Width and Much Larger */}
+                  {/* Payment Form Container - Full Viewport */}
                   <div
-                    className="relative overflow-auto"
+                    className="relative w-full h-full"
                     style={{
-                      height: '500px',
-                      scrollBehavior: 'smooth',
-                      WebkitOverflowScrolling: 'touch'
+                      height: '500px'
                     }}
-                    onScroll={() => triggerHapticFeedback('light')}
                   >
                     <style>
                       {`
                         @media (min-width: 1024px) {
                           .payment-container {
-                            height: 900px !important;
+                            height: 100vh !important;
+                            width: 100vw !important;
+                            position: fixed !important;
+                            top: 0 !important;
+                            left: 0 !important;
+                            z-index: 50 !important;
                           }
-                        }
-                        @media (min-width: 1280px) {
-                          .payment-container {
-                            height: 1000px !important;
+                          .payment-section {
+                            height: 100vh !important;
+                            position: relative !important;
+                            z-index: 40 !important;
                           }
-                        }
-                        @media (min-width: 1536px) {
-                          .payment-container {
-                            height: 1100px !important;
+                          .payment-wrapper {
+                            height: 100vh !important;
+                            width: 100vw !important;
+                          }
+                          .payment-section .payment-container iframe {
+                            height: 100vh !important;
+                            width: 100vw !important;
                           }
                         }
                       `}
                     </style>
-                    <div className="payment-container w-full h-full">
+                    <div className="payment-container payment-wrapper w-full h-full">
                       <iframe
                         src="https://paystack.shop/pay/stlouisjhsdonations"
                         className="w-full h-full border-0"
