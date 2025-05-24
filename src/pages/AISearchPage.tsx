@@ -6,10 +6,14 @@ import { motion } from 'framer-motion';
 const AISearchPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedEngine, setSelectedEngine] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleBack = () => {
     if (selectedEngine) {
       setSelectedEngine(null);
+      setIsLoading(false);
+      // Scroll to top when returning to main page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       navigate(-1);
     }
@@ -74,16 +78,23 @@ const AISearchPage: React.FC = () => {
   ];
 
   const handleEngineClick = (engineId: string) => {
+    setIsLoading(true);
     setSelectedEngine(engineId);
+    // Loading will be hidden when iframe loads
+  };
+
+  const handleIframeLoad = () => {
+    setIsLoading(false);
   };
 
   const selectedEngineData = aiEngines.find(engine => engine.id === selectedEngine);
 
+  // If an engine is selected, show the full-page iframe view - Like LearnHub
   if (selectedEngine && selectedEngineData) {
     return (
-      <div className="min-h-screen bg-black pt-16">
-        {/* Back Button and Title Section - Original Style */}
-        <div className={`bg-gradient-to-r ${selectedEngineData.color} py-3 sm:py-4`}>
+      <div className="fixed inset-0 z-50 bg-white">
+        {/* Header - Original Style */}
+        <div className="fixed top-0 left-0 right-0 z-10 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -101,31 +112,27 @@ const AISearchPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Full Viewport Engine Embed */}
-        <div
-          className="w-full"
-          style={{
-            height: 'calc(100vh - 140px)',
-            backgroundColor: selectedEngineData.hasWhiteBackground ? '#ffffff' : 'transparent'
-          }}
-        >
+        {/* Full viewport iframe - No footer */}
+        <div className="w-full h-full pt-16 relative">
           <iframe
             src={selectedEngineData.url}
-            title={`${selectedEngineData.name} AI Search Engine`}
             className="w-full h-full border-0"
-            style={{
-              width: '100%',
-              height: '100%',
-              border: 'none',
-              overflow: 'auto',
-              backgroundColor: selectedEngineData.hasWhiteBackground ? '#ffffff' : 'transparent'
-            }}
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
+            title={selectedEngineData.name}
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
+            onLoad={handleIframeLoad}
           />
+
+          {/* Loading Overlay */}
+          {isLoading && (
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-20">
+              <div className="text-center">
+                <div className="w-12 h-12 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-gray-700 font-medium">Loading {selectedEngineData.name}...</p>
+                <p className="text-gray-500 text-sm mt-1">Please wait while we load the AI search engine</p>
+              </div>
+            </div>
+          )}
         </div>
-
-
       </div>
     );
   }
@@ -167,84 +174,55 @@ const AISearchPage: React.FC = () => {
         </div>
       </div>
 
-      {/* AI Engines Grid - Cute Mobile Layout */}
-      <div className="container mx-auto px-2 sm:px-4 py-6 sm:py-8 md:py-12">
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-2 sm:gap-3 md:gap-6 lg:gap-8">
-          {aiEngines.map((engine, index) => (
-            <motion.div
-              key={engine.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => handleEngineClick(engine.id)}
-              className="group cursor-pointer"
-            >
-              <div
-                className={`relative bg-gradient-to-br ${engine.color} rounded-lg sm:rounded-xl md:rounded-2xl p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 shadow-lg sm:shadow-xl md:shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border border-white/20 hover:border-white/40 overflow-hidden`}
-                style={{
-                  boxShadow: `0 10px 40px ${engine.glowColor}30, 0 0 60px ${engine.glowColor}20`
-                }}
+      {/* Main Content */}
+      <main className="flex-1 py-6 sm:py-8">
+        <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
+          {/* AI Engines Grid - Apple Style */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
+            {aiEngines.map((engine, index) => (
+              <motion.div
+                key={engine.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="group"
               >
-                {/* Animated background effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon - Smaller on Mobile */}
-                  <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-6">
-                    <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 bg-white/20 backdrop-blur-sm rounded-lg sm:rounded-xl text-white group-hover:scale-110 transition-transform duration-300">
-                      {React.cloneElement(engine.icon, {
-                        className: "w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8"
-                      })}
-                    </div>
+                <button
+                  onClick={() => handleEngineClick(engine.id)}
+                  className="w-full bg-white rounded-2xl p-3 sm:p-4 border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-md active:scale-95 text-left"
+                >
+                  {/* Icon */}
+                  <div
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
+                    style={{ backgroundColor: engine.glowColor }}
+                  >
+                    {React.cloneElement(engine.icon, {
+                      className: "w-5 h-5"
+                    })}
                   </div>
 
-                  {/* Title - Smaller on Mobile */}
-                  <h3 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl font-bold text-white mb-1 sm:mb-2 md:mb-3 lg:mb-4 group-hover:text-yellow-200 transition-colors duration-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                  {/* Title */}
+                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1 leading-tight">
                     {engine.name}
                   </h3>
 
-                  {/* Description - Smaller on Mobile */}
-                  <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-200 leading-relaxed mb-2 sm:mb-3 md:mb-4 lg:mb-6" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-gray-500 leading-tight">
                     {engine.description}
                   </p>
+                </button>
+              </motion.div>
+            ))}
+          </div>
 
-                  {/* Action Button - Smaller on Mobile */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs sm:text-xs md:text-sm text-white/80 font-medium">Click to explore</span>
-                    <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-                      <Search className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 text-white" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
-                  background: `radial-gradient(circle at center, ${engine.glowColor}20 0%, transparent 70%)`
-                }}></div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Info Section - Compact on Mobile */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-6 sm:mt-8 md:mt-12 lg:mt-16 text-center px-2 sm:px-0"
-        >
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 border border-white/20 max-w-4xl mx-auto">
-            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white mb-2 sm:mb-3 md:mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-              🚀 Enhance Your Learning Journey
-            </h3>
-            <p className="text-xs sm:text-sm md:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              These AI-powered search engines are carefully selected to support your academic research and curiosity.
-              Each platform offers unique features and capabilities to help you discover information more effectively than traditional search methods.
+          {/* Simple Footer Message */}
+          <div className="mt-8 sm:mt-12 text-center">
+            <p className="text-sm text-gray-300">
+              Tap any AI search engine to open it within the website
             </p>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </main>
     </div>
   );
 };

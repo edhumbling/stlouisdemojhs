@@ -5,6 +5,7 @@ import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft } from 'lu
 
 const LearnHubPage: React.FC = () => {
   const [selectedResource, setSelectedResource] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleMainBack = () => {
@@ -63,11 +64,20 @@ const LearnHubPage: React.FC = () => {
   ];
 
   const handleResourceClick = (resource: any) => {
+    setIsLoading(true);
     setSelectedResource(resource);
+    // Loading will be hidden when iframe loads
   };
 
   const handleBack = () => {
     setSelectedResource(null);
+    setIsLoading(false);
+    // Scroll to top when returning to main page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleIframeLoad = () => {
+    setIsLoading(false);
   };
 
   // If a resource is selected, show the iframe view - Full page without footer
@@ -94,20 +104,32 @@ const LearnHubPage: React.FC = () => {
         </div>
 
         {/* Full viewport iframe - No footer */}
-        <div className="w-full h-full pt-16">
+        <div className="w-full h-full pt-16 relative">
           <iframe
             src={selectedResource.url}
             className="w-full h-full border-0"
             title={selectedResource.title}
             sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
+            onLoad={handleIframeLoad}
           />
+
+          {/* Loading Overlay */}
+          {isLoading && (
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-20">
+              <div className="text-center">
+                <div className="w-12 h-12 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-gray-700 font-medium">Loading {selectedResource.title}...</p>
+                <p className="text-gray-500 text-sm mt-1">Please wait while we load the resource</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-gray-50 pt-16">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-16">
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
@@ -127,15 +149,18 @@ const LearnHubPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Clean Header */}
-      <div className="bg-white border-b border-gray-200 px-4 py-6 sm:py-8">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2"
-              style={{ fontFamily: 'Arial, sans-serif' }}>
-            Learning Resources
-          </h2>
-          <p className="text-gray-600 text-sm sm:text-base">
-            Educational resources for St. Louis Demonstration JHS
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 py-6 sm:py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-3 mb-4">
+            <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+              LearnHub
+            </h2>
+          </div>
+
+          <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-3xl" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            Your comprehensive learning resource center with curated educational tools, audiobooks, exam materials, and AI-powered learning assistants.
           </p>
         </div>
       </div>
@@ -181,7 +206,7 @@ const LearnHubPage: React.FC = () => {
 
           {/* Simple Footer Message */}
           <div className="mt-8 sm:mt-12 text-center">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-300">
               Tap any resource to open it within LearnHub
             </p>
           </div>
