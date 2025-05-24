@@ -1,71 +1,105 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const images = [
+    'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MvnyEMdmbxU06Mca57V3tJ1r8NOShqgZsCH9p',
+    'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MRZwFWWpo7s1MlWNERCjA3OUSQ9nHvY65ui4I'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 6000); // Change image every 6 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
-    <section className="relative min-h-[100svh] flex items-center py-16 md:py-0 bg-gradient-to-br from-black via-zinc-900 to-black">
-      {/* Background pattern */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+      {/* Background Images with Overlay */}
+      <div className="absolute inset-0">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentImage ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={image}
+              alt={`St. Louis Demonstration Junior High School ${index + 1}`}
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Dark gradient overlay for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"></div>
+            {/* Additional overlay for mobile */}
+            <div className="absolute inset-0 bg-black/20 md:bg-transparent"></div>
+          </div>
+        ))}
       </div>
 
-      <div className="container mx-auto px-4 z-10">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white order-2 md:order-1 text-center md:text-left"
-          >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight">
-              Nurturing Minds,<br />Shaping Futures
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 text-gray-100 max-w-lg mx-auto md:mx-0">
-              Located in Kumasi, Ghana, we deliver the NaCCA-based Common Core Programme
-              with a focus on developing critical thinking, creativity, collaboration, and character.
-              Guided by "UT SINT UNUM" - fostering unity, discipline, and service since 1977.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <Link
-                to="/about"
-                className="inline-flex items-center justify-center px-5 sm:px-6 py-3 bg-yellow-500 text-black font-medium rounded-full shadow-lg hover:bg-yellow-400 transition-colors duration-300 text-sm sm:text-base"
-              >
-                Learn More
-                <ArrowRight size={16} className="ml-2" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-5 sm:px-6 py-3 bg-green-600 text-white font-medium rounded-full shadow-lg hover:bg-green-700 transition-colors duration-300 text-sm sm:text-base"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </motion.div>
-
+      {/* Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center order-1 md:order-2 mb-6 md:mb-0"
+            transition={{ duration: 0.8 }}
+            className="text-white"
           >
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 bg-white rounded-full opacity-10 animate-pulse"></div>
-              <motion.div
-                initial={{ rotate: 0 }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-full border-2 border-dashed border-white/20"
-              ></motion.div>
-              <img
-                src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
-                alt="St. Louis Demonstration Junior High School"
-                className="relative z-10 w-full h-full object-contain p-6 sm:p-8 drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]"
-              />
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight">
+              Excellence in<br />
+              <span className="text-yellow-400">Education</span>
+            </h1>
+
+            <div className="max-w-2xl mb-8 md:mb-12">
+              <p className="text-lg sm:text-xl md:text-2xl mb-4 text-gray-100 leading-relaxed">
+                Nurturing minds and shaping futures since 1977.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed">
+                Where academic excellence meets character development in the heart of Kumasi.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-yellow-500 text-black font-semibold rounded-full shadow-xl hover:bg-yellow-400 hover:shadow-2xl transition-all duration-300 text-base sm:text-lg group"
+              >
+                Discover Our Story
+                <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/30 shadow-xl hover:bg-white/20 hover:border-white/50 transition-all duration-300 text-base sm:text-lg"
+              >
+                Visit Our Campus
+              </Link>
             </div>
           </motion.div>
         </div>
+      </div>
+
+      {/* Image indicators */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImage(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentImage
+                ? 'bg-yellow-400 scale-125'
+                : 'bg-white/50 hover:bg-white/70'
+            }`}
+            aria-label={`View image ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );
