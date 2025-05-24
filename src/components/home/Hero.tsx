@@ -170,8 +170,8 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      {/* Content - Clean Overlay */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Content - Clean Overlay - Positioned Lower */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-end pb-20 md:pb-24 h-full">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -180,36 +180,29 @@ const Hero: React.FC = () => {
             className="text-white"
           >
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4">
-              Where Giants Begin
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3">
+              The <span className="text-yellow-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.8)] animate-pulse">Leading</span> Forces in <span className="text-yellow-400 drop-shadow-[0_0_10px_rgba(251,191,36,0.8)] animate-pulse">Education</span>
             </h1>
 
             {/* Subtext */}
-            <p className="text-sm sm:text-base md:text-lg text-gray-200 mb-8 max-w-2xl">
+            <p className="text-xs sm:text-sm md:text-base text-gray-200 mb-6 max-w-2xl">
               Educating the Next Generation of Ghana's Brightest since 1977
             </p>
 
-            {/* Crisp School-Colored Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            {/* Glass-like Small Buttons */}
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
+                className="inline-flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2 bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 hover:bg-blue-600/30 hover:border-blue-400/50 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm"
               >
                 Our Story
               </Link>
 
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
+                className="inline-flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2 bg-green-600/20 backdrop-blur-sm border border-green-400/30 hover:bg-green-600/30 hover:border-green-400/50 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm"
               >
                 Visit Us
-              </Link>
-
-              <Link
-                to="/donate"
-                className="inline-flex items-center justify-center px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
-              >
-                Donate to Support
               </Link>
             </div>
           </motion.div>
