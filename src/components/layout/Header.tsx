@@ -37,7 +37,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <NavLink to="/" className="flex items-center space-x-2 sm:space-x-3">
+          <NavLink to="/" className="flex items-center space-x-2 sm:space-x-3 flex-1 mr-4">
             <img
               src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
               alt="St. Louis Demonstration Junior High School"
@@ -101,7 +101,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Navigation - Donate Button and Menu */}
-          <div className="md:hidden flex items-center space-x-3">
+          <div className="md:hidden flex items-center space-x-4 flex-shrink-0">
             <DonateButton variant="header" />
             <button
               onClick={toggleMenu}
