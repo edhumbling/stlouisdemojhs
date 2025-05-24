@@ -139,12 +139,39 @@ const AcademicsPage: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.03 }}
-                className="bg-white rounded-md shadow-sm border border-gray-100 p-1.5 sm:p-2 text-center hover:shadow-md transition-all duration-200"
+                className={`${subject.color} rounded-md shadow-lg border-2 border-white/20 p-1.5 sm:p-2 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group`}
+                style={{
+                  boxShadow: `0 0 20px ${subject.color.includes('blue') ? '#3b82f6' :
+                                        subject.color.includes('green') ? '#10b981' :
+                                        subject.color.includes('purple') ? '#8b5cf6' :
+                                        subject.color.includes('orange') ? '#f97316' :
+                                        subject.color.includes('indigo') ? '#6366f1' :
+                                        subject.color.includes('red') ? '#ef4444' :
+                                        subject.color.includes('pink') ? '#ec4899' :
+                                        subject.color.includes('yellow') ? '#eab308' :
+                                        subject.color.includes('cyan') ? '#06b6d4' :
+                                        subject.color.includes('teal') ? '#14b8a6' :
+                                        '#8b5cf6'}40, 0 0 40px ${subject.color.includes('blue') ? '#3b82f6' :
+                                        subject.color.includes('green') ? '#10b981' :
+                                        subject.color.includes('purple') ? '#8b5cf6' :
+                                        subject.color.includes('orange') ? '#f97316' :
+                                        subject.color.includes('indigo') ? '#6366f1' :
+                                        subject.color.includes('red') ? '#ef4444' :
+                                        subject.color.includes('pink') ? '#ec4899' :
+                                        subject.color.includes('yellow') ? '#eab308' :
+                                        subject.color.includes('cyan') ? '#06b6d4' :
+                                        subject.color.includes('teal') ? '#14b8a6' :
+                                        '#8b5cf6'}20`
+                }}
               >
-                <div className="mb-1 flex justify-center">
-                  {React.cloneElement(subject.icon, { className: "w-3 h-3 sm:w-4 sm:h-4 text-blue-600" })}
+                {/* Neon glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <div className="mb-1 flex justify-center">
+                    {React.cloneElement(subject.icon, { className: "w-3 h-3 sm:w-4 sm:h-4 text-white drop-shadow-lg" })}
+                  </div>
+                  <h3 className="text-xs font-bold text-white leading-tight drop-shadow-lg">{subject.name}</h3>
                 </div>
-                <h3 className="text-xs font-medium text-gray-800 leading-tight">{subject.name}</h3>
               </motion.div>
             ))}
           </div>
@@ -154,13 +181,21 @@ const AcademicsPage: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 rounded-lg overflow-hidden shadow-sm"
+            className="mb-4 rounded-lg overflow-hidden shadow-sm relative"
           >
             <img
               src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6995.HEIC"
               alt="Interactive Learning"
-              className="w-full h-24 sm:h-32 object-cover"
+              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
             />
+            {/* Dark gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            {/* Text overlay */}
+            <div className="absolute bottom-2 left-2 right-2">
+              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
+                Interactive Learning Environment
+              </p>
+            </div>
           </motion.div>
 
           {/* Remaining Subjects */}
@@ -172,12 +207,39 @@ const AcademicsPage: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.03 }}
-                className="bg-white rounded-md shadow-sm border border-gray-100 p-1.5 sm:p-2 text-center hover:shadow-md transition-all duration-200"
+                className={`${subject.color} rounded-md shadow-lg border-2 border-white/20 p-1.5 sm:p-2 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group`}
+                style={{
+                  boxShadow: `0 0 20px ${subject.color.includes('blue') ? '#3b82f6' :
+                                        subject.color.includes('green') ? '#10b981' :
+                                        subject.color.includes('purple') ? '#8b5cf6' :
+                                        subject.color.includes('orange') ? '#f97316' :
+                                        subject.color.includes('indigo') ? '#6366f1' :
+                                        subject.color.includes('red') ? '#ef4444' :
+                                        subject.color.includes('pink') ? '#ec4899' :
+                                        subject.color.includes('yellow') ? '#eab308' :
+                                        subject.color.includes('cyan') ? '#06b6d4' :
+                                        subject.color.includes('teal') ? '#14b8a6' :
+                                        '#8b5cf6'}40, 0 0 40px ${subject.color.includes('blue') ? '#3b82f6' :
+                                        subject.color.includes('green') ? '#10b981' :
+                                        subject.color.includes('purple') ? '#8b5cf6' :
+                                        subject.color.includes('orange') ? '#f97316' :
+                                        subject.color.includes('indigo') ? '#6366f1' :
+                                        subject.color.includes('red') ? '#ef4444' :
+                                        subject.color.includes('pink') ? '#ec4899' :
+                                        subject.color.includes('yellow') ? '#eab308' :
+                                        subject.color.includes('cyan') ? '#06b6d4' :
+                                        subject.color.includes('teal') ? '#14b8a6' :
+                                        '#8b5cf6'}20`
+                }}
               >
-                <div className="mb-1 flex justify-center">
-                  {React.cloneElement(subject.icon, { className: "w-3 h-3 sm:w-4 sm:h-4 text-green-600" })}
+                {/* Neon glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <div className="mb-1 flex justify-center">
+                    {React.cloneElement(subject.icon, { className: "w-3 h-3 sm:w-4 sm:h-4 text-white drop-shadow-lg" })}
+                  </div>
+                  <h3 className="text-xs font-bold text-white leading-tight drop-shadow-lg">{subject.name}</h3>
                 </div>
-                <h3 className="text-xs font-medium text-gray-800 leading-tight">{subject.name}</h3>
               </motion.div>
             ))}
           </div>
@@ -187,13 +249,21 @@ const AcademicsPage: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-lg overflow-hidden shadow-sm"
+            className="rounded-lg overflow-hidden shadow-sm relative"
           >
             <img
               src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7010.HEIC"
               alt="Collaborative Learning"
-              className="w-full h-24 sm:h-32 object-cover"
+              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
             />
+            {/* Dark gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            {/* Text overlay */}
+            <div className="absolute bottom-2 left-2 right-2">
+              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
+                Collaborative Learning Approach
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -245,13 +315,21 @@ const AcademicsPage: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 rounded-lg overflow-hidden shadow-sm"
+            className="mb-4 rounded-lg overflow-hidden shadow-sm relative"
           >
             <img
               src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7055.HEIC"
               alt="Modern Facilities"
-              className="w-full h-24 sm:h-32 object-cover"
+              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
             />
+            {/* Dark gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            {/* Text overlay */}
+            <div className="absolute bottom-2 left-2 right-2">
+              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
+                Modern Learning Facilities
+              </p>
+            </div>
           </motion.div>
 
           {/* Achievement Stats */}
@@ -280,13 +358,21 @@ const AcademicsPage: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-4 rounded-lg overflow-hidden shadow-sm"
+            className="mb-4 rounded-lg overflow-hidden shadow-sm relative"
           >
             <img
               src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7118.HEIC"
               alt="Academic Excellence"
-              className="w-full h-24 sm:h-32 object-cover"
+              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
             />
+            {/* Dark gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            {/* Text overlay */}
+            <div className="absolute bottom-2 left-2 right-2">
+              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
+                Academic Excellence in Action
+              </p>
+            </div>
           </motion.div>
 
           {/* Final Image - Distributed */}
@@ -294,13 +380,21 @@ const AcademicsPage: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-lg overflow-hidden shadow-sm"
+            className="rounded-lg overflow-hidden shadow-sm relative"
           >
             <img
               src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7006.HEIC"
               alt="Dedicated Faculty"
-              className="w-full h-24 sm:h-32 object-cover"
+              className="w-full h-32 sm:h-40 md:h-48 object-contain bg-gray-100"
             />
+            {/* Dark gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            {/* Text overlay */}
+            <div className="absolute bottom-2 left-2 right-2">
+              <p className="text-white text-xs sm:text-sm font-medium drop-shadow-lg">
+                Dedicated Faculty & Staff
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
