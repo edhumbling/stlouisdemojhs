@@ -5,12 +5,12 @@ import { ExternalLink, Calendar, Sparkles } from 'lucide-react';
 
 const NewsEventsSection: React.FC = () => {
   return (
-    <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-purple-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 relative overflow-hidden">
       {/* Magical Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-24 h-24 bg-purple-100/40 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-32 h-32 bg-blue-100/30 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-yellow-100/25 rounded-full blur-lg animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-20 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-32 right-16 w-32 h-32 bg-blue-500/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-yellow-500/10 rounded-full blur-lg animate-pulse delay-500"></div>
       </div>
 
       <div className="container mx-auto px-3 sm:px-4 relative z-10">
@@ -26,17 +26,21 @@ const NewsEventsSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-800 mb-4 sm:mb-6"
-            style={{ fontFamily: 'Arial, sans-serif' }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.6)'
+            }}
           >
-            Stay Connected with <span className="text-purple-600">News</span> & <span className="text-blue-600">Events</span>
+            Stay Connected with <span className="text-purple-400">News</span> & <span className="text-blue-400">Events</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto"
+            className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto"
+            style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
           >
             Discover the latest happenings, achievements, and upcoming events at St. Louis Educational Institute
           </motion.p>
@@ -52,10 +56,10 @@ const NewsEventsSection: React.FC = () => {
             className="group"
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <div className="p-2 bg-purple-100 rounded-lg group-hover:bg-purple-200 transition-colors duration-300">
-                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
+              <div className="p-2 bg-purple-500/20 backdrop-blur-sm rounded-lg group-hover:bg-purple-500/30 transition-colors duration-300 border border-purple-400/30">
+                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-purple-300" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-purple-700">Latest News & Updates</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-purple-300" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>Latest News & Updates</h3>
             </div>
 
             {/* Blog Preview Container */}
@@ -123,10 +127,10 @@ const NewsEventsSection: React.FC = () => {
             className="group"
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <div className="p-2 bg-blue-100 rounded-lg group-hover:bg-blue-200 transition-colors duration-300">
-                <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+              <div className="p-2 bg-blue-500/20 backdrop-blur-sm rounded-lg group-hover:bg-blue-500/30 transition-colors duration-300 border border-blue-400/30">
+                <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-blue-300" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-blue-700">School Events Calendar</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-300" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>School Events Calendar</h3>
             </div>
 
             {/* Calendar Container */}

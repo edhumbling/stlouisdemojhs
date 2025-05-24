@@ -8,12 +8,12 @@ const ProgramsSection: React.FC = () => {
   const [activeProgram, setActiveProgram] = useState(programs[0].id);
 
   return (
-    <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
-      {/* Magical Background Elements */}
+    <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 relative overflow-hidden">
+      {/* Magical Background Elements - School Colors */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-blue-100/30 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-yellow-100/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-green-100/25 rounded-full blur-lg animate-pulse delay-500"></div>
+        <div className="absolute top-10 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-yellow-500/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-green-500/20 rounded-full blur-lg animate-pulse delay-500"></div>
       </div>
 
       <div className="container mx-auto px-3 sm:px-4 relative z-10">
@@ -24,28 +24,34 @@ const ProgramsSection: React.FC = () => {
           transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="max-w-5xl mx-auto text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-800 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6"
+              style={{
+                fontFamily: 'Arial, sans-serif',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.6)'
+              }}>
             Our Academic Curriculum
           </h2>
-          <p className="text-lg text-gray-700 mb-8">
-            St. Louis Demonstration JHS offers a comprehensive curriculum designed to develop well-rounded students
+          <p className="text-lg text-gray-200 mb-8"
+             style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
+            St. Louis Educational Institute offers a comprehensive curriculum designed to develop well-rounded students
             through rigorous academics, technology integration, cultural awareness, and character formation.
           </p>
 
-          {/* Magical Subject List */}
+          {/* Magical Subject List - School Colors */}
           <motion.div
-            className="bg-gradient-to-br from-gray-50 to-blue-50/50 rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg border border-gray-100/50 backdrop-blur-sm"
+            className="bg-gradient-to-br from-white/10 to-blue-500/10 rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg border border-white/20 backdrop-blur-sm"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <motion.h3
-              className="text-lg sm:text-xl font-bold text-primary-800 mb-4 sm:mb-6 text-center"
+              className="text-lg sm:text-xl font-bold text-yellow-400 mb-4 sm:mb-6 text-center"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
+              style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
             >
               ✨ Subjects We Teach ✨
             </motion.h3>
@@ -75,7 +81,7 @@ const ProgramsSection: React.FC = () => {
                     stiffness: 200,
                     damping: 20
                   }}
-                  className="group relative bg-white rounded-xl p-2 sm:p-3 shadow-md hover:shadow-lg border border-primary-100 hover:border-primary-300 transition-all duration-300 overflow-hidden"
+                  className="group relative bg-white/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-md hover:shadow-lg border border-white/30 hover:border-yellow-400/50 transition-all duration-300 overflow-hidden"
                   whileHover={{
                     scale: 1.05,
                     y: -2,
@@ -83,13 +89,13 @@ const ProgramsSection: React.FC = () => {
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {/* Magical Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Magical Glow Effect - School Colors */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-green-500/5 to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                  {/* Sparkle Effect */}
-                  <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-yellow-400/60 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"></div>
+                  {/* Sparkle Effect - Yellow School Color */}
+                  <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-yellow-400/80 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"></div>
 
-                  <span className="relative z-10 text-primary-700 font-semibold group-hover:text-primary-800 transition-colors duration-300 leading-tight">
+                  <span className="relative z-10 text-gray-800 font-semibold group-hover:text-blue-700 transition-colors duration-300 leading-tight">
                     {subject}
                   </span>
                 </motion.div>
