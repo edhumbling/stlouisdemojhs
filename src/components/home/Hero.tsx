@@ -51,6 +51,12 @@ const Hero: React.FC = () => {
       isPortrait: false, // Landscape image
       mobilePosition: 'center 45%', // Show middle portion
       desktopPosition: 'center 40%' // Balanced view
+    },
+    {
+      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3',
+      isPortrait: false, // Landscape image
+      mobilePosition: 'center 40%', // Balanced positioning
+      desktopPosition: 'center 35%' // Balanced positioning
     }
   ];
 
