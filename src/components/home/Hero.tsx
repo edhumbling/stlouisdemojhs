@@ -99,34 +99,58 @@ const Hero: React.FC = () => {
     };
   }, []);
 
-  // Preload images for better performance
+  // Aggressive progressive image loading for instant display
   useEffect(() => {
-    const preloadImages = async () => {
-      const imagePromises = images.map((image, index) => {
-        return new Promise<HTMLImageElement>((resolve, reject) => {
-          const img = new Image();
-          img.onload = () => resolve(img);
-          img.onerror = reject;
-          img.src = image.url;
-          // High priority for first two images for faster slideshow
-          if (index <= 1) {
-            img.fetchPriority = 'high';
-          }
-        });
+    const loadImagesProgressively = async () => {
+      // Show hero immediately with first image only
+      const firstImagePromise = new Promise<HTMLImageElement>((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(img); // Don't fail on error
+        img.fetchPriority = 'high';
+        img.loading = 'eager';
+        img.src = images[0].url;
       });
 
       try {
-        const loadedImgs = await Promise.all(imagePromises);
-        setLoadedImages(loadedImgs);
-        setImagesLoaded(true);
+        // Load and show first image immediately
+        const firstImg = await firstImagePromise;
+        setLoadedImages([firstImg]);
+        setImagesLoaded(true); // Hero shows immediately!
+
+        // Load second image quickly for smooth transition
+        const secondImg = new Image();
+        secondImg.onload = () => {
+          setLoadedImages(prev => [...prev, secondImg]);
+        };
+        secondImg.fetchPriority = 'high';
+        secondImg.src = images[1]?.url;
+
+        // Load remaining images in background with delays to prevent network congestion
+        images.slice(2).forEach((image, index) => {
+          setTimeout(() => {
+            const img = new Image();
+            img.onload = () => {
+              setLoadedImages(prev => {
+                if (prev.length === index + 2) {
+                  return [...prev, img];
+                }
+                return prev;
+              });
+            };
+            img.loading = 'lazy';
+            img.fetchPriority = 'low';
+            img.src = image.url;
+          }, (index + 1) * 200); // Stagger loading every 200ms
+        });
+
       } catch (error) {
-        console.error('Error preloading images:', error);
-        // Still show the component even if preloading fails
-        setImagesLoaded(true);
+        console.error('Error loading first image:', error);
+        setImagesLoaded(true); // Show hero anyway
       }
     };
 
-    preloadImages();
+    loadImagesProgressively();
   }, []);
 
   useEffect(() => {
@@ -142,8 +166,13 @@ const Hero: React.FC = () => {
     <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden">
       {/* Background Images with Overlay */}
       <div className="absolute inset-0">
-        {/* Fallback gradient background while images load */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black"></div>
+        {/* Instant fallback background - shows immediately */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-green-900 opacity-80"></div>
+
+        {/* Loading placeholder with school colors */}
+        {!imagesLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-slate-700/30 to-green-600/20 animate-pulse"></div>
+        )}
 
         {images.map((image, index) => (
           <div
@@ -161,22 +190,30 @@ const Hero: React.FC = () => {
             <img
               src={image.url}
               alt={`St. Louis Demonstration Junior High School ${index + 1}`}
-              className="w-full h-full object-cover transition-opacity duration-300"
-              loading={index <= 1 ? "eager" : "lazy"} // Eager load first two images
+              className="w-full h-full object-cover transition-opacity duration-500"
+              loading={index === 0 ? "eager" : "lazy"} // Only first image eager
               decoding="async"
-              fetchPriority={index <= 1 ? "high" : "auto"}
+              fetchPriority={index === 0 ? "high" : "low"} // Prioritize first image only
               onLoad={(e) => {
-                // Faster fade-in when image loads
+                // Instant fade-in when image loads
                 e.currentTarget.style.opacity = '1';
+                e.currentTarget.style.transform = 'translateZ(0) scale(1)';
+              }}
+              onError={(e) => {
+                // Fallback if image fails to load
+                e.currentTarget.style.opacity = '0.5';
+                console.warn(`Failed to load image ${index + 1}`);
               }}
               style={{
-                imageRendering: 'auto',
-                transform: 'translateZ(0)', // Hardware acceleration
+                imageRendering: 'optimizeSpeed', // Faster rendering
+                transform: 'translateZ(0) scale(1.01)', // Hardware acceleration + slight scale
+                willChange: 'transform, opacity', // Optimize for animations
                 objectPosition: isMobile ? image.mobilePosition : image.desktopPosition,
                 objectFit: 'cover',
                 minHeight: '100%',
                 minWidth: '100%',
-                opacity: 0, // Start invisible, fade in when loaded
+                opacity: index === 0 ? 1 : 0, // First image visible immediately
+                transition: 'opacity 0.5s ease-in-out, transform 0.3s ease-out',
               }}
             />
           </div>
