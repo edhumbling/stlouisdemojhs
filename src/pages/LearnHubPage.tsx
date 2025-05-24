@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Globe, Maximize2 } from 'lucide-react';
+import Iframe from 'react-iframe';
 
 const LearnHubPage: React.FC = () => {
   const [selectedResource, setSelectedResource] = useState<any>(null);
@@ -77,7 +78,10 @@ const LearnHubPage: React.FC = () => {
   };
 
   const handleIframeLoad = () => {
-    setIsLoading(false);
+    // Fast loading - hide loading state quickly
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
   };
 
   // If a resource is selected, show the iframe view - Full page without footer
@@ -103,23 +107,44 @@ const LearnHubPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Full viewport iframe - No footer */}
-        <div className="w-full h-full pt-16 relative">
-          <iframe
-            src={selectedResource.url}
-            className="w-full h-full border-0"
-            title={selectedResource.title}
-            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
+        {/* Native Browser Experience - Full viewport */}
+        <div className="w-full h-full pt-16 relative bg-white">
+          {/* Browser-like Address Bar */}
+          <div className="absolute top-16 left-0 right-0 bg-gray-100 border-b border-gray-300 px-4 py-2 z-10">
+            <div className="flex items-center gap-3">
+              <Globe className="w-4 h-4 text-gray-500" />
+              <div className="flex-1 bg-white rounded-md px-3 py-1 text-sm text-gray-600 border border-gray-300 truncate">
+                {selectedResource.url}
+              </div>
+              <Maximize2 className="w-4 h-4 text-gray-500" />
+            </div>
+          </div>
+
+          {/* Enhanced Iframe */}
+          <Iframe
+            url={selectedResource.url}
+            width="100%"
+            height="100%"
+            className="border-0"
+            display="block"
+            position="relative"
+            allowFullScreen
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads"
             onLoad={handleIframeLoad}
+            loading="eager"
+            styles={{
+              backgroundColor: 'white',
+              colorScheme: 'light',
+              marginTop: '40px'
+            }}
           />
 
-          {/* Loading Overlay */}
+          {/* Fast Loading Overlay */}
           {isLoading && (
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-20">
+            <div className="absolute inset-0 bg-white/90 backdrop-blur-md flex items-center justify-center z-30 transition-opacity duration-200">
               <div className="text-center">
-                <div className="w-12 h-12 border-4 border-gray-600 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-white font-medium">Loading {selectedResource.title}...</p>
-                <p className="text-gray-300 text-sm mt-1">Please wait while we load the resource</p>
+                <div className="w-8 h-8 border-3 border-gray-300 border-t-purple-600 rounded-full animate-spin mx-auto mb-3"></div>
+                <p className="text-gray-800 font-medium text-sm">Loading {selectedResource.title}...</p>
               </div>
             </div>
           )}
@@ -129,9 +154,9 @@ const LearnHubPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black pt-16">
+    <div className="min-h-screen bg-black">
       {/* Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 mt-16">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button

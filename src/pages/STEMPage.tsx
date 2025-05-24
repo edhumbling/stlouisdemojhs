@@ -19,6 +19,8 @@ const STEMPage: React.FC = () => {
 
   const handleCategoryClick = (category: any) => {
     setSelectedCategory(category);
+    // Scroll to top instantly when viewing category
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   // STEM Resources organized like LearnHub
@@ -197,9 +199,9 @@ const STEMPage: React.FC = () => {
   // If a category is selected, show the dedicated category page
   if (selectedCategory) {
     return (
-      <div className="min-h-screen bg-black pt-16">
+      <div className="min-h-screen bg-black">
         {/* Back Button and Title Section */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 mt-16">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -258,9 +260,9 @@ const STEMPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black pt-16">
+    <div className="min-h-screen bg-black">
       {/* Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 mt-16">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
