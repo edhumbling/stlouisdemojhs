@@ -126,8 +126,8 @@ const AcademicsPage: React.FC = () => {
               Our Comprehensive Curriculum
             </h2>
             <p className="text-base sm:text-lg text-gray-700">
-              St. Louis Demonstration JHS offers 11 core subjects that provide students with a well-rounded education,
-              preparing them for academic success and personal growth.
+              St. Louis Educational Institute offers 11 core subjects that provide students with a well-rounded education,
+              preparing them for academic success and personal growth. Having successfully graduated over <span className="text-primary-600 font-semibold">10,000+ students</span>, our proven curriculum continues to shape future leaders.
             </p>
           </motion.div>
 

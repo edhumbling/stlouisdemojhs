@@ -64,7 +64,7 @@ const AboutSection: React.FC = () => {
             className="text-base sm:text-lg md:text-xl text-gray-100 px-2 max-w-3xl mx-auto"
             style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
           >
-            Since 1977, we've been Ghana's premier demonstration school, pioneering innovative teaching methods and nurturing exceptional minds. Our legacy of excellence continues to inspire generations of students to achieve greatness.
+            Since 1977, we've been Ghana's premier educational institution, pioneering innovative teaching methods and nurturing exceptional minds. Having trained over <span className="text-yellow-400 font-bold">10,000+ students</span> throughout our distinguished history, our legacy of excellence continues to inspire generations to achieve greatness.
           </motion.p>
         </div>
 
