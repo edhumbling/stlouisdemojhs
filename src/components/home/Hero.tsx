@@ -172,47 +172,46 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-white relative"
+            className="text-white"
           >
-            {/* Paint Splash Background for Text */}
-            <div className="absolute -inset-8 bg-gradient-to-br from-black/80 via-black/60 to-transparent rounded-[3rem] transform -rotate-2 blur-sm"></div>
-            <div className="absolute -inset-6 bg-gradient-to-tr from-black/70 via-black/50 to-transparent rounded-[2.5rem] transform rotate-1"></div>
-            <div className="absolute -inset-4 bg-gradient-to-bl from-black/60 via-black/40 to-transparent rounded-[2rem] transform -rotate-1"></div>
-
-            <div className="relative z-10">
-              {/* Main Heading */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>
+            {/* Main Heading with Individual Background */}
+            <div className="relative inline-block mb-3">
+              <div className="absolute -inset-2 bg-gradient-to-r from-black/70 via-black/50 to-black/70 rounded-2xl transform -rotate-1 blur-sm"></div>
+              <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>
                 The <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse">Leading</span> Forces in Excellent & Wholistic <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse">Education</span>
               </h1>
+            </div>
 
-              {/* Subtext */}
-              <p className="text-xs sm:text-sm md:text-base text-gray-100 mb-6 max-w-2xl">
+            {/* Subtext with Individual Background */}
+            <div className="relative inline-block mb-6">
+              <div className="absolute -inset-1 bg-gradient-to-r from-black/60 via-black/40 to-black/60 rounded-xl transform rotate-1"></div>
+              <p className="relative text-xs sm:text-sm md:text-base text-gray-100 max-w-2xl">
                 Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
               </p>
+            </div>
 
-              {/* Neon Glowing Buttons - Horizontal on Mobile */}
-              <div className="flex flex-row gap-2 sm:gap-3">
-                <Link
-                  to="/about"
-                  className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-blue-600/40 backdrop-blur-sm border-2 border-blue-400/60 hover:bg-blue-600/60 hover:border-blue-400/80 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:shadow-[0_0_30px_rgba(59,130,246,0.8)] transition-all duration-300 text-xs sm:text-sm neon-blue-glow"
-                >
-                  Our Story
-                </Link>
+            {/* Neon Glowing Buttons - Horizontal on Mobile */}
+            <div className="flex flex-row gap-2 sm:gap-3">
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-blue-600/40 backdrop-blur-sm border-2 border-blue-400/60 hover:bg-blue-600/60 hover:border-blue-400/80 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:shadow-[0_0_30px_rgba(59,130,246,0.8)] transition-all duration-300 text-xs sm:text-sm neon-blue-glow"
+              >
+                Our Story
+              </Link>
 
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-green-600/40 backdrop-blur-sm border-2 border-green-400/60 hover:bg-green-600/60 hover:border-green-400/80 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300 text-xs sm:text-sm neon-green-glow"
-                >
-                  Visit Us
-                </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-green-600/40 backdrop-blur-sm border-2 border-green-400/60 hover:bg-green-600/60 hover:border-green-400/80 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300 text-xs sm:text-sm neon-green-glow"
+              >
+                Visit Us
+              </Link>
 
-                <Link
-                  to="/donate"
-                  className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-red-600/40 backdrop-blur-sm border-2 border-red-400/60 hover:bg-red-600/60 hover:border-red-400/80 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(239,68,68,0.6)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 text-xs sm:text-sm neon-red-glow"
-                >
-                  Donate
-                </Link>
-              </div>
+              <Link
+                to="/donate"
+                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-red-600/40 backdrop-blur-sm border-2 border-red-400/60 hover:bg-red-600/60 hover:border-red-400/80 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(239,68,68,0.6)] hover:shadow-[0_0_30px_rgba(239,68,68,0.8)] transition-all duration-300 text-xs sm:text-sm neon-red-glow"
+              >
+                Donate
+              </Link>
             </div>
           </motion.div>
         </div>
