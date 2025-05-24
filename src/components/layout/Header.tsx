@@ -53,7 +53,7 @@ const Header: React.FC = () => {
               <img
                 src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MhQQRoQ5lei2Xoxy0tQ8z7rZTRLfvgpmsuw35"
                 alt="School Badge"
-                className="h-6 w-auto ml-2"
+                className="h-6 w-auto ml-1"
               />
             </div>
             <div className={`hidden md:flex items-center transition-colors duration-300 ${
@@ -101,7 +101,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Navigation - Donate Button and Menu */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center space-x-3">
             <DonateButton variant="header" />
             <button
               onClick={toggleMenu}

@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
       desktopPosition: 'center 75%' // Show more of the bottom on desktop
     },
     {
-      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mwf9R6zhW0NcVsvA1quWUypQ6IChZY53j4PSK',
+      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mtqqjxq2Z4OUSfDyHBMwru2hG3KJe97qYaoNx',
       isPortrait: false, // Landscape image
       mobilePosition: 'center 40%', // Slightly lower for better composition
       desktopPosition: 'center 35%' // Balanced positioning
@@ -39,6 +39,18 @@ const Hero: React.FC = () => {
       isPortrait: false, // Landscape image
       mobilePosition: 'center 35%', // Standard positioning
       desktopPosition: 'center 30%' // Standard positioning
+    },
+    {
+      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K',
+      isPortrait: false, // Landscape image
+      mobilePosition: 'center 40%', // Balanced positioning
+      desktopPosition: 'center 35%' // Balanced positioning
+    },
+    {
+      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO',
+      isPortrait: false, // Landscape image
+      mobilePosition: 'center 45%', // Show middle portion
+      desktopPosition: 'center 40%' // Balanced view
     }
   ];
 
@@ -195,8 +207,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Content - Clean Text - High Mobile Positioning */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-start justify-start pt-16 pb-4 sm:pb-8 md:pb-12 lg:pb-16 h-full">
+      {/* Content - Mobile High, Desktop Low Positioning */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-start sm:items-start md:items-end lg:items-end justify-start pt-16 sm:pt-12 md:pt-0 lg:pt-0 pb-4 sm:pb-8 md:pb-16 lg:pb-24 h-full">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -204,13 +216,13 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white"
           >
-            {/* Main Heading - Dark Glow - Ultra Compact Mobile */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-1 sm:mb-2 md:mb-3 drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6)' }}>
+            {/* Main Heading - Mobile Compact, Desktop Large */}
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-1 sm:mb-2 md:mb-4 lg:mb-6 drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6)' }}>
               The <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.8)' }}>Leading</span> Forces in Excellent & Wholistic <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.8)' }}>Education</span>
             </h1>
 
-            {/* Subtext - Dark Glow - Ultra Compact Mobile */}
-            <p className="text-xs sm:text-sm md:text-base text-gray-100 mb-2 sm:mb-3 md:mb-4 lg:mb-6 max-w-2xl drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
+            {/* Subtext - Mobile Compact, Desktop Larger */}
+            <p className="text-xs sm:text-sm md:text-lg lg:text-xl text-gray-100 mb-2 sm:mb-3 md:mb-6 lg:mb-8 max-w-2xl lg:max-w-4xl drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
               Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
             </p>
 
