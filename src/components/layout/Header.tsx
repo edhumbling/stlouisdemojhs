@@ -123,6 +123,14 @@ const Header: React.FC = () => {
                           <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-green-600 to-blue-600 shadow-[0_0_10px_rgba(34,197,94,0.8),0_0_20px_rgba(34,197,94,0.6),0_0_30px_rgba(34,197,94,0.4)] animate-pulse"></span>
                         </span>
                       )}
+
+                      {/* LearnHub Indicator */}
+                      {link.label === 'LearnHub' && (
+                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-orange-600 to-yellow-600 shadow-[0_0_10px_rgba(249,115,22,0.8),0_0_20px_rgba(249,115,22,0.6),0_0_30px_rgba(249,115,22,0.4)] animate-pulse"></span>
+                        </span>
+                      )}
                     </NavLink>
                   </li>
                 ))}

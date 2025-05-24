@@ -7,6 +7,7 @@ export const navLinks: NavLink[] = [
   { label: 'Faculty', path: '/faculty' },
   { label: 'News & Events', path: '/news' },
   { label: 'STEM', path: '/stem' },
+  { label: 'LearnHub', path: '/learnhub' },
   { label: 'AI Search', path: '/ai-search' },
   { label: 'Gallery', path: '/gallery' },
   { label: 'Contact', path: '/contact' },
