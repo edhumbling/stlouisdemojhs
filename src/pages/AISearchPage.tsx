@@ -23,7 +23,17 @@ const AISearchPage: React.FC = () => {
       description: 'Advanced AI-powered search engine with global indexing capabilities',
       icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-blue-600 to-cyan-600',
-      glowColor: '#06b6d4'
+      glowColor: '#06b6d4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'scira',
+      name: 'Scira AI',
+      url: 'https://scira.ai/',
+      description: 'Intelligent AI search platform with advanced reasoning capabilities',
+      icon: <Brain className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-blue-600',
+      glowColor: '#0891b2'
     },
     {
       id: 'farfalle',
@@ -97,7 +107,13 @@ const AISearchPage: React.FC = () => {
         </div>
 
         {/* Full Viewport Engine Embed */}
-        <div className="w-full" style={{ height: 'calc(100vh - 140px)' }}>
+        <div
+          className="w-full"
+          style={{
+            height: 'calc(100vh - 140px)',
+            backgroundColor: selectedEngineData.hasWhiteBackground ? '#ffffff' : 'transparent'
+          }}
+        >
           <iframe
             src={selectedEngineData.url}
             title={`${selectedEngineData.name} AI Search Engine`}
@@ -106,7 +122,8 @@ const AISearchPage: React.FC = () => {
               width: '100%',
               height: '100%',
               border: 'none',
-              overflow: 'auto'
+              overflow: 'auto',
+              backgroundColor: selectedEngineData.hasWhiteBackground ? '#ffffff' : 'transparent'
             }}
             loading="lazy"
             sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
@@ -152,7 +169,7 @@ const AISearchPage: React.FC = () => {
               </h1>
             </div>
           </div>
-          
+
           <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-3xl" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
             Explore the future of search with cutting-edge AI-powered engines. Choose from our curated collection of advanced search platforms designed to enhance your research and discovery experience.
           </p>
@@ -161,7 +178,7 @@ const AISearchPage: React.FC = () => {
 
       {/* AI Engines Grid */}
       <div className="container mx-auto px-4 py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {aiEngines.map((engine, index) => (
             <motion.div
               key={engine.id}
@@ -171,7 +188,7 @@ const AISearchPage: React.FC = () => {
               onClick={() => handleEngineClick(engine.id)}
               className="group cursor-pointer"
             >
-              <div 
+              <div
                 className={`relative bg-gradient-to-br ${engine.color} rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border border-white/20 hover:border-white/40 overflow-hidden`}
                 style={{
                   boxShadow: `0 10px 40px ${engine.glowColor}30, 0 0 60px ${engine.glowColor}20`
@@ -179,7 +196,7 @@ const AISearchPage: React.FC = () => {
               >
                 {/* Animated background effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon */}
@@ -229,7 +246,7 @@ const AISearchPage: React.FC = () => {
               🚀 Enhance Your Learning Journey
             </h3>
             <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              These AI-powered search engines are carefully selected to support your academic research and curiosity. 
+              These AI-powered search engines are carefully selected to support your academic research and curiosity.
               Each platform offers unique features and capabilities to help you discover information more effectively than traditional search methods.
             </p>
           </div>

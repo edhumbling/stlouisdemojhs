@@ -73,14 +73,14 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <div className="flex items-center space-x-8">
-              <ul className="flex space-x-8">
+            <div className="flex items-center space-x-6">
+              <ul className="flex space-x-6">
                 {navLinks.map((link) => (
                   <li key={link.path}>
                     <NavLink
                       to={link.path}
                       className={({ isActive }) => `
-                        relative font-medium transition-colors duration-300 hover:text-accent-500
+                        relative font-medium text-sm transition-colors duration-300 hover:text-accent-500
                         ${scrolled
                           ? isActive
                             ? 'text-accent-300'

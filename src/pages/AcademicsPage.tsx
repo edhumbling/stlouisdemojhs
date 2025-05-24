@@ -392,20 +392,62 @@ const AcademicsPage: React.FC = () => {
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-green-700 mb-2 text-sm sm:text-base">🌟 What Sets Us Apart</h4>
-                  <ul className="text-xs sm:text-sm text-gray-600 space-y-1">
-                    <li>• State-of-the-art computer laboratory</li>
-                    <li>• Well-equipped science laboratories</li>
-                    <li>• Comprehensive library resources</li>
+                  <h4 className="font-semibold text-orange-700 mb-2 text-sm sm:text-base">🚧 Areas Needing Your Support</h4>
+                  <ul className="text-xs sm:text-sm text-gray-700 space-y-1 font-medium">
+                    <li>• <span className="text-red-600">Insufficient</span> computer laboratory equipment</li>
+                    <li>• <span className="text-red-600">Limited</span> science laboratory resources</li>
+                    <li>• <span className="text-red-600">Expanding</span> library collection needs</li>
                   </ul>
+                  <p className="text-xs sm:text-sm text-orange-700 mt-2 font-medium italic">
+                    Help us bridge these gaps to provide world-class education!
+                  </p>
                 </div>
               </div>
-              <div className="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg border-l-4 border-yellow-400">
-                <p className="text-xs sm:text-sm md:text-base text-gray-700 italic font-medium">
+              <div className="mt-6 p-4 sm:p-6 bg-gradient-to-r from-blue-50 via-white to-green-50 rounded-lg border-l-4 border-blue-500 shadow-lg">
+                <p className="text-sm sm:text-base md:text-lg text-gray-800 italic font-semibold leading-relaxed" style={{ textShadow: '0.5px 0.5px 1px rgba(0,0,0,0.1)' }}>
                   "At St. Louis Educational Institute, we don't just educate students - we shape future leaders,
                   innovators, and change-makers who will transform Ghana and the world. Our legacy of excellence
                   speaks for itself through the thousands of successful graduates who credit their foundation to our institution."
                 </p>
+                <p className="text-xs sm:text-sm text-blue-700 mt-3 font-medium text-right">
+                  - St. Louis Educational Institute Mission
+                </p>
+              </div>
+
+              {/* Donation Appeal Section */}
+              <div className="mt-8 p-6 sm:p-8 bg-gradient-to-r from-red-50 via-orange-50 to-yellow-50 rounded-xl border-2 border-orange-200 shadow-xl">
+                <div className="text-center">
+                  <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-red-700 mb-4">
+                    🆘 Your Support Can Transform Lives!
+                  </h4>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 max-w-2xl mx-auto">
+                    While we excel in academics, our facilities need urgent upgrades to match our educational standards.
+                    Your generous donation will directly impact hundreds of students by providing modern equipment,
+                    enhanced laboratories, and expanded resources that will prepare them for tomorrow's challenges.
+                  </p>
+
+                  {/* Glowing Donation Button */}
+                  <div className="flex justify-center">
+                    <a
+                      href="https://paystack.com/pay/stlouisdemojhs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:from-green-700 hover:via-green-800 hover:to-green-900 text-white font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-sm sm:text-base md:text-lg"
+                      style={{
+                        boxShadow: '0 0 30px rgba(34, 197, 94, 0.6), 0 0 60px rgba(34, 197, 94, 0.4), 0 0 90px rgba(34, 197, 94, 0.2)',
+                        animation: 'pulse 2s infinite'
+                      }}
+                    >
+                      <span className="text-xl sm:text-2xl">💚</span>
+                      <span>Donate Now - Transform Education</span>
+                      <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300">🚀</span>
+                    </a>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-gray-600 mt-4 italic">
+                    Every donation, no matter the size, makes a meaningful difference in a student's educational journey.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
