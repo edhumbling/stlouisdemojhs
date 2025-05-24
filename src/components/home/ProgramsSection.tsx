@@ -8,14 +8,21 @@ const ProgramsSection: React.FC = () => {
   const [activeProgram, setActiveProgram] = useState(programs[0].id);
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 relative overflow-hidden">
+      {/* Magical Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-10 left-10 w-20 h-20 bg-blue-100/30 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-yellow-100/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-green-100/25 rounded-full blur-lg animate-pulse delay-500"></div>
+      </div>
+
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center mb-16"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+          className="max-w-5xl mx-auto text-center mb-8 sm:mb-12 md:mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary-800 mb-6">
             Our Academic Curriculum
@@ -25,10 +32,24 @@ const ProgramsSection: React.FC = () => {
             through rigorous academics, technology integration, cultural awareness, and character formation.
           </p>
 
-          {/* Subject List */}
-          <div className="bg-gray-50 rounded-lg p-6 mb-8">
-            <h3 className="text-xl font-semibold text-primary-800 mb-4">Subjects We Teach</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 text-sm">
+          {/* Magical Subject List */}
+          <motion.div
+            className="bg-gradient-to-br from-gray-50 to-blue-50/50 rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg border border-gray-100/50 backdrop-blur-sm"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <motion.h3
+              className="text-lg sm:text-xl font-bold text-primary-800 mb-4 sm:mb-6 text-center"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              ✨ Subjects We Teach ✨
+            </motion.h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 text-xs sm:text-sm">
               {[
                 'English Language',
                 'Mathematics',
@@ -44,17 +65,37 @@ const ProgramsSection: React.FC = () => {
               ].map((subject, index) => (
                 <motion.div
                   key={subject}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="bg-white rounded-lg p-3 shadow-sm border border-primary-100 hover:border-primary-300 transition-colors"
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.08,
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 20
+                  }}
+                  className="group relative bg-white rounded-xl p-2 sm:p-3 shadow-md hover:shadow-lg border border-primary-100 hover:border-primary-300 transition-all duration-300 overflow-hidden"
+                  whileHover={{
+                    scale: 1.05,
+                    y: -2,
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <span className="text-primary-700 font-medium">{subject}</span>
+                  {/* Magical Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                  {/* Sparkle Effect */}
+                  <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-yellow-400/60 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"></div>
+
+                  <span className="relative z-10 text-primary-700 font-semibold group-hover:text-primary-800 transition-colors duration-300 leading-tight">
+                    {subject}
+                  </span>
                 </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
