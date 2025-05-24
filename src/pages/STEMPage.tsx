@@ -1,48 +1,102 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Atom, Calculator, Microscope, Cpu, Lightbulb, Rocket, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Atom, Calculator, Microscope, Cpu, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen } from 'lucide-react';
 
 const STEMPage: React.FC = () => {
-  // CSS for blue external links
-  const linkClass = "inline-flex items-center gap-1 font-medium text-blue-600 hover:text-blue-800 hover:underline transition-colors";
+  const navigate = useNavigate();
 
-  // STEM Resources data
-  const stemWebsites = [
-    { name: "Khan Academy", url: "https://www.khanacademy.org/" },
-    { name: "Sheppard Software", url: "https://www.sheppardsoftware.com/" },
-    { name: "Zooniverse", url: "https://www.zooniverse.org/" },
-    { name: "LearnToMod", url: "https://www.learntomod.com/" },
-    { name: "Lego Mindstorms", url: "https://www.lego.com/en-us/themes/mindstorms" },
-    { name: "Women@NASA", url: "https://women.nasa.gov/" },
-    { name: "CanTEEN", url: "https://www.canteengirl.org/" },
-    { name: "Engineer Girl!", url: "https://www.engineergirl.org/" },
-    { name: "Engineer Your Life", url: "https://www.engineeryourlife.org/" },
-    { name: "For Girls in Science", url: "https://www.forgirlsinscience.org/" },
-    { name: "Girl Scouts STEM Program", url: "https://www.girlscouts.org/en/about-girl-scouts/girl-scouts-and-stem.html" },
-    { name: "Society of Women Engineers (SWE) K-12 Outreach", url: "https://swe.org/k-12-outreach/" },
-    { name: "G2O: Generating Girls Opportunities", url: "https://www.cwealf.org/g2o/" },
-    { name: "The Big Brain Theory – Discovery Channel", url: "https://www.discovery.com/shows/the-big-brain-theory" },
-    { name: "Bill Nye the Science Guy", url: "https://billnye.com/" },
-    { name: "SciJinks", url: "https://scijinks.gov/" },
-    { name: "MythBusters – Discovery Channel", url: "https://www.discovery.com/shows/mythbusters" },
-    { name: "Scratch", url: "https://scratch.mit.edu/" },
-    { name: "Funology", url: "https://www.funology.com/" },
-    { name: "Helping Your Child Learn Mathematics", url: "https://www2.ed.gov/parents/academic/help/math/index.html" },
-    { name: "NASA Kids' Club", url: "https://www.nasa.gov/kidsclub/index.html" },
-    { name: "NASA Space Place", url: "https://spaceplace.nasa.gov/" },
-    { name: "TechRocket", url: "https://www.techrocket.com/" },
-    { name: "Arrick Robotics", url: "http://www.arrickrobotics.com/" },
-    { name: "Codecademy", url: "https://www.codecademy.com/" },
-    { name: "DiscoverE", url: "https://www.discovere.org/" },
-    { name: "Student Science", url: "https://www.sciencenews.org/student-science" },
-    { name: "Code.org", url: "https://code.org/" },
-    { name: "Exploratorium", url: "https://www.exploratorium.edu/" },
-    { name: "How Stuff Works", url: "https://www.howstuffworks.com/" },
-    { name: "NASA Education for Students", url: "https://www.nasa.gov/stem/" },
-    { name: "NASA Science, Engineering, Mathematics and Aerospace Academy (SEMAA)", url: "https://www.nasa.gov/offices/education/programs/national/semaa/home/index.html" },
-    { name: "NOVA", url: "https://www.pbs.org/wgbh/nova/" },
-    { name: "Science Buddies", url: "https://www.sciencebuddies.org/" },
-    { name: "Tynker", url: "https://www.tynker.com/" }
+  const handleBack = () => {
+    navigate(-1); // Go back to previous page
+  };
+
+  // STEM Resources organized like LearnHub
+  const stemCategories = [
+    {
+      id: 1,
+      title: "Science Websites",
+      description: "Interactive science learning platforms",
+      icon: <Atom className="w-5 h-5" />,
+      color: "#007AFF",
+      resources: [
+        { name: "NASA Kids' Club", url: "https://www.nasa.gov/kidsclub/index.html" },
+        { name: "NASA Space Place", url: "https://spaceplace.nasa.gov/" },
+        { name: "Bill Nye the Science Guy", url: "https://billnye.com/" },
+        { name: "SciJinks", url: "https://scijinks.gov/" },
+        { name: "NOVA", url: "https://www.pbs.org/wgbh/nova/" },
+        { name: "Science Buddies", url: "https://www.sciencebuddies.org/" },
+        { name: "Exploratorium", url: "https://www.exploratorium.edu/" },
+        { name: "How Stuff Works", url: "https://www.howstuffworks.com/" }
+      ]
+    },
+    {
+      id: 2,
+      title: "Technology & Coding",
+      description: "Programming and tech skills",
+      icon: <Cpu className="w-5 h-5" />,
+      color: "#34C759",
+      resources: [
+        { name: "Scratch", url: "https://scratch.mit.edu/" },
+        { name: "Code.org", url: "https://code.org/" },
+        { name: "Codecademy", url: "https://www.codecademy.com/" },
+        { name: "Tynker", url: "https://www.tynker.com/" },
+        { name: "LearnToMod", url: "https://www.learntomod.com/" },
+        { name: "TechRocket", url: "https://www.techrocket.com/" }
+      ]
+    },
+    {
+      id: 3,
+      title: "Engineering",
+      description: "Engineering design and robotics",
+      icon: <Lightbulb className="w-5 h-5" />,
+      color: "#FF9500",
+      resources: [
+        { name: "Engineer Girl!", url: "https://www.engineergirl.org/" },
+        { name: "Engineer Your Life", url: "https://www.engineeryourlife.org/" },
+        { name: "Lego Mindstorms", url: "https://www.lego.com/en-us/themes/mindstorms" },
+        { name: "Arrick Robotics", url: "http://www.arrickrobotics.com/" },
+        { name: "DiscoverE", url: "https://www.discovere.org/" }
+      ]
+    },
+    {
+      id: 4,
+      title: "Mathematics",
+      description: "Math learning and practice",
+      icon: <Calculator className="w-5 h-5" />,
+      color: "#5856D6",
+      resources: [
+        { name: "Khan Academy", url: "https://www.khanacademy.org/" },
+        { name: "Helping Your Child Learn Mathematics", url: "https://www2.ed.gov/parents/academic/help/math/index.html" }
+      ]
+    },
+    {
+      id: 5,
+      title: "Educational Games",
+      description: "Fun learning through games",
+      icon: <Rocket className="w-5 h-5" />,
+      color: "#FF3B30",
+      resources: [
+        { name: "Sheppard Software", url: "https://www.sheppardsoftware.com/" },
+        { name: "Funology", url: "https://www.funology.com/" },
+        { name: "MythBusters – Discovery Channel", url: "https://www.discovery.com/shows/mythbusters" },
+        { name: "The Big Brain Theory – Discovery Channel", url: "https://www.discovery.com/shows/the-big-brain-theory" }
+      ]
+    },
+    {
+      id: 6,
+      title: "STEM for Girls",
+      description: "Encouraging girls in STEM",
+      icon: <BookOpen className="w-5 h-5" />,
+      color: "#AF52DE",
+      resources: [
+        { name: "Women@NASA", url: "https://women.nasa.gov/" },
+        { name: "CanTEEN", url: "https://www.canteengirl.org/" },
+        { name: "For Girls in Science", url: "https://www.forgirlsinscience.org/" },
+        { name: "Girl Scouts STEM Program", url: "https://www.girlscouts.org/en/about-girl-scouts/girl-scouts-and-stem.html" },
+        { name: "Society of Women Engineers (SWE) K-12 Outreach", url: "https://swe.org/k-12-outreach/" },
+        { name: "G2O: Generating Girls Opportunities", url: "https://www.cwealf.org/g2o/" }
+      ]
+    }
   ];
 
   const governmentInitiatives = [
@@ -109,348 +163,101 @@ const STEMPage: React.FC = () => {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col bg-white">
-      {/* Hero Section */}
-      <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-school-blue via-school-green to-school-yellow">
-        {/* Background Effects */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-white/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/20 rounded-full blur-lg animate-pulse delay-500"></div>
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
-        </div>
+    <div className="min-h-screen bg-gray-50 pt-16">
+      {/* Back Button and Title Section - Below Header */}
+      <div className="bg-gradient-to-r from-school-blue via-school-green to-school-yellow py-3 sm:py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-white/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
 
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <div className="flex justify-center mb-6">
-              <div className="flex space-x-4">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="p-3 bg-white/20 rounded-full"
-                >
-                  <Atom className="w-8 h-8 text-white" />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="p-3 bg-white/20 rounded-full"
-                >
-                  <Cpu className="w-8 h-8 text-white" />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="p-3 bg-white/20 rounded-full"
-                >
-                  <Rocket className="w-8 h-8 text-white" />
-                </motion.div>
-              </div>
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
-                style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-              STEM Resources for
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              STEM Resources
             </h1>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white"
-                style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-              St. Louis Demonstration JHS
-            </h2>
-            <p className="text-lg sm:text-xl text-white max-w-3xl mx-auto leading-relaxed"
-               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              Empowering our students with cutting-edge Science, Technology, Engineering, and Mathematics resources
-              to build tomorrow's innovators and problem-solvers.
-            </p>
-          </motion.div>
+          </div>
         </div>
-      </section>
+      </div>
+
+      {/* Clean Header */}
+      <div className="bg-white border-b border-gray-200 px-4 py-6 sm:py-8">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2"
+              style={{ fontFamily: 'Arial, sans-serif' }}>
+            STEM Learning Hub
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base">
+            Science, Technology, Engineering & Mathematics resources for St. Louis Demonstration JHS
+          </p>
+        </div>
+      </div>
 
       {/* Main Content */}
-      <main className="flex-1 py-12 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          {/* What is STEM Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-16"
-          >
-            <div className="flex items-center mb-8">
-              <Lightbulb className="w-8 h-8 text-school-yellow mr-3" />
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">What is STEM?</h2>
-            </div>
-            <p className="text-lg leading-relaxed text-gray-700 mb-6 max-w-4xl">
-              STEM stands for Science, Technology, Engineering, and Mathematics. It is an educational approach that integrates these four disciplines to promote critical thinking, problem-solving, and innovation skills among students.
-            </p>
-            <p className="text-lg leading-relaxed text-gray-700 mb-8 max-w-4xl">
-              The relevance of STEM for our students at St. Louis Demonstration JHS is multifaceted and crucial in today's rapidly changing world. Here are some key reasons why STEM education is important for our children:
-            </p>
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-school-green rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">1</div>
-                  <div>
-                    <h4 className="font-semibold text-school-green mb-2 text-lg">Fostering Curiosity and Exploration</h4>
-                    <p className="text-gray-600">STEM activities encourage children to ask questions, explore their surroundings, and develop a deep understanding of the world around them.</p>
+      <main className="flex-1 py-6 sm:py-8 bg-gray-50">
+        <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
+          {/* STEM Categories Grid - Apple Style */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4 mb-8">
+            {stemCategories.map((category, index) => (
+              <motion.div
+                key={category.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="group"
+              >
+                <div className="w-full bg-white rounded-2xl p-3 sm:p-4 border border-gray-200 hover:border-gray-300 transition-all duration-200 hover:shadow-md">
+                  {/* Icon */}
+                  <div
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
+                    style={{ backgroundColor: category.color }}
+                  >
+                    {category.icon}
                   </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-school-blue rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">2</div>
-                  <div>
-                    <h4 className="font-semibold text-school-blue mb-2 text-lg">Developing Problem-Solving Skills</h4>
-                    <p className="text-gray-600">STEM education emphasizes hands-on learning experiences that challenge children to think critically and devise creative solutions.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-school-yellow rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">3</div>
-                  <div>
-                    <h4 className="font-semibold text-school-yellow mb-2 text-lg">Preparing for Future Careers</h4>
-                    <p className="text-gray-600">Many of the fastest-growing and highest-paying jobs are in STEM fields, opening up wide career opportunities.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-school-green rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">4</div>
-                  <div>
-                    <h4 className="font-semibold text-school-green mb-2 text-lg">Promoting Innovation and Creativity</h4>
-                    <p className="text-gray-600">STEM activities involve designing, building, and experimenting, fostering creativity and innovative thinking.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-school-blue rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">5</div>
-                  <div>
-                    <h4 className="font-semibold text-school-blue mb-2 text-lg">Enhancing Logical Thinking</h4>
-                    <p className="text-gray-600">STEM subjects require logical and analytical thinking skills essential for academic success and real-world applications.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-school-yellow rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">6</div>
-                  <div>
-                    <h4 className="font-semibold text-school-yellow mb-2 text-lg">Building Confidence</h4>
-                    <p className="text-gray-600">Overcoming STEM challenges instills confidence and perseverance, teaching the value of persistence in the face of setbacks.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-school-blue">
-              <p className="text-gray-700 text-center italic text-lg">
-                "By introducing STEM education at an early age, our students at St. Louis Demonstration JHS develop a strong foundation in these critical areas, setting them up for success in an increasingly technology-driven and innovation-focused world."
-              </p>
-            </div>
-          </motion.section>
 
-          {/* STEM Resources Section */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-16"
-          >
-            <div className="flex items-center mb-8">
-              <Microscope className="w-8 h-8 text-school-green mr-3" />
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Comprehensive STEM Resources</h2>
-            </div>
+                  {/* Title */}
+                  <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1 leading-tight">
+                    {category.title}
+                  </h3>
 
-            <div className="space-y-12">
-              {/* Cool STEM Websites */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                  <Calculator className="w-7 h-7 mr-3 text-school-yellow" />
-                  STEM Websites
-                </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {stemWebsites.map((site, index) => (
-                    <li key={index}>
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-gray-500 leading-tight mb-3">
+                    {category.description}
+                  </p>
+
+                  {/* Resources List */}
+                  <div className="space-y-1">
+                    {category.resources.slice(0, 3).map((resource, idx) => (
                       <a
-                        href={site.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={linkClass}
-                      >
-                        {site.name}
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Government STEM Initiatives */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                  <Lightbulb className="w-7 h-7 mr-3 text-school-blue" />
-                  Government STEM Initiatives
-                </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {governmentInitiatives.map((initiative, index) => (
-                    <li key={index}>
-                      <a
-                        href={initiative.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={linkClass}
-                      >
-                        {initiative.name}
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Science Games and Apps */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                  <Atom className="w-7 h-7 mr-3 text-school-green" />
-                  Science Games and Apps
-                </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {scienceGamesApps.map((app, index) => (
-                    <li key={index}>
-                      <a
-                        href={app.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={linkClass}
-                      >
-                        {app.name}
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Math Games and Apps */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                  <Calculator className="w-7 h-7 mr-3 text-school-yellow" />
-                  Math Games and Apps
-                </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {mathGamesApps.map((app, index) => (
-                    <li key={index}>
-                      <a
-                        href={app.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={linkClass}
-                      >
-                        {app.name}
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* STEM Camps and Programs */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                  <Rocket className="w-7 h-7 mr-3 text-school-blue" />
-                  STEM Camps and Programs
-                </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {stemCamps.map((camp, index) => (
-                    <li key={index}>
-                      <a
-                        href={camp.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={linkClass}
-                      >
-                        {camp.name}
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Books */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                  <Microscope className="w-7 h-7 mr-3 text-school-green" />
-                  Recommended Books
-                </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {books.map((book, index) => (
-                    <li key={index}>
-                      <a
-                        href={book.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={linkClass}
-                      >
-                        {book.name}
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Teachers/Educators */}
-              <div>
-                <h3 className="text-2xl font-bold mb-6 text-gray-900 flex items-center">
-                  <Cpu className="w-7 h-7 mr-3 text-school-yellow" />
-                  Resources for Teachers/Educators
-                </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {teachersEducators.map((resource, index) => (
-                    <li key={index}>
-                      <a
+                        key={idx}
                         href={resource.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={linkClass}
+                        className="block text-xs text-blue-600 hover:text-blue-800 hover:underline transition-colors truncate"
                       >
                         {resource.name}
-                        <ExternalLink className="w-4 h-4" />
                       </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                    ))}
+                    {category.resources.length > 3 && (
+                      <p className="text-xs text-gray-400">
+                        +{category.resources.length - 3} more
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-            {/* Call to Action */}
-            <div className="mt-16 p-8 bg-gradient-to-r from-school-blue/10 via-school-green/10 to-school-yellow/10 rounded-lg border border-gray-200">
-              <h4 className="text-2xl font-bold text-gray-900 mb-4 text-center">Ready to Explore STEM?</h4>
-              <p className="text-gray-700 text-center mb-6 text-lg max-w-3xl mx-auto">
-                These resources are carefully curated to support our students' STEM journey at St. Louis Demonstration JHS.
-                Start exploring and discover the exciting world of Science, Technology, Engineering, and Mathematics!
-              </p>
-              <div className="flex justify-center flex-wrap gap-6">
-                <div className="flex items-center space-x-2 text-school-yellow">
-                  <Atom className="w-6 h-6" />
-                  <span className="font-medium">Science</span>
-                </div>
-                <div className="flex items-center space-x-2 text-school-blue">
-                  <Cpu className="w-6 h-6" />
-                  <span className="font-medium">Technology</span>
-                </div>
-                <div className="flex items-center space-x-2 text-school-green">
-                  <Lightbulb className="w-6 h-6" />
-                  <span className="font-medium">Engineering</span>
-                </div>
-                <div className="flex items-center space-x-2 text-school-yellow">
-                  <Calculator className="w-6 h-6" />
-                  <span className="font-medium">Mathematics</span>
-                </div>
-              </div>
-            </div>
-          </motion.section>
+          {/* Simple Footer Message */}
+          <div className="text-center">
+            <p className="text-sm text-gray-500">
+              Click any category above to explore STEM resources
+            </p>
+          </div>
         </div>
       </main>
     </div>

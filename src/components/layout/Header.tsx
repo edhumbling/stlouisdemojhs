@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { NavLink, useLocation, Link } from 'react-router-dom';
+import { Menu, X, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { navLinks } from '../../data';
 import DonateButton from '../common/DonateButton';
@@ -123,14 +123,6 @@ const Header: React.FC = () => {
                           <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-green-600 to-blue-600 shadow-[0_0_10px_rgba(34,197,94,0.8),0_0_20px_rgba(34,197,94,0.6),0_0_30px_rgba(34,197,94,0.4)] animate-pulse"></span>
                         </span>
                       )}
-
-                      {/* LearnHub Indicator */}
-                      {link.label === 'LearnHub' && (
-                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-orange-600 to-yellow-600 shadow-[0_0_10px_rgba(249,115,22,0.8),0_0_20px_rgba(249,115,22,0.6),0_0_30px_rgba(249,115,22,0.4)] animate-pulse"></span>
-                        </span>
-                      )}
                     </NavLink>
                   </li>
                 ))}
@@ -157,62 +149,87 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Dark Glass Transparent with Two Columns */}
       {isMenuOpen && (
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden glass-dark shadow-lg"
+          className="md:hidden bg-black/80 backdrop-blur-lg border-t border-white/10"
         >
-          <ul className="py-6 px-2">
-            {navLinks.map((link, index) => (
-              <motion.li
-                key={link.path}
-                className="mb-2"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2, delay: index * 0.05 }}
-              >
-                <NavLink
-                  to={link.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={({ isActive }) => `
-                    block py-3 px-4 font-medium rounded-lg text-center text-base relative
-                    ${isActive
-                      ? 'bg-green-600 text-white'
-                      : 'text-white hover:bg-white/10'
-                    }
-                  `}
+          <div className="p-4">
+            {/* Two Column Grid for Menu Items */}
+            <div className="grid grid-cols-2 gap-2 mb-4">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.path}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.2, delay: index * 0.05 }}
                 >
-                  {link.label}
-                  {/* Red Buzzing Notification Dot for News & Events - Mobile */}
-                  {link.label === 'News & Events' && (
-                    <span className="absolute top-2 right-2 flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
-                    </span>
-                  )}
-                  {/* AI Sparkle Indicator for AI Search - Mobile */}
-                  {link.label === 'AI Search' && (
-                    <span className="absolute top-2 right-2 flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-purple-600 to-pink-600 shadow-[0_0_10px_rgba(147,51,234,0.8),0_0_20px_rgba(147,51,234,0.6),0_0_30px_rgba(147,51,234,0.4)] animate-pulse"></span>
-                    </span>
-                  )}
+                  <NavLink
+                    to={link.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={({ isActive }) => `
+                      block py-3 px-3 font-medium rounded-xl text-center text-sm relative transition-all duration-200
+                      ${isActive
+                        ? 'bg-white/20 text-white border border-white/30'
+                        : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
+                      }
+                    `}
+                  >
+                    {link.label}
+                    {/* Red Buzzing Notification Dot for News & Events - Mobile */}
+                    {link.label === 'News & Events' && (
+                      <span className="absolute top-1 right-1 flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600 shadow-[0_0_8px_rgba(239,68,68,0.8)] animate-pulse"></span>
+                      </span>
+                    )}
+                    {/* AI Sparkle Indicator for AI Search - Mobile */}
+                    {link.label === 'AI Search' && (
+                      <span className="absolute top-1 right-1 flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-gradient-to-r from-purple-600 to-pink-600 shadow-[0_0_8px_rgba(147,51,234,0.8)] animate-pulse"></span>
+                      </span>
+                    )}
+                  </NavLink>
+                </motion.div>
+              ))}
+            </div>
 
-                  {/* STEM Indicator - Mobile */}
-                  {link.label === 'STEM' && (
-                    <span className="absolute top-2 right-2 flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-green-600 to-blue-600 shadow-[0_0_10px_rgba(34,197,94,0.8),0_0_20px_rgba(34,197,94,0.6),0_0_30px_rgba(34,197,94,0.4)] animate-pulse"></span>
-                    </span>
-                  )}
-                </NavLink>
-              </motion.li>
-            ))}
-          </ul>
+            {/* Donate Button - Exact Copy from Desktop */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              className="flex justify-center"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Link
+                  to="/donate"
+                  className="inline-flex items-center justify-center font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 relative overflow-hidden px-6 py-3 text-base bg-red-600 hover:bg-red-700 text-white rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6),0_0_40px_rgba(239,68,68,0.4),0_0_60px_rgba(239,68,68,0.2)] hover:shadow-[0_0_25px_rgba(239,68,68,0.8),0_0_50px_rgba(239,68,68,0.6),0_0_75px_rgba(239,68,68,0.4)] neon-red-glow"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Heart className="w-4 h-4 mr-2 fill-current relative z-10 text-white neon-text-glow" />
+                  <span className="relative z-10 font-bold text-white neon-text-glow">Donate</span>
+
+                  {/* Neon red glowing effect */}
+                  <span className="absolute inset-0 bg-red-500 opacity-40 animate-pulse rounded-full"></span>
+                  <span className="absolute inset-0 bg-red-400 opacity-30 animate-ping rounded-full" style={{ animationDelay: '0.5s' }}></span>
+                  <span className="absolute -inset-1 bg-red-500 opacity-25 blur-md animate-pulse rounded-full" style={{ animationDelay: '1s' }}></span>
+                  <span className="absolute -inset-2 bg-red-600 opacity-15 blur-lg animate-pulse rounded-full" style={{ animationDelay: '1.5s' }}></span>
+                </Link>
+              </motion.div>
+            </div>
+          </div>
         </motion.nav>
       )}
     </header>
