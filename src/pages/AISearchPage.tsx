@@ -176,9 +176,9 @@ const AISearchPage: React.FC = () => {
         </div>
       </div>
 
-      {/* AI Engines Grid */}
-      <div className="container mx-auto px-4 py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+      {/* AI Engines Grid - Cute Mobile Layout */}
+      <div className="container mx-auto px-2 sm:px-4 py-6 sm:py-8 md:py-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-2 sm:gap-3 md:gap-6 lg:gap-8">
           {aiEngines.map((engine, index) => (
             <motion.div
               key={engine.id}
@@ -189,7 +189,7 @@ const AISearchPage: React.FC = () => {
               className="group cursor-pointer"
             >
               <div
-                className={`relative bg-gradient-to-br ${engine.color} rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border border-white/20 hover:border-white/40 overflow-hidden`}
+                className={`relative bg-gradient-to-br ${engine.color} rounded-lg sm:rounded-xl md:rounded-2xl p-2 sm:p-3 md:p-4 lg:p-6 xl:p-8 shadow-lg sm:shadow-xl md:shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 border border-white/20 hover:border-white/40 overflow-hidden`}
                 style={{
                   boxShadow: `0 10px 40px ${engine.glowColor}30, 0 0 60px ${engine.glowColor}20`
                 }}
@@ -199,28 +199,30 @@ const AISearchPage: React.FC = () => {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="mb-4 sm:mb-6">
-                    <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-white/20 backdrop-blur-sm rounded-xl text-white group-hover:scale-110 transition-transform duration-300">
-                      {engine.icon}
+                  {/* Icon - Smaller on Mobile */}
+                  <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-6">
+                    <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 bg-white/20 backdrop-blur-sm rounded-lg sm:rounded-xl text-white group-hover:scale-110 transition-transform duration-300">
+                      {React.cloneElement(engine.icon, {
+                        className: "w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8"
+                      })}
                     </div>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 group-hover:text-yellow-200 transition-colors duration-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                  {/* Title - Smaller on Mobile */}
+                  <h3 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl font-bold text-white mb-1 sm:mb-2 md:mb-3 lg:mb-4 group-hover:text-yellow-200 transition-colors duration-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                     {engine.name}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4 sm:mb-6" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  {/* Description - Smaller on Mobile */}
+                  <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-200 leading-relaxed mb-2 sm:mb-3 md:mb-4 lg:mb-6" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                     {engine.description}
                   </p>
 
-                  {/* Action Button */}
+                  {/* Action Button - Smaller on Mobile */}
                   <div className="flex items-center justify-between">
-                    <span className="text-xs sm:text-sm text-white/80 font-medium">Click to explore</span>
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-                      <Search className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                    <span className="text-xs sm:text-xs md:text-sm text-white/80 font-medium">Click to explore</span>
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
+                      <Search className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 text-white" />
                     </div>
                   </div>
                 </div>
@@ -234,18 +236,18 @@ const AISearchPage: React.FC = () => {
           ))}
         </div>
 
-        {/* Info Section */}
+        {/* Info Section - Compact on Mobile */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 sm:mt-16 text-center"
+          className="mt-6 sm:mt-8 md:mt-12 lg:mt-16 text-center px-2 sm:px-0"
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20 max-w-4xl mx-auto">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 border border-white/20 max-w-4xl mx-auto">
+            <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-white mb-2 sm:mb-3 md:mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               🚀 Enhance Your Learning Journey
             </h3>
-            <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            <p className="text-xs sm:text-sm md:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               These AI-powered search engines are carefully selected to support your academic research and curiosity.
               Each platform offers unique features and capabilities to help you discover information more effectively than traditional search methods.
             </p>

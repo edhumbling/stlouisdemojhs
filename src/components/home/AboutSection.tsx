@@ -68,8 +68,8 @@ const AboutSection: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Mobile-First Magical Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-8 md:mb-12 px-2 sm:px-0">
+        {/* Mobile-First Cute Feature Cards - Two Column Layout */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-6 mb-8 md:mb-12 px-2 sm:px-0">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -83,7 +83,7 @@ const AboutSection: React.FC = () => {
                 stiffness: 100,
                 damping: 15
               }}
-              className="group relative bg-white/10 backdrop-blur-md p-4 sm:p-5 md:p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:bg-white/20 flex flex-col items-center text-center border border-white/30 hover:border-yellow-400/50 overflow-hidden"
+              className="group relative bg-white/10 backdrop-blur-md p-2 sm:p-3 md:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:bg-white/20 flex flex-col items-center text-center border border-white/30 hover:border-yellow-400/50 overflow-hidden"
               whileHover={{
                 y: -8,
                 scale: 1.02,
@@ -94,27 +94,27 @@ const AboutSection: React.FC = () => {
               {/* Magical Background Glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 via-transparent to-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-              {/* Floating Particles Effect */}
-              <div className="absolute top-2 right-2 w-2 h-2 bg-yellow-400/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-blue-400/40 rounded-full animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200"></div>
+              {/* Floating Particles Effect - Smaller on Mobile */}
+              <div className="absolute top-1 right-1 sm:top-2 sm:right-2 w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-yellow-400/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-1 left-1 sm:bottom-2 sm:left-2 md:bottom-3 md:left-3 w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-400/40 rounded-full animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200"></div>
 
-              {/* Icon with Magical Glow */}
+              {/* Icon with Magical Glow - Smaller on Mobile */}
               <motion.div
-                className="mb-3 sm:mb-4 relative"
+                className="mb-2 sm:mb-3 md:mb-4 relative"
                 whileHover={{ rotate: [0, -5, 5, 0], transition: { duration: 0.5 } }}
               >
                 <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {React.cloneElement(feature.icon, {
-                  className: "w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 text-yellow-400 relative z-10 drop-shadow-lg group-hover:text-yellow-300 transition-colors duration-300"
+                  className: "w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-yellow-400 relative z-10 drop-shadow-lg group-hover:text-yellow-300 transition-colors duration-300"
                 })}
               </motion.div>
 
-              {/* Enhanced Typography */}
-              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2 sm:mb-3 leading-tight"
+              {/* Enhanced Typography - Smaller on Mobile */}
+              <h3 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-white mb-1 sm:mb-2 md:mb-3 leading-tight"
                   style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 {feature.title}
               </h3>
-              <p className="text-xs sm:text-sm md:text-base text-gray-100 leading-relaxed"
+              <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-100 leading-relaxed"
                  style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
                 {feature.description}
               </p>
