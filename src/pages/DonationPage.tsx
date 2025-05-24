@@ -28,78 +28,94 @@ const DonationPage: React.FC = () => {
   }, []);
   return (
     <div className="min-h-screen bg-gray-50 lg:overflow-hidden">
-      {/* Header Section - Responsive Design */}
-      <section className="bg-gradient-to-br from-blue-600 via-green-600 to-blue-700 text-white pt-16 pb-8 lg:pb-16 relative overflow-hidden cute-font">
+      {/* Header Section - Professional Design */}
+      <section className="bg-gradient-to-br from-blue-600 via-green-600 to-blue-700 text-white pt-4 pb-8 lg:pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
 
-        {/* Back Button - Responsive */}
-        <div className="absolute top-20 left-3 lg:left-8 z-50">
+        {/* Back Button - Top Positioned */}
+        <div className="absolute top-4 left-4 lg:left-8 z-50">
           <Link
             to="/"
             onClick={() => triggerHapticFeedback('light')}
-            className="inline-flex items-center px-3 py-2 lg:px-6 lg:py-3 bg-green-500 hover:bg-green-400 text-white font-medium sharp-container shadow-md hover:shadow-lg transition-all duration-300"
+            className="inline-flex items-center px-4 py-2 lg:px-6 lg:py-3 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-medium rounded-lg border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            <ArrowLeft size={16} className="mr-1 lg:mr-2" />
-            <span className="text-sm lg:text-base">Back to Home</span>
+            <ArrowLeft size={18} className="mr-2" />
+            <span className="text-sm lg:text-base font-semibold">Back</span>
           </Link>
         </div>
 
-        <div className="px-3 lg:px-8 relative z-10">
-          <div className="max-w-sm lg:max-w-6xl mx-auto text-center">
+        <div className="px-4 lg:px-8 pt-16 lg:pt-20 relative z-10">
+          <div className="max-w-sm lg:max-w-5xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-6 lg:mb-12"
+              transition={{ duration: 0.6 }}
+              className="mb-8 lg:mb-12"
             >
               <div className="flex flex-col items-center">
-                <div className="p-4 lg:p-8 bg-gradient-to-br from-green-500 to-blue-500 sharp-container mb-4 lg:mb-8 shadow-lg">
-                  <Heart className="w-10 h-10 lg:w-16 lg:h-16 text-white" />
+                <div className="p-6 lg:p-8 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 lg:mb-8 shadow-xl border border-white/30">
+                  <Heart className="w-12 h-12 lg:w-20 lg:h-20 text-white" />
                 </div>
                 <div className="text-center">
-                  <h1 className="text-2xl lg:text-5xl xl:text-6xl font-bold mb-2 lg:mb-4 text-white">
-                    💝 Support Our School
+                  <h1 className="text-3xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6 text-white leading-tight">
+                    Support Our School
                   </h1>
-                  <p className="text-sm lg:text-xl xl:text-2xl text-blue-100 font-medium">
-                    Building Tomorrow's Leaders Together
+                  <p className="text-base lg:text-2xl xl:text-3xl text-blue-100 font-medium mb-6 lg:mb-8">
+                    Empowering Excellence in Education
                   </p>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-4 lg:space-y-8"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-6 lg:space-y-8"
             >
-              <p className="text-sm lg:text-lg xl:text-xl text-white leading-relaxed px-2 lg:px-8 max-w-4xl mx-auto">
-                Join our <span className="text-green-200 font-semibold">alumni community</span> in supporting
-                St. Louis Demonstration JHS with <span className="text-blue-200 font-semibold">modern technology</span>
-                and resources for the future. Every contribution helps us maintain our legacy as
-                <span className="text-yellow-200 font-bold"> "The Best Amongst the Rest."</span>
-              </p>
+              {/* Fund Usage - Clean & Clear */}
+              <div className="bg-white/15 backdrop-blur-sm rounded-xl p-6 lg:p-8 border border-white/20 max-w-3xl mx-auto">
+                <h2 className="text-lg lg:text-2xl font-bold text-white mb-4 lg:mb-6">Your Donation Will Fund:</h2>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 text-left">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 lg:w-10 lg:h-10 bg-green-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg lg:text-xl">💻</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white text-sm lg:text-base mb-1">Modern Technology</h3>
+                      <p className="text-xs lg:text-sm text-blue-100">Computers, smart boards, and digital learning tools</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg lg:text-xl">👨‍🏫</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white text-sm lg:text-base mb-1">Teacher Training</h3>
+                      <p className="text-xs lg:text-sm text-blue-100">Professional development and modern teaching methods</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-8 h-8 lg:w-10 lg:h-10 bg-purple-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-lg lg:text-xl">🏫</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-white text-sm lg:text-base mb-1">Infrastructure</h3>
+                      <p className="text-xs lg:text-sm text-blue-100">Upgraded classrooms, labs, and learning spaces</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-6 mt-4 lg:mt-8 max-w-4xl mx-auto">
-                <div className="bg-white/15 backdrop-blur-sm sharp-container mini-container lg:p-6 border border-white/20 hover:bg-white/20 transition-all">
-                  <div className="text-lg lg:text-3xl mb-1 lg:mb-3">💻</div>
-                  <div className="text-xs lg:text-base font-medium text-green-100">Smart Tech</div>
-                  <div className="text-xs lg:text-sm text-green-200 mt-1 hidden lg:block">AI & Digital Tools</div>
-                </div>
-                <div className="bg-white/15 backdrop-blur-sm sharp-container mini-container lg:p-6 border border-white/20 hover:bg-white/20 transition-all">
-                  <div className="text-lg lg:text-3xl mb-1 lg:mb-3">📚</div>
-                  <div className="text-xs lg:text-base font-medium text-blue-100">Library</div>
-                  <div className="text-xs lg:text-sm text-blue-200 mt-1 hidden lg:block">Modern Resources</div>
-                </div>
-                <div className="bg-white/15 backdrop-blur-sm sharp-container mini-container lg:p-6 border border-white/20 hover:bg-white/20 transition-all">
-                  <div className="text-lg lg:text-3xl mb-1 lg:mb-3">🔬</div>
-                  <div className="text-xs lg:text-base font-medium text-green-100">Labs</div>
-                  <div className="text-xs lg:text-sm text-green-200 mt-1 hidden lg:block">Science Equipment</div>
-                </div>
-                <div className="bg-white/15 backdrop-blur-sm sharp-container mini-container lg:p-6 border border-white/20 hover:bg-white/20 transition-all">
-                  <div className="text-lg lg:text-3xl mb-1 lg:mb-3">🎓</div>
-                  <div className="text-xs lg:text-base font-medium text-blue-100">Training</div>
-                  <div className="text-xs lg:text-sm text-blue-200 mt-1 hidden lg:block">Teacher Development</div>
+              {/* Call to Action */}
+              <div className="text-center">
+                <p className="text-sm lg:text-lg text-white/90 mb-4 lg:mb-6 max-w-2xl mx-auto">
+                  Join our alumni community in maintaining our legacy as <span className="text-yellow-200 font-bold">"The Best Amongst the Rest"</span>
+                </p>
+                <div className="flex flex-wrap justify-center gap-2 lg:gap-4 text-xs lg:text-sm">
+                  <span className="bg-white/20 px-3 py-1 lg:px-4 lg:py-2 rounded-full border border-white/30">🔒 Secure Payments</span>
+                  <span className="bg-white/20 px-3 py-1 lg:px-4 lg:py-2 rounded-full border border-white/30">⚡ Instant Processing</span>
+                  <span className="bg-white/20 px-3 py-1 lg:px-4 lg:py-2 rounded-full border border-white/30">📧 Receipt Provided</span>
                 </div>
               </div>
             </motion.div>
