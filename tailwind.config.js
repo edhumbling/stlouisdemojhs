@@ -49,6 +49,14 @@ export default {
           800: '#f4f4f5',
           900: '#fafafa',
         },
+        // St. Louis Demonstration JHS School Colors
+        school: {
+          yellow: '#eab308',
+          green: '#10b981',
+          blue: '#3b82f6',
+          seaBlue: '#0891b2',
+          white: '#ffffff',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
