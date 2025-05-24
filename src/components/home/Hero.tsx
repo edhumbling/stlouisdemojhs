@@ -195,8 +195,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Content - Clean Text - Mobile Optimized Positioning */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-end pb-12 sm:pb-16 md:pb-20 lg:pb-24 h-full">
+      {/* Content - Clean Text - High Mobile Positioning */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-center justify-start pt-20 pb-6 sm:pb-12 md:pb-16 lg:pb-20 h-full">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
