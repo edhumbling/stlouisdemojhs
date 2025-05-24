@@ -33,7 +33,7 @@ const ProgramsSection: React.FC = () => {
           </h2>
           <p className="text-lg text-gray-200 mb-8"
              style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
-            St. Louis Educational Institute offers a comprehensive curriculum designed to develop well-rounded students
+            St. Louis Demonstration Junior High School offers a comprehensive curriculum designed to develop well-rounded students
             through rigorous academics, technology integration, cultural awareness, and character formation.
           </p>
 

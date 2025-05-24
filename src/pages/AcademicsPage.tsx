@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Lightbulb, Award, Globe, Palette, Calculator, Microscope, Music, Computer } from 'lucide-react';
+import { BookOpen, Users, Lightbulb, Award, Globe, Palette, Calculator, Microscope, Music, Computer, Heart } from 'lucide-react';
 import SectionDivider from '../components/common/SectionDivider';
 
 const AcademicsPage: React.FC = () => {
@@ -96,7 +96,7 @@ const AcademicsPage: React.FC = () => {
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4"
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
-              Academic Excellence at St. Louis Educational Institute
+              Academic Excellence at St. Louis Demonstration JHS
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -405,51 +405,110 @@ const AcademicsPage: React.FC = () => {
               </div>
               <div className="mt-6 p-4 sm:p-6 bg-gradient-to-r from-blue-50 via-white to-green-50 rounded-lg border-l-4 border-blue-500 shadow-lg">
                 <p className="text-sm sm:text-base md:text-lg text-gray-800 italic font-semibold leading-relaxed" style={{ textShadow: '0.5px 0.5px 1px rgba(0,0,0,0.1)' }}>
-                  "At St. Louis Educational Institute, we don't just educate students - we shape future leaders,
+                  "At St. Louis Demonstration Junior High School, we don't just educate students - we shape future leaders,
                   innovators, and change-makers who will transform Ghana and the world. Our legacy of excellence
                   speaks for itself through the thousands of successful graduates who credit their foundation to our institution."
                 </p>
                 <p className="text-xs sm:text-sm text-blue-700 mt-3 font-medium text-right">
-                  - St. Louis Educational Institute Mission
+                  - St. Louis Demonstration JHS Mission
                 </p>
               </div>
 
-              {/* Donation Appeal Section */}
-              <div className="mt-8 p-6 sm:p-8 bg-gradient-to-r from-red-50 via-orange-50 to-yellow-50 rounded-xl border-2 border-orange-200 shadow-xl">
-                <div className="text-center">
-                  <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-red-700 mb-4">
-                    🆘 Your Support Can Transform Lives!
-                  </h4>
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 max-w-2xl mx-auto">
-                    While we excel in academics, our facilities need urgent upgrades to match our educational standards.
-                    Your generous donation will directly impact hundreds of students by providing modern equipment,
-                    enhanced laboratories, and expanded resources that will prepare them for tomorrow's challenges.
-                  </p>
 
-                  {/* Glowing Donation Button */}
-                  <div className="flex justify-center">
-                    <a
-                      href="https://paystack.com/pay/stlouisdemojhs"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-600 via-green-700 to-green-800 hover:from-green-700 hover:via-green-800 hover:to-green-900 text-white font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 text-sm sm:text-base md:text-lg"
-                      style={{
-                        boxShadow: '0 0 30px rgba(34, 197, 94, 0.6), 0 0 60px rgba(34, 197, 94, 0.4), 0 0 90px rgba(34, 197, 94, 0.2)',
-                        animation: 'pulse 2s infinite'
-                      }}
-                    >
-                      <span className="text-xl sm:text-2xl">💚</span>
-                      <span>Donate Now - Transform Education</span>
-                      <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300">🚀</span>
-                    </a>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-gray-600 mt-4 italic">
-                    Every donation, no matter the size, makes a meaningful difference in a student's educational journey.
-                  </p>
-                </div>
-              </div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Full-Width Donation Appeal Section */}
+      <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-red-900 via-orange-800 to-yellow-700 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:20px_20px]"></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-6xl mx-auto text-center"
+          >
+            {/* Main Heading */}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 md:mb-8" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.8)' }}>
+              🆘 Your Support Can Transform Lives!
+            </h2>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 leading-relaxed mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              While we excel in academics, our facilities need urgent upgrades to match our educational standards.
+              Your generous donation will directly impact hundreds of students by providing modern equipment,
+              enhanced laboratories, and expanded resources that will prepare them for tomorrow's challenges.
+            </p>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
+              {[
+                { number: '500+', label: 'Students Impacted', icon: '👥' },
+                { number: '11', label: 'Subjects Enhanced', icon: '📚' },
+                { number: '47+', label: 'Years of Excellence', icon: '🏆' }
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20"
+                >
+                  <div className="text-2xl sm:text-3xl md:text-4xl mb-2">{stat.icon}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-300 mb-1" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                    {stat.number}
+                  </div>
+                  <div className="text-xs sm:text-sm md:text-base text-white font-medium" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Donation Button - Same as Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex justify-center mb-6 sm:mb-8"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              >
+                <a
+                  href="https://paystack.com/pay/stlouisdemojhs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center font-semibold transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 relative overflow-hidden px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl bg-red-600 hover:bg-red-700 text-white rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6),0_0_40px_rgba(239,68,68,0.4),0_0_60px_rgba(239,68,68,0.2)] hover:shadow-[0_0_25px_rgba(239,68,68,0.8),0_0_50px_rgba(239,68,68,0.6),0_0_75px_rgba(239,68,68,0.4)]"
+                >
+                  <Heart className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 mr-3 fill-current relative z-10 text-white" />
+                  <span className="relative z-10 font-bold text-white">Donate Now - Transform Education</span>
+
+                  {/* Neon red glowing effect */}
+                  <span className="absolute inset-0 bg-red-500 opacity-40 animate-pulse rounded-full"></span>
+                  <span className="absolute inset-0 bg-red-400 opacity-30 animate-ping rounded-full" style={{ animationDelay: '0.5s' }}></span>
+                  <span className="absolute -inset-1 bg-red-500 opacity-25 blur-md animate-pulse rounded-full" style={{ animationDelay: '1s' }}></span>
+                  <span className="absolute -inset-2 bg-red-600 opacity-15 blur-lg animate-pulse rounded-full" style={{ animationDelay: '1.5s' }}></span>
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* Bottom Message */}
+            <p className="text-xs sm:text-sm md:text-base text-gray-200 italic max-w-3xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Every donation, no matter the size, makes a meaningful difference in a student's educational journey.
+              Together, we can build the future of education at St. Louis Demonstration Junior High School.
+            </p>
           </motion.div>
         </div>
       </section>
