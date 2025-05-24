@@ -197,7 +197,7 @@ const STEMPage: React.FC = () => {
   // If a category is selected, show the dedicated category page
   if (selectedCategory) {
     return (
-      <div className="min-h-screen bg-gray-50 pt-16">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-16">
         {/* Back Button and Title Section - Original Style */}
         <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
@@ -218,8 +218,8 @@ const STEMPage: React.FC = () => {
         </div>
 
         {/* Category Header */}
-        <div className="bg-white border-b border-gray-200 px-4 py-6 sm:py-8">
-          <div className="container mx-auto max-w-4xl">
+        <div className="bg-gradient-to-r from-blue-900 via-purple-800 to-indigo-900 py-6 sm:py-8">
+          <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 mb-4">
               <div
                 className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center text-white"
@@ -228,11 +228,11 @@ const STEMPage: React.FC = () => {
                 {selectedCategory.icon}
               </div>
               <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900"
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white"
                     style={{ fontFamily: 'Arial, sans-serif' }}>
                   {selectedCategory.title}
                 </h2>
-                <p className="text-gray-600 text-sm sm:text-base">
+                <p className="text-gray-200 text-sm sm:text-base" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                   {selectedCategory.description}
                 </p>
               </div>
@@ -318,7 +318,7 @@ const STEMPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 py-6 sm:py-8 bg-gray-50">
+      <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
           {/* STEM Categories Grid - Apple Style */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4 mb-8">
