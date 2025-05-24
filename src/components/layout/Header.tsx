@@ -31,7 +31,7 @@ const Header: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Enhanced glass effect for homepage
+  // Enhanced glass effect for all pages
   const getHeaderClasses = () => {
     if (isHomePage) {
       return scrolled
@@ -39,8 +39,8 @@ const Header: React.FC = () => {
         : 'glass-homepage shadow-lg';
     } else {
       return scrolled
-        ? 'glass-dark shadow-md'
-        : 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200/50';
+        ? 'glass-dark shadow-2xl'
+        : 'glass-dark shadow-lg';
     }
   };
 
@@ -60,11 +60,7 @@ const Header: React.FC = () => {
               alt="St. Louis Demonstration Junior High School"
               className="h-8 xs:h-10 sm:h-12 w-auto"
             />
-            <div className={`md:hidden flex items-center transition-colors duration-300 ${
-              isHomePage
-                ? (scrolled ? 'text-white' : 'text-white')
-                : (scrolled ? 'text-white' : 'text-gray-800')
-            }`}>
+            <div className={`md:hidden flex items-center transition-colors duration-300 text-white`}>
               <div>
                 <h1 className="text-xs sm:text-sm font-bold leading-tight tracking-tight">St. Louis Demonstration</h1>
                 <p className="text-[10px] sm:text-xs leading-tight tracking-tight">Junior High School</p>
@@ -75,11 +71,7 @@ const Header: React.FC = () => {
                 className="h-6 w-auto ml-1"
               />
             </div>
-            <div className={`hidden md:flex items-center transition-colors duration-300 ${
-              isHomePage
-                ? (scrolled ? 'text-white' : 'text-white')
-                : (scrolled ? 'text-white' : 'text-gray-800')
-            }`}>
+            <div className={`hidden md:flex items-center transition-colors duration-300 text-white`}>
               <div>
                 <h1 className="text-lg font-bold leading-tight">St. Louis Demonstration</h1>
                 <p className="text-xs">Junior High School</p>
@@ -103,12 +95,8 @@ const Header: React.FC = () => {
                       className={({ isActive }) => `
                         relative font-medium text-sm transition-colors duration-300 hover:text-accent-500
                         ${isHomePage
-                          ? (scrolled
-                              ? (isActive ? 'text-accent-300' : 'text-white')
-                              : (isActive ? 'text-yellow-300' : 'text-white'))
-                          : (scrolled
-                              ? (isActive ? 'text-accent-300' : 'text-white')
-                              : (isActive ? 'text-blue-600' : 'text-gray-800'))
+                          ? (isActive ? 'text-yellow-300' : 'text-white')
+                          : (isActive ? 'text-accent-300' : 'text-white')
                         }
                       `}
                     >
@@ -144,17 +132,9 @@ const Header: React.FC = () => {
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
-                <X size={24} className={
-                  isHomePage
-                    ? 'text-white'
-                    : (scrolled ? 'text-white' : 'text-gray-800')
-                } />
+                <X size={24} className="text-white" />
               ) : (
-                <Menu size={24} className={
-                  isHomePage
-                    ? 'text-white'
-                    : (scrolled ? 'text-white' : 'text-gray-800')
-                } />
+                <Menu size={24} className="text-white" />
               )}
             </button>
           </div>
