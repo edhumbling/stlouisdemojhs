@@ -122,27 +122,27 @@ export const staffMembers: StaffMember[] = [
 export const programs: Program[] = [
   {
     id: 1,
-    title: 'Core Academics',
-    description: 'Our comprehensive curriculum includes Mathematics, Science, Language Arts, Social Studies, and more. We emphasize critical thinking and problem-solving skills.',
+    title: 'Core Academic Subjects',
+    description: 'English Language, Mathematics, Integrated Science, and Social Studies form the foundation of our rigorous academic curriculum, developing critical thinking and analytical skills.',
     image: 'https://images.pexels.com/photos/4260325/pexels-photo-4260325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   {
     id: 2,
-    title: 'STEM Program',
-    description: 'Our advanced STEM program provides hands-on experience in Science, Technology, Engineering, and Mathematics through project-based learning and innovation.',
+    title: 'Technology & Computing',
+    description: 'Computing (ICT) and Career Technology (formerly BDT) prepare students for the digital age with hands-on experience in technology, design, and innovation.',
     image: 'https://images.pexels.com/photos/8636603/pexels-photo-8636603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   {
     id: 3,
-    title: 'Arts & Music',
-    description: 'Students develop creativity and self-expression through visual arts, music, drama, and dance programs led by experienced teaching artists.',
+    title: 'Cultural & Creative Arts',
+    description: 'Creative Arts and Design, Ghanaian Language and Culture (Asante Twi), and French foster creativity, cultural awareness, and global communication skills.',
     image: 'https://images.pexels.com/photos/7520697/pexels-photo-7520697.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   {
     id: 4,
-    title: 'Athletics & Physical Education',
-    description: 'Our sports programs promote teamwork, leadership, and physical fitness through a variety of competitive and recreational activities.',
-    image: 'https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    title: 'Character & Values Education',
+    description: 'Religious and Moral Education (RME) develops ethical reasoning, moral values, and character formation essential for responsible citizenship.',
+    image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   }
 ];
 
