@@ -92,6 +92,13 @@ const Header: React.FC = () => {
                       `}
                     >
                       {link.label}
+                      {/* Red Buzzing Notification Dot for News & Events */}
+                      {link.label === 'News & Events' && (
+                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
+                        </span>
+                      )}
                     </NavLink>
                   </li>
                 ))}
@@ -140,7 +147,7 @@ const Header: React.FC = () => {
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
                   className={({ isActive }) => `
-                    block py-3 px-4 font-medium rounded-lg text-center text-base
+                    block py-3 px-4 font-medium rounded-lg text-center text-base relative
                     ${isActive
                       ? 'bg-green-600 text-white'
                       : 'text-white hover:bg-white/10'
@@ -148,6 +155,13 @@ const Header: React.FC = () => {
                   `}
                 >
                   {link.label}
+                  {/* Red Buzzing Notification Dot for News & Events - Mobile */}
+                  {link.label === 'News & Events' && (
+                    <span className="absolute top-2 right-2 flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
+                    </span>
+                  )}
                 </NavLink>
               </motion.li>
             ))}
