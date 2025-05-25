@@ -124,36 +124,37 @@ const GrowthChart: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen bg-black flex items-center justify-center p-4 sm:p-6 md:p-8" ref={chartRef}>
-      <div className="w-full max-w-6xl">
-        {/* Clean Header */}
+    <div className="w-full min-h-screen bg-black flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8" ref={chartRef}>
+      <div className="w-full max-w-7xl">
+        {/* Mobile-Optimized Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-4 sm:mb-6 md:mb-8 px-2"
         >
-          <h3 className="text-2xl md:text-3xl font-semibold text-white mb-2"
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-1 sm:mb-2"
               style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif' }}>
             Growth Trajectory
           </h3>
-          <p className="text-sm text-gray-400">
+          <p className="text-xs sm:text-sm md:text-base text-gray-400">
             {schoolStats.foundingYear} - {schoolStats.currentYear + 10} • Student Growth & Academic Excellence
           </p>
         </motion.div>
 
-        {/* Professional Chart */}
+        {/* Mobile-Optimized Chart */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isVisible ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-6"
+          className="bg-gray-900/50 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-800 p-2 sm:p-4 md:p-6 overflow-hidden"
         >
           <svg
             width="100%"
-            height="400"
+            height="300"
             viewBox={`0 0 ${CHART_CONFIG.width} ${CHART_CONFIG.height}`}
-            className="overflow-visible"
+            className="overflow-visible touch-manipulation"
+            style={{ minHeight: '250px', maxHeight: '400px' }}
           >
             <defs>
               <linearGradient id="studentsGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -216,126 +217,170 @@ const GrowthChart: React.FC = () => {
                 transition={{ duration: 1.5, delay: 0.3, ease: "easeInOut" }}
               />
 
-              {/* Clean Data Points */}
+              {/* Mobile-Friendly Data Points */}
               {data.map((point, index) => (
                 <motion.g key={point.year}>
+                  {/* Touch-Friendly Invisible Hit Area */}
+                  <circle
+                    cx={scaleX(point.year)}
+                    cy={scaleYStudents(point.students)}
+                    r="20"
+                    fill="transparent"
+                    className="cursor-pointer touch-manipulation"
+                    onMouseEnter={() => setHoveredPoint(point)}
+                    onMouseLeave={() => setHoveredPoint(null)}
+                    onClick={() => setSelectedPoint(point)}
+                    onTouchStart={() => setHoveredPoint(point)}
+                    onTouchEnd={() => setSelectedPoint(point)}
+                  />
+
                   {/* Students Point */}
                   <motion.circle
                     cx={scaleX(point.year)}
                     cy={scaleYStudents(point.students)}
-                    r={hoveredPoint === point ? "8" : point.isCurrent ? "6" : "5"}
+                    r={hoveredPoint === point ? "10" : point.isCurrent ? "8" : "6"}
                     fill={point.isFuture ? CHART_CONFIG.colors.students + "80" : CHART_CONFIG.colors.students}
                     stroke={CHART_CONFIG.colors.students}
-                    strokeWidth="2"
+                    strokeWidth="3"
                     strokeDasharray={point.isFuture ? "4,2" : "none"}
-                    className="cursor-pointer"
+                    className="pointer-events-none"
                     initial={{ scale: 0 }}
                     animate={isVisible ? { scale: 1 } : {}}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    onMouseEnter={() => setHoveredPoint(point)}
-                    onMouseLeave={() => setHoveredPoint(null)}
-                    onClick={() => setSelectedPoint(point)}
                   />
 
                   {/* BECE Rate Point */}
                   <motion.circle
                     cx={scaleX(point.year)}
                     cy={scaleYBece(point.beceRate)}
-                    r={hoveredPoint === point ? "8" : point.isCurrent ? "6" : "5"}
+                    r={hoveredPoint === point ? "10" : point.isCurrent ? "8" : "6"}
                     fill={point.isFuture ? CHART_CONFIG.colors.beceRate + "80" : CHART_CONFIG.colors.beceRate}
                     stroke={CHART_CONFIG.colors.beceRate}
-                    strokeWidth="2"
+                    strokeWidth="3"
                     strokeDasharray={point.isFuture ? "4,2" : "none"}
-                    className="cursor-pointer"
+                    className="pointer-events-none"
                     initial={{ scale: 0 }}
                     animate={isVisible ? { scale: 1 } : {}}
                     transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-                    onMouseEnter={() => setHoveredPoint(point)}
-                    onMouseLeave={() => setHoveredPoint(null)}
-                    onClick={() => setSelectedPoint(point)}
                   />
 
-                  {/* Year Labels */}
+                  {/* Mobile-Optimized Year Labels */}
                   <text
                     x={scaleX(point.year)}
                     y={chartHeight + 20}
                     textAnchor="middle"
-                    className="fill-gray-400 text-xs"
-                    style={{ fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}
+                    className="fill-gray-400 text-xs sm:text-sm"
+                    style={{
+                      fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
+                      fontSize: 'clamp(10px, 2.5vw, 14px)'
+                    }}
                   >
                     {point.year}
                   </text>
 
-                  {/* Point Labels */}
+                  {/* Mobile-Optimized Point Labels */}
                   <text
                     x={scaleX(point.year)}
                     y={chartHeight + 35}
                     textAnchor="middle"
-                    className="fill-gray-500 text-xs"
-                    style={{ fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}
+                    className="fill-gray-500 text-xs sm:text-sm"
+                    style={{
+                      fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
+                      fontSize: 'clamp(8px, 2vw, 12px)'
+                    }}
                   >
                     {point.label}
                   </text>
                 </motion.g>
               ))}
 
-              {/* Y-Axis Labels */}
-              <g className="fill-gray-400 text-xs" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}>
-                {/* Students Axis */}
-                <text x="-60" y="15" className="fill-blue-400 font-medium">Students Trained</text>
-                {[minStudents, (minStudents + maxStudents) / 2, maxStudents].map((value, i) => (
-                  <text key={`students-${i}`} x="-15" y={scaleYStudents(value) + 4} textAnchor="end">
+              {/* Mobile-Optimized Y-Axis Labels */}
+              <g className="fill-gray-400" style={{
+                fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
+                fontSize: 'clamp(8px, 2vw, 12px)'
+              }}>
+                {/* Students Axis - Mobile Responsive */}
+                <text
+                  x="-50"
+                  y="15"
+                  className="fill-blue-400 font-medium"
+                  style={{ fontSize: 'clamp(10px, 2.5vw, 14px)' }}
+                >
+                  Students
+                </text>
+                {[minStudents, maxStudents].map((value, i) => (
+                  <text
+                    key={`students-${i}`}
+                    x="-10"
+                    y={scaleYStudents(value) + 4}
+                    textAnchor="end"
+                    style={{ fontSize: 'clamp(8px, 2vw, 11px)' }}
+                  >
                     {(value / 1000).toFixed(0)}K
                   </text>
                 ))}
 
-                {/* BECE Rate Axis */}
-                <text x={chartWidth + 20} y="15" className="fill-green-400 font-medium">BECE Success %</text>
-                {[minBeceRate, (minBeceRate + maxBeceRate) / 2, maxBeceRate].map((value, i) => (
-                  <text key={`bece-${i}`} x={chartWidth + 15} y={scaleYBece(value) + 4}>
+                {/* BECE Rate Axis - Mobile Responsive */}
+                <text
+                  x={chartWidth + 10}
+                  y="15"
+                  className="fill-green-400 font-medium"
+                  style={{ fontSize: 'clamp(10px, 2.5vw, 14px)' }}
+                >
+                  BECE %
+                </text>
+                {[minBeceRate, maxBeceRate].map((value, i) => (
+                  <text
+                    key={`bece-${i}`}
+                    x={chartWidth + 8}
+                    y={scaleYBece(value) + 4}
+                    style={{ fontSize: 'clamp(8px, 2vw, 11px)' }}
+                  >
                     {value.toFixed(0)}%
                   </text>
                 ))}
               </g>
             </g>
           </svg>
-        {/* Clean Legend */}
+        </motion.div>
+
+        {/* Mobile-Optimized Legend */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex justify-center mt-6"
+          className="flex justify-center mt-3 sm:mt-4 md:mt-6 px-2"
         >
-          <div className="flex items-center gap-8 bg-gray-800/50 backdrop-blur-sm rounded-xl px-6 py-3 border border-gray-700">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 md:gap-8 bg-gray-800/50 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-6 py-2 sm:py-3 border border-gray-700">
             <div className="flex items-center gap-2">
-              <div className="w-4 h-0.5 bg-blue-500"></div>
-              <span className="text-sm text-gray-300">Students Trained</span>
+              <div className="w-3 sm:w-4 h-0.5 bg-blue-500"></div>
+              <span className="text-xs sm:text-sm text-gray-300">Students</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-0.5 bg-green-500"></div>
-              <span className="text-sm text-gray-300">BECE Success Rate</span>
+              <div className="w-3 sm:w-4 h-0.5 bg-green-500"></div>
+              <span className="text-xs sm:text-sm text-gray-300">BECE Rate</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full border-2 border-dashed border-gray-400"></div>
-              <span className="text-xs text-gray-400">Projections</span>
+              <span className="text-xs text-gray-400">Future</span>
             </div>
           </div>
         </motion.div>
 
-        {/* Clean Tooltip */}
+        {/* Mobile-Optimized Tooltip */}
         <AnimatePresence>
           {(hoveredPoint || selectedPoint) && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="absolute top-4 right-4 bg-gray-800/95 backdrop-blur-sm rounded-xl p-4 border border-gray-700 shadow-xl max-w-xs"
+              className="fixed top-4 left-2 right-2 sm:absolute sm:top-4 sm:right-4 sm:left-auto sm:max-w-xs bg-gray-800/95 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-gray-700 shadow-xl z-50"
             >
               {(hoveredPoint || selectedPoint) && (
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-blue-400" />
-                    <h4 className="text-sm font-semibold text-white">
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400 flex-shrink-0" />
+                    <h4 className="text-xs sm:text-sm font-semibold text-white">
                       {(hoveredPoint || selectedPoint)!.year} - {(hoveredPoint || selectedPoint)!.label}
                     </h4>
                     {(hoveredPoint || selectedPoint)!.isFuture && (
@@ -345,17 +390,17 @@ const GrowthChart: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-1 sm:space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-400">Students Trained</span>
-                      <span className="text-sm font-medium text-blue-400">
+                      <span className="text-xs text-gray-400">Students</span>
+                      <span className="text-xs sm:text-sm font-medium text-blue-400">
                         {(hoveredPoint || selectedPoint)!.students.toLocaleString()}+
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-400">BECE Success Rate</span>
-                      <span className="text-sm font-medium text-green-400">
+                      <span className="text-xs text-gray-400">BECE Rate</span>
+                      <span className="text-xs sm:text-sm font-medium text-green-400">
                         {(hoveredPoint || selectedPoint)!.beceRate.toFixed(1)}%
                       </span>
                     </div>
@@ -364,9 +409,9 @@ const GrowthChart: React.FC = () => {
                   {selectedPoint && (
                     <button
                       onClick={() => setSelectedPoint(null)}
-                      className="text-xs text-gray-400 hover:text-gray-300 transition-colors"
+                      className="text-xs text-gray-400 hover:text-gray-300 transition-colors w-full text-center py-1 mt-2 border-t border-gray-700"
                     >
-                      Click to close
+                      Tap to close
                     </button>
                   )}
                 </div>
