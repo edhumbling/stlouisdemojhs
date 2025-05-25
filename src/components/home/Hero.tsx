@@ -199,17 +199,22 @@ const Hero: React.FC = () => {
             {/* School Logo with Heartbeat Animation */}
             <div className="relative z-10 flex flex-col items-center">
               <div className="relative">
-                {/* Outer Glow Ring */}
-                <div className="absolute inset-0 rounded-full bg-yellow-400/20 animate-ping" style={{ animationDuration: '2s' }}></div>
-                <div className="absolute inset-0 rounded-full bg-blue-400/15 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}></div>
+                {/* POWERFUL Energy Rings - The Heart's Aura! */}
+                <div className="absolute -inset-4 rounded-full bg-yellow-400/25 animate-ping" style={{ animationDuration: '1.8s' }}></div>
+                <div className="absolute -inset-6 rounded-full bg-blue-400/20 animate-ping" style={{ animationDuration: '2.2s', animationDelay: '0.3s' }}></div>
+                <div className="absolute -inset-8 rounded-full bg-green-400/15 animate-ping" style={{ animationDuration: '2.6s', animationDelay: '0.6s' }}></div>
+                <div className="absolute -inset-10 rounded-full bg-white/10 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.9s' }}></div>
 
-                {/* Logo Container with Heartbeat */}
-                <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center animate-heartbeat">
+                {/* LARGE Logo Container - The Heart of the School! */}
+                <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 rounded-full bg-white/15 backdrop-blur-sm border-2 border-white/30 flex items-center justify-center animate-heartbeat shadow-2xl">
                   <img
                     src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
-                    alt="St. Louis Demonstration J.H.S Logo"
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain drop-shadow-lg"
-                    style={{ filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))' }}
+                    alt="St. Louis Demonstration J.H.S Logo - The Heart of Excellence"
+                    className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 xl:w-48 xl:h-48 object-contain drop-shadow-2xl"
+                    style={{
+                      filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.5)) drop-shadow(0 0 40px rgba(59,130,246,0.3)) drop-shadow(0 0 60px rgba(34,197,94,0.2))',
+                      imageRendering: 'crisp-edges'
+                    }}
                   />
                 </div>
               </div>
