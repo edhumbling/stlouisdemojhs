@@ -203,22 +203,23 @@ const Hero: React.FC = () => {
         {/* Instant fallback background - shows immediately */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-green-900 opacity-80"></div>
 
-        {/* Loading placeholder with school colors */}
+        {/* Simple loading placeholder - No animations */}
         {!imagesLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-slate-700/30 to-green-600/20 animate-pulse flex items-center justify-center">
+          <div className="absolute inset-0 bg-black flex items-center justify-center">
             <div className="text-center">
               <img
                 src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
                 alt="St. Louis Demonstration J.H.S Logo"
-                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain mx-auto mb-4 animate-heartbeat"
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-contain mx-auto mb-3 sm:mb-4"
+                loading="lazy"
               />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white mb-2 sm:mb-3">
                 St. Louis Demonstration J.H.S
               </h3>
               <div className="flex items-center justify-center gap-1">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
-                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '1.5s' }}></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '1.5s' }}></div>
+                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.6s', animationDuration: '1.5s' }}></div>
               </div>
             </div>
           </div>

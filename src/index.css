@@ -59,31 +59,7 @@
   animation: neon-pulse 2s ease-in-out infinite alternate;
 }
 
-/* Beautiful Heartbeat Animation for Logo */
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  14% {
-    transform: scale(1.05);
-  }
-  28% {
-    transform: scale(1);
-  }
-  42% {
-    transform: scale(1.08);
-  }
-  70% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.animate-heartbeat {
-  animation: heartbeat 1.5s ease-in-out infinite;
-}
+/* Simple loading animations only */
 
 @layer base {
   html {
@@ -173,6 +149,29 @@ header {
   will-change: background-color, backdrop-filter, box-shadow;
   transform: translateZ(0);
   backface-visibility: hidden;
+}
+
+/* Mobile-specific fixes to prevent animation conflicts */
+@media (max-width: 768px) {
+  /* Disable conflicting animations on mobile */
+  .animate-heartbeat {
+    animation: none !important;
+  }
+
+  /* Ensure hero section doesn't interfere with header */
+  .hero-section {
+    isolation: isolate;
+  }
+
+  /* Prevent any transform conflicts */
+  .hero-section * {
+    will-change: auto;
+  }
+
+  /* Stabilize loading dots only */
+  .animate-bounce {
+    animation-duration: 1.5s !important;
+  }
 }
 
 .bg-white {
