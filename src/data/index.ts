@@ -170,52 +170,119 @@ export const programs: Program[] = [
 export const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: 'https://images.pexels.com/photos/8617842/pexels-photo-8617842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Students in science lab',
-    category: 'Academic'
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC?updatedAt=1748185690882',
+    alt: 'Students in classroom learning environment',
+    category: 'Academic Life'
   },
   {
     id: 2,
-    src: 'https://images.pexels.com/photos/8617461/pexels-photo-8617461.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Art class painting session',
-    category: 'Arts'
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7126.HEIC?updatedAt=1748185717978',
+    alt: 'Interactive classroom activities',
+    category: 'Academic Life'
   },
   {
     id: 3,
-    src: 'https://images.pexels.com/photos/8617551/pexels-photo-8617551.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'School sports day',
-    category: 'Sports'
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7113.HEIC?updatedAt=1748185722552',
+    alt: 'Students engaged in group work',
+    category: 'Academic Life'
   },
   {
     id: 4,
-    src: 'https://images.pexels.com/photos/8423087/pexels-photo-8423087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Students in library',
-    category: 'Academic'
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7120.HEIC?updatedAt=1748185723844',
+    alt: 'Collaborative learning session',
+    category: 'Academic Life'
   },
   {
     id: 5,
-    src: 'https://images.pexels.com/photos/8617441/pexels-photo-8617441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'School concert performance',
-    category: 'Arts'
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6908.JPG',
+    alt: 'School campus and facilities',
+    category: 'Campus Life'
   },
   {
     id: 6,
-    src: 'https://images.pexels.com/photos/8617677/pexels-photo-8617677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Classroom discussion',
-    category: 'Academic'
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7075.HEIC?updatedAt=1748185477324',
+    alt: 'Students in practical learning',
+    category: 'Academic Life'
   },
   {
     id: 7,
-    src: 'https://images.pexels.com/photos/8617839/pexels-photo-8617839.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'Computer lab session',
-    category: 'Technology'
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7078.HEIC?updatedAt=1748185473127',
+    alt: 'Hands-on learning activities',
+    category: 'Academic Life'
   },
   {
     id: 8,
-    src: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    alt: 'School assembly',
-    category: 'Events'
-  }
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7029.HEIC?updatedAt=1748185491679',
+    alt: 'Student presentations and discussions',
+    category: 'Academic Life'
+  },
+  {
+    id: 9,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7092.HEIC?updatedAt=1748185637223',
+    alt: 'Creative learning environment',
+    category: 'Academic Life'
+  },
+  {
+    id: 10,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7040.HEIC?updatedAt=1748185399093',
+    alt: 'Students working together',
+    category: 'Academic Life'
+  },
+  {
+    id: 11,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7077.HEIC?updatedAt=1748185424393',
+    alt: 'Classroom instruction and learning',
+    category: 'Academic Life'
+  },
+  {
+    id: 12,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7059.HEIC?updatedAt=1748185431948',
+    alt: 'Student engagement activities',
+    category: 'Academic Life'
+  },
+  {
+    id: 13,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7038.HEIC?updatedAt=1748185428399',
+    alt: 'Interactive learning sessions',
+    category: 'Academic Life'
+  },
+  {
+    id: 14,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7052.HEIC?updatedAt=1748185308897',
+    alt: 'Students in focused study',
+    category: 'Academic Life'
+  },
+  {
+    id: 15,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7019.HEIC?updatedAt=1748185277103',
+    alt: 'Collaborative project work',
+    category: 'Academic Life'
+  },
+  {
+    id: 16,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7033.HEIC?updatedAt=1748185379182',
+    alt: 'Classroom discussions and debates',
+    category: 'Academic Life'
+  },
+  {
+    id: 17,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7016.HEIC?updatedAt=1748185375411',
+    alt: 'Students presenting their work',
+    category: 'Academic Life'
+  },
+  {
+    id: 18,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7112.HEIC?updatedAt=1748185713991',
+    alt: 'Active learning environment',
+    category: 'Academic Life'
+  },
+  {
+    id: 19,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7035.HEIC?updatedAt=1748185340320',
+    alt: 'Students in creative activities',
+    category: 'Academic Life'
+  },
+
 ];
 
 export const testimonials: Testimonial[] = [
