@@ -32,7 +32,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 md:py-24 relative overflow-hidden">
+    <section className="py-4 sm:py-6 md:py-8 lg:py-12 relative overflow-hidden min-h-screen flex items-center">
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0">
         <img
@@ -45,14 +45,14 @@ const AboutSection: React.FC = () => {
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16">
+      <div className="w-full px-1 sm:px-2 md:px-4 lg:px-6 relative z-10">
+        <div className="max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-auto text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16 px-2">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4 lg:mb-6 leading-tight"
             style={{
               fontFamily: 'Arial, sans-serif',
               textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6)'
@@ -65,15 +65,15 @@ const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-gray-100 px-2 max-w-3xl mx-auto"
+            className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-100 px-1 sm:px-2 leading-relaxed"
             style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
           >
-            Since {schoolStats.foundingYear}, St. Louis Demonstration J.H.S has been Ghana's premier educational institution, fully accredited by the <span className="text-green-400 font-bold">Ghana Education Service (GES)</span> and guided by <span className="text-blue-400 font-bold">Roman Catholic principles</span>. We pioneer innovative teaching methods while nurturing exceptional minds in an environment of faith, excellence, and moral character. Having trained over <span className="text-yellow-400 font-bold">{schoolStats.totalStudentsFormatted} students</span> throughout our distinguished history, our legacy of academic excellence and spiritual formation continues to inspire generations to achieve greatness.
+            Since {schoolStats.foundingYear}, St. Louis Demonstration J.H.S has been Ghana's premier educational institution, fully accredited by the <span className="text-green-400 font-bold">Ghana Education Service (GES)</span> and guided by the <span className="text-blue-400 font-bold">Roman Catholic principles</span>. We pioneer innovative teaching methods while nurturing exceptional minds in an environment of faith, excellence, and moral character. Having trained over <span className="text-yellow-400 font-bold">{schoolStats.totalStudentsFormatted} students</span> throughout our distinguished history, our legacy of academic excellence and spiritual formation continues to inspire generations to achieve greatness.
           </motion.p>
         </div>
 
         {/* Mobile-First Cute Feature Cards - Two Column Layout */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-6 mb-8 md:mb-12 px-2 sm:px-0">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2 md:gap-3 lg:gap-6 mb-4 sm:mb-6 md:mb-8 lg:mb-12 px-1 sm:px-2">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -87,10 +87,10 @@ const AboutSection: React.FC = () => {
                 stiffness: 100,
                 damping: 15
               }}
-              className="group relative bg-white/10 backdrop-blur-md p-2 sm:p-3 md:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:bg-white/20 flex flex-col items-center text-center border border-white/30 hover:border-yellow-400/50 overflow-hidden"
+              className="group relative bg-white/10 backdrop-blur-md p-1.5 sm:p-2 md:p-3 lg:p-4 xl:p-6 rounded-md sm:rounded-lg md:rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:bg-white/20 flex flex-col items-center text-center border border-white/30 hover:border-yellow-400/50 overflow-hidden"
               whileHover={{
-                y: -8,
-                scale: 1.02,
+                y: -4,
+                scale: 1.01,
                 transition: { duration: 0.3, type: "spring", stiffness: 300 }
               }}
               whileTap={{ scale: 0.98 }}
@@ -104,21 +104,21 @@ const AboutSection: React.FC = () => {
 
               {/* Icon with Magical Glow - Smaller on Mobile */}
               <motion.div
-                className="mb-2 sm:mb-3 md:mb-4 relative"
+                className="mb-1 sm:mb-2 md:mb-3 lg:mb-4 relative"
                 whileHover={{ rotate: [0, -5, 5, 0], transition: { duration: 0.5 } }}
               >
-                <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-sm sm:blur-md md:blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {React.cloneElement(feature.icon, {
-                  className: "w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 text-yellow-400 relative z-10 drop-shadow-lg group-hover:text-yellow-300 transition-colors duration-300"
+                  className: "w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 text-yellow-400 relative z-10 drop-shadow-lg group-hover:text-yellow-300 transition-colors duration-300"
                 })}
               </motion.div>
 
               {/* Enhanced Typography - Smaller on Mobile */}
-              <h3 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-white mb-1 sm:mb-2 md:mb-3 leading-tight"
+              <h3 className="text-xs sm:text-xs md:text-sm lg:text-base xl:text-lg font-bold text-white mb-0.5 sm:mb-1 md:mb-2 lg:mb-3 leading-tight"
                   style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 {feature.title}
               </h3>
-              <p className="text-xs sm:text-xs md:text-sm lg:text-base text-gray-100 leading-relaxed"
+              <p className="text-xs sm:text-xs md:text-xs lg:text-sm xl:text-base text-gray-100 leading-tight sm:leading-relaxed"
                  style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>
                 {feature.description}
               </p>

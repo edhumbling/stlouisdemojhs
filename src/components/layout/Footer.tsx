@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Facebook, Mail, Phone, MapPin } from 'lucide-react';
 import ScrollingBanner from '../common/ScrollingBanner';
 import DonateButton from '../common/DonateButton';
-import { getSchoolStats } from '../../utils/schoolStats';
+import { getSchoolStats, getCurrentYear } from '../../utils/schoolStats';
 
 const Footer: React.FC = () => {
   // Get dynamic school statistics
@@ -174,7 +174,7 @@ Primus Intaparis
         <div className="border-t border-white/10 pt-4 sm:pt-5 mt-0 relative z-10">
           <div className="flex flex-col md:flex-row md:justify-between items-center">
             <p className="text-xs sm:text-sm text-gray-500 text-center md:text-left">
-              &copy; {new Date().getFullYear()} St. Louis Demonstration Junior High School. All rights reserved.
+              &copy; {getCurrentYear()} St. Louis Demonstration Junior High School. All rights reserved.
             </p>
             <div className="mt-3 md:mt-0">
               <ul className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1 text-xs sm:text-sm text-gray-500">

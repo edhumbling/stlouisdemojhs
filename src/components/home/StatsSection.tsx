@@ -94,7 +94,7 @@ const StatsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-12 md:py-20 bg-black relative overflow-hidden">
+    <section className="py-4 sm:py-6 md:py-8 lg:py-12 bg-black relative overflow-hidden min-h-screen flex items-center">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -104,27 +104,27 @@ const StatsSection: React.FC = () => {
         }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
+      <div className="w-full px-1 sm:px-2 md:px-4 lg:px-6 relative z-10">
+        {/* Section Header - Mobile Optimized */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           onViewportEnter={() => setIsVisible(true)}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16 px-2"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 md:mb-4"
               style={{ fontFamily: 'Arial, sans-serif' }}>
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Achievements</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed">
             Decades of excellence in education, accredited by the Ghana Education Service and guided by Roman Catholic principles
           </p>
         </motion.div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+        {/* Stats Grid - Mobile Optimized */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4 lg:gap-6 px-1 sm:px-2">
           {stats.map((stat, index) => (
             <StatCard
               key={index}
@@ -274,28 +274,30 @@ const StatCard: React.FC<{
         type: "spring",
         stiffness: 100
       }}
-      className="group relative bg-gray-800/50 backdrop-blur-sm p-4 md:p-6 rounded-xl border border-gray-600/30 hover:border-gray-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-gray-900/50"
-      whileHover={{ y: -5, scale: 1.02 }}
+      className="group relative bg-gray-800/50 backdrop-blur-sm p-2 sm:p-3 md:p-4 lg:p-6 rounded-lg sm:rounded-xl border border-gray-600/30 hover:border-gray-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-gray-900/50"
+      whileHover={{ y: -2, scale: 1.01 }}
     >
       {/* Background Gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300`}></div>
+      <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 rounded-lg sm:rounded-xl transition-opacity duration-300`}></div>
 
       {/* Icon */}
-      <div className="flex justify-center mb-3">
-        <div className="p-2 rounded-lg bg-gray-700/50">
-          {stat.icon}
+      <div className="flex justify-center mb-1 sm:mb-2 md:mb-3">
+        <div className="p-1 sm:p-1.5 md:p-2 rounded-md sm:rounded-lg bg-gray-700/50">
+          <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8">
+            {stat.icon}
+          </div>
         </div>
       </div>
 
       {/* Number */}
       <div className="text-center">
-        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
+        <div className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-0.5 sm:mb-1">
           {count.toLocaleString()}{stat.suffix}
         </div>
-        <div className="text-sm md:text-base font-semibold text-gray-300 mb-1">
+        <div className="text-xs sm:text-xs md:text-sm lg:text-base font-semibold text-gray-300 mb-0.5 sm:mb-1 leading-tight">
           {stat.label}
         </div>
-        <div className="text-xs md:text-sm text-gray-400">
+        <div className="text-xs sm:text-xs md:text-xs lg:text-sm text-gray-400 leading-tight">
           {stat.description}
         </div>
       </div>
