@@ -4,9 +4,13 @@ import { BookOpen, Users, Lightbulb, Award, Globe, Palette, Calculator, Microsco
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 import DonateButton from '../components/common/DonateButton';
+import { getSchoolStats } from '../utils/schoolStats';
 
 const AcademicsPage: React.FC = () => {
   const navigate = useNavigate();
+
+  // Get dynamic school statistics
+  const schoolStats = getSchoolStats();
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
@@ -171,7 +175,7 @@ const AcademicsPage: React.FC = () => {
               >
                 <div className="text-center lg:text-left">
                   <div className="text-lg sm:text-xl md:text-2xl font-bold text-yellow-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                    47+
+                    {schoolStats.ageFormatted}
                   </div>
                   <div className="text-xs sm:text-sm text-gray-300">Years Excellence</div>
                 </div>
@@ -449,9 +453,9 @@ const AcademicsPage: React.FC = () => {
             className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 max-w-2xl mx-auto"
           >
             {[
-              { number: '47+', label: 'Years of Excellence' },
+              { number: schoolStats.ageFormatted, label: 'Years of Excellence' },
               { number: '11', label: 'Core Subjects' },
-              { number: '30K+', label: 'Successful Graduates' }
+              { number: schoolStats.totalStudentsFormatted.replace(',', 'K').replace('000+', 'K+'), label: 'Successful Graduates' }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -622,9 +626,9 @@ const AcademicsPage: React.FC = () => {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
               {[
-                { number: '500+', label: 'Students Impacted', icon: '👥' },
+                { number: schoolStats.currentEnrollmentFormatted, label: 'Students Impacted', icon: '👥' },
                 { number: '11', label: 'Subjects Enhanced', icon: '📚' },
-                { number: '47+', label: 'Years of Excellence', icon: '🏆' }
+                { number: schoolStats.ageFormatted, label: 'Years of Excellence', icon: '🏆' }
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}

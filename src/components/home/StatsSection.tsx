@@ -213,11 +213,11 @@ const StatsSection: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                 <div className="bg-gray-800/50 rounded-lg p-3">
-                  <div className="text-green-400 font-bold text-lg">47+ Years</div>
+                  <div className="text-green-400 font-bold text-lg">{schoolStats.ageFormatted} Years</div>
                   <div className="text-gray-400 text-sm">Consistent Excellence</div>
                 </div>
                 <div className="bg-gray-800/50 rounded-lg p-3">
-                  <div className="text-blue-400 font-bold text-lg">30,000+</div>
+                  <div className="text-blue-400 font-bold text-lg">{schoolStats.totalStudentsFormatted}</div>
                   <div className="text-gray-400 text-sm">Graduates Trained</div>
                 </div>
                 <div className="bg-gray-800/50 rounded-lg p-3">

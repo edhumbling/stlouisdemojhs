@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 import { Facebook, Mail, Phone, MapPin } from 'lucide-react';
 import ScrollingBanner from '../common/ScrollingBanner';
 import DonateButton from '../common/DonateButton';
+import { getSchoolStats } from '../../utils/schoolStats';
 
 const Footer: React.FC = () => {
+  // Get dynamic school statistics
+  const schoolStats = getSchoolStats();
+
   return (
     <footer className="glass-dark text-white pt-10 md:pt-12 pb-6 relative">
 
@@ -30,7 +34,7 @@ const Footer: React.FC = () => {
                 </div>
               </div>
               <p className="text-gray-400 text-sm sm:text-base">
-                Established in 1977, providing quality education and nurturing young minds in Kumasi, Ghana.
+                Established in {schoolStats.foundingYear}, providing quality education and nurturing young minds in Kumasi, Ghana.
                 Guided by "UT SINT UNUM – DIEU LE VEUT" - fostering unity, discipline, and service
                 while delivering the NaCCA-based Common Core Programme.
               </p>
