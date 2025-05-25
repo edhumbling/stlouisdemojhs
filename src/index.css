@@ -165,6 +165,7 @@
 html {
   background-color: #000000 !important;
   overflow-x: hidden;
+  height: 100%;
 }
 
 body {
@@ -173,6 +174,16 @@ body {
   background-color: #000000 !important;
   overflow-x: hidden;
   position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure root container doesn't cause overflow */
+#root {
+  background-color: #000000 !important;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Smooth header transitions and prevent mobile shaking */
@@ -187,9 +198,13 @@ header {
   right: 0;
 }
 
-/* Prevent animation conflicts on mobile */
+/* Prevent animation conflicts on mobile ONLY */
 @media (max-width: 768px) {
-  * {
+  /* Only apply transforms to animated elements, not everything */
+  .animate-heartbeat,
+  .animate-ping,
+  .animate-pulse,
+  .animate-bounce {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
@@ -235,6 +250,38 @@ img {
 .animate-pulse,
 .animate-bounce {
   background-color: transparent !important;
+}
+
+/* Desktop-specific fixes to prevent whitening */
+@media (min-width: 769px) {
+  /* Ensure no layout shifts on desktop */
+  body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* Prevent any white backgrounds on desktop */
+  * {
+    background-color: inherit;
+  }
+
+  /* Ensure hero section and all containers stay black */
+  .hero-section,
+  section,
+  main,
+  div {
+    background-color: inherit;
+  }
+
+  /* Prevent scrollbar issues */
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  /* Ensure animations don't cause layout shifts */
+  .animate-heartbeat {
+    contain: layout style paint;
+  }
 }
 
 .bg-white {
