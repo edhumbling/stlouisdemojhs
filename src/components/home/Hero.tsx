@@ -197,40 +197,22 @@ const Hero: React.FC = () => {
         {/* Instant fallback background - shows immediately */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-green-900 opacity-80"></div>
 
-        {/* Silent Logo Loader - No White Background */}
+        {/* Loading placeholder with school colors */}
         {!imagesLoaded && (
-          <div className="absolute inset-0 bg-black flex items-center justify-center">
-            {/* Pure Black Background - No Flashing */}
-            <div className="absolute inset-0 bg-black"></div>
-
-            {/* School Logo - Pure and Clean */}
-            <div className="relative z-10 flex flex-col items-center">
-              {/* LARGE Logo - No Containers, No Squares */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-slate-700/30 to-green-600/20 animate-pulse flex items-center justify-center">
+            <div className="text-center">
               <img
                 src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
                 alt="St. Louis Demonstration J.H.S Logo"
-                className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-contain animate-heartbeat"
-                style={{
-                  filter: 'drop-shadow(0 0 15px rgba(255,255,255,0.2))',
-                  imageRendering: 'crisp-edges',
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  outline: 'none',
-                  boxShadow: 'none'
-                }}
+                className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain mx-auto mb-4 animate-heartbeat"
               />
-
-              {/* Minimal Loading Text */}
-              <div className="mt-6 sm:mt-8 text-center">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white/90 mb-3"
-                    style={{ fontFamily: 'Arial, sans-serif', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  St. Louis Demonstration J.H.S
-                </h3>
-                <div className="flex items-center justify-center gap-1">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '1.5s' }}></div>
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '1.5s' }}></div>
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.6s', animationDuration: '1.5s' }}></div>
-                </div>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
+                St. Louis Demonstration J.H.S
+              </h3>
+              <div className="flex items-center justify-center gap-1">
+                <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
               </div>
             </div>
           </div>
@@ -262,14 +244,13 @@ const Hero: React.FC = () => {
                   decoding="async"
                   fetchPriority={index === 0 ? "high" : "low"}
                   style={{
-                    imageRendering: 'optimizeQuality',
+                    imageRendering: 'optimizeSpeed',
                     transform: 'translateZ(0) scale(1.01)',
                     willChange: 'transform, opacity',
                     objectPosition: isMobile ? image.mobilePosition : image.desktopPosition,
                     objectFit: 'cover',
                     minHeight: '100%',
                     minWidth: '100%',
-                    backgroundColor: 'transparent',
                     transition: 'opacity 0.5s ease-in-out, transform 0.3s ease-out',
                   }}
                 />

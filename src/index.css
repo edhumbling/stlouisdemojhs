@@ -59,21 +59,21 @@
   animation: neon-pulse 2s ease-in-out infinite alternate;
 }
 
-/* Pure Heart Animation - No Shadows, No Squares */
+/* Beautiful Heartbeat Animation for Logo */
 @keyframes heartbeat {
   0% {
     transform: scale(1);
   }
-  10% {
+  14% {
+    transform: scale(1.05);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
     transform: scale(1.08);
   }
-  20% {
-    transform: scale(1.02);
-  }
-  30% {
-    transform: scale(1.12);
-  }
-  50% {
+  70% {
     transform: scale(1);
   }
   100% {
@@ -82,13 +82,7 @@
 }
 
 .animate-heartbeat {
-  animation: heartbeat 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-  will-change: transform;
-  transform-origin: center center;
-  background-color: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
+  animation: heartbeat 1.5s ease-in-out infinite;
 }
 
 @layer base {
@@ -161,127 +155,24 @@
   --ring: 240 4.9% 83.9%;
 }
 
-/* Prevent white edges and layout shifts */
-html {
-  background-color: #000000 !important;
-  overflow-x: hidden;
-  height: 100%;
-}
-
 body {
   @apply bg-black text-white;
   /* Prevent white flash/edge blinking */
   background-color: #000000 !important;
   overflow-x: hidden;
-  position: relative;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
-/* Ensure root container doesn't cause overflow */
-#root {
+/* Prevent white edges and layout shifts */
+html {
   background-color: #000000 !important;
-  min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Smooth header transitions and prevent mobile shaking */
+/* Smooth header transitions */
 header {
   will-change: background-color, backdrop-filter, box-shadow;
   transform: translateZ(0);
   backface-visibility: hidden;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-/* Prevent animation conflicts on mobile ONLY */
-@media (max-width: 768px) {
-  /* Only apply transforms to animated elements, not everything */
-  .animate-heartbeat,
-  .animate-ping,
-  .animate-pulse,
-  .animate-bounce {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-
-  /* Reduce motion for better mobile performance */
-  .animate-ping {
-    animation-duration: 3s !important;
-  }
-
-  .animate-pulse {
-    animation-duration: 3s !important;
-  }
-
-  /* Stabilize donate button on mobile */
-  .neon-red-glow {
-    animation: none !important;
-  }
-
-  .neon-text-glow {
-    animation: none !important;
-  }
-
-  /* Ensure no white backgrounds on mobile */
-  .animate-heartbeat {
-    background-color: transparent !important;
-  }
-}
-
-/* Prevent any white background bleeding */
-img {
-  background-color: transparent !important;
-}
-
-/* Ensure hero section stays black */
-.hero-section {
-  background-color: #000000 !important;
-}
-
-/* Force transparent backgrounds for all animated elements */
-.animate-ping,
-.animate-pulse,
-.animate-bounce {
-  background-color: transparent !important;
-}
-
-/* Desktop-specific fixes to prevent whitening */
-@media (min-width: 769px) {
-  /* Ensure no layout shifts on desktop */
-  body {
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  /* Prevent any white backgrounds on desktop */
-  * {
-    background-color: inherit;
-  }
-
-  /* Ensure hero section and all containers stay black */
-  .hero-section,
-  section,
-  main,
-  div {
-    background-color: inherit;
-  }
-
-  /* Prevent scrollbar issues */
-  html {
-    scrollbar-gutter: stable;
-  }
-
-  /* Ensure animations don't cause layout shifts */
-  .animate-heartbeat {
-    contain: layout style paint;
-  }
 }
 
 .bg-white {
