@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Users, Award, BookOpen, Star, GraduationCap } from 'lucide-react';
 import { getSchoolStats, getDecadePerformance } from '../../utils/schoolStats';
+import GrowthChart from './GrowthChart';
 
 const StatsSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -249,6 +250,17 @@ const StatsSection: React.FC = () => {
               </p>
             </motion.div>
           </div>
+        </motion.div>
+
+        {/* Interactive Growth Chart */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="mt-8 md:mt-12 lg:mt-16"
+        >
+          <GrowthChart />
         </motion.div>
       </div>
     </section>
