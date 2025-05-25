@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Users, Award, BookOpen, Star, GraduationCap } from 'lucide-react';
+import { getSchoolStats, getDecadePerformance } from '../../utils/schoolStats';
 
 const StatsSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
+  // Get dynamic school statistics
+  const schoolStats = getSchoolStats();
+
   const stats = [
     {
       icon: <GraduationCap className="w-8 h-8 text-green-400" />,
-      number: 30000,
+      number: schoolStats.totalStudents,
       suffix: '+',
       label: 'Students Trained',
-      description: 'Since 1977',
+      description: `Since ${schoolStats.foundingYear}`,
       color: 'from-green-500 to-emerald-400'
     },
     {
@@ -19,7 +23,7 @@ const StatsSection: React.FC = () => {
       number: 98.7,
       suffix: '%',
       label: 'BECE Success Rate',
-      description: '2023 Results',
+      description: `${schoolStats.currentYear - 1} Results`,
       color: 'from-blue-500 to-cyan-400'
     },
     {
@@ -32,7 +36,7 @@ const StatsSection: React.FC = () => {
     },
     {
       icon: <Users className="w-8 h-8 text-purple-400" />,
-      number: 850,
+      number: schoolStats.currentEnrollment,
       suffix: '+',
       label: 'Current Students',
       description: 'Active Enrollment',
@@ -40,10 +44,10 @@ const StatsSection: React.FC = () => {
     },
     {
       icon: <BookOpen className="w-8 h-8 text-red-400" />,
-      number: 47,
-      suffix: '',
+      number: schoolStats.age,
+      suffix: '+',
       label: 'Years of Excellence',
-      description: 'Established 1977',
+      description: `Established ${schoolStats.foundingYear}`,
       color: 'from-red-500 to-pink-400'
     },
     {
@@ -144,63 +148,12 @@ const StatsSection: React.FC = () => {
               Five Decades of Academic Excellence
             </h3>
             <p className="text-gray-400 text-sm md:text-base mb-8">
-              Consistent BECE Success Rates Across Generations (1977-2030+)
+              Consistent BECE Success Rates Across Generations ({schoolStats.yearsRange}+)
             </p>
 
             {/* Decades Performance Timeline */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-8">
-              {[
-                {
-                  decade: '1970s-80s',
-                  period: '1977-1989',
-                  rate: '89.2%',
-                  description: 'Foundation Years',
-                  color: 'from-amber-500 to-orange-400',
-                  textColor: 'text-amber-300'
-                },
-                {
-                  decade: '1990s',
-                  period: '1990-1999',
-                  rate: '91.5%',
-                  description: 'Growth Era',
-                  color: 'from-emerald-500 to-green-400',
-                  textColor: 'text-emerald-300'
-                },
-                {
-                  decade: '2000s',
-                  period: '2000-2009',
-                  rate: '93.8%',
-                  description: 'Modernization',
-                  color: 'from-blue-500 to-cyan-400',
-                  textColor: 'text-blue-300'
-                },
-                {
-                  decade: '2010s',
-                  period: '2010-2019',
-                  rate: '95.4%',
-                  description: 'Innovation',
-                  color: 'from-purple-500 to-violet-400',
-                  textColor: 'text-purple-300'
-                },
-                {
-                  decade: '2020s',
-                  period: '2020-2024',
-                  rate: '97.1%',
-                  description: 'Excellence Peak',
-                  color: 'from-green-500 to-emerald-400',
-                  textColor: 'text-green-300',
-                  highlight: true
-                },
-                {
-                  decade: '2030+',
-                  period: 'Future',
-                  rate: '99%+',
-                  description: 'Continued Growth',
-                  color: 'from-yellow-500 to-amber-400',
-                  textColor: 'text-yellow-300',
-                  future: true
-                }
-              ].map((data, index) => (
+              {getDecadePerformance().map((data, index) => (
                 <motion.div
                   key={data.decade}
                   initial={{ opacity: 0, scale: 0.8, y: 20 }}
