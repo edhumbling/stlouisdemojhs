@@ -23,6 +23,18 @@ const Hero: React.FC = () => {
       desktopPosition: 'center 75%' // Show more of the bottom on desktop
     },
     {
+      url: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2006.05.16_4d8aef13.jpg',
+      isPortrait: false, // New landscape image
+      mobilePosition: 'center 45%', // Show middle portion for better composition
+      desktopPosition: 'center 40%' // Balanced view
+    },
+    {
+      url: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2006.05.16_f4d2c9bc.jpg',
+      isPortrait: false, // New landscape image
+      mobilePosition: 'center 45%', // Show middle portion for better composition
+      desktopPosition: 'center 40%' // Balanced view
+    },
+    {
       url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mtqqjxq2Z4OUSfDyHBMwru2hG3KJe97qYaoNx',
       isPortrait: false, // Landscape image
       mobilePosition: 'center 40%', // Slightly lower for better composition
@@ -75,6 +87,15 @@ const Hero: React.FC = () => {
   // Add preload link tags to document head for better performance
   useEffect(() => {
     const preloadLinks: HTMLLinkElement[] = [];
+
+    // Preload logo first for instant loading screen
+    const logoLink = document.createElement('link');
+    logoLink.rel = 'preload';
+    logoLink.as = 'image';
+    logoLink.href = 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png';
+    logoLink.fetchPriority = 'high';
+    document.head.appendChild(logoLink);
+    preloadLinks.push(logoLink);
 
     images.forEach((image, index) => {
       const link = document.createElement('link');
@@ -169,9 +190,44 @@ const Hero: React.FC = () => {
         {/* Instant fallback background - shows immediately */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-green-900 opacity-80"></div>
 
-        {/* Loading placeholder with school colors */}
+        {/* Beautiful Logo Heartbeat Loader */}
         {!imagesLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-slate-700/30 to-green-600/20 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-green-900 flex items-center justify-center">
+            {/* Animated Background Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 via-slate-700/40 to-green-600/30 animate-pulse"></div>
+
+            {/* School Logo with Heartbeat Animation */}
+            <div className="relative z-10 flex flex-col items-center">
+              <div className="relative">
+                {/* Outer Glow Ring */}
+                <div className="absolute inset-0 rounded-full bg-yellow-400/20 animate-ping" style={{ animationDuration: '2s' }}></div>
+                <div className="absolute inset-0 rounded-full bg-blue-400/15 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}></div>
+
+                {/* Logo Container with Heartbeat */}
+                <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center animate-heartbeat">
+                  <img
+                    src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
+                    alt="St. Louis Demonstration J.H.S Logo"
+                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain drop-shadow-lg"
+                    style={{ filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))' }}
+                  />
+                </div>
+              </div>
+
+              {/* Loading Text */}
+              <div className="mt-6 sm:mt-8 text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 animate-pulse"
+                    style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                  St. Louis Demonstration J.H.S
+                </h3>
+                <div className="flex items-center justify-center gap-1">
+                  <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
 
         {images.map((image, index) => (
