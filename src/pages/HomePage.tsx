@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/home/Hero';
+import StatsSection from '../components/home/StatsSection';
 import AboutSection from '../components/home/AboutSection';
 import ProgramsSection from '../components/home/ProgramsSection';
 import NewsEventsSection from '../components/home/NewsEventsSection';
@@ -13,6 +14,9 @@ const HomePage: React.FC = () => {
     <>
       <Hero />
       <SectionDivider position="bottom" />
+
+      <StatsSection />
+      <SectionDivider position="bottom" flip={true} />
 
       <AboutSection />
       <SectionDivider position="bottom" flip={true} />

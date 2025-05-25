@@ -64,7 +64,7 @@ const AboutSection: React.FC = () => {
             className="text-base sm:text-lg md:text-xl text-gray-100 px-2 max-w-3xl mx-auto"
             style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
           >
-            Since 1977, we've been Ghana's premier educational institution, pioneering innovative teaching methods and nurturing exceptional minds. Having trained over <span className="text-yellow-400 font-bold">30,000+ students</span> throughout our distinguished history, our legacy of excellence continues to inspire generations to achieve greatness.
+            Since 1977, St. Louis Educational Institute has been Ghana's premier educational institution, fully accredited by the <span className="text-green-400 font-bold">Ghana Education Service (GES)</span> and guided by <span className="text-blue-400 font-bold">Roman Catholic principles</span>. We pioneer innovative teaching methods while nurturing exceptional minds in an environment of faith, excellence, and moral character. Having trained over <span className="text-yellow-400 font-bold">30,000+ students</span> throughout our distinguished history, our legacy of academic excellence and spiritual formation continues to inspire generations to achieve greatness.
           </motion.p>
         </div>
 
