@@ -60,7 +60,7 @@ const AdviceSpeechesPage: React.FC = () => {
               <img
                 src={selectedSpeech.image}
                 alt={selectedSpeech.speaker}
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover flex-shrink-0"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover flex-shrink-0 grayscale blur-sm opacity-60"
               />
               <div className="flex-1">
                 <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
@@ -163,7 +163,7 @@ const AdviceSpeechesPage: React.FC = () => {
                     <img
                       src={speech.image}
                       alt={speech.speaker}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 grayscale blur-sm opacity-60"
                     />
                   </div>
 
@@ -171,7 +171,7 @@ const AdviceSpeechesPage: React.FC = () => {
                   <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
                     {speech.speaker}
                   </h3>
-                  
+
                   <h4 className="text-sm sm:text-base font-medium text-orange-300 mb-3 leading-tight">
                     {speech.title}
                   </h4>

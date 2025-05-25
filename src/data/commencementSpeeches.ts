@@ -18,7 +18,7 @@ export const commencementSpeeches: CommencementSpeech[] = [
     university: "Dillard University",
     year: 2014,
     excerpt: "You all have opportunities and skills and education that so many folks who came before you never could have dreamed of. So just imagine the kind of impact that you're going to make.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Michelle_Obama_official_portrait_headshot.jpg/800px-Michelle_Obama_official_portrait_headshot.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Education is the key to real and lasting freedom",
       "We owe it to those who came before us to lift others up",
@@ -120,7 +120,7 @@ Congratulations. I love you all. I am honored to be here. I am proud of you. God
     university: "University of Southern California",
     year: 2014,
     excerpt: "When my brother and I were starting our first company, we just rented a small office and we slept on the couch and we showered in the YMCA. Work hard, like, every waking hour.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_April_2022.jpg/800px-Elon_Musk_April_2022.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Work super hard - every waking hour if you want to start a company",
       "Attract great people to work with you",
@@ -229,7 +229,7 @@ I don't know if it was helpful. Great.`
     university: "Wellesley College",
     year: 2015,
     excerpt: "All over the world, girls are raised to make themselves likeable, to twist themselves into shapes that suit other people. Please do not twist yourself into shapes to please.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Chimamanda_Ngozi_Adichie_2014_%28cropped%29.jpg/800px-Chimamanda_Ngozi_Adichie_2014_%28cropped%29.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Don't twist yourself into shapes to please others",
       "Be your truest self - don't waste time pretending",
@@ -245,7 +245,7 @@ I don't know if it was helpful. Great.`
     university: "University of North Carolina",
     year: 2012,
     excerpt: "Follow your heart, and go with your gut. Do what you love, find a way to get paid for it and if you ever have the luxury of multiple job offers, don't make the decision based on salary alone.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mayor_Michael_Bloomberg_%28cropped%29.jpg/800px-Mayor_Michael_Bloomberg_%28cropped%29.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Follow your heart and go with your gut",
       "Out-hustle the competition - show up early, stay late",
@@ -262,7 +262,7 @@ I don't know if it was helpful. Great.`
     university: "University of Southern California",
     year: 2011,
     excerpt: "Ideas matter, find your passion, and be tenacious. Those three things are just, boom, bake them in. They'll really take you a long way.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Steve_Ballmer.jpg/800px-Steve_Ballmer.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Great ideas matter - they can change everything",
       "Find your passion - it's your job to discover it",
@@ -278,7 +278,7 @@ I don't know if it was helpful. Great.`
     university: "Princeton University",
     year: 2010,
     excerpt: "Cleverness is a gift, kindness is a choice. Gifts are easy -- they're given after all. Choices can be hard. You can seduce yourself with your gifts if you're not careful.",
-    image: "https://images.pexels.com/photos/5905902/pexels-photo-5905902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Cleverness is a gift, kindness is a choice",
       "It's harder to be kind than clever",
@@ -294,7 +294,7 @@ I don't know if it was helpful. Great.`
     university: "Stanford University",
     year: 2008,
     excerpt: "Your calling isn't something that somebody can tell you about. It's what you feel. It is the thing that gives you juice. The thing that you are supposed to do.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Oprah_Winfrey_%282004%29.jpg/800px-Oprah_Winfrey_%282004%29.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Follow your calling - what gives you juice",
       "Feelings are more important than thoughts",
@@ -310,7 +310,7 @@ I don't know if it was helpful. Great.`
     university: "Stanford University",
     year: 2005,
     excerpt: "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma — which is living with the results of other people's thinking.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Steve_Jobs_Headshot_2010-CROP.jpg/800px-Steve_Jobs_Headshot_2010-CROP.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Connect the dots looking backwards",
       "Love what you do - keep looking until you find it",
@@ -326,7 +326,7 @@ I don't know if it was helpful. Great.`
     university: "UC Berkeley",
     year: 2016,
     excerpt: "We are not born with a fixed amount of resilience. It is a muscle that everyone can build. We build resilience by getting back up.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Sheryl_Sandberg_World_Economic_Forum_2013.jpg/800px-Sheryl_Sandberg_World_Economic_Forum_2013.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Resilience is a muscle everyone can build",
       "Option A is not available, so kick the hell out of option B",
@@ -342,7 +342,7 @@ I don't know if it was helpful. Great.`
     university: "MIT",
     year: 2017,
     excerpt: "Technology is capable of doing great things. But it doesn't want to do great things. It doesn't want anything. That part takes all of us.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Tim_Cook_%282017%2C_cropped%29.jpg/800px-Tim_Cook_%282017%2C_cropped%29.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Technology needs human values to do good",
       "Be a force for good in the world",
@@ -358,7 +358,7 @@ I don't know if it was helpful. Great.`
     university: "Harvard University",
     year: 2007,
     excerpt: "As you leave Harvard, you have technology that members of my class never had. You have awareness of global inequity, which we did not have. And with that awareness, you likely also have an informed conscience that will torment you if you abandon these people whose lives you could change with very little effort.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bill_Gates_2018.jpg/800px-Bill_Gates_2018.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Use technology to reduce global inequity",
       "Your conscience should guide your actions",
@@ -374,7 +374,7 @@ I don't know if it was helpful. Great.`
     university: "Harvard University",
     year: 2008,
     excerpt: "It is impossible to live without failing at something, unless you live so cautiously that you might as well not have lived at all—in which case, you fail by default.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/J._K._Rowling_2010.jpg/800px-J._K._Rowling_2010.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Failure is inevitable and beneficial",
       "Rock bottom is a solid foundation to rebuild",
@@ -390,7 +390,7 @@ I don't know if it was helpful. Great.`
     university: "University of Pennsylvania",
     year: 2011,
     excerpt: "I've found that nothing in life is worthwhile unless you take risks. Nothing. Nelson Mandela said, 'There is no passion to be found playing small—in settling for a life that is less than the one you are capable of living.'",
-    image: "https://images.pexels.com/photos/8197527/pexels-photo-8197527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Nothing worthwhile happens without taking risks",
       "Don't play small - live up to your potential",
@@ -406,7 +406,7 @@ I don't know if it was helpful. Great.`
     university: "Tulane University",
     year: 2009,
     excerpt: "My point is that life is about people. It's about creating new families and finding new families. Be good to people. Be good to yourself. And be good to the earth.",
-    image: "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Life is about people and relationships",
       "Be true to yourself no matter what",
@@ -422,7 +422,7 @@ I don't know if it was helpful. Great.`
     university: "Dartmouth College",
     year: 2011,
     excerpt: "Work hard, be kind, and amazing things will happen. I truly believe this. I've seen it happen over and over again.",
-    image: "https://images.pexels.com/photos/5212320/pexels-photo-5212320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Work hard and be kind - amazing things will happen",
       "Your path may not be what you expected",
@@ -438,7 +438,7 @@ I don't know if it was helpful. Great.`
     university: "Northwestern University",
     year: 2006,
     excerpt: "The true test of the American dream is whether somebody who started with nothing can make it in this country. And that continues to be true today.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/800px-President_Barack_Obama.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "The American dream is about starting with nothing",
       "Change comes from ordinary people doing extraordinary things",
@@ -454,7 +454,7 @@ I don't know if it was helpful. Great.`
     university: "Dartmouth College",
     year: 2018,
     excerpt: "I have never, ever, ever met a highly confident and successful person who is not what a movie would call a 'workaholic.' Because confidence is like respect; you have to earn it.",
-    image: "https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Confidence must be earned through hard work",
       "Don't wait for permission to pursue your dreams",
@@ -470,7 +470,7 @@ I don't know if it was helpful. Great.`
     university: "University of the Arts",
     year: 2012,
     excerpt: "When things get tough, this is what you should do: Make good art. I'm serious. Husband runs off with a politician? Make good art. Leg crushed and then eaten by a mutated boa constrictor? Make good art.",
-    image: "https://images.pexels.com/photos/6326377/pexels-photo-6326377.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "When things get tough, make good art",
       "The moment you feel like an impostor is when you're doing something right",
@@ -486,7 +486,7 @@ I don't know if it was helpful. Great.`
     university: "Xavier University",
     year: 2017,
     excerpt: "Don't be afraid to be different. Don't be afraid to stand out. The world needs your unique perspective and your authentic voice.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Ursula_Burns_2010.jpg/800px-Ursula_Burns_2010.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Dare to be different and stand out",
       "Your unique perspective matters",
@@ -502,7 +502,7 @@ I don't know if it was helpful. Great.`
     university: "Howard University",
     year: 2016,
     excerpt: "Leadership is not about being popular. It's about making the tough decisions and doing what's right, even when it's difficult.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Kenneth_Chenault_2011.jpg/800px-Kenneth_Chenault_2011.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Leadership requires making tough decisions",
       "Do what's right, not what's popular",
@@ -518,7 +518,7 @@ I don't know if it was helpful. Great.`
     university: "Harvey Mudd College",
     year: 2015,
     excerpt: "Don't let anyone rob you of your imagination, your creativity, or your curiosity. It's your place in the world; it's your life. Go on and do all you can with it.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Mae_Jemison.jpg/800px-Mae_Jemison.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Protect your imagination and creativity",
       "Science and arts are interconnected",
@@ -534,7 +534,7 @@ I don't know if it was helpful. Great.`
     university: "Emory University",
     year: 2018,
     excerpt: "Never, ever be afraid to make some noise and get in good trouble, necessary trouble. We must use our time and our space on this little planet that we call Earth to make a lasting contribution.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/John_Lewis_official_biopic.jpg/800px-John_Lewis_official_biopic.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Get in good trouble, necessary trouble",
       "Stand up for what is right",
@@ -550,7 +550,7 @@ I don't know if it was helpful. Great.`
     university: "University of Southern California",
     year: 2019,
     excerpt: "We cannot be color blind, we have to be color brave. We have to be willing to have proactive conversations about race with honesty and understanding.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Mellody_Hobson_2019.jpg/800px-Mellody_Hobson_2019.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Be color brave, not color blind",
       "Have honest conversations about race",
@@ -566,7 +566,7 @@ I don't know if it was helpful. Great.`
     university: "Spelman College",
     year: 2020,
     excerpt: "Leadership is not about the title you hold, but about the impact you make. Lead from where you are, with what you have, for the people who need you most.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Stacey_Abrams_2019.jpg/800px-Stacey_Abrams_2019.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Lead from where you are right now",
       "Impact matters more than titles",
@@ -582,7 +582,7 @@ I don't know if it was helpful. Great.`
     university: "UCLA",
     year: 2018,
     excerpt: "Your story matters. Your voice matters. Your perspective is needed. Don't wait for permission to tell your story - create your own opportunities.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Ava_DuVernay_2018.jpg/800px-Ava_DuVernay_2018.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Your story and voice matter",
       "Create your own opportunities",
@@ -598,7 +598,7 @@ I don't know if it was helpful. Great.`
     university: "Howard University",
     year: 2017,
     excerpt: "Writing is an act of courage. It requires you to be vulnerable, to tell the truth, and to confront uncomfortable realities. But it's through this courage that we create change.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Ta-Nehisi_Coates_2016.jpg/800px-Ta-Nehisi_Coates_2016.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Writing requires courage and vulnerability",
       "Tell the truth, even when uncomfortable",
@@ -614,7 +614,7 @@ I don't know if it was helpful. Great.`
     university: "Columbia Law School",
     year: 2019,
     excerpt: "Justice is not just about individual achievement, but about collective liberation. We must understand how different forms of discrimination intersect and work together to create systemic inequality.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Kimberle_Crenshaw_2019.jpg/800px-Kimberle_Crenshaw_2019.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "Understand intersectionality in justice",
       "Work for collective liberation",
@@ -630,7 +630,7 @@ I don't know if it was helpful. Great.`
     university: "University of Massachusetts",
     year: 2016,
     excerpt: "The universe is under no obligation to make sense to you. But that doesn't mean we should stop trying to understand it. Curiosity and scientific thinking are our greatest tools.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Neil_deGrasse_Tyson_in_June_2017_%28cropped%29.jpg/800px-Neil_deGrasse_Tyson_in_June_2017_%28cropped%29.jpg",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
       "The universe doesn't owe us understanding",
       "Curiosity drives scientific discovery",
