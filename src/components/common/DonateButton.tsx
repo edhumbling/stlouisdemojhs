@@ -38,25 +38,29 @@ const DonateButton: React.FC<DonateButtonProps> = ({
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
+      style={{ willChange: 'transform' }}
     >
       <Link
         to="/donate"
         onClick={handleClick}
-        className={`${baseClasses} ${variantClasses[variant]} ${glowClasses} neon-red-glow ${className}`}
+        className={`${baseClasses} ${variantClasses[variant]} ${glowClasses} ${className}`}
+        style={{
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+          willChange: 'transform'
+        }}
       >
-        <Heart className={`${variant === 'header' ? 'w-3 h-3 md:w-4 md:h-4' : 'w-4 h-4'} mr-2 fill-current relative z-10 text-white neon-text-glow`} />
-        <span className="relative z-10 font-bold text-white neon-text-glow">Donate</span>
+        <Heart className={`${variant === 'header' ? 'w-3 h-3 md:w-4 md:h-4' : 'w-4 h-4'} mr-2 fill-current relative z-10 text-white`} />
+        <span className="relative z-10 font-bold text-white">Donate</span>
 
-        {/* Neon red glowing effect */}
-        <span className={`absolute inset-0 bg-red-500 opacity-40 animate-pulse ${variant === 'header' ? 'rounded-full md:rounded-lg' : 'rounded-full'}`}></span>
-        <span className={`absolute inset-0 bg-red-400 opacity-30 animate-ping ${variant === 'header' ? 'rounded-full md:rounded-lg' : 'rounded-full'}`} style={{ animationDelay: '0.5s' }}></span>
-        <span className={`absolute -inset-1 bg-red-500 opacity-25 blur-md animate-pulse ${variant === 'header' ? 'rounded-full md:rounded-lg' : 'rounded-full'}`} style={{ animationDelay: '1s' }}></span>
-        <span className={`absolute -inset-2 bg-red-600 opacity-15 blur-lg animate-pulse ${variant === 'header' ? 'rounded-full md:rounded-lg' : 'rounded-full'}`} style={{ animationDelay: '1.5s' }}></span>
+        {/* Simplified glow effect - no conflicting animations */}
+        <span className={`absolute inset-0 bg-red-500 opacity-30 ${variant === 'header' ? 'rounded-full md:rounded-lg' : 'rounded-full'}`}></span>
+        <span className={`absolute -inset-1 bg-red-500 opacity-20 blur-sm ${variant === 'header' ? 'rounded-full md:rounded-lg' : 'rounded-full'}`}></span>
       </Link>
     </motion.div>
   );

@@ -187,24 +187,58 @@
   --ring: 240 4.9% 83.9%;
 }
 
-body {
-  @apply bg-black text-white;
-  /* Prevent white flash/edge blinking */
-  background-color: #000000 !important;
-  overflow-x: hidden;
-}
-
 /* Prevent white edges and layout shifts */
 html {
   background-color: #000000 !important;
   overflow-x: hidden;
 }
 
-/* Smooth header transitions */
+body {
+  @apply bg-black text-white;
+  /* Prevent white flash/edge blinking */
+  background-color: #000000 !important;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Smooth header transitions and prevent mobile shaking */
 header {
   will-change: background-color, backdrop-filter, box-shadow;
   transform: translateZ(0);
   backface-visibility: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Prevent animation conflicts on mobile */
+@media (max-width: 768px) {
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Reduce motion for better mobile performance */
+  .animate-ping {
+    animation-duration: 3s !important;
+  }
+
+  .animate-pulse {
+    animation-duration: 3s !important;
+  }
+
+  /* Stabilize donate button on mobile */
+  .neon-red-glow {
+    animation: none !important;
+  }
+
+  .neon-text-glow {
+    animation: none !important;
+  }
 }
 
 .bg-white {
