@@ -69,6 +69,12 @@ const Hero: React.FC = () => {
       isPortrait: false, // Landscape image
       mobilePosition: 'center 40%', // Balanced positioning
       desktopPosition: 'center 65%' // Show from beneath - bottom portion visible
+    },
+    {
+      url: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/ChatGPT%20Image%20May%2025,%202025,%2005_40_11%20PM.png',
+      isPortrait: false, // Landscape image
+      mobilePosition: 'center 50%', // Centered positioning for good composition
+      desktopPosition: 'center 45%' // Balanced view on desktop
     }
   ];
 

@@ -311,6 +311,18 @@ export const galleryImages: GalleryImage[] = [
     src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6910.JPG',
     alt: 'School life and student interactions',
     category: 'Campus Life'
+  },
+  {
+    id: 25,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/513d7145-56da-4e4c-9b7d-aed333870067.jpg',
+    alt: 'School community and student activities',
+    category: 'Campus Life'
+  },
+  {
+    id: 26,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/57d8e0dd-d63c-44c3-8525-047656ef22e5.jpg',
+    alt: 'Student engagement and school environment',
+    category: 'Campus Life'
   }
 ];
 
