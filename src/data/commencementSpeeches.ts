@@ -326,7 +326,7 @@ I don't know if it was helpful. Great.`
     university: "UC Berkeley",
     year: 2016,
     excerpt: "We are not born with a fixed amount of resilience. It is a muscle that everyone can build. We build resilience by getting back up.",
-    image: "https://images.pexels.com/photos/5212320/pexels-photo-5212320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Sheryl_Sandberg_World_Economic_Forum_2013.jpg/800px-Sheryl_Sandberg_World_Economic_Forum_2013.jpg",
     keyPoints: [
       "Resilience is a muscle everyone can build",
       "Option A is not available, so kick the hell out of option B",
@@ -342,7 +342,7 @@ I don't know if it was helpful. Great.`
     university: "MIT",
     year: 2017,
     excerpt: "Technology is capable of doing great things. But it doesn't want to do great things. It doesn't want anything. That part takes all of us.",
-    image: "https://images.pexels.com/photos/8422419/pexels-photo-8422419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Tim_Cook_%282017%2C_cropped%29.jpg/800px-Tim_Cook_%282017%2C_cropped%29.jpg",
     keyPoints: [
       "Technology needs human values to do good",
       "Be a force for good in the world",
