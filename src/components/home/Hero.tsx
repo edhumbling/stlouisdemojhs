@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Hero: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [loadedImages, setLoadedImages] = useState<HTMLImageElement[]>([]);
+  const [loadedImageIndices, setLoadedImageIndices] = useState<number[]>([]);
   const [isMobile, setIsMobile] = useState(false);
 
   const images = [
@@ -120,54 +120,55 @@ const Hero: React.FC = () => {
     };
   }, []);
 
-  // Aggressive progressive image loading for instant display
+  // Smart progressive image loading - only cycle through loaded images
   useEffect(() => {
     const loadImagesProgressively = async () => {
-      // Show hero immediately with first image only
-      const firstImagePromise = new Promise<HTMLImageElement>((resolve, reject) => {
+      // Load first image immediately
+      const firstImagePromise = new Promise<void>((resolve) => {
         const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = () => resolve(img); // Don't fail on error
+        img.onload = () => {
+          setLoadedImageIndices([0]);
+          setImagesLoaded(true); // Hero shows immediately!
+          resolve();
+        };
+        img.onerror = () => {
+          setImagesLoaded(true); // Show hero anyway
+          resolve();
+        };
         img.fetchPriority = 'high';
         img.loading = 'eager';
         img.src = images[0].url;
       });
 
       try {
-        // Load and show first image immediately
-        const firstImg = await firstImagePromise;
-        setLoadedImages([firstImg]);
-        setImagesLoaded(true); // Hero shows immediately!
+        await firstImagePromise;
 
-        // Load second image quickly for smooth transition
-        const secondImg = new Image();
-        secondImg.onload = () => {
-          setLoadedImages(prev => [...prev, secondImg]);
-        };
-        secondImg.fetchPriority = 'high';
-        secondImg.src = images[1]?.url;
+        // Load remaining images progressively and add to slideshow as they load
+        images.slice(1).forEach((image, index) => {
+          const actualIndex = index + 1;
 
-        // Load remaining images in background with delays to prevent network congestion
-        images.slice(2).forEach((image, index) => {
           setTimeout(() => {
             const img = new Image();
             img.onload = () => {
-              setLoadedImages(prev => {
-                if (prev.length === index + 2) {
-                  return [...prev, img];
+              setLoadedImageIndices(prev => {
+                if (!prev.includes(actualIndex)) {
+                  return [...prev, actualIndex].sort((a, b) => a - b);
                 }
                 return prev;
               });
             };
-            img.loading = 'lazy';
-            img.fetchPriority = 'low';
+            img.onerror = () => {
+              console.warn(`Failed to load image ${actualIndex + 1}`);
+            };
+            img.fetchPriority = actualIndex <= 2 ? 'high' : 'low';
+            img.loading = actualIndex <= 2 ? 'eager' : 'lazy';
             img.src = image.url;
-          }, (index + 1) * 200); // Stagger loading every 200ms
+          }, actualIndex * 300); // Stagger loading every 300ms
         });
 
       } catch (error) {
         console.error('Error loading first image:', error);
-        setImagesLoaded(true); // Show hero anyway
+        setImagesLoaded(true);
       }
     };
 
@@ -175,13 +176,19 @@ const Hero: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Start slideshow immediately, don't wait for all images to load
+    // Smart slideshow - only cycle through loaded images
+    if (loadedImageIndices.length <= 1) return; // Don't start slideshow until we have at least 2 images
+
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 4000); // Faster slideshow - 4 seconds per image
+      setCurrentImage((prev) => {
+        const currentIndex = loadedImageIndices.indexOf(prev);
+        const nextIndex = (currentIndex + 1) % loadedImageIndices.length;
+        return loadedImageIndices[nextIndex];
+      });
+    }, 4000); // 4 seconds per image
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [loadedImageIndices]);
 
   return (
     <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden">
@@ -205,18 +212,16 @@ const Hero: React.FC = () => {
                 <div className="absolute -inset-8 rounded-full bg-green-400/15 animate-ping" style={{ animationDuration: '2.6s', animationDelay: '0.6s' }}></div>
                 <div className="absolute -inset-10 rounded-full bg-white/10 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.9s' }}></div>
 
-                {/* LARGE Logo Container - The Heart of the School! */}
-                <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 rounded-full bg-white/15 backdrop-blur-sm border-2 border-white/30 flex items-center justify-center animate-heartbeat shadow-2xl">
-                  <img
-                    src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
-                    alt="St. Louis Demonstration J.H.S Logo - The Heart of Excellence"
-                    className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 xl:w-48 xl:h-48 object-contain drop-shadow-2xl"
-                    style={{
-                      filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.5)) drop-shadow(0 0 40px rgba(59,130,246,0.3)) drop-shadow(0 0 60px rgba(34,197,94,0.2))',
-                      imageRendering: 'crisp-edges'
-                    }}
-                  />
-                </div>
+                {/* LARGE Logo - Pure Heart of the School! */}
+                <img
+                  src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
+                  alt="St. Louis Demonstration J.H.S Logo - The Heart of Excellence"
+                  className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-contain animate-heartbeat"
+                  style={{
+                    filter: 'drop-shadow(0 0 30px rgba(255,255,255,0.8)) drop-shadow(0 0 60px rgba(59,130,246,0.5)) drop-shadow(0 0 90px rgba(34,197,94,0.4)) drop-shadow(0 0 120px rgba(251,191,36,0.3))',
+                    imageRendering: 'crisp-edges'
+                  }}
+                />
               </div>
 
               {/* Loading Text */}
@@ -235,50 +240,46 @@ const Hero: React.FC = () => {
           </div>
         )}
 
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentImage ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              // Ensure full coverage without gaps
-              width: '100%',
-              height: '100%',
-              overflow: 'hidden',
-            }}
-          >
-            <img
-              src={image.url}
-              alt={`St. Louis Demonstration Junior High School ${index + 1}`}
-              className="w-full h-full object-cover transition-opacity duration-500"
-              loading={index === 0 ? "eager" : "lazy"} // Only first image eager
-              decoding="async"
-              fetchPriority={index === 0 ? "high" : "low"} // Prioritize first image only
-              onLoad={(e) => {
-                // Instant fade-in when image loads
-                e.currentTarget.style.opacity = '1';
-                e.currentTarget.style.transform = 'translateZ(0) scale(1)';
-              }}
-              onError={(e) => {
-                // Fallback if image fails to load
-                e.currentTarget.style.opacity = '0.5';
-                console.warn(`Failed to load image ${index + 1}`);
-              }}
+        {images.map((image, index) => {
+          const isLoaded = loadedImageIndices.includes(index);
+          const isVisible = index === currentImage && isLoaded;
+
+          return (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                isVisible ? 'opacity-100' : 'opacity-0'
+              }`}
               style={{
-                imageRendering: 'optimizeSpeed', // Faster rendering
-                transform: 'translateZ(0) scale(1.01)', // Hardware acceleration + slight scale
-                willChange: 'transform, opacity', // Optimize for animations
-                objectPosition: isMobile ? image.mobilePosition : image.desktopPosition,
-                objectFit: 'cover',
-                minHeight: '100%',
-                minWidth: '100%',
-                opacity: index === 0 ? 1 : 0, // First image visible immediately
-                transition: 'opacity 0.5s ease-in-out, transform 0.3s ease-out',
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+                display: isLoaded ? 'block' : 'none', // Only render loaded images
               }}
-            />
-          </div>
-        ))}
+            >
+              {isLoaded && (
+                <img
+                  src={image.url}
+                  alt={`St. Louis Demonstration Junior High School ${index + 1}`}
+                  className="w-full h-full object-cover transition-opacity duration-500"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={index === 0 ? "high" : "low"}
+                  style={{
+                    imageRendering: 'optimizeSpeed',
+                    transform: 'translateZ(0) scale(1.01)',
+                    willChange: 'transform, opacity',
+                    objectPosition: isMobile ? image.mobilePosition : image.desktopPosition,
+                    objectFit: 'cover',
+                    minHeight: '100%',
+                    minWidth: '100%',
+                    transition: 'opacity 0.5s ease-in-out, transform 0.3s ease-out',
+                  }}
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
 
 
@@ -348,32 +349,34 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Super Cute Image Indicators - Mobile Visible */}
-      <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="bg-black/30 backdrop-blur-sm rounded-full px-4 py-3 border border-white/20">
-          <div className="flex space-x-3">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImage(index)}
-                className={`relative w-3 h-3 rounded-full transition-all duration-300 group ${
-                  index === currentImage
-                    ? 'bg-yellow-400 scale-125 shadow-lg shadow-yellow-400/50'
-                    : 'bg-white/50 hover:bg-white/70 hover:scale-110'
-                }`}
-                aria-label={`View image ${index + 1}`}
-              >
-                {/* Cute pulse effect for active indicator */}
-                {index === currentImage && (
-                  <div className="absolute inset-0 rounded-full bg-yellow-400 animate-ping opacity-30"></div>
-                )}
-                {/* Cute hover glow */}
-                <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
-              </button>
-            ))}
+      {/* Smart Image Indicators - Only Show Loaded Images */}
+      {loadedImageIndices.length > 1 && (
+        <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="bg-black/30 backdrop-blur-sm rounded-full px-4 py-3 border border-white/20">
+            <div className="flex space-x-3">
+              {loadedImageIndices.map((imageIndex) => (
+                <button
+                  key={imageIndex}
+                  onClick={() => setCurrentImage(imageIndex)}
+                  className={`relative w-3 h-3 rounded-full transition-all duration-300 group ${
+                    imageIndex === currentImage
+                      ? 'bg-yellow-400 scale-125 shadow-lg shadow-yellow-400/50'
+                      : 'bg-white/50 hover:bg-white/70 hover:scale-110'
+                  }`}
+                  aria-label={`View image ${imageIndex + 1}`}
+                >
+                  {/* Cute pulse effect for active indicator */}
+                  {imageIndex === currentImage && (
+                    <div className="absolute inset-0 rounded-full bg-yellow-400 animate-ping opacity-30"></div>
+                  )}
+                  {/* Cute hover glow */}
+                  <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-150"></div>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };
