@@ -18,14 +18,14 @@ export const commencementSpeeches: CommencementSpeech[] = [
     university: "Dillard University",
     year: 2014,
     excerpt: "You all have opportunities and skills and education that so many folks who came before you never could have dreamed of. So just imagine the kind of impact that you're going to make.",
-    image: "https://images.pexels.com/photos/5212320/pexels-photo-5212320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Michelle_Obama_official_portrait_headshot.jpg/800px-Michelle_Obama_official_portrait_headshot.jpg",
     keyPoints: [
       "Education is the key to real and lasting freedom",
       "We owe it to those who came before us to lift others up",
       "Your success is not just about you - it's about the next generation",
       "Hunger for education must be cultivated in our communities"
     ],
-    fullText: `Oh, my goodness! Good morning!
+    fullText: `Good morning!
 
 I am so happy to be here with you all. I'm proud to be here in the Big Easy. Look at you all! You look good.
 
@@ -120,7 +120,7 @@ Congratulations. I love you all. I am honored to be here. I am proud of you. God
     university: "University of Southern California",
     year: 2014,
     excerpt: "When my brother and I were starting our first company, we just rented a small office and we slept on the couch and we showered in the YMCA. Work hard, like, every waking hour.",
-    image: "https://images.pexels.com/photos/8197527/pexels-photo-8197527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_April_2022.jpg/800px-Elon_Musk_April_2022.jpg",
     keyPoints: [
       "Work super hard - every waking hour if you want to start a company",
       "Attract great people to work with you",
@@ -144,16 +144,11 @@ Some of it may kinda sound like, well you've heard them before.
 
 But, you know, worth reemphasizing.
 
-
-I think the first is, you need to work, if you, depending on how well you want to do,
-
-particularly if you want to start a company, you need to work super hard.
+I think the first is, you need to work, if you, depending on how well you want to do, particularly if you want to start a company, you need to work super hard.
 
 So what is super hard mean?
 
-Well, when my brother and I were starting our first company, instead of getting an apartment,
-
-we just rented a small office and we slept on the couch and we showered in the YMCA.
+Well, when my brother and I were starting our first company, instead of getting an apartment, we just rented a small office and we slept on the couch and we showered in the YMCA.
 
 We're so hard up that we had just one computer.
 
@@ -161,22 +156,15 @@ So the website was up during the day, and I was coding at night.
 
 7 days a week, all the time.
 
-And I, sort of briefly had a girlfriend in that period and in order to be with me,
-
-she had to sleep in the office.
+And I, sort of briefly had a girlfriend in that period and in order to be with me, she had to sleep in the office.
 
 So, work hard, like, every waking hour.
 
 That's the thing I would say, particularly if you're starting a company.
 
-And I mean, if you do the simple math, you say like somebody else is working 50 hours a week and
+And I mean, if you do the simple math, you say like somebody else is working 50 hours a week and you're working 100, you'll get twice as done, as much done, in the course of the year as the other company.
 
-you're working 100, you'll get twice as done, as much done, in the course of the year as the other company.
-
-
-The other thing I'd say is that if you're creating a company, or if you're joining a company,
-
-the most important thing is to attract great people.
+The other thing I'd say is that if you're creating a company, or if you're joining a company, the most important thing is to attract great people.
 
 So either be with, join a group that's amazing, that you really respect.
 
@@ -184,14 +172,9 @@ Or, if you're building a company, you've got to gather great people.
 
 I mean, all a company is is a group of people that have gathered together to create a product or service.
 
-So depending upon how talented and hard working that group is,
-
-and to the degree in which they are focused cohesively in a good direction,
-
-that will determine the success of the company.
+So depending upon how talented and hard working that group is, and to the degree in which they are focused cohesively in a good direction, that will determine the success of the company.
 
 So, do everything you can to gather great people, if you're creating a company.
-
 
 Then, I'd say focus on signal over noise.
 
@@ -203,9 +186,7 @@ So, for example, at Tesla, we've never spent any money on advertising.
 
 We've put all the money into R and D and manufacturing and design to try and make the car as good as possible.
 
-And, I think that's the way to go. For any given company, keep thinking about,
-
-"Are, these efforts that people are expending, are they resulting in a better product or service?"
+And, I think that's the way to go. For any given company, keep thinking about, "Are, these efforts that people are expending, are they resulting in a better product or service?"
 
 And if they're not, stop those efforts.
 
@@ -213,9 +194,7 @@ And then the final thing is, is to sort of, don't just follow the trend.
 
 So, you may have heard me say that it's good to thinking terms of the physics approach, the first principles.
 
-With is, rather than reasoning by analogy,
-
-you boil things down to the most fundamental truths you can imagine, and then you reason up from there.
+With is, rather than reasoning by analogy, you boil things down to the most fundamental truths you can imagine, and then you reason up from there.
 
 And this is a good way to figure out if something really makes sense, or is it just what everybody else is doing.
 
@@ -226,7 +205,6 @@ It takes a lot of effort. But if you're trying to do something new, it's the bes
 And that framework was developed by physicists to figure out counter intuitive things, like quantum mechanics.
 
 It's really a powerful, powerful method.
-
 
 And anyways, so that's, and then the final thing I would encourage you to do is now is the time to take risks.
 
@@ -240,10 +218,9 @@ It gets harder to do things that might not work out. So now is the time to do th
 
 Before you have those obligations. So I would encourage you to take risks now, and to do something bold.
 
-You won't regret it. Thank you....
+You won't regret it. Thank you.
 
-
-...I don't know if it was helpful. Great.`
+I don't know if it was helpful. Great.`
   },
   {
     id: 3,
@@ -252,7 +229,7 @@ You won't regret it. Thank you....
     university: "Wellesley College",
     year: 2015,
     excerpt: "All over the world, girls are raised to make themselves likeable, to twist themselves into shapes that suit other people. Please do not twist yourself into shapes to please.",
-    image: "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Chimamanda_Ngozi_Adichie_2014_%28cropped%29.jpg/800px-Chimamanda_Ngozi_Adichie_2014_%28cropped%29.jpg",
     keyPoints: [
       "Don't twist yourself into shapes to please others",
       "Be your truest self - don't waste time pretending",
@@ -268,7 +245,7 @@ You won't regret it. Thank you....
     university: "University of North Carolina",
     year: 2012,
     excerpt: "Follow your heart, and go with your gut. Do what you love, find a way to get paid for it and if you ever have the luxury of multiple job offers, don't make the decision based on salary alone.",
-    image: "https://images.pexels.com/photos/8422419/pexels-photo-8422419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Mayor_Michael_Bloomberg_%28cropped%29.jpg/800px-Mayor_Michael_Bloomberg_%28cropped%29.jpg",
     keyPoints: [
       "Follow your heart and go with your gut",
       "Out-hustle the competition - show up early, stay late",
@@ -285,7 +262,7 @@ You won't regret it. Thank you....
     university: "University of Southern California",
     year: 2011,
     excerpt: "Ideas matter, find your passion, and be tenacious. Those three things are just, boom, bake them in. They'll really take you a long way.",
-    image: "https://images.pexels.com/photos/6326377/pexels-photo-6326377.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Steve_Ballmer.jpg/800px-Steve_Ballmer.jpg",
     keyPoints: [
       "Great ideas matter - they can change everything",
       "Find your passion - it's your job to discover it",
@@ -317,7 +294,7 @@ You won't regret it. Thank you....
     university: "Stanford University",
     year: 2008,
     excerpt: "Your calling isn't something that somebody can tell you about. It's what you feel. It is the thing that gives you juice. The thing that you are supposed to do.",
-    image: "https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Oprah_Winfrey_%282004%29.jpg/800px-Oprah_Winfrey_%282004%29.jpg",
     keyPoints: [
       "Follow your calling - what gives you juice",
       "Feelings are more important than thoughts",
@@ -333,7 +310,7 @@ You won't regret it. Thank you....
     university: "Stanford University",
     year: 2005,
     excerpt: "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma — which is living with the results of other people's thinking.",
-    image: "https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Steve_Jobs_Headshot_2010-CROP.jpg/800px-Steve_Jobs_Headshot_2010-CROP.jpg",
     keyPoints: [
       "Connect the dots looking backwards",
       "Love what you do - keep looking until you find it",
@@ -381,7 +358,7 @@ You won't regret it. Thank you....
     university: "Harvard University",
     year: 2007,
     excerpt: "As you leave Harvard, you have technology that members of my class never had. You have awareness of global inequity, which we did not have. And with that awareness, you likely also have an informed conscience that will torment you if you abandon these people whose lives you could change with very little effort.",
-    image: "https://images.pexels.com/photos/6326377/pexels-photo-6326377.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bill_Gates_2018.jpg/800px-Bill_Gates_2018.jpg",
     keyPoints: [
       "Use technology to reduce global inequity",
       "Your conscience should guide your actions",
@@ -397,7 +374,7 @@ You won't regret it. Thank you....
     university: "Harvard University",
     year: 2008,
     excerpt: "It is impossible to live without failing at something, unless you live so cautiously that you might as well not have lived at all—in which case, you fail by default.",
-    image: "https://images.pexels.com/photos/5905902/pexels-photo-5905902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/J._K._Rowling_2010.jpg/800px-J._K._Rowling_2010.jpg",
     keyPoints: [
       "Failure is inevitable and beneficial",
       "Rock bottom is a solid foundation to rebuild",
@@ -461,7 +438,7 @@ You won't regret it. Thank you....
     university: "Northwestern University",
     year: 2006,
     excerpt: "The true test of the American dream is whether somebody who started with nothing can make it in this country. And that continues to be true today.",
-    image: "https://images.pexels.com/photos/8422419/pexels-photo-8422419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/800px-President_Barack_Obama.jpg",
     keyPoints: [
       "The American dream is about starting with nothing",
       "Change comes from ordinary people doing extraordinary things",
@@ -499,6 +476,166 @@ You won't regret it. Thank you....
       "The moment you feel like an impostor is when you're doing something right",
       "Make mistakes and learn from them",
       "Do the work you love, not just what pays"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 19,
+    speaker: "Ursula Burns",
+    title: "Dare to Be Different",
+    university: "Xavier University",
+    year: 2017,
+    excerpt: "Don't be afraid to be different. Don't be afraid to stand out. The world needs your unique perspective and your authentic voice.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Ursula_Burns_2010.jpg/800px-Ursula_Burns_2010.jpg",
+    keyPoints: [
+      "Dare to be different and stand out",
+      "Your unique perspective matters",
+      "Break barriers and create opportunities",
+      "Lead with authenticity and courage"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 20,
+    speaker: "Kenneth Chenault",
+    title: "Leadership in Times of Change",
+    university: "Howard University",
+    year: 2016,
+    excerpt: "Leadership is not about being popular. It's about making the tough decisions and doing what's right, even when it's difficult.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Kenneth_Chenault_2011.jpg/800px-Kenneth_Chenault_2011.jpg",
+    keyPoints: [
+      "Leadership requires making tough decisions",
+      "Do what's right, not what's popular",
+      "Embrace change as an opportunity",
+      "Build bridges across differences"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 21,
+    speaker: "Mae Jemison",
+    title: "Reach for the Stars",
+    university: "Harvey Mudd College",
+    year: 2015,
+    excerpt: "Don't let anyone rob you of your imagination, your creativity, or your curiosity. It's your place in the world; it's your life. Go on and do all you can with it.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Mae_Jemison.jpg/800px-Mae_Jemison.jpg",
+    keyPoints: [
+      "Protect your imagination and creativity",
+      "Science and arts are interconnected",
+      "Break barriers in STEM fields",
+      "Use your talents to serve humanity"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 22,
+    speaker: "John Lewis",
+    title: "Get in Good Trouble",
+    university: "Emory University",
+    year: 2018,
+    excerpt: "Never, ever be afraid to make some noise and get in good trouble, necessary trouble. We must use our time and our space on this little planet that we call Earth to make a lasting contribution.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/John_Lewis_official_biopic.jpg/800px-John_Lewis_official_biopic.jpg",
+    keyPoints: [
+      "Get in good trouble, necessary trouble",
+      "Stand up for what is right",
+      "Make a lasting contribution to humanity",
+      "Never give up on justice and equality"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 23,
+    speaker: "Mellody Hobson",
+    title: "Color Blind or Color Brave",
+    university: "University of Southern California",
+    year: 2019,
+    excerpt: "We cannot be color blind, we have to be color brave. We have to be willing to have proactive conversations about race with honesty and understanding.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Mellody_Hobson_2019.jpg/800px-Mellody_Hobson_2019.jpg",
+    keyPoints: [
+      "Be color brave, not color blind",
+      "Have honest conversations about race",
+      "Diversity drives better outcomes",
+      "Use your privilege to create change"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 24,
+    speaker: "Stacey Abrams",
+    title: "Lead from Where You Are",
+    university: "Spelman College",
+    year: 2020,
+    excerpt: "Leadership is not about the title you hold, but about the impact you make. Lead from where you are, with what you have, for the people who need you most.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Stacey_Abrams_2019.jpg/800px-Stacey_Abrams_2019.jpg",
+    keyPoints: [
+      "Lead from where you are right now",
+      "Impact matters more than titles",
+      "Fight for voting rights and democracy",
+      "Turn setbacks into comebacks"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 25,
+    speaker: "Ava DuVernay",
+    title: "Tell Your Story",
+    university: "UCLA",
+    year: 2018,
+    excerpt: "Your story matters. Your voice matters. Your perspective is needed. Don't wait for permission to tell your story - create your own opportunities.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Ava_DuVernay_2018.jpg/800px-Ava_DuVernay_2018.jpg",
+    keyPoints: [
+      "Your story and voice matter",
+      "Create your own opportunities",
+      "Representation changes everything",
+      "Use media to drive social change"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 26,
+    speaker: "Ta-Nehisi Coates",
+    title: "The Power of Writing",
+    university: "Howard University",
+    year: 2017,
+    excerpt: "Writing is an act of courage. It requires you to be vulnerable, to tell the truth, and to confront uncomfortable realities. But it's through this courage that we create change.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Ta-Nehisi_Coates_2016.jpg/800px-Ta-Nehisi_Coates_2016.jpg",
+    keyPoints: [
+      "Writing requires courage and vulnerability",
+      "Tell the truth, even when uncomfortable",
+      "Education is the path to freedom",
+      "Question everything and think critically"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 27,
+    speaker: "Kimberlé Crenshaw",
+    title: "Intersectionality and Justice",
+    university: "Columbia Law School",
+    year: 2019,
+    excerpt: "Justice is not just about individual achievement, but about collective liberation. We must understand how different forms of discrimination intersect and work together to create systemic inequality.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Kimberle_Crenshaw_2019.jpg/800px-Kimberle_Crenshaw_2019.jpg",
+    keyPoints: [
+      "Understand intersectionality in justice",
+      "Work for collective liberation",
+      "Challenge systemic inequality",
+      "Use law as a tool for social change"
+    ],
+    fullText: "Full speech content will be added..."
+  },
+  {
+    id: 28,
+    speaker: "Neil deGrasse Tyson",
+    title: "The Universe is Under No Obligation",
+    university: "University of Massachusetts",
+    year: 2016,
+    excerpt: "The universe is under no obligation to make sense to you. But that doesn't mean we should stop trying to understand it. Curiosity and scientific thinking are our greatest tools.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Neil_deGrasse_Tyson_in_June_2017_%28cropped%29.jpg/800px-Neil_deGrasse_Tyson_in_June_2017_%28cropped%29.jpg",
+    keyPoints: [
+      "The universe doesn't owe us understanding",
+      "Curiosity drives scientific discovery",
+      "Question everything with scientific thinking",
+      "Make science accessible to everyone"
     ],
     fullText: "Full speech content will be added..."
   }
