@@ -5,12 +5,15 @@ import { ExternalLink, Calendar, Sparkles } from 'lucide-react';
 
 const NewsEventsSection: React.FC = () => {
   return (
-    <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 relative overflow-hidden">
-      {/* Magical Background Elements */}
+    <section className="py-8 sm:py-12 md:py-20 bg-black relative overflow-hidden">
+      {/* Apple-style Background Pattern */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-32 h-32 bg-blue-500/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 bg-yellow-500/10 rounded-full blur-lg animate-pulse delay-500"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/50 via-black to-gray-900/30"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-30">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 right-16 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-green-500/10 rounded-full blur-2xl"></div>
+        </div>
       </div>
 
       <div className="container mx-auto px-3 sm:px-4 relative z-10">
@@ -42,7 +45,7 @@ const NewsEventsSection: React.FC = () => {
             className="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto"
             style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
           >
-            Discover the latest happenings, achievements, and upcoming events at St. Louis Educational Institute
+            Discover the latest happenings, achievements, and upcoming events at St. Louis Demonstration J.H.S
           </motion.p>
         </motion.div>
 
@@ -62,16 +65,16 @@ const NewsEventsSection: React.FC = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-purple-300" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>Latest News & Updates</h3>
             </div>
 
-            {/* Blog Preview Container */}
-            <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-purple-100 group-hover:border-purple-200">
-              {/* Preview Header */}
-              <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-3 sm:p-4 text-white">
+            {/* Blog Preview Container - Apple Style */}
+            <div className="relative bg-gray-900/80 backdrop-blur-xl rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-700/50 group-hover:border-gray-600/70">
+              {/* Preview Header - Apple Style */}
+              <div className="bg-gray-800/90 backdrop-blur-sm p-3 sm:p-4 border-b border-gray-700/50">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-sm sm:text-base">St. Louis Educational Institute Blog</h4>
+                  <h4 className="font-semibold text-sm sm:text-base text-white">St. Louis Demonstration J.H.S Blog</h4>
                   <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 bg-red-400 rounded-full"></div>
-                    <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
-                    <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   </div>
                 </div>
               </div>
@@ -80,7 +83,7 @@ const NewsEventsSection: React.FC = () => {
               <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
                 <iframe
                   src="https://stlouisdemojhs.blogspot.com"
-                  title="St. Louis Educational Institute Blog Preview"
+                  title="St. Louis Demonstration J.H.S Blog Preview"
                   className="w-full h-full border-0 transform scale-75 origin-top-left"
                   style={{
                     width: '133.33%',
@@ -104,11 +107,11 @@ const NewsEventsSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="p-4 sm:p-6 bg-gradient-to-r from-purple-50 to-purple-100/50">
+              {/* Action Button - Apple Style */}
+              <div className="p-4 sm:p-6 bg-gray-800/50 backdrop-blur-sm border-t border-gray-700/50">
                 <Link
                   to="/news"
-                  className="group/btn w-full inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
+                  className="group/btn w-full inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm"
                 >
                   <Sparkles size={16} className="group-hover/btn:animate-spin" />
                   Explore All News & Updates
@@ -133,15 +136,15 @@ const NewsEventsSection: React.FC = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-blue-300" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>School Events Calendar</h3>
             </div>
 
-            {/* Calendar Container */}
-            <div className="relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden border border-blue-100 group-hover:border-blue-200">
-              {/* Calendar Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-3 sm:p-4 text-white">
+            {/* Calendar Container - Apple Style */}
+            <div className="relative bg-gray-900/80 backdrop-blur-xl rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden border border-gray-700/50 group-hover:border-gray-600/70">
+              {/* Calendar Header - Apple Style */}
+              <div className="bg-gray-800/90 backdrop-blur-sm p-3 sm:p-4 border-b border-gray-700/50">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-sm sm:text-base">Upcoming School Events</h4>
+                  <h4 className="font-semibold text-sm sm:text-base text-white">Upcoming School Events</h4>
                   <div className="flex items-center gap-2">
-                    <Calendar size={16} />
-                    <span className="text-xs sm:text-sm opacity-90">Live Calendar</span>
+                    <Calendar size={16} className="text-blue-400" />
+                    <span className="text-xs sm:text-sm text-gray-300">Live Calendar</span>
                   </div>
                 </div>
               </div>
@@ -159,24 +162,24 @@ const NewsEventsSection: React.FC = () => {
                   frameBorder="0"
                   scrolling="no"
                   loading="lazy"
-                  title="St. Louis Educational Institute Events Calendar"
+                  title="St. Louis Demonstration J.H.S Events Calendar"
                 />
 
                 {/* Mobile Overlay for Better UX */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
 
-              {/* Calendar Footer */}
-              <div className="p-4 sm:p-6 bg-gradient-to-r from-blue-50 to-blue-100/50">
+              {/* Calendar Footer - Apple Style */}
+              <div className="p-4 sm:p-6 bg-gray-800/50 backdrop-blur-sm border-t border-gray-700/50">
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <div className="flex-1 text-center sm:text-left">
-                    <p className="text-xs sm:text-sm text-blue-700 font-medium">
+                    <p className="text-xs sm:text-sm text-gray-300 font-medium">
                       📅 Stay updated with all school events and important dates
                     </p>
                   </div>
                   <Link
                     to="/calendar"
-                    className="group/btn inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm"
+                    className="group/btn inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm"
                   >
                     <Calendar size={14} />
                     View Full Calendar

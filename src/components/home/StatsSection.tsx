@@ -255,7 +255,7 @@ const StatsSection: React.FC = () => {
                 Institutional Excellence & Accreditation
               </h4>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-                St. Louis Educational Institute is fully accredited by the <span className="text-green-400 font-semibold">Ghana Education Service (GES)</span> and operates under <span className="text-blue-400 font-semibold">Roman Catholic principles</span>, providing quality education that nurtures both academic excellence and moral character across five decades of service.
+                St. Louis Demonstration J.H.S is fully accredited by the <span className="text-green-400 font-semibold">Ghana Education Service (GES)</span> and operates under <span className="text-blue-400 font-semibold">Roman Catholic principles</span>, providing quality education that nurtures both academic excellence and moral character across five decades of service.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
@@ -290,9 +290,9 @@ const StatsSection: React.FC = () => {
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               </div>
               <p className="text-gray-300 text-sm md:text-base text-center leading-relaxed">
-                <span className="text-yellow-400 font-semibold">Please Note:</span> While this website may not be updated frequently,
-                <span className="text-green-400 font-semibold"> St. Louis Educational Institute continues to achieve and maintain excellent BECE success rates year after year</span>.
+                <span className="text-green-400 font-semibold">St. Louis Demonstration J.H.S continues to achieve and maintain excellent BECE success rates year after year</span>.
                 Our commitment to academic excellence, spiritual formation, and student success remains unwavering as we progress toward our goal of 99%+ success rates in the coming decade.
+                <span className="text-blue-400 font-semibold"> Excellence is not just our history—it's our future.</span>
               </p>
             </motion.div>
           </div>
