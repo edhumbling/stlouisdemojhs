@@ -282,7 +282,36 @@ export const galleryImages: GalleryImage[] = [
     alt: 'Students in creative activities',
     category: 'Academic Life'
   },
-
+  {
+    id: 20,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.jpg',
+    alt: 'School community and student life',
+    category: 'Campus Life'
+  },
+  {
+    id: 21,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6921.JPG',
+    alt: 'Students in school environment',
+    category: 'Campus Life'
+  },
+  {
+    id: 22,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6914.JPG',
+    alt: 'School facilities and learning spaces',
+    category: 'Campus Life'
+  },
+  {
+    id: 23,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6912.JPG',
+    alt: 'Student activities and engagement',
+    category: 'Campus Life'
+  },
+  {
+    id: 24,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6910.JPG',
+    alt: 'School life and student interactions',
+    category: 'Campus Life'
+  }
 ];
 
 export const testimonials: Testimonial[] = [
