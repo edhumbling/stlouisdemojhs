@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, X, ChevronLeft, ChevronRight, Grid, Play, Pause } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { galleryImages } from '../data';
 
 const GalleryPage: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'slideshow'>('grid');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [filter, setFilter] = useState<string>('All');
 
+  const handleBack = () => {
+    navigate(-1); // Go back to previous page
+  };
+
   // Get unique categories
   const categories = ['All', ...Array.from(new Set(galleryImages.map(img => img.category)))];
-  
+
   // Filter images based on selected category
-  const filteredImages = filter === 'All' 
-    ? galleryImages 
+  const filteredImages = filter === 'All'
+    ? galleryImages
     : galleryImages.filter(img => img.category === filter);
 
   // Auto-play slideshow
@@ -54,28 +59,32 @@ const GalleryPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black">
-      {/* Header */}
-      <div className="bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-40">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Link
-                to="/"
-                className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5" />
-                <span className="text-sm">Back to Home</span>
-              </Link>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+    <div className="min-h-screen bg-black pt-16">
+      {/* Back Button and Title Section - Original Style */}
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+
+            <div className="flex-1">
+              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
                 School Life Gallery
               </h1>
+              <p className="text-xs sm:text-sm text-blue-200 mt-1">
+                Explore our vibrant academic community
+              </p>
             </div>
-            
+
             {/* View Mode Toggle */}
             <button
               onClick={toggleSlideshow}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30"
             >
               {viewMode === 'grid' ? <Play className="w-4 h-4" /> : <Grid className="w-4 h-4" />}
               <span className="hidden sm:inline">
@@ -164,7 +173,7 @@ const GalleryPage: React.FC = () => {
                   {currentSlide + 1} of {filteredImages.length}
                 </span>
               </div>
-              
+
               <div className="flex items-center gap-2">
                 <button
                   onClick={prevSlide}
@@ -195,7 +204,7 @@ const GalleryPage: React.FC = () => {
                   transition={{ duration: 0.5 }}
                 />
               </AnimatePresence>
-              
+
               {/* Image Info Overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                 <h3 className="text-white text-lg font-semibold mb-1">
