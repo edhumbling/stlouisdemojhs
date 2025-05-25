@@ -197,43 +197,39 @@ const Hero: React.FC = () => {
         {/* Instant fallback background - shows immediately */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-green-900 opacity-80"></div>
 
-        {/* Beautiful Logo Heartbeat Loader */}
+        {/* Silent Logo Loader - No White Background */}
         {!imagesLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-green-900 flex items-center justify-center">
-            {/* Animated Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 via-slate-700/40 to-green-600/30 animate-pulse"></div>
+          <div className="absolute inset-0 bg-black flex items-center justify-center">
+            {/* Pure Black Background - No Flashing */}
+            <div className="absolute inset-0 bg-black"></div>
 
-            {/* School Logo with Heartbeat Animation */}
+            {/* School Logo - Pure and Clean */}
             <div className="relative z-10 flex flex-col items-center">
-              <div className="relative">
-                {/* POWERFUL Energy Rings - The Heart's Aura! */}
-                <div className="absolute -inset-4 rounded-full bg-yellow-400/25 animate-ping" style={{ animationDuration: '1.8s' }}></div>
-                <div className="absolute -inset-6 rounded-full bg-blue-400/20 animate-ping" style={{ animationDuration: '2.2s', animationDelay: '0.3s' }}></div>
-                <div className="absolute -inset-8 rounded-full bg-green-400/15 animate-ping" style={{ animationDuration: '2.6s', animationDelay: '0.6s' }}></div>
-                <div className="absolute -inset-10 rounded-full bg-white/10 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.9s' }}></div>
+              {/* LARGE Logo - No Containers, No Squares */}
+              <img
+                src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
+                alt="St. Louis Demonstration J.H.S Logo"
+                className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-contain animate-heartbeat"
+                style={{
+                  filter: 'drop-shadow(0 0 15px rgba(255,255,255,0.2))',
+                  imageRendering: 'crisp-edges',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  outline: 'none',
+                  boxShadow: 'none'
+                }}
+              />
 
-                {/* LARGE Logo - Pure Heart of the School! */}
-                <img
-                  src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
-                  alt="St. Louis Demonstration J.H.S Logo - The Heart of Excellence"
-                  className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 object-contain animate-heartbeat"
-                  style={{
-                    filter: 'drop-shadow(0 0 30px rgba(255,255,255,0.8)) drop-shadow(0 0 60px rgba(59,130,246,0.5)) drop-shadow(0 0 90px rgba(34,197,94,0.4)) drop-shadow(0 0 120px rgba(251,191,36,0.3))',
-                    imageRendering: 'crisp-edges'
-                  }}
-                />
-              </div>
-
-              {/* Loading Text */}
+              {/* Minimal Loading Text */}
               <div className="mt-6 sm:mt-8 text-center">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 animate-pulse"
-                    style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white/90 mb-3"
+                    style={{ fontFamily: 'Arial, sans-serif', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                   St. Louis Demonstration J.H.S
                 </h3>
                 <div className="flex items-center justify-center gap-1">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '1.5s' }}></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '1.5s' }}></div>
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.6s', animationDuration: '1.5s' }}></div>
                 </div>
               </div>
             </div>
@@ -266,13 +262,14 @@ const Hero: React.FC = () => {
                   decoding="async"
                   fetchPriority={index === 0 ? "high" : "low"}
                   style={{
-                    imageRendering: 'optimizeSpeed',
+                    imageRendering: 'optimizeQuality',
                     transform: 'translateZ(0) scale(1.01)',
                     willChange: 'transform, opacity',
                     objectPosition: isMobile ? image.mobilePosition : image.desktopPosition,
                     objectFit: 'cover',
                     minHeight: '100%',
                     minWidth: '100%',
+                    backgroundColor: 'transparent',
                     transition: 'opacity 0.5s ease-in-out, transform 0.3s ease-out',
                   }}
                 />
