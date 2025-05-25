@@ -1,7 +1,6 @@
 import { NavLink, DropdownItem, Event, NewsItem, StaffMember, Program, GalleryImage, Testimonial } from '../types';
 
 export const navLinks: NavLink[] = [
-  { label: 'Home', path: '/' },
   { label: 'News & Events', path: '/news' },
   { label: 'STEM', path: '/stem' },
   { label: 'LearnHub', path: '/learnhub' },

@@ -89,13 +89,29 @@ const Header: React.FC = () => {
           <nav className="hidden md:block">
             <div className="flex items-center space-x-6">
               <ul className="flex space-x-6">
+                {/* Home Link */}
+                <li>
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) => `
+                      relative font-medium text-sm transition-colors duration-300 hover:text-accent-500
+                      ${isHomePage
+                        ? (isActive ? 'text-yellow-300' : 'text-white')
+                        : (isActive ? 'text-accent-300' : 'text-white')
+                      }
+                    `}
+                  >
+                    Home
+                  </NavLink>
+                </li>
+
                 {/* School Dropdown */}
                 <li className="relative">
                   <button
                     onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                     onMouseLeave={() => setIsSchoolDropdownOpen(false)}
                     className={`
-                      relative font-medium text-sm transition-colors duration-300 hover:text-accent-500 flex items-center gap-1
+                      relative font-medium text-sm transition-colors duration-300 hover:text-accent-500 flex items-center gap-1 h-5
                       ${isHomePage ? 'text-white' : 'text-white'}
                     `}
                   >
@@ -225,6 +241,29 @@ const Header: React.FC = () => {
           className="md:hidden bg-black/80 backdrop-blur-lg border-t border-white/10"
         >
           <div className="p-4">
+            {/* Home Link - Mobile */}
+            <div className="mb-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <NavLink
+                  to="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={({ isActive }) => `
+                    block py-3 px-4 font-medium rounded-xl text-center text-base relative transition-all duration-200
+                    ${isActive
+                      ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-400/30'
+                      : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
+                    }
+                  `}
+                >
+                  Home
+                </NavLink>
+              </motion.div>
+            </div>
+
             {/* School Section - Mobile */}
             <div className="mb-4">
               <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-2 px-2">School</h3>
