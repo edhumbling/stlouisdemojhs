@@ -3,6 +3,13 @@ export interface NavLink {
   path: string;
 }
 
+export interface DropdownItem {
+  label: string;
+  path: string;
+  description: string;
+  image: string;
+}
+
 export interface Event {
   id: number;
   title: string;

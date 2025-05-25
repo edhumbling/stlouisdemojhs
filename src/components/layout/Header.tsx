@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
-import { Menu, X, Heart } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { navLinks } from '../../data';
+import { Menu, X, Heart, ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { navLinks, schoolDropdownItems } from '../../data';
 import DonateButton from '../common/DonateButton';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSchoolDropdownOpen, setIsSchoolDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
@@ -88,6 +89,71 @@ const Header: React.FC = () => {
           <nav className="hidden md:block">
             <div className="flex items-center space-x-6">
               <ul className="flex space-x-6">
+                {/* School Dropdown */}
+                <li className="relative">
+                  <button
+                    onMouseEnter={() => setIsSchoolDropdownOpen(true)}
+                    onMouseLeave={() => setIsSchoolDropdownOpen(false)}
+                    className={`
+                      relative font-medium text-sm transition-colors duration-300 hover:text-accent-500 flex items-center gap-1
+                      ${isHomePage ? 'text-white' : 'text-white'}
+                    `}
+                  >
+                    School
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-200 ${isSchoolDropdownOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+
+                  {/* Beautiful Dropdown Menu */}
+                  <AnimatePresence>
+                    {isSchoolDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        onMouseEnter={() => setIsSchoolDropdownOpen(true)}
+                        onMouseLeave={() => setIsSchoolDropdownOpen(false)}
+                        className="absolute top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/20 overflow-hidden z-50"
+                      >
+                        {schoolDropdownItems.map((item, index) => (
+                          <motion.div
+                            key={item.path}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.2, delay: index * 0.05 }}
+                          >
+                            <Link
+                              to={item.path}
+                              className="flex items-center p-4 hover:bg-blue-50/80 transition-all duration-200 group"
+                              onClick={() => setIsSchoolDropdownOpen(false)}
+                            >
+                              <div className="w-16 h-16 rounded-lg overflow-hidden mr-4 flex-shrink-0">
+                                <img
+                                  src={item.image}
+                                  alt={item.label}
+                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                />
+                              </div>
+                              <div className="flex-1">
+                                <h3 className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-200">
+                                  {item.label}
+                                </h3>
+                                <p className="text-sm text-gray-600 mt-1 leading-relaxed">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </li>
+
+                {/* Regular Navigation Links */}
                 {navLinks.map((link) => (
                   <li key={link.path}>
                     <NavLink
@@ -159,14 +225,47 @@ const Header: React.FC = () => {
           className="md:hidden bg-black/80 backdrop-blur-lg border-t border-white/10"
         >
           <div className="p-4">
-            {/* Two Column Grid for Menu Items */}
+            {/* School Section - Mobile */}
+            <div className="mb-4">
+              <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-2 px-2">School</h3>
+              <div className="grid grid-cols-1 gap-2 mb-4">
+                {schoolDropdownItems.map((item, index) => (
+                  <motion.div
+                    key={item.path}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2, delay: index * 0.05 }}
+                  >
+                    <Link
+                      to={item.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-200 border border-white/20"
+                    >
+                      <div className="w-10 h-10 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                        <img
+                          src={item.image}
+                          alt={item.label}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-medium text-white text-sm">{item.label}</h4>
+                        <p className="text-white/70 text-xs mt-0.5 leading-tight">{item.description}</p>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Other Menu Items - Two Column Grid */}
             <div className="grid grid-cols-2 gap-2 mb-4">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.2, delay: index * 0.05 }}
+                  transition={{ duration: 0.2, delay: (index + schoolDropdownItems.length) * 0.05 }}
                 >
                   <NavLink
                     to={link.path}

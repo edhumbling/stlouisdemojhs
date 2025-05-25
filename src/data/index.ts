@@ -1,16 +1,35 @@
-import { NavLink, Event, NewsItem, StaffMember, Program, GalleryImage, Testimonial } from '../types';
+import { NavLink, DropdownItem, Event, NewsItem, StaffMember, Program, GalleryImage, Testimonial } from '../types';
 
 export const navLinks: NavLink[] = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Academics', path: '/academics' },
-  { label: 'Faculty', path: '/faculty' },
   { label: 'News & Events', path: '/news' },
   { label: 'STEM', path: '/stem' },
   { label: 'LearnHub', path: '/learnhub' },
   { label: 'AI Search', path: '/ai-search' },
   { label: 'Gallery', path: '/gallery' },
   { label: 'Contact', path: '/contact' },
+];
+
+// School dropdown menu items
+export const schoolDropdownItems: DropdownItem[] = [
+  {
+    label: 'About',
+    path: '/about',
+    description: 'Learn about our school history, mission, and values',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?updatedAt=1748101842702'
+  },
+  {
+    label: 'Academics',
+    path: '/academics',
+    description: 'Explore our comprehensive academic programs and curriculum',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6993.HEIC'
+  },
+  {
+    label: 'Administration',
+    path: '/faculty',
+    description: 'Meet our dedicated faculty and administrative staff',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7058.HEIC'
+  }
 ];
 
 export const upcomingEvents: Event[] = [
