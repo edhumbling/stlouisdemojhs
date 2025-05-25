@@ -12,6 +12,7 @@ import CalendarPage from './pages/CalendarPage';
 import AISearchPage from './pages/AISearchPage';
 import STEMPage from './pages/STEMPage';
 import LearnHubPage from './pages/LearnHubPage';
+import AdviceSpeechesPage from './pages/AdviceSpeechesPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WhatsAppButton from './components/common/WhatsAppButton';
 import FacebookButton from './components/common/FacebookButton';
@@ -43,6 +44,7 @@ const App: React.FC = () => {
           <Route path="learnhub" element={<LearnHubPage />} />
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
+          <Route path="advice-speeches" element={<AdviceSpeechesPage />} />
           <Route path="donate" element={<DonationPage />} />
           {/* Additional routes will be added here */}
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users } from 'lucide-react';
 
 const LearnHubPage: React.FC = () => {
   const [selectedResource, setSelectedResource] = useState<any>(null);
@@ -60,13 +60,27 @@ const LearnHubPage: React.FC = () => {
       url: "https://translate.ghananlp.org/",
       icon: <Languages className="w-5 h-5" />,
       color: "#AF52DE"
+    },
+    {
+      id: 7,
+      title: "Advice from Successful People",
+      description: "Commencement speeches from leaders",
+      url: "/advice-speeches",
+      icon: <Users className="w-5 h-5" />,
+      color: "#FF6B35",
+      isInternal: true
     }
   ];
 
   const handleResourceClick = (resource: any) => {
-    setIsLoading(true);
-    setSelectedResource(resource);
-    // Loading will be hidden when iframe loads
+    if (resource.isInternal) {
+      // Navigate to internal route
+      navigate(resource.url);
+    } else {
+      setIsLoading(true);
+      setSelectedResource(resource);
+      // Loading will be hidden when iframe loads
+    }
   };
 
   const handleBack = () => {
