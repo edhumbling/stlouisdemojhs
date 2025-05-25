@@ -27,7 +27,7 @@ export const schoolDropdownItems: DropdownItem[] = [
     label: 'Administration',
     path: '/faculty',
     description: 'Meet our dedicated faculty and administrative staff',
-    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7058.HEIC'
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-22%20at%2020.45.32_fdbdf1e5.png?updatedAt=1748195389676'
   }
 ];
 
