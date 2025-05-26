@@ -11,36 +11,50 @@ const STEMEducationPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-900 to-green-900">
-      {/* Back Button */}
-      <div className="pt-20 pb-4 px-4">
-        <button
-          onClick={handleBack}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-white/20"
-        >
-          <ArrowLeft size={20} />
-          <span>Back</span>
-        </button>
+    <div className="min-h-screen bg-white">
+      {/* Back Button and Title Section */}
+      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4 mt-16">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              STEM Education Excellence
+            </h1>
+          </div>
+        </div>
       </div>
 
       {/* Hero Section */}
-      <section className="px-4 pb-8">
-        <div className="max-w-6xl mx-auto">
+      <section className="pt-8 pb-12 md:pt-12 md:pb-16 bg-gradient-to-br from-purple-600 via-blue-700 to-cyan-700 text-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center max-w-4xl mx-auto"
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full mb-6 shadow-2xl">
-              <Atom className="w-10 h-10 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full mb-6 shadow-2xl">
+              <Atom className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               STEM Education Excellence
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               Preparing Ghana's next generation of scientists, engineers, and innovators
             </p>
+            <div className="inline-flex items-center gap-2 bg-cyan-500/20 backdrop-blur-sm border border-cyan-400/30 rounded-full px-4 py-2 mt-6 shadow-lg">
+              <span className="text-cyan-400 text-lg">🔬</span>
+              <span className="text-cyan-300 text-sm font-semibold">Innovation & Discovery</span>
+            </div>
           </motion.div>
         </div>
       </section>

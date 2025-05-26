@@ -54,7 +54,7 @@ const Header: React.FC = () => {
         contain: 'layout style'
       }}
     >
-      <div className="container mx-auto px-4 py-4 max-w-full overflow-hidden">
+      <div className="container mx-auto px-4 py-4 max-w-full">
         <div className="flex items-center justify-between min-w-0">
           <NavLink to="/" className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 flex-1 mr-2 sm:mr-4 min-w-0 overflow-hidden">
             <img
@@ -87,7 +87,7 @@ const Header: React.FC = () => {
           </NavLink>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
+          <nav className="hidden md:block relative">
             <div className="flex items-center space-x-6">
               <ul className="flex space-x-6">
                 {/* Home Link */}
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
                 </li>
 
                 {/* School Dropdown */}
-                <li className="relative">
+                <li className="relative" style={{ zIndex: 10000 }}>
                   <button
                     onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                     onMouseLeave={() => setIsSchoolDropdownOpen(false)}
@@ -133,7 +133,14 @@ const Header: React.FC = () => {
                         transition={{ duration: 0.2 }}
                         onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                         onMouseLeave={() => setIsSchoolDropdownOpen(false)}
-                        className="absolute top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/20 overflow-hidden z-50"
+                        className="absolute top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/20 overflow-hidden z-[9999]"
+                        style={{
+                          position: 'absolute',
+                          top: '100%',
+                          left: '0',
+                          marginTop: '8px',
+                          zIndex: 9999
+                        }}
                       >
                         {schoolDropdownItems.map((item, index) => (
                           <motion.div
