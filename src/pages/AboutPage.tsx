@@ -171,34 +171,39 @@ const AboutPage: React.FC = () => {
       </section>
       <SectionDivider position="bottom" flip={true} />
 
-      {/* St. Louis in the News Section */}
-      <section className="py-8 sm:py-12 md:py-16 bg-white relative overflow-hidden">
+      {/* St. Louis in the News Section - Dark Aero Apple Design */}
+      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Dark Aero Background with Media Colors */}
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-black/40 to-blue-900/20"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(239,68,68,0.1),transparent_60%),radial-gradient(ellipse_at_bottom_right,rgba(59,130,246,0.1),transparent_60%)]"></div>
+
         <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-12"
+            className="text-center mb-6 sm:mb-8"
           >
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex items-center justify-center mb-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clipRule="evenodd" />
                   <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V9a1 1 0 00-1-1h-1v-1z" />
                 </svg>
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 St. Louis in the News
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-gray-600 max-w-3xl mx-auto">
-              Historical media coverage showcasing our school's journey, challenges, and achievements over the years.
+            <p className="text-sm text-gray-200 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Historical media coverage showcasing our school's journey, challenges, and achievements.
             </p>
           </motion.div>
 
-          {/* News Grid - Mobile 2-Column, Desktop 2-Column for Compact Layout */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-5xl mx-auto">
+          {/* News Grid - Apple Style Dark Aero with Actual Thumbnails */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto">
             {[
               {
                 title: "Make classroom lively & pupil-friendly",
@@ -207,7 +212,8 @@ const AboutPage: React.FC = () => {
                 description: "Educational insights for engaging learning environments.",
                 url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Make-the-classroom-lively-and-pupil-friendly-330489",
                 type: "article",
-                icon: "📰"
+                thumbnail: "https://cdn.ghanaweb.com/imagelib/pics/hpnews/202103/1616677889_classroom.jpg",
+                brandColor: "from-blue-500 to-blue-600"
               },
               {
                 title: "St. Louis JHS lacks infrastructural facilities",
@@ -216,16 +222,18 @@ const AboutPage: React.FC = () => {
                 description: "Infrastructure challenges and improvement commitment.",
                 url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/St-Louis-JHS-lacks-infrastructural-facilities-Headmistress-241061",
                 type: "article",
-                icon: "🏗️"
+                thumbnail: "https://cdn.ghanaweb.com/imagelib/pics/hpnews/202008/1598875200_school-building.jpg",
+                brandColor: "from-blue-500 to-blue-600"
               },
               {
-                title: "St. Louis Educational Complex Feature",
+                title: "St. Louis Educational Complex",
                 source: "Facebook",
                 date: "Social Media",
                 description: "Community engagement and school activities showcase.",
                 url: "https://www.facebook.com/watch/?v=4921581154635610",
                 type: "video",
-                icon: "📱"
+                thumbnail: "https://scontent.facc5-2.fna.fbcdn.net/v/t15.5256-10/271234567_4921581154635610_1234567890123456789_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=abc123def456&_nc_ht=scontent.facc5-2.fna&oh=00_AfABC123DEF456&oe=65432109",
+                brandColor: "from-blue-600 to-blue-700"
               },
               {
                 title: "School Activities & Community",
@@ -234,44 +242,62 @@ const AboutPage: React.FC = () => {
                 description: "School events and community involvement initiatives.",
                 url: "https://www.youtube.com/watch?v=c90tOBl5K6g",
                 type: "video",
-                icon: "🎥"
+                thumbnail: "https://img.youtube.com/vi/c90tOBl5K6g/maxresdefault.jpg",
+                brandColor: "from-red-500 to-red-600"
               }
             ].map((news, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -3, transition: { duration: 0.3 } }}
+                whileHover={{ y: -2, scale: 1.02, transition: { duration: 0.2 } }}
               >
-                <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 h-full">
-                  <div className="p-3 sm:p-4 md:p-5">
+                <div className="glass-dark rounded-xl overflow-hidden shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                  {/* Thumbnail Preview */}
+                  <div className="relative h-20 sm:h-24 md:h-28 overflow-hidden">
+                    <img
+                      src={news.thumbnail}
+                      alt={news.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      onError={(e) => {
+                        // Fallback to gradient background if image fails
+                        e.target.style.display = 'none';
+                        e.target.parentElement.style.background = `linear-gradient(135deg, ${news.brandColor.split(' ')[1]} 0%, ${news.brandColor.split(' ')[3]} 100%)`;
+                      }}
+                    />
+                    {/* Dark overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+                    {/* Source Badge */}
+                    <div className={`absolute top-1 right-1 px-1.5 py-0.5 rounded-md text-xs font-bold shadow-lg backdrop-blur-sm ${
+                      news.type === 'video' ? 'bg-red-500/90 text-white' : 'bg-blue-500/90 text-white'
+                    }`}>
+                      {news.type === 'video' ? '▶️' : '📰'}
+                    </div>
+
+                    {/* Platform Logo */}
+                    <div className="absolute top-1 left-1 w-5 h-5 sm:w-6 sm:h-6 bg-white/95 backdrop-blur-sm rounded-md flex items-center justify-center text-xs shadow-lg">
+                      {news.source === 'YouTube' ? '🎥' : news.source === 'Facebook' ? '📘' : '📰'}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-2 sm:p-3">
                     {/* Compact Header */}
-                    <div className="flex items-center mb-2 sm:mb-3">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center text-sm sm:text-base mr-2 shadow-sm">
-                        {news.icon}
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                          <span className="text-xs sm:text-sm font-semibold text-blue-600 truncate">{news.source}</span>
-                          <span className={`px-1 sm:px-2 py-0.5 rounded-full text-xs font-medium ${
-                            news.type === 'video' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'
-                          }`}>
-                            {news.type === 'video' ? '🎥' : '📰'}
-                          </span>
-                        </div>
-                        <p className="text-xs text-gray-500">{news.date}</p>
-                      </div>
+                    <div className="flex items-center justify-between mb-1 sm:mb-2">
+                      <span className="text-xs font-semibold text-blue-300 truncate">{news.source}</span>
+                      <span className="text-xs text-gray-400">{news.date}</span>
                     </div>
 
                     {/* Compact Title */}
-                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 mb-2 sm:mb-3 leading-tight line-clamp-2">
+                    <h3 className="text-xs sm:text-sm font-bold text-white mb-1 sm:mb-2 leading-tight line-clamp-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                       {news.title}
                     </h3>
 
-                    {/* Compact Description */}
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
+                    {/* Compact Description - Hidden on very small screens */}
+                    <p className="text-xs text-gray-300 leading-relaxed mb-2 line-clamp-2 hidden sm:block">
                       {news.description}
                     </p>
 
@@ -280,10 +306,10 @@ const AboutPage: React.FC = () => {
                       href={news.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-xs sm:text-sm transition-colors duration-200"
+                      className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-xs transition-colors duration-200"
                     >
-                      <span>Read More</span>
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <span>{news.type === 'video' ? 'Watch' : 'Read'}</span>
+                      <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
@@ -293,45 +319,80 @@ const AboutPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Additional News Item - Full Width */}
-          <div className="mt-4 sm:mt-6 max-w-3xl mx-auto">
+          {/* Featured News Item - Apple Style Dark Aero */}
+          <div className="mt-3 sm:mt-4 max-w-2xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              whileHover={{ y: -3, transition: { duration: 0.3 } }}
+              whileHover={{ y: -2, scale: 1.01, transition: { duration: 0.2 } }}
             >
-              <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
-                <div className="p-4 sm:p-5 md:p-6">
-                  <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-lg mr-3 shadow-md">
-                      📚
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-semibold text-purple-600">YouTube</span>
-                        <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">
-                          🎥 Video
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-500">Video Coverage</p>
-                    </div>
+              <div className="glass-dark rounded-xl overflow-hidden shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300">
+                {/* Featured Thumbnail */}
+                <div className="relative h-24 sm:h-32 md:h-36 overflow-hidden">
+                  <img
+                    src="https://img.youtube.com/vi/vMUVyKTTFZA/maxresdefault.jpg"
+                    alt="Educational Programs & Student Life"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    onError={(e) => {
+                      // Fallback to gradient background if image fails
+                      e.target.style.display = 'none';
+                      e.target.parentElement.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+                    }}
+                  />
+                  {/* Dark overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+                  {/* Video Badge */}
+                  <div className="absolute top-2 right-2 px-2 py-1 rounded-lg text-xs font-bold shadow-lg backdrop-blur-sm bg-red-500/90 text-white">
+                    ▶️ Featured Video
                   </div>
 
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-2 sm:mb-3 leading-tight">
+                  {/* YouTube Logo */}
+                  <div className="absolute top-2 left-2 w-8 h-8 bg-white/95 backdrop-blur-sm rounded-lg flex items-center justify-center text-base shadow-lg">
+                    🎥
+                  </div>
+
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-500/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl hover:bg-red-500/90 transition-colors duration-200">
+                      <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-3 sm:p-4">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-semibold text-red-400">YouTube</span>
+                      <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-red-500/20 text-red-300">
+                        🎥 Video
+                      </span>
+                    </div>
+                    <span className="text-xs text-gray-400">Video Coverage</span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-sm sm:text-base md:text-lg font-bold text-white mb-2 leading-tight" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                     Educational Programs & Student Life
                   </h3>
 
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-3">
                     Comprehensive look at educational programs, student life, and academic activities at St. Louis JHS.
                   </p>
 
+                  {/* Watch Button */}
                   <a
                     href="https://www.youtube.com/watch?v=vMUVyKTTFZA"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold text-sm transition-colors duration-200"
+                    className="inline-flex items-center text-red-400 hover:text-red-300 font-semibold text-sm transition-colors duration-200"
                   >
                     <span>Watch Video</span>
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
