@@ -128,7 +128,6 @@ const Footer: React.FC = () => {
                   <div className="text-sm sm:text-base">
                     <div>📱 0244758575</div>
                     <div>📱 0244730726</div>
-                    <div>📱 0548696528</div>
                   </div>
                 </li>
                 <li className="flex items-center">

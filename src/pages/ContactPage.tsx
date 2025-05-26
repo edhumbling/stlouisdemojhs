@@ -106,7 +106,6 @@ const ContactPage: React.FC = () => {
                     <h3 className="font-semibold text-base sm:text-lg text-gray-900 mb-1">Phone</h3>
                     <p className="text-sm sm:text-base text-gray-700">📱 0244758575</p>
                     <p className="text-sm sm:text-base text-gray-700">📱 0244730726</p>
-                    <p className="text-sm sm:text-base text-gray-700">📱 0548696528</p>
                   </div>
                 </motion.div>
 
