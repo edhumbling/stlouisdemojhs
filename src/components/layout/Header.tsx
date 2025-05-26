@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
-import { Menu, X, Heart, ChevronDown } from 'lucide-react';
+import { Menu, X, Heart, ChevronDown, Home, Newspaper, Zap, Beaker, BookOpen, Camera, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks, schoolDropdownItems, contactDropdownItems } from '../../data';
 import DonateButton from '../common/DonateButton';
@@ -134,13 +134,14 @@ const Header: React.FC = () => {
                         transition={{ duration: 0.2 }}
                         onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                         onMouseLeave={() => setIsSchoolDropdownOpen(false)}
-                        className="absolute top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/20 overflow-hidden z-[9999]"
+                        className="absolute top-full left-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-xl shadow-2xl border border-white/20 overflow-hidden z-[9999]"
                         style={{
                           position: 'absolute',
                           top: '100%',
                           left: '0',
                           marginTop: '8px',
-                          zIndex: 9999
+                          zIndex: 9999,
+                          backdropFilter: 'blur(20px)'
                         }}
                       >
                         {schoolDropdownItems.map((item, index) => (
@@ -152,7 +153,7 @@ const Header: React.FC = () => {
                           >
                             <Link
                               to={item.path}
-                              className="flex items-center p-4 hover:bg-blue-50/80 transition-all duration-200 group"
+                              className="flex items-center p-4 hover:bg-white/10 transition-all duration-200 group"
                               onClick={() => {
                                 setIsSchoolDropdownOpen(false);
                                 window.scrollTo({ top: 0, behavior: 'instant' });
@@ -166,10 +167,10 @@ const Header: React.FC = () => {
                                 />
                               </div>
                               <div className="flex-1">
-                                <h3 className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-200">
+                                <h3 className="font-semibold text-white group-hover:text-accent-300 transition-colors duration-200">
                                   {item.label}
                                 </h3>
-                                <p className="text-sm text-gray-600 mt-1 leading-relaxed">
+                                <p className="text-sm text-gray-400 mt-1 leading-relaxed">
                                   {item.description}
                                 </p>
                               </div>
@@ -239,7 +240,8 @@ const Header: React.FC = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full left-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                      className="absolute top-full right-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                      style={{ backdropFilter: 'blur(20px)' }}
                     >
                       <div className="space-y-3">
                         {contactDropdownItems.map((item, index) => (
@@ -276,6 +278,20 @@ const Header: React.FC = () => {
                     </motion.div>
                   </AnimatePresence>
                 </li>
+
+                {/* Apply Now - Standalone */}
+                <li>
+                  <NavLink
+                    to="/apply-now"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className={({ isActive }) => `
+                      font-medium text-sm transition-colors duration-300 hover:text-accent-500
+                      ${isActive ? 'text-accent-500' : isHomePage ? 'text-white' : 'text-white'}
+                    `}
+                  >
+                    Apply Now
+                  </NavLink>
+                </li>
               </ul>
               <DonateButton variant="header" />
             </div>
@@ -311,7 +327,7 @@ const Header: React.FC = () => {
           className="md:hidden bg-black/85 backdrop-blur-lg border-t border-white/10 max-h-[80vh] overflow-y-auto"
         >
           <div className="p-3">
-            {/* Home Link - Mobile */}
+            {/* Home Link - Mobile with Icon */}
             <div className="mb-3">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -325,13 +341,14 @@ const Header: React.FC = () => {
                     window.scrollTo({ top: 0, behavior: 'instant' });
                   }}
                   className={({ isActive }) => `
-                    block py-2 px-3 font-medium rounded-lg text-center text-sm relative transition-all duration-200
+                    flex items-center justify-center py-2 px-3 font-medium rounded-lg text-sm relative transition-all duration-200
                     ${isActive
                       ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-400/30'
                       : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
                     }
                   `}
                 >
+                  <Home size={16} className="mr-2" />
                   Home
                 </NavLink>
               </motion.div>
@@ -370,47 +387,89 @@ const Header: React.FC = () => {
               </div>
             </div>
 
-            {/* Other Menu Items - Compact Grid */}
+            {/* Other Menu Items - Compact Grid with Icons */}
             <div className="grid grid-cols-2 gap-1.5 mb-3">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.path}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.2, delay: (index + schoolDropdownItems.length) * 0.05 }}
-                >
-                  <NavLink
-                    to={link.path}
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      window.scrollTo({ top: 0, behavior: 'instant' });
-                    }}
-                    className={({ isActive }) => `
-                      block py-2 px-2 font-medium rounded-lg text-center text-xs relative transition-all duration-200
-                      ${isActive
-                        ? 'bg-white/20 text-white border border-white/30'
-                        : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
-                      }
-                    `}
+              {navLinks.map((link, index) => {
+                // Get icon for each link
+                const getIcon = (label: string) => {
+                  switch (label) {
+                    case 'News & Events': return <Newspaper size={14} className="mr-1.5" />;
+                    case 'STEM': return <Beaker size={14} className="mr-1.5" />;
+                    case 'LearnHub': return <BookOpen size={14} className="mr-1.5" />;
+                    case 'AI Search': return <Zap size={14} className="mr-1.5" />;
+                    case 'Gallery': return <Camera size={14} className="mr-1.5" />;
+                    default: return null;
+                  }
+                };
+
+                return (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2, delay: (index + schoolDropdownItems.length) * 0.05 }}
                   >
-                    {link.label}
-                    {/* Red Buzzing Notification Dot for News & Events - Mobile */}
-                    {link.label === 'News & Events' && (
-                      <span className="absolute top-0.5 right-0.5 flex h-1.5 w-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-600 shadow-[0_0_6px_rgba(239,68,68,0.8)] animate-pulse"></span>
-                      </span>
-                    )}
-                    {/* AI Sparkle Indicator for AI Search - Mobile */}
-                    {link.label === 'AI Search' && (
-                      <span className="absolute top-0.5 right-0.5 flex h-1.5 w-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gradient-to-r from-purple-600 to-pink-600 shadow-[0_0_6px_rgba(147,51,234,0.8)] animate-pulse"></span>
-                      </span>
-                    )}
-                  </NavLink>
-                </motion.div>
-              ))}
+                    <NavLink
+                      to={link.path}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        window.scrollTo({ top: 0, behavior: 'instant' });
+                      }}
+                      className={({ isActive }) => `
+                        flex items-center justify-center py-2 px-2 font-medium rounded-lg text-xs relative transition-all duration-200
+                        ${isActive
+                          ? 'bg-white/20 text-white border border-white/30'
+                          : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
+                        }
+                      `}
+                    >
+                      {getIcon(link.label)}
+                      {link.label}
+                      {/* Red Buzzing Notification Dot for News & Events - Mobile */}
+                      {link.label === 'News & Events' && (
+                        <span className="absolute top-0.5 right-0.5 flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-600 shadow-[0_0_6px_rgba(239,68,68,0.8)] animate-pulse"></span>
+                        </span>
+                      )}
+                      {/* AI Sparkle Indicator for AI Search - Mobile */}
+                      {link.label === 'AI Search' && (
+                        <span className="absolute top-0.5 right-0.5 flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gradient-to-r from-purple-600 to-pink-600 shadow-[0_0_6px_rgba(147,51,234,0.8)] animate-pulse"></span>
+                        </span>
+                      )}
+                    </NavLink>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Apply Now - Standalone after Gallery */}
+            <div className="mb-3">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2, delay: (navLinks.length + schoolDropdownItems.length) * 0.05 }}
+              >
+                <NavLink
+                  to="/apply-now"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                  }}
+                  className={({ isActive }) => `
+                    flex items-center justify-center py-2 px-3 font-medium rounded-lg text-sm relative transition-all duration-200
+                    ${isActive
+                      ? 'bg-orange-500/20 text-orange-300 border border-orange-400/30'
+                      : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
+                    }
+                  `}
+                >
+                  <FileText size={16} className="mr-2" />
+                  Apply Now
+                </NavLink>
+              </motion.div>
             </div>
 
             {/* Contact Section - Mobile (With Arrows) */}

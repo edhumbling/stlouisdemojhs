@@ -51,12 +51,6 @@ export const contactDropdownItems: DropdownItem[] = [
     image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667'
   },
   {
-    label: 'Apply Now',
-    path: '/apply-now',
-    description: 'Submit your application to join our school',
-    image: 'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  },
-  {
     label: 'Media & Press',
     path: '/media',
     description: 'Press releases, media kit, and news coverage',
