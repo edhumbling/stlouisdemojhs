@@ -169,6 +169,123 @@ const AboutPage: React.FC = () => {
       </section>
       <SectionDivider position="bottom" flip={true} />
 
+      {/* Mission, Vision & Values Section - Compact Dark Aero */}
+      <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
+        {/* School Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667"
+            alt="St. Louis Demo JHS Campus Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
+
+        <div className="w-full px-4 sm:px-6 relative z-10">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-4 sm:mb-6"
+          >
+            <div className="flex items-center justify-center mb-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <Target size={16} className="text-white" />
+              </div>
+              <h2 className="text-lg sm:text-xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                Our Purpose & Values
+              </h2>
+            </div>
+            <p className="text-sm text-gray-200 max-w-xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Guiding principles that shape our educational approach.
+            </p>
+          </motion.div>
+
+          {/* Compact 3-Column Layout */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto">
+
+            {/* Mission Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ y: -3, transition: { duration: 0.3 } }}
+            >
+              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="text-center mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
+                    🎯
+                  </div>
+                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Mission</h3>
+                </div>
+                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  Quality education through GES curriculum, developing critical thinking and character for BECE success.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Vision Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileHover={{ y: -3, transition: { duration: 0.3 } }}
+            >
+              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="text-center mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-400 to-green-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
+                    🌟
+                  </div>
+                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Vision</h3>
+                </div>
+                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  World-class institution producing globally competitive, morally upright leaders for Ghana's development.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Core Values Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ y: -3, transition: { duration: 0.3 } }}
+            >
+              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="text-center mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
+                    💎
+                  </div>
+                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Core Values</h3>
+                </div>
+                <div className="space-y-1 sm:space-y-2">
+                  {[
+                    { icon: "🤝", value: "Unity" },
+                    { icon: "🏆", value: "Excellence" },
+                    { icon: "⚖️", value: "Integrity" },
+                    { icon: "🌱", value: "Growth" },
+                    { icon: "❤️", value: "Service" }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <span className="text-xs sm:text-sm flex-shrink-0">{item.icon}</span>
+                      <div className="text-xs sm:text-sm font-semibold text-white" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{item.value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      <SectionDivider position="bottom" />
+
       {/* St. Louis in the News Section - Compact Dark Aero Apple Design */}
       <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
         {/* Dark Aero Background with Media Colors */}
@@ -211,6 +328,16 @@ const AboutPage: React.FC = () => {
                 url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Make-the-classroom-lively-and-pupil-friendly-330489",
                 type: "article",
                 preview: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Make-the-classroom-lively-and-pupil-friendly-330489",
+                brandColor: "from-blue-500 to-blue-600"
+              },
+              {
+                title: "St. Louis JHS lacks infrastructural facilities",
+                source: "GhanaWeb",
+                date: "Historical",
+                description: "Infrastructure challenges and improvement commitment.",
+                url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/St-Louis-JHS-lacks-infrastructural-facilities-Headmistress-241061",
+                type: "article",
+                preview: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/St-Louis-JHS-lacks-infrastructural-facilities-Headmistress-241061",
                 brandColor: "from-blue-500 to-blue-600"
               },
               {
@@ -347,123 +474,6 @@ const AboutPage: React.FC = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-      <SectionDivider position="bottom" />
-
-      {/* Mission, Vision & Values Section - Compact Dark Aero */}
-      <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
-        {/* School Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667"
-            alt="St. Louis Demo JHS Campus Background"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        {/* Dark Aero Glass Overlay */}
-        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
-
-        <div className="w-full px-4 sm:px-6 relative z-10">
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-4 sm:mb-6"
-          >
-            <div className="flex items-center justify-center mb-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
-                <Target size={16} className="text-white" />
-              </div>
-              <h2 className="text-lg sm:text-xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                Our Purpose & Values
-              </h2>
-            </div>
-            <p className="text-sm text-gray-200 max-w-xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              Guiding principles that shape our educational approach.
-            </p>
-          </motion.div>
-
-          {/* Compact 3-Column Layout */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto">
-
-            {/* Mission Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ y: -3, transition: { duration: 0.3 } }}
-            >
-              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
-                <div className="text-center mb-2 sm:mb-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
-                    🎯
-                  </div>
-                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Mission</h3>
-                </div>
-                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  Quality education through GES curriculum, developing critical thinking and character for BECE success.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Vision Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -3, transition: { duration: 0.3 } }}
-            >
-              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
-                <div className="text-center mb-2 sm:mb-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-400 to-green-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
-                    🌟
-                  </div>
-                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Vision</h3>
-                </div>
-                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  World-class institution producing globally competitive, morally upright leaders for Ghana's development.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Core Values Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ y: -3, transition: { duration: 0.3 } }}
-            >
-              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
-                <div className="text-center mb-2 sm:mb-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
-                    💎
-                  </div>
-                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Core Values</h3>
-                </div>
-                <div className="space-y-1 sm:space-y-2">
-                  {[
-                    { icon: "🤝", value: "Unity" },
-                    { icon: "🏆", value: "Excellence" },
-                    { icon: "⚖️", value: "Integrity" },
-                    { icon: "🌱", value: "Growth" },
-                    { icon: "❤️", value: "Service" }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <span className="text-xs sm:text-sm flex-shrink-0">{item.icon}</span>
-                      <div className="text-xs sm:text-sm font-semibold text-white" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{item.value}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -612,44 +622,50 @@ const AboutPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Support Call-to-Action */}
+          {/* Support Call-to-Action - Dark Aero with Colorful Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="bg-gradient-to-r from-blue-50 via-white to-green-50 rounded-2xl p-6 sm:p-8 md:p-10 border border-blue-100 shadow-lg max-w-4xl mx-auto"
+            className="glass-dark rounded-2xl p-6 sm:p-8 md:p-10 border border-white/20 shadow-xl backdrop-blur-lg max-w-4xl mx-auto"
           >
             <div className="text-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-green-500 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl mx-auto mb-4 sm:mb-6 shadow-lg">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-500 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl mx-auto mb-4 sm:mb-6 shadow-lg">
                 🤝
               </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Help Us Build a World-Class Learning Environment
               </h3>
-              <p className="text-sm sm:text-base text-gray-700 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-200 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                 We are continuously seeking support from individuals, organizations, and partners to modernize our facilities
                 and create a learning environment that prepares our students to compete in the rapidly changing global world.
                 Your contribution can help us establish modern science labs, upgrade our computer facilities, create a
                 well-equipped library, and enhance our overall educational infrastructure.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                {/* Exact Donate Button */}
                 <a
                   href="/donate"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                   className="inline-flex items-center justify-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6),0_0_40px_rgba(239,68,68,0.4),0_0_60px_rgba(239,68,68,0.2)] hover:shadow-[0_0_25px_rgba(239,68,68,0.8),0_0_50px_rgba(239,68,68,0.6),0_0_75px_rgba(239,68,68,0.4)] transition-all duration-300 transform hover:scale-105 text-sm sm:text-base relative overflow-hidden"
                 >
-                  <span className="w-4 h-4 mr-2 fill-current relative z-10 text-white">❤️</span>
-                  <span className="relative z-10 font-bold text-white">Support Our Vision</span>
                   <span className="absolute inset-0 bg-red-500 opacity-30 rounded-full"></span>
                   <span className="absolute -inset-1 bg-red-500 opacity-20 blur-sm rounded-full"></span>
+                  <span className="w-4 h-4 mr-2 fill-current relative z-10 text-white">❤️</span>
+                  <span className="relative z-10 font-bold text-white">Support Our Vision</span>
                 </a>
+
+                {/* Colorful Partner Button */}
                 <a
                   href="/contact"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-blue-600 text-sm sm:text-base"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-600 text-white font-bold rounded-full shadow-[0_0_20px_rgba(59,130,246,0.6),0_0_40px_rgba(59,130,246,0.4),0_0_60px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8),0_0_50px_rgba(59,130,246,0.6),0_0_75px_rgba(59,130,246,0.4)] transition-all duration-300 transform hover:scale-105 text-sm sm:text-base relative overflow-hidden"
                 >
-                  Partner With Us
+                  <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-purple-400 opacity-30 rounded-full"></span>
+                  <span className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-400 opacity-20 blur-sm rounded-full"></span>
+                  <span className="w-4 h-4 mr-2 fill-current relative z-10 text-white">🤝</span>
+                  <span className="relative z-10 font-bold text-white">Partner With Us</span>
                 </a>
               </div>
             </div>
