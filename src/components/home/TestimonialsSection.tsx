@@ -23,32 +23,75 @@ const testimonials = [
     role: "Community Member & Education Expert",
     image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2017.52.49_660e38af.jpg?updatedAt=1748197633607",
     quote: "What impresses me most about St. Louis Demo is their holistic approach to education. They don't just teach subjects; they nurture leaders. The school's impact on our community is immeasurable and continues to grow each year."
+  },
+  {
+    id: 4,
+    author: "Agyaba",
+    role: "Parent & Community Leader",
+    image: "https://images.unsplash.com/photo-1647316897340-6b6de5597c0f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0",
+    quote: "As a parent, I've witnessed firsthand the transformation St. Louis Demo brings to our children. My son has grown not just academically but as a confident young man with strong values. The teachers here truly care about each student's success and future."
+  },
+  {
+    id: 5,
+    author: "Naana",
+    role: "Alumni & Education Advocate",
+    image: "https://images.unsplash.com/photo-1530785602389-07594beb8b73?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0",
+    quote: "St. Louis Demo shaped who I am today. The foundation I received here prepared me for university and beyond. The school's commitment to excellence and character development is unmatched. I'm proud to be an alumna of this incredible institution."
+  },
+  {
+    id: 6,
+    author: "Hilaliman",
+    role: "Local Business Owner",
+    image: "https://images.unsplash.com/photo-1626124295887-ca75ab69331c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0",
+    quote: "The graduates from St. Louis Demo are exceptional. When I hire young people from this school, I know I'm getting individuals with strong work ethics, critical thinking skills, and integrity. This school is truly raising the next generation of leaders."
   }
 ];
 
 const TestimonialsSection: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(scrollContainerRef);
-  const controls = useAnimation();
+  const controlsLeft = useAnimation();
+  const controlsRight = useAnimation();
+
+  // Split testimonials into two rows for alternating scroll directions
+  const firstRow = testimonials.slice(0, 3); // First 3 testimonials (scroll left)
+  const secondRow = testimonials.slice(3, 6); // Last 3 testimonials (scroll right)
 
   // Duplicate testimonials for infinite scroll effect
-  const extendedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+  const extendedFirstRow = [...firstRow, ...firstRow, ...firstRow];
+  const extendedSecondRow = [...secondRow, ...secondRow, ...secondRow];
+
   useEffect(() => {
     if (isInView) {
-      controls.start({
-        x: [0, -100 * testimonials.length + '%'],
+      // First row scrolls from right to left
+      controlsLeft.start({
+        x: [0, -100 * firstRow.length + '%'],
         transition: {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 45, // Slower scroll speed
+            duration: 40, // Scroll speed
             ease: "linear",
-            repeatDelay: 0 // Immediate restart of animation
+            repeatDelay: 0
+          }
+        }
+      });
+
+      // Second row scrolls from left to right
+      controlsRight.start({
+        x: [-100 * secondRow.length + '%', 0],
+        transition: {
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 40, // Same speed but opposite direction
+            ease: "linear",
+            repeatDelay: 0
           }
         }
       });
     }
-  }, [isInView, controls]);
+  }, [isInView, controlsLeft, controlsRight]);
 
   return (
     <section className="relative py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
@@ -72,37 +115,78 @@ const TestimonialsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="relative overflow-hidden" ref={scrollContainerRef}>          <motion.div
-            animate={controls}
-            className="flex gap-6 md:gap-8 px-4"
-            style={{ 
-              width: `${extendedTestimonials.length * (window.innerWidth >= 1024 ? 500 : window.innerWidth >= 768 ? 400 : 300)}px`,
-              willChange: 'transform'
-            }}
-          >
-            {extendedTestimonials.map((testimonial, index) => (              <motion.div
-                key={`${testimonial.id}-${index}`}
-                className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl"
-                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-              >
-                <Quote className="text-yellow-400/80 mb-4" size={32} />
-                <p className="text-gray-200 mb-6 line-clamp-4">{testimonial.quote}</p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-yellow-400/30">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.author}
-                      className="w-full h-full object-cover"
-                    />
+        <div className="relative overflow-hidden space-y-8" ref={scrollContainerRef}>
+          {/* First Row - Scrolling Right to Left */}
+          <div className="relative overflow-hidden">
+            <motion.div
+              animate={controlsLeft}
+              className="flex gap-6 md:gap-8 px-4"
+              style={{
+                width: `${extendedFirstRow.length * (window.innerWidth >= 1024 ? 500 : window.innerWidth >= 768 ? 400 : 300)}px`,
+                willChange: 'transform'
+              }}
+            >
+              {extendedFirstRow.map((testimonial, index) => (
+                <motion.div
+                  key={`first-${testimonial.id}-${index}`}
+                  className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl"
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                >
+                  <Quote className="text-yellow-400/80 mb-4" size={32} />
+                  <p className="text-gray-200 mb-6 line-clamp-4">{testimonial.quote}</p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-yellow-400/30">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.author}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white">{testimonial.author}</h4>
+                      <p className="text-sm text-gray-400">{testimonial.role}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-white">{testimonial.author}</h4>
-                    <p className="text-sm text-gray-400">{testimonial.role}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Second Row - Scrolling Left to Right */}
+          <div className="relative overflow-hidden">
+            <motion.div
+              animate={controlsRight}
+              className="flex gap-6 md:gap-8 px-4"
+              style={{
+                width: `${extendedSecondRow.length * (window.innerWidth >= 1024 ? 500 : window.innerWidth >= 768 ? 400 : 300)}px`,
+                willChange: 'transform'
+              }}
+            >
+              {extendedSecondRow.map((testimonial, index) => (
+                <motion.div
+                  key={`second-${testimonial.id}-${index}`}
+                  className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl"
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                >
+                  <Quote className="text-yellow-400/80 mb-4" size={32} />
+                  <p className="text-gray-200 mb-6 line-clamp-4">{testimonial.quote}</p>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-yellow-400/30">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.author}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white">{testimonial.author}</h4>
+                      <p className="text-sm text-gray-400">{testimonial.role}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
