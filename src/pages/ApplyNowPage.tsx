@@ -126,31 +126,28 @@ const ApplyNowPage: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Information Grid - Clean */}
+        {/* Information Section - Clean */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="max-w-2xl mx-auto"
         >
-          <div className="glass-blue p-6 rounded-2xl">
-            <h4 className="text-blue-300 font-semibold mb-4 text-lg">📋 Required Documents</h4>
-            <ul className="text-gray-200 space-y-2">
-              <li>• Birth Certificate</li>
-              <li>• Previous School Records</li>
-              <li>• Passport Photos</li>
-              <li>• Parent/Guardian ID</li>
-            </ul>
-          </div>
-
-          <div className="glass-green p-6 rounded-2xl">
-            <h4 className="text-green-300 font-semibold mb-4 text-lg">📅 Important Dates</h4>
-            <ul className="text-gray-200 space-y-2">
-              <li>• Application Opens: January</li>
-              <li>• Entrance Exam: March</li>
-              <li>• Results Release: April</li>
-              <li>• School Starts: September</li>
-            </ul>
+          <div className="glass-blue p-8 rounded-2xl text-center">
+            <h4 className="text-blue-300 font-semibold mb-6 text-xl">📋 Required Documents</h4>
+            <div className="grid grid-cols-2 gap-4 text-gray-200">
+              <div className="text-left">
+                <div className="mb-2">• Birth Certificate</div>
+                <div>• Previous School Records</div>
+              </div>
+              <div className="text-left">
+                <div className="mb-2">• Passport Photos</div>
+                <div>• Parent/Guardian ID</div>
+              </div>
+            </div>
+            <p className="text-gray-300 text-sm mt-6 italic">
+              All application details and deadlines will be provided in the application form
+            </p>
           </div>
         </motion.div>
       </section>

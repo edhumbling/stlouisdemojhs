@@ -180,7 +180,7 @@ const ProgramsSection: React.FC = () => {
                   display: activeProgram === program.id ? 'block' : 'none'
                 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="bg-white rounded-lg overflow-hidden shadow-md h-full"
+                className="glass-dark rounded-lg overflow-hidden shadow-2xl h-full"
               >
                 <div className="relative h-48 lg:h-64">
                   <img
@@ -193,14 +193,14 @@ const ProgramsSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="p-4 lg:p-6">
-                  <p className="text-gray-700 mb-4 lg:mb-6 text-sm lg:text-base">{program.description}</p>
+                  <p className="text-gray-200 mb-4 lg:mb-6 text-sm lg:text-base">{program.description}</p>
                   <Link
-                    to={program.id === 'character' ? '/character-education' :
-                        program.id === 'stem' ? '/stem-education' :
-                        program.id === 'arts' ? '/creative-arts' :
-                        program.id === 'language' ? '/language-communication' : '/academics'}
+                    to={program.id === 1 ? '/core-academic' :
+                        program.id === 2 ? '/stem-education' :
+                        program.id === 3 ? '/creative-arts' :
+                        program.id === 4 ? '/character-education' : '/academics'}
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium text-sm lg:text-base"
+                    className="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm lg:text-base"
                   >
                     Learn more
                     <ChevronRight size={16} className="ml-1 lg:w-5 lg:h-5" />

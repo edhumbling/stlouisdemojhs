@@ -15,7 +15,7 @@ const FacebookButton: React.FC<FacebookButtonProps> = ({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-24 right-2 sm:bottom-28 sm:right-4 md:bottom-32 md:right-6 z-50 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-blue-600 shadow-lg hover:shadow-2xl hover:z-60 hover:-translate-y-1 transition-all duration-200 ${className}`}
+      className={`fixed bottom-24 right-4 sm:bottom-28 sm:right-6 md:bottom-32 md:right-8 z-[9999] flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-blue-600 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-200 ${className}`}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       initial={{ opacity: 0, y: 20 }}
@@ -27,7 +27,7 @@ const FacebookButton: React.FC<FacebookButtonProps> = ({
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="white"
-        className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
+        className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
       >
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
       </svg>

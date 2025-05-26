@@ -20,6 +20,7 @@ import CharacterEducationPage from './pages/CharacterEducationPage';
 import STEMEducationPage from './pages/STEMEducationPage';
 import CreativeArtsPage from './pages/CreativeArtsPage';
 import LanguageCommunicationPage from './pages/LanguageCommunicationPage';
+import CoreAcademicPage from './pages/CoreAcademicPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WhatsAppButton from './components/common/WhatsAppButton';
 import FacebookButton from './components/common/FacebookButton';
@@ -62,6 +63,7 @@ const App: React.FC = () => {
           <Route path="stem-education" element={<STEMEducationPage />} />
           <Route path="creative-arts" element={<CreativeArtsPage />} />
           <Route path="language-communication" element={<LanguageCommunicationPage />} />
+          <Route path="core-academic" element={<CoreAcademicPage />} />
 
           {/* Additional routes will be added here */}
 

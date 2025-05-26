@@ -65,7 +65,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = '' }) => {
       {isVisible && (
         <motion.button
           onClick={handleClick}
-          className={`fixed bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-8 md:left-auto md:right-8 z-30 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-yellow-500 shadow-lg hover:shadow-xl hover:bg-yellow-400 transition-all duration-200 ${className}`}
+          className={`fixed bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8 z-[9997] flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-yellow-500 shadow-lg hover:shadow-xl hover:bg-yellow-400 transition-all duration-200 ${className}`}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
@@ -81,9 +81,9 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = '' }) => {
             transition={{ duration: 0.2 }}
           >
             {scrollDirection === 'up' ? (
-              <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-black font-bold" strokeWidth={3} />
+              <ArrowUp className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black font-bold" strokeWidth={3} />
             ) : (
-              <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-black font-bold" strokeWidth={3} />
+              <ArrowDown className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-black font-bold" strokeWidth={3} />
             )}
           </motion.div>
         </motion.button>
