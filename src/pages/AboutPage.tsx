@@ -1,8 +1,93 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { History, Award, Target, BookOpen, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+
+// Shimmer Loading Component
+const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
+  className = "w-full h-40",
+  rounded = "rounded-xl"
+}) => (
+  <div className={`relative overflow-hidden ${rounded} bg-gray-800 ${className}`}>
+    <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800"></div>
+  </div>
+);
+
+// Video Embed Component with Shimmer Loading
+const VideoEmbed: React.FC<{
+  videoId?: string;
+  facebookVideoId?: string;
+  title: string;
+  className?: string;
+}> = ({ videoId, facebookVideoId, title, className }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div className="relative">
+      {!isLoaded && (
+        <ShimmerLoader className={className} />
+      )}
+      {videoId ? (
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&controls=1`}
+          title={title}
+          className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+          style={{ border: 'none' }}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          onLoad={() => setIsLoaded(true)}
+        />
+      ) : facebookVideoId ? (
+        <iframe
+          src={`https://www.facebook.com/plugins/video.php?height=200&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D${facebookVideoId}&show_text=false&width=400&t=0`}
+          title={title}
+          className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+          style={{ border: 'none' }}
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowFullScreen
+          onLoad={() => setIsLoaded(true)}
+        />
+      ) : null}
+    </div>
+  );
+};
+
+// Optimized Image Component with Shimmer Loading
+const OptimizedImage: React.FC<{
+  src: string;
+  alt: string;
+  className?: string;
+  onClick?: () => void;
+  shimmerClassName?: string;
+}> = ({ src, alt, className, onClick, shimmerClassName }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className="relative">
+      {!isLoaded && !hasError && (
+        <ShimmerLoader className={shimmerClassName || className} />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+        onClick={onClick}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setHasError(true)}
+        style={{ contentVisibility: 'auto' }}
+      />
+      {hasError && (
+        <div className={`${className} bg-gray-800 flex items-center justify-center text-gray-400`}>
+          <span>Failed to load image</span>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const AboutPage: React.FC = () => {
   const navigate = useNavigate();
@@ -80,12 +165,13 @@ const AboutPage: React.FC = () => {
 
       {/* History Section - Dark Aero with School Background */}
       <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
-        {/* School Background Image */}
+        {/* Optimized School Background Image */}
         <div className="absolute inset-0">
-          <img
-            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC"
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-1200,h-800,q-70"
             alt="St. Louis Demo JHS Background"
             className="w-full h-full object-cover"
+            shimmerClassName="w-full h-full"
           />
         </div>
         {/* Dark Aero Glass Overlay */}
@@ -105,11 +191,12 @@ const AboutPage: React.FC = () => {
             <div className="group relative max-w-4xl mx-auto">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/30 to-green-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group-hover:scale-105 transition-all duration-500 cursor-zoom-in backdrop-blur-sm">
-                <img
-                  src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100"
+                <OptimizedImage
+                  src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100&tr=w-800,h-600,q-80"
                   alt="St. Louis Demonstration JHS - Our School Community"
                   className="w-full h-auto group-hover:scale-110 transition-transform duration-700"
                   onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100', '_blank')}
+                  shimmerClassName="w-full h-64 sm:h-80 md:h-96"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -171,12 +258,13 @@ const AboutPage: React.FC = () => {
 
       {/* Mission, Vision & Values Section - Compact Dark Aero */}
       <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
-        {/* School Background Image */}
+        {/* Optimized School Background Image */}
         <div className="absolute inset-0">
-          <img
-            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667"
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667&tr=w-1200,h-800,q-70"
             alt="St. Louis Demo JHS Campus Background"
             className="w-full h-full object-cover"
+            shimmerClassName="w-full h-full"
           />
         </div>
         {/* Dark Aero Glass Overlay */}
@@ -380,40 +468,19 @@ const AboutPage: React.FC = () => {
                 whileHover={{ y: -2, scale: 1.01, transition: { duration: 0.2 } }}
               >
                 <div className="glass-dark rounded-xl overflow-hidden shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
-                  {/* Video Embed or Article Preview */}
+                  {/* Optimized Video Embed or Article Preview */}
                   <div className="relative h-24 sm:h-32 md:h-36 overflow-hidden">
-                    {news.type === 'video' && news.videoId ? (
-                      // YouTube Embed
-                      <iframe
-                        src={`https://www.youtube.com/embed/${news.videoId}?rel=0&modestbranding=1&controls=1`}
+                    {news.type === 'video' && (news.videoId || news.facebookVideoId) ? (
+                      <VideoEmbed
+                        videoId={news.videoId}
+                        facebookVideoId={news.facebookVideoId}
                         title={news.title}
                         className="w-full h-full"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    ) : news.type === 'video' && news.facebookVideoId ? (
-                      // Facebook Video Embed
-                      <iframe
-                        src={`https://www.facebook.com/plugins/video.php?height=200&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D${news.facebookVideoId}&show_text=false&width=400&t=0`}
-                        title={news.title}
-                        className="w-full h-full"
-                        frameBorder="0"
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                        allowFullScreen
                       />
                     ) : (
-                      // Article Preview with iframe
+                      // Article Preview with shimmer loading
                       <div className="relative w-full h-full">
-                        <iframe
-                          src={news.preview}
-                          title={news.title}
-                          className="w-full h-full scale-50 origin-top-left transform"
-                          style={{ width: '200%', height: '200%' }}
-                          frameBorder="0"
-                          sandbox="allow-same-origin"
-                        />
-                        {/* Overlay for interaction */}
+                        <ShimmerLoader className="w-full h-full" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="bg-blue-500/80 backdrop-blur-sm rounded-full p-3 shadow-xl hover:bg-blue-500/90 transition-colors duration-200">
@@ -481,12 +548,13 @@ const AboutPage: React.FC = () => {
 
       {/* Current Facilities & Development Needs Section - Compact Dark Aero */}
       <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
-        {/* Subtle School Background Image */}
+        {/* Optimized Subtle School Background Image */}
         <div className="absolute inset-0">
-          <img
-            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC"
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-1200,h-800,q-60"
             alt="St. Louis Demo JHS Facilities Background"
             className="w-full h-full object-cover opacity-20"
+            shimmerClassName="w-full h-full opacity-20"
           />
         </div>
         {/* Dark Aero Glass Overlay */}
@@ -584,10 +652,11 @@ const AboutPage: React.FC = () => {
               >
                 <div className="glass-dark rounded-2xl overflow-hidden shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300">
                   <div className="relative h-32 sm:h-40 overflow-hidden">
-                    <img
-                      src={facility.image}
+                    <OptimizedImage
+                      src={`${facility.image}&tr=w-400,h-300,q-80`}
                       alt={facility.title}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      shimmerClassName="w-full h-32 sm:h-40"
                     />
                     {/* Dark Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -676,12 +745,13 @@ const AboutPage: React.FC = () => {
 
       {/* Compact Community Impact Section - Dark Aero with Gallery */}
       <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
-        {/* Gallery Background Image */}
+        {/* Optimized Gallery Background Image */}
         <div className="absolute inset-0">
-          <img
-            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667"
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667&tr=w-1200,h-800,q-70"
             alt="St. Louis Demo JHS Gallery"
             className="w-full h-full object-cover"
+            shimmerClassName="w-full h-full"
           />
         </div>
         {/* Dark Aero Glass Overlay with Blue-Green Gradient */}
