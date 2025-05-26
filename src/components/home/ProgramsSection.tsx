@@ -157,9 +157,10 @@ const ProgramsSection: React.FC = () => {
               <div className="mt-4 lg:mt-8 text-center">
                 <Link
                   to="/academics"
-                  className="inline-flex items-center justify-center px-4 lg:px-5 py-2 bg-primary-600 text-white font-medium rounded-full shadow-md hover:bg-primary-700 transition-colors duration-300 text-sm"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                  className="inline-flex items-center justify-center px-4 lg:px-5 py-2 bg-yellow-500 text-black font-medium rounded-full shadow-md hover:bg-yellow-600 transition-colors duration-300 text-sm"
                 >
-                  View All Programs
+                  Discover Academic Excellence
                 </Link>
               </div>
             </div>

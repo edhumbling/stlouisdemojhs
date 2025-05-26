@@ -205,7 +205,7 @@ const AcademicsPage: React.FC = () => {
                   <div className="text-lg sm:text-xl md:text-2xl font-bold text-blue-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                     11
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-300">Core Subjects</div>
+                  <div className="text-xs sm:text-sm text-gray-300">Subjects</div>
                 </div>
                 <div className="text-center lg:text-left col-span-2 sm:col-span-1">
                   <div className="text-lg sm:text-xl md:text-2xl font-bold text-green-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
@@ -504,7 +504,7 @@ const AcademicsPage: React.FC = () => {
           >
             {[
               { number: schoolStats.ageFormatted, label: 'Years of Excellence' },
-              { number: '11', label: 'Core Subjects' },
+              { number: '11', label: 'Subjects' },
               { number: schoolStats.totalStudentsFormatted.replace(',', 'K').replace('000+', 'K+'), label: 'Successful Graduates' }
             ].map((stat, index) => (
               <motion.div
