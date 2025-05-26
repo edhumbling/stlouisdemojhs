@@ -11,206 +11,184 @@ const ApplyNowPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black pt-16">
-      {/* Back Button and Title Section - Minimal Dark */}
-      <div className="bg-gradient-to-r from-green-900/80 via-green-800/80 to-green-900/80 py-2 sm:py-3 backdrop-blur-xl border-b border-green-700/30">
-        <div className="w-full px-4">
-          <div className="flex items-center gap-3 sm:gap-4">
-            <button
-              onClick={handleBack}
-              className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-green-500/30 flex-shrink-0"
-            >
-              <ArrowLeft size={14} className="sm:w-4 sm:h-4" />
-              <span>Back</span>
-            </button>
-            <div className="flex items-center gap-2">
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="text-lg sm:text-xl"
-              >
-                🎓
-              </motion.div>
-              <h1 className="text-base sm:text-lg md:text-xl font-bold text-white">
-                Apply to St. Louis Demo
-              </h1>
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-900 to-green-900">
+      {/* Back Button - Apple Style */}
+      <div className="pt-20 pb-4 px-4">
+        <button
+          onClick={handleBack}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-white/20"
+        >
+          <ArrowLeft size={20} />
+          <span>Back</span>
+        </button>
       </div>
 
-      {/* Hero Section - Apple Style Dark */}
-      <section className="py-8 md:py-12 bg-gradient-to-br from-gray-900 via-slate-900 to-black">
-        <div className="w-full px-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="w-full text-center px-4"
-          >
-            <div className="mb-8">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                Join Our School Family
-              </h2>
-              <p className="text-lg md:text-xl text-gray-300 mb-6">
-                Start your journey to excellence with St. Louis Demonstration Junior High School!
-              </p>
+      {/* Hero Section - Apple Style Clean */}
+      <section className="px-4 pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            Join Our School Family
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            Start your journey to excellence with St. Louis Demonstration Junior High School
+          </p>
+        </motion.div>
+
+        {/* Key Benefits - Clean Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-16"
+        >
+          <div className="text-center">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl">
+              <GraduationCap className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
+            <h3 className="text-white font-semibold mb-2 text-sm md:text-base">Excellence</h3>
+            <p className="text-gray-300 text-xs md:text-sm">47+ years of academic excellence</p>
+          </div>
 
-            {/* Key Benefits - Edge to Edge */}
-            <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-4 mb-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
-                >
-                  <GraduationCap className="text-blue-400 mb-4 mx-auto" size={40} />
-                  <h3 className="text-white font-semibold mb-2">Excellence</h3>
-                  <p className="text-gray-300 text-sm">47+ years of academic excellence</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
-                >
-                  <Users className="text-green-400 mb-4 mx-auto" size={40} />
-                  <h3 className="text-white font-semibold mb-2">Community</h3>
-                  <p className="text-gray-300 text-sm">800+ students strong</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
-                >
-                  <BookOpen className="text-yellow-400 mb-4 mx-auto" size={40} />
-                  <h3 className="text-white font-semibold mb-2">Curriculum</h3>
-                  <p className="text-gray-300 text-sm">Comprehensive programs</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
-                >
-                  <Award className="text-purple-400 mb-4 mx-auto" size={40} />
-                  <h3 className="text-white font-semibold mb-2">Success</h3>
-                  <p className="text-gray-300 text-sm">98%+ BECE success rate</p>
-                </motion.div>
-              </div>
+          <div className="text-center">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl">
+              <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
-          </motion.div>
-        </div>
+            <h3 className="text-white font-semibold mb-2 text-sm md:text-base">Community</h3>
+            <p className="text-gray-300 text-xs md:text-sm">800+ students strong</p>
+          </div>
+
+          <div className="text-center">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl">
+              <BookOpen className="w-8 h-8 md:w-10 md:h-10 text-white" />
+            </div>
+            <h3 className="text-white font-semibold mb-2 text-sm md:text-base">Curriculum</h3>
+            <p className="text-gray-300 text-xs md:text-sm">Comprehensive programs</p>
+          </div>
+
+          <div className="text-center">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-2xl">
+              <Award className="w-8 h-8 md:w-10 md:h-10 text-white" />
+            </div>
+            <h3 className="text-white font-semibold mb-2 text-sm md:text-base">Success</h3>
+            <p className="text-gray-300 text-xs md:text-sm">98%+ BECE success rate</p>
+          </div>
+        </motion.div>
       </section>
 
-      {/* Application Form Section - Edge to Edge */}
-      <section className="py-12 bg-gradient-to-br from-slate-900 via-gray-900 to-black">
-        <div className="w-full px-0">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="w-full px-4"
-          >
-            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 shadow-2xl max-w-6xl mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Start Your Application
-                </h2>
-                <p className="text-gray-300 text-lg">
-                  Complete the form below to begin your journey with us. We'll embed a Google Form here soon!
-                </p>
-              </div>
+      {/* Application Form Section - Clean Apple Style */}
+      <section className="px-4 pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            Start Your Application
+          </h2>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            Begin your journey with us. Application form coming soon!
+          </p>
+        </motion.div>
 
-              {/* Placeholder for Google Form */}
-              <div className="bg-gray-800/50 rounded-xl p-12 text-center border-2 border-dashed border-gray-600">
-                <div className="text-6xl mb-4">📝</div>
-                <h3 className="text-2xl font-bold text-white mb-4">Application Form Coming Soon!</h3>
-                <p className="text-gray-300 mb-6">
-                  We're preparing a comprehensive Google Form for your application.
-                  In the meantime, please contact us directly for admission inquiries.
-                </p>
+        {/* Application Placeholder - Clean */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="glass-dark p-8 md:p-12 rounded-3xl text-center mb-12"
+        >
+          <div className="text-6xl md:text-8xl mb-6">📝</div>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Application Form Coming Soon!</h3>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            We're preparing a comprehensive application system. Contact us directly for admission inquiries.
+          </p>
 
-                {/* Contact Information */}
-                <div className="bg-white/10 rounded-lg p-6 max-w-md mx-auto">
-                  <h4 className="text-white font-semibold mb-4">Contact Admissions Office</h4>
-                  <div className="space-y-2 text-gray-300">
-                    <p>📱 0244758575</p>
-                    <p>📱 0244730726</p>
-                    <p>✉️ support@stlouisdemojhs.com</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Additional Information */}
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-blue-500/20 rounded-lg p-6 border border-blue-400/30">
-                  <h4 className="text-blue-300 font-semibold mb-3">📋 Required Documents</h4>
-                  <ul className="text-gray-300 space-y-1 text-sm">
-                    <li>• Birth Certificate</li>
-                    <li>• Previous School Records</li>
-                    <li>• Passport Photos</li>
-                    <li>• Parent/Guardian ID</li>
-                  </ul>
-                </div>
-
-                <div className="bg-green-500/20 rounded-lg p-6 border border-green-400/30">
-                  <h4 className="text-green-300 font-semibold mb-3">📅 Important Dates</h4>
-                  <ul className="text-gray-300 space-y-1 text-sm">
-                    <li>• Application Opens: January</li>
-                    <li>• Entrance Exam: March</li>
-                    <li>• Results Release: April</li>
-                    <li>• School Starts: September</li>
-                  </ul>
-                </div>
-              </div>
+          {/* Contact Cards - Clean Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div className="glass-card p-4 rounded-xl">
+              <div className="text-2xl mb-2">📱</div>
+              <div className="text-white font-medium">0244758575</div>
             </div>
-          </motion.div>
-        </div>
+            <div className="glass-card p-4 rounded-xl">
+              <div className="text-2xl mb-2">📱</div>
+              <div className="text-white font-medium">0244730726</div>
+            </div>
+            <div className="glass-card p-4 rounded-xl">
+              <div className="text-2xl mb-2">✉️</div>
+              <div className="text-white font-medium text-sm">support@stlouisdemojhs.com</div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Information Grid - Clean */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
+          <div className="glass-blue p-6 rounded-2xl">
+            <h4 className="text-blue-300 font-semibold mb-4 text-lg">📋 Required Documents</h4>
+            <ul className="text-gray-200 space-y-2">
+              <li>• Birth Certificate</li>
+              <li>• Previous School Records</li>
+              <li>• Passport Photos</li>
+              <li>• Parent/Guardian ID</li>
+            </ul>
+          </div>
+
+          <div className="glass-green p-6 rounded-2xl">
+            <h4 className="text-green-300 font-semibold mb-4 text-lg">📅 Important Dates</h4>
+            <ul className="text-gray-200 space-y-2">
+              <li>• Application Opens: January</li>
+              <li>• Entrance Exam: March</li>
+              <li>• Results Release: April</li>
+              <li>• School Starts: September</li>
+            </ul>
+          </div>
+        </motion.div>
       </section>
 
-      {/* Call to Action - Edge to Edge */}
-      <section className="py-12 bg-gradient-to-br from-black via-slate-900 to-gray-900">
-        <div className="w-full px-0 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="px-4"
-          >
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-              Ready to Join Our School Family?
-            </h3>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                to="/schedule-visit"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-full shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 transform hover:scale-105"
-                style={{
-                  boxShadow: '0 0 30px rgba(255, 193, 7, 0.6)',
-                }}
-              >
-                📅 Schedule a Visit First
-              </Link>
-              <Link
-                to="/contact"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105"
-                style={{
-                  boxShadow: '0 0 30px rgba(59, 130, 246, 0.6)',
-                }}
-              >
-                💬 Contact Admissions
-              </Link>
-            </div>
-          </motion.div>
-        </div>
+      {/* Call to Action - Clean Apple Style */}
+      <section className="px-4 pb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-center"
+        >
+          <h3 className="text-2xl md:text-4xl font-bold text-white mb-8" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            Ready to Join Our School Family?
+          </h3>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-2xl mx-auto">
+            <Link
+              to="/schedule-visit"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-2xl shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 transform hover:scale-105"
+              style={{
+                boxShadow: '0 0 30px rgba(255, 193, 7, 0.6)',
+              }}
+            >
+              📅 Schedule a Visit First
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-2xl shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105"
+              style={{
+                boxShadow: '0 0 30px rgba(59, 130, 246, 0.6)',
+              }}
+            >
+              💬 Contact Admissions
+            </Link>
+          </div>
+        </motion.div>
       </section>
     </div>
   );

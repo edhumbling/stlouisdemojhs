@@ -27,7 +27,7 @@ const AboutSection: React.FC = () => {
     {
       icon: <Award className="w-10 h-10 text-primary-600" />,
       title: 'Holistic Development',
-      description: 'Focus on developing academic, social, emotional, and physical aspects of each student.'
+      description: 'Focus on developing academic, social, emotional, and physical aspects through diverse extracurricular activities including Music, Football, Volleyball, Cadet Corps, Band, Choreography Group, Choir Group, and creative arts programs.'
     }
   ];
 

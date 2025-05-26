@@ -122,7 +122,7 @@ const ProgramsSection: React.FC = () => {
                       className={`px-3 py-2 rounded-lg transition-colors duration-300 text-sm font-medium text-center ${
                         activeProgram === program.id
                           ? 'bg-green-600 text-white shadow-lg'
-                          : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                          : 'bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200'
                       }`}
                     >
                       {program.title}
@@ -141,7 +141,7 @@ const ProgramsSection: React.FC = () => {
                       className={`w-full text-left p-3 rounded-lg transition-colors duration-300 flex items-center justify-between ${
                         activeProgram === program.id
                           ? 'bg-green-600 text-white shadow-lg'
-                          : 'hover:bg-gray-100 text-gray-700 bg-white border border-gray-200'
+                          : 'hover:bg-blue-100 text-blue-700 bg-blue-50 border border-blue-200'
                       }`}
                     >
                       <span className="text-sm font-medium">{program.title}</span>
@@ -195,7 +195,11 @@ const ProgramsSection: React.FC = () => {
                 <div className="p-4 lg:p-6">
                   <p className="text-gray-700 mb-4 lg:mb-6 text-sm lg:text-base">{program.description}</p>
                   <Link
-                    to="/academics"
+                    to={program.id === 'character' ? '/character-education' :
+                        program.id === 'stem' ? '/stem-education' :
+                        program.id === 'arts' ? '/creative-arts' :
+                        program.id === 'language' ? '/language-communication' : '/academics'}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium text-sm lg:text-base"
                   >
                     Learn more

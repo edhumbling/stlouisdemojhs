@@ -16,6 +16,10 @@ import AdviceSpeechesPage from './pages/AdviceSpeechesPage';
 import GalleryPage from './pages/GalleryPage';
 import ApplyNowPage from './pages/ApplyNowPage';
 import ScheduleVisitPage from './pages/ScheduleVisitPage';
+import CharacterEducationPage from './pages/CharacterEducationPage';
+import STEMEducationPage from './pages/STEMEducationPage';
+import CreativeArtsPage from './pages/CreativeArtsPage';
+import LanguageCommunicationPage from './pages/LanguageCommunicationPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WhatsAppButton from './components/common/WhatsAppButton';
 import FacebookButton from './components/common/FacebookButton';
@@ -52,6 +56,13 @@ const App: React.FC = () => {
           <Route path="apply-now" element={<ApplyNowPage />} />
           <Route path="schedule-visit" element={<ScheduleVisitPage />} />
           <Route path="donate" element={<DonationPage />} />
+
+          {/* Academic Area Pages */}
+          <Route path="character-education" element={<CharacterEducationPage />} />
+          <Route path="stem-education" element={<STEMEducationPage />} />
+          <Route path="creative-arts" element={<CreativeArtsPage />} />
+          <Route path="language-communication" element={<LanguageCommunicationPage />} />
+
           {/* Additional routes will be added here */}
 
           {/* Catch-all route for paths within the layout */}
