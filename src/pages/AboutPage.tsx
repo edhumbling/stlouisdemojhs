@@ -78,12 +78,20 @@ const AboutPage: React.FC = () => {
       </section>
       <SectionDivider position="bottom" />
 
-      {/* History Section - Dark Aero with Comprehensive Essay */}
+      {/* History Section - Dark Aero with School Background */}
       <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
-        {/* Dark Aero Glass Background */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-black/40 to-green-900/30"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1),transparent_70%)]"></div>
+        {/* School Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC"
+            alt="St. Louis Demo JHS Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
 
         <div className="w-full px-4 sm:px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start max-w-7xl mx-auto">
@@ -99,10 +107,10 @@ const AboutPage: React.FC = () => {
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/30 to-green-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group-hover:scale-105 transition-all duration-500 cursor-zoom-in backdrop-blur-sm">
                   <img
-                    src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7126.HEIC"
+                    src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100"
                     alt="St. Louis Demonstration JHS - Our School Community"
                     className="w-full h-auto group-hover:scale-110 transition-transform duration-700"
-                    onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7126.HEIC', '_blank')}
+                    onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100', '_blank')}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -163,11 +171,152 @@ const AboutPage: React.FC = () => {
       </section>
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Mission, Vision & Values Section - Dark Aero Glass */}
+      {/* St. Louis in the News Section */}
+      <section className="py-8 sm:py-12 md:py-16 bg-white relative overflow-hidden">
+        <div className="w-full px-4 sm:px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8 sm:mb-12"
+          >
+            <div className="flex items-center justify-center mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clipRule="evenodd" />
+                  <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V9a1 1 0 00-1-1h-1v-1z" />
+                </svg>
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
+                St. Louis in the News
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-gray-600 max-w-3xl mx-auto">
+              Historical media coverage showcasing our school's journey, challenges, and achievements over the years.
+            </p>
+          </motion.div>
+
+          {/* News Grid - Mobile 1-Column, Desktop 2-Column */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                title: "Make the classroom lively and pupil-friendly",
+                source: "GhanaWeb",
+                date: "Historical Coverage",
+                description: "Educational insights and recommendations for creating engaging learning environments that benefit students.",
+                url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Make-the-classroom-lively-and-pupil-friendly-330489",
+                type: "article",
+                icon: "📰"
+              },
+              {
+                title: "St. Louis JHS lacks infrastructural facilities - Headmistress",
+                source: "GhanaWeb",
+                date: "Historical Coverage",
+                description: "Honest assessment of infrastructure challenges and the school's commitment to improvement and modernization.",
+                url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/St-Louis-JHS-lacks-infrastructural-facilities-Headmistress-241061",
+                type: "article",
+                icon: "🏗️"
+              },
+              {
+                title: "St. Louis Educational Complex - Facebook Feature",
+                source: "Facebook",
+                date: "Social Media Coverage",
+                description: "Community engagement and school activities showcased through social media platforms.",
+                url: "https://www.facebook.com/watch/?v=4921581154635610",
+                type: "video",
+                icon: "📱"
+              },
+              {
+                title: "School Activities & Community Engagement",
+                source: "YouTube",
+                date: "Video Documentation",
+                description: "Visual documentation of school events, activities, and community involvement initiatives.",
+                url: "https://www.youtube.com/watch?v=c90tOBl5K6g",
+                type: "video",
+                icon: "🎥"
+              },
+              {
+                title: "Educational Programs & Student Life",
+                source: "YouTube",
+                date: "Video Coverage",
+                description: "Comprehensive look at educational programs, student life, and academic activities at St. Louis JHS.",
+                url: "https://www.youtube.com/watch?v=vMUVyKTTFZA",
+                type: "video",
+                icon: "📚"
+              }
+            ].map((news, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`${index === 4 ? 'md:col-span-2 max-w-2xl mx-auto' : ''}`}
+                whileHover={{ y: -5, transition: { duration: 0.3 } }}
+              >
+                <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <div className="p-6 sm:p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center">
+                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center text-lg mr-3 shadow-md">
+                          {news.icon}
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-sm font-semibold text-blue-600">{news.source}</span>
+                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                              news.type === 'video' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'
+                            }`}>
+                              {news.type === 'video' ? '🎥 Video' : '📰 Article'}
+                            </span>
+                          </div>
+                          <p className="text-xs text-gray-500">{news.date}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
+                      {news.title}
+                    </h3>
+
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+                      {news.description}
+                    </p>
+
+                    <a
+                      href={news.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors duration-200"
+                    >
+                      <span>Read More</span>
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <SectionDivider position="bottom" />
+
+      {/* Mission, Vision & Values Section - Dark Aero with School Background */}
       <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
-        {/* Dark Aero Glass Background */}
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black/30 to-green-900/20"></div>
+        {/* School Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667"
+            alt="St. Louis Demo JHS Campus Background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/65 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/35 via-black/45 to-green-900/35"></div>
 
         <div className="w-full px-4 sm:px-6 relative z-10">
           {/* Section Header */}
@@ -282,11 +431,19 @@ const AboutPage: React.FC = () => {
       </section>
       <SectionDivider position="bottom" />
 
-      {/* Current Facilities & Development Needs Section - Dark Aero Glass */}
+      {/* Current Facilities & Development Needs Section - Dark Aero with Subtle Background */}
       <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
-        {/* Dark Aero Glass Background */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-black/40 to-green-900/30"></div>
+        {/* Subtle School Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC"
+            alt="St. Louis Demo JHS Facilities Background"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
 
         <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
