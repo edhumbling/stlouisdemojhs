@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation, useInView } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
 const testimonials = [
@@ -48,75 +48,21 @@ const testimonials = [
 ];
 
 const TestimonialsSection: React.FC = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(scrollContainerRef);
-  const controlsLeft = useAnimation();
-  const controlsRight = useAnimation();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef);
 
-  // Split testimonials into two rows for alternating scroll directions
-  const firstRow = testimonials.slice(0, 3); // First 3 testimonials (scroll left)
-  const secondRow = testimonials.slice(3, 6); // Last 3 testimonials (scroll right)
-
-  // Duplicate testimonials for infinite scroll effect
-  const extendedFirstRow = [...firstRow, ...firstRow, ...firstRow];
-  const extendedSecondRow = [...secondRow, ...secondRow, ...secondRow];
-
-  // State to track if animations are paused
-  const [isPaused, setIsPaused] = useState(false);
-
-  const startAnimations = () => {
-    // First row scrolls from right to left
-    controlsLeft.start({
-      x: [0, -100 * firstRow.length + '%'],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 60, // Much slower for readability
-          ease: "linear",
-          repeatDelay: 0
-        }
-      }
-    });
-
-    // Second row scrolls from left to right (synchronized crisscross)
-    controlsRight.start({
-      x: [-100 * secondRow.length + '%', 0],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 60, // Same slow speed for synchronized crisscross
-          ease: "linear",
-          repeatDelay: 0
-        }
-      }
-    });
-  };
-
-  const pauseAnimations = () => {
-    controlsLeft.stop();
-    controlsRight.stop();
-    setIsPaused(true);
-  };
-
-  const resumeAnimations = () => {
-    setIsPaused(false);
-    startAnimations();
-  };
-
-  useEffect(() => {
-    if (isInView && !isPaused) {
-      startAnimations();
-    }
-  }, [isInView, isPaused]);
+  // Dispersed gallery positions for each testimonial
+  const testimonialPositions = [
+    { top: '10%', left: '5%', rotation: -3 },      // Cantona
+    { top: '15%', right: '8%', rotation: 2 },      // Victor
+    { top: '45%', left: '12%', rotation: -1 },     // Esther
+    { top: '25%', left: '35%', rotation: 4 },      // Agyaba
+    { top: '60%', right: '15%', rotation: -2 },    // Naana
+    { top: '35%', right: '35%', rotation: 1 }      // Hilaliman
+  ];
 
   return (
-    <section className="relative py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
-      {/* Edge Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10" />
-
+    <section className="relative py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden min-h-screen">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -133,82 +79,58 @@ const TestimonialsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="relative overflow-hidden space-y-2" ref={scrollContainerRef}>
-          {/* First Row - Scrolling Right to Left */}
-          <div className="relative overflow-hidden">
-            <motion.div
-              animate={controlsLeft}
-              className="flex gap-6 md:gap-8 px-4"
-              style={{
-                width: `${extendedFirstRow.length * (window.innerWidth >= 1024 ? 500 : window.innerWidth >= 768 ? 400 : 300)}px`,
-                willChange: 'transform'
-              }}
-            >
-              {extendedFirstRow.map((testimonial, index) => (
-                <motion.div
-                  key={`first-${testimonial.id}-${index}`}
-                  className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl cursor-pointer"
-                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                  onMouseEnter={pauseAnimations}
-                  onMouseLeave={resumeAnimations}
-                >
-                  <Quote className="text-yellow-400/80 mb-4" size={32} />
-                  <p className="text-gray-200 mb-6 line-clamp-4">{testimonial.quote}</p>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-yellow-400/30">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.author}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white">{testimonial.author}</h4>
-                      <p className="text-sm text-gray-400">{testimonial.role}</p>
-                    </div>
+        {/* Dispersed Gallery Layout */}
+        <div className="relative h-[800px] md:h-[900px]" ref={containerRef}>
+          {testimonials.map((testimonial, index) => {
+            const position = testimonialPositions[index];
+            return (
+              <motion.div
+                key={testimonial.id}
+                initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                  rotate: position.rotation,
+                  transition: {
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    type: "spring",
+                    stiffness: 100
+                  }
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  rotate: 0,
+                  zIndex: 10,
+                  transition: { duration: 0.3 }
+                }}
+                viewport={{ once: true }}
+                className="absolute w-[280px] md:w-[320px] lg:w-[350px] bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10 shadow-xl cursor-pointer"
+                style={{
+                  top: position.top,
+                  left: position.left,
+                  right: position.right,
+                  transform: `rotate(${position.rotation}deg)`,
+                }}
+              >
+                <Quote className="text-yellow-400/80 mb-3" size={24} />
+                <p className="text-gray-200 mb-4 text-sm md:text-base line-clamp-3">{testimonial.quote}</p>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden mr-3 ring-2 ring-yellow-400/30">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.author}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Second Row - Scrolling Left to Right */}
-          <div className="relative overflow-hidden">
-            <motion.div
-              animate={controlsRight}
-              className="flex gap-6 md:gap-8 px-4"
-              style={{
-                width: `${extendedSecondRow.length * (window.innerWidth >= 1024 ? 500 : window.innerWidth >= 768 ? 400 : 300)}px`,
-                willChange: 'transform'
-              }}
-            >
-              {extendedSecondRow.map((testimonial, index) => (
-                <motion.div
-                  key={`second-${testimonial.id}-${index}`}
-                  className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl cursor-pointer"
-                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                  onMouseEnter={pauseAnimations}
-                  onMouseLeave={resumeAnimations}
-                >
-                  <Quote className="text-yellow-400/80 mb-4" size={32} />
-                  <p className="text-gray-200 mb-6 line-clamp-4">{testimonial.quote}</p>
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-yellow-400/30">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.author}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white">{testimonial.author}</h4>
-                      <p className="text-sm text-gray-400">{testimonial.role}</p>
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-white text-sm md:text-base">{testimonial.author}</h4>
+                    <p className="text-xs md:text-sm text-gray-400">{testimonial.role}</p>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
