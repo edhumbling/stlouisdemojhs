@@ -36,38 +36,37 @@ const TickingClock: React.FC<{ targetDate: string; eventName: string }> = ({ tar
   }, [targetDate]);
 
   const timeUnits = [
-    { label: 'Years', value: timeLeft.years, color: 'from-blue-500 to-cyan-500' },
-    { label: 'Days', value: timeLeft.days, color: 'from-green-500 to-emerald-500' },
-    { label: 'Hours', value: timeLeft.hours, color: 'from-purple-500 to-pink-500' },
-    { label: 'Minutes', value: timeLeft.minutes, color: 'from-orange-500 to-red-500' },
-    { label: 'Seconds', value: timeLeft.seconds, color: 'from-yellow-500 to-amber-500' }
+    { label: 'Years', value: timeLeft.years },
+    { label: 'Days', value: timeLeft.days },
+    { label: 'Hours', value: timeLeft.hours },
+    { label: 'Minutes', value: timeLeft.minutes },
+    { label: 'Seconds', value: timeLeft.seconds }
   ];
 
   return (
-    <div className="mt-4 p-4 glass-card rounded-xl border border-white/30">
+    <div className="mt-4 p-4 bg-black/40 backdrop-blur-sm rounded-lg border border-gray-600/50">
       <div className="flex items-center justify-center mb-3">
-        <Clock className="w-4 h-4 text-blue-400 mr-2" />
-        <span className="text-xs font-semibold text-blue-400">Countdown to {eventName}</span>
+        <Clock className="w-4 h-4 text-gray-300 mr-2" />
+        <span className="text-xs font-medium text-gray-300 uppercase tracking-wide">Strategic Timer</span>
       </div>
       <div className="grid grid-cols-5 gap-2">
         {timeUnits.map((unit, index) => (
           <motion.div
             key={unit.label}
-            className={`text-center p-2 rounded-lg bg-gradient-to-br ${unit.color} shadow-lg`}
+            className="text-center p-2 bg-gray-800/60 border border-gray-600/40 rounded-md"
             animate={{
-              scale: unit.label === 'Seconds' ? [1, 1.05, 1] : 1,
-              opacity: [0.8, 1, 0.8]
+              borderColor: unit.label === 'Seconds' ? ['rgba(156, 163, 175, 0.4)', 'rgba(156, 163, 175, 0.8)', 'rgba(156, 163, 175, 0.4)'] : 'rgba(156, 163, 175, 0.4)'
             }}
             transition={{
-              duration: unit.label === 'Seconds' ? 1 : 2,
+              duration: 1,
               repeat: Infinity,
-              delay: index * 0.1
+              ease: "easeInOut"
             }}
           >
-            <div className="text-white font-bold text-xs sm:text-sm">
+            <div className="text-white font-mono font-bold text-xs sm:text-sm">
               {unit.value.toString().padStart(2, '0')}
             </div>
-            <div className="text-white/80 text-xs font-medium">
+            <div className="text-gray-400 text-xs font-medium uppercase tracking-wider">
               {unit.label}
             </div>
           </motion.div>
