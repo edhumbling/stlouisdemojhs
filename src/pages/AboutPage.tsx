@@ -94,85 +94,83 @@ const AboutPage: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
 
         <div className="w-full px-4 sm:px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start max-w-7xl mx-auto">
-            {/* Large Prominent Zoomable School Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="order-1 md:order-1"
-            >
-              <div className="group relative">
-                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/30 to-green-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group-hover:scale-105 transition-all duration-500 cursor-zoom-in backdrop-blur-sm">
-                  <img
-                    src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100"
-                    alt="St. Louis Demonstration JHS - Our School Community"
-                    className="w-full h-auto group-hover:scale-110 transition-transform duration-700"
-                    onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100', '_blank')}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <p className="text-sm font-medium backdrop-blur-sm bg-black/50 rounded-lg px-3 py-2">Click to view full image</p>
-                  </div>
+          {/* Large Prominent Zoomable School Image - Full Width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-8 sm:mb-12"
+          >
+            <div className="group relative max-w-4xl mx-auto">
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/30 to-green-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group-hover:scale-105 transition-all duration-500 cursor-zoom-in backdrop-blur-sm">
+                <img
+                  src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100"
+                  alt="St. Louis Demonstration JHS - Our School Community"
+                  className="w-full h-auto group-hover:scale-110 transition-transform duration-700"
+                  onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100', '_blank')}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p className="text-sm font-medium backdrop-blur-sm bg-black/50 rounded-lg px-3 py-2">Click to view full image</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Comprehensive History Essay */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="order-2 md:order-2"
-            >
-              <div className="flex items-center mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
-                  <History size={20} className="text-white" />
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                  Our Remarkable Journey Since 1977
-                </h2>
+          {/* Comprehensive History Essay - Under Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full"
+          >
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <History size={20} className="text-white" />
               </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                Our Remarkable Journey Since 1977
+              </h2>
+            </div>
 
-              {/* Comprehensive Essay Style History */}
-              <div className="glass-dark rounded-2xl p-6 sm:p-8 border border-white/20 shadow-xl backdrop-blur-lg">
-                <div className="prose prose-invert max-w-none">
-                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                    <strong>St. Louis Demonstration Junior High School</strong> stands as a beacon of educational excellence in Kumasi, Ghana, with a rich history spanning over four decades. Established in 1977 as an integral part of the prestigious St. Louis Educational Complex, our institution was founded on the principles of academic rigor, moral uprightness, and spiritual grounding that continue to guide us today.
-                  </p>
+            {/* Comprehensive Essay Style History - Edge to Edge */}
+            <div className="w-full px-4 sm:px-8 md:px-12">
+              <div className="prose prose-invert max-w-none">
+                <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  <strong>St. Louis Demonstration Junior High School</strong> stands as a beacon of educational excellence in Kumasi, Ghana, with a rich history spanning over four decades. Established in 1977 as an integral part of the prestigious St. Louis Educational Complex, our institution was founded on the principles of academic rigor, moral uprightness, and spiritual grounding that continue to guide us today.
+                </p>
 
-                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                    The early years of our school were marked by modest beginnings but an unwavering commitment to providing quality education rooted in Catholic values. Our founders envisioned an institution that would not merely impart knowledge but would shape character, instill discipline, and nurture the holistic development of young minds. This vision became the cornerstone upon which our educational philosophy was built.
-                  </p>
+                <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  The early years of our school were marked by modest beginnings but an unwavering commitment to providing quality education rooted in Catholic values. Our founders envisioned an institution that would not merely impart knowledge but would shape character, instill discipline, and nurture the holistic development of young minds. This vision became the cornerstone upon which our educational philosophy was built.
+                </p>
 
-                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                    The 1990s brought significant challenges as Ghana navigated through economic difficulties that affected educational institutions nationwide. Limited resources, infrastructure constraints, and the pressure to maintain academic standards while serving a growing student population tested our resilience. However, these challenges only strengthened our resolve and fostered the development of core values that define us today: perseverance, community spirit, and an unwavering commitment to academic excellence.
-                  </p>
+                <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  The 1990s brought significant challenges as Ghana navigated through economic difficulties that affected educational institutions nationwide. Limited resources, infrastructure constraints, and the pressure to maintain academic standards while serving a growing student population tested our resilience. However, these challenges only strengthened our resolve and fostered the development of core values that define us today: perseverance, community spirit, and an unwavering commitment to academic excellence.
+                </p>
 
-                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                    A pivotal chapter in our history was written under the transformational leadership of <strong>Mrs. Millicent Otoo</strong>, our former headmistress whose visionary approach elevated the school to unprecedented heights. Mrs. Otoo's innovative educational methodologies, emphasis on discipline, and commitment to holistic student development established new benchmarks for excellence. Her tenure was characterized by significant improvements in academic performance, infrastructure development, and the establishment of programs that nurtured both intellectual and character growth.
-                  </p>
+                <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  A pivotal chapter in our history was written under the transformational leadership of <strong>Mrs. Millicent Otoo</strong>, our former headmistress whose visionary approach elevated the school to unprecedented heights. Mrs. Otoo's innovative educational methodologies, emphasis on discipline, and commitment to holistic student development established new benchmarks for excellence. Her tenure was characterized by significant improvements in academic performance, infrastructure development, and the establishment of programs that nurtured both intellectual and character growth.
+                </p>
 
-                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                    Today, under the capable leadership of <strong>Mrs. Michelle Acquaye</strong>, our current headmistress, we continue to build upon this solid foundation while adapting to the demands of modern education and global standards. Mrs. Acquaye has successfully integrated contemporary teaching methodologies with our time-tested values, ensuring that our students are well-prepared for the challenges of the 21st century.
-                  </p>
+                <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  Today, under the capable leadership of <strong>Mrs. Michelle Acquaye</strong>, our current headmistress, we continue to build upon this solid foundation while adapting to the demands of modern education and global standards. Mrs. Acquaye has successfully integrated contemporary teaching methodologies with our time-tested values, ensuring that our students are well-prepared for the challenges of the 21st century.
+                </p>
 
-                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                    With over <strong>30,000 graduates</strong> who have gone on to make significant contributions to society and <strong>800+ current students</strong> who embody our motto <em>"Primus Intaparis"</em> (The Best Among the Rest), St. Louis Demonstration JHS stands as a testament to the power of vision, dedication, and community support in shaping educational excellence. Our journey from humble beginnings to becoming a recognized institution of learning reflects our unwavering commitment to developing critical thinking, creativity, collaboration, and character among our learners.
-                  </p>
-                </div>
+                <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  With over <strong>30,000 graduates</strong> who have gone on to make significant contributions to society and <strong>800+ current students</strong> who embody our motto <em>"Primus Intaparis"</em> (The Best Among the Rest), St. Louis Demonstration JHS stands as a testament to the power of vision, dedication, and community support in shaping educational excellence. Our journey from humble beginnings to becoming a recognized institution of learning reflects our unwavering commitment to developing critical thinking, creativity, collaboration, and character among our learners.
+                </p>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
       <SectionDivider position="bottom" flip={true} />
 
-      {/* St. Louis in the News Section - Dark Aero Apple Design */}
-      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+      {/* St. Louis in the News Section - Compact Dark Aero Apple Design */}
+      <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
         {/* Dark Aero Background with Media Colors */}
         <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-black/40 to-blue-900/20"></div>
@@ -184,21 +182,21 @@ const AboutPage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-6 sm:mb-8"
+            className="text-center mb-4 sm:mb-6"
           >
-            <div className="flex items-center justify-center mb-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex items-center justify-center mb-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clipRule="evenodd" />
                   <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V9a1 1 0 00-1-1h-1v-1z" />
                 </svg>
               </div>
-              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              <h2 className="text-lg sm:text-xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 St. Louis in the News
               </h2>
             </div>
-            <p className="text-sm text-gray-200 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              Historical media coverage showcasing our school's journey, challenges, and achievements.
+            <p className="text-sm text-gray-200 max-w-xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Historical media coverage showcasing our journey and achievements.
             </p>
           </motion.div>
 
