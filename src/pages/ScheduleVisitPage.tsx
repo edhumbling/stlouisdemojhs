@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, MapPin, Clock, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import Cal, { getCalApi } from "@calcom/embed-react";
 
 const ScheduleVisitPage: React.FC = () => {
   const navigate = useNavigate();
@@ -34,17 +33,31 @@ const ScheduleVisitPage: React.FC = () => {
 
       {/* Full Screen Calendar */}
       <div className="w-full h-full">
-        <Cal
-          namespace="schedule-visit-to-st.-louis-demonstration-j.h.s"
-          calLink="stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s"
+        {isLoading && (
+          <div className="absolute inset-0 bg-white flex items-center justify-center z-40">
+            <div className="text-center">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full mx-auto mb-4"
+              />
+              <p className="text-gray-600">Loading calendar...</p>
+            </div>
+          </div>
+        )}
+
+        <iframe
+          src="https://cal.com/stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s"
+          width="100%"
+          height="100%"
           style={{
+            border: "none",
             width: "100%",
-            height: "100%",
-            border: "none"
+            height: "100%"
           }}
-          config={{
-            "layout": "month_view"
-          }}
+          onLoad={() => setIsLoading(false)}
+          title="Schedule Your Visit to St. Louis Demonstration JHS"
+          loading="lazy"
         />
       </div>
     </div>
