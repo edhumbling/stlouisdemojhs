@@ -75,8 +75,8 @@ const ScheduleVisitPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Full-Width Calendar Container */}
-        <div className="h-[calc(100%-120px)] w-full">
+        {/* Full-Width Calendar Container - Now takes full remaining space */}
+        <div className="h-[calc(100%-80px)] w-full">
           <iframe
             src="https://cal.com/stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s?overlayCalendar=true"
             width="100%"
@@ -90,33 +90,6 @@ const ScheduleVisitPage: React.FC = () => {
             title="Schedule Your Visit - St. Louis Demonstration JHS"
             allow="camera; microphone; geolocation; display-capture"
           />
-        </div>
-
-        {/* Apple-style Footer */}
-        <div className="bg-white/95 backdrop-blur-xl border-t border-gray-200/50 px-4 sm:px-6 py-3">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-              <div className="flex items-center gap-4 text-sm text-gray-600">
-                <div className="flex items-center gap-1">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span>Available</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                  <span>Unavailable</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 text-sm">
-                <span className="text-gray-600">Need help?</span>
-                <div className="flex items-center gap-2 text-blue-600">
-                  <span>📱 0244758575</span>
-                  <span>•</span>
-                  <span>✉️ support@stlouisdemojhs.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
