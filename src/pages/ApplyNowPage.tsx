@@ -12,26 +12,26 @@ const ApplyNowPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black pt-16">
-      {/* Back Button and Title Section - Original Style */}
-      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
+      {/* Back Button and Title Section - Minimal Dark */}
+      <div className="bg-gradient-to-r from-green-900/80 via-green-800/80 to-green-900/80 py-2 sm:py-3 backdrop-blur-xl border-b border-green-700/30">
+        <div className="w-full px-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <button
               onClick={handleBack}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
+              className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-green-500/30 flex-shrink-0"
             >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <ArrowLeft size={14} className="sm:w-4 sm:h-4" />
               <span>Back</span>
             </button>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="text-2xl sm:text-3xl"
+                className="text-lg sm:text-xl"
               >
                 🎓
               </motion.div>
-              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+              <h1 className="text-base sm:text-lg md:text-xl font-bold text-white">
                 Apply to St. Louis Demo
               </h1>
             </div>

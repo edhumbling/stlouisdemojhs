@@ -43,31 +43,31 @@ const ScheduleVisitPage: React.FC = () => {
 
       {/* Full Window Calendar Section - Apple Style */}
       <div className="h-[calc(100vh-80px)] w-full bg-gradient-to-br from-slate-50 to-gray-100">
-        {/* Apple-style Header */}
-        <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200/50 px-4 sm:px-6 py-4">
+        {/* Minimal Dark Header */}
+        <div className="bg-slate-900/80 backdrop-blur-xl border-b border-gray-700/30 px-4 sm:px-6 py-2">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
-                  🌟 Book Your Visit to St. Louis Demo
+                <h2 className="text-lg sm:text-xl font-bold text-white mb-1">
+                  Book Your Visit to St. Louis Demo
                 </h2>
-                <p className="text-sm sm:text-base text-gray-600">
+                <p className="text-xs sm:text-sm text-gray-300">
                   Choose a convenient time to explore our campus and meet our amazing team!
                 </p>
               </div>
 
-              {/* Cute Info Pills */}
+              {/* Cute Info Pills - Dark Theme */}
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center gap-1 px-3 py-1.5 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
-                  <MapPin size={12} />
+                <div className="inline-flex items-center gap-1 px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium border border-blue-400/30">
+                  <MapPin size={10} />
                   Campus Tour
                 </div>
-                <div className="inline-flex items-center gap-1 px-3 py-1.5 bg-green-100 text-green-700 rounded-full text-xs font-medium">
-                  <Users size={12} />
+                <div className="inline-flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-medium border border-green-400/30">
+                  <Users size={10} />
                   Meet Teachers
                 </div>
-                <div className="inline-flex items-center gap-1 px-3 py-1.5 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
-                  <Clock size={12} />
+                <div className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium border border-purple-400/30">
+                  <Clock size={10} />
                   1-2 Hours
                 </div>
               </div>
@@ -76,7 +76,7 @@ const ScheduleVisitPage: React.FC = () => {
         </div>
 
         {/* Full-Width Calendar Container - Now takes full remaining space */}
-        <div className="h-[calc(100%-80px)] w-full">
+        <div className="h-[calc(100%-60px)] w-full">
           <iframe
             src="https://cal.com/stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s?overlayCalendar=true"
             width="100%"
