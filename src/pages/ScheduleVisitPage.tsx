@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, MapPin, Clock, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { BookerEmbed } from "@calcom/atoms";
+
+// Type definitions for Cal.com BookerEmbed
+interface BookingSuccessEvent {
+  bookingId: string;
+  eventTypeSlug: string;
+  date: string;
+}
 
 const ScheduleVisitPage: React.FC = () => {
   const navigate = useNavigate();
@@ -21,18 +29,36 @@ const ScheduleVisitPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 bg-white">
-      {/* Floating Back Button */}
-      <button
-        onClick={handleBack}
-        className="fixed top-4 left-4 z-50 inline-flex items-center gap-2 px-4 py-2 bg-gray-900/80 hover:bg-gray-800/90 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-gray-700/30"
-      >
-        <ArrowLeft size={16} />
-        <span>Back</span>
-      </button>
+    <div className="min-h-screen bg-white">
+      {/* Native Back Button Header */}
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 mt-16">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <div className="flex items-center gap-3">
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="text-2xl sm:text-3xl"
+              >
+                📅
+              </motion.div>
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+                Schedule Your Campus Visit
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Full Screen Calendar */}
-      <div className="w-full h-full">
+      <div className="w-full" style={{ height: 'calc(100vh - 120px)' }}>
         {isLoading && (
           <div className="absolute inset-0 bg-white flex items-center justify-center z-40">
             <div className="text-center">
@@ -46,18 +72,24 @@ const ScheduleVisitPage: React.FC = () => {
           </div>
         )}
 
-        <iframe
-          src="https://cal.com/stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s"
-          width="100%"
-          height="100%"
+        <BookerEmbed
+          eventSlug="schedule-visit-to-st.-louis-demonstration-j.h.s"
+          username="stlouisdemojhs"
+          view="month_view"
+          customClassNames={{
+            bookerContainer: "w-full h-full border-0 bg-white",
+          }}
           style={{
-            border: "none",
             width: "100%",
             height: "100%"
           }}
-          onLoad={() => setIsLoading(false)}
-          title="Schedule Your Visit to St. Louis Demonstration JHS"
-          loading="lazy"
+          onCreateBookingSuccess={() => {
+            console.log("✅ Booking created successfully!");
+            setIsLoading(false);
+          }}
+          onBookerLayoutReady={() => {
+            setIsLoading(false);
+          }}
         />
       </div>
     </div>
