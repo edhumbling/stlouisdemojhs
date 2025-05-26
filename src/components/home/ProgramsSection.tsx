@@ -111,16 +111,16 @@ const ProgramsSection: React.FC = () => {
             <div className="bg-gray-50 rounded-lg p-4 lg:p-6">
               <h3 className="text-lg lg:text-xl font-semibold text-primary-800 mb-4 lg:mb-6">Academic Areas</h3>
 
-              {/* Mobile: Horizontal Scrollable Buttons */}
+              {/* Mobile: 2-Column Grid Layout */}
               <div className="lg:hidden">
-                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                <div className="grid grid-cols-2 gap-2">
                   {programs.map((program) => (
                     <button
                       key={program.id}
                       onClick={() => setActiveProgram(program.id)}
-                      className={`flex-shrink-0 px-3 py-2 rounded-lg transition-colors duration-300 text-sm font-medium whitespace-nowrap ${
+                      className={`px-3 py-2 rounded-lg transition-colors duration-300 text-sm font-medium text-center ${
                         activeProgram === program.id
-                          ? 'bg-primary-600 text-white'
+                          ? 'bg-green-600 text-white shadow-lg'
                           : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                       }`}
                     >
@@ -130,29 +130,30 @@ const ProgramsSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Desktop: Vertical List */}
-              <ul className="hidden lg:block space-y-2">
-                {programs.map((program) => (
-                  <li key={program.id}>
+              {/* Desktop: 2-Column Grid Layout */}
+              <div className="hidden lg:block">
+                <div className="grid grid-cols-2 gap-2">
+                  {programs.map((program) => (
                     <button
+                      key={program.id}
                       onClick={() => setActiveProgram(program.id)}
                       className={`w-full text-left p-3 rounded-lg transition-colors duration-300 flex items-center justify-between ${
                         activeProgram === program.id
-                          ? 'bg-primary-100 text-primary-800'
-                          : 'hover:bg-gray-100 text-gray-700'
+                          ? 'bg-green-600 text-white shadow-lg'
+                          : 'hover:bg-gray-100 text-gray-700 bg-white border border-gray-200'
                       }`}
                     >
-                      <span>{program.title}</span>
+                      <span className="text-sm font-medium">{program.title}</span>
                       <ChevronRight
-                        size={18}
+                        size={16}
                         className={`transition-transform duration-300 ${
-                          activeProgram === program.id ? 'transform rotate-90 text-primary-600' : ''
+                          activeProgram === program.id ? 'transform rotate-90 text-white' : 'text-gray-400'
                         }`}
                       />
                     </button>
-                  </li>
-                ))}
-              </ul>
+                  ))}
+                </div>
+              </div>
 
               <div className="mt-4 lg:mt-8 text-center">
                 <Link
