@@ -31,7 +31,17 @@ const CoreAcademicPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="pt-8 pb-12 md:pt-12 md:pb-16 bg-gradient-to-br from-blue-600 via-green-700 to-emerald-700 text-white relative overflow-hidden">
+      <section className="pt-8 pb-12 md:pt-12 md:pb-16 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7109.HEIC"
+            alt="Core Academic Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Blue-Green overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 via-blue-700/85 to-green-700/80"></div>
+        </div>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
         </div>
@@ -60,8 +70,18 @@ const CoreAcademicPage: React.FC = () => {
       </section>
 
       {/* BECE Subjects Grid */}
-      <section className="py-8 md:py-12 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-8 md:py-12 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7000.HEIC"
+            alt="Academic Excellence Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark glass overlay */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -152,7 +172,7 @@ const CoreAcademicPage: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card p-6 rounded-xl"
+                className="glass-dark p-6 rounded-xl border border-white/20"
               >
                 <div className="flex items-center mb-4">
                   <div className={`w-12 h-12 bg-gradient-to-br ${subject.color} rounded-lg flex items-center justify-center text-white mr-4`}>
@@ -160,7 +180,7 @@ const CoreAcademicPage: React.FC = () => {
                   </div>
                   <h3 className="text-xl font-bold text-white">{subject.title}</h3>
                 </div>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">{subject.description}</p>
+                <p className="text-gray-200 mb-4 text-sm leading-relaxed">{subject.description}</p>
                 <div className="space-y-1">
                   {subject.skills.map((skill, idx) => (
                     <div key={idx} className="text-xs text-blue-300 flex items-center">
@@ -178,7 +198,7 @@ const CoreAcademicPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="glass-dark p-8 rounded-2xl mb-12"
+            className="glass-dark p-8 rounded-2xl mb-12 border border-white/20"
           >
             <h2 className="text-3xl font-bold text-white mb-6 text-center">BECE Excellence at St. Louis Demo</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -232,7 +252,7 @@ const CoreAcademicPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="glass-card p-8 rounded-2xl"
+            className="glass-dark p-8 rounded-2xl border border-white/20"
           >
             <h2 className="text-3xl font-bold text-white mb-6 text-center">Academic Achievement Statistics</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

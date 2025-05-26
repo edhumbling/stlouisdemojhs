@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Lightbulb, Award, Globe, Palette, Calculator, Microscope, Music, Computer, ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { BookOpen, Users, Lightbulb, Award, Globe, Palette, Calculator, Microscope, Music, Computer, ArrowLeft, ChevronRight } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 import DonateButton from '../components/common/DonateButton';
 import { getSchoolStats } from '../utils/schoolStats';
@@ -441,6 +441,139 @@ const AcademicsPage: React.FC = () => {
         </div>
       </section>
       <SectionDivider position="bottom" flip={true} />
+
+      {/* Academic Areas Section */}
+      <section className="py-8 sm:py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto text-center mb-8 sm:mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 sm:mb-6">
+              🎯 Explore Our Academic Areas
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Dive deeper into our specialized academic programs designed to nurture excellence in every student.
+              Each area offers comprehensive curriculum and dedicated pathways to success.
+            </p>
+          </motion.div>
+
+          {/* Academic Areas Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                id: 1,
+                title: "Core Academic Subjects",
+                description: "Comprehensive BECE curriculum covering all 11 subjects including English, Mathematics, Science, Social Studies, and more.",
+                icon: "📚",
+                color: "from-blue-500 to-green-500",
+                bgColor: "bg-gradient-to-br from-blue-50 to-green-50",
+                borderColor: "border-blue-200",
+                route: "/core-academic"
+              },
+              {
+                id: 2,
+                title: "STEM Education Excellence",
+                description: "Science, Technology, Engineering, and Mathematics programs preparing students for Ghana's digital future.",
+                icon: "🔬",
+                color: "from-purple-500 to-cyan-500",
+                bgColor: "bg-gradient-to-br from-purple-50 to-cyan-50",
+                borderColor: "border-purple-200",
+                route: "/stem-education"
+              },
+              {
+                id: 3,
+                title: "Creative Arts & Culture",
+                description: "Celebrating Ghanaian heritage through music, dance, visual arts, and cultural expression programs.",
+                icon: "🎨",
+                color: "from-pink-500 to-rose-500",
+                bgColor: "bg-gradient-to-br from-pink-50 to-rose-50",
+                borderColor: "border-pink-200",
+                route: "/creative-arts"
+              },
+              {
+                id: 4,
+                title: "Character & Values Education",
+                description: "Building moral foundations and ethical leadership through character development and values-based learning.",
+                icon: "✨",
+                color: "from-emerald-500 to-teal-500",
+                bgColor: "bg-gradient-to-br from-emerald-50 to-teal-50",
+                borderColor: "border-emerald-200",
+                route: "/character-education"
+              }
+            ].map((area, index) => (
+              <motion.div
+                key={area.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`${area.bgColor} rounded-2xl p-6 sm:p-8 border ${area.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer`}
+              >
+                <div className="flex items-start gap-4 sm:gap-6">
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${area.color} rounded-xl flex items-center justify-center text-2xl sm:text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {area.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                      {area.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+                      {area.description}
+                    </p>
+                    <Link
+                      to={area.route}
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                      className="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm group-hover:scale-105"
+                    >
+                      Explore Program
+                      <ChevronRight size={16} className="ml-1" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center mt-8 sm:mt-12"
+          >
+            <div className="bg-gradient-to-r from-blue-50 via-white to-green-50 rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-lg max-w-4xl mx-auto">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-4">
+                🌟 Ready to Join Our Academic Excellence?
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600 mb-6 leading-relaxed">
+                Experience world-class education that has shaped thousands of successful graduates over 47+ years.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to="/apply-now"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  Apply Now
+                </Link>
+                <Link
+                  to="/schedule-visit"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
+                  Schedule Visit
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      <SectionDivider position="bottom" />
 
       {/* Why Choose Our Academic Program - With Background Image */}
       <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">

@@ -31,7 +31,17 @@ const CharacterEducationPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="pt-8 pb-12 md:pt-12 md:pb-16 bg-gradient-to-br from-blue-600 via-blue-700 to-green-700 text-white relative overflow-hidden">
+      <section className="pt-8 pb-12 md:pt-12 md:pb-16 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6995.HEIC"
+            alt="Character Education Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Blue-Green overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 via-blue-700/85 to-green-700/80"></div>
+        </div>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
         </div>
@@ -60,8 +70,18 @@ const CharacterEducationPage: React.FC = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-8 md:py-12 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-8 md:py-12 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7010.HEIC"
+            alt="Character Values Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark glass overlay */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           {/* Core Values Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,15 +126,15 @@ const CharacterEducationPage: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                className="glass-dark rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center text-white mr-4">
                     {value.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800">{value.title}</h3>
+                  <h3 className="text-xl font-bold text-white">{value.title}</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                <p className="text-gray-200 leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -124,13 +144,13 @@ const CharacterEducationPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-gray-50 p-8 rounded-2xl mb-12 border border-gray-200"
+            className="glass-dark p-8 rounded-2xl mb-12 border border-white/20"
           >
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Rooted in Ghanaian Values</h2>
+            <h2 className="text-3xl font-bold text-white mb-6 text-center">Rooted in Ghanaian Values</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-semibold text-blue-600 mb-4">Traditional Wisdom</h3>
-                <ul className="space-y-3 text-gray-700">
+                <h3 className="text-xl font-semibold text-blue-300 mb-4">Traditional Wisdom</h3>
+                <ul className="space-y-3 text-gray-200">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span><strong>Sankofa:</strong> Learning from the past to build a better future</span>
@@ -150,8 +170,8 @@ const CharacterEducationPage: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-green-600 mb-4">Modern Applications</h3>
-                <ul className="space-y-3 text-gray-700">
+                <h3 className="text-xl font-semibold text-green-300 mb-4">Modern Applications</h3>
+                <ul className="space-y-3 text-gray-200">
                   <li className="flex items-start">
                     <span className="text-yellow-400 mr-2">•</span>
                     <span>Digital citizenship and responsible technology use</span>
@@ -178,13 +198,13 @@ const CharacterEducationPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200"
+            className="glass-dark p-8 rounded-2xl shadow-lg border border-white/20"
           >
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">How We Teach Character</h2>
+            <h2 className="text-3xl font-bold text-white mb-6 text-center">How We Teach Character</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-semibold text-blue-600 mb-4">Daily Practices</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="text-xl font-semibold text-blue-300 mb-4">Daily Practices</h3>
+                <ul className="space-y-2 text-gray-200">
                   <li>• Morning devotions and reflection time</li>
                   <li>• Peer mentoring and buddy systems</li>
                   <li>• Community service projects</li>
@@ -193,8 +213,8 @@ const CharacterEducationPage: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-green-600 mb-4">Assessment Methods</h3>
-                <ul className="space-y-2 text-gray-700">
+                <h3 className="text-xl font-semibold text-green-300 mb-4">Assessment Methods</h3>
+                <ul className="space-y-2 text-gray-200">
                   <li>• Character portfolios and self-reflection journals</li>
                   <li>• Peer evaluation and feedback systems</li>
                   <li>• Community impact projects</li>

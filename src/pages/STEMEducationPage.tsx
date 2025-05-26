@@ -31,7 +31,17 @@ const STEMEducationPage: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="pt-8 pb-12 md:pt-12 md:pb-16 bg-gradient-to-br from-purple-600 via-blue-700 to-cyan-700 text-white relative overflow-hidden">
+      <section className="pt-8 pb-12 md:pt-12 md:pb-16 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7118.HEIC"
+            alt="STEM Education Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Blue-Green overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 via-blue-700/85 to-green-700/80"></div>
+        </div>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
         </div>
@@ -60,8 +70,18 @@ const STEMEducationPage: React.FC = () => {
       </section>
 
       {/* STEM Components */}
-      <section className="px-4 pb-12">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-8 md:py-12 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7020.HEIC"
+            alt="STEM Learning Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark glass overlay */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,7 +119,7 @@ const STEMEducationPage: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card p-6 rounded-xl text-center"
+                className="glass-dark p-6 rounded-xl text-center border border-white/20"
               >
                 <div className={`w-16 h-16 bg-gradient-to-br ${component.color} rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-lg`}>
                   {component.icon}
