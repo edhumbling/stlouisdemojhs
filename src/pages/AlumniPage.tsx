@@ -466,7 +466,7 @@ const AlumniPage: React.FC = () => {
               <div className="text-center p-6 glass-card rounded-2xl border border-white/20">
                 <span className="text-3xl block mb-4">📞</span>
                 <h3 className="text-lg font-bold text-white mb-2">Alumni Coordinator</h3>
-                <p className="text-gray-300 mb-2 font-semibold">Emmanuel Hubling Dwamena</p>
+                <p className="text-gray-300 mb-2 font-semibold">Emmanuel Humbling Dwamena</p>
                 <p className="text-gray-300 mb-4">+233 20 870 5290</p>
                 <p className="text-sm text-gray-400">Speak with our alumni coordinator</p>
               </div>
