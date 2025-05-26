@@ -115,14 +115,14 @@ const MediaPage: React.FC = () => {
     {
       name: "Mrs. Michelle Acquaye",
       title: "Headmistress",
-      email: "headmistress@stlouisdemo.edu.gh",
+      email: "contact@stlouisdemojhs.com",
       phone: "+233 XX XXX XXXX",
       specialty: "Educational Leadership & School Operations"
     },
     {
       name: "Media Relations Officer",
       title: "Communications Coordinator",
-      email: "media@stlouisdemo.edu.gh",
+      email: "contact@stlouisdemojhs.com",
       phone: "+233 XX XXX XXXX",
       specialty: "Press Inquiries & Media Relations"
     }

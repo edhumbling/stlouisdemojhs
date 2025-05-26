@@ -292,7 +292,6 @@ St. Louis Demonstration J.H.S Website System
                   <div>
                     <h3 className="font-semibold text-base sm:text-lg text-white mb-1">Email</h3>
                     <p className="text-sm sm:text-base text-gray-300">contact@stlouisdemojhs.com</p>
-                    <p className="text-sm sm:text-base text-gray-300">info@stlouisdemojhs.edu.gh</p>
                   </div>
                 </motion.div>
 

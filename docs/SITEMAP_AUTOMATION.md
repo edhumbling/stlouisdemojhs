@@ -53,7 +53,7 @@ For server deployments, set up a cron job:
    ```bash
    crontab -e
    ```
-   
+
    Add this line to run daily at 2 AM:
    ```bash
    0 2 * * * /path/to/your/project/scripts/cron-update-sitemap.sh
@@ -200,9 +200,9 @@ For issues or questions:
 - Check logs first
 - Review configuration
 - Test manually: `npm run generate-sitemap`
-- Contact: support@stlouisdemojhs.com
+- Contact: contact@stlouisdemojhs.com
 
 ---
 
-**Last Updated:** January 2025  
+**Last Updated:** January 2025
 **Version:** 1.0.0

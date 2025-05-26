@@ -36,7 +36,7 @@ const Layout: React.FC = () => {
       "@type": "ContactPoint",
       "telephone": "+233244758575",
       "contactType": "customer service",
-      "email": "support@stlouisdemojhs.com"
+      "email": "contact@stlouisdemojhs.com"
     },
     "sameAs": [
       "https://stlouisdemojhs.com/about",

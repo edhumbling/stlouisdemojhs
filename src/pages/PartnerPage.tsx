@@ -94,7 +94,7 @@ const PartnerPage: React.FC = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      info: "partnerships@stlouisdemo.edu.gh",
+      info: "contact@stlouisdemojhs.com",
       description: "Send us details about your partnership proposal"
     },
     {

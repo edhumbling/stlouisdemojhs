@@ -364,7 +364,7 @@ const AlumniPage: React.FC = () => {
               <div className="text-center p-6 glass-card rounded-2xl border border-white/20">
                 <span className="text-3xl block mb-4">📧</span>
                 <h3 className="text-lg font-bold text-white mb-2">Email Us</h3>
-                <p className="text-gray-300 mb-4">alumni@stlouisdemo.edu.gh</p>
+                <p className="text-gray-300 mb-4">contact@stlouisdemojhs.com</p>
                 <p className="text-sm text-gray-400">Send us your updated contact information</p>
               </div>
               <div className="text-center p-6 glass-card rounded-2xl border border-white/20">

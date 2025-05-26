@@ -284,7 +284,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center justify-center sm:justify-start space-x-2">
                 <Mail size={14} className="text-gray-400 flex-shrink-0" />
-                <span className="text-gray-400 text-xs">support@stlouisdemojhs.com</span>
+                <span className="text-gray-400 text-xs">contact@stlouisdemojhs.com</span>
               </div>
             </div>
           </div>

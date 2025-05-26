@@ -138,7 +138,7 @@ const ApplyNowPage: React.FC = () => {
               </div>
               <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200">
                 <div className="text-xl sm:text-2xl mb-2">✉️</div>
-                <div className="text-gray-800 font-medium text-xs sm:text-sm">support@stlouisdemojhs.com</div>
+                <div className="text-gray-800 font-medium text-xs sm:text-sm">contact@stlouisdemojhs.com</div>
               </div>
             </div>
           </motion.div>
