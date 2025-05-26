@@ -58,14 +58,14 @@ const TestimonialsSection: React.FC = () => {
   useEffect(() => {
     if (isInView) {
       controls.start({
-        x: [0, -100 * testimonials.length + '%'],
+        x: [0, -33.333333 + '%'], // Move exactly one set of testimonials (6 cards = 33.33%)
         transition: {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 45, // Smooth continuous scroll
+            duration: 120, // Very slow like a tortoise - 2 minutes per cycle
             ease: "linear",
-            repeatDelay: 0 // No waiting between loops
+            repeatDelay: 0 // Absolutely no delay between loops
           }
         }
       });
@@ -98,17 +98,18 @@ const TestimonialsSection: React.FC = () => {
         <div className="relative overflow-hidden" ref={scrollContainerRef}>
           <motion.div
             animate={controls}
-            className="flex gap-4 md:gap-6 px-4"
+            className="flex px-4"
             style={{
-              width: `${extendedTestimonials.length * (window.innerWidth >= 1024 ? 350 : window.innerWidth >= 768 ? 300 : 250)}px`,
+              width: `${extendedTestimonials.length * (window.innerWidth >= 1024 ? 370 : window.innerWidth >= 768 ? 320 : 270)}px`,
               willChange: 'transform'
             }}
           >
             {extendedTestimonials.map((testimonial, index) => (
               <motion.div
                 key={`${testimonial.id}-${index}`}
-                className="w-[250px] md:w-[300px] lg:w-[350px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-5 border border-white/10 shadow-xl"
+                className="w-[250px] md:w-[300px] lg:w-[350px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-5 border border-white/10 shadow-xl mr-5 md:mr-5 lg:mr-5"
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                style={{ marginRight: window.innerWidth >= 1024 ? '20px' : window.innerWidth >= 768 ? '20px' : '20px' }}
               >
                 <Quote className="text-yellow-400/80 mb-3" size={20} />
                 <p className="text-gray-200 mb-4 text-xs md:text-sm line-clamp-4">{testimonial.quote}</p>
