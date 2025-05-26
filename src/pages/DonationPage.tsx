@@ -28,106 +28,96 @@ const DonationPage: React.FC = () => {
   }, []);
   return (
     <div className="min-h-screen bg-gray-50 lg:overflow-hidden pt-16">
-      {/* Back Button and Title Section - Original Style */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+      {/* Back Button and Title Section - Red Love Theme */}
+      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <Link
               to="/"
               onClick={() => triggerHapticFeedback('light')}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
             >
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </Link>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              Donate
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+              💝 Donate with Love
             </h1>
           </div>
         </div>
       </div>
 
-      {/* Header Section - Professional Design */}
-      <section className="bg-gradient-to-br from-blue-600 via-green-600 to-blue-700 text-white pb-8 lg:pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
+      {/* Compact Header Section - Red Love Theme with Gallery Background */}
+      <section className="py-6 sm:py-8 relative overflow-hidden">
+        {/* Gallery Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7118.HEIC"
+            alt="St. Louis Demo JHS Students"
+            className="w-full h-full object-cover"
+          />
+          {/* Red Love Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-red-600/85 via-pink-600/80 to-red-700/85"></div>
+        </div>
 
-        <div className="px-4 lg:px-8 pt-16 lg:pt-20 relative z-10">
-          <div className="max-w-sm lg:max-w-5xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-8 lg:mb-12"
-            >
-              <div className="flex flex-col items-center">
-                <div className="p-6 lg:p-8 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 lg:mb-8 shadow-xl border border-white/30">
-                  <Heart className="w-12 h-12 lg:w-20 lg:h-20 text-white" />
-                </div>
-                <div className="text-center">
-                  <h1 className="text-3xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6 text-white leading-tight">
-                    Support Our School
-                  </h1>
-                  <p className="text-base lg:text-2xl xl:text-3xl text-blue-100 font-medium mb-6 lg:mb-8">
-                    Empowering Excellence in Education
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6 lg:space-y-8"
-            >
-              {/* Fund Usage - Clean & Clear */}
-              <div className="bg-white/15 backdrop-blur-sm rounded-xl p-6 lg:p-8 border border-white/20 max-w-3xl mx-auto">
-                <h2 className="text-lg lg:text-2xl font-bold text-white mb-4 lg:mb-6">Your Donation Will Fund:</h2>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 text-left">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 lg:w-10 lg:h-10 bg-green-400 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg lg:text-xl">💻</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white text-sm lg:text-base mb-1">Modern Technology</h3>
-                      <p className="text-xs lg:text-sm text-blue-100">Computers, smart boards, and digital learning tools</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-400 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg lg:text-xl">👨‍🏫</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white text-sm lg:text-base mb-1">Teacher Training</h3>
-                      <p className="text-xs lg:text-sm text-blue-100">Professional development and modern teaching methods</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 lg:w-10 lg:h-10 bg-purple-400 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-lg lg:text-xl">🏫</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white text-sm lg:text-base mb-1">Infrastructure</h3>
-                      <p className="text-xs lg:text-sm text-blue-100">Upgraded classrooms, labs, and learning spaces</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Call to Action */}
-              <div className="text-center">
-                <p className="text-sm lg:text-lg text-white/90 mb-4 lg:mb-6 max-w-2xl mx-auto">
-                  Join our alumni community in maintaining our legacy as <span className="text-yellow-200 font-bold">"The Best Amongst the Rest"</span>
-                </p>
-                <div className="flex flex-wrap justify-center gap-2 lg:gap-4 text-xs lg:text-sm">
-                  <span className="bg-white/20 px-3 py-1 lg:px-4 lg:py-2 rounded-full border border-white/30">🔒 Secure Payments</span>
-                  <span className="bg-white/20 px-3 py-1 lg:px-4 lg:py-2 rounded-full border border-white/30">⚡ Instant Processing</span>
-                  <span className="bg-white/20 px-3 py-1 lg:px-4 lg:py-2 rounded-full border border-white/30">📧 Receipt Provided</span>
-                </div>
-              </div>
-            </motion.div>
+        {/* Floating 3D Love Emojis */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* 3D Love Emojis from online sources */}
+          <div className="absolute top-4 left-4 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2764.png" alt="love" className="w-6 h-6 sm:w-8 sm:h-8 opacity-80" />
           </div>
+          <div className="absolute top-8 right-8 animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }}>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f495.png" alt="two hearts" className="w-5 h-5 sm:w-7 sm:h-7 opacity-70" />
+          </div>
+          <div className="absolute bottom-6 left-8 animate-bounce" style={{ animationDelay: '2s', animationDuration: '3.5s' }}>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f496.png" alt="sparkling heart" className="w-7 h-7 sm:w-9 sm:h-9 opacity-75" />
+          </div>
+          <div className="absolute top-12 left-1/2 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '4.5s' }}>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="growing heart" className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
+          </div>
+          <div className="absolute bottom-4 right-4 animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '3.8s' }}>
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f498.png" alt="heart with arrow" className="w-6 h-6 sm:w-8 sm:h-8 opacity-85" />
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-white/20 backdrop-blur-sm rounded-full mb-4 sm:mb-6 shadow-xl border border-white/30">
+              <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            </div>
+
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              💖 Support Our School with Love
+            </h1>
+
+            <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Every donation helps us provide better education for our students
+            </p>
+
+            {/* Quick Fund Usage - Compact */}
+            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20 max-w-2xl mx-auto">
+              <div className="grid grid-cols-3 gap-3 sm:gap-4 text-center">
+                <div>
+                  <div className="text-lg sm:text-xl mb-1">💻</div>
+                  <p className="text-xs sm:text-sm text-white font-medium">Technology</p>
+                </div>
+                <div>
+                  <div className="text-lg sm:text-xl mb-1">👨‍🏫</div>
+                  <p className="text-xs sm:text-sm text-white font-medium">Teachers</p>
+                </div>
+                <div>
+                  <div className="text-lg sm:text-xl mb-1">🏫</div>
+                  <p className="text-xs sm:text-sm text-white font-medium">Infrastructure</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
