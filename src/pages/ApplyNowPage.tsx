@@ -39,87 +39,89 @@ const ApplyNowPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section - Apple Style */}
-      <section className="py-8 md:py-12 bg-gradient-to-br from-slate-50 to-gray-100">
-        <div className="container mx-auto px-4">
+      {/* Hero Section - Apple Style Dark */}
+      <section className="py-8 md:py-12 bg-gradient-to-br from-gray-900 via-slate-900 to-black">
+        <div className="w-full px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
+            className="w-full text-center px-4"
           >
             <div className="mb-8">
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-                🌟 Join Our School Family 🌟
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                Join Our School Family
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 mb-6">
+              <p className="text-lg md:text-xl text-gray-300 mb-6">
                 Start your journey to excellence with St. Louis Demonstration Junior High School!
               </p>
             </div>
 
-            {/* Key Benefits */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10"
-              >
-                <GraduationCap className="text-blue-400 mb-4 mx-auto" size={40} />
-                <h3 className="text-white font-semibold mb-2">Excellence</h3>
-                <p className="text-gray-300 text-sm">47+ years of academic excellence</p>
-              </motion.div>
+            {/* Key Benefits - Edge to Edge */}
+            <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] px-4 mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+                >
+                  <GraduationCap className="text-blue-400 mb-4 mx-auto" size={40} />
+                  <h3 className="text-white font-semibold mb-2">Excellence</h3>
+                  <p className="text-gray-300 text-sm">47+ years of academic excellence</p>
+                </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10"
-              >
-                <Users className="text-green-400 mb-4 mx-auto" size={40} />
-                <h3 className="text-white font-semibold mb-2">Community</h3>
-                <p className="text-gray-300 text-sm">800+ students strong</p>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+                >
+                  <Users className="text-green-400 mb-4 mx-auto" size={40} />
+                  <h3 className="text-white font-semibold mb-2">Community</h3>
+                  <p className="text-gray-300 text-sm">800+ students strong</p>
+                </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10"
-              >
-                <BookOpen className="text-yellow-400 mb-4 mx-auto" size={40} />
-                <h3 className="text-white font-semibold mb-2">Curriculum</h3>
-                <p className="text-gray-300 text-sm">Comprehensive programs</p>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+                >
+                  <BookOpen className="text-yellow-400 mb-4 mx-auto" size={40} />
+                  <h3 className="text-white font-semibold mb-2">Curriculum</h3>
+                  <p className="text-gray-300 text-sm">Comprehensive programs</p>
+                </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10"
-              >
-                <Award className="text-purple-400 mb-4 mx-auto" size={40} />
-                <h3 className="text-white font-semibold mb-2">Success</h3>
-                <p className="text-gray-300 text-sm">98%+ BECE success rate</p>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+                >
+                  <Award className="text-purple-400 mb-4 mx-auto" size={40} />
+                  <h3 className="text-white font-semibold mb-2">Success</h3>
+                  <p className="text-gray-300 text-sm">98%+ BECE success rate</p>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Application Form Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
+      {/* Application Form Section - Edge to Edge */}
+      <section className="py-12 bg-gradient-to-br from-slate-900 via-gray-900 to-black">
+        <div className="w-full px-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="max-w-4xl mx-auto"
+            className="w-full px-4"
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-2xl">
+            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 shadow-2xl max-w-6xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  🌟 Start Your Application 🌟
+                  Start Your Application
                 </h2>
                 <p className="text-gray-300 text-lg">
                   Complete the form below to begin your journey with us. We'll embed a Google Form here soon!
@@ -173,16 +175,17 @@ const ApplyNowPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-12">
-        <div className="container mx-auto px-4 text-center">
+      {/* Call to Action - Edge to Edge */}
+      <section className="py-12 bg-gradient-to-br from-black via-slate-900 to-gray-900">
+        <div className="w-full px-0 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
+            className="px-4"
           >
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-              Ready to Join Our School Family? 🏫
+              Ready to Join Our School Family?
             </h3>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
