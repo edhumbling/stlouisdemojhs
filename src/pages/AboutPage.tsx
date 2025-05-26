@@ -197,53 +197,44 @@ const AboutPage: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* News Grid - Mobile 1-Column, Desktop 2-Column */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          {/* News Grid - Mobile 2-Column, Desktop 2-Column for Compact Layout */}
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-5xl mx-auto">
             {[
               {
-                title: "Make the classroom lively and pupil-friendly",
+                title: "Make classroom lively & pupil-friendly",
                 source: "GhanaWeb",
-                date: "Historical Coverage",
-                description: "Educational insights and recommendations for creating engaging learning environments that benefit students.",
+                date: "Historical",
+                description: "Educational insights for engaging learning environments.",
                 url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Make-the-classroom-lively-and-pupil-friendly-330489",
                 type: "article",
                 icon: "📰"
               },
               {
-                title: "St. Louis JHS lacks infrastructural facilities - Headmistress",
+                title: "St. Louis JHS lacks infrastructural facilities",
                 source: "GhanaWeb",
-                date: "Historical Coverage",
-                description: "Honest assessment of infrastructure challenges and the school's commitment to improvement and modernization.",
+                date: "Historical",
+                description: "Infrastructure challenges and improvement commitment.",
                 url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/St-Louis-JHS-lacks-infrastructural-facilities-Headmistress-241061",
                 type: "article",
                 icon: "🏗️"
               },
               {
-                title: "St. Louis Educational Complex - Facebook Feature",
+                title: "St. Louis Educational Complex Feature",
                 source: "Facebook",
-                date: "Social Media Coverage",
-                description: "Community engagement and school activities showcased through social media platforms.",
+                date: "Social Media",
+                description: "Community engagement and school activities showcase.",
                 url: "https://www.facebook.com/watch/?v=4921581154635610",
                 type: "video",
                 icon: "📱"
               },
               {
-                title: "School Activities & Community Engagement",
+                title: "School Activities & Community",
                 source: "YouTube",
-                date: "Video Documentation",
-                description: "Visual documentation of school events, activities, and community involvement initiatives.",
+                date: "Video Doc",
+                description: "School events and community involvement initiatives.",
                 url: "https://www.youtube.com/watch?v=c90tOBl5K6g",
                 type: "video",
                 icon: "🎥"
-              },
-              {
-                title: "Educational Programs & Student Life",
-                source: "YouTube",
-                date: "Video Coverage",
-                description: "Comprehensive look at educational programs, student life, and academic activities at St. Louis JHS.",
-                url: "https://www.youtube.com/watch?v=vMUVyKTTFZA",
-                type: "video",
-                icon: "📚"
               }
             ].map((news, index) => (
               <motion.div
@@ -252,46 +243,47 @@ const AboutPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`${index === 4 ? 'md:col-span-2 max-w-2xl mx-auto' : ''}`}
-                whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                whileHover={{ y: -3, transition: { duration: 0.3 } }}
               >
-                <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                  <div className="p-6 sm:p-8">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center">
-                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center text-lg mr-3 shadow-md">
-                          {news.icon}
+                <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 h-full">
+                  <div className="p-3 sm:p-4 md:p-5">
+                    {/* Compact Header */}
+                    <div className="flex items-center mb-2 sm:mb-3">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg flex items-center justify-center text-sm sm:text-base mr-2 shadow-sm">
+                        {news.icon}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                          <span className="text-xs sm:text-sm font-semibold text-blue-600 truncate">{news.source}</span>
+                          <span className={`px-1 sm:px-2 py-0.5 rounded-full text-xs font-medium ${
+                            news.type === 'video' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'
+                          }`}>
+                            {news.type === 'video' ? '🎥' : '📰'}
+                          </span>
                         </div>
-                        <div>
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="text-sm font-semibold text-blue-600">{news.source}</span>
-                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                              news.type === 'video' ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'
-                            }`}>
-                              {news.type === 'video' ? '🎥 Video' : '📰 Article'}
-                            </span>
-                          </div>
-                          <p className="text-xs text-gray-500">{news.date}</p>
-                        </div>
+                        <p className="text-xs text-gray-500">{news.date}</p>
                       </div>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 leading-tight">
+                    {/* Compact Title */}
+                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 mb-2 sm:mb-3 leading-tight line-clamp-2">
                       {news.title}
                     </h3>
 
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+                    {/* Compact Description */}
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
                       {news.description}
                     </p>
 
+                    {/* Compact Link */}
                     <a
                       href={news.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors duration-200"
+                      className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-xs sm:text-sm transition-colors duration-200"
                     >
                       <span>Read More</span>
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
@@ -299,6 +291,57 @@ const AboutPage: React.FC = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Additional News Item - Full Width */}
+          <div className="mt-4 sm:mt-6 max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ y: -3, transition: { duration: 0.3 } }}
+            >
+              <div className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="p-4 sm:p-5 md:p-6">
+                  <div className="flex items-center mb-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-lg mr-3 shadow-md">
+                      📚
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-sm font-semibold text-purple-600">YouTube</span>
+                        <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">
+                          🎥 Video
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-500">Video Coverage</p>
+                    </div>
+                  </div>
+
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-2 sm:mb-3 leading-tight">
+                    Educational Programs & Student Life
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+                    Comprehensive look at educational programs, student life, and academic activities at St. Louis JHS.
+                  </p>
+
+                  <a
+                    href="https://www.youtube.com/watch?v=vMUVyKTTFZA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-purple-600 hover:text-purple-700 font-semibold text-sm transition-colors duration-200"
+                  >
+                    <span>Watch Video</span>
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
           </div>
         </div>
       </section>
