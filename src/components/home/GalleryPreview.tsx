@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { galleryImages } from '../../data';
 import { X } from 'lucide-react';
+import ShimmerLoader from '../common/ShimmerLoader';
 
 const GalleryPreview: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -52,11 +53,18 @@ const GalleryPreview: React.FC = () => {
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
               whileTap={{ scale: 0.95 }}
             >
+              {/* Shimmer placeholder */}
+              <ShimmerLoader variant="image" className="absolute inset-0" />
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 relative z-10"
                 loading="lazy"
+                onLoad={(e) => {
+                  // Hide shimmer when image loads
+                  const shimmer = e.currentTarget.previousElementSibling;
+                  if (shimmer) shimmer.style.display = 'none';
+                }}
               />
               {/* Mobile-Friendly Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 active:opacity-100 transition-opacity duration-300 flex items-end p-2 sm:p-3">

@@ -63,7 +63,7 @@ const TestimonialsSection: React.FC = () => {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 120, // Very slow like a tortoise - 2 minutes per cycle
+            duration: 60, // Faster for better performance - 1 minute per cycle
             ease: "linear",
             repeatDelay: 0 // Absolutely no delay between loops
           }

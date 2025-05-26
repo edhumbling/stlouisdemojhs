@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ShimmerLoader from '../common/ShimmerLoader';
 
 const Hero: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -125,19 +126,21 @@ const Hero: React.FC = () => {
     };
   }, []);
 
-  // Smart progressive image loading - only cycle through loaded images
+  // Ultra-fast progressive image loading with instant fallback
   useEffect(() => {
     const loadImagesProgressively = async () => {
-      // Load first image immediately
+      // Show hero immediately with fallback background
+      setImagesLoaded(true);
+
+      // Load first image with high priority
       const firstImagePromise = new Promise<void>((resolve) => {
         const img = new Image();
         img.onload = () => {
           setLoadedImageIndices([0]);
-          setImagesLoaded(true); // Hero shows immediately!
           resolve();
         };
         img.onerror = () => {
-          setImagesLoaded(true); // Show hero anyway
+          console.warn('Failed to load first image');
           resolve();
         };
         img.fetchPriority = 'high';
@@ -148,7 +151,7 @@ const Hero: React.FC = () => {
       try {
         await firstImagePromise;
 
-        // Load remaining images progressively and add to slideshow as they load
+        // Load remaining images much faster - reduce stagger time
         images.slice(1).forEach((image, index) => {
           const actualIndex = index + 1;
 
@@ -168,12 +171,11 @@ const Hero: React.FC = () => {
             img.fetchPriority = actualIndex <= 2 ? 'high' : 'low';
             img.loading = actualIndex <= 2 ? 'eager' : 'lazy';
             img.src = image.url;
-          }, actualIndex * 300); // Stagger loading every 300ms
+          }, actualIndex * 100); // Much faster stagger - 100ms instead of 300ms
         });
 
       } catch (error) {
         console.error('Error loading first image:', error);
-        setImagesLoaded(true);
       }
     };
 
@@ -202,26 +204,9 @@ const Hero: React.FC = () => {
         {/* Instant fallback background - shows immediately */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-800 to-green-900 opacity-80"></div>
 
-        {/* Simple loading placeholder - No animations */}
+        {/* Beautiful shimmer loading */}
         {!imagesLoaded && (
-          <div className="absolute inset-0 bg-black flex items-center justify-center">
-            <div className="text-center">
-              <img
-                src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
-                alt="St. Louis Demonstration J.H.S Logo"
-                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-contain mx-auto mb-3 sm:mb-4"
-                loading="lazy"
-              />
-              <h3 className="text-sm sm:text-base md:text-lg font-semibold text-white mb-2 sm:mb-3">
-                St. Louis Demonstration J.H.S
-              </h3>
-              <div className="flex items-center justify-center gap-1">
-                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '1.5s' }}></div>
-                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '1.5s' }}></div>
-                <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.6s', animationDuration: '1.5s' }}></div>
-              </div>
-            </div>
-          </div>
+          <ShimmerLoader variant="hero" />
         )}
 
         {images.map((image, index) => {
