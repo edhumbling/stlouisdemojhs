@@ -6,8 +6,13 @@
  * Run this script daily via cron job or CI/CD pipeline
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Get current date in ISO format
 const getCurrentDate = () => {
@@ -18,7 +23,7 @@ const getCurrentDate = () => {
 const SITE_CONFIG = {
   baseUrl: 'https://stlouisdemojhs.com',
   currentDate: getCurrentDate(),
-  
+
   // Page configurations with priorities and change frequencies
   pages: [
     // Homepage - Highest priority, changes daily
@@ -28,7 +33,7 @@ const SITE_CONFIG = {
       changefreq: 'daily',
       lastmod: getCurrentDate()
     },
-    
+
     // Main Navigation - High priority
     {
       path: '/news',
@@ -60,7 +65,7 @@ const SITE_CONFIG = {
       changefreq: 'weekly',
       lastmod: getCurrentDate()
     },
-    
+
     // School Information - High priority
     {
       path: '/about',
@@ -86,7 +91,7 @@ const SITE_CONFIG = {
       changefreq: 'monthly',
       lastmod: getCurrentDate()
     },
-    
+
     // Academic Programs
     {
       path: '/core-academic',
@@ -118,7 +123,7 @@ const SITE_CONFIG = {
       changefreq: 'monthly',
       lastmod: getCurrentDate()
     },
-    
+
     // Contact & Application Pages
     {
       path: '/contact',
@@ -150,7 +155,7 @@ const SITE_CONFIG = {
       changefreq: 'weekly',
       lastmod: getCurrentDate()
     },
-    
+
     // Support Pages
     {
       path: '/donate',
@@ -313,19 +318,19 @@ Host: ${config.baseUrl.replace('https://', '')}`;
 // Update llms.txt with current date
 const updateLLMsTxt = (config) => {
   const llmsPath = path.join(__dirname, '../public/llms.txt');
-  
+
   if (fs.existsSync(llmsPath)) {
     let content = fs.readFileSync(llmsPath, 'utf8');
-    
+
     // Update the last updated date
     content = content.replace(
       /# Last Updated: .*/,
       `# Last Updated: ${config.currentDate}`
     );
-    
+
     return content;
   }
-  
+
   return null;
 };
 
@@ -333,24 +338,24 @@ const updateLLMsTxt = (config) => {
 const generateSitemapFiles = () => {
   try {
     const publicDir = path.join(__dirname, '../public');
-    
+
     // Ensure public directory exists
     if (!fs.existsSync(publicDir)) {
       fs.mkdirSync(publicDir, { recursive: true });
     }
-    
+
     // Generate sitemap.xml
     const sitemapXML = generateSitemapXML(SITE_CONFIG);
     const sitemapPath = path.join(publicDir, 'sitemap.xml');
     fs.writeFileSync(sitemapPath, sitemapXML, 'utf8');
     console.log(`✅ Generated sitemap.xml with ${SITE_CONFIG.pages.length} URLs`);
-    
+
     // Generate robots.txt
     const robotsTxt = generateRobotsTxt(SITE_CONFIG);
     const robotsPath = path.join(publicDir, 'robots.txt');
     fs.writeFileSync(robotsPath, robotsTxt, 'utf8');
     console.log('✅ Updated robots.txt with current date');
-    
+
     // Update llms.txt
     const llmsContent = updateLLMsTxt(SITE_CONFIG);
     if (llmsContent) {
@@ -358,9 +363,9 @@ const generateSitemapFiles = () => {
       fs.writeFileSync(llmsPath, llmsContent, 'utf8');
       console.log('✅ Updated llms.txt with current date');
     }
-    
+
     console.log(`🎉 All SEO files updated successfully on ${SITE_CONFIG.currentDate}`);
-    
+
   } catch (error) {
     console.error('❌ Error generating sitemap files:', error);
     process.exit(1);
@@ -368,11 +373,11 @@ const generateSitemapFiles = () => {
 };
 
 // Run the script
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   generateSitemapFiles();
 }
 
-module.exports = {
+export {
   generateSitemapFiles,
   SITE_CONFIG
 };
