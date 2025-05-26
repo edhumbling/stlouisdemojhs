@@ -2,14 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, MapPin, Clock, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { BookerEmbed } from "@calcom/atoms";
-
-// Type definitions for Cal.com BookerEmbed
-interface BookingSuccessEvent {
-  bookingId: string;
-  eventTypeSlug: string;
-  date: string;
-}
+import { Cal } from "@calcom/atoms";
 
 const ScheduleVisitPage: React.FC = () => {
   const navigate = useNavigate();
@@ -72,23 +65,14 @@ const ScheduleVisitPage: React.FC = () => {
           </div>
         )}
 
-        <BookerEmbed
-          eventSlug="schedule-visit-to-st.-louis-demonstration-j.h.s"
-          username="stlouisdemojhs"
-          view="month_view"
-          customClassNames={{
-            bookerContainer: "w-full h-full border-0 bg-white",
-          }}
+        <Cal
+          calLink="stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s"
           style={{
             width: "100%",
             height: "100%"
           }}
-          onCreateBookingSuccess={() => {
-            console.log("✅ Booking created successfully!");
-            setIsLoading(false);
-          }}
-          onBookerLayoutReady={() => {
-            setIsLoading(false);
+          config={{
+            layout: "month_view"
           }}
         />
       </div>
