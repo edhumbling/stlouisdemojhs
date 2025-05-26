@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { motion, useInView, useAnimation } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
 const testimonials = [
@@ -48,75 +48,72 @@ const testimonials = [
 ];
 
 const TestimonialsSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(scrollContainerRef);
+  const controls = useAnimation();
 
-  // Dispersed gallery positions for each testimonial
-  const testimonialPositions = [
-    { top: '10%', left: '5%', rotation: -3 },      // Cantona
-    { top: '15%', right: '8%', rotation: 2 },      // Victor
-    { top: '45%', left: '12%', rotation: -1 },     // Esther
-    { top: '25%', left: '35%', rotation: 4 },      // Agyaba
-    { top: '60%', right: '15%', rotation: -2 },    // Naana
-    { top: '35%', right: '35%', rotation: 1 }      // Hilaliman
-  ];
+  // Duplicate testimonials for infinite scroll effect
+  const extendedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start({
+        x: [0, -100 * testimonials.length + '%'],
+        transition: {
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 45, // Smooth continuous scroll
+            ease: "linear",
+            repeatDelay: 0 // No waiting between loops
+          }
+        }
+      });
+    }
+  }, [isInView, controls]);
 
   return (
-    <section className="relative py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden min-h-screen">
+    <section className="relative py-8 md:py-12 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+      {/* Edge Overlays */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10" />
+
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-16"
+          className="max-w-3xl mx-auto text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Voices from Our Community
           </h2>
-          <p className="text-lg text-gray-300">
+          <p className="text-base text-gray-300">
             Discover what makes St. Louis Demonstration Junior High School special through the eyes of our community.
           </p>
         </motion.div>
 
-        {/* Dispersed Gallery Layout */}
-        <div className="relative h-[800px] md:h-[900px]" ref={containerRef}>
-          {testimonials.map((testimonial, index) => {
-            const position = testimonialPositions[index];
-            return (
+        {/* Horizontal Scrolling Testimonials */}
+        <div className="relative overflow-hidden" ref={scrollContainerRef}>
+          <motion.div
+            animate={controls}
+            className="flex gap-4 md:gap-6 px-4"
+            style={{
+              width: `${extendedTestimonials.length * (window.innerWidth >= 1024 ? 350 : window.innerWidth >= 768 ? 300 : 250)}px`,
+              willChange: 'transform'
+            }}
+          >
+            {extendedTestimonials.map((testimonial, index) => (
               <motion.div
-                key={testimonial.id}
-                initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
-                whileInView={{
-                  opacity: 1,
-                  scale: 1,
-                  rotate: position.rotation,
-                  transition: {
-                    duration: 0.6,
-                    delay: index * 0.1,
-                    type: "spring",
-                    stiffness: 100
-                  }
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  rotate: 0,
-                  zIndex: 10,
-                  transition: { duration: 0.3 }
-                }}
-                viewport={{ once: true }}
-                className="absolute w-[280px] md:w-[320px] lg:w-[350px] bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/10 shadow-xl cursor-pointer"
-                style={{
-                  top: position.top,
-                  left: position.left,
-                  right: position.right,
-                  transform: `rotate(${position.rotation}deg)`,
-                }}
+                key={`${testimonial.id}-${index}`}
+                className="w-[250px] md:w-[300px] lg:w-[350px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-5 border border-white/10 shadow-xl"
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
-                <Quote className="text-yellow-400/80 mb-3" size={24} />
-                <p className="text-gray-200 mb-4 text-sm md:text-base line-clamp-3">{testimonial.quote}</p>
+                <Quote className="text-yellow-400/80 mb-3" size={20} />
+                <p className="text-gray-200 mb-4 text-xs md:text-sm line-clamp-4">{testimonial.quote}</p>
                 <div className="flex items-center">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden mr-3 ring-2 ring-yellow-400/30">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden mr-3 ring-2 ring-yellow-400/30">
                     <img
                       src={testimonial.image}
                       alt={testimonial.author}
@@ -124,13 +121,13 @@ const TestimonialsSection: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white text-sm md:text-base">{testimonial.author}</h4>
-                    <p className="text-xs md:text-sm text-gray-400">{testimonial.role}</p>
+                    <h4 className="font-semibold text-white text-xs md:text-sm">{testimonial.author}</h4>
+                    <p className="text-xs text-gray-400">{testimonial.role}</p>
                   </div>
                 </div>
               </motion.div>
-            );
-          })}
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
