@@ -76,7 +76,8 @@ const AlumniPage: React.FC = () => {
       profession: "Clinical Laboratory Scientist | Technologist",
       achievement: "Phage Therapy enthusiast advancing medical laboratory science",
       image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/1741280603621.jpeg?updatedAt=1748301421485",
-      quote: "The scientific foundation I received here sparked my passion for laboratory medicine and innovative healthcare solutions."
+      quote: "The scientific foundation I received here sparked my passion for laboratory medicine and innovative healthcare solutions.",
+      linkedin: "https://www.linkedin.com/in/duahmb/"
     },
     {
       name: "Patricia Amankwaah",
@@ -390,17 +391,28 @@ const AlumniPage: React.FC = () => {
               </div>
             </div>
 
-            <a
-              href="/contact"
-              onClick={() => {
-                navigate('/contact');
-                window.scrollTo({ top: 0, behavior: 'instant' });
-              }}
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-            >
-              <Users className="w-5 h-5 mr-2" />
-              Connect With Us Today
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://whatsapp.com/channel/0029VbBO7RD7IUYZjOnapG3q"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              >
+                <span className="mr-2 text-xl">📱</span>
+                Follow WhatsApp Channel
+              </a>
+              <a
+                href="/contact"
+                onClick={() => {
+                  navigate('/contact');
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                }}
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+              >
+                <Users className="w-5 h-5 mr-2" />
+                Contact Us
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
