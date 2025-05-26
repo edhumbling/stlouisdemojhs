@@ -505,7 +505,7 @@ const AcademicsPage: React.FC = () => {
             {[
               { number: schoolStats.ageFormatted, label: 'Years of Excellence' },
               { number: '11', label: 'Subjects' },
-              { number: schoolStats.totalStudentsFormatted.replace(',', 'K').replace('000+', 'K+'), label: 'Successful Graduates' }
+              { number: schoolStats.totalStudentsFormatted.replace(',000+', 'K+'), label: 'Successful Graduates' }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

@@ -47,40 +47,41 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${getHeaderClasses()}`}
+      className={`fixed top-0 left-0 w-full max-w-full z-50 transition-all duration-500 ease-in-out ${getHeaderClasses()}`}
       style={{
         backdropFilter: 'blur(20px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(20px) saturate(180%)'
+        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+        contain: 'layout style'
       }}
     >
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <NavLink to="/" className="flex items-center space-x-2 sm:space-x-3 flex-1 mr-4">
+      <div className="container mx-auto px-4 py-4 max-w-full overflow-hidden">
+        <div className="flex items-center justify-between min-w-0">
+          <NavLink to="/" className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 flex-1 mr-2 sm:mr-4 min-w-0 overflow-hidden">
             <img
               src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
               alt="St. Louis Demonstration Junior High School"
-              className="h-8 xs:h-10 sm:h-12 w-auto"
+              className="h-8 xs:h-10 sm:h-12 w-auto flex-shrink-0"
             />
-            <div className={`md:hidden flex items-center transition-colors duration-300 text-white`}>
-              <div>
-                <h1 className="text-xs sm:text-sm font-bold leading-tight tracking-tight">St. Louis Demonstration</h1>
-                <p className="text-[10px] sm:text-xs leading-tight tracking-tight">Junior High School</p>
+            <div className={`md:hidden flex items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
+              <div className="min-w-0 overflow-hidden">
+                <h1 className="text-xs sm:text-sm font-bold leading-tight tracking-tight truncate">St. Louis Demonstration</h1>
+                <p className="text-[10px] sm:text-xs leading-tight tracking-tight truncate">Junior High School</p>
               </div>
               <img
                 src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MhQQRoQ5lei2Xoxy0tQ8z7rZTRLfvgpmsuw35"
                 alt="School Badge"
-                className="h-6 w-auto ml-1"
+                className="h-5 sm:h-6 w-auto ml-1 flex-shrink-0"
               />
             </div>
-            <div className={`hidden md:flex items-center transition-colors duration-300 text-white`}>
-              <div>
-                <h1 className="text-lg font-bold leading-tight">St. Louis Demonstration</h1>
-                <p className="text-xs">Junior High School</p>
+            <div className={`hidden md:flex items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
+              <div className="min-w-0 overflow-hidden">
+                <h1 className="text-lg font-bold leading-tight truncate">St. Louis Demonstration</h1>
+                <p className="text-xs truncate">Junior High School</p>
               </div>
               <img
                 src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MhQQRoQ5lei2Xoxy0tQ8z7rZTRLfvgpmsuw35"
                 alt="School Badge"
-                className="h-8 w-auto ml-3"
+                className="h-8 w-auto ml-3 flex-shrink-0"
               />
             </div>
           </NavLink>
@@ -214,17 +215,19 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Navigation - Donate Button and Menu */}
-          <div className="md:hidden flex items-center space-x-4 flex-shrink-0">
-            <DonateButton variant="header" />
+          <div className="md:hidden flex items-center space-x-2 sm:space-x-4 flex-shrink-0 min-w-0">
+            <div className="flex-shrink-0">
+              <DonateButton variant="header" />
+            </div>
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-full hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full hover:bg-white/10 transition-colors flex-shrink-0"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
-                <X size={24} className="text-white" />
+                <X size={20} className="text-white" />
               ) : (
-                <Menu size={24} className="text-white" />
+                <Menu size={20} className="text-white" />
               )}
             </button>
           </div>

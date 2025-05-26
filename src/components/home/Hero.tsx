@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
@@ -197,7 +196,7 @@ const Hero: React.FC = () => {
   }, [loadedImageIndices]);
 
   return (
-    <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden hero-section">
       {/* Background Images with Overlay */}
       <div className="absolute inset-0">
         {/* Instant fallback background - shows immediately */}
@@ -251,14 +250,12 @@ const Hero: React.FC = () => {
                   decoding="async"
                   fetchPriority={index === 0 ? "high" : "low"}
                   style={{
-                    imageRendering: 'optimizeSpeed',
-                    transform: 'translateZ(0) scale(1.01)',
-                    willChange: 'transform, opacity',
+                    transform: 'translateZ(0)',
                     objectPosition: isMobile ? image.mobilePosition : image.desktopPosition,
                     objectFit: 'cover',
                     minHeight: '100%',
                     minWidth: '100%',
-                    transition: 'opacity 0.5s ease-in-out, transform 0.3s ease-out',
+                    transition: 'opacity 0.5s ease-in-out',
                   }}
                 />
               )}
@@ -288,46 +285,42 @@ const Hero: React.FC = () => {
               Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
             </p>
 
-            {/* Deep Color Glowing Buttons - Horizontal on Mobile */}
-            <div className="flex flex-row gap-2 sm:gap-3">
+            {/* Deep Color Glowing Buttons - Responsive Layout */}
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 max-w-full">
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(59,130,246,0.6),0_0_40px_rgba(59,130,246,0.4),0_0_60px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8),0_0_50px_rgba(59,130,246,0.6),0_0_75px_rgba(59,130,246,0.4)] transition-all duration-300 text-xs sm:text-sm relative overflow-hidden"
+                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
-                <span className="relative z-10">Our Story</span>
-                <span className="absolute inset-0 bg-blue-500 opacity-40 animate-pulse rounded-lg"></span>
-                <span className="absolute inset-0 bg-blue-400 opacity-30 animate-ping rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+                <span className="relative z-10 whitespace-nowrap">Our Story</span>
+                <span className="absolute inset-0 bg-blue-500 opacity-30 rounded-lg"></span>
               </Link>
 
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(34,197,94,0.6),0_0_40px_rgba(34,197,94,0.4),0_0_60px_rgba(34,197,94,0.2)] hover:shadow-[0_0_25px_rgba(34,197,94,0.8),0_0_50px_rgba(34,197,94,0.6),0_0_75px_rgba(34,197,94,0.4)] transition-all duration-300 text-xs sm:text-sm relative overflow-hidden"
+                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(34,197,94,0.5)] hover:shadow-[0_0_20px_rgba(34,197,94,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
-                <span className="relative z-10">Visit Us</span>
-                <span className="absolute inset-0 bg-green-500 opacity-40 animate-pulse rounded-lg"></span>
-                <span className="absolute inset-0 bg-green-400 opacity-30 animate-ping rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+                <span className="relative z-10 whitespace-nowrap">Visit Us</span>
+                <span className="absolute inset-0 bg-green-500 opacity-30 rounded-lg"></span>
               </Link>
 
               <Link
                 to="/news"
-                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(147,51,234,0.6),0_0_40px_rgba(147,51,234,0.4),0_0_60px_rgba(147,51,234,0.2)] hover:shadow-[0_0_25px_rgba(147,51,234,0.8),0_0_50px_rgba(147,51,234,0.6),0_0_75px_rgba(147,51,234,0.4)] transition-all duration-300 text-xs sm:text-sm relative overflow-hidden"
+                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
-                <span className="relative z-10">News & Updates</span>
-                <span className="absolute inset-0 bg-purple-500 opacity-40 animate-pulse rounded-lg"></span>
-                <span className="absolute inset-0 bg-purple-400 opacity-30 animate-ping rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+                <span className="relative z-10 whitespace-nowrap">News</span>
+                <span className="absolute inset-0 bg-purple-500 opacity-30 rounded-lg"></span>
               </Link>
 
               <Link
                 to="/donate"
-                className="inline-flex items-center justify-center px-2 py-1 sm:px-4 sm:py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(239,68,68,0.6),0_0_40px_rgba(239,68,68,0.4),0_0_60px_rgba(239,68,68,0.2)] hover:shadow-[0_0_25px_rgba(239,68,68,0.8),0_0_50px_rgba(239,68,68,0.6),0_0_75px_rgba(239,68,68,0.4)] transition-all duration-300 text-xs sm:text-sm relative overflow-hidden"
+                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(239,68,68,0.5)] hover:shadow-[0_0_20px_rgba(239,68,68,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
-                <span className="relative z-10">Donate</span>
-                <span className="absolute inset-0 bg-red-500 opacity-40 animate-pulse rounded-lg"></span>
-                <span className="absolute inset-0 bg-red-400 opacity-30 animate-ping rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+                <span className="relative z-10 whitespace-nowrap">Donate</span>
+                <span className="absolute inset-0 bg-red-500 opacity-30 rounded-lg"></span>
               </Link>
             </div>
           </motion.div>
