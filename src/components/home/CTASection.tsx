@@ -58,6 +58,7 @@ const CTASection: React.FC = () => {
             {/* Schedule a Visit Button - Cute & Glowing */}
             <Link
               to="/schedule-visit"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
               className="group w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-full shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 text-sm sm:text-base transform hover:scale-110 hover:-translate-y-1 relative overflow-hidden"
               style={{
                 boxShadow: '0 0 30px rgba(255, 193, 7, 0.6), 0 0 60px rgba(255, 193, 7, 0.4)',
@@ -74,6 +75,7 @@ const CTASection: React.FC = () => {
             {/* Apply Now Button - Cute & Glowing */}
             <Link
               to="/apply-now"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
               className="group w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 text-sm sm:text-base transform hover:scale-110 hover:-translate-y-1 relative overflow-hidden"
               style={{
                 boxShadow: '0 0 30px rgba(34, 197, 94, 0.6), 0 0 60px rgba(34, 197, 94, 0.4)',

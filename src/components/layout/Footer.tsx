@@ -83,32 +83,56 @@ const Footer: React.FC = () => {
               <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Quick Links</h3>
               <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
                 <li>
-                  <Link to="/about" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                  <Link
+                    to="/about"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="/academics" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                  <Link
+                    to="/academics"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
                     Academic Programs
                   </Link>
                 </li>
                 <li>
-                  <Link to="/faculty" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                  <Link
+                    to="/faculty"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
                     Faculty & Staff
                   </Link>
                 </li>
                 <li>
-                  <Link to="/admissions" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
-                    Admissions
+                  <Link
+                    to="/apply-now"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    Apply Now
                   </Link>
                 </li>
                 <li>
-                  <Link to="/news" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                  <Link
+                    to="/news"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
                     News & Events
                   </Link>
                 </li>
                 <li>
-                  <Link to="/gallery" className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base">
+                  <Link
+                    to="/gallery"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
                     Photo Gallery
                   </Link>
                 </li>

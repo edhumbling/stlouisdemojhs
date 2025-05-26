@@ -187,6 +187,7 @@ const ApplyNowPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/schedule-visit"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-full shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 transform hover:scale-105"
                 style={{
                   boxShadow: '0 0 30px rgba(255, 193, 7, 0.6)',
@@ -196,6 +197,7 @@ const ApplyNowPage: React.FC = () => {
               </Link>
               <Link
                 to="/contact"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105"
                 style={{
                   boxShadow: '0 0 30px rgba(59, 130, 246, 0.6)',
