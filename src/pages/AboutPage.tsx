@@ -200,8 +200,8 @@ const AboutPage: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* News Grid - Apple Style Dark Aero with Actual Thumbnails */}
-          <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto">
+          {/* News Grid - Apple Style Dark Aero with YouTube Embeds & Previews */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-5xl mx-auto">
             {[
               {
                 title: "Make classroom lively & pupil-friendly",
@@ -210,27 +210,17 @@ const AboutPage: React.FC = () => {
                 description: "Educational insights for engaging learning environments.",
                 url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Make-the-classroom-lively-and-pupil-friendly-330489",
                 type: "article",
-                thumbnail: "https://cdn.ghanaweb.com/imagelib/pics/hpnews/202103/1616677889_classroom.jpg",
+                preview: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Make-the-classroom-lively-and-pupil-friendly-330489",
                 brandColor: "from-blue-500 to-blue-600"
               },
               {
-                title: "St. Louis JHS lacks infrastructural facilities",
-                source: "GhanaWeb",
-                date: "Historical",
-                description: "Infrastructure challenges and improvement commitment.",
-                url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/St-Louis-JHS-lacks-infrastructural-facilities-Headmistress-241061",
-                type: "article",
-                thumbnail: "https://cdn.ghanaweb.com/imagelib/pics/hpnews/202008/1598875200_school-building.jpg",
-                brandColor: "from-blue-500 to-blue-600"
-              },
-              {
-                title: "St. Louis Educational Complex",
+                title: "St. Louis Educational Complex - Facebook",
                 source: "Facebook",
                 date: "Social Media",
                 description: "Community engagement and school activities showcase.",
                 url: "https://www.facebook.com/watch/?v=4921581154635610",
                 type: "video",
-                thumbnail: "https://scontent.facc5-2.fna.fbcdn.net/v/t15.5256-10/271234567_4921581154635610_1234567890123456789_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=abc123def456&_nc_ht=scontent.facc5-2.fna&oh=00_AfABC123DEF456&oe=65432109",
+                facebookVideoId: "4921581154635610",
                 brandColor: "from-blue-600 to-blue-700"
               },
               {
@@ -240,7 +230,17 @@ const AboutPage: React.FC = () => {
                 description: "School events and community involvement initiatives.",
                 url: "https://www.youtube.com/watch?v=c90tOBl5K6g",
                 type: "video",
-                thumbnail: "https://img.youtube.com/vi/c90tOBl5K6g/maxresdefault.jpg",
+                videoId: "c90tOBl5K6g",
+                brandColor: "from-red-500 to-red-600"
+              },
+              {
+                title: "Educational Programs & Student Life",
+                source: "YouTube",
+                date: "Featured Video",
+                description: "Comprehensive look at educational programs and student life.",
+                url: "https://www.youtube.com/watch?v=vMUVyKTTFZA",
+                type: "video",
+                videoId: "vMUVyKTTFZA",
                 brandColor: "from-red-500 to-red-600"
               }
             ].map((news, index) => (
@@ -250,64 +250,96 @@ const AboutPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -2, scale: 1.02, transition: { duration: 0.2 } }}
+                whileHover={{ y: -2, scale: 1.01, transition: { duration: 0.2 } }}
               >
                 <div className="glass-dark rounded-xl overflow-hidden shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
-                  {/* Thumbnail Preview */}
-                  <div className="relative h-20 sm:h-24 md:h-28 overflow-hidden">
-                    <img
-                      src={news.thumbnail}
-                      alt={news.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                      onError={(e) => {
-                        // Fallback to gradient background if image fails
-                        e.target.style.display = 'none';
-                        e.target.parentElement.style.background = `linear-gradient(135deg, ${news.brandColor.split(' ')[1]} 0%, ${news.brandColor.split(' ')[3]} 100%)`;
-                      }}
-                    />
-                    {/* Dark overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  {/* Video Embed or Article Preview */}
+                  <div className="relative h-24 sm:h-32 md:h-36 overflow-hidden">
+                    {news.type === 'video' && news.videoId ? (
+                      // YouTube Embed
+                      <iframe
+                        src={`https://www.youtube.com/embed/${news.videoId}?rel=0&modestbranding=1&controls=1`}
+                        title={news.title}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : news.type === 'video' && news.facebookVideoId ? (
+                      // Facebook Video Embed
+                      <iframe
+                        src={`https://www.facebook.com/plugins/video.php?height=200&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D${news.facebookVideoId}&show_text=false&width=400&t=0`}
+                        title={news.title}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    ) : (
+                      // Article Preview with iframe
+                      <div className="relative w-full h-full">
+                        <iframe
+                          src={news.preview}
+                          title={news.title}
+                          className="w-full h-full scale-50 origin-top-left transform"
+                          style={{ width: '200%', height: '200%' }}
+                          frameBorder="0"
+                          sandbox="allow-same-origin"
+                        />
+                        {/* Overlay for interaction */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="bg-blue-500/80 backdrop-blur-sm rounded-full p-3 shadow-xl hover:bg-blue-500/90 transition-colors duration-200">
+                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Source Badge */}
-                    <div className={`absolute top-1 right-1 px-1.5 py-0.5 rounded-md text-xs font-bold shadow-lg backdrop-blur-sm ${
+                    <div className={`absolute top-2 right-2 px-2 py-1 rounded-lg text-xs font-bold shadow-lg backdrop-blur-sm ${
                       news.type === 'video' ? 'bg-red-500/90 text-white' : 'bg-blue-500/90 text-white'
                     }`}>
-                      {news.type === 'video' ? '▶️' : '📰'}
+                      {news.type === 'video' ? '▶️ Video' : '📰 Article'}
                     </div>
 
                     {/* Platform Logo */}
-                    <div className="absolute top-1 left-1 w-5 h-5 sm:w-6 sm:h-6 bg-white/95 backdrop-blur-sm rounded-md flex items-center justify-center text-xs shadow-lg">
+                    <div className="absolute top-2 left-2 w-8 h-8 bg-white/95 backdrop-blur-sm rounded-lg flex items-center justify-center text-base shadow-lg">
                       {news.source === 'YouTube' ? '🎥' : news.source === 'Facebook' ? '📘' : '📰'}
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-2 sm:p-3">
-                    {/* Compact Header */}
-                    <div className="flex items-center justify-between mb-1 sm:mb-2">
-                      <span className="text-xs font-semibold text-blue-300 truncate">{news.source}</span>
+                  <div className="p-3 sm:p-4">
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-semibold text-blue-300 truncate">{news.source}</span>
                       <span className="text-xs text-gray-400">{news.date}</span>
                     </div>
 
-                    {/* Compact Title */}
-                    <h3 className="text-xs sm:text-sm font-bold text-white mb-1 sm:mb-2 leading-tight line-clamp-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                    {/* Title */}
+                    <h3 className="text-sm sm:text-base font-bold text-white mb-2 leading-tight line-clamp-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                       {news.title}
                     </h3>
 
-                    {/* Compact Description - Hidden on very small screens */}
-                    <p className="text-xs text-gray-300 leading-relaxed mb-2 line-clamp-2 hidden sm:block">
+                    {/* Description */}
+                    <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-3 line-clamp-2">
                       {news.description}
                     </p>
 
-                    {/* Compact Link */}
+                    {/* Action Button */}
                     <a
                       href={news.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-xs transition-colors duration-200"
+                      className={`inline-flex items-center font-semibold text-sm transition-colors duration-200 ${
+                        news.type === 'video' ? 'text-red-400 hover:text-red-300' : 'text-blue-400 hover:text-blue-300'
+                      }`}
                     >
-                      <span>{news.type === 'video' ? 'Watch' : 'Read'}</span>
-                      <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <span>{news.type === 'video' ? 'Watch on YouTube' : 'Read Full Article'}</span>
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
@@ -316,98 +348,12 @@ const AboutPage: React.FC = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* Featured News Item - Apple Style Dark Aero */}
-          <div className="mt-3 sm:mt-4 max-w-2xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              whileHover={{ y: -2, scale: 1.01, transition: { duration: 0.2 } }}
-            >
-              <div className="glass-dark rounded-xl overflow-hidden shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300">
-                {/* Featured Thumbnail */}
-                <div className="relative h-24 sm:h-32 md:h-36 overflow-hidden">
-                  <img
-                    src="https://img.youtube.com/vi/vMUVyKTTFZA/maxresdefault.jpg"
-                    alt="Educational Programs & Student Life"
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    onError={(e) => {
-                      // Fallback to gradient background if image fails
-                      e.target.style.display = 'none';
-                      e.target.parentElement.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
-                    }}
-                  />
-                  {/* Dark overlay for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-                  {/* Video Badge */}
-                  <div className="absolute top-2 right-2 px-2 py-1 rounded-lg text-xs font-bold shadow-lg backdrop-blur-sm bg-red-500/90 text-white">
-                    ▶️ Featured Video
-                  </div>
-
-                  {/* YouTube Logo */}
-                  <div className="absolute top-2 left-2 w-8 h-8 bg-white/95 backdrop-blur-sm rounded-lg flex items-center justify-center text-base shadow-lg">
-                    🎥
-                  </div>
-
-                  {/* Play Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-500/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl hover:bg-red-500/90 transition-colors duration-200">
-                      <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-3 sm:p-4">
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-semibold text-red-400">YouTube</span>
-                      <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-red-500/20 text-red-300">
-                        🎥 Video
-                      </span>
-                    </div>
-                    <span className="text-xs text-gray-400">Video Coverage</span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base md:text-lg font-bold text-white mb-2 leading-tight" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                    Educational Programs & Student Life
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-3">
-                    Comprehensive look at educational programs, student life, and academic activities at St. Louis JHS.
-                  </p>
-
-                  {/* Watch Button */}
-                  <a
-                    href="https://www.youtube.com/watch?v=vMUVyKTTFZA"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-red-400 hover:text-red-300 font-semibold text-sm transition-colors duration-200"
-                  >
-                    <span>Watch Video</span>
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-          </div>
         </div>
       </section>
       <SectionDivider position="bottom" />
 
-      {/* Mission, Vision & Values Section - Dark Aero with School Background */}
-      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+      {/* Mission, Vision & Values Section - Compact Dark Aero */}
+      <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
         {/* School Background Image */}
         <div className="absolute inset-0">
           <img
@@ -417,8 +363,8 @@ const AboutPage: React.FC = () => {
           />
         </div>
         {/* Dark Aero Glass Overlay */}
-        <div className="absolute inset-0 bg-black/65 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/35 via-black/45 to-green-900/35"></div>
+        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
 
         <div className="w-full px-4 sm:px-6 relative z-10">
           {/* Section Header */}
@@ -427,23 +373,23 @@ const AboutPage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-12"
+            className="text-center mb-4 sm:mb-6"
           >
-            <div className="flex items-center justify-center mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
-                <Target size={20} className="text-white" />
+            <div className="flex items-center justify-center mb-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <Target size={16} className="text-white" />
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              <h2 className="text-lg sm:text-xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Our Purpose & Values
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-gray-200 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              Guiding principles that shape our educational approach and community culture.
+            <p className="text-sm text-gray-200 max-w-xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Guiding principles that shape our educational approach.
             </p>
           </motion.div>
 
-          {/* Mobile 2-Column, Desktop 3-Column Layout */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          {/* Compact 3-Column Layout */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto">
 
             {/* Mission Card */}
             <motion.div
@@ -451,20 +397,17 @@ const AboutPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="col-span-2 md:col-span-1"
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+              whileHover={{ y: -3, transition: { duration: 0.3 } }}
             >
-              <div className="glass-dark rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300">
-                <div className="text-center mb-4 sm:mb-6">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-2xl sm:text-3xl mx-auto mb-3 sm:mb-4 shadow-lg">
+              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="text-center mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
                     🎯
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Mission</h3>
+                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Mission</h3>
                 </div>
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  To provide quality education through the Ghana Education Service curriculum, developing
-                  critical thinking, creativity, and character while preparing students for BECE success
-                  and lifelong learning in a rapidly changing world.
+                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  Quality education through GES curriculum, developing critical thinking and character for BECE success.
                 </p>
               </div>
             </motion.div>
@@ -475,20 +418,17 @@ const AboutPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="col-span-2 md:col-span-1"
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+              whileHover={{ y: -3, transition: { duration: 0.3 } }}
             >
-              <div className="glass-dark rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300">
-                <div className="text-center mb-4 sm:mb-6">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center text-2xl sm:text-3xl mx-auto mb-3 sm:mb-4 shadow-lg">
+              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="text-center mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-400 to-green-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
                     🌟
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Vision</h3>
+                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Vision</h3>
                 </div>
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  To become a world-class educational institution that produces globally competitive,
-                  morally upright, and innovative leaders who contribute meaningfully to Ghana's
-                  development and the global community.
+                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  World-class institution producing globally competitive, morally upright leaders for Ghana's development.
                 </p>
               </div>
             </motion.div>
@@ -499,30 +439,26 @@ const AboutPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="col-span-2 md:col-span-1"
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+              whileHover={{ y: -3, transition: { duration: 0.3 } }}
             >
-              <div className="glass-dark rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300">
-                <div className="text-center mb-4 sm:mb-6">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center text-2xl sm:text-3xl mx-auto mb-3 sm:mb-4 shadow-lg">
+              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="text-center mb-2 sm:mb-3">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
                     💎
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Core Values</h3>
+                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Core Values</h3>
                 </div>
-                <div className="space-y-2 sm:space-y-3">
+                <div className="space-y-1 sm:space-y-2">
                   {[
-                    { icon: "🤝", value: "Unity", desc: "Building strong community bonds" },
-                    { icon: "🏆", value: "Excellence", desc: "Striving for the highest standards" },
-                    { icon: "⚖️", value: "Integrity", desc: "Maintaining moral uprightness" },
-                    { icon: "🌱", value: "Growth", desc: "Continuous learning and development" },
-                    { icon: "❤️", value: "Service", desc: "Contributing to community and nation" }
+                    { icon: "🤝", value: "Unity" },
+                    { icon: "🏆", value: "Excellence" },
+                    { icon: "⚖️", value: "Integrity" },
+                    { icon: "🌱", value: "Growth" },
+                    { icon: "❤️", value: "Service" }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-2 sm:gap-3">
-                      <span className="text-sm sm:text-base flex-shrink-0">{item.icon}</span>
-                      <div className="min-w-0">
-                        <div className="text-sm font-semibold text-white" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{item.value}</div>
-                        <div className="text-xs sm:text-sm text-gray-300 hidden sm:block">{item.desc}</div>
-                      </div>
+                    <div key={index} className="flex items-center gap-2">
+                      <span className="text-xs sm:text-sm flex-shrink-0">{item.icon}</span>
+                      <div className="text-xs sm:text-sm font-semibold text-white" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{item.value}</div>
                     </div>
                   ))}
                 </div>
@@ -533,19 +469,19 @@ const AboutPage: React.FC = () => {
       </section>
       <SectionDivider position="bottom" />
 
-      {/* Current Facilities & Development Needs Section - Dark Aero with Subtle Background */}
-      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+      {/* Current Facilities & Development Needs Section - Compact Dark Aero */}
+      <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
         {/* Subtle School Background Image */}
         <div className="absolute inset-0">
           <img
             src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC"
             alt="St. Louis Demo JHS Facilities Background"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-20"
           />
         </div>
         {/* Dark Aero Glass Overlay */}
-        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/60 to-green-900/40"></div>
 
         <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
@@ -722,12 +658,21 @@ const AboutPage: React.FC = () => {
       </section>
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Compact Community Impact Section */}
-      <section className="py-6 sm:py-8 md:py-10 bg-gradient-to-br from-blue-600 via-blue-700 to-green-700 text-white relative overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+      {/* Compact Community Impact Section - Dark Aero with Gallery */}
+      <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
+        {/* Gallery Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667"
+            alt="St. Louis Demo JHS Gallery"
+            className="w-full h-full object-cover"
+          />
         </div>
+        {/* Dark Aero Glass Overlay with Blue-Green Gradient */}
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/40 via-blue-700/50 to-green-700/40"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.1),transparent_70%),radial-gradient(ellipse_at_bottom_right,rgba(34,197,94,0.1),transparent_70%)]"></div>
+
         <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -826,10 +771,10 @@ const AboutPage: React.FC = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
               className="inline-flex items-center justify-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6),0_0_40px_rgba(239,68,68,0.4),0_0_60px_rgba(239,68,68,0.2)] hover:shadow-[0_0_25px_rgba(239,68,68,0.8),0_0_50px_rgba(239,68,68,0.6),0_0_75px_rgba(239,68,68,0.4)] transition-all duration-300 transform hover:scale-105 text-sm relative overflow-hidden"
             >
-              <span className="w-4 h-4 mr-2 fill-current relative z-10 text-white">❤️</span>
-              <span className="relative z-10 font-bold text-white">Be Part of Our Story</span>
               <span className="absolute inset-0 bg-red-500 opacity-30 rounded-full"></span>
               <span className="absolute -inset-1 bg-red-500 opacity-20 blur-sm rounded-full"></span>
+              <span className="w-4 h-4 mr-2 fill-current relative z-10 text-white">❤️</span>
+              <span className="relative z-10 font-bold text-white">Be Part of Our Story</span>
             </a>
           </motion.div>
         </div>
