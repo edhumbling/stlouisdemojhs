@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
@@ -21,7 +21,7 @@ const testimonials = [
     id: 3,
     author: "Esther",
     role: "Community Member & Education Expert",
-    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2017.52.49_660e38af.jpg?updatedAt=1748197633607",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2017.52.49_bf3dcd33.jpg?updatedAt=1748197632986",
     quote: "What impresses me most about St. Louis Demo is their holistic approach to education. They don't just teach subjects; they nurture leaders. The school's impact on our community is immeasurable and continues to grow each year."
   },
   {
@@ -61,37 +61,55 @@ const TestimonialsSection: React.FC = () => {
   const extendedFirstRow = [...firstRow, ...firstRow, ...firstRow];
   const extendedSecondRow = [...secondRow, ...secondRow, ...secondRow];
 
-  useEffect(() => {
-    if (isInView) {
-      // First row scrolls from right to left
-      controlsLeft.start({
-        x: [0, -100 * firstRow.length + '%'],
-        transition: {
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 40, // Scroll speed
-            ease: "linear",
-            repeatDelay: 0
-          }
-        }
-      });
+  // State to track if animations are paused
+  const [isPaused, setIsPaused] = useState(false);
 
-      // Second row scrolls from left to right
-      controlsRight.start({
-        x: [-100 * secondRow.length + '%', 0],
-        transition: {
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 40, // Same speed but opposite direction
-            ease: "linear",
-            repeatDelay: 0
-          }
+  const startAnimations = () => {
+    // First row scrolls from right to left
+    controlsLeft.start({
+      x: [0, -100 * firstRow.length + '%'],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 60, // Much slower for readability
+          ease: "linear",
+          repeatDelay: 0
         }
-      });
+      }
+    });
+
+    // Second row scrolls from left to right (synchronized crisscross)
+    controlsRight.start({
+      x: [-100 * secondRow.length + '%', 0],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 60, // Same slow speed for synchronized crisscross
+          ease: "linear",
+          repeatDelay: 0
+        }
+      }
+    });
+  };
+
+  const pauseAnimations = () => {
+    controlsLeft.stop();
+    controlsRight.stop();
+    setIsPaused(true);
+  };
+
+  const resumeAnimations = () => {
+    setIsPaused(false);
+    startAnimations();
+  };
+
+  useEffect(() => {
+    if (isInView && !isPaused) {
+      startAnimations();
     }
-  }, [isInView, controlsLeft, controlsRight]);
+  }, [isInView, isPaused]);
 
   return (
     <section className="relative py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
@@ -115,7 +133,7 @@ const TestimonialsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="relative overflow-hidden space-y-8" ref={scrollContainerRef}>
+        <div className="relative overflow-hidden space-y-2" ref={scrollContainerRef}>
           {/* First Row - Scrolling Right to Left */}
           <div className="relative overflow-hidden">
             <motion.div
@@ -129,8 +147,10 @@ const TestimonialsSection: React.FC = () => {
               {extendedFirstRow.map((testimonial, index) => (
                 <motion.div
                   key={`first-${testimonial.id}-${index}`}
-                  className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl"
+                  className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl cursor-pointer"
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                  onMouseEnter={pauseAnimations}
+                  onMouseLeave={resumeAnimations}
                 >
                   <Quote className="text-yellow-400/80 mb-4" size={32} />
                   <p className="text-gray-200 mb-6 line-clamp-4">{testimonial.quote}</p>
@@ -165,8 +185,10 @@ const TestimonialsSection: React.FC = () => {
               {extendedSecondRow.map((testimonial, index) => (
                 <motion.div
                   key={`second-${testimonial.id}-${index}`}
-                  className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl"
+                  className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl cursor-pointer"
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                  onMouseEnter={pauseAnimations}
+                  onMouseLeave={resumeAnimations}
                 >
                   <Quote className="text-yellow-400/80 mb-4" size={32} />
                   <p className="text-gray-200 mb-6 line-clamp-4">{testimonial.quote}</p>
