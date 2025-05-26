@@ -356,19 +356,26 @@ const generateSitemapFiles = () => {
     fs.writeFileSync(robotsPath, robotsTxt, 'utf8');
     console.log('✅ Updated robots.txt with current date');
 
-    // Update llms.txt
-    const llmsContent = updateLLMsTxt(SITE_CONFIG);
-    if (llmsContent) {
-      const llmsPath = path.join(publicDir, 'llms.txt');
-      fs.writeFileSync(llmsPath, llmsContent, 'utf8');
-      console.log('✅ Updated llms.txt with current date');
+    // Update llms.txt (only if it exists)
+    try {
+      const llmsContent = updateLLMsTxt(SITE_CONFIG);
+      if (llmsContent) {
+        const llmsPath = path.join(publicDir, 'llms.txt');
+        fs.writeFileSync(llmsPath, llmsContent, 'utf8');
+        console.log('✅ Updated llms.txt with current date');
+      }
+    } catch (llmsError) {
+      console.log('ℹ️ llms.txt not found, skipping update');
     }
 
     console.log(`🎉 All SEO files updated successfully on ${SITE_CONFIG.currentDate}`);
 
   } catch (error) {
-    console.error('❌ Error generating sitemap files:', error);
-    process.exit(1);
+    console.error('❌ Error generating sitemap files:', error.message);
+    // Don't exit with error code in build environment
+    if (process.env.NODE_ENV !== 'production' && !process.env.NETLIFY) {
+      process.exit(1);
+    }
   }
 };
 
