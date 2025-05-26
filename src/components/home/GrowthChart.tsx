@@ -125,7 +125,7 @@ const GrowthChart: React.FC = () => {
 
   return (
     <div className="w-full bg-black flex items-center justify-center py-4 sm:py-6 md:py-8 px-2 sm:px-4" ref={chartRef}>
-      <div className="w-full max-w-7xl">
+      <div className="w-full max-w-7xl relative">
         {/* Mobile-Optimized Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -367,52 +367,33 @@ const GrowthChart: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Mobile-Optimized Tooltip */}
+        {/* Minimalistic Tooltip - Contained within section */}
         <AnimatePresence>
           {(hoveredPoint || selectedPoint) && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="fixed top-4 left-2 right-2 sm:absolute sm:top-4 sm:right-4 sm:left-auto sm:max-w-xs bg-gray-800/95 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-gray-700 shadow-xl z-50"
+              exit={{ opacity: 0, scale: 0.8 }}
+              className="absolute top-2 right-2 max-w-[180px] bg-black/90 backdrop-blur-sm rounded-lg p-2 border border-gray-600/50 shadow-lg z-10"
+              style={{ pointerEvents: 'none' }}
             >
               {(hoveredPoint || selectedPoint) && (
-                <div className="space-y-2 sm:space-y-3">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400 flex-shrink-0" />
-                    <h4 className="text-xs sm:text-sm font-semibold text-white">
-                      {(hoveredPoint || selectedPoint)!.year} - {(hoveredPoint || selectedPoint)!.label}
-                    </h4>
-                    {(hoveredPoint || selectedPoint)!.isFuture && (
-                      <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">
-                        Projection
-                      </span>
-                    )}
+                <div className="space-y-1">
+                  <div className="text-xs font-medium text-white">
+                    {(hoveredPoint || selectedPoint)!.year} - {(hoveredPoint || selectedPoint)!.label}
                   </div>
 
-                  <div className="space-y-1 sm:space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-400">Students</span>
-                      <span className="text-xs sm:text-sm font-medium text-blue-400">
-                        {(hoveredPoint || selectedPoint)!.students.toLocaleString()}+
-                      </span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-400">BECE Rate</span>
-                      <span className="text-xs sm:text-sm font-medium text-green-400">
-                        {(hoveredPoint || selectedPoint)!.beceRate.toFixed(1)}%
-                      </span>
-                    </div>
+                  <div className="text-xs text-gray-300 space-y-0.5">
+                    <div>Students: <span className="text-blue-400">{(hoveredPoint || selectedPoint)!.students.toLocaleString()}+</span></div>
+                    <div>BECE: <span className="text-green-400">{(hoveredPoint || selectedPoint)!.beceRate.toFixed(1)}%</span></div>
                   </div>
 
-                  {selectedPoint && (
-                    <button
-                      onClick={() => setSelectedPoint(null)}
-                      className="text-xs text-gray-400 hover:text-gray-300 transition-colors w-full text-center py-1 mt-2 border-t border-gray-700"
-                    >
-                      Tap to close
-                    </button>
+                  {(hoveredPoint || selectedPoint)!.isCurrent && (
+                    <div className="text-xs text-blue-400 font-medium">📍 Current</div>
+                  )}
+
+                  {(hoveredPoint || selectedPoint)!.isFuture && (
+                    <div className="text-xs text-purple-400 font-medium">🔮 Projected</div>
                   )}
                 </div>
               )}

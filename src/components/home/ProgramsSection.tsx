@@ -8,12 +8,13 @@ const ProgramsSection: React.FC = () => {
   const [activeProgram, setActiveProgram] = useState(programs[0].id);
 
   return (
-    <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 relative overflow-hidden">
-      {/* Magical Background Elements - School Colors */}
+    <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-blue-900 via-slate-900 to-green-900 relative overflow-hidden">
+      {/* Enhanced Blue-Green Background Elements - School Colors */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-yellow-500/15 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-green-500/20 rounded-full blur-lg animate-pulse delay-500"></div>
+        <div className="absolute top-10 left-10 w-20 h-20 bg-blue-500/25 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-green-500/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-cyan-500/20 rounded-full blur-lg animate-pulse delay-500"></div>
+        <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-blue-600/15 rounded-full blur-xl animate-pulse delay-700"></div>
       </div>
 
       <div className="container mx-auto px-3 sm:px-4 relative z-10">

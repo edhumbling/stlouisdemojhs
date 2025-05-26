@@ -5,14 +5,14 @@ import { ExternalLink, Calendar, Sparkles } from 'lucide-react';
 
 const NewsEventsSection: React.FC = () => {
   return (
-    <section className="py-8 sm:py-12 md:py-20 bg-black relative overflow-hidden">
-      {/* Apple-style Background Pattern */}
+    <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-blue-900 via-slate-900 to-green-900 relative overflow-hidden">
+      {/* Enhanced Blue-Green Background Pattern */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/50 via-black to-gray-900/30"></div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-30">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-32 right-16 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-green-500/10 rounded-full blur-2xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-slate-900/50 to-green-900/30"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-20">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 right-16 w-40 h-40 bg-green-500/15 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-cyan-500/15 rounded-full blur-2xl"></div>
         </div>
       </div>
 

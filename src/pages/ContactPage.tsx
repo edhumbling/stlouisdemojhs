@@ -12,7 +12,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" style={{ backgroundColor: 'white' }}>
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 mt-16">
         <div className="container mx-auto px-4">

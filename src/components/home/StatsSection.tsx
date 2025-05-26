@@ -95,13 +95,13 @@ const StatsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-4 sm:py-6 md:py-8 lg:py-12 bg-black relative overflow-hidden min-h-screen flex items-center">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+    <section className="py-4 sm:py-6 md:py-8 lg:py-12 bg-gradient-to-br from-blue-900 via-slate-900 to-green-900 relative overflow-hidden min-h-screen flex items-center">
+      {/* Enhanced Blue-Green Background Pattern */}
+      <div className="absolute inset-0 opacity-15">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 25% 25%, #10b981 0%, transparent 50%),
                            radial-gradient(circle at 75% 75%, #3b82f6 0%, transparent 50%),
-                           radial-gradient(circle at 50% 50%, #f59e0b 0%, transparent 50%)`
+                           radial-gradient(circle at 50% 50%, #0891b2 0%, transparent 50%)`
         }}></div>
       </div>
 

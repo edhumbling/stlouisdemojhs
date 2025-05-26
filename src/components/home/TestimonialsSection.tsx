@@ -73,10 +73,10 @@ const TestimonialsSection: React.FC = () => {
   }, [isInView, controls]);
 
   return (
-    <section className="relative py-8 md:py-12 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
-      {/* Edge Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-900 to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-900 to-transparent z-10" />
+    <section className="relative py-8 md:py-12 bg-gradient-to-br from-blue-900 via-slate-900 to-green-900 overflow-hidden">
+      {/* Enhanced Blue-Green Edge Overlays */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-blue-900 to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-green-900 to-transparent z-10" />
 
       <div className="container mx-auto px-4">
         <motion.div
