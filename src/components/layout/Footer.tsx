@@ -150,6 +150,33 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
+                    to="/partner"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    Partner With Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/alumni"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    Alumni Community
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/media"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    Media & Press
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/gallery"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"

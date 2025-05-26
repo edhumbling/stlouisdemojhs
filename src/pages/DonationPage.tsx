@@ -125,6 +125,26 @@ const DonationPage: React.FC = () => {
               Every donation helps us provide better education for our students
             </p>
 
+            {/* Physical Assets Notice */}
+            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/30 max-w-3xl mx-auto mb-4 sm:mb-6">
+              <div className="flex items-center justify-center mb-3">
+                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white mr-2" />
+                <h3 className="text-sm sm:text-base font-bold text-white">Physical Donations Welcome!</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-white/90 mb-3 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                We also warmly receive gifts in the form of physical assets such as books, computers, furniture,
+                and any other educational materials. Your contributions are received gladly and cheerfully with gratitude!
+              </p>
+              <a
+                href="/partner"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className="inline-flex items-center justify-center px-4 py-2 bg-white/30 hover:bg-white/40 text-white font-semibold rounded-lg transition-all duration-300 text-xs sm:text-sm border border-white/40"
+              >
+                <Heart className="w-4 h-4 mr-2" />
+                Partner With Us
+              </a>
+            </div>
+
             {/* Quick Fund Usage - Compact */}
             <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20 max-w-2xl mx-auto">
               <div className="grid grid-cols-3 gap-3 sm:gap-4 text-center">

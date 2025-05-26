@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 import { Menu, X, Heart, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { navLinks, schoolDropdownItems } from '../../data';
+import { navLinks, schoolDropdownItems, contactDropdownItems } from '../../data';
 import DonateButton from '../common/DonateButton';
 
 const Header: React.FC = () => {
@@ -221,6 +221,61 @@ const Header: React.FC = () => {
                     </NavLink>
                   </li>
                 ))}
+
+                {/* Contact Dropdown */}
+                <li className="relative group">
+                  <button className={`
+                    flex items-center font-medium text-sm transition-colors duration-300 hover:text-accent-500
+                    ${isHomePage ? 'text-white' : 'text-white'}
+                  `}>
+                    Contact
+                    <ChevronDown size={16} className="ml-1 transition-transform duration-300 group-hover:rotate-180" />
+                  </button>
+
+                  <AnimatePresence>
+                    {/* Contact Dropdown Menu */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute top-full left-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                    >
+                      <div className="space-y-3">
+                        {contactDropdownItems.map((item, index) => (
+                          <motion.div
+                            key={item.path}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.2, delay: index * 0.05 }}
+                          >
+                            <Link
+                              to={item.path}
+                              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                              className="flex items-center p-3 rounded-xl hover:bg-white/10 transition-all duration-200 group/item"
+                            >
+                              <div className="w-12 h-12 rounded-xl overflow-hidden mr-4 flex-shrink-0">
+                                <img
+                                  src={item.image}
+                                  alt={item.label}
+                                  className="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-300"
+                                />
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-white text-sm group-hover/item:text-accent-300 transition-colors duration-200">
+                                  {item.label}
+                                </h4>
+                                <p className="text-gray-400 text-xs mt-1 leading-relaxed">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                </li>
               </ul>
               <DonateButton variant="header" />
             </div>
@@ -246,18 +301,18 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation - Dark Glass Transparent with Two Columns */}
+      {/* Mobile Navigation - Compact Dark Glass */}
       {isMenuOpen && (
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-black/80 backdrop-blur-lg border-t border-white/10"
+          className="md:hidden bg-black/85 backdrop-blur-lg border-t border-white/10 max-h-[80vh] overflow-y-auto"
         >
-          <div className="p-4">
+          <div className="p-3">
             {/* Home Link - Mobile */}
-            <div className="mb-4">
+            <div className="mb-3">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -270,7 +325,7 @@ const Header: React.FC = () => {
                     window.scrollTo({ top: 0, behavior: 'instant' });
                   }}
                   className={({ isActive }) => `
-                    block py-3 px-4 font-medium rounded-xl text-center text-base relative transition-all duration-200
+                    block py-2 px-3 font-medium rounded-lg text-center text-sm relative transition-all duration-200
                     ${isActive
                       ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-400/30'
                       : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
@@ -282,10 +337,10 @@ const Header: React.FC = () => {
               </motion.div>
             </div>
 
-            {/* School Section - Mobile */}
-            <div className="mb-4">
-              <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-2 px-2">School</h3>
-              <div className="grid grid-cols-1 gap-2 mb-4">
+            {/* School Section - Mobile (No Arrows) */}
+            <div className="mb-3">
+              <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-2 px-1">School</h3>
+              <div className="grid grid-cols-2 gap-1.5">
                 {schoolDropdownItems.map((item, index) => (
                   <motion.div
                     key={item.path}
@@ -299,27 +354,24 @@ const Header: React.FC = () => {
                         setIsMenuOpen(false);
                         window.scrollTo({ top: 0, behavior: 'instant' });
                       }}
-                      className="flex items-center p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-200 border border-white/20"
+                      className="flex flex-col items-center p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
                     >
-                      <div className="w-10 h-10 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                      <div className="w-8 h-8 rounded-lg overflow-hidden mb-1 flex-shrink-0">
                         <img
                           src={item.image}
                           alt={item.label}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="flex-1">
-                        <h4 className="font-medium text-white text-sm">{item.label}</h4>
-                        <p className="text-white/70 text-xs mt-0.5 leading-tight">{item.description}</p>
-                      </div>
+                      <h4 className="font-medium text-white text-xs text-center leading-tight">{item.label}</h4>
                     </Link>
                   </motion.div>
                 ))}
               </div>
             </div>
 
-            {/* Other Menu Items - Two Column Grid */}
-            <div className="grid grid-cols-2 gap-2 mb-4">
+            {/* Other Menu Items - Compact Grid */}
+            <div className="grid grid-cols-2 gap-1.5 mb-3">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
@@ -334,7 +386,7 @@ const Header: React.FC = () => {
                       window.scrollTo({ top: 0, behavior: 'instant' });
                     }}
                     className={({ isActive }) => `
-                      block py-3 px-3 font-medium rounded-xl text-center text-sm relative transition-all duration-200
+                      block py-2 px-2 font-medium rounded-lg text-center text-xs relative transition-all duration-200
                       ${isActive
                         ? 'bg-white/20 text-white border border-white/30'
                         : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
@@ -344,21 +396,60 @@ const Header: React.FC = () => {
                     {link.label}
                     {/* Red Buzzing Notification Dot for News & Events - Mobile */}
                     {link.label === 'News & Events' && (
-                      <span className="absolute top-1 right-1 flex h-2 w-2">
+                      <span className="absolute top-0.5 right-0.5 flex h-1.5 w-1.5">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600 shadow-[0_0_8px_rgba(239,68,68,0.8)] animate-pulse"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-600 shadow-[0_0_6px_rgba(239,68,68,0.8)] animate-pulse"></span>
                       </span>
                     )}
                     {/* AI Sparkle Indicator for AI Search - Mobile */}
                     {link.label === 'AI Search' && (
-                      <span className="absolute top-1 right-1 flex h-2 w-2">
+                      <span className="absolute top-0.5 right-0.5 flex h-1.5 w-1.5">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-gradient-to-r from-purple-600 to-pink-600 shadow-[0_0_8px_rgba(147,51,234,0.8)] animate-pulse"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gradient-to-r from-purple-600 to-pink-600 shadow-[0_0_6px_rgba(147,51,234,0.8)] animate-pulse"></span>
                       </span>
                     )}
                   </NavLink>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Contact Section - Mobile (With Arrows) */}
+            <div className="mb-3">
+              <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-2 px-1 flex items-center">
+                Contact
+                <ChevronDown size={12} className="ml-1 text-white/50" />
+              </h3>
+              <div className="grid grid-cols-2 gap-1.5">
+                {contactDropdownItems.map((item, index) => (
+                  <motion.div
+                    key={item.path}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2, delay: (index + schoolDropdownItems.length + navLinks.length) * 0.05 }}
+                  >
+                    <Link
+                      to={item.path}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        window.scrollTo({ top: 0, behavior: 'instant' });
+                      }}
+                      className="flex items-center justify-between p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
+                    >
+                      <div className="flex items-center flex-1 min-w-0">
+                        <div className="w-6 h-6 rounded-md overflow-hidden mr-2 flex-shrink-0">
+                          <img
+                            src={item.image}
+                            alt={item.label}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <h4 className="font-medium text-white text-xs truncate">{item.label}</h4>
+                      </div>
+                      <ChevronDown size={10} className="text-white/50 transform -rotate-90 flex-shrink-0 ml-1" />
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
             {/* Donate Button - Simplified for Mobile */}

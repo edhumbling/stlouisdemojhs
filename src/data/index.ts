@@ -6,7 +6,6 @@ export const navLinks: NavLink[] = [
   { label: 'LearnHub', path: '/learnhub' },
   { label: 'AI Search', path: '/ai-search' },
   { label: 'Gallery', path: '/gallery' },
-  { label: 'Contact', path: '/contact' },
 ];
 
 // School dropdown menu items
@@ -28,6 +27,40 @@ export const schoolDropdownItems: DropdownItem[] = [
     path: '/faculty',
     description: 'Meet our dedicated faculty and administrative staff',
     image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-22%20at%2020.45.32_fdbdf1e5.png?updatedAt=1748195389676'
+  },
+  {
+    label: 'Alumni Community',
+    path: '/alumni',
+    description: 'Connect with our 30,000+ graduates and success stories',
+    image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  }
+];
+
+// Contact dropdown menu items
+export const contactDropdownItems: DropdownItem[] = [
+  {
+    label: 'Contact Us',
+    path: '/contact',
+    description: 'Get in touch with our school administration',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?updatedAt=1748101842702'
+  },
+  {
+    label: 'Partner With Us',
+    path: '/partner',
+    description: 'Collaborate with us through donations and partnerships',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667'
+  },
+  {
+    label: 'Apply Now',
+    path: '/apply-now',
+    description: 'Submit your application to join our school',
+    image: 'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
+    label: 'Media & Press',
+    path: '/media',
+    description: 'Press releases, media kit, and news coverage',
+    image: 'https://images.pexels.com/photos/3153198/pexels-photo-3153198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   }
 ];
 

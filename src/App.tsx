@@ -16,6 +16,9 @@ import AdviceSpeechesPage from './pages/AdviceSpeechesPage';
 import GalleryPage from './pages/GalleryPage';
 import ApplyNowPage from './pages/ApplyNowPage';
 import ScheduleVisitPage from './pages/ScheduleVisitPage';
+import PartnerPage from './pages/PartnerPage';
+import AlumniPage from './pages/AlumniPage';
+import MediaPage from './pages/MediaPage';
 import CharacterEducationPage from './pages/CharacterEducationPage';
 import STEMEducationPage from './pages/STEMEducationPage';
 import CreativeArtsPage from './pages/CreativeArtsPage';
@@ -56,6 +59,9 @@ const App: React.FC = () => {
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="apply-now" element={<ApplyNowPage />} />
           <Route path="schedule-visit" element={<ScheduleVisitPage />} />
+          <Route path="partner" element={<PartnerPage />} />
+          <Route path="alumni" element={<AlumniPage />} />
+          <Route path="media" element={<MediaPage />} />
           <Route path="donate" element={<DonationPage />} />
 
           {/* Academic Area Pages */}
