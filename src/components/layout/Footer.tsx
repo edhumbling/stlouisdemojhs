@@ -111,6 +111,15 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
+                    to="/gallery"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    Gallery
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/alumni"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
@@ -134,15 +143,7 @@ const Footer: React.FC = () => {
                     Core Academic
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/stem-education"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
-                  >
-                    STEM Education
-                  </Link>
-                </li>
+
                 <li>
                   <Link
                     to="/language-communication"
@@ -170,15 +171,7 @@ const Footer: React.FC = () => {
                     Character Ed.
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/learnhub"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
-                  >
-                    LearnHub
-                  </Link>
-                </li>
+
               </ul>
             </div>
 
@@ -206,20 +199,20 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
-                    to="/gallery"
+                    to="/stem-education"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
-                    Gallery
+                    STEM Education
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/media"
+                    to="/learnhub"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
-                    Media & Press
+                    LearnHub
                   </Link>
                 </li>
               </ul>
@@ -254,6 +247,15 @@ const Footer: React.FC = () => {
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     Schedule Visit
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/media"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    Media & Press
                   </Link>
                 </li>
                 <li>

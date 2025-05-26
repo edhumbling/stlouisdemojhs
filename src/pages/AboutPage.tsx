@@ -652,11 +652,12 @@ const AboutPage: React.FC = () => {
               >
                 <div className="glass-dark rounded-2xl overflow-hidden shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300">
                   <div className="relative h-32 sm:h-40 overflow-hidden">
-                    <OptimizedImage
+                    <img
                       src={`${facility.image}&tr=w-400,h-300,q-80`}
                       alt={facility.title}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                      shimmerClassName="w-full h-32 sm:h-40"
+                      loading="lazy"
+                      decoding="async"
                     />
                     {/* Dark Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
