@@ -76,18 +76,17 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Middle Row - Quick Links and Contact */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10">
-            {/* Quick Links */}
+          {/* Middle Row - Organized Categories */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 relative z-10">
+            {/* School */}
             <div>
-              <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Quick Links</h3>
-              <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
-                {/* School Section */}
+              <h4 className="text-white font-semibold mb-3 text-sm">School</h4>
+              <ul className="space-y-2">
                 <li>
                   <Link
                     to="/about"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     About
                   </Link>
@@ -96,7 +95,7 @@ const Footer: React.FC = () => {
                   <Link
                     to="/academics"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     Academics
                   </Link>
@@ -105,27 +104,32 @@ const Footer: React.FC = () => {
                   <Link
                     to="/faculty"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     Administration
                   </Link>
                 </li>
-
-                {/* Main Navigation */}
                 <li>
                   <Link
-                    to="/news"
+                    to="/alumni"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
-                    News & Events
+                    Alumni
                   </Link>
                 </li>
+              </ul>
+            </div>
+
+            {/* Programs */}
+            <div>
+              <h4 className="text-white font-semibold mb-3 text-sm">Programs</h4>
+              <ul className="space-y-2">
                 <li>
                   <Link
                     to="/stem"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     STEM
                   </Link>
@@ -134,108 +138,134 @@ const Footer: React.FC = () => {
                   <Link
                     to="/learnhub"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     LearnHub
                   </Link>
                 </li>
                 <li>
                   <Link
+                    to="/creative-arts"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    Creative Arts
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/character-education"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    Character Ed.
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h4 className="text-white font-semibold mb-3 text-sm">Resources</h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    to="/news"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    News & Events
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/ai-search"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     AI Search
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/partner"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
-                  >
-                    Partner With Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/alumni"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
-                  >
-                    Alumni Community
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/media"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
-                  >
-                    Media & Press
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to="/gallery"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     Gallery
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/contact"
+                    to="/media"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
-                    Contact
+                    Media & Press
                   </Link>
                 </li>
+              </ul>
+            </div>
 
-                {/* Action Pages */}
+            {/* Connect */}
+            <div>
+              <h4 className="text-white font-semibold mb-3 text-sm">Connect</h4>
+              <ul className="space-y-2">
                 <li>
                   <Link
-                    to="/schedule-visit"
+                    to="/contact"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
-                    Schedule Visit
+                    Contact Us
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/apply-now"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     Apply Now
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/schedule-visit"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    Schedule Visit
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/partner"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    Partner With Us
+                  </Link>
+                </li>
               </ul>
             </div>
+          </div>
 
-            {/* Contact */}
-            <div>
-              <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Contact Us</h3>
-              <ul className="space-y-2 sm:space-y-3">
-                <li className="flex items-start">
-                  <MapPin size={16} className="mr-2 sm:mr-3 mt-1 flex-shrink-0 text-white/60 sm:w-5 sm:h-5" />
-                  <span className="text-sm sm:text-base">P.O. Box 3041, Kumasi, Ashanti Region, Ghana</span>
-                </li>
-                <li className="flex items-start">
-                  <Phone size={16} className="mr-2 sm:mr-3 mt-1 flex-shrink-0 text-white/60 sm:w-5 sm:h-5" />
-                  <div className="text-sm sm:text-base">
-                    <div>📱 0244758575</div>
-                    <div>📱 0244730726</div>
-                  </div>
-                </li>
-                <li className="flex items-center">
-                  <Mail size={16} className="mr-2 sm:mr-3 flex-shrink-0 text-white/60 sm:w-5 sm:h-5" />
-                  <span className="text-sm sm:text-base">support@stlouisdemojhs.com</span>
-                </li>
-              </ul>
+          {/* Contact Info Bar - Mobile Optimized */}
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-3 sm:p-4 mt-6 border border-white/10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-center sm:text-left">
+              <div className="flex items-center justify-center sm:justify-start space-x-2">
+                <MapPin size={14} className="text-gray-400 flex-shrink-0" />
+                <span className="text-gray-400 text-xs">P.O. Box 3041, Kumasi</span>
+              </div>
+              <div className="flex items-center justify-center sm:justify-start space-x-2">
+                <Phone size={14} className="text-gray-400 flex-shrink-0" />
+                <span className="text-gray-400 text-xs">📱 0244758575</span>
+              </div>
+              <div className="flex items-center justify-center sm:justify-start space-x-2">
+                <Mail size={14} className="text-gray-400 flex-shrink-0" />
+                <span className="text-gray-400 text-xs">support@stlouisdemojhs.com</span>
+              </div>
             </div>
           </div>
 
