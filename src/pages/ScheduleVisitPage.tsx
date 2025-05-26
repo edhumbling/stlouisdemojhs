@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, MapPin, Clock, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import Cal, { getCalApi } from "@calcom/embed-react";
 
 const ScheduleVisitPage: React.FC = () => {
   const navigate = useNavigate();
@@ -10,7 +11,19 @@ const ScheduleVisitPage: React.FC = () => {
     navigate(-1); // Go back to previous page
   };
 
-  // No useEffect needed - we're embedding directly with iframe
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({"namespace":"schedule-visit-to-st.-louis-demonstration-j.h.s"});
+      cal("ui", {
+        "cssVarsPerTheme": {
+          "light": {"cal-brand": "#2b8709"},
+          "dark": {"cal-brand": "#eae700"}
+        },
+        "hideEventTypeDetails": false,
+        "layout": "month_view"
+      });
+    })();
+  }, []);
 
   return (
     <div className="min-h-screen bg-black pt-16">
@@ -75,32 +88,26 @@ const ScheduleVisitPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Full-Width Calendar Container - Now takes full remaining space */}
+        {/* Full-Width Calendar Container - Cal.com React Component */}
         <div className="h-[calc(100%-60px)] w-full">
-          <iframe
-            src="https://cal.com/stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s?overlayCalendar=true"
-            width="100%"
-            height="100%"
-            frameBorder="0"
+          <Cal
+            namespace="schedule-visit-to-st.-louis-demonstration-j.h.s"
+            calLink="stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s"
             style={{
-              border: 'none',
-              borderRadius: '0',
-              minHeight: '600px'
+              width: "100%",
+              height: "100%",
+              overflow: "scroll",
+              border: "none",
+              borderRadius: "0"
             }}
-            title="Schedule Your Visit - St. Louis Demonstration JHS"
-            allow="camera; microphone; geolocation; display-capture"
+            config={{
+              "layout": "month_view"
+            }}
           />
         </div>
       </div>
     </div>
   );
 };
-
-// Extend Window interface for TypeScript
-declare global {
-  interface Window {
-    Cal: any;
-  }
-}
 
 export default ScheduleVisitPage;
