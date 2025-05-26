@@ -56,34 +56,35 @@ const AlumniPage: React.FC = () => {
   const alumniStats = [
     { icon: <GraduationCap className="w-8 h-8" />, number: "30,000+", label: "Graduates", color: "from-blue-500 to-cyan-500" },
     { icon: <span className="text-2xl">📅</span>, number: "47+", label: "Years of Excellence", color: "from-green-500 to-emerald-500" },
-    { icon: <Users className="w-8 h-8" />, number: "500+", label: "Active Alumni", color: "from-purple-500 to-pink-500" },
+    { icon: <Users className="w-8 h-8" />, number: "10,000+", label: "Active Alumni", color: "from-purple-500 to-pink-500" },
     { icon: <Award className="w-8 h-8" />, number: "100+", label: "Success Stories", color: "from-orange-500 to-red-500" }
   ];
 
   const featuredAlumni = [
     {
-      name: "Dr. Kwame Asante",
-      class: "Class of 1995",
-      profession: "Medical Doctor & Surgeon",
-      achievement: "Leading cardiovascular surgeon at Korle-Bu Teaching Hospital",
-      image: "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      quote: "St. Louis Demo JHS gave me the foundation for academic excellence and moral values that shaped my career."
+      name: "Emmanuel H. Dwamena",
+      class: "Class of 2012",
+      profession: "Founder of AIDEL",
+      achievement: "Tech entrepreneur and innovator in educational technology",
+      image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/1718218562009.jpeg?updatedAt=1748301421227",
+      quote: "St. Louis Demo JHS instilled in me the entrepreneurial spirit and problem-solving mindset that led to founding AIDEL.",
+      linkedin: "https://www.linkedin.com/in/edhumbling/"
     },
     {
-      name: "Akosua Mensah",
-      class: "Class of 2000",
-      profession: "Software Engineer & Tech Entrepreneur",
-      achievement: "Founder of successful fintech startup in Accra",
-      image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      quote: "The critical thinking skills I developed here helped me innovate in the tech industry."
+      name: "Michael Boateng Duah, MS, MLS(ASCPi)CM",
+      class: "Class of 2012",
+      profession: "Clinical Laboratory Scientist | Technologist",
+      achievement: "Phage Therapy enthusiast advancing medical laboratory science",
+      image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/1741280603621.jpeg?updatedAt=1748301421485",
+      quote: "The scientific foundation I received here sparked my passion for laboratory medicine and innovative healthcare solutions."
     },
     {
-      name: "Emmanuel Osei",
-      class: "Class of 1988",
-      profession: "Educational Administrator",
-      achievement: "Director of Education, Ashanti Region",
-      image: "https://images.pexels.com/photos/8422419/pexels-photo-8422419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      quote: "I'm proud to give back to education, inspired by the excellent teachers who mentored me."
+      name: "Patricia Amankwaah",
+      class: "Class of 2012",
+      profession: "Registered Nurse",
+      achievement: "Dedicated healthcare professional serving the community",
+      image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/124517551_835272210621815_5398303524100255322_n.jpg?updatedAt=1748301421385",
+      quote: "The values of compassion and service I learned here guide my nursing practice every day."
     }
   ];
 
@@ -263,9 +264,22 @@ const AlumniPage: React.FC = () => {
                 <p className="text-blue-400 font-semibold mb-2 text-center">{alumni.class}</p>
                 <p className="text-gray-300 font-medium mb-3 text-center">{alumni.profession}</p>
                 <p className="text-gray-400 text-sm mb-4 text-center">{alumni.achievement}</p>
-                <blockquote className="text-gray-300 text-sm italic text-center border-l-4 border-blue-500 pl-4">
+                <blockquote className="text-gray-300 text-sm italic text-center border-l-4 border-blue-500 pl-4 mb-4">
                   "{alumni.quote}"
                 </blockquote>
+                {alumni.linkedin && (
+                  <div className="text-center">
+                    <a
+                      href={alumni.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-full transition-all duration-300 transform hover:scale-105"
+                    >
+                      <span className="mr-2">💼</span>
+                      LinkedIn Profile
+                    </a>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -364,13 +378,14 @@ const AlumniPage: React.FC = () => {
               <div className="text-center p-6 glass-card rounded-2xl border border-white/20">
                 <span className="text-3xl block mb-4">📧</span>
                 <h3 className="text-lg font-bold text-white mb-2">Email Us</h3>
-                <p className="text-gray-300 mb-4">contact@stlouisdemojhs.com</p>
+                <p className="text-gray-300 mb-4">alumni@stlouisdemojhs.com</p>
                 <p className="text-sm text-gray-400">Send us your updated contact information</p>
               </div>
               <div className="text-center p-6 glass-card rounded-2xl border border-white/20">
                 <span className="text-3xl block mb-4">📞</span>
-                <h3 className="text-lg font-bold text-white mb-2">Call Us</h3>
-                <p className="text-gray-300 mb-4">+233 XX XXX XXXX</p>
+                <h3 className="text-lg font-bold text-white mb-2">Alumni Coordinator</h3>
+                <p className="text-gray-300 mb-2 font-semibold">Emmanuel Hubling Dwamena</p>
+                <p className="text-gray-300 mb-4">+233 20 870 5290</p>
                 <p className="text-sm text-gray-400">Speak with our alumni coordinator</p>
               </div>
             </div>
