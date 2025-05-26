@@ -2,7 +2,6 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import { Helmet } from 'react-helmet-async';
 
 const Layout: React.FC = () => {
   const location = useLocation();
@@ -103,47 +102,6 @@ const Layout: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      <Helmet>
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(websiteSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-
-        {/* Meta tags for better SEO */}
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="bingbot" content="index, follow" />
-        <meta name="yandex" content="index, follow" />
-
-        {/* Open Graph for social sharing */}
-        <meta property="og:site_name" content="St. Louis Demonstration JHS" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en_US" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@stlouisdemojhs" />
-
-        {/* Additional meta tags */}
-        <meta name="author" content="St. Louis Demonstration JHS" />
-        <meta name="publisher" content="St. Louis Demonstration JHS" />
-        <meta name="copyright" content="© 2025 St. Louis Demonstration JHS" />
-        <meta name="language" content="English" />
-        <meta name="revisit-after" content="7 days" />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href={`https://stlouisdemojhs.com${location.pathname}`} />
-
-        {/* Sitemap */}
-        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-      </Helmet>
-
       <Header />
       <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
         <Outlet />

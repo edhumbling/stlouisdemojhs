@@ -39,9 +39,20 @@ const ScheduleVisitPage: React.FC = () => {
         </div>
       </div>
 
-      {/* White Content Area */}
-      <div className="w-full bg-white" style={{ height: 'calc(100vh - 120px)' }}>
-        {/* Empty white space - ready for future content */}
+      {/* Cal.com Iframe */}
+      <div className="w-full" style={{ height: 'calc(100vh - 120px)' }}>
+        <iframe
+          src="https://cal.com/stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s"
+          width="100%"
+          height="100%"
+          style={{
+            border: "none",
+            width: "100%",
+            height: "100%"
+          }}
+          title="Schedule Your Visit to St. Louis Demonstration JHS"
+          loading="lazy"
+        />
       </div>
     </div>
   );
