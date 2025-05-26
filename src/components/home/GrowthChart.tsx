@@ -124,14 +124,14 @@ const GrowthChart: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-black flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8" ref={chartRef}>
+    <div className="w-full bg-black flex items-center justify-center py-4 sm:py-6 md:py-8 px-2 sm:px-4" ref={chartRef}>
       <div className="w-full max-w-7xl">
         {/* Mobile-Optimized Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-4 sm:mb-6 md:mb-8 px-2"
+          className="text-center mb-3 sm:mb-4 md:mb-6 px-2"
         >
           <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-1 sm:mb-2"
               style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif' }}>
@@ -349,7 +349,7 @@ const GrowthChart: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex justify-center mt-3 sm:mt-4 md:mt-6 px-2"
+          className="flex justify-center mt-2 sm:mt-3 md:mt-4 px-2"
         >
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 md:gap-8 bg-gray-800/50 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-6 py-2 sm:py-3 border border-gray-700">
             <div className="flex items-center gap-2">

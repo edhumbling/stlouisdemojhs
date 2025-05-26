@@ -82,13 +82,14 @@ const Footer: React.FC = () => {
             <div>
               <h3 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Quick Links</h3>
               <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                {/* School Section */}
                 <li>
                   <Link
                     to="/about"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
                   >
-                    About Us
+                    About
                   </Link>
                 </li>
                 <li>
@@ -97,7 +98,7 @@ const Footer: React.FC = () => {
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
                   >
-                    Academic Programs
+                    Academics
                   </Link>
                 </li>
                 <li>
@@ -106,18 +107,11 @@ const Footer: React.FC = () => {
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
                   >
-                    Faculty & Staff
+                    Administration
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/apply-now"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
-                  >
-                    Apply Now
-                  </Link>
-                </li>
+
+                {/* Main Navigation */}
                 <li>
                   <Link
                     to="/news"
@@ -129,11 +123,67 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
+                    to="/stem"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    STEM
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/learnhub"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    LearnHub
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/ai-search"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    AI Search
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/gallery"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
                   >
-                    Photo Gallery
+                    Gallery
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    Contact
+                  </Link>
+                </li>
+
+                {/* Action Pages */}
+                <li>
+                  <Link
+                    to="/schedule-visit"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    Schedule Visit
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/apply-now"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  >
+                    Apply Now
                   </Link>
                 </li>
               </ul>

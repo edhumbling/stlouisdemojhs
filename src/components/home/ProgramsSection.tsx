@@ -104,11 +104,34 @@ const ProgramsSection: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-1">
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-primary-800 mb-6">Academic Areas</h3>
-              <ul className="space-y-2">
+        {/* Horizontal Layout for Both Mobile and Desktop */}
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+          {/* Navigation Buttons - Horizontal on Mobile, Vertical on Desktop */}
+          <div className="lg:w-80 flex-shrink-0">
+            <div className="bg-gray-50 rounded-lg p-4 lg:p-6">
+              <h3 className="text-lg lg:text-xl font-semibold text-primary-800 mb-4 lg:mb-6">Academic Areas</h3>
+
+              {/* Mobile: Horizontal Scrollable Buttons */}
+              <div className="lg:hidden">
+                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                  {programs.map((program) => (
+                    <button
+                      key={program.id}
+                      onClick={() => setActiveProgram(program.id)}
+                      className={`flex-shrink-0 px-3 py-2 rounded-lg transition-colors duration-300 text-sm font-medium whitespace-nowrap ${
+                        activeProgram === program.id
+                          ? 'bg-primary-600 text-white'
+                          : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                      }`}
+                    >
+                      {program.title}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Desktop: Vertical List */}
+              <ul className="hidden lg:block space-y-2">
                 {programs.map((program) => (
                   <li key={program.id}>
                     <button
@@ -130,10 +153,11 @@ const ProgramsSection: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 text-center">
+
+              <div className="mt-4 lg:mt-8 text-center">
                 <Link
                   to="/academics"
-                  className="inline-flex items-center justify-center px-5 py-2 bg-primary-600 text-white font-medium rounded-full shadow-md hover:bg-primary-700 transition-colors duration-300 text-sm"
+                  className="inline-flex items-center justify-center px-4 lg:px-5 py-2 bg-primary-600 text-white font-medium rounded-full shadow-md hover:bg-primary-700 transition-colors duration-300 text-sm"
                 >
                   View All Programs
                 </Link>
@@ -141,36 +165,38 @@ const ProgramsSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="md:col-span-2">
+          {/* Content Area - Always Horizontal */}
+          <div className="flex-1">
             {programs.map((program) => (
               <motion.div
                 key={program.id}
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 0, x: 20 }}
                 animate={{
                   opacity: activeProgram === program.id ? 1 : 0,
+                  x: activeProgram === program.id ? 0 : 20,
                   display: activeProgram === program.id ? 'block' : 'none'
                 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="bg-white rounded-lg overflow-hidden shadow-md h-full"
               >
-                <div className="relative h-64">
+                <div className="relative h-48 lg:h-64">
                   <img
                     src={program.image}
                     alt={program.title}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                    <h3 className="text-2xl font-bold text-white p-6">{program.title}</h3>
+                    <h3 className="text-xl lg:text-2xl font-bold text-white p-4 lg:p-6">{program.title}</h3>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-700 mb-6">{program.description}</p>
+                <div className="p-4 lg:p-6">
+                  <p className="text-gray-700 mb-4 lg:mb-6 text-sm lg:text-base">{program.description}</p>
                   <Link
                     to="/academics"
-                    className="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium"
+                    className="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium text-sm lg:text-base"
                   >
                     Learn more
-                    <ChevronRight size={18} className="ml-1" />
+                    <ChevronRight size={16} className="ml-1 lg:w-5 lg:h-5" />
                   </Link>
                 </div>
               </motion.div>

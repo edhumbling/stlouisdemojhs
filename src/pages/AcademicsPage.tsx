@@ -21,67 +21,89 @@ const AcademicsPage: React.FC = () => {
       name: 'English Language',
       icon: <BookOpen className="w-8 h-8" />,
       description: 'Comprehensive language arts program focusing on reading, writing, speaking, and listening skills.',
-      color: 'bg-blue-500'
+      color: 'bg-blue-600',
+      neonColor: '#3b82f6',
+      shadowColor: 'shadow-blue-500/50'
     },
     {
       name: 'Mathematics',
       icon: <Calculator className="w-8 h-8" />,
       description: 'Rigorous mathematical curriculum covering algebra, geometry, statistics, and problem-solving.',
-      color: 'bg-green-500'
+      color: 'bg-green-600',
+      neonColor: '#10b981',
+      shadowColor: 'shadow-green-500/50'
     },
     {
       name: 'Integrated Science',
       icon: <Microscope className="w-8 h-8" />,
       description: 'Hands-on science education combining physics, chemistry, and biology concepts.',
-      color: 'bg-purple-500'
+      color: 'bg-purple-600',
+      neonColor: '#8b5cf6',
+      shadowColor: 'shadow-purple-500/50'
     },
     {
       name: 'Social Studies',
       icon: <Globe className="w-8 h-8" />,
       description: 'Exploration of history, geography, civics, and cultural studies for global awareness.',
-      color: 'bg-orange-500'
+      color: 'bg-orange-600',
+      neonColor: '#f97316',
+      shadowColor: 'shadow-orange-500/50'
     },
     {
       name: 'Religious & Moral Education',
       icon: <Users className="w-8 h-8" />,
       description: 'Character development through ethical reasoning and moral value formation.',
-      color: 'bg-indigo-500'
+      color: 'bg-indigo-600',
+      neonColor: '#6366f1',
+      shadowColor: 'shadow-indigo-500/50'
     },
     {
       name: 'Ghanaian Language (Asante Twi)',
       icon: <Globe className="w-8 h-8" />,
       description: 'Cultural heritage preservation through native language and cultural studies.',
-      color: 'bg-red-500'
+      color: 'bg-red-600',
+      neonColor: '#ef4444',
+      shadowColor: 'shadow-red-500/50'
     },
     {
       name: 'French',
       icon: <BookOpen className="w-8 h-8" />,
       description: 'International language skills for global communication and cultural exchange.',
-      color: 'bg-pink-500'
+      color: 'bg-pink-600',
+      neonColor: '#ec4899',
+      shadowColor: 'shadow-pink-500/50'
     },
     {
       name: 'Career Technology',
       icon: <Lightbulb className="w-8 h-8" />,
       description: 'Practical skills in design, technology, and vocational preparation (formerly BDT).',
-      color: 'bg-yellow-500'
+      color: 'bg-yellow-600',
+      neonColor: '#eab308',
+      shadowColor: 'shadow-yellow-500/50'
     },
     {
       name: 'Computing (ICT)',
       icon: <Computer className="w-8 h-8" />,
       description: 'Digital literacy, programming, and technology skills for the modern world.',
-      color: 'bg-cyan-500'
+      color: 'bg-cyan-600',
+      neonColor: '#06b6d4',
+      shadowColor: 'shadow-cyan-500/50'
     },
     {
       name: 'Creative Arts & Design',
       icon: <Palette className="w-8 h-8" />,
       description: 'Artistic expression through visual arts, design, and creative projects.',
-      color: 'bg-teal-500'
+      color: 'bg-teal-600',
+      neonColor: '#14b8a6',
+      shadowColor: 'shadow-teal-500/50'
     },
     {
       name: 'Music',
       icon: <Music className="w-8 h-8" />,
       description: 'Musical education including theory, performance, and appreciation of various genres.',
-      color: 'bg-violet-500'
+      color: 'bg-violet-600',
+      neonColor: '#7c3aed',
+      shadowColor: 'shadow-violet-500/50'
     }
   ];
 
@@ -302,38 +324,52 @@ const AcademicsPage: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.03 }}
-                className={`${subject.color} rounded-md shadow-lg border-2 border-white/20 p-1.5 sm:p-2 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group`}
+                className={`${subject.color} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${subject.shadowColor}`}
                 style={{
-                  boxShadow: `0 0 20px ${subject.color.includes('blue') ? '#3b82f6' :
-                                        subject.color.includes('green') ? '#10b981' :
-                                        subject.color.includes('purple') ? '#8b5cf6' :
-                                        subject.color.includes('orange') ? '#f97316' :
-                                        subject.color.includes('indigo') ? '#6366f1' :
-                                        subject.color.includes('red') ? '#ef4444' :
-                                        subject.color.includes('pink') ? '#ec4899' :
-                                        subject.color.includes('yellow') ? '#eab308' :
-                                        subject.color.includes('cyan') ? '#06b6d4' :
-                                        subject.color.includes('teal') ? '#14b8a6' :
-                                        '#8b5cf6'}40, 0 0 40px ${subject.color.includes('blue') ? '#3b82f6' :
-                                        subject.color.includes('green') ? '#10b981' :
-                                        subject.color.includes('purple') ? '#8b5cf6' :
-                                        subject.color.includes('orange') ? '#f97316' :
-                                        subject.color.includes('indigo') ? '#6366f1' :
-                                        subject.color.includes('red') ? '#ef4444' :
-                                        subject.color.includes('pink') ? '#ec4899' :
-                                        subject.color.includes('yellow') ? '#eab308' :
-                                        subject.color.includes('cyan') ? '#06b6d4' :
-                                        subject.color.includes('teal') ? '#14b8a6' :
-                                        '#8b5cf6'}20`
+                  boxShadow: `0 0 25px ${subject.neonColor}40, 0 0 50px ${subject.neonColor}20, inset 0 0 20px ${subject.neonColor}10`,
+                  border: `2px solid ${subject.neonColor}60`,
+                  filter: 'brightness(1.1) saturate(1.2)'
+                }}
+                whileHover={{
+                  boxShadow: `0 0 40px ${subject.neonColor}60, 0 0 80px ${subject.neonColor}40, inset 0 0 30px ${subject.neonColor}20`,
+                  filter: 'brightness(1.3) saturate(1.4)',
+                  scale: 1.15
                 }}
               >
-                {/* Neon glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Intense Neon Glow Effect */}
+                <div
+                  className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-lg"
+                  style={{
+                    background: `radial-gradient(circle at center, ${subject.neonColor}30 0%, transparent 70%)`
+                  }}
+                ></div>
+
+                {/* Pulsing Border Effect */}
+                <div
+                  className="absolute inset-0 rounded-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: `linear-gradient(45deg, ${subject.neonColor}20, transparent, ${subject.neonColor}20)`,
+                    animation: 'pulse 2s infinite'
+                  }}
+                ></div>
+
                 <div className="relative z-10">
                   <div className="mb-1 flex justify-center">
-                    {React.cloneElement(subject.icon, { className: "w-3 h-3 sm:w-4 sm:h-4 text-white drop-shadow-lg" })}
+                    {React.cloneElement(subject.icon, {
+                      className: "w-3 h-3 sm:w-4 sm:h-4 text-white drop-shadow-lg",
+                      style: {
+                        filter: `drop-shadow(0 0 8px ${subject.neonColor}) drop-shadow(0 0 4px ${subject.neonColor})`
+                      }
+                    })}
                   </div>
-                  <h3 className="text-xs font-bold text-white leading-tight drop-shadow-lg">{subject.name}</h3>
+                  <h3
+                    className="text-xs font-bold text-white leading-tight"
+                    style={{
+                      textShadow: `0 0 10px ${subject.neonColor}, 0 0 20px ${subject.neonColor}80, 0 2px 4px rgba(0,0,0,0.8)`
+                    }}
+                  >
+                    {subject.name}
+                  </h3>
                 </div>
               </motion.div>
             ))}
@@ -350,38 +386,52 @@ const AcademicsPage: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.03 }}
-                className={`${subject.color} rounded-md shadow-lg border-2 border-white/20 p-1.5 sm:p-2 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group`}
+                className={`${subject.color} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${subject.shadowColor}`}
                 style={{
-                  boxShadow: `0 0 20px ${subject.color.includes('blue') ? '#3b82f6' :
-                                        subject.color.includes('green') ? '#10b981' :
-                                        subject.color.includes('purple') ? '#8b5cf6' :
-                                        subject.color.includes('orange') ? '#f97316' :
-                                        subject.color.includes('indigo') ? '#6366f1' :
-                                        subject.color.includes('red') ? '#ef4444' :
-                                        subject.color.includes('pink') ? '#ec4899' :
-                                        subject.color.includes('yellow') ? '#eab308' :
-                                        subject.color.includes('cyan') ? '#06b6d4' :
-                                        subject.color.includes('teal') ? '#14b8a6' :
-                                        '#8b5cf6'}40, 0 0 40px ${subject.color.includes('blue') ? '#3b82f6' :
-                                        subject.color.includes('green') ? '#10b981' :
-                                        subject.color.includes('purple') ? '#8b5cf6' :
-                                        subject.color.includes('orange') ? '#f97316' :
-                                        subject.color.includes('indigo') ? '#6366f1' :
-                                        subject.color.includes('red') ? '#ef4444' :
-                                        subject.color.includes('pink') ? '#ec4899' :
-                                        subject.color.includes('yellow') ? '#eab308' :
-                                        subject.color.includes('cyan') ? '#06b6d4' :
-                                        subject.color.includes('teal') ? '#14b8a6' :
-                                        '#8b5cf6'}20`
+                  boxShadow: `0 0 25px ${subject.neonColor}40, 0 0 50px ${subject.neonColor}20, inset 0 0 20px ${subject.neonColor}10`,
+                  border: `2px solid ${subject.neonColor}60`,
+                  filter: 'brightness(1.1) saturate(1.2)'
+                }}
+                whileHover={{
+                  boxShadow: `0 0 40px ${subject.neonColor}60, 0 0 80px ${subject.neonColor}40, inset 0 0 30px ${subject.neonColor}20`,
+                  filter: 'brightness(1.3) saturate(1.4)',
+                  scale: 1.15
                 }}
               >
-                {/* Neon glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Intense Neon Glow Effect */}
+                <div
+                  className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-lg"
+                  style={{
+                    background: `radial-gradient(circle at center, ${subject.neonColor}30 0%, transparent 70%)`
+                  }}
+                ></div>
+
+                {/* Pulsing Border Effect */}
+                <div
+                  className="absolute inset-0 rounded-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: `linear-gradient(45deg, ${subject.neonColor}20, transparent, ${subject.neonColor}20)`,
+                    animation: 'pulse 2s infinite'
+                  }}
+                ></div>
+
                 <div className="relative z-10">
                   <div className="mb-1 flex justify-center">
-                    {React.cloneElement(subject.icon, { className: "w-3 h-3 sm:w-4 sm:h-4 text-white drop-shadow-lg" })}
+                    {React.cloneElement(subject.icon, {
+                      className: "w-3 h-3 sm:w-4 sm:h-4 text-white drop-shadow-lg",
+                      style: {
+                        filter: `drop-shadow(0 0 8px ${subject.neonColor}) drop-shadow(0 0 4px ${subject.neonColor})`
+                      }
+                    })}
                   </div>
-                  <h3 className="text-xs font-bold text-white leading-tight drop-shadow-lg">{subject.name}</h3>
+                  <h3
+                    className="text-xs font-bold text-white leading-tight"
+                    style={{
+                      textShadow: `0 0 10px ${subject.neonColor}, 0 0 20px ${subject.neonColor}80, 0 2px 4px rgba(0,0,0,0.8)`
+                    }}
+                  >
+                    {subject.name}
+                  </h3>
                 </div>
               </motion.div>
             ))}

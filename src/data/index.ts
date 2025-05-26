@@ -163,7 +163,7 @@ export const programs: Program[] = [
     id: 4,
     title: 'Character & Values Education',
     description: 'Religious and Moral Education (RME) develops ethical reasoning, moral values, and character formation essential for responsible citizenship.',
-    image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7033.HEIC?updatedAt=1748185379182'
   }
 ];
 

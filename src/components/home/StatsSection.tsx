@@ -258,7 +258,7 @@ const StatsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="mt-8 md:mt-12 lg:mt-16"
+          className="mt-4 md:mt-6 lg:mt-8"
         >
           <GrowthChart />
         </motion.div>
