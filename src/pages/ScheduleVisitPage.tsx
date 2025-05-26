@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, MapPin, Clock, Users } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Cal } from "@calcom/atoms";
 
 const ScheduleVisitPage: React.FC = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
   };
-
-  useEffect(() => {
-    // Simple loading state management
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -50,31 +39,9 @@ const ScheduleVisitPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Full Screen Calendar */}
-      <div className="w-full" style={{ height: 'calc(100vh - 120px)' }}>
-        {isLoading && (
-          <div className="absolute inset-0 bg-white flex items-center justify-center z-40">
-            <div className="text-center">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full mx-auto mb-4"
-              />
-              <p className="text-gray-600">Loading calendar...</p>
-            </div>
-          </div>
-        )}
-
-        <Cal
-          calLink="stlouisdemojhs/schedule-visit-to-st.-louis-demonstration-j.h.s"
-          style={{
-            width: "100%",
-            height: "100%"
-          }}
-          config={{
-            layout: "month_view"
-          }}
-        />
+      {/* White Content Area */}
+      <div className="w-full bg-white" style={{ height: 'calc(100vh - 120px)' }}>
+        {/* Empty white space - ready for future content */}
       </div>
     </div>
   );

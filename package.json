@@ -13,7 +13,6 @@
     "fresh-install": "npm run clean && npm install"
   },
   "dependencies": {
-    "@calcom/atoms": "latest",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.18",
