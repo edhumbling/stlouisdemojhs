@@ -329,13 +329,31 @@ Primus Intaparis
             <div className="mt-3 md:mt-0">
               <ul className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-1 text-xs sm:text-sm text-gray-500">
                 <li>
-                  <a href="#" className="hover:text-white/90 transition-colors">Privacy Policy</a>
+                  <Link
+                    to="/privacy-policy"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="hover:text-white/90 transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white/90 transition-colors">Terms of Service</a>
+                  <Link
+                    to="/terms-of-service"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="hover:text-white/90 transition-colors"
+                  >
+                    Terms of Service
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white/90 transition-colors">Sitemap</a>
+                  <Link
+                    to="/sitemap"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="hover:text-white/90 transition-colors"
+                  >
+                    Sitemap
+                  </Link>
                 </li>
               </ul>
             </div>

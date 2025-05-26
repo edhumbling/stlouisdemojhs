@@ -19,6 +19,9 @@ import ScheduleVisitPage from './pages/ScheduleVisitPage';
 import PartnerPage from './pages/PartnerPage';
 import AlumniPage from './pages/AlumniPage';
 import MediaPage from './pages/MediaPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
+import SitemapPage from './pages/SitemapPage';
 import CharacterEducationPage from './pages/CharacterEducationPage';
 import STEMEducationPage from './pages/STEMEducationPage';
 import CreativeArtsPage from './pages/CreativeArtsPage';
@@ -63,6 +66,11 @@ const App: React.FC = () => {
           <Route path="alumni" element={<AlumniPage />} />
           <Route path="media" element={<MediaPage />} />
           <Route path="donate" element={<DonationPage />} />
+
+          {/* Legal Pages */}
+          <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="terms-of-service" element={<TermsOfServicePage />} />
+          <Route path="sitemap" element={<SitemapPage />} />
 
           {/* Academic Area Pages */}
           <Route path="character-education" element={<CharacterEducationPage />} />
