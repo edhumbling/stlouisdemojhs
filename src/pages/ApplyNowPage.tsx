@@ -94,7 +94,6 @@ const ApplyNowPage: React.FC = () => {
             <p className="text-gray-600 text-xs sm:text-sm">98%+ BECE success rate</p>
           </div>
         </motion.div>
-        </div>
       </section>
 
       {/* Application Form Section - Mobile-Friendly */}
