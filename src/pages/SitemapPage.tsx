@@ -73,14 +73,14 @@ const SitemapPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-black">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 mt-16">
+      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4 mt-16 border-b border-green-700/30">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleBack}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-green-500/30"
             >
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
@@ -94,7 +94,7 @@ const SitemapPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="py-8 sm:py-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-green-50"></div>
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -102,19 +102,21 @@ const SitemapPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Map className="w-8 h-8 text-white" />
-            </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Website Sitemap
-            </h1>
-            <p className="text-lg text-gray-600 mb-6">
-              Complete overview of all pages and sections on our website. Find exactly what you're looking for.
-            </p>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p className="text-sm text-blue-800">
-                <strong>Total Pages:</strong> {sitemapSections.reduce((total, section) => total + section.links.length, 0)} pages organized in {sitemapSections.length} categories
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-8 mb-8">
+              <div className="flex items-center gap-3 mb-6">
+                <Map className="w-12 h-12 text-green-400" />
+                <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                  Website Sitemap
+                </h2>
+              </div>
+              <p className="text-lg text-gray-300 leading-relaxed mb-4">
+                Complete overview of all pages and sections on our website. Find exactly what you're looking for.
               </p>
+              <div className="p-4 bg-green-900/30 border border-green-700/50 rounded-lg">
+                <p className="text-green-200 text-sm">
+                  <strong>Total Pages:</strong> {sitemapSections.reduce((total, section) => total + section.links.length, 0)} pages organized in {sitemapSections.length} categories
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -150,7 +152,7 @@ const SitemapPage: React.FC = () => {
                       </div>
                       <h2 className="text-xl font-bold">{section.title}</h2>
                     </div>
-                    
+
                     <div className="space-y-3">
                       {section.links.map((link, linkIndex) => (
                         <motion.div
