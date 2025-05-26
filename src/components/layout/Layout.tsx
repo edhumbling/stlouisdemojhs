@@ -10,14 +10,10 @@ const Layout: React.FC = () => {
   const noFooterPages = ['/news', '/calendar', '/ai-search', '/schedule-visit'];
   const shouldShowFooter = !noFooterPages.includes(location.pathname);
 
-  // Homepage should not have top padding (content can go under header)
-  const isHomePage = location.pathname === '/';
-  const shouldHaveTopPadding = !isHomePage;
-
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       <Header />
-      <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
+      <main className="flex-grow pt-16 overflow-x-hidden">
         <Outlet />
       </main>
       {shouldShowFooter && <Footer />}
