@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    include: ['framer-motion', 'react', 'react-dom', 'react-router-dom', 'lucide-react', '@calcom/atoms']
+    include: ['framer-motion', 'react', 'react-dom', 'react-router-dom', 'lucide-react'],
+    exclude: ['@calcom/atoms']
   },
   build: {
     rollupOptions: {
