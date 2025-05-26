@@ -135,13 +135,15 @@ body {
   @apply bg-black text-white;
   /* Prevent white flash/edge blinking */
   background-color: #000000 !important;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  max-width: 100vw;
 }
 
 /* Prevent white edges and layout shifts */
 html {
   background-color: #000000 !important;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  max-width: 100vw;
 }
 
 /* Smooth header transitions */
