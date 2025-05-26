@@ -127,20 +127,29 @@ const Footer: React.FC = () => {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    to="/stem"
+                    to="/core-academic"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
-                    STEM
+                    Core Academic
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/learnhub"
+                    to="/stem-education"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
-                    LearnHub
+                    STEM Education
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/language-communication"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    Language & Comm.
                   </Link>
                 </li>
                 <li>
@@ -159,6 +168,15 @@ const Footer: React.FC = () => {
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
                     Character Ed.
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/learnhub"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    LearnHub
                   </Link>
                 </li>
               </ul>
