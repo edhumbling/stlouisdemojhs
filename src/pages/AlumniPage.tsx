@@ -1,8 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Users, GraduationCap, Heart, Award } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+
+// Shimmer Loading Component
+const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
+  className = "w-full h-40",
+  rounded = "rounded-xl"
+}) => (
+  <div className={`relative overflow-hidden ${rounded} bg-gray-800 ${className}`}>
+    <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800"></div>
+  </div>
+);
+
+// Optimized Image Component with Shimmer Loading
+const OptimizedImage: React.FC<{
+  src: string;
+  alt: string;
+  className?: string;
+  onClick?: () => void;
+  shimmerClassName?: string;
+}> = ({ src, alt, className, onClick, shimmerClassName }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className="relative">
+      {!isLoaded && !hasError && (
+        <ShimmerLoader className={shimmerClassName || className} />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+        onClick={onClick}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setHasError(true)}
+        style={{ contentVisibility: 'auto' }}
+      />
+      {hasError && (
+        <div className={`${className} bg-gray-800 flex items-center justify-center text-gray-400`}>
+          <span>Failed to load image</span>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const AlumniPage: React.FC = () => {
   const navigate = useNavigate();
@@ -75,19 +121,21 @@ const AlumniPage: React.FC = () => {
         </button>
       </div>
 
-      {/* Hero Section with School Background */}
+      {/* Hero Section with School Background - Dark Aero */}
       <section className="py-12 sm:py-16 md:py-20 text-white relative overflow-hidden">
-        {/* School Background Image */}
+        {/* Optimized School Background Image */}
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage
             src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667&tr=w-1200,h-800,q-70"
             alt="St. Louis Demo JHS Alumni Background"
             className="w-full h-full object-cover"
+            shimmerClassName="w-full h-full"
           />
         </div>
         {/* Dark Aero Glass Overlay */}
         <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -125,9 +173,21 @@ const AlumniPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
-      {/* Alumni Stats */}
-      <section className="py-12 sm:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* Alumni Stats - Dark Aero */}
+      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Optimized School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-1200,h-800,q-60"
+            alt="St. Louis Demo JHS Background"
+            className="w-full h-full object-cover opacity-30"
+            shimmerClassName="w-full h-full opacity-30"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/60 to-green-900/40"></div>
+        <div className="w-full px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {alumniStats.map((stat, index) => (
               <motion.div
@@ -141,8 +201,8 @@ const AlumniPage: React.FC = () => {
                 <div className={`w-16 h-16 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg`}>
                   {stat.icon}
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">{stat.number}</h3>
-                <p className="text-gray-600 font-medium">{stat.label}</p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">{stat.number}</h3>
+                <p className="text-gray-300 font-medium">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -151,9 +211,21 @@ const AlumniPage: React.FC = () => {
 
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Featured Alumni */}
-      <section id="stories" className="py-12 sm:py-16 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Featured Alumni - Dark Aero */}
+      <section id="stories" className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Optimized School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667&tr=w-1200,h-800,q-70"
+            alt="St. Louis Demo JHS Alumni Background"
+            className="w-full h-full object-cover"
+            shimmerClassName="w-full h-full"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
+        <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -161,10 +233,10 @@ const AlumniPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
               Success Stories
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
               Meet some of our distinguished alumni who are making a difference in their communities and professions.
             </p>
           </motion.div>
@@ -177,21 +249,21 @@ const AlumniPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                className="glass-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
                 <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
-                  <img
+                  <OptimizedImage
                     src={alumni.image}
                     alt={alumni.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">{alumni.name}</h3>
-                <p className="text-blue-600 font-semibold mb-2 text-center">{alumni.class}</p>
-                <p className="text-gray-700 font-medium mb-3 text-center">{alumni.profession}</p>
-                <p className="text-gray-600 text-sm mb-4 text-center">{alumni.achievement}</p>
-                <blockquote className="text-gray-700 text-sm italic text-center border-l-4 border-blue-500 pl-4">
+                <h3 className="text-xl font-bold text-white mb-2 text-center">{alumni.name}</h3>
+                <p className="text-blue-400 font-semibold mb-2 text-center">{alumni.class}</p>
+                <p className="text-gray-300 font-medium mb-3 text-center">{alumni.profession}</p>
+                <p className="text-gray-400 text-sm mb-4 text-center">{alumni.achievement}</p>
+                <blockquote className="text-gray-300 text-sm italic text-center border-l-4 border-blue-500 pl-4">
                   "{alumni.quote}"
                 </blockquote>
               </motion.div>
@@ -202,9 +274,21 @@ const AlumniPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
-      {/* Alumni Events */}
-      <section className="py-12 sm:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* Alumni Events - Dark Aero */}
+      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Optimized School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-1200,h-800,q-60"
+            alt="St. Louis Demo JHS Background"
+            className="w-full h-full object-cover opacity-20"
+            shimmerClassName="w-full h-full opacity-20"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/60 to-green-900/40"></div>
+        <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -212,10 +296,10 @@ const AlumniPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
               Alumni Events & Programs
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
               Stay connected with your alma mater through our various alumni programs and events.
             </p>
           </motion.div>
@@ -228,17 +312,17 @@ const AlumniPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="glass-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
               >
                 <div className="flex items-center mb-4">
                   <span className="text-xl mr-3">📅</span>
-                  <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+                  <span className="text-sm font-semibold text-blue-400 bg-blue-900/30 px-3 py-1 rounded-full border border-blue-400/30">
                     {event.type}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
-                <p className="text-gray-600 font-medium mb-3">{event.date}</p>
-                <p className="text-gray-700 text-sm">{event.description}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
+                <p className="text-gray-300 font-medium mb-3">{event.date}</p>
+                <p className="text-gray-400 text-sm">{event.description}</p>
               </motion.div>
             ))}
           </div>
@@ -247,9 +331,21 @@ const AlumniPage: React.FC = () => {
 
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Join Alumni Network */}
-      <section id="join" className="py-12 sm:py-16 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Join Alumni Network - Dark Aero */}
+      <section id="join" className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Optimized School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667&tr=w-1200,h-800,q-70"
+            alt="St. Louis Demo JHS Alumni Background"
+            className="w-full h-full object-cover"
+            shimmerClassName="w-full h-full"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
+        <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -257,25 +353,25 @@ const AlumniPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
               Join Our Alumni Network
             </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-200 mb-8 max-w-3xl mx-auto">
               Stay connected with your fellow graduates and continue to be part of the St. Louis Demo JHS family.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="text-center p-6 bg-gray-50 rounded-2xl">
+              <div className="text-center p-6 glass-card rounded-2xl border border-white/20">
                 <span className="text-3xl block mb-4">📧</span>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Email Us</h3>
-                <p className="text-gray-600 mb-4">alumni@stlouisdemo.edu.gh</p>
-                <p className="text-sm text-gray-500">Send us your updated contact information</p>
+                <h3 className="text-lg font-bold text-white mb-2">Email Us</h3>
+                <p className="text-gray-300 mb-4">alumni@stlouisdemo.edu.gh</p>
+                <p className="text-sm text-gray-400">Send us your updated contact information</p>
               </div>
-              <div className="text-center p-6 bg-gray-50 rounded-2xl">
+              <div className="text-center p-6 glass-card rounded-2xl border border-white/20">
                 <span className="text-3xl block mb-4">📞</span>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Call Us</h3>
-                <p className="text-gray-600 mb-4">+233 XX XXX XXXX</p>
-                <p className="text-sm text-gray-500">Speak with our alumni coordinator</p>
+                <h3 className="text-lg font-bold text-white mb-2">Call Us</h3>
+                <p className="text-gray-300 mb-4">+233 XX XXX XXXX</p>
+                <p className="text-sm text-gray-400">Speak with our alumni coordinator</p>
               </div>
             </div>
 

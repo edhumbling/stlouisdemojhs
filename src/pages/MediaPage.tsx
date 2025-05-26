@@ -1,8 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Camera, Newspaper, Video, Download, ExternalLink, Calendar, Award } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+
+// Shimmer Loading Component
+const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
+  className = "w-full h-40",
+  rounded = "rounded-xl"
+}) => (
+  <div className={`relative overflow-hidden ${rounded} bg-gray-800 ${className}`}>
+    <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800"></div>
+  </div>
+);
+
+// Optimized Image Component with Shimmer Loading
+const OptimizedImage: React.FC<{
+  src: string;
+  alt: string;
+  className?: string;
+  onClick?: () => void;
+  shimmerClassName?: string;
+}> = ({ src, alt, className, onClick, shimmerClassName }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className="relative">
+      {!isLoaded && !hasError && (
+        <ShimmerLoader className={shimmerClassName || className} />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+        onClick={onClick}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setHasError(true)}
+        style={{ contentVisibility: 'auto' }}
+      />
+      {hasError && (
+        <div className={`${className} bg-gray-800 flex items-center justify-center text-gray-400`}>
+          <span>Failed to load image</span>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const MediaPage: React.FC = () => {
   const navigate = useNavigate();
@@ -119,19 +165,21 @@ const MediaPage: React.FC = () => {
         </button>
       </div>
 
-      {/* Hero Section with School Background */}
+      {/* Hero Section with School Background - Dark Aero */}
       <section className="py-12 sm:py-16 md:py-20 text-white relative overflow-hidden">
-        {/* School Background Image */}
+        {/* Optimized School Background Image */}
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage
             src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-1200,h-800,q-70"
             alt="St. Louis Demo JHS Media Background"
             className="w-full h-full object-cover"
+            shimmerClassName="w-full h-full"
           />
         </div>
         {/* Dark Aero Glass Overlay */}
         <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -169,9 +217,21 @@ const MediaPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
-      {/* Press Releases */}
-      <section id="press-releases" className="py-12 sm:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* Press Releases - Dark Aero */}
+      <section id="press-releases" className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Optimized School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667&tr=w-1200,h-800,q-60"
+            alt="St. Louis Demo JHS Background"
+            className="w-full h-full object-cover opacity-30"
+            shimmerClassName="w-full h-full opacity-30"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/60 to-green-900/40"></div>
+        <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -179,10 +239,10 @@ const MediaPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
               Latest Press Releases
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
               Stay updated with the latest news and announcements from St. Louis Demonstration JHS.
             </p>
           </motion.div>
@@ -195,29 +255,29 @@ const MediaPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                className="glass-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
                 <div className="relative h-48">
-                  <img
+                  <OptimizedImage
                     src={release.image}
                     alt={release.title}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                    <span className="bg-blue-500/80 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-semibold border border-blue-400/30">
                       {release.category}
                     </span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center text-gray-500 text-sm mb-3">
+                  <div className="flex items-center text-gray-400 text-sm mb-3">
                     <Calendar className="w-4 h-4 mr-2" />
                     {release.date}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">{release.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{release.summary}</p>
-                  <button className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                  <h3 className="text-lg font-bold text-white mb-3">{release.title}</h3>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">{release.summary}</p>
+                  <button className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-sm">
                     <Download className="w-4 h-4 mr-2" />
                     Download PDF
                   </button>
@@ -230,9 +290,21 @@ const MediaPage: React.FC = () => {
 
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Media Kit */}
-      <section id="media-kit" className="py-12 sm:py-16 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Media Kit - Dark Aero */}
+      <section id="media-kit" className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Optimized School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-1200,h-800,q-70"
+            alt="St. Louis Demo JHS Background"
+            className="w-full h-full object-cover"
+            shimmerClassName="w-full h-full"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
+        <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -240,10 +312,10 @@ const MediaPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
               Media Kit & Resources
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
               Download high-quality assets and information for your media coverage.
             </p>
           </motion.div>
@@ -256,18 +328,18 @@ const MediaPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition-colors duration-300 cursor-pointer"
+                className="glass-card rounded-2xl p-6 hover:bg-white/10 transition-colors duration-300 cursor-pointer border border-white/20"
               >
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white mr-4 flex-shrink-0">
                     {item.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600 text-sm mb-3">{item.description}</p>
+                    <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-gray-300 text-sm mb-3">{item.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-500">{item.type} • {item.size}</span>
-                      <button className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                      <span className="text-xs text-gray-400">{item.type} • {item.size}</span>
+                      <button className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-sm">
                         <Download className="w-4 h-4 mr-1" />
                         Download
                       </button>
@@ -282,9 +354,21 @@ const MediaPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
-      {/* Recent Coverage */}
-      <section className="py-12 sm:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* Recent Coverage - Dark Aero */}
+      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Optimized School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667&tr=w-1200,h-800,q-60"
+            alt="St. Louis Demo JHS Background"
+            className="w-full h-full object-cover opacity-20"
+            shimmerClassName="w-full h-full opacity-20"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/60 to-green-900/40"></div>
+        <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -292,10 +376,10 @@ const MediaPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
               Recent Media Coverage
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
               See how St. Louis Demonstration JHS has been featured in the media.
             </p>
           </motion.div>
@@ -308,23 +392,23 @@ const MediaPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="glass-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white mr-3">
                     {coverage.type === 'Video' ? <Video className="w-4 h-4" /> : <Newspaper className="w-4 h-4" />}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">{coverage.outlet}</h4>
-                    <p className="text-xs text-gray-500">{coverage.date}</p>
+                    <h4 className="font-semibold text-white">{coverage.outlet}</h4>
+                    <p className="text-xs text-gray-400">{coverage.date}</p>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{coverage.title}</h3>
+                <h3 className="text-lg font-bold text-white mb-3">{coverage.title}</h3>
                 <a
                   href={coverage.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                  className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-sm"
                 >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Coverage
@@ -337,9 +421,21 @@ const MediaPage: React.FC = () => {
 
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Media Contacts */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Media Contacts - Dark Aero */}
+      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Optimized School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-1200,h-800,q-70"
+            alt="St. Louis Demo JHS Background"
+            className="w-full h-full object-cover"
+            shimmerClassName="w-full h-full"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
+        <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -347,10 +443,10 @@ const MediaPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
               Media Contacts
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
               Get in touch with our media relations team for interviews, quotes, and additional information.
             </p>
           </motion.div>
@@ -363,19 +459,19 @@ const MediaPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-2xl p-6 text-center"
+                className="glass-card rounded-2xl p-6 text-center border border-white/20"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{contact.name}</h3>
-                <p className="text-blue-600 font-semibold mb-4">{contact.title}</p>
+                <h3 className="text-xl font-bold text-white mb-2">{contact.name}</h3>
+                <p className="text-blue-400 font-semibold mb-4">{contact.title}</p>
                 <div className="space-y-2 mb-4">
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     <strong>Email:</strong> {contact.email}
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-gray-300">
                     <strong>Phone:</strong> {contact.phone}
                   </p>
                 </div>
-                <p className="text-sm text-gray-500">{contact.specialty}</p>
+                <p className="text-sm text-gray-400">{contact.specialty}</p>
               </motion.div>
             ))}
           </div>
