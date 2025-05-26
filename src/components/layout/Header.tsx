@@ -120,7 +120,7 @@ const Header: React.FC = () => {
                     School
                     <ChevronDown
                       size={14}
-                      className={`transition-transform duration-200 ${isSchoolDropdownOpen ? 'rotate-180' : ''}`}
+                      className={`transition-transform duration-100 ${isSchoolDropdownOpen ? 'rotate-180' : ''}`}
                     />
                   </button>
 
@@ -128,10 +128,10 @@ const Header: React.FC = () => {
                   <AnimatePresence>
                     {isSchoolDropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        initial={{ opacity: 0, y: 5, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
+                        exit={{ opacity: 0, y: 5, scale: 0.98 }}
+                        transition={{ duration: 0.1, ease: "easeOut" }}
                         onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                         onMouseLeave={() => setIsSchoolDropdownOpen(false)}
                         className="absolute top-full left-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-xl shadow-2xl border border-white/20 overflow-hidden z-[9999]"
@@ -147,13 +147,13 @@ const Header: React.FC = () => {
                         {schoolDropdownItems.map((item, index) => (
                           <motion.div
                             key={item.path}
-                            initial={{ opacity: 0, x: -20 }}
+                            initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.2, delay: index * 0.05 }}
+                            transition={{ duration: 0.1, delay: index * 0.02 }}
                           >
                             <Link
                               to={item.path}
-                              className="flex items-center p-4 hover:bg-white/10 transition-all duration-200 group"
+                              className="flex items-center p-4 hover:bg-white/10 transition-all duration-100 group"
                               onClick={() => {
                                 setIsSchoolDropdownOpen(false);
                                 window.scrollTo({ top: 0, behavior: 'instant' });
@@ -163,11 +163,11 @@ const Header: React.FC = () => {
                                 <img
                                   src={item.image}
                                   alt={item.label}
-                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
                                 />
                               </div>
                               <div className="flex-1">
-                                <h3 className="font-semibold text-white group-hover:text-accent-300 transition-colors duration-200">
+                                <h3 className="font-semibold text-white group-hover:text-accent-300 transition-colors duration-150">
                                   {item.label}
                                 </h3>
                                 <p className="text-sm text-gray-400 mt-1 leading-relaxed">
@@ -230,41 +230,41 @@ const Header: React.FC = () => {
                     ${isHomePage ? 'text-white' : 'text-white'}
                   `}>
                     Contact
-                    <ChevronDown size={16} className="ml-1 transition-transform duration-300 group-hover:rotate-180" />
+                    <ChevronDown size={16} className="ml-1 transition-transform duration-150 group-hover:rotate-180" />
                   </button>
 
                   <AnimatePresence>
                     {/* Contact Dropdown Menu */}
                     <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      initial={{ opacity: 0, y: 5, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full right-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+                      exit={{ opacity: 0, y: 5, scale: 0.98 }}
+                      transition={{ duration: 0.1, ease: "easeOut" }}
+                      className="absolute top-full right-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50"
                       style={{ backdropFilter: 'blur(20px)' }}
                     >
                       <div className="space-y-3">
                         {contactDropdownItems.map((item, index) => (
                           <motion.div
                             key={item.path}
-                            initial={{ opacity: 0, x: -10 }}
+                            initial={{ opacity: 0, x: -5 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.2, delay: index * 0.05 }}
+                            transition={{ duration: 0.1, delay: index * 0.02 }}
                           >
                             <Link
                               to={item.path}
                               onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                              className="flex items-center p-3 rounded-xl hover:bg-white/10 transition-all duration-200 group/item"
+                              className="flex items-center p-3 rounded-xl hover:bg-white/10 transition-all duration-100 group/item"
                             >
                               <div className="w-12 h-12 rounded-xl overflow-hidden mr-4 flex-shrink-0">
                                 <img
                                   src={item.image}
                                   alt={item.label}
-                                  className="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-300"
+                                  className="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-200"
                                 />
                               </div>
                               <div className="flex-1">
-                                <h4 className="font-semibold text-white text-sm group-hover/item:text-accent-300 transition-colors duration-200">
+                                <h4 className="font-semibold text-white text-sm group-hover/item:text-accent-300 transition-colors duration-150">
                                   {item.label}
                                 </h4>
                                 <p className="text-gray-400 text-xs mt-1 leading-relaxed">
