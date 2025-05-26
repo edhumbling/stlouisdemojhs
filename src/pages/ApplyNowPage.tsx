@@ -1,24 +1,46 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, GraduationCap, Users, BookOpen, Award } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ApplyNowPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1); // Go back to previous page
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Back Button */}
-      <div className="container mx-auto px-4 pt-8">
-        <Link
-          to="/"
-          className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-200 mb-8"
-        >
-          <ArrowLeft size={20} className="mr-2" />
-          Back to Home
-        </Link>
+    <div className="min-h-screen bg-black pt-16">
+      {/* Back Button and Title Section - Original Style */}
+      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <div className="flex items-center gap-3">
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="text-2xl sm:text-3xl"
+              >
+                🎓
+              </motion.div>
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+                Apply to St. Louis Demo
+              </h1>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="py-12 md:py-20">
+      {/* Hero Section - Apple Style */}
+      <section className="py-8 md:py-12 bg-gradient-to-br from-slate-50 to-gray-100">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -27,18 +49,11 @@ const ApplyNowPage: React.FC = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <div className="mb-8">
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="inline-block text-6xl mb-4"
-              >
-                🎓
-              </motion.div>
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Apply to St. Louis Demo
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-8">
-                Join our exceptional school community and unlock your potential!
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                🌟 Join Our School Family 🌟
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 mb-6">
+                Start your journey to excellence with St. Louis Demonstration Junior High School!
               </p>
             </div>
 
@@ -116,10 +131,10 @@ const ApplyNowPage: React.FC = () => {
                 <div className="text-6xl mb-4">📝</div>
                 <h3 className="text-2xl font-bold text-white mb-4">Application Form Coming Soon!</h3>
                 <p className="text-gray-300 mb-6">
-                  We're preparing a comprehensive Google Form for your application. 
+                  We're preparing a comprehensive Google Form for your application.
                   In the meantime, please contact us directly for admission inquiries.
                 </p>
-                
+
                 {/* Contact Information */}
                 <div className="bg-white/10 rounded-lg p-6 max-w-md mx-auto">
                   <h4 className="text-white font-semibold mb-4">Contact Admissions Office</h4>
