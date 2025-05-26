@@ -1,8 +1,81 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, GraduationCap, Heart, Award } from 'lucide-react';
+import { ArrowLeft, Users, GraduationCap, Heart, Award, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+
+// Beautiful Ticking Clock Component
+const TickingClock: React.FC<{ targetDate: string; eventName: string }> = ({ targetDate, eventName }) => {
+  const [timeLeft, setTimeLeft] = useState({
+    years: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = new Date(targetDate).getTime() - new Date().getTime();
+
+      if (difference > 0) {
+        const years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365));
+        const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setTimeLeft({ years, days, hours, minutes, seconds });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  const timeUnits = [
+    { label: 'Years', value: timeLeft.years, color: 'from-blue-500 to-cyan-500' },
+    { label: 'Days', value: timeLeft.days, color: 'from-green-500 to-emerald-500' },
+    { label: 'Hours', value: timeLeft.hours, color: 'from-purple-500 to-pink-500' },
+    { label: 'Minutes', value: timeLeft.minutes, color: 'from-orange-500 to-red-500' },
+    { label: 'Seconds', value: timeLeft.seconds, color: 'from-yellow-500 to-amber-500' }
+  ];
+
+  return (
+    <div className="mt-4 p-4 glass-card rounded-xl border border-white/30">
+      <div className="flex items-center justify-center mb-3">
+        <Clock className="w-4 h-4 text-blue-400 mr-2" />
+        <span className="text-xs font-semibold text-blue-400">Countdown to {eventName}</span>
+      </div>
+      <div className="grid grid-cols-5 gap-2">
+        {timeUnits.map((unit, index) => (
+          <motion.div
+            key={unit.label}
+            className={`text-center p-2 rounded-lg bg-gradient-to-br ${unit.color} shadow-lg`}
+            animate={{
+              scale: unit.label === 'Seconds' ? [1, 1.05, 1] : 1,
+              opacity: [0.8, 1, 0.8]
+            }}
+            transition={{
+              duration: unit.label === 'Seconds' ? 1 : 2,
+              repeat: Infinity,
+              delay: index * 0.1
+            }}
+          >
+            <div className="text-white font-bold text-xs sm:text-sm">
+              {unit.value.toString().padStart(2, '0')}
+            </div>
+            <div className="text-white/80 text-xs font-medium">
+              {unit.label}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -91,22 +164,28 @@ const AlumniPage: React.FC = () => {
 
   const alumniEvents = [
     {
-      title: "Annual Alumni Homecoming",
-      date: "December 15, 2025",
-      description: "Reconnect with classmates and celebrate our shared heritage",
-      type: "Reunion"
+      title: "Grand Voyeur Celebration",
+      date: "December 15, 2030",
+      description: "A magnificent celebration marking our journey into the future, where past achievements meet tomorrow's possibilities. Join us as we witness the grand tapestry of our alumni legacy unfold.",
+      type: "Future Milestone",
+      targetDate: "2030-12-15T00:00:00Z",
+      isCountdown: true
     },
     {
-      title: "Career Mentorship Program",
-      date: "Ongoing",
-      description: "Alumni mentor current students in various career paths",
-      type: "Mentorship"
+      title: "The Century Convergence Celebration",
+      date: "June 21, 2045",
+      description: "A once-in-a-lifetime gathering celebrating our centennial approach, where generations of alumni converge to share wisdom, innovation, and the enduring spirit of St. Louis Demo JHS.",
+      type: "Centennial Vision",
+      targetDate: "2045-06-21T00:00:00Z",
+      isCountdown: true
     },
     {
-      title: "Alumni Achievement Awards",
-      date: "March 2026",
-      description: "Recognizing outstanding alumni contributions to society",
-      type: "Awards"
+      title: "The Arrivals of Posterity Celebration",
+      date: "September 10, 2060",
+      description: "A visionary celebration honoring the arrival of future generations and the eternal legacy we leave behind. Witness the culmination of decades of educational excellence and alumni achievements.",
+      type: "Legacy Celebration",
+      targetDate: "2060-09-10T00:00:00Z",
+      isCountdown: true
     }
   ];
 
@@ -337,7 +416,10 @@ const AlumniPage: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{event.title}</h3>
                 <p className="text-gray-300 font-medium mb-3">{event.date}</p>
-                <p className="text-gray-400 text-sm">{event.description}</p>
+                <p className="text-gray-400 text-sm mb-4">{event.description}</p>
+                {event.isCountdown && event.targetDate && (
+                  <TickingClock targetDate={event.targetDate} eventName={event.title} />
+                )}
               </motion.div>
             ))}
           </div>
