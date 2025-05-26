@@ -6,16 +6,16 @@ const testimonials = [
   {
     id: 1,
     author: "Cantona",
-    role: "Parent & Community Leader",
+    role: "Education Facilitator",
     image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2017.54.08_289b5898.jpg?updatedAt=1748197633639",
-    quote: "St. Louis Demo has been a beacon of excellence in our community. The way they blend traditional values with modern education is remarkable. My children have grown not just academically, but as well-rounded individuals ready for the future."
+    quote: "Being part of the educational journey at St. Louis Demo has been incredibly rewarding. Our innovative teaching methods and dedication to holistic development create an environment where students truly flourish. It's not just about academics; we're nurturing future leaders."
   },
   {
     id: 2,
     author: "Victor",
-    role: "Alumni & Education Advocate",
+    role: "Community Member",
     image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2017.52.49_660e38af.jpg?updatedAt=1748197633607",
-    quote: "As a proud alumnus, I can attest to the transformative power of St. Louis Demo's education. The school's commitment to excellence and character development sets it apart. The lessons learned here continue to shape my life and career."
+    quote: "St. Louis Demo is more than just a school - it's the heart of our community. Watching these young minds develop and contribute to our society fills me with hope. The school's impact extends far beyond its walls, touching lives and inspiring change."
   },
   {
     id: 3,
@@ -33,7 +33,6 @@ const TestimonialsSection: React.FC = () => {
 
   // Duplicate testimonials for infinite scroll effect
   const extendedTestimonials = [...testimonials, ...testimonials, ...testimonials];
-
   useEffect(() => {
     if (isInView) {
       controls.start({
@@ -42,8 +41,9 @@ const TestimonialsSection: React.FC = () => {
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 30,
-            ease: "linear"
+            duration: 45, // Slower scroll speed
+            ease: "linear",
+            repeatDelay: 0 // Immediate restart of animation
           }
         }
       });
@@ -72,16 +72,17 @@ const TestimonialsSection: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="relative overflow-hidden" ref={scrollContainerRef}>
-          <motion.div
+        <div className="relative overflow-hidden" ref={scrollContainerRef}>          <motion.div
             animate={controls}
-            className="flex gap-6 px-4"
-            style={{ width: `${300 * extendedTestimonials.length}px` }}
+            className="flex gap-6 md:gap-8 px-4"
+            style={{ 
+              width: `${extendedTestimonials.length * (window.innerWidth >= 1024 ? 500 : window.innerWidth >= 768 ? 400 : 300)}px`,
+              willChange: 'transform'
+            }}
           >
-            {extendedTestimonials.map((testimonial, index) => (
-              <motion.div
+            {extendedTestimonials.map((testimonial, index) => (              <motion.div
                 key={`${testimonial.id}-${index}`}
-                className="w-[300px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-xl"
+                className="w-[300px] md:w-[400px] lg:w-[500px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-white/10 shadow-xl"
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
                 <Quote className="text-yellow-400/80 mb-4" size={32} />
