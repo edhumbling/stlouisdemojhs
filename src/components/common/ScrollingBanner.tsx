@@ -36,7 +36,7 @@ const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ text, className = '' 
               }}
             >
               {text}
-              <span className="inline-flex items-center justify-center mx-4 sm:mx-6 relative">
+              <span className="inline-flex items-center justify-center mx-2 sm:mx-3 relative">
                 <div className="absolute inset-0 bg-white/10 rounded-full blur-xl animate-pulse"></div>
                 <motion.img
                   animate={{

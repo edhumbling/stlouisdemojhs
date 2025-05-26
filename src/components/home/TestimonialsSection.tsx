@@ -100,16 +100,14 @@ const TestimonialsSection: React.FC = () => {
             animate={controls}
             className="flex px-4"
             style={{
-              width: `${extendedTestimonials.length * (window.innerWidth >= 1024 ? 370 : window.innerWidth >= 768 ? 320 : 270)}px`,
               willChange: 'transform'
             }}
           >
             {extendedTestimonials.map((testimonial, index) => (
               <motion.div
                 key={`${testimonial.id}-${index}`}
-                className="w-[250px] md:w-[300px] lg:w-[350px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-5 border border-white/10 shadow-xl mr-5 md:mr-5 lg:mr-5"
+                className="w-[250px] md:w-[300px] lg:w-[350px] flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-5 border border-white/10 shadow-xl mr-5"
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                style={{ marginRight: window.innerWidth >= 1024 ? '20px' : window.innerWidth >= 768 ? '20px' : '20px' }}
               >
                 <Quote className="text-yellow-400/80 mb-3" size={20} />
                 <p className="text-gray-200 mb-4 text-xs md:text-sm line-clamp-4">{testimonial.quote}</p>

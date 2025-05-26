@@ -15,9 +15,9 @@ const Layout: React.FC = () => {
   const shouldHaveTopPadding = !isHomePage;
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
       <Header />
-      <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'}`}>
+      <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
         <Outlet />
       </main>
       {shouldShowFooter && <Footer />}

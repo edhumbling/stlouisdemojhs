@@ -240,7 +240,7 @@ Primus Intaparis
         </div>
 
         {/* Scrolling Banner */}
-        <div className="relative z-10 -mx-4 mt-8 mb-0 overflow-hidden">
+        <div className="relative z-10 mt-8 mb-0 overflow-hidden -mx-4 sm:-mx-6 md:-mx-8">
           <ScrollingBanner text="THE BEST AMONG THE REST!" />
         </div>
 
@@ -286,11 +286,11 @@ Primus Intaparis
         </div>
 
         {/* Footer image at the bottom */}
-        <div className="mt-10 -mx-4 -mb-6 overflow-hidden">
+        <div className="mt-10 -mb-6 overflow-hidden -mx-4 sm:-mx-6 md:-mx-8">
           <img
             src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
             alt="Footer decoration"
-            className="w-full h-auto"
+            className="w-full h-auto max-w-none"
             style={{
               display: 'block',
               marginBottom: '-1px' // Ensure it touches the bottom edge perfectly
