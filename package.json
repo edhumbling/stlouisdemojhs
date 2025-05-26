@@ -8,7 +8,9 @@
     "build": "node scripts/simple-sitemap.js && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "clean": "node scripts/clean-dependencies.js",
+    "fresh-install": "npm run clean && npm install"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
