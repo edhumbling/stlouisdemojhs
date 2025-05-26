@@ -56,7 +56,7 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 py-4 max-w-full">
         <div className="flex items-center justify-between min-w-0">
-          <NavLink to="/" className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 flex-1 mr-2 sm:mr-4 min-w-0 overflow-hidden">
+          <NavLink to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })} className="flex items-center space-x-1 sm:space-x-2 md:space-x-3 flex-1 mr-2 sm:mr-4 min-w-0 overflow-hidden">
             <img
               src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
               alt="St. Louis Demonstration Junior High School"
@@ -94,6 +94,7 @@ const Header: React.FC = () => {
                 <li>
                   <NavLink
                     to="/"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className={({ isActive }) => `
                       relative font-medium text-sm transition-colors duration-300 hover:text-accent-500
                       ${isHomePage
@@ -152,7 +153,10 @@ const Header: React.FC = () => {
                             <Link
                               to={item.path}
                               className="flex items-center p-4 hover:bg-blue-50/80 transition-all duration-200 group"
-                              onClick={() => setIsSchoolDropdownOpen(false)}
+                              onClick={() => {
+                                setIsSchoolDropdownOpen(false);
+                                window.scrollTo({ top: 0, behavior: 'instant' });
+                              }}
                             >
                               <div className="w-16 h-16 rounded-lg overflow-hidden mr-4 flex-shrink-0">
                                 <img
@@ -182,6 +186,7 @@ const Header: React.FC = () => {
                   <li key={link.path}>
                     <NavLink
                       to={link.path}
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                       className={({ isActive }) => `
                         relative font-medium text-sm transition-colors duration-300 hover:text-accent-500
                         ${isHomePage
@@ -260,7 +265,10 @@ const Header: React.FC = () => {
               >
                 <NavLink
                   to="/"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                  }}
                   className={({ isActive }) => `
                     block py-3 px-4 font-medium rounded-xl text-center text-base relative transition-all duration-200
                     ${isActive
@@ -287,7 +295,10 @@ const Header: React.FC = () => {
                   >
                     <Link
                       to={item.path}
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        window.scrollTo({ top: 0, behavior: 'instant' });
+                      }}
                       className="flex items-center p-3 bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-200 border border-white/20"
                     >
                       <div className="w-10 h-10 rounded-lg overflow-hidden mr-3 flex-shrink-0">
@@ -318,7 +329,10 @@ const Header: React.FC = () => {
                 >
                   <NavLink
                     to={link.path}
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      window.scrollTo({ top: 0, behavior: 'instant' });
+                    }}
                     className={({ isActive }) => `
                       block py-3 px-3 font-medium rounded-xl text-center text-sm relative transition-all duration-200
                       ${isActive

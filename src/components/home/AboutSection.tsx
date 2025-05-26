@@ -144,6 +144,7 @@ const AboutSection: React.FC = () => {
           >
             <Link
               to="/about"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
               className="group relative inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black font-bold rounded-full shadow-[0_0_20px_rgba(251,191,36,0.6),0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_30px_rgba(251,191,36,0.8),0_0_60px_rgba(251,191,36,0.6)] transition-all duration-500 text-sm sm:text-base md:text-lg overflow-hidden"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
             >

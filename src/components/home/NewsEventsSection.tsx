@@ -111,6 +111,7 @@ const NewsEventsSection: React.FC = () => {
               <div className="p-4 sm:p-6 bg-gray-800/50 backdrop-blur-sm border-t border-gray-700/50">
                 <Link
                   to="/news"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                   className="group/btn w-full inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm"
                 >
                   <Sparkles size={16} className="group-hover/btn:animate-spin" />

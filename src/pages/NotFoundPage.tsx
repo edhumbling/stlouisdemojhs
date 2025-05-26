@@ -39,6 +39,7 @@ const NotFoundPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
               className="inline-flex items-center justify-center px-5 py-2.5 bg-yellow-500 text-black font-medium rounded-full shadow-lg hover:bg-yellow-400 transition-all duration-300 text-sm"
             >
               <Home size={16} className="mr-2" />
@@ -54,7 +55,7 @@ const NotFoundPage: React.FC = () => {
           </div>
         </motion.div>
       </div>
-      
+
       {/* Background pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>

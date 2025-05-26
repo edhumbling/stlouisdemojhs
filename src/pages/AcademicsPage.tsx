@@ -442,8 +442,8 @@ const AcademicsPage: React.FC = () => {
       </section>
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Academic Areas Section */}
-      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+      {/* Academic Areas Section - Compact */}
+      <section className="py-4 sm:py-6 md:py-8 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -460,48 +460,47 @@ const AcademicsPage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center mb-8 sm:mb-12"
+            className="max-w-3xl mx-auto text-center mb-4 sm:mb-6"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               🎯 Explore Our Academic Areas
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-3xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              Dive deeper into our specialized academic programs designed to nurture excellence in every student.
-              Each area offers comprehensive curriculum and dedicated pathways to success.
+            <p className="text-xs sm:text-sm md:text-base text-gray-200 leading-relaxed max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Specialized programs designed to nurture excellence in every student.
             </p>
           </motion.div>
 
-          {/* Academic Areas Grid - 2 Column Vertical Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+          {/* Academic Areas Grid - Extremely Small 2 Column Layout */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 max-w-2xl sm:max-w-3xl md:max-w-4xl mx-auto">
             {[
               {
                 id: 1,
-                title: "Core Academic Subjects",
-                description: "Comprehensive BECE curriculum covering all 11 subjects including English, Mathematics, Science, Social Studies, and more.",
+                title: "Core Academic",
+                description: "11 BECE subjects including English, Math, Science & more.",
                 icon: "📚",
                 color: "from-blue-500 to-green-500",
                 route: "/core-academic"
               },
               {
                 id: 2,
-                title: "STEM Education Excellence",
-                description: "Science, Technology, Engineering, and Mathematics programs preparing students for Ghana's digital future.",
+                title: "STEM Excellence",
+                description: "Science, Technology, Engineering & Mathematics programs.",
                 icon: "🔬",
                 color: "from-purple-500 to-cyan-500",
                 route: "/stem-education"
               },
               {
                 id: 3,
-                title: "Creative Arts & Culture",
-                description: "Celebrating Ghanaian heritage through music, dance, visual arts, and cultural expression programs.",
+                title: "Creative Arts",
+                description: "Ghanaian heritage through music, dance & visual arts.",
                 icon: "🎨",
                 color: "from-pink-500 to-rose-500",
                 route: "/creative-arts"
               },
               {
                 id: 4,
-                title: "Character & Values Education",
-                description: "Building moral foundations and ethical leadership through character development and values-based learning.",
+                title: "Character Values",
+                description: "Moral foundations & ethical leadership development.",
                 icon: "✨",
                 color: "from-emerald-500 to-teal-500",
                 route: "/character-education"
@@ -513,59 +512,59 @@ const AcademicsPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-dark rounded-2xl p-6 sm:p-8 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer backdrop-blur-lg"
+                className="glass-dark rounded-lg p-3 sm:p-4 md:p-5 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer backdrop-blur-lg"
               >
-                {/* Vertical Layout */}
+                {/* Compact Vertical Layout */}
                 <div className="text-center">
-                  <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${area.color} rounded-xl flex items-center justify-center text-2xl sm:text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300 mx-auto mb-4 sm:mb-6`}>
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br ${area.color} rounded-lg flex items-center justify-center text-lg sm:text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 mx-auto mb-2 sm:mb-3`}>
                     {area.icon}
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4 group-hover:text-blue-300 transition-colors duration-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  <h3 className="text-xs sm:text-sm md:text-base font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-300 transition-colors duration-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                     {area.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-6 sm:mb-8" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  <p className="text-xs sm:text-sm text-gray-200 leading-tight mb-3 sm:mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                     {area.description}
                   </p>
                   <Link
                     to={area.route}
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm group-hover:scale-105"
+                    className="inline-flex items-center px-2 py-1 sm:px-3 sm:py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-md shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm group-hover:scale-105"
                   >
-                    Explore Program
-                    <ChevronRight size={16} className="ml-1" />
+                    Explore
+                    <ChevronRight size={12} className="ml-1 sm:w-4 sm:h-4" />
                   </Link>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Call to Action */}
+          {/* Compact Call to Action */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mt-8 sm:mt-12"
+            className="text-center mt-4 sm:mt-6"
           >
-            <div className="glass-dark rounded-2xl p-6 sm:p-8 border border-white/20 shadow-lg max-w-4xl mx-auto backdrop-blur-lg">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            <div className="glass-dark rounded-lg p-4 sm:p-5 border border-white/20 shadow-lg max-w-2xl mx-auto backdrop-blur-lg">
+              <h3 className="text-sm sm:text-base md:text-lg font-bold text-white mb-2 sm:mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                 🌟 Ready to Join Our Academic Excellence?
               </h3>
-              <p className="text-sm sm:text-base text-gray-200 mb-6 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                Experience world-class education that has shaped thousands of successful graduates over 47+ years.
+              <p className="text-xs sm:text-sm text-gray-200 mb-3 sm:mb-4 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                Experience world-class education that has shaped thousands of graduates.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
                 <Link
                   to="/apply-now"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-blue-600 to-green-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm"
                 >
                   Apply Now
                 </Link>
                 <Link
                   to="/schedule-visit"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm"
                 >
                   Schedule Visit
                 </Link>

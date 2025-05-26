@@ -84,6 +84,7 @@ const GalleryPreview: React.FC = () => {
         <div className="text-center mt-6 sm:mt-8 md:mt-10">
           <Link
             to="/gallery"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
             className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-green-600 text-white font-bold rounded-2xl shadow-[0_0_20px_rgba(59,130,246,0.4),0_0_40px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6),0_0_60px_rgba(34,197,94,0.4)] transition-all duration-300 text-sm sm:text-base hover:scale-105 group"
             style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
           >

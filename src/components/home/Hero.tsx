@@ -274,6 +274,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 max-w-full">
               <Link
                 to="/about"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
@@ -283,6 +284,7 @@ const Hero: React.FC = () => {
 
               <Link
                 to="/contact"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(34,197,94,0.5)] hover:shadow-[0_0_20px_rgba(34,197,94,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
@@ -292,6 +294,7 @@ const Hero: React.FC = () => {
 
               <Link
                 to="/news"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
@@ -301,6 +304,7 @@ const Hero: React.FC = () => {
 
               <Link
                 to="/donate"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(239,68,68,0.5)] hover:shadow-[0_0_20px_rgba(239,68,68,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
