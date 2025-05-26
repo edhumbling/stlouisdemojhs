@@ -63,21 +63,46 @@ const DonationPage: React.FC = () => {
 
         {/* Floating 3D Love Emojis */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* 3D Love Emojis from online sources */}
-          <div className="absolute top-4 left-4 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}>
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2764.png" alt="love" className="w-6 h-6 sm:w-8 sm:h-8 opacity-80" />
+          {/* Simple 3D Love Emojis using Unicode with CSS 3D effects */}
+          <div className="absolute top-4 left-4 animate-bounce text-2xl sm:text-3xl" style={{
+            animationDelay: '0s',
+            animationDuration: '3s',
+            filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+            transform: 'rotateY(15deg) rotateX(5deg)'
+          }}>
+            ❤️
           </div>
-          <div className="absolute top-8 right-8 animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }}>
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f495.png" alt="two hearts" className="w-5 h-5 sm:w-7 sm:h-7 opacity-70" />
+          <div className="absolute top-8 right-8 animate-bounce text-xl sm:text-2xl" style={{
+            animationDelay: '1s',
+            animationDuration: '4s',
+            filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+            transform: 'rotateY(-15deg) rotateX(5deg)'
+          }}>
+            💕
           </div>
-          <div className="absolute bottom-6 left-8 animate-bounce" style={{ animationDelay: '2s', animationDuration: '3.5s' }}>
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f496.png" alt="sparkling heart" className="w-7 h-7 sm:w-9 sm:h-9 opacity-75" />
+          <div className="absolute bottom-6 left-8 animate-bounce text-3xl sm:text-4xl" style={{
+            animationDelay: '2s',
+            animationDuration: '3.5s',
+            filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+            transform: 'rotateY(10deg) rotateX(-5deg)'
+          }}>
+            💖
           </div>
-          <div className="absolute top-12 left-1/2 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '4.5s' }}>
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f497.png" alt="growing heart" className="w-4 h-4 sm:w-6 sm:h-6 opacity-60" />
+          <div className="absolute top-12 left-1/2 animate-bounce text-lg sm:text-xl" style={{
+            animationDelay: '0.5s',
+            animationDuration: '4.5s',
+            filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+            transform: 'rotateY(-10deg) rotateX(10deg)'
+          }}>
+            💗
           </div>
-          <div className="absolute bottom-4 right-4 animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '3.8s' }}>
-            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f498.png" alt="heart with arrow" className="w-6 h-6 sm:w-8 sm:h-8 opacity-85" />
+          <div className="absolute bottom-4 right-4 animate-bounce text-2xl sm:text-3xl" style={{
+            animationDelay: '1.5s',
+            animationDuration: '3.8s',
+            filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+            transform: 'rotateY(20deg) rotateX(-10deg)'
+          }}>
+            💘
           </div>
         </div>
 

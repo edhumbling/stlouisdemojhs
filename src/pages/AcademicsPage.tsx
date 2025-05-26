@@ -128,169 +128,169 @@ const AcademicsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="pt-12 pb-12 md:pt-20 md:pb-20 bg-gradient-to-br from-blue-600 via-blue-700 to-green-700 text-white relative overflow-hidden">
+      {/* Compact Hero Section */}
+      <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
+        {/* Gallery Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7126.HEIC"
+            alt="Academic Excellence at St. Louis Demo JHS"
+            className="w-full h-full object-cover"
+          />
+          {/* Blue and Yellow overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/85 via-blue-700/80 to-yellow-600/75"></div>
+        </div>
         {/* Background pattern */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
-          <div className="absolute inset-0 opacity-5 bg-[linear-gradient(45deg,#fff_1px,transparent_1px)] [background-size:30px_30px]"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center max-w-6xl mx-auto">
-            {/* Text Content - Professional & Organized */}
+          <div className="max-w-6xl mx-auto">
+            {/* Compact Professional Content */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center lg:text-left order-2 lg:order-1 space-y-4 sm:space-y-6 lg:space-y-8"
+              className="text-center"
             >
-              {/* Main Heading */}
+              {/* Main Heading - Cute & Professional */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="space-y-2 sm:space-y-3"
+                className="mb-4 sm:mb-6"
               >
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white"
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-white mb-2"
                     style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                  Academic Excellence at
+                  🎓 Academic Excellence
                 </h1>
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight text-yellow-300"
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight text-yellow-300"
                     style={{ fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                   St. Louis Demonstration JHS
                 </h2>
               </motion.div>
 
-              {/* Description */}
+              {/* Description - Concise */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="max-w-2xl mx-auto lg:mx-0"
+                className="mb-4 sm:mb-6"
               >
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 leading-relaxed"
+                <p className="text-sm sm:text-base md:text-lg text-gray-100 leading-relaxed max-w-3xl mx-auto"
                    style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  Our comprehensive curriculum develops well-rounded students through rigorous academics,
-                  technology integration, and character formation since 1977.
+                  Comprehensive curriculum developing well-rounded students through rigorous academics and character formation since 1977.
                 </p>
               </motion.div>
 
-              {/* Achievement Badge */}
+              {/* Key Stats - Horizontal Layout */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex justify-center lg:justify-start"
+                className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-4 sm:mb-6"
               >
-                <div className="inline-flex items-center gap-2 sm:gap-3 bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-4 py-2 sm:px-6 sm:py-3 shadow-lg">
-                  <span className="text-yellow-400 text-lg sm:text-xl">🏆</span>
-                  <span className="text-yellow-300 text-sm sm:text-base font-semibold">Award-Winning Institution</span>
-                </div>
-              </motion.div>
-
-              {/* Key Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-lg mx-auto lg:mx-0"
-              >
-                <div className="text-center lg:text-left">
-                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-yellow-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                  <div className="text-lg sm:text-xl font-bold text-yellow-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                     {schoolStats.ageFormatted}
                   </div>
                   <div className="text-xs sm:text-sm text-gray-300">Years Excellence</div>
                 </div>
-                <div className="text-center lg:text-left">
-                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-blue-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                  <div className="text-lg sm:text-xl font-bold text-blue-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                     11
                   </div>
                   <div className="text-xs sm:text-sm text-gray-300">Subjects</div>
                 </div>
-                <div className="text-center lg:text-left col-span-2 sm:col-span-1">
-                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-green-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                    500+
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                  <div className="text-lg sm:text-xl font-bold text-green-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                    800+
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-300">Students Served</div>
+                  <div className="text-xs sm:text-sm text-gray-300">Students</div>
+                </div>
+              </motion.div>
+
+              {/* Achievement Badge - Cute */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="flex justify-center mb-6 sm:mb-8"
+              >
+                <div className="inline-flex items-center gap-2 bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/30 rounded-full px-4 py-2 shadow-lg">
+                  <span className="text-yellow-400 text-lg">🏆</span>
+                  <span className="text-yellow-300 text-sm font-semibold">Award-Winning Institution</span>
+                </div>
+              </motion.div>
+
+              {/* Compact Awards Gallery - Professional Organization */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="flex justify-center"
+              >
+                <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-md mx-auto">
+                  {/* Certificate Award */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 1.0 }}
+                    className="group"
+                  >
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/20 hover:border-blue-400/50 transition-all duration-300 hover:scale-105 shadow-lg">
+                      <img
+                        src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2015.25.49_a13217f5.png?updatedAt=1748114499952"
+                        alt="Recognition Certificate"
+                        className="w-full h-16 sm:h-20 object-contain mx-auto drop-shadow-lg"
+                      />
+                      <div className="text-center mt-1">
+                        <p className="text-xs text-blue-300 font-medium">Certificate</p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Trophy Award */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 1.2 }}
+                    className="group"
+                  >
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/20 hover:border-yellow-400/50 transition-all duration-300 hover:scale-105 shadow-lg">
+                      <img
+                        src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.50_8a783049.png?updatedAt=1748113864722"
+                        alt="Excellence Trophy"
+                        className="w-full h-16 sm:h-20 object-contain mx-auto drop-shadow-lg"
+                      />
+                      <div className="text-center mt-1">
+                        <p className="text-xs text-yellow-300 font-medium">Trophy</p>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Plaque Award */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 1.4 }}
+                    className="group"
+                  >
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/20 hover:border-green-400/50 transition-all duration-300 hover:scale-105 shadow-lg">
+                      <img
+                        src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.49_8e4315da.png?updatedAt=1748114499850"
+                        alt="Achievement Plaque"
+                        className="w-full h-16 sm:h-20 object-contain mx-auto drop-shadow-lg"
+                      />
+                      <div className="text-center mt-1">
+                        <p className="text-xs text-green-300 font-medium">Plaque</p>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Awards Collection - Professional Layout */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex justify-center lg:justify-end order-1 lg:order-2"
-            >
-              <div className="relative">
-                {/* Certificate Award (Top) */}
-                <motion.div
-                  initial={{ opacity: 0, y: -20, rotate: -5 }}
-                  animate={{ opacity: 1, y: 0, rotate: -3 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="relative z-10 mb-4"
-                >
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20 hover:border-blue-400/50 transition-all duration-500 hover:scale-105 transform -rotate-3 hover:rotate-0 shadow-xl">
-                    <img
-                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2015.25.49_a13217f5.png?updatedAt=1748114499952"
-                      alt="Recognition Certificate - St. Louis Demonstration JHS"
-                      className="w-32 h-24 sm:w-40 sm:h-32 md:w-48 md:h-36 lg:w-56 lg:h-42 object-contain mx-auto drop-shadow-2xl"
-                    />
-                    {/* Floating Particles */}
-                    <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-blue-400/60 rounded-full animate-ping"></div>
-                  </div>
-                </motion.div>
-
-                {/* Trophy Award (Center-Right) */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20, rotate: 5 }}
-                  animate={{ opacity: 1, x: 0, rotate: 2 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                  className="relative z-20 ml-8 sm:ml-12 md:ml-16"
-                >
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 md:p-6 border border-white/20 hover:border-yellow-400/50 transition-all duration-500 hover:scale-105 transform rotate-2 hover:rotate-0 shadow-xl">
-                    <img
-                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.50_8a783049.png?updatedAt=1748113864722"
-                      alt="Academic Excellence Trophy - St. Louis Demonstration JHS"
-                      className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain mx-auto drop-shadow-2xl"
-                    />
-                    {/* Floating Particles */}
-                    <div className="absolute top-2 right-2 w-2 h-2 bg-yellow-400/60 rounded-full animate-ping"></div>
-                    <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-yellow-300/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                  </div>
-                </motion.div>
-
-                {/* Plaque Award (Bottom-Left, Overlapping) */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20, rotate: 8 }}
-                  animate={{ opacity: 1, y: 0, rotate: 5 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
-                  className="relative z-30 -mt-6 sm:-mt-8 md:-mt-10 -ml-4 sm:-ml-6"
-                >
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20 hover:border-green-400/50 transition-all duration-500 hover:scale-105 transform rotate-5 hover:rotate-1 shadow-xl">
-                    <img
-                      src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-23%20at%2016.00.49_8e4315da.png?updatedAt=1748114499850"
-                      alt="Achievement Plaque - St. Louis Demonstration JHS"
-                      className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 object-contain mx-auto drop-shadow-2xl"
-                    />
-                    {/* Floating Particles */}
-                    <div className="absolute top-1 left-1 w-1 h-1 bg-green-400/60 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
-                    <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-green-300/40 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-                  </div>
-                </motion.div>
-
-                {/* Awards Label */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.2 }}
-                  className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-yellow-600 via-blue-600 to-green-600 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-lg whitespace-nowrap"
-                >
-                  🏆 Award-Winning Excellence 🏆
-                </motion.div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -443,8 +443,18 @@ const AcademicsPage: React.FC = () => {
       <SectionDivider position="bottom" flip={true} />
 
       {/* Academic Areas Section */}
-      <section className="py-8 sm:py-12 md:py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC"
+            alt="Academic Areas Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark glass aero overlay */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -452,17 +462,17 @@ const AcademicsPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center mb-8 sm:mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               🎯 Explore Our Academic Areas
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed max-w-3xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               Dive deeper into our specialized academic programs designed to nurture excellence in every student.
               Each area offers comprehensive curriculum and dedicated pathways to success.
             </p>
           </motion.div>
 
-          {/* Academic Areas Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          {/* Academic Areas Grid - 2 Column Vertical Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {[
               {
                 id: 1,
@@ -470,8 +480,6 @@ const AcademicsPage: React.FC = () => {
                 description: "Comprehensive BECE curriculum covering all 11 subjects including English, Mathematics, Science, Social Studies, and more.",
                 icon: "📚",
                 color: "from-blue-500 to-green-500",
-                bgColor: "bg-gradient-to-br from-blue-50 to-green-50",
-                borderColor: "border-blue-200",
                 route: "/core-academic"
               },
               {
@@ -480,8 +488,6 @@ const AcademicsPage: React.FC = () => {
                 description: "Science, Technology, Engineering, and Mathematics programs preparing students for Ghana's digital future.",
                 icon: "🔬",
                 color: "from-purple-500 to-cyan-500",
-                bgColor: "bg-gradient-to-br from-purple-50 to-cyan-50",
-                borderColor: "border-purple-200",
                 route: "/stem-education"
               },
               {
@@ -490,8 +496,6 @@ const AcademicsPage: React.FC = () => {
                 description: "Celebrating Ghanaian heritage through music, dance, visual arts, and cultural expression programs.",
                 icon: "🎨",
                 color: "from-pink-500 to-rose-500",
-                bgColor: "bg-gradient-to-br from-pink-50 to-rose-50",
-                borderColor: "border-pink-200",
                 route: "/creative-arts"
               },
               {
@@ -500,8 +504,6 @@ const AcademicsPage: React.FC = () => {
                 description: "Building moral foundations and ethical leadership through character development and values-based learning.",
                 icon: "✨",
                 color: "from-emerald-500 to-teal-500",
-                bgColor: "bg-gradient-to-br from-emerald-50 to-teal-50",
-                borderColor: "border-emerald-200",
                 route: "/character-education"
               }
             ].map((area, index) => (
@@ -511,28 +513,27 @@ const AcademicsPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`${area.bgColor} rounded-2xl p-6 sm:p-8 border ${area.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer`}
+                className="glass-dark rounded-2xl p-6 sm:p-8 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer backdrop-blur-lg"
               >
-                <div className="flex items-start gap-4 sm:gap-6">
-                  <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${area.color} rounded-xl flex items-center justify-center text-2xl sm:text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                {/* Vertical Layout */}
+                <div className="text-center">
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${area.color} rounded-xl flex items-center justify-center text-2xl sm:text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300 mx-auto mb-4 sm:mb-6`}>
                     {area.icon}
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                      {area.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
-                      {area.description}
-                    </p>
-                    <Link
-                      to={area.route}
-                      onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                      className="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm group-hover:scale-105"
-                    >
-                      Explore Program
-                      <ChevronRight size={16} className="ml-1" />
-                    </Link>
-                  </div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4 group-hover:text-blue-300 transition-colors duration-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                    {area.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-6 sm:mb-8" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                    {area.description}
+                  </p>
+                  <Link
+                    to={area.route}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm group-hover:scale-105"
+                  >
+                    Explore Program
+                    <ChevronRight size={16} className="ml-1" />
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -546,11 +547,11 @@ const AcademicsPage: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-center mt-8 sm:mt-12"
           >
-            <div className="bg-gradient-to-r from-blue-50 via-white to-green-50 rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-lg max-w-4xl mx-auto">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-4">
+            <div className="glass-dark rounded-2xl p-6 sm:p-8 border border-white/20 shadow-lg max-w-4xl mx-auto backdrop-blur-lg">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                 🌟 Ready to Join Our Academic Excellence?
               </h3>
-              <p className="text-sm sm:text-base text-gray-600 mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-200 mb-6 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                 Experience world-class education that has shaped thousands of successful graduates over 47+ years.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
