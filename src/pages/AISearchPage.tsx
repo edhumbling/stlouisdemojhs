@@ -30,15 +30,7 @@ const AISearchPage: React.FC = () => {
       glowColor: '#06b6d4',
       hasWhiteBackground: true
     },
-    {
-      id: 'iask',
-      name: 'iAsk.ai',
-      url: 'https://iask.ai/',
-      description: 'Advanced AI search engine with intelligent question answering capabilities',
-      icon: <Brain className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-teal-600 to-blue-600',
-      glowColor: '#0891b2'
-    },
+
     {
       id: 'farfalle',
       name: 'Farfalle',
@@ -110,24 +102,6 @@ const AISearchPage: React.FC = () => {
       icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-violet-600 to-purple-600',
       glowColor: '#7c3aed'
-    },
-    {
-      id: 'greppr',
-      name: 'Greppr',
-      url: 'https://greppr.org/',
-      description: 'Advanced search and pattern matching tool for developers and researchers',
-      icon: <Search className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-slate-600 to-gray-600',
-      glowColor: '#475569'
-    },
-    {
-      id: 'startpage',
-      name: 'Startpage',
-      url: 'https://www.startpage.com/',
-      description: 'Privacy-focused search engine that delivers Google results without tracking',
-      icon: <Search className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-green-600 to-emerald-600',
-      glowColor: '#059669'
     }
   ];
 
