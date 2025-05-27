@@ -31,10 +31,10 @@ const AISearchPage: React.FC = () => {
       hasWhiteBackground: true
     },
     {
-      id: 'scira',
-      name: 'Scira AI',
-      url: 'https://scira.ai/',
-      description: 'Intelligent AI search platform with advanced reasoning capabilities',
+      id: 'iask',
+      name: 'iAsk.ai',
+      url: 'https://iask.ai/',
+      description: 'Advanced AI search engine with intelligent question answering capabilities',
       icon: <Brain className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-teal-600 to-blue-600',
       glowColor: '#0891b2'
@@ -74,6 +74,42 @@ const AISearchPage: React.FC = () => {
       icon: <Bot className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-indigo-600 to-purple-600',
       glowColor: '#8b5cf6'
+    },
+    {
+      id: 'memfree',
+      name: 'MemFree',
+      url: 'https://www.memfree.me/',
+      description: 'Free AI-powered search engine with memory and context awareness',
+      icon: <Brain className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-emerald-600 to-teal-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'felladrin-minisearch',
+      name: 'Felladrin MiniSearch',
+      url: 'https://felladrin-minisearch.hf.space/',
+      description: 'Compact AI search engine powered by Hugging Face with fast results',
+      icon: <Search className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#ea580c'
+    },
+    {
+      id: 'explorer-globe',
+      name: 'Explorer Globe',
+      url: 'https://explorer.globe.engineer/',
+      description: 'Advanced exploration and discovery platform with global search capabilities',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-cyan-600 to-blue-600',
+      glowColor: '#0891b2'
+    },
+    {
+      id: 'translator-globe',
+      name: 'Translator Globe',
+      url: 'https://translator.globe.engineer/',
+      description: 'AI-powered translation and language processing platform with global reach',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-violet-600 to-purple-600',
+      glowColor: '#7c3aed'
     }
   ];
 
