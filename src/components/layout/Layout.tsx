@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import ScrollButton from '../common/ScrollButton';
 
 const Layout: React.FC = () => {
   const location = useLocation();
@@ -107,6 +108,9 @@ const Layout: React.FC = () => {
         <Outlet />
       </main>
       {shouldShowFooter && <Footer />}
+
+      {/* Global Scroll Button */}
+      <ScrollButton />
     </div>
   );
 };
