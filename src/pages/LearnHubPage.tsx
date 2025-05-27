@@ -99,7 +99,7 @@ const LearnHubPage: React.FC = () => {
     return (
       <div className="fixed inset-0 z-50 bg-white">
         {/* Header */}
-        <div className="fixed top-0 left-0 right-0 z-10 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 shadow-lg">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -118,10 +118,10 @@ const LearnHubPage: React.FC = () => {
         </div>
 
         {/* Full viewport iframe - No footer */}
-        <div className="w-full h-full pt-16 relative">
+        <div className="w-full h-full pt-20 relative">
           <iframe
             src={selectedResource.url}
-            className="w-full h-full border-0"
+            className="w-full h-full border-0 relative z-10"
             title={selectedResource.title}
             sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
             onLoad={handleIframeLoad}
