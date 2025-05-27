@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Search, Globe, Zap, Brain, Sparkles, Bot, BookOpen } from 'lucide-react';
+import { ArrowLeft, Search, Globe, Zap, Brain, Bot, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useHeader } from '../contexts/HeaderContext';
 
@@ -129,16 +129,6 @@ const AISearchPage: React.FC = () => {
       icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-amber-600 to-orange-600',
       glowColor: '#f59e0b',
-      hasWhiteBackground: true
-    },
-    {
-      id: 'huggingface-chat',
-      name: 'Hugging Face Chat',
-      url: 'https://huggingface.co/chat/',
-      description: 'Open-source AI chat platform with multiple language models and assistants',
-      icon: <Bot className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-yellow-600 to-amber-600',
-      glowColor: '#eab308',
       hasWhiteBackground: true
     }
   ];
