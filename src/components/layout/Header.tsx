@@ -443,10 +443,8 @@ const Header: React.FC = () => {
                   </motion.div>
                 );
               })}
-            </div>
 
-            {/* Apply Now - Standalone after Gallery */}
-            <div className="mb-3">
+              {/* Apply Now - Right beside Gallery in 2-column layout */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -459,14 +457,14 @@ const Header: React.FC = () => {
                     window.scrollTo({ top: 0, behavior: 'instant' });
                   }}
                   className={({ isActive }) => `
-                    flex items-center justify-center py-2 px-3 font-medium rounded-lg text-sm relative transition-all duration-200
+                    flex items-center justify-center py-2 px-2 font-medium rounded-lg text-xs relative transition-all duration-200
                     ${isActive
                       ? 'bg-orange-500/20 text-orange-300 border border-orange-400/30'
                       : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
                     }
                   `}
                 >
-                  <FileText size={16} className="mr-2" />
+                  <FileText size={14} className="mr-1.5" />
                   Apply Now
                 </NavLink>
               </motion.div>
