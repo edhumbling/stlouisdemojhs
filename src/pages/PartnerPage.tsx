@@ -88,7 +88,7 @@ const PartnerPage: React.FC = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      info: "+233 XX XXX XXXX",
+      info: "📱 0244758575, 📱 0244730726",
       description: "Speak directly with our partnership coordinator"
     },
     {
