@@ -3,21 +3,19 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
+import { useHeader } from '../../contexts/HeaderContext';
 
 const Layout: React.FC = () => {
   const location = useLocation();
+  const { showHeader } = useHeader();
 
   // Pages that should not show the footer
   const noFooterPages = ['/news', '/calendar', '/ai-search', '/schedule-visit', '/learnhub', '/advice-speeches'];
   const shouldShowFooter = !noFooterPages.includes(location.pathname);
 
-  // Pages that should not show the header (for maximum space)
-  const noHeaderPages = ['/ai-search', '/learnhub'];
-  const shouldShowHeader = !noHeaderPages.includes(location.pathname);
-
   // Homepage should not have top padding (content can go under header)
   const isHomePage = location.pathname === '/';
-  const shouldHaveTopPadding = !isHomePage && shouldShowHeader;
+  const shouldHaveTopPadding = !isHomePage && showHeader;
 
   // Structured data for Google search features
   const organizationSchema = {
@@ -107,7 +105,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      {shouldShowHeader && <Header />}
+      {showHeader && <Header />}
       <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
         <Outlet />
       </main>

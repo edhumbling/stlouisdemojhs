@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import { HeaderProvider } from './contexts/HeaderContext';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import AcademicsPage from './pages/AcademicsPage';
@@ -89,13 +90,14 @@ const ScrollPositionManager: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
-      {/* Scroll Position Manager */}
-      <ScrollPositionManager />
+    <HeaderProvider>
+      <Router>
+        {/* Scroll Position Manager */}
+        <ScrollPositionManager />
 
 
 
-      <Routes>
+        <Routes>
         {/* Main layout with nested routes */}
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -140,6 +142,7 @@ const App: React.FC = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
+    </HeaderProvider>
   );
 };
 

@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Search, Globe, Zap, Brain, Sparkles, Bot } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useHeader } from '../contexts/HeaderContext';
 
 const AISearchPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedEngine, setSelectedEngine] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { setShowHeader } = useHeader();
+
+  // Control header visibility based on whether we're viewing an individual engine
+  useEffect(() => {
+    if (selectedEngine) {
+      // Hide header when viewing individual engine
+      setShowHeader(false);
+    } else {
+      // Show header when viewing main grid
+      setShowHeader(true);
+    }
+
+    // Cleanup: ensure header is shown when component unmounts
+    return () => {
+      setShowHeader(true);
+    };
+  }, [selectedEngine, setShowHeader]);
 
   const handleBack = () => {
     if (selectedEngine) {
@@ -172,7 +190,7 @@ const AISearchPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black pt-0">
+    <div className="min-h-screen bg-black pt-16">
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
