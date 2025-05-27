@@ -98,13 +98,13 @@ const LearnHubPage: React.FC = () => {
   if (selectedResource) {
     return (
       <div className="fixed inset-0 z-50 bg-white">
-        {/* Header */}
-        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 shadow-lg">
+        {/* Header - Enhanced Purple Back Button */}
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 sm:py-5 shadow-2xl border-b border-purple-700/50">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-purple-700/70 hover:bg-purple-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/50 hover:border-purple-400/70 flex-shrink-0 ring-2 ring-purple-500/20 hover:ring-purple-400/30"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
                 <span>Back</span>
@@ -118,7 +118,7 @@ const LearnHubPage: React.FC = () => {
         </div>
 
         {/* Full viewport iframe - No footer */}
-        <div className="w-full h-full pt-20 relative">
+        <div className="w-full h-full pt-24 relative">
           <iframe
             src={selectedResource.url}
             className="w-full h-full border-0 relative z-10"
