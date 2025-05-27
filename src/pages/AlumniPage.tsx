@@ -1,8 +1,82 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, GraduationCap, Heart, Award } from 'lucide-react';
+import { ArrowLeft, Users, GraduationCap, Heart, Award, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+
+// Apple-style Stopwatch Timer Component
+const AppleTimer: React.FC<{ targetDate: string; eventName: string }> = ({ targetDate, eventName }) => {
+  const [timeLeft, setTimeLeft] = useState({
+    years: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = new Date(targetDate).getTime() - new Date().getTime();
+
+      if (difference > 0) {
+        const years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365));
+        const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setTimeLeft({ years, days, hours, minutes, seconds });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  const timeUnits = [
+    { label: 'Y', value: timeLeft.years, color: 'from-blue-500 to-blue-600' },
+    { label: 'D', value: timeLeft.days, color: 'from-green-500 to-green-600' },
+    { label: 'H', value: timeLeft.hours, color: 'from-purple-500 to-purple-600' },
+    { label: 'M', value: timeLeft.minutes, color: 'from-orange-500 to-orange-600' },
+    { label: 'S', value: timeLeft.seconds, color: 'from-red-500 to-red-600' }
+  ];
+
+  return (
+    <div className="mt-auto">
+      <div className="flex items-center justify-center mb-2">
+        <Clock className="w-3 h-3 text-white/60 mr-1" />
+        <span className="text-xs font-medium text-white/60 uppercase tracking-wide">Countdown</span>
+      </div>
+      <div className="grid grid-cols-5 gap-1">
+        {timeUnits.map((unit, index) => (
+          <motion.div
+            key={unit.label}
+            className="text-center"
+            animate={{
+              scale: unit.label === 'S' ? [1, 1.05, 1] : 1
+            }}
+            transition={{
+              duration: 1,
+              repeat: unit.label === 'S' ? Infinity : 0,
+              ease: "easeInOut"
+            }}
+          >
+            <div className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br ${unit.color} rounded-lg flex items-center justify-center mb-1 shadow-lg border border-white/20`}>
+              <span className="text-white font-mono font-bold text-xs sm:text-sm">
+                {unit.value.toString().padStart(2, '0')}
+              </span>
+            </div>
+            <div className="text-white/70 text-xs font-medium uppercase tracking-wider">
+              {unit.label}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -95,21 +169,24 @@ const AlumniPage: React.FC = () => {
       date: "December 2030",
       description: "A magnificent celebration marking our journey into the future.",
       type: "Future Milestone",
-      year: "2030"
+      year: "2030",
+      targetDate: "2030-12-15T00:00:00Z"
     },
     {
       title: "Century Convergence",
       date: "June 2045",
       description: "Generations of alumni converge to share wisdom and innovation.",
       type: "Centennial Vision",
-      year: "2045"
+      year: "2045",
+      targetDate: "2045-06-21T00:00:00Z"
     },
     {
       title: "Arrivals of Posterity",
       date: "September 2060",
       description: "Honoring future generations and our eternal legacy.",
       type: "Legacy Celebration",
-      year: "2060"
+      year: "2060",
+      targetDate: "2060-09-10T00:00:00Z"
     }
   ];
 
@@ -341,13 +418,7 @@ const AlumniPage: React.FC = () => {
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-tight">{event.title}</h3>
                 <p className="text-gray-300 font-medium mb-2 text-sm">{event.date}</p>
                 <p className="text-gray-400 text-xs sm:text-sm mb-4 leading-relaxed flex-grow">{event.description}</p>
-                <div className="mt-auto">
-                  <div className="flex items-center justify-center">
-                    <span className="text-4xl font-bold text-white bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-                      {event.year}
-                    </span>
-                  </div>
-                </div>
+                <AppleTimer targetDate={event.targetDate} eventName={event.title} />
               </motion.div>
             ))}
           </div>
