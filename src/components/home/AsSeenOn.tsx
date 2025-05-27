@@ -64,16 +64,13 @@ const AsSeenOn: React.FC = () => {
           </h3>
         </motion.div>
 
-        {/* Desktop: Right-to-left scroll with fade effect */}
+        {/* Desktop: Right-to-left scroll */}
         <div className="hidden md:block">
-          {/* Fade effect - positioned where logos end (far right) */}
-          <div className="absolute right-0 top-0 bottom-0 w-1/6 bg-gradient-to-l from-black/0 via-black/40 to-black/80 z-10 pointer-events-none"></div>
-
           {/* Right-to-left scrolling logos - continuous scroll */}
           <motion.div
             className="flex items-center space-x-8"
             animate={{
-              x: [screenWidth, -screenWidth * 0.15] // Push ending much further to the right
+              x: [screenWidth, -screenWidth * 0.45] // End before the last dot in the slider
             }}
             transition={{
               x: {
