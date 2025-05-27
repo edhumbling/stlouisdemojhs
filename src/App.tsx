@@ -29,8 +29,7 @@ import CreativeArtsPage from './pages/CreativeArtsPage';
 import LanguageCommunicationPage from './pages/LanguageCommunicationPage';
 import CoreAcademicPage from './pages/CoreAcademicPage';
 import NotFoundPage from './pages/NotFoundPage';
-import SocialMediaIcons from './components/common/SocialMediaIcons';
-import GlassScrollButton from './components/common/GlassScrollButton';
+
 
 // Scroll Position Manager Component
 const ScrollPositionManager: React.FC = () => {
@@ -94,9 +93,7 @@ const App: React.FC = () => {
       {/* Scroll Position Manager */}
       <ScrollPositionManager />
 
-      {/* Floating social media icons and scroll button */}
-      <SocialMediaIcons />
-      <GlassScrollButton />
+
 
       <Routes>
         {/* Main layout with nested routes */}
