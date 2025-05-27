@@ -34,7 +34,7 @@ const CalendarPage: React.FC = () => {
       <div className="w-full" style={{ height: 'calc(100vh - 140px)' }}>
         <iframe
           src="https://calendar.google.com/calendar/embed?src=f774a22b7db5c45f12b13c391cddbf261522e8afa5061bdf9696b2d599d9d7f7%40group.calendar.google.com&ctz=Africa%2FAbidjan"
-          title="St. Louis Educational Institute Events Calendar"
+          title="St. Louis Demonstration J.H.S Events Calendar"
           className="w-full h-full border-0"
           style={{
             width: '100%',

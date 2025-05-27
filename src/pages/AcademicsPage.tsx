@@ -673,7 +673,7 @@ const AcademicsPage: React.FC = () => {
             <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
               Experience the vibrant academic environment where students thrive through interactive learning, collaborative projects,
               state-of-the-art facilities, and dedicated faculty guidance. Our campus buzzes with intellectual curiosity,
-              creative expression, and the pursuit of excellence that has defined St. Louis Educational Institute for nearly five decades.
+              creative expression, and the pursuit of excellence that has defined St. Louis Demonstration J.H.S for nearly five decades.
             </p>
           </motion.div>
 
