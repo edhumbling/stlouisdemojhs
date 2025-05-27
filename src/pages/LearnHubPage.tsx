@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 const LearnHubPage: React.FC = () => {
@@ -87,6 +87,30 @@ const LearnHubPage: React.FC = () => {
       icon: <Users className="w-5 h-5" />,
       color: "#FF6B35",
       isInternal: true
+    },
+    {
+      id: 8,
+      title: "Financial Literacy",
+      description: "Learn personal finance and money management",
+      url: "https://www.khanacademy.org/college-careers-more/financial-literacy",
+      icon: <DollarSign className="w-5 h-5" />,
+      color: "#00C896"
+    },
+    {
+      id: 9,
+      title: "Business Skills Chat",
+      description: "AI-powered business skills development",
+      url: "https://www.nfx.com/chat",
+      icon: <Briefcase className="w-5 h-5" />,
+      color: "#1E40AF"
+    },
+    {
+      id: 10,
+      title: "Product Creation Chat",
+      description: "Learn product development and creation",
+      url: "https://www.lennybot.com/",
+      icon: <Lightbulb className="w-5 h-5" />,
+      color: "#F59E0B"
     }
   ];
 
