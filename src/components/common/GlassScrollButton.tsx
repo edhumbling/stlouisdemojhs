@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp, ArrowDown } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
 
 interface GlassScrollButtonProps {
   className?: string;
@@ -10,12 +9,6 @@ interface GlassScrollButtonProps {
 const GlassScrollButton: React.FC<GlassScrollButtonProps> = ({ className = '' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
-  const location = useLocation();
-
-  // Ensure scroll button works on all pages, including iframe pages
-  const isFullScreenPage = ['/learnhub', '/ai-search', '/calendar', '/schedule-visit'].some(path =>
-    location.pathname.startsWith(path)
-  );
 
   useEffect(() => {
     let ticking = false;
@@ -74,9 +67,8 @@ const GlassScrollButton: React.FC<GlassScrollButtonProps> = ({ className = '' })
       {isVisible && (
         <motion.button
           onClick={handleClick}
-          className={`fixed bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8
-            lg:bottom-4 lg:left-auto lg:right-4 xl:bottom-6 xl:right-6 2xl:bottom-8 2xl:right-8
-            ${isFullScreenPage ? 'z-[99995]' : 'z-[9995]'} flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14
+          className={`fixed bottom-6 left-4 lg:left-auto lg:right-4 z-[9995]
+            flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14
             rounded-full shadow-lg hover:shadow-xl transition-all duration-300
             bg-yellow-500/20 backdrop-blur-md border border-yellow-400/30
             hover:bg-yellow-400/30 hover:border-yellow-300/50
@@ -104,13 +96,13 @@ const GlassScrollButton: React.FC<GlassScrollButtonProps> = ({ className = '' })
           >
             {scrollDirection === 'up' ? (
               <ArrowUp
-                className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-yellow-300 font-bold"
+                className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-300 font-bold"
                 strokeWidth={3}
                 style={{ filter: 'drop-shadow(0 0 4px rgba(234, 179, 8, 0.5))' }}
               />
             ) : (
               <ArrowDown
-                className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-yellow-300 font-bold"
+                className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-300 font-bold"
                 strokeWidth={3}
                 style={{ filter: 'drop-shadow(0 0 4px rgba(234, 179, 8, 0.5))' }}
               />
