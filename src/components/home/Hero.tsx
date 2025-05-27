@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ShimmerLoader from '../common/ShimmerLoader';
+import AsSeenOn from './AsSeenOn';
 
 const Hero: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -334,6 +335,11 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
         </div>
+      </div>
+
+      {/* As Seen On Section - Beautiful Media Logos */}
+      <div className="absolute bottom-16 sm:bottom-20 md:bottom-24 left-0 right-0 z-20">
+        <AsSeenOn />
       </div>
 
       {/* Smart Image Indicators - Only Show Loaded Images */}
