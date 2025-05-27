@@ -23,6 +23,12 @@ export const schoolDropdownItems: DropdownItem[] = [
     image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6993.HEIC'
   },
   {
+    label: 'Admissions',
+    path: '/admissions',
+    description: 'Learn about our admission process and requirements',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC?updatedAt=1748185690882'
+  },
+  {
     label: 'Administration',
     path: '/faculty',
     description: 'Meet our dedicated faculty and administrative staff',

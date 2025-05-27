@@ -102,6 +102,15 @@ const Footer: React.FC = () => {
                 </li>
                 <li>
                   <Link
+                    to="/admissions"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    Admissions
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/faculty"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
