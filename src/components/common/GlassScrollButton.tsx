@@ -77,7 +77,7 @@ const GlassScrollButton: React.FC<GlassScrollButtonProps> = ({ className = '' })
           className={`fixed
             left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8
             lg:left-auto lg:right-4 lg:bottom-4 xl:right-6 xl:bottom-6 2xl:right-8 2xl:bottom-8
-            ${isFullScreenPage ? 'z-[99995]' : 'z-[9995]'} flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16
+            ${isFullScreenPage ? 'z-[99995]' : 'z-[9995]'} flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14
             rounded-full shadow-lg hover:shadow-xl transition-all duration-300
             bg-yellow-500/20 backdrop-blur-md border border-yellow-400/30
             hover:bg-yellow-400/30 hover:border-yellow-300/50
@@ -105,13 +105,13 @@ const GlassScrollButton: React.FC<GlassScrollButtonProps> = ({ className = '' })
           >
             {scrollDirection === 'up' ? (
               <ArrowUp
-                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-yellow-300 font-bold"
+                className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-yellow-300 font-bold"
                 strokeWidth={3}
                 style={{ filter: 'drop-shadow(0 0 4px rgba(234, 179, 8, 0.5))' }}
               />
             ) : (
               <ArrowDown
-                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-yellow-300 font-bold"
+                className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-yellow-300 font-bold"
                 strokeWidth={3}
                 style={{ filter: 'drop-shadow(0 0 4px rgba(234, 179, 8, 0.5))' }}
               />
