@@ -1,80 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, GraduationCap, Heart, Award, Clock } from 'lucide-react';
+import { ArrowLeft, Users, GraduationCap, Heart, Award } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
-
-// Beautiful Ticking Clock Component
-const TickingClock: React.FC<{ targetDate: string; eventName: string }> = ({ targetDate, eventName }) => {
-  const [timeLeft, setTimeLeft] = useState({
-    years: 0,
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const difference = new Date(targetDate).getTime() - new Date().getTime();
-
-      if (difference > 0) {
-        const years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365));
-        const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        setTimeLeft({ years, days, hours, minutes, seconds });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-
-    return () => clearInterval(timer);
-  }, [targetDate]);
-
-  const timeUnits = [
-    { label: 'Years', value: timeLeft.years },
-    { label: 'Days', value: timeLeft.days },
-    { label: 'Hours', value: timeLeft.hours },
-    { label: 'Minutes', value: timeLeft.minutes },
-    { label: 'Seconds', value: timeLeft.seconds }
-  ];
-
-  return (
-    <div className="mt-4 p-4 bg-black/40 backdrop-blur-sm rounded-lg border border-gray-600/50">
-      <div className="flex items-center justify-center mb-3">
-        <Clock className="w-4 h-4 text-gray-300 mr-2" />
-        <span className="text-xs font-medium text-gray-300 uppercase tracking-wide">Strategic Timer</span>
-      </div>
-      <div className="grid grid-cols-5 gap-2">
-        {timeUnits.map((unit, index) => (
-          <motion.div
-            key={unit.label}
-            className="text-center p-2 bg-gray-800/60 border border-gray-600/40 rounded-md"
-            animate={{
-              borderColor: unit.label === 'Seconds' ? ['rgba(156, 163, 175, 0.4)', 'rgba(156, 163, 175, 0.8)', 'rgba(156, 163, 175, 0.4)'] : 'rgba(156, 163, 175, 0.4)'
-            }}
-            transition={{
-              duration: 1,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="text-white font-mono font-bold text-xs sm:text-sm">
-              {unit.value.toString().padStart(2, '0')}
-            </div>
-            <div className="text-gray-400 text-xs font-medium uppercase tracking-wider">
-              {unit.label}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -164,27 +92,24 @@ const AlumniPage: React.FC = () => {
   const alumniEvents = [
     {
       title: "Grand Voyeur Celebration",
-      date: "December 15, 2030",
-      description: "A magnificent celebration marking our journey into the future, where past achievements meet tomorrow's possibilities.",
+      date: "December 2030",
+      description: "A magnificent celebration marking our journey into the future.",
       type: "Future Milestone",
-      targetDate: "2030-12-15T00:00:00Z",
-      isCountdown: true
+      year: "2030"
     },
     {
-      title: "The Century Convergence Celebration",
-      date: "June 21, 2045",
-      description: "A once-in-a-lifetime gathering celebrating our centennial approach, where generations of alumni converge to share wisdom.",
+      title: "Century Convergence",
+      date: "June 2045",
+      description: "Generations of alumni converge to share wisdom and innovation.",
       type: "Centennial Vision",
-      targetDate: "2045-06-21T00:00:00Z",
-      isCountdown: true
+      year: "2045"
     },
     {
-      title: "The Arrivals of Posterity Celebration",
-      date: "September 10, 2060",
-      description: "A visionary celebration honoring the arrival of future generations and the eternal legacy we leave behind.",
+      title: "Arrivals of Posterity",
+      date: "September 2060",
+      description: "Honoring future generations and our eternal legacy.",
       type: "Legacy Celebration",
-      targetDate: "2060-09-10T00:00:00Z",
-      isCountdown: true
+      year: "2060"
     }
   ];
 
@@ -415,12 +340,14 @@ const AlumniPage: React.FC = () => {
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-tight">{event.title}</h3>
                 <p className="text-gray-300 font-medium mb-2 text-sm">{event.date}</p>
-                <p className="text-gray-400 text-xs sm:text-sm mb-3 leading-relaxed flex-grow">{event.description}</p>
-                {event.isCountdown && event.targetDate && (
-                  <div className="mt-auto">
-                    <TickingClock targetDate={event.targetDate} eventName={event.title} />
+                <p className="text-gray-400 text-xs sm:text-sm mb-4 leading-relaxed flex-grow">{event.description}</p>
+                <div className="mt-auto">
+                  <div className="flex items-center justify-center">
+                    <span className="text-4xl font-bold text-white bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                      {event.year}
+                    </span>
                   </div>
-                )}
+                </div>
               </motion.div>
             ))}
           </div>

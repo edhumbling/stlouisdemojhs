@@ -45,6 +45,12 @@ export const contactDropdownItems: DropdownItem[] = [
     image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?updatedAt=1748101842702'
   },
   {
+    label: 'Schedule Visit',
+    path: '/schedule-visit',
+    description: 'Book a tour of our campus and facilities',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC?updatedAt=1748185690882'
+  },
+  {
     label: 'Partner With Us',
     path: '/partner',
     description: 'Collaborate with us through donations and partnerships',
