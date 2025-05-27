@@ -165,20 +165,20 @@ const AdmissionsPage: React.FC = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-6 sm:mb-8 leading-relaxed">
               Experience rigorous academic standards and holistic development at Ghana's premier demonstration school
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <button
                 onClick={() => {
                   navigate('/apply-now');
                   window.scrollTo({ top: 0, behavior: 'instant' });
                 }}
-                className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black text-sm sm:text-base font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black text-sm sm:text-base font-bold rounded-lg sm:rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                <FileText className="w-4 h-4 mr-2" />
                 Apply Now
               </button>
               <a
                 href="#admission-process"
-                className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-white/20 backdrop-blur-sm text-white text-sm sm:text-base font-bold rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300"
+                className="inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-white/20 backdrop-blur-sm text-white text-sm sm:text-base font-bold rounded-lg sm:rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300"
               >
                 Learn More
               </a>
@@ -246,9 +246,22 @@ const AdmissionsPage: React.FC = () => {
 
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Admission Process Section */}
-      <section id="admission-process" className="py-8 sm:py-12 md:py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* Admission Process Section - Dark Aero */}
+      <section id="admission-process" className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7113.HEIC?updatedAt=1748185722552"
+            alt="St. Louis Demo JHS Students"
+            className="w-full h-full object-cover opacity-20"
+            shimmerClassName="w-full h-full opacity-20"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-green-900/40 via-black/60 to-blue-900/40"></div>
+
+        <div className="w-full px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -256,16 +269,17 @@ const AdmissionsPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-8 sm:mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               Our Admission Process
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               We follow a comprehensive and fair admission process designed to identify students
               who will thrive in our rigorous academic environment.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+          {/* Mobile-friendly 2-column layout */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto">
             {admissionSteps.map((step, index) => (
               <motion.div
                 key={index}
@@ -273,21 +287,21 @@ const AdmissionsPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl flex items-center justify-center text-white mb-4 shadow-lg">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg flex items-center justify-center text-white mb-3 sm:mb-4 shadow-lg">
                   {step.icon}
                 </div>
-                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-green-600 font-bold text-sm">{index + 1}</span>
+                <div className="w-6 h-6 sm:w-7 sm:h-7 bg-green-500/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                  <span className="text-green-300 font-bold text-xs sm:text-sm">{index + 1}</span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{step.description}</p>
-                <ul className="space-y-2">
+                <h3 className="text-sm sm:text-base md:text-lg font-bold text-white mb-2 sm:mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{step.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-300 mb-3 sm:mb-4 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{step.description}</p>
+                <ul className="space-y-1 sm:space-y-2">
                   {step.details.map((detail, detailIndex) => (
-                    <li key={detailIndex} className="flex items-start text-sm text-gray-500">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 mt-2 flex-shrink-0"></div>
+                    <li key={detailIndex} className="flex items-start text-xs sm:text-sm text-gray-400">
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-green-400 rounded-full mr-2 mt-1.5 sm:mt-2 flex-shrink-0"></div>
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -398,49 +412,62 @@ const AdmissionsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Key Dates and Contact */}
-      <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-green-50 to-blue-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
-            {/* Important Dates */}
+      {/* Admission Information and Contact - Dark Aero */}
+      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC?updatedAt=1748185690882"
+            alt="St. Louis Demo JHS Background"
+            className="w-full h-full object-cover opacity-20"
+            shimmerClassName="w-full h-full opacity-20"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/60 to-green-900/40"></div>
+
+        <div className="w-full px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            {/* Admission Information */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-200"
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20"
             >
-              <div className="flex items-center mb-6">
-                <Calendar className="w-8 h-8 text-green-600 mr-4" />
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Important Dates</h3>
+              <div className="flex items-center mb-4 sm:mb-6">
+                <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-green-400 mr-3 sm:mr-4" />
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Admission Information</h3>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start">
-                  <Clock className="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Application Period</h4>
-                    <p className="text-gray-600 text-sm">Applications typically open in March for the following academic year</p>
+                    <h4 className="font-semibold text-white text-sm sm:text-base">Application Process</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">Complete application details will be communicated through our official channels</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <Clock className="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Entrance Assessments</h4>
-                    <p className="text-gray-600 text-sm">Testing conducted in April-May, with multiple sessions available</p>
+                    <h4 className="font-semibold text-white text-sm sm:text-base">Assessment & Interview</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">Comprehensive evaluation including testing and personal interviews</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <Clock className="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Admission Results</h4>
-                    <p className="text-gray-600 text-sm">Results announced in June, with enrollment confirmation required</p>
+                    <h4 className="font-semibold text-white text-sm sm:text-base">Merit-Based Selection</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">Fair and transparent selection based on academic potential and character</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <Clock className="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Academic Year Begins</h4>
-                    <p className="text-gray-600 text-sm">New students orientation and classes begin in September</p>
+                    <h4 className="font-semibold text-white text-sm sm:text-base">Enrollment Support</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">Guidance and support throughout the admission and enrollment process</p>
                   </div>
                 </div>
               </div>
@@ -452,37 +479,37 @@ const AdmissionsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-200"
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20"
             >
-              <div className="flex items-center mb-6">
-                <Phone className="w-8 h-8 text-blue-600 mr-4" />
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Admissions Contact</h3>
+              <div className="flex items-center mb-4 sm:mb-6">
+                <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-blue-400 mr-3 sm:mr-4" />
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Admissions Contact</h3>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start">
-                  <Phone className="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">📱 0244758575</p>
-                    <p className="text-gray-600">📱 0244730726</p>
+                    <h4 className="font-semibold text-white text-sm sm:text-base">Phone</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">📱 0244758575</p>
+                    <p className="text-gray-300 text-xs sm:text-sm">📱 0244730726</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <Mail className="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">contact@stlouisdemojhs.com</p>
+                    <h4 className="font-semibold text-white text-sm sm:text-base">Email</h4>
+                    <p className="text-gray-300 text-xs sm:text-sm">contact@stlouisdemojhs.com</p>
                   </div>
                 </div>
-                <div className="bg-green-50 rounded-lg p-4 mt-6">
-                  <h4 className="font-semibold text-green-800 mb-2">Ready to Apply?</h4>
-                  <p className="text-green-700 text-sm mb-4">Start your journey with us today. Our admissions team is here to guide you through the process.</p>
+                <div className="bg-green-500/20 backdrop-blur-sm rounded-lg p-3 sm:p-4 mt-4 sm:mt-6 border border-green-400/30">
+                  <h4 className="font-semibold text-green-300 mb-2 text-sm sm:text-base">Ready to Apply?</h4>
+                  <p className="text-green-200 text-xs sm:text-sm mb-3 sm:mb-4">Start your journey with us today. Our admissions team is here to guide you through the process.</p>
                   <button
                     onClick={() => {
                       navigate('/apply-now');
                       window.scrollTo({ top: 0, behavior: 'instant' });
                     }}
-                    className="w-full inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 transform hover:scale-105"
+                    className="w-full inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black text-sm sm:text-base font-bold rounded-lg sm:rounded-full hover:from-yellow-600 hover:to-yellow-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
                     <FileText className="w-4 h-4 mr-2" />
                     Apply Now
