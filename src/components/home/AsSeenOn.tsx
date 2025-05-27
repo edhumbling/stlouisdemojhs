@@ -66,8 +66,8 @@ const AsSeenOn: React.FC = () => {
 
         {/* Desktop: Right-to-left scroll with fade effect */}
         <div className="hidden md:block">
-          {/* Fade effect - starts from right, ends at left side around "Our Story" button */}
-          <div className="absolute left-0 top-0 bottom-0 w-1/4 bg-gradient-to-r from-black/80 via-black/40 to-black/0 z-10 pointer-events-none"></div>
+          {/* Fade effect - positioned where logos end (far right) */}
+          <div className="absolute right-0 top-0 bottom-0 w-1/6 bg-gradient-to-l from-black/0 via-black/40 to-black/80 z-10 pointer-events-none"></div>
 
           {/* Right-to-left scrolling logos - continuous scroll */}
           <motion.div
