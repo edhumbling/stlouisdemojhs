@@ -73,7 +73,7 @@ const AsSeenOn: React.FC = () => {
           <motion.div
             className="flex items-center space-x-8"
             animate={{
-              x: [screenWidth, -screenWidth * 0.85] // End exactly where "As:" word is positioned
+              x: [screenWidth, -screenWidth * 0.15] // Push ending much further to the right
             }}
             transition={{
               x: {
