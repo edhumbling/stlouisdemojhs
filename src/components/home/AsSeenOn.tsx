@@ -69,17 +69,17 @@ const AsSeenOn: React.FC = () => {
           {/* Fade effect - starts from right, ends at left side around "Our Story" button */}
           <div className="absolute left-0 top-0 bottom-0 w-1/4 bg-gradient-to-r from-black/80 via-black/40 to-black/0 z-10 pointer-events-none"></div>
 
-          {/* Right-to-left scrolling logos */}
+          {/* Right-to-left scrolling logos - continuous scroll */}
           <motion.div
-            className="flex items-center space-x-8 justify-end"
+            className="flex items-center space-x-8"
             animate={{
-              x: [screenWidth, -screenWidth * 0.35] // End a little further from the last dot
+              x: [screenWidth, -screenWidth * 0.85] // End exactly where "As:" word is positioned
             }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 25,
+                duration: 30, // Slower for smoother continuous effect
                 ease: "linear"
               }
             }}
