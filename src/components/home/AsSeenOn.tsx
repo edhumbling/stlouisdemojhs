@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const AsSeenOn: React.FC = () => {
+  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const mediaLogos = [
     {
       id: 1,
@@ -37,48 +48,30 @@ const AsSeenOn: React.FC = () => {
   const duplicatedLogos = [...mediaLogos, ...mediaLogos, ...mediaLogos];
 
   return (
-    <div className="w-full py-4 sm:py-6 relative overflow-hidden">
-      {/* Beautiful gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-black/20 backdrop-blur-sm"></div>
-      
+    <div className="w-full py-1 sm:py-2 relative overflow-hidden">
       {/* Content */}
       <div className="relative z-10">
-        {/* "As Seen On" Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mb-4 sm:mb-6"
-        >
-          <h3 className="text-white/90 text-xs sm:text-sm font-medium tracking-wider uppercase mb-2" 
-              style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
-            As Seen On
-          </h3>
-          <div className="w-16 h-px bg-gradient-to-r from-transparent via-yellow-400/60 to-transparent mx-auto"></div>
-        </motion.div>
+        {/* Desktop: Right-to-left scroll with fade effect */}
+        <div className="hidden md:block">
+          {/* Fade effect - starts from right, disappears at half screen */}
+          <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-black/0 via-black/20 to-black/80 z-10 pointer-events-none"></div>
 
-        {/* Infinite Horizontal Scroll Container */}
-        <div className="relative overflow-hidden">
-          {/* Gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-black/40 to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-black/40 to-transparent z-10 pointer-events-none"></div>
-          
-          {/* Scrolling logos container */}
+          {/* Right-to-left scrolling logos */}
           <motion.div
-            className="flex items-center space-x-8 sm:space-x-12 md:space-x-16"
+            className="flex items-center space-x-8 justify-end"
             animate={{
-              x: [0, -100 * mediaLogos.length]
+              x: [screenWidth, -screenWidth / 2]
             }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 25, // Slow, smooth scroll
+                duration: 25,
                 ease: "linear"
               }
             }}
             style={{
-              width: `${duplicatedLogos.length * 160}px` // Approximate width calculation
+              width: `${duplicatedLogos.length * 120}px`
             }}
           >
             {duplicatedLogos.map((logo, index) => (
@@ -86,27 +79,24 @@ const AsSeenOn: React.FC = () => {
                 key={`${logo.id}-${index}`}
                 className="flex-shrink-0 flex items-center justify-center"
                 whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.2 }}
               >
                 <div className="relative group">
-                  {/* Cute glow effect on hover */}
-                  <div className="absolute inset-0 bg-white/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm scale-110"></div>
-                  
-                  {/* Logo container with glass effect */}
-                  <div className="relative bg-white/95 backdrop-blur-sm rounded-lg p-3 sm:p-4 shadow-lg border border-white/20 group-hover:bg-white transition-all duration-300">
+                  {/* Cute container for desktop */}
+                  <div className="bg-white/90 rounded-lg p-2 shadow-md border border-white/30 group-hover:bg-white group-hover:shadow-lg transition-all duration-300">
                     <img
                       src={logo.url}
                       alt={logo.name}
-                      className="h-6 sm:h-8 md:h-10 w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                      className="h-5 w-auto object-contain opacity-90 group-hover:opacity-100 transition-all duration-300"
                       style={{
-                        maxWidth: `${logo.width * 0.8}px`,
-                        maxHeight: `${logo.height}px`
+                        maxWidth: `${logo.width * 0.5}px`,
+                        maxHeight: `${logo.height * 0.7}px`
                       }}
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  
+
                   {/* Cute sparkle effect */}
                   <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
                 </div>
@@ -115,15 +105,76 @@ const AsSeenOn: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Subtle bottom decoration */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-4 sm:mt-6"
-        >
-          <div className="w-24 sm:w-32 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto"></div>
-        </motion.div>
+        {/* Mobile: Original centered design with title */}
+        <div className="block md:hidden">
+          {/* "As Seen On:" Title - Mobile only */}
+          <motion.div
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="text-center mb-2"
+          >
+            <h3 className="text-white/80 text-[10px] sm:text-xs font-light tracking-wider uppercase"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.6)' }}>
+              As Seen On:
+            </h3>
+          </motion.div>
+
+          {/* Mobile scroll container */}
+          <div className="relative overflow-hidden">
+            {/* Mobile fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-4 bg-gradient-to-r from-black/30 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-4 bg-gradient-to-l from-black/30 to-transparent z-10 pointer-events-none"></div>
+
+            {/* Mobile scrolling logos */}
+            <motion.div
+              className="flex items-center space-x-6"
+              animate={{
+                x: [0, -80 * mediaLogos.length]
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20,
+                  ease: "linear"
+                }
+              }}
+              style={{
+                width: `${duplicatedLogos.length * 100}px`
+              }}
+            >
+              {duplicatedLogos.map((logo, index) => (
+                <motion.div
+                  key={`${logo.id}-${index}`}
+                  className="flex-shrink-0 flex items-center justify-center"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="relative group">
+                    {/* Cute mobile container */}
+                    <div className="bg-white/85 rounded-md p-1.5 shadow-sm border border-white/20 group-hover:bg-white group-hover:shadow-md transition-all duration-300">
+                      <img
+                        src={logo.url}
+                        alt={logo.name}
+                        className="h-4 w-auto object-contain opacity-90 group-hover:opacity-100 transition-all duration-300"
+                        style={{
+                          maxWidth: `${logo.width * 0.4}px`,
+                          maxHeight: `${logo.height * 0.6}px`
+                        }}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+
+                    {/* Mobile sparkle */}
+                    <div className="absolute -top-0.5 -right-0.5 w-1 h-1 bg-yellow-300 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping"></div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );
