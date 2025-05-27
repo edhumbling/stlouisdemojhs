@@ -29,9 +29,8 @@ import CreativeArtsPage from './pages/CreativeArtsPage';
 import LanguageCommunicationPage from './pages/LanguageCommunicationPage';
 import CoreAcademicPage from './pages/CoreAcademicPage';
 import NotFoundPage from './pages/NotFoundPage';
-import WhatsAppButton from './components/common/WhatsAppButton';
-import FacebookButton from './components/common/FacebookButton';
-import ScrollButton from './components/common/ScrollButtonNew';
+import SocialMediaIcons from './components/common/SocialMediaIcons';
+import GlassScrollButton from './components/common/GlassScrollButton';
 
 // Scroll Position Manager Component
 const ScrollPositionManager: React.FC = () => {
@@ -95,10 +94,9 @@ const App: React.FC = () => {
       {/* Scroll Position Manager */}
       <ScrollPositionManager />
 
-      {/* Floating buttons */}
-      <FacebookButton url="https://www.facebook.com/stlouisdemojhs" />
-      <WhatsAppButton url="https://whatsapp.com/channel/0029VbBO7RD7IUYZjOnapG3q" />
-      <ScrollButton />
+      {/* Floating social media icons and scroll button */}
+      <SocialMediaIcons />
+      <GlassScrollButton />
 
       <Routes>
         {/* Main layout with nested routes */}
