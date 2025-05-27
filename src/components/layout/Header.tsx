@@ -135,59 +135,118 @@ const Header: React.FC = () => {
                     />
                   </button>
 
-                  {/* Beautiful Dropdown Menu */}
+                  {/* Beautiful 2-Column Dropdown Menu */}
                   <AnimatePresence>
                     {isSchoolDropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: 5, scale: 0.98 }}
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 5, scale: 0.98 }}
-                        transition={{ duration: 0.1, ease: "easeOut" }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{
+                          duration: 0.2,
+                          ease: [0.4, 0.0, 0.2, 1],
+                          staggerChildren: 0.05
+                        }}
                         onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                         onMouseLeave={() => setIsSchoolDropdownOpen(false)}
-                        className="absolute top-full left-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-xl shadow-2xl border border-white/20 overflow-hidden z-[9999]"
+                        className="absolute top-full left-0 mt-3 w-96 bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden z-[9999]"
                         style={{
                           position: 'absolute',
                           top: '100%',
                           left: '0',
-                          marginTop: '8px',
+                          marginTop: '12px',
                           zIndex: 9999,
-                          backdropFilter: 'blur(20px)'
+                          backdropFilter: 'blur(24px)',
+                          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1)'
                         }}
                       >
-                        {schoolDropdownItems.map((item, index) => (
-                          <motion.div
-                            key={item.path}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.1, delay: index * 0.02 }}
-                          >
-                            <Link
-                              to={item.path}
-                              className="flex items-center p-4 hover:bg-white/10 transition-all duration-100 group"
-                              onClick={() => {
-                                setIsSchoolDropdownOpen(false);
-                                window.scrollTo({ top: 0, behavior: 'instant' });
+                        {/* Header */}
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, delay: 0.1 }}
+                          className="px-6 py-4 border-b border-white/10 bg-gradient-to-r from-blue-600/20 to-green-600/20"
+                        >
+                          <h3 className="text-white font-bold text-sm tracking-wide">School Information</h3>
+                          <p className="text-gray-300 text-xs mt-1">Learn about our institution</p>
+                        </motion.div>
+
+                        {/* 2-Column Grid Layout */}
+                        <div className="grid grid-cols-2 gap-0 p-2">
+                          {schoolDropdownItems.map((item, index) => (
+                            <motion.div
+                              key={item.path}
+                              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              transition={{
+                                duration: 0.3,
+                                delay: index * 0.08,
+                                ease: [0.4, 0.0, 0.2, 1]
                               }}
+                              whileHover={{
+                                scale: 1.02,
+                                transition: { duration: 0.2 }
+                              }}
+                              whileTap={{ scale: 0.98 }}
                             >
-                              <div className="w-16 h-16 rounded-lg overflow-hidden mr-4 flex-shrink-0">
-                                <img
-                                  src={item.image}
-                                  alt={item.label}
-                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
+                              <Link
+                                to={item.path}
+                                className="flex flex-col items-center p-4 m-1 hover:bg-white/10 rounded-xl transition-all duration-300 group relative overflow-hidden"
+                                onClick={() => {
+                                  setIsSchoolDropdownOpen(false);
+                                  window.scrollTo({ top: 0, behavior: 'instant' });
+                                }}
+                              >
+                                {/* Hover Background Effect */}
+                                <motion.div
+                                  className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-green-500/10 rounded-xl opacity-0 group-hover:opacity-100"
+                                  initial={false}
+                                  animate={{ opacity: 0 }}
+                                  whileHover={{ opacity: 1 }}
+                                  transition={{ duration: 0.3 }}
                                 />
-                              </div>
-                              <div className="flex-1">
-                                <h3 className="font-semibold text-white group-hover:text-accent-300 transition-colors duration-150">
-                                  {item.label}
-                                </h3>
-                                <p className="text-sm text-gray-400 mt-1 leading-relaxed">
-                                  {item.description}
-                                </p>
-                              </div>
-                            </Link>
-                          </motion.div>
-                        ))}
+
+                                {/* Image with Enhanced Hover Effect */}
+                                <motion.div
+                                  className="w-12 h-12 rounded-xl overflow-hidden mb-3 flex-shrink-0 relative"
+                                  whileHover={{ scale: 1.1 }}
+                                  transition={{ duration: 0.3, ease: "easeOut" }}
+                                >
+                                  <img
+                                    src={item.image}
+                                    alt={item.label}
+                                    className="w-full h-full object-cover"
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </motion.div>
+
+                                {/* Content */}
+                                <div className="text-center relative z-10">
+                                  <motion.h4
+                                    className="text-white font-semibold text-sm mb-1 group-hover:text-blue-300 transition-colors duration-300"
+                                    whileHover={{ y: -1 }}
+                                    transition={{ duration: 0.2 }}
+                                  >
+                                    {item.label}
+                                  </motion.h4>
+                                  <p className="text-gray-400 text-xs leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                                    {item.description}
+                                  </p>
+                                </div>
+
+                                {/* Subtle Border Glow on Hover */}
+                                <motion.div
+                                  className="absolute inset-0 rounded-xl border border-blue-400/0 group-hover:border-blue-400/30"
+                                  initial={false}
+                                  whileHover={{
+                                    boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
+                                    transition: { duration: 0.3 }
+                                  }}
+                                />
+                              </Link>
+                            </motion.div>
+                          ))}
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -245,41 +304,100 @@ const Header: React.FC = () => {
                   </button>
 
                   <AnimatePresence>
-                    {/* Contact Dropdown Menu */}
+                    {/* Contact 2-Column Dropdown Menu */}
                     <motion.div
-                      initial={{ opacity: 0, y: 5, scale: 0.98 }}
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 5, scale: 0.98 }}
-                      transition={{ duration: 0.1, ease: "easeOut" }}
-                      className="absolute top-full right-0 mt-2 w-80 bg-black/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50"
-                      style={{ backdropFilter: 'blur(20px)' }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{
+                        duration: 0.2,
+                        ease: [0.4, 0.0, 0.2, 1],
+                        staggerChildren: 0.05
+                      }}
+                      className="absolute top-full right-0 mt-3 w-96 bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+                      style={{
+                        backdropFilter: 'blur(24px)',
+                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+                      }}
                     >
-                      <div className="space-y-3">
+                      {/* Header */}
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.1 }}
+                        className="px-6 py-4 border-b border-white/10 bg-gradient-to-r from-purple-600/20 to-blue-600/20"
+                      >
+                        <h3 className="text-white font-bold text-sm tracking-wide">Contact Information</h3>
+                        <p className="text-gray-300 text-xs mt-1">Get in touch with us</p>
+                      </motion.div>
+
+                      {/* 2-Column Grid Layout */}
+                      <div className="grid grid-cols-2 gap-0 p-2">
                         {contactDropdownItems.map((item, index) => (
                           <motion.div
                             key={item.path}
-                            initial={{ opacity: 0, x: -5 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.1, delay: index * 0.02 }}
+                            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{
+                              duration: 0.3,
+                              delay: index * 0.08,
+                              ease: [0.4, 0.0, 0.2, 1]
+                            }}
+                            whileHover={{
+                              scale: 1.02,
+                              transition: { duration: 0.2 }
+                            }}
+                            whileTap={{ scale: 0.98 }}
                           >
                             <Link
                               to={item.path}
                               onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                              className="flex items-center p-3 rounded-xl hover:bg-white/10 transition-all duration-100 group/item"
+                              className="flex flex-col items-center p-4 m-1 hover:bg-white/10 rounded-xl transition-all duration-300 group/item relative overflow-hidden"
                             >
-                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 mr-4 flex-shrink-0 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-200">
-                                <div className="text-white group-hover/item:text-accent-300 transition-colors duration-150">
+                              {/* Hover Background Effect */}
+                              <motion.div
+                                className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-xl opacity-0 group-hover/item:opacity-100"
+                                initial={false}
+                                animate={{ opacity: 0 }}
+                                whileHover={{ opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                              />
+
+                              {/* Icon with Enhanced Hover Effect */}
+                              <motion.div
+                                className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 mb-3 flex-shrink-0 flex items-center justify-center relative"
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ duration: 0.3, ease: "easeOut" }}
+                              >
+                                <div className="text-white group-hover/item:text-purple-300 transition-colors duration-300">
                                   {item.icon && renderContactIcon(item.icon, 20)}
                                 </div>
-                              </div>
-                              <div className="flex-1">
-                                <h4 className="font-semibold text-white text-sm group-hover/item:text-accent-300 transition-colors duration-150">
+                                <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 rounded-xl" />
+                              </motion.div>
+
+                              {/* Content */}
+                              <div className="text-center relative z-10">
+                                <motion.h4
+                                  className="text-white font-semibold text-sm mb-1 group-hover/item:text-purple-300 transition-colors duration-300"
+                                  whileHover={{ y: -1 }}
+                                  transition={{ duration: 0.2 }}
+                                >
                                   {item.label}
-                                </h4>
-                                <p className="text-gray-400 text-xs mt-1 leading-relaxed">
+                                </motion.h4>
+                                <p className="text-gray-400 text-xs leading-relaxed group-hover/item:text-gray-300 transition-colors duration-300">
                                   {item.description}
                                 </p>
                               </div>
+
+                              {/* Subtle Border Glow on Hover */}
+                              <motion.div
+                                className="absolute inset-0 rounded-xl border border-purple-400/0 group-hover/item:border-purple-400/30"
+                                initial={false}
+                                whileHover={{
+                                  boxShadow: "0 0 20px rgba(147, 51, 234, 0.3)",
+                                  transition: { duration: 0.3 }
+                                }}
+                              />
                             </Link>
                           </motion.div>
                         ))}
