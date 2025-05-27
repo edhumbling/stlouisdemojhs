@@ -7,7 +7,8 @@ export interface DropdownItem {
   label: string;
   path: string;
   description: string;
-  image: string;
+  image?: string;
+  icon?: string;
 }
 
 export interface Event {

@@ -42,25 +42,25 @@ export const contactDropdownItems: DropdownItem[] = [
     label: 'Contact Us',
     path: '/contact',
     description: 'Get in touch with our school administration',
-    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?updatedAt=1748101842702'
+    icon: 'Mail'
   },
   {
     label: 'Schedule Visit',
     path: '/schedule-visit',
     description: 'Book a tour of our campus and facilities',
-    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC?updatedAt=1748185690882'
+    icon: 'Calendar'
   },
   {
     label: 'Partner With Us',
     path: '/partner',
     description: 'Collaborate with us through donations and partnerships',
-    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667'
+    icon: 'Handshake'
   },
   {
     label: 'Media & Press',
     path: '/media',
     description: 'Press releases, media kit, and news coverage',
-    image: 'https://images.pexels.com/photos/3153198/pexels-photo-3153198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    icon: 'Newspaper'
   }
 ];
 

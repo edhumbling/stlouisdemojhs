@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
-import { Menu, X, Heart, ChevronDown, Home, Newspaper, Zap, Beaker, BookOpen, Camera, FileText } from 'lucide-react';
+import { Menu, X, Heart, ChevronDown, Home, Newspaper, Zap, Beaker, BookOpen, Camera, FileText, Mail, Calendar, Handshake } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks, schoolDropdownItems, contactDropdownItems } from '../../data';
 import DonateButton from '../common/DonateButton';
@@ -11,6 +11,17 @@ const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+
+  // Function to render contact icons
+  const renderContactIcon = (iconName: string, size: number = 16) => {
+    switch (iconName) {
+      case 'Mail': return <Mail size={size} />;
+      case 'Calendar': return <Calendar size={size} />;
+      case 'Handshake': return <Handshake size={size} />;
+      case 'Newspaper': return <Newspaper size={size} />;
+      default: return <Mail size={size} />;
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -256,12 +267,10 @@ const Header: React.FC = () => {
                               onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                               className="flex items-center p-3 rounded-xl hover:bg-white/10 transition-all duration-100 group/item"
                             >
-                              <div className="w-12 h-12 rounded-xl overflow-hidden mr-4 flex-shrink-0">
-                                <img
-                                  src={item.image}
-                                  alt={item.label}
-                                  className="w-full h-full object-cover group-hover/item:scale-110 transition-transform duration-200"
-                                />
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 mr-4 flex-shrink-0 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-200">
+                                <div className="text-white group-hover/item:text-accent-300 transition-colors duration-150">
+                                  {item.icon && renderContactIcon(item.icon, 20)}
+                                </div>
                               </div>
                               <div className="flex-1">
                                 <h4 className="font-semibold text-white text-sm group-hover/item:text-accent-300 transition-colors duration-150">
@@ -502,12 +511,10 @@ const Header: React.FC = () => {
                       className="flex items-center justify-between p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
                     >
                       <div className="flex items-center flex-1 min-w-0">
-                        <div className="w-6 h-6 rounded-md overflow-hidden mr-2 flex-shrink-0">
-                          <img
-                            src={item.image}
-                            alt={item.label}
-                            className="w-full h-full object-cover"
-                          />
+                        <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 mr-2 flex-shrink-0 flex items-center justify-center">
+                          <div className="text-white text-xs">
+                            {item.icon && renderContactIcon(item.icon, 12)}
+                          </div>
                         </div>
                         <h4 className="font-medium text-white text-xs truncate">{item.label}</h4>
                       </div>
