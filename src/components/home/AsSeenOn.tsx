@@ -51,16 +51,29 @@ const AsSeenOn: React.FC = () => {
     <div className="w-full py-1 sm:py-2 relative overflow-hidden">
       {/* Content */}
       <div className="relative z-10">
+        {/* "As Seen On:" Title - Always visible at top */}
+        <motion.div
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="text-center mb-2 md:mb-3"
+        >
+          <h3 className="text-white/80 text-[10px] sm:text-xs md:text-sm font-light tracking-wider uppercase"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.6)' }}>
+            As Seen On:
+          </h3>
+        </motion.div>
+
         {/* Desktop: Right-to-left scroll with fade effect */}
         <div className="hidden md:block">
-          {/* Fade effect - starts from right, disappears at half screen */}
-          <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-black/0 via-black/20 to-black/80 z-10 pointer-events-none"></div>
+          {/* Fade effect - starts from right, ends at left side around "Our Story" button */}
+          <div className="absolute left-0 top-0 bottom-0 w-1/4 bg-gradient-to-r from-black/80 via-black/40 to-black/0 z-10 pointer-events-none"></div>
 
           {/* Right-to-left scrolling logos */}
           <motion.div
             className="flex items-center space-x-8 justify-end"
             animate={{
-              x: [screenWidth, -screenWidth / 2]
+              x: [screenWidth, -screenWidth * 0.35] // End a little further from the last dot
             }}
             transition={{
               x: {
@@ -105,20 +118,8 @@ const AsSeenOn: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Mobile: Original centered design with title */}
+        {/* Mobile: Scrolling design */}
         <div className="block md:hidden">
-          {/* "As Seen On:" Title - Mobile only */}
-          <motion.div
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-center mb-2"
-          >
-            <h3 className="text-white/80 text-[10px] sm:text-xs font-light tracking-wider uppercase"
-                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.6)' }}>
-              As Seen On:
-            </h3>
-          </motion.div>
 
           {/* Mobile scroll container */}
           <div className="relative overflow-hidden">

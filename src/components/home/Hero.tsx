@@ -337,8 +337,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* As Seen On Section - Positioned at dots line level */}
-      <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 right-0 z-15 md:w-3/4 lg:w-2/3">
+      {/* As Seen On Section - Mobile: above dots, Desktop: at dots line level */}
+      <div className="absolute bottom-12 sm:bottom-16 md:bottom-6 left-0 right-0 md:right-0 md:left-auto z-15 md:w-3/4 lg:w-2/3">
         <AsSeenOn />
       </div>
 
