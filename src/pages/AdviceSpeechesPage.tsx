@@ -29,7 +29,7 @@ const AdviceSpeechesPage: React.FC = () => {
     return (
       <div className="min-h-screen bg-black">
         {/* Header */}
-        <div className="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 py-3 sm:py-4 mt-16">
+        <div className="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 py-3 sm:py-4 pt-20">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
