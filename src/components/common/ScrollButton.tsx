@@ -4,11 +4,10 @@ import { ArrowUp, ArrowDown } from 'lucide-react';
 
 interface ScrollButtonProps {
   className?: string;
-  heroSectionRef?: React.RefObject<HTMLElement>;
 }
 
-const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "", heroSectionRef }) => {
-  const [isVisible, setIsVisible] = useState(false);
+const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
+  const [isVisible, setIsVisible] = useState(true); // Always visible like taskbar time
   const [scrollDirection, setScrollDirection] = useState<"up" | "down">("down");
   const [isMobile, setIsMobile] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -24,34 +23,26 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "", heroSection
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Optimized scroll handler with better performance and UX
+  // Smart scroll direction logic - always visible, changes behavior based on position
   const handleScroll = useCallback(() => {
     const scrolled = window.scrollY;
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercentage = scrolled / maxScroll;
-    const heroHeight = heroSectionRef?.current?.offsetHeight || window.innerHeight;
 
-    // Show button when user scrolls past 50% of hero section (better UX)
-    if (scrolled > heroHeight * 0.5) {
-      setIsVisible(true);
-
-      // Smart direction logic based on scroll position and user behavior
-      if (scrollPercentage > 0.7) {
-        // Near bottom (70%+), always show up arrow to go to top
-        setScrollDirection("up");
-      } else if (scrolled < lastScrollY && scrolled > heroHeight) {
-        // User is scrolling up and past hero, show up arrow
-        setScrollDirection("up");
-      } else {
-        // User is in middle section or scrolling down, show down arrow
-        setScrollDirection("down");
-      }
+    // Smart direction logic based on scroll position and user behavior
+    if (scrollPercentage > 0.7) {
+      // Near bottom (70%+), always show up arrow to go to top
+      setScrollDirection("up");
+    } else if (scrolled < lastScrollY && scrolled > window.innerHeight * 0.3) {
+      // User is scrolling up and past 30% of viewport, show up arrow
+      setScrollDirection("up");
     } else {
-      setIsVisible(false);
+      // User is in upper section or scrolling down, show down arrow
+      setScrollDirection("down");
     }
 
     setLastScrollY(scrolled);
-  }, [heroSectionRef, lastScrollY]);
+  }, [lastScrollY]);
 
   useEffect(() => {
     // Throttle scroll events for better performance
@@ -88,49 +79,32 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "", heroSection
     });
   };
 
-  const scrollToNextSection = () => {
-    // Scroll to next section after hero
-    const heroHeight = heroSectionRef?.current?.offsetHeight || window.innerHeight;
-    window.scrollTo({
-      top: heroHeight,
-      behavior: "smooth"
-    });
-  };
-
   const handleClick = () => {
     if (scrollDirection === "up") {
       // Always go to the very top, especially important when clicked from footer
       scrollToTop();
     } else {
-      // If we're in the hero section, scroll to next section, otherwise scroll to bottom
-      const scrolled = window.scrollY;
-      const heroHeight = heroSectionRef?.current?.offsetHeight || window.innerHeight;
-
-      if (scrolled < heroHeight) {
-        scrollToNextSection();
-      } else {
-        scrollToBottom();
-      }
+      // Scroll to bottom
+      scrollToBottom();
     }
   };
 
   return (
-    <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-40">
-      <AnimatePresence>
-        {isVisible && (
-          <motion.button
-            onClick={handleClick}
-            className={`
-              absolute z-50 flex items-center justify-center pointer-events-auto
-              ${isMobile ? 'bottom-6 left-1/2 -translate-x-1/2 w-12 h-12' : 'bottom-8 right-8 w-14 h-14'}
-              rounded-full backdrop-blur-md border border-yellow-400/30
-              bg-gradient-to-br from-yellow-400/80 to-yellow-500/80
-              shadow-[0_8px_32px_rgba(251,191,36,0.3)]
-              hover:shadow-[0_12px_40px_rgba(251,191,36,0.4)]
-              hover:from-yellow-300/90 hover:to-yellow-400/90
-              transition-all duration-300 ease-out
-              ${className}
-            `}
+    <AnimatePresence>
+      {isVisible && (
+        <motion.button
+          onClick={handleClick}
+          className={`
+            fixed z-50 flex items-center justify-center
+            ${isMobile ? 'bottom-4 left-4 w-12 h-12' : 'bottom-6 right-6 w-14 h-14'}
+            rounded-full backdrop-blur-md border border-yellow-400/30
+            bg-gradient-to-br from-yellow-400/80 to-yellow-500/80
+            shadow-[0_8px_32px_rgba(251,191,36,0.3)]
+            hover:shadow-[0_12px_40px_rgba(251,191,36,0.4)]
+            hover:from-yellow-300/90 hover:to-yellow-400/90
+            transition-all duration-300 ease-out
+            ${className}
+          `}
             style={{
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
@@ -195,10 +169,9 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "", heroSection
               ease: "easeInOut"
             }}
           />
-          </motion.button>
-        )}
-      </AnimatePresence>
-    </div>
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 };
 
