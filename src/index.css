@@ -14,9 +14,22 @@
     }
   }
 
+  @keyframes shimmer-wave {
+    0% {
+      transform: translateX(-100%) skewX(-12deg);
+    }
+    100% {
+      transform: translateX(200%) skewX(-12deg);
+    }
+  }
+
   .animate-shimmer {
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite linear;
+  }
+
+  .animate-shimmer-wave {
+    animation: shimmer-wave 2s infinite linear;
   }
 }
 
