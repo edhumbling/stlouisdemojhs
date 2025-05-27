@@ -149,7 +149,7 @@ const Header: React.FC = () => {
                         }}
                         onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                         onMouseLeave={() => setIsSchoolDropdownOpen(false)}
-                        className="absolute top-full left-0 mt-3 w-80 bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden z-[9999]"
+                        className="absolute top-full left-0 mt-3 w-[500px] bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden z-[9999]"
                         style={{
                           position: 'absolute',
                           top: '100%',
@@ -171,18 +171,18 @@ const Header: React.FC = () => {
                           <p className="text-gray-300 text-xs mt-1">Learn about our institution</p>
                         </motion.div>
 
-                        {/* 2-Column Grid Layout with Beautiful Dividers */}
-                        <div className="grid grid-cols-2 gap-0 p-1.5 relative">
-                          {/* Vertical Divider */}
-                          <div className="absolute left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent transform -translate-x-1/2 z-10"></div>
-
-                          {/* Horizontal Dividers */}
-                          {schoolDropdownItems.length > 2 && (
-                            <>
-                              <div className="absolute left-2 right-1/2 top-1/2 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-y-1/2 z-10 mr-1"></div>
-                              <div className="absolute left-1/2 right-2 top-1/2 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-y-1/2 z-10 ml-1"></div>
-                            </>
-                          )}
+                        {/* Horizontal Layout with Beautiful Dividers */}
+                        <div className="flex gap-0 p-1.5 relative">
+                          {/* Vertical Dividers between items */}
+                          {schoolDropdownItems.map((_, index) => (
+                            index < schoolDropdownItems.length - 1 && (
+                              <div
+                                key={`divider-${index}`}
+                                className="absolute top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent z-10"
+                                style={{ left: `${((index + 1) / schoolDropdownItems.length) * 100}%` }}
+                              />
+                            )
+                          ))}
 
                           {schoolDropdownItems.map((item, index) => (
                             <motion.div
@@ -199,11 +199,11 @@ const Header: React.FC = () => {
                                 transition: { duration: 0.2 }
                               }}
                               whileTap={{ scale: 0.98 }}
-                              className="relative z-20"
+                              className="relative z-20 flex-1"
                             >
                               <Link
                                 to={item.path}
-                                className="flex flex-col items-center p-3 m-1 hover:bg-white/10 rounded-xl transition-all duration-300 group relative overflow-hidden"
+                                className="flex flex-col items-center p-2 mx-1 hover:bg-white/10 rounded-xl transition-all duration-300 group relative overflow-hidden h-full"
                                 onClick={() => {
                                   setIsSchoolDropdownOpen(false);
                                   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -220,7 +220,7 @@ const Header: React.FC = () => {
 
                                 {/* Image with Enhanced Hover Effect */}
                                 <motion.div
-                                  className="w-10 h-10 rounded-xl overflow-hidden mb-2 flex-shrink-0 relative"
+                                  className="w-8 h-8 rounded-lg overflow-hidden mb-1.5 flex-shrink-0 relative"
                                   whileHover={{ scale: 1.1 }}
                                   transition={{ duration: 0.3, ease: "easeOut" }}
                                 >
@@ -233,15 +233,15 @@ const Header: React.FC = () => {
                                 </motion.div>
 
                                 {/* Content */}
-                                <div className="text-center relative z-10">
+                                <div className="text-center relative z-10 flex-1">
                                   <motion.h4
-                                    className="text-white font-semibold text-sm mb-1 group-hover:text-blue-300 transition-colors duration-300"
+                                    className="text-white font-semibold text-xs mb-1 group-hover:text-blue-300 transition-colors duration-300"
                                     whileHover={{ y: -1 }}
                                     transition={{ duration: 0.2 }}
                                   >
                                     {item.label}
                                   </motion.h4>
-                                  <p className="text-gray-400 text-xs leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                                  <p className="text-gray-400 text-[10px] leading-tight group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
                                     {item.description}
                                   </p>
                                 </div>
