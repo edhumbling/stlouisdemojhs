@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Camera, Newspaper, Video, Download, ExternalLink, Calendar, Award } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 
 // Shimmer Loading Component
@@ -55,28 +55,40 @@ const MediaPage: React.FC = () => {
 
   const pressReleases = [
     {
-      title: "St. Louis Demo JHS Wins Regional Mathematics Competition",
-      date: "May 15, 2025",
-      category: "Achievement",
-      summary: "Our students secured first place in the regional mathematics olympiad, showcasing exceptional problem-solving skills.",
-      downloadUrl: "#",
-      image: "https://images.pexels.com/photos/3153198/pexels-photo-3153198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      title: "Make classroom lively & pupil-friendly",
+      date: "Historical",
+      category: "Education",
+      summary: "Educational insights for engaging learning environments and innovative teaching methodologies.",
+      downloadUrl: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Make-the-classroom-lively-and-pupil-friendly-330489",
+      image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?updatedAt=1748101842702",
+      source: "GhanaWeb"
     },
     {
-      title: "New Computer Lab Opens at St. Louis Demo JHS",
-      date: "April 22, 2025",
+      title: "St. Louis JHS lacks infrastructural facilities",
+      date: "Historical",
       category: "Infrastructure",
-      summary: "State-of-the-art computer lab with 30 high-performance computers enhances our technology curriculum.",
-      downloadUrl: "#",
-      image: "https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      summary: "Infrastructure challenges and improvement commitment showcasing our dedication to modernization.",
+      downloadUrl: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/St-Louis-JHS-lacks-infrastructural-facilities-Headmistress-241061",
+      image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667",
+      source: "GhanaWeb"
     },
     {
-      title: "Excellence in Education Award Recognition",
-      date: "March 10, 2025",
-      category: "Award",
-      summary: "St. Louis Demo JHS receives prestigious award for outstanding educational programs and student achievements.",
-      downloadUrl: "#",
-      image: "https://images.pexels.com/photos/4778611/pexels-photo-4778611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      title: "School Activities & Community",
+      date: "Video Documentation",
+      category: "Community",
+      summary: "School events and community involvement initiatives highlighting our vibrant school life.",
+      downloadUrl: "https://www.youtube.com/watch?v=c90tOBl5K6g",
+      image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-800,h-600,q-80",
+      source: "YouTube"
+    },
+    {
+      title: "St. Louis Educational Complex - Facebook",
+      date: "Social Media",
+      category: "Community",
+      summary: "Community engagement and school activities showcase through social media platforms.",
+      downloadUrl: "https://www.facebook.com/watch/?v=4921581154635610",
+      image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7058.HEIC",
+      source: "Facebook"
     }
   ];
 
@@ -84,30 +96,18 @@ const MediaPage: React.FC = () => {
     {
       title: "School Logo Package",
       description: "High-resolution logos in various formats (PNG, SVG, EPS)",
-      type: "Images",
+      type: "Download",
       size: "2.5 MB",
-      icon: <Camera className="w-6 h-6" />
-    },
-    {
-      title: "School Fact Sheet",
-      description: "Key statistics, history, and achievements overview",
-      type: "PDF",
-      size: "1.2 MB",
-      icon: <Newspaper className="w-6 h-6" />
+      icon: <Download className="w-6 h-6" />,
+      downloadUrl: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
     },
     {
       title: "Campus Photos",
       description: "High-quality images of facilities and student life",
-      type: "Images",
-      size: "15.8 MB",
-      icon: <Camera className="w-6 h-6" />
-    },
-    {
-      title: "Leadership Bios",
-      description: "Biographies and photos of key administrators",
-      type: "PDF",
-      size: "3.1 MB",
-      icon: <Newspaper className="w-6 h-6" />
+      type: "Gallery",
+      size: "View Collection",
+      icon: <Camera className="w-6 h-6" />,
+      routeTo: "/gallery"
     }
   ];
 
@@ -115,42 +115,20 @@ const MediaPage: React.FC = () => {
     {
       name: "Mrs. Michelle Acquaye",
       title: "Headmistress",
-      email: "contact@stlouisdemojhs.com",
-      phone: "+233 XX XXX XXXX",
+      email: "michelle@stlouisdemojhs.com",
+      phone: "Available via email",
       specialty: "Educational Leadership & School Operations"
     },
     {
       name: "Media Relations Officer",
       title: "Communications Coordinator",
       email: "contact@stlouisdemojhs.com",
-      phone: "+233 XX XXX XXXX",
+      phone: "📱 0244758575, 📱 0244730726",
       specialty: "Press Inquiries & Media Relations"
     }
   ];
 
-  const recentCoverage = [
-    {
-      outlet: "GhanaWeb",
-      title: "St. Louis JHS lacks infrastructural facilities",
-      date: "2024",
-      type: "Article",
-      url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/St-Louis-JHS-lacks-infrastructural-facilities-Headmistress-241061"
-    },
-    {
-      outlet: "GhanaWeb",
-      title: "Make classroom lively & pupil-friendly",
-      date: "2024",
-      type: "Article",
-      url: "https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Make-the-classroom-lively-and-pupil-friendly-330489"
-    },
-    {
-      outlet: "YouTube",
-      title: "School Activities & Community",
-      date: "2024",
-      type: "Video",
-      url: "https://www.youtube.com/watch?v=c90tOBl5K6g"
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -196,18 +174,20 @@ const MediaPage: React.FC = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               Your source for news, press releases, and media resources about St. Louis Demonstration JHS
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#press-releases"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            <div className="flex flex-row gap-2 sm:gap-4 justify-center">
+              <Link
+                to="/news"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className="inline-flex items-center justify-center px-3 py-2 sm:px-8 sm:py-4 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm sm:text-base font-bold rounded-lg sm:rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >
-                <Newspaper className="w-5 h-5 mr-2" />
+                <Newspaper className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
                 Latest News
-              </a>
+              </Link>
               <a
                 href="#media-kit"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-full border-2 border-white/30 hover:bg-white/30 transition-all duration-300"
+                className="inline-flex items-center justify-center px-3 py-2 sm:px-8 sm:py-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-sm sm:text-base font-bold rounded-lg sm:rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >
+                <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
                 Media Kit
               </a>
             </div>
@@ -271,16 +251,24 @@ const MediaPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center text-gray-400 text-sm mb-3">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    {release.date}
+                  <div className="flex items-center justify-between text-gray-400 text-sm mb-3">
+                    <div className="flex items-center">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      {release.date}
+                    </div>
+                    <span className="text-blue-400 font-semibold">{release.source}</span>
                   </div>
                   <h3 className="text-lg font-bold text-white mb-3">{release.title}</h3>
                   <p className="text-gray-300 text-sm mb-4 leading-relaxed">{release.summary}</p>
-                  <button className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-sm">
-                    <Download className="w-4 h-4 mr-2" />
-                    Download PDF
-                  </button>
+                  <a
+                    href={release.downloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-sm"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    View Article
+                  </a>
                 </div>
               </motion.div>
             ))}
@@ -339,80 +327,29 @@ const MediaPage: React.FC = () => {
                     <p className="text-gray-300 text-sm mb-3">{item.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-400">{item.type} • {item.size}</span>
-                      <button className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-sm">
-                        <Download className="w-4 h-4 mr-1" />
-                        Download
-                      </button>
+                      {item.downloadUrl ? (
+                        <a
+                          href={item.downloadUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-sm"
+                        >
+                          <Download className="w-4 h-4 mr-1" />
+                          Download
+                        </a>
+                      ) : item.routeTo ? (
+                        <Link
+                          to={item.routeTo}
+                          onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                          className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-sm"
+                        >
+                          <Camera className="w-4 h-4 mr-1" />
+                          View Gallery
+                        </Link>
+                      ) : null}
                     </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <SectionDivider position="bottom" />
-
-      {/* Recent Coverage - Dark Aero */}
-      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
-        {/* Optimized School Background Image */}
-        <div className="absolute inset-0">
-          <OptimizedImage
-            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?updatedAt=1748185709667&tr=w-1200,h-800,q-60"
-            alt="St. Louis Demo JHS Background"
-            className="w-full h-full object-cover opacity-20"
-            shimmerClassName="w-full h-full opacity-20"
-          />
-        </div>
-        {/* Dark Aero Glass Overlay */}
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/60 to-green-900/40"></div>
-        <div className="w-full px-4 sm:px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center mb-12"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
-              Recent Media Coverage
-            </h2>
-            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-              See how St. Louis Demonstration JHS has been featured in the media.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {recentCoverage.map((coverage, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
-              >
-                <div className="flex items-center mb-4">
-                  <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white mr-3">
-                    {coverage.type === 'Video' ? <Video className="w-4 h-4" /> : <Newspaper className="w-4 h-4" />}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">{coverage.outlet}</h4>
-                    <p className="text-xs text-gray-400">{coverage.date}</p>
-                  </div>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-3">{coverage.title}</h3>
-                <a
-                  href={coverage.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold text-sm"
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  View Coverage
-                </a>
               </motion.div>
             ))}
           </div>
