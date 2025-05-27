@@ -118,7 +118,7 @@ const LearnHubPage: React.FC = () => {
         </div>
 
         {/* Full viewport iframe - No footer */}
-        <div className="w-full h-full pt-24 relative">
+        <div className="w-full h-full pt-20 sm:pt-24 relative">
           <iframe
             src={selectedResource.url}
             className="w-full h-full border-0 relative z-10"
@@ -143,7 +143,7 @@ const LearnHubPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black pt-16">
+    <div className="min-h-screen bg-black pt-0">
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

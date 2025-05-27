@@ -11,9 +11,13 @@ const Layout: React.FC = () => {
   const noFooterPages = ['/news', '/calendar', '/ai-search', '/schedule-visit', '/learnhub', '/advice-speeches'];
   const shouldShowFooter = !noFooterPages.includes(location.pathname);
 
+  // Pages that should not show the header (for maximum space)
+  const noHeaderPages = ['/ai-search', '/learnhub'];
+  const shouldShowHeader = !noHeaderPages.includes(location.pathname);
+
   // Homepage should not have top padding (content can go under header)
   const isHomePage = location.pathname === '/';
-  const shouldHaveTopPadding = !isHomePage;
+  const shouldHaveTopPadding = !isHomePage && shouldShowHeader;
 
   // Structured data for Google search features
   const organizationSchema = {
@@ -103,7 +107,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      <Header />
+      {shouldShowHeader && <Header />}
       <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
         <Outlet />
       </main>
