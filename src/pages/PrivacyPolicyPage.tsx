@@ -66,7 +66,7 @@ const PrivacyPolicyPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-4 mt-16 border-b border-blue-700/30">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-4 pt-20 border-b border-blue-700/30">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
@@ -103,13 +103,13 @@ const PrivacyPolicyPage: React.FC = () => {
         >
           <h2 className="text-2xl font-bold text-white mb-4">Our Commitment to Your Privacy</h2>
           <p className="text-gray-300 leading-relaxed">
-            At St. Louis Demonstration Junior High School, we are committed to protecting your privacy and ensuring 
-            the security of your personal information. This Privacy Policy explains how we collect, use, and protect 
+            At St. Louis Demonstration Junior High School, we are committed to protecting your privacy and ensuring
+            the security of your personal information. This Privacy Policy explains how we collect, use, and protect
             your information when you visit our website or interact with our services.
           </p>
           <div className="mt-4 p-4 bg-blue-900/30 border border-blue-700/50 rounded-lg">
             <p className="text-blue-200 text-sm">
-              <strong>Last Updated:</strong> June 2025 | 
+              <strong>Last Updated:</strong> June 2025 |
               <strong> Effective Date:</strong> June 1, 2025
             </p>
           </div>
@@ -155,7 +155,7 @@ const PrivacyPolicyPage: React.FC = () => {
             Contact Us About Privacy
           </h3>
           <p className="text-gray-300 mb-4">
-            If you have any questions about this Privacy Policy or how we handle your personal information, 
+            If you have any questions about this Privacy Policy or how we handle your personal information,
             please contact us:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
@@ -186,7 +186,7 @@ const PrivacyPolicyPage: React.FC = () => {
           className="text-center mt-8 p-4 bg-gray-800/30 border border-gray-700/30 rounded-lg"
         >
           <p className="text-gray-400 text-sm">
-            This Privacy Policy may be updated from time to time. We will notify you of any significant changes 
+            This Privacy Policy may be updated from time to time. We will notify you of any significant changes
             by posting the new Privacy Policy on this page with an updated effective date.
           </p>
         </motion.div>

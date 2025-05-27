@@ -99,7 +99,7 @@ const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 mt-16">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 pt-20">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button

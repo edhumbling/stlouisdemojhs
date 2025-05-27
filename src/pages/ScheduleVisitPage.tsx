@@ -135,7 +135,7 @@ const ScheduleVisitPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       {/* Native Back Button Header - Dark Aero */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 mt-16 relative">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 pt-20 relative">
         {/* Dark Aero Glass Overlay */}
         <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
         <div className="container mx-auto px-4 relative z-10">

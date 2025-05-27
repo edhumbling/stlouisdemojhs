@@ -66,7 +66,7 @@ const TermsOfServicePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 mt-16 border-b border-purple-700/30">
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 pt-20 border-b border-purple-700/30">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
@@ -103,12 +103,12 @@ const TermsOfServicePage: React.FC = () => {
         >
           <h2 className="text-2xl font-bold text-white mb-4">Terms and Conditions</h2>
           <p className="text-gray-300 leading-relaxed">
-            Please read these Terms of Service carefully before using our website and educational services. 
+            Please read these Terms of Service carefully before using our website and educational services.
             By accessing or using our services, you agree to be bound by these terms and conditions.
           </p>
           <div className="mt-4 p-4 bg-purple-900/30 border border-purple-700/50 rounded-lg">
             <p className="text-purple-200 text-sm">
-              <strong>Last Updated:</strong> June 2025 | 
+              <strong>Last Updated:</strong> June 2025 |
               <strong> Effective Date:</strong> June 1, 2025
             </p>
           </div>
@@ -157,7 +157,7 @@ const TermsOfServicePage: React.FC = () => {
             <div className="bg-gray-800/50 border border-gray-700/50 rounded-lg p-4">
               <h4 className="font-semibold text-white mb-2">Governing Law</h4>
               <p className="text-gray-300 text-sm">
-                These terms are governed by the laws of Ghana. Any disputes will be subject to the 
+                These terms are governed by the laws of Ghana. Any disputes will be subject to the
                 exclusive jurisdiction of Ghanaian courts.
               </p>
             </div>
@@ -180,7 +180,7 @@ const TermsOfServicePage: React.FC = () => {
           className="text-center mt-8 p-4 bg-gray-800/30 border border-gray-700/30 rounded-lg"
         >
           <p className="text-gray-400 text-sm">
-            We reserve the right to modify these Terms of Service at any time. Changes will be effective 
+            We reserve the right to modify these Terms of Service at any time. Changes will be effective
             immediately upon posting. Your continued use constitutes acceptance of the modified terms.
           </p>
         </motion.div>

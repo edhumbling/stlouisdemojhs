@@ -75,7 +75,7 @@ const SitemapPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-black">
       {/* Header */}
-      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4 mt-16 border-b border-green-700/30">
+      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4 pt-20 border-b border-green-700/30">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
