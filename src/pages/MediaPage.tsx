@@ -82,7 +82,7 @@ const MediaPage: React.FC = () => {
       source: "YouTube"
     },
     {
-      title: "St. Louis Educational Complex - Facebook",
+      title: "St. Louis Demonstration J.H.S - Facebook",
       date: "Social Media",
       category: "Community",
       summary: "Community engagement and school activities showcase through social media platforms.",

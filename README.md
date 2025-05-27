@@ -4,7 +4,7 @@ A modern, responsive website for St. Louis Demonstration Junior High School, loc
 
 ## 🏫 About the School
 
-St. Louis Demonstration Junior High School is a prestigious public junior high school that has been serving the Kumasi community for over 47 years. As part of the esteemed St. Louis Educational Complex, the school has built a strong reputation for academic excellence, moral uprightness, and spiritual grounding.
+St. Louis Demonstration Junior High School is a prestigious public junior high school that has been serving the Kumasi community for over 47 years. As part of the esteemed St. Louis Demonstration J.H.S, the school has built a strong reputation for academic excellence, moral uprightness, and spiritual grounding.
 
 **School Motto:** "UT SINT UNUM – DIEU LE VEUT" ("That they may be one – God wills it")
 

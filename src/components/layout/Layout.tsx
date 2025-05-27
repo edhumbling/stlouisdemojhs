@@ -26,7 +26,7 @@ const Layout: React.FC = () => {
     "description": "Premier educational institution in Kumasi, Ghana with over 47 years of excellence in education. We have successfully trained 30,000+ students with exceptional BECE success rates.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "St. Louis Educational Complex",
+      "streetAddress": "St. Louis Demonstration J.H.S",
       "addressLocality": "Kumasi",
       "addressRegion": "Ashanti Region",
       "postalCode": "3041",

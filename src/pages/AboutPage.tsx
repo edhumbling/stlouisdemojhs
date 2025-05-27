@@ -227,7 +227,7 @@ const AboutPage: React.FC = () => {
             <div className="w-full px-4 sm:px-8 md:px-12">
               <div className="prose prose-invert max-w-none">
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  <strong>St. Louis Demonstration Junior High School</strong> stands as a beacon of educational excellence in Kumasi, Ghana, with a rich history spanning over four decades. Established in 1977 as an integral part of the prestigious St. Louis Educational Complex, our institution was founded on the principles of academic rigor, moral uprightness, and spiritual grounding that continue to guide us today.
+                  <strong>St. Louis Demonstration Junior High School</strong> stands as a beacon of educational excellence in Kumasi, Ghana, with a rich history spanning over four decades. Established in 1977 as an integral part of the prestigious St. Louis Demonstration J.H.S, our institution was founded on the principles of academic rigor, moral uprightness, and spiritual grounding that continue to guide us today.
                 </p>
 
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
@@ -429,7 +429,7 @@ const AboutPage: React.FC = () => {
                 brandColor: "from-blue-500 to-blue-600"
               },
               {
-                title: "St. Louis Educational Complex - Facebook",
+                title: "St. Louis Demonstration J.H.S - Facebook",
                 source: "Facebook",
                 date: "Social Media",
                 description: "Community engagement and school activities showcase.",
