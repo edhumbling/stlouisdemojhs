@@ -33,9 +33,10 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
       setIsVisible(true);
 
       // Change direction based on scroll position
-      // Show up arrow when in lower 60% (to go back up), down arrow when in upper 40% (to go down)
-      if (scrollPercentage > 0.6) {
-        setScrollDirection("up"); // Near bottom, show up arrow to go to top
+      // Show up arrow when in lower 80% (to go back up), down arrow when in upper 20% (to go down)
+      // This ensures that when near footer area, it always shows up arrow to go to top
+      if (scrollPercentage > 0.8) {
+        setScrollDirection("up"); // Near bottom/footer area, show up arrow to go to top
       } else {
         setScrollDirection("down"); // In upper/middle, show down arrow to go to bottom
       }
@@ -65,6 +66,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
   }, [handleScroll]);
 
   const scrollToTop = () => {
+    // Always scroll to the very top (0) regardless of current position
     window.scrollTo({
       top: 0,
       behavior: "smooth"
@@ -80,6 +82,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
 
   const handleClick = () => {
     if (scrollDirection === "up") {
+      // Always go to the very top, especially important when clicked from footer
       scrollToTop();
     } else {
       scrollToBottom();
@@ -87,39 +90,40 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
   };
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          onClick={handleClick}
-          className={`
-            fixed z-50 flex items-center justify-center
-            ${isMobile ? 'bottom-4 left-4 w-12 h-12' : 'bottom-6 right-6 w-14 h-14'}
-            rounded-full backdrop-blur-md border border-yellow-400/30
-            bg-gradient-to-br from-yellow-400/80 to-yellow-500/80
-            shadow-[0_8px_32px_rgba(251,191,36,0.3)]
-            hover:shadow-[0_12px_40px_rgba(251,191,36,0.4)]
-            hover:from-yellow-300/90 hover:to-yellow-400/90
-            transition-all duration-300 ease-out
-            ${className}
-          `}
-          style={{
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-          }}
-          initial={{ opacity: 0, scale: 0, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0, y: 20 }}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: '0 16px 48px rgba(251,191,36,0.5)'
-          }}
-          whileTap={{ scale: 0.95 }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 25
-          }}
-        >
+    <div className="pointer-events-none">
+      <AnimatePresence>
+        {isVisible && (
+          <motion.button
+            onClick={handleClick}
+            className={`
+              fixed z-50 flex items-center justify-center pointer-events-auto
+              ${isMobile ? 'bottom-4 left-4 w-12 h-12' : 'bottom-6 right-6 w-14 h-14'}
+              rounded-full backdrop-blur-md border border-yellow-400/30
+              bg-gradient-to-br from-yellow-400/80 to-yellow-500/80
+              shadow-[0_8px_32px_rgba(251,191,36,0.3)]
+              hover:shadow-[0_12px_40px_rgba(251,191,36,0.4)]
+              hover:from-yellow-300/90 hover:to-yellow-400/90
+              transition-all duration-300 ease-out
+              ${className}
+            `}
+            style={{
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+            }}
+            initial={{ opacity: 0, scale: 0, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0, y: 20 }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 16px 48px rgba(251,191,36,0.5)'
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 25
+            }}
+          >
           {/* Glass overlay effect */}
           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent opacity-50" />
 
@@ -166,9 +170,10 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
               ease: "easeInOut"
             }}
           />
-        </motion.button>
-      )}
-    </AnimatePresence>
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 
