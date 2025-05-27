@@ -1,22 +1,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 interface SocialMediaIconsProps {
   className?: string;
 }
 
 const SocialMediaIcons: React.FC<SocialMediaIconsProps> = ({ className = '' }) => {
+  const location = useLocation();
+
+  // Ensure icons are always visible on all pages, including iframe pages
+  const isFullScreenPage = ['/learnhub', '/ai-search', '/calendar', '/schedule-visit'].some(path =>
+    location.pathname.startsWith(path)
+  );
   return (
     <div
       className={`fixed
         left-4 top-20 sm:left-6 sm:top-24 md:left-8 md:top-28
         lg:left-auto lg:right-4 lg:top-20 xl:right-6 xl:top-24 2xl:right-8 2xl:top-28
-        z-[9999] flex flex-col space-y-2 ${className}`}
+        ${isFullScreenPage ? 'z-[99999]' : 'z-[9999]'} flex flex-col space-y-2 ${className}`}
       style={{
         transform: 'translateZ(0)',
         backfaceVisibility: 'hidden',
         willChange: 'transform',
-        contain: 'layout style'
+        contain: 'layout style',
+        pointerEvents: 'auto'
       }}
     >
 
