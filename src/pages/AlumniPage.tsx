@@ -191,20 +191,20 @@ const AlumniPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black">
       {/* Native Back Button - Apple Design */}
       <div className="fixed top-4 left-4 z-50">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center justify-center w-10 h-10 bg-black/20 backdrop-blur-md rounded-full border border-white/20 text-white hover:bg-black/30 transition-all duration-200 shadow-lg"
+          className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-black/20 backdrop-blur-md rounded-full border border-white/20 text-white hover:bg-black/30 transition-all duration-200 shadow-lg"
           style={{ backdropFilter: 'blur(20px)' }}
         >
-          <ArrowLeft size={18} />
+          <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" />
         </button>
       </div>
 
-      {/* Hero Section with School Background - Dark Aero */}
-      <section className="py-12 sm:py-16 md:py-20 text-white relative overflow-hidden">
+      {/* Hero Section with School Background - Mobile-Friendly Dark Aero */}
+      <section className="py-8 sm:py-12 md:py-16 text-white relative overflow-hidden">
         {/* Optimized School Background Image */}
         <div className="absolute inset-0">
           <OptimizedImage
@@ -218,33 +218,33 @@ const AlumniPage: React.FC = () => {
         <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="w-full px-3 sm:px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
-              <Users className="w-10 h-10 text-white" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl">
+              <Users className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               Alumni Community
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            <p className="text-sm sm:text-base md:text-lg text-gray-100 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               Celebrating 47+ years of excellence and the remarkable achievements of our 30,000+ graduates
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-2 sm:gap-3 justify-center">
               <a
                 href="#join"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-white text-blue-600 text-sm sm:text-base font-bold rounded-lg sm:rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >
-                <Heart className="w-5 h-5 mr-2" />
+                <Heart className="w-4 h-4 mr-2" />
                 Join Alumni Network
               </a>
               <a
                 href="#stories"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-full border-2 border-white/30 hover:bg-white/30 transition-all duration-300"
+                className="inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-white/20 backdrop-blur-sm text-white text-sm sm:text-base font-bold rounded-lg sm:rounded-full border-2 border-white/30 hover:bg-white/30 transition-all duration-300"
               >
                 Read Success Stories
               </a>
@@ -255,8 +255,8 @@ const AlumniPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
-      {/* Alumni Stats - Dark Aero */}
-      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+      {/* Alumni Stats - Mobile-Friendly Dark Aero */}
+      <section className="py-6 sm:py-8 md:py-12 relative overflow-hidden">
         {/* Optimized School Background Image */}
         <div className="absolute inset-0">
           <OptimizedImage
@@ -269,8 +269,8 @@ const AlumniPage: React.FC = () => {
         {/* Dark Aero Glass Overlay */}
         <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/60 to-green-900/40"></div>
-        <div className="w-full px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div className="w-full px-3 sm:px-4 relative z-10">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-3xl mx-auto">
             {alumniStats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -278,13 +278,13 @@ const AlumniPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
+                className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/10"
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-lg`}>
-                  {stat.icon}
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center text-white mx-auto mb-2 sm:mb-3 shadow-lg`}>
+                  <div className="scale-75 sm:scale-100">{stat.icon}</div>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">{stat.number}</h3>
-                <p className="text-gray-300 font-medium">{stat.label}</p>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">{stat.number}</h3>
+                <p className="text-gray-300 font-medium text-xs sm:text-sm">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -293,8 +293,8 @@ const AlumniPage: React.FC = () => {
 
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Featured Alumni - Dark Aero */}
-      <section id="stories" className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+      {/* Featured Alumni - Mobile-Friendly Dark Aero */}
+      <section id="stories" className="py-6 sm:py-8 md:py-12 relative overflow-hidden">
         {/* Optimized School Background Image */}
         <div className="absolute inset-0">
           <OptimizedImage
@@ -307,23 +307,23 @@ const AlumniPage: React.FC = () => {
         {/* Dark Aero Glass Overlay */}
         <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
-        <div className="w-full px-4 sm:px-6 relative z-10">
+        <div className="w-full px-3 sm:px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center mb-12"
+            className="max-w-4xl mx-auto text-center mb-6 sm:mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
               Success Stories
             </h2>
-            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-200 max-w-3xl mx-auto">
               Meet some of our distinguished alumni who are making a difference in their communities and professions.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {featuredAlumni.map((alumni, index) => (
               <motion.div
                 key={index}
@@ -331,36 +331,40 @@ const AlumniPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="glass-card rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
               >
-                <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4">
-                  <OptimizedImage
-                    src={alumni.image}
-                    alt={alumni.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2 text-center">{alumni.name}</h3>
-                <p className="text-blue-400 font-semibold mb-2 text-center">{alumni.class}</p>
-                <p className="text-gray-300 font-medium mb-3 text-center">{alumni.profession}</p>
-                <p className="text-gray-400 text-sm mb-4 text-center">{alumni.achievement}</p>
-                <blockquote className="text-gray-300 text-sm italic text-center border-l-4 border-blue-500 pl-4 mb-4">
-                  "{alumni.quote}"
-                </blockquote>
-                {alumni.linkedin && (
-                  <div className="text-center">
-                    <a
-                      href={alumni.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-full transition-all duration-300 transform hover:scale-105"
-                    >
-                      <span className="mr-2">💼</span>
-                      LinkedIn Profile
-                    </a>
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0">
+                    <OptimizedImage
+                      src={alumni.image}
+                      alt={alumni.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                )}
+                  <div className="flex-1 text-center sm:text-left">
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">{alumni.name}</h3>
+                    <p className="text-blue-400 font-semibold mb-1 text-sm sm:text-base">{alumni.class}</p>
+                    <p className="text-gray-300 font-medium mb-2 text-xs sm:text-sm">{alumni.profession}</p>
+                    <p className="text-gray-400 text-xs sm:text-sm mb-3">{alumni.achievement}</p>
+                    <blockquote className="text-gray-300 text-xs sm:text-sm italic border-l-4 border-blue-500 pl-3 mb-3">
+                      "{alumni.quote}"
+                    </blockquote>
+                    {alumni.linkedin && (
+                      <div className="text-center sm:text-left">
+                        <a
+                          href={alumni.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-medium rounded-lg sm:rounded-full transition-all duration-300 transform hover:scale-105"
+                        >
+                          <span className="mr-1 sm:mr-2">💼</span>
+                          LinkedIn Profile
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -369,8 +373,8 @@ const AlumniPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
-      {/* Alumni Events - Dark Aero */}
-      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+      {/* Alumni Events - Mobile-Friendly Dark Aero */}
+      <section className="py-6 sm:py-8 md:py-12 relative overflow-hidden">
         {/* Optimized School Background Image */}
         <div className="absolute inset-0">
           <OptimizedImage
@@ -383,23 +387,23 @@ const AlumniPage: React.FC = () => {
         {/* Dark Aero Glass Overlay */}
         <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/60 to-green-900/40"></div>
-        <div className="w-full px-4 sm:px-6 relative z-10">
+        <div className="w-full px-3 sm:px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center mb-12"
+            className="max-w-4xl mx-auto text-center mb-6 sm:mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
               Alumni Events & Programs
             </h2>
-            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-200 max-w-3xl mx-auto">
               Stay connected with your alma mater through our various alumni programs and events.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {alumniEvents.map((event, index) => (
               <motion.div
                 key={index}
@@ -407,16 +411,16 @@ const AlumniPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 h-full flex flex-col"
+                className="glass-card rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 h-full flex flex-col"
               >
                 <div className="flex items-center mb-3">
-                  <span className="text-lg mr-2">📅</span>
+                  <span className="text-base sm:text-lg mr-2">📅</span>
                   <span className="text-xs font-semibold text-blue-400 bg-blue-900/30 px-2 py-1 rounded-full border border-blue-400/30">
                     {event.type}
                   </span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 leading-tight">{event.title}</h3>
-                <p className="text-gray-300 font-medium mb-2 text-sm">{event.date}</p>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2 leading-tight">{event.title}</h3>
+                <p className="text-gray-300 font-medium mb-2 text-xs sm:text-sm">{event.date}</p>
                 <p className="text-gray-400 text-xs sm:text-sm mb-4 leading-relaxed flex-grow">{event.description}</p>
                 <AppleTimer targetDate={event.targetDate} eventName={event.title} />
               </motion.div>
@@ -427,8 +431,8 @@ const AlumniPage: React.FC = () => {
 
       <SectionDivider position="bottom" flip={true} />
 
-      {/* Join Alumni Network - Dark Aero */}
-      <section id="join" className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+      {/* Join Alumni Network - Mobile-Friendly Dark Aero */}
+      <section id="join" className="py-6 sm:py-8 md:py-12 relative overflow-hidden">
         {/* Optimized School Background Image */}
         <div className="absolute inset-0">
           <OptimizedImage
@@ -441,7 +445,7 @@ const AlumniPage: React.FC = () => {
         {/* Dark Aero Glass Overlay */}
         <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
-        <div className="w-full px-4 sm:px-6 relative z-10">
+        <div className="w-full px-3 sm:px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -449,30 +453,30 @@ const AlumniPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6">
               Join Our Alumni Network
             </h2>
-            <p className="text-lg text-gray-200 mb-8 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-200 mb-6 sm:mb-8 max-w-3xl mx-auto">
               Stay connected with your fellow graduates and continue to be part of the St. Louis Demo JHS family.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="text-center p-6 glass-card rounded-2xl border border-white/20">
-                <span className="text-3xl block mb-4">📧</span>
-                <h3 className="text-lg font-bold text-white mb-2">Email Us</h3>
-                <p className="text-gray-300 mb-4">alumni@stlouisdemojhs.com</p>
-                <p className="text-sm text-gray-400">Send us your updated contact information</p>
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 mb-6 sm:mb-8">
+              <div className="text-center p-4 sm:p-6 glass-card rounded-xl border border-white/20">
+                <span className="text-2xl sm:text-3xl block mb-3 sm:mb-4">📧</span>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2">Email Us</h3>
+                <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">alumni@stlouisdemojhs.com</p>
+                <p className="text-xs sm:text-sm text-gray-400">Send us your updated contact information</p>
               </div>
-              <div className="text-center p-6 glass-card rounded-2xl border border-white/20">
-                <span className="text-3xl block mb-4">📞</span>
-                <h3 className="text-lg font-bold text-white mb-2">Alumni Coordinator</h3>
-                <p className="text-gray-300 mb-2 font-semibold">Emmanuel Humbling Dwamena</p>
-                <p className="text-gray-300 mb-4">+233 20 870 5290</p>
-                <p className="text-sm text-gray-400">Speak with our alumni coordinator</p>
+              <div className="text-center p-4 sm:p-6 glass-card rounded-xl border border-white/20">
+                <span className="text-2xl sm:text-3xl block mb-3 sm:mb-4">📞</span>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2">Alumni Coordinator</h3>
+                <p className="text-gray-300 mb-1 sm:mb-2 font-semibold text-sm sm:text-base">Emmanuel Humbling Dwamena</p>
+                <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">+233 20 870 5290</p>
+                <p className="text-xs sm:text-sm text-gray-400">Speak with our alumni coordinator</p>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <div className="flex flex-col gap-2 sm:gap-3 justify-center">
               <a
                 href="https://whatsapp.com/channel/0029VbBO7RD7IUYZjOnapG3q"
                 target="_blank"
