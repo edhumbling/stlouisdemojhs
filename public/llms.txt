@@ -62,9 +62,14 @@ St. Louis Demonstration Junior High School is a premier educational institution 
 
 ## ADMISSION INFORMATION
 - Application Process: Online application available at /apply-now
+- Admission Page: Comprehensive information at /admissions
 - School Visits: Schedule tours at /schedule-visit
 - Admission Requirements: Age-appropriate academic standards
 - Enrollment Periods: Contact school for current admission cycles
+- Assessment Process: Comprehensive testing in core subjects
+- Interview Process: Student and parent consultation
+- Merit-Based Selection: Rigorous academic standards maintained
+- Contact: 📱 0244758575, 📱 0244730726, contact@stlouisdemojhs.com
 
 ## EXTRACURRICULAR ACTIVITIES
 - Sports and athletics programs
@@ -92,6 +97,7 @@ St. Louis Demonstration Junior High School is a premier educational institution 
 ### School Information
 - About Us: /about (History, mission, vision)
 - Academics: /academics (Academic programs and curriculum)
+- Admissions: /admissions (Admission process, requirements, and application)
 - Administration: /faculty (Leadership and staff)
 - Alumni Community: /alumni (Graduate network)
 

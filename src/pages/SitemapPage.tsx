@@ -31,6 +31,7 @@ const SitemapPage: React.FC = () => {
       links: [
         { name: 'About Us', path: '/about', description: 'School history, mission, and vision' },
         { name: 'Academics', path: '/academics', description: 'Academic programs and curriculum' },
+        { name: 'Admissions', path: '/admissions', description: 'Admission process, requirements, and application' },
         { name: 'Administration', path: '/faculty', description: 'School leadership and staff' },
         { name: 'Alumni Community', path: '/alumni', description: 'Connect with our graduates' },
       ]

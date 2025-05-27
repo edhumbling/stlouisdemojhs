@@ -79,6 +79,7 @@ src/
 - **HomePage** - Main landing page with hero section and overview
 - **AboutPage** - School history, mission, and values
 - **AcademicsPage** - Academic programs and curriculum
+- **AdmissionsPage** - Admission process, requirements, and application information
 - **FacultyPage** - Staff profiles and administration
 - **NewsPage** - Latest news and announcements
 - **GalleryPage** - Photo gallery of school activities
