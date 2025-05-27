@@ -413,7 +413,10 @@ const Header: React.FC = () => {
                       to={link.path}
                       onClick={() => {
                         setIsMenuOpen(false);
-                        window.scrollTo({ top: 0, behavior: 'instant' });
+                        // Only scroll to top for new page visits, not when returning
+                        if (!sessionStorage.getItem(`scrollPosition_${link.path}`)) {
+                          window.scrollTo({ top: 0, behavior: 'instant' });
+                        }
                       }}
                       className={({ isActive }) => `
                         flex items-center justify-center py-2 px-2 font-medium rounded-lg text-xs relative transition-all duration-200
@@ -454,7 +457,10 @@ const Header: React.FC = () => {
                   to="/apply-now"
                   onClick={() => {
                     setIsMenuOpen(false);
-                    window.scrollTo({ top: 0, behavior: 'instant' });
+                    // Only scroll to top for new page visits, not when returning
+                    if (!sessionStorage.getItem(`scrollPosition_/apply-now`)) {
+                      window.scrollTo({ top: 0, behavior: 'instant' });
+                    }
                   }}
                   className={({ isActive }) => `
                     flex items-center justify-center py-2 px-2 font-medium rounded-lg text-xs relative transition-all duration-200
@@ -488,7 +494,10 @@ const Header: React.FC = () => {
                       to={item.path}
                       onClick={() => {
                         setIsMenuOpen(false);
-                        window.scrollTo({ top: 0, behavior: 'instant' });
+                        // Only scroll to top for new page visits, not when returning
+                        if (!sessionStorage.getItem(`scrollPosition_${item.path}`)) {
+                          window.scrollTo({ top: 0, behavior: 'instant' });
+                        }
                       }}
                       className="flex items-center justify-between p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
                     >

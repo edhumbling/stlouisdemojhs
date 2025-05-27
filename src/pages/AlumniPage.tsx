@@ -497,9 +497,13 @@ const AlumniPage: React.FC = () => {
               </a>
               <a
                 href="/contact"
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   navigate('/contact');
-                  window.scrollTo({ top: 0, behavior: 'instant' });
+                  // Only scroll to top for new page visits, not when returning
+                  if (!sessionStorage.getItem(`scrollPosition_/contact`)) {
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                  }
                 }}
                 className="inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white text-sm sm:text-base font-bold rounded-lg sm:rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >

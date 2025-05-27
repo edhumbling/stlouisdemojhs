@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -32,14 +32,68 @@ import WhatsAppButton from './components/common/WhatsAppButton';
 import FacebookButton from './components/common/FacebookButton';
 import ScrollButton from './components/common/ScrollButtonNew';
 
-const App: React.FC = () => {
-  // Scroll to top on page change
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+// Scroll Position Manager Component
+const ScrollPositionManager: React.FC = () => {
+  const location = useLocation();
 
+  useEffect(() => {
+    const saveScrollPosition = () => {
+      const scrollPosition = window.scrollY;
+      const pathname = window.location.pathname;
+      sessionStorage.setItem(`scrollPosition_${pathname}`, scrollPosition.toString());
+    };
+
+    const restoreScrollPosition = () => {
+      const pathname = location.pathname;
+      const savedPosition = sessionStorage.getItem(`scrollPosition_${pathname}`);
+
+      if (savedPosition) {
+        // Use requestAnimationFrame to ensure DOM is ready
+        requestAnimationFrame(() => {
+          window.scrollTo({
+            top: parseInt(savedPosition, 10),
+            behavior: 'instant'
+          });
+        });
+      } else {
+        // Only scroll to top if no saved position (new page visit)
+        window.scrollTo(0, 0);
+      }
+    };
+
+    // Save scroll position before page unload
+    const handleBeforeUnload = () => {
+      saveScrollPosition();
+    };
+
+    // Save scroll position periodically while scrolling
+    const handleScroll = () => {
+      saveScrollPosition();
+    };
+
+    // Restore scroll position on page load
+    restoreScrollPosition();
+
+    // Add event listeners
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [location.pathname]);
+
+  return null;
+};
+
+const App: React.FC = () => {
   return (
     <Router>
+      {/* Scroll Position Manager */}
+      <ScrollPositionManager />
+
       {/* Floating buttons */}
       <FacebookButton url="https://www.facebook.com/stlouisdemojhs" />
       <WhatsAppButton url="https://whatsapp.com/channel/0029VbBO7RD7IUYZjOnapG3q" />
