@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ShimmerLoader from '../common/ShimmerLoader';
 import AsSeenOn from './AsSeenOn';
+import ScrollButton from '../common/ScrollButton';
 
 const Hero: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [loadedImageIndices, setLoadedImageIndices] = useState<number[]>([]);
   const [isMobile, setIsMobile] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
 
   const images = [
     {
@@ -199,7 +201,7 @@ const Hero: React.FC = () => {
   }, [loadedImageIndices]);
 
   return (
-    <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden hero-section">
+    <section ref={heroRef} className="relative min-h-[100svh] h-screen flex items-center overflow-hidden hero-section">
       {/* Background Images with Overlay */}
       <div className="absolute inset-0">
         {/* Instant fallback background - shows immediately */}
@@ -370,6 +372,9 @@ const Hero: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Scroll Button - Positioned at bottom of hero section */}
+      <ScrollButton heroSectionRef={heroRef} />
     </section>
   );
 };
