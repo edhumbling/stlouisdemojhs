@@ -363,10 +363,10 @@ const Header: React.FC = () => {
               </motion.div>
             </div>
 
-            {/* School Section - Mobile (No Arrows) */}
-            <div className="mb-3">
-              <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-2 px-1">School</h3>
-              <div className="grid grid-cols-2 gap-1.5">
+            {/* School Section - Mobile (No Arrows) - Smaller Containers */}
+            <div className="mb-2">
+              <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-1.5 px-1">School</h3>
+              <div className="grid grid-cols-2 gap-1">
                 {schoolDropdownItems.map((item, index) => (
                   <motion.div
                     key={item.path}
@@ -380,16 +380,16 @@ const Header: React.FC = () => {
                         setIsMenuOpen(false);
                         window.scrollTo({ top: 0, behavior: 'instant' });
                       }}
-                      className="flex flex-col items-center p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
+                      className="flex flex-col items-center p-1.5 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
                     >
-                      <div className="w-8 h-8 rounded-lg overflow-hidden mb-1 flex-shrink-0">
+                      <div className="w-6 h-6 rounded-md overflow-hidden mb-1 flex-shrink-0">
                         <img
                           src={item.image}
                           alt={item.label}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <h4 className="font-medium text-white text-xs text-center leading-tight">{item.label}</h4>
+                      <h4 className="font-medium text-white text-[10px] text-center leading-tight">{item.label}</h4>
                     </Link>
                   </motion.div>
                 ))}
