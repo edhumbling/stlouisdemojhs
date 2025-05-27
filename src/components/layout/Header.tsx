@@ -149,7 +149,7 @@ const Header: React.FC = () => {
                         }}
                         onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                         onMouseLeave={() => setIsSchoolDropdownOpen(false)}
-                        className="absolute top-full left-0 mt-3 w-96 bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden z-[9999]"
+                        className="absolute top-full left-0 mt-3 w-80 bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden z-[9999]"
                         style={{
                           position: 'absolute',
                           top: '100%',
@@ -165,14 +165,25 @@ const Header: React.FC = () => {
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.3, delay: 0.1 }}
-                          className="px-6 py-4 border-b border-white/10 bg-gradient-to-r from-blue-600/20 to-green-600/20"
+                          className="px-4 py-3 border-b border-white/10 bg-gradient-to-r from-blue-600/20 to-green-600/20"
                         >
                           <h3 className="text-white font-bold text-sm tracking-wide">School Information</h3>
                           <p className="text-gray-300 text-xs mt-1">Learn about our institution</p>
                         </motion.div>
 
-                        {/* 2-Column Grid Layout */}
-                        <div className="grid grid-cols-2 gap-0 p-2">
+                        {/* 2-Column Grid Layout with Beautiful Dividers */}
+                        <div className="grid grid-cols-2 gap-0 p-1.5 relative">
+                          {/* Vertical Divider */}
+                          <div className="absolute left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent transform -translate-x-1/2 z-10"></div>
+
+                          {/* Horizontal Dividers */}
+                          {schoolDropdownItems.length > 2 && (
+                            <>
+                              <div className="absolute left-2 right-1/2 top-1/2 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-y-1/2 z-10 mr-1"></div>
+                              <div className="absolute left-1/2 right-2 top-1/2 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-y-1/2 z-10 ml-1"></div>
+                            </>
+                          )}
+
                           {schoolDropdownItems.map((item, index) => (
                             <motion.div
                               key={item.path}
@@ -188,10 +199,11 @@ const Header: React.FC = () => {
                                 transition: { duration: 0.2 }
                               }}
                               whileTap={{ scale: 0.98 }}
+                              className="relative z-20"
                             >
                               <Link
                                 to={item.path}
-                                className="flex flex-col items-center p-4 m-1 hover:bg-white/10 rounded-xl transition-all duration-300 group relative overflow-hidden"
+                                className="flex flex-col items-center p-3 m-1 hover:bg-white/10 rounded-xl transition-all duration-300 group relative overflow-hidden"
                                 onClick={() => {
                                   setIsSchoolDropdownOpen(false);
                                   window.scrollTo({ top: 0, behavior: 'instant' });
@@ -208,7 +220,7 @@ const Header: React.FC = () => {
 
                                 {/* Image with Enhanced Hover Effect */}
                                 <motion.div
-                                  className="w-12 h-12 rounded-xl overflow-hidden mb-3 flex-shrink-0 relative"
+                                  className="w-10 h-10 rounded-xl overflow-hidden mb-2 flex-shrink-0 relative"
                                   whileHover={{ scale: 1.1 }}
                                   transition={{ duration: 0.3, ease: "easeOut" }}
                                 >
@@ -314,7 +326,7 @@ const Header: React.FC = () => {
                         ease: [0.4, 0.0, 0.2, 1],
                         staggerChildren: 0.05
                       }}
-                      className="absolute top-full right-0 mt-3 w-96 bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+                      className="absolute top-full right-0 mt-3 w-80 bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
                       style={{
                         backdropFilter: 'blur(24px)',
                         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1)'
@@ -325,14 +337,14 @@ const Header: React.FC = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: 0.1 }}
-                        className="px-6 py-4 border-b border-white/10 bg-gradient-to-r from-purple-600/20 to-blue-600/20"
+                        className="px-4 py-3 border-b border-white/10 bg-gradient-to-r from-purple-600/20 to-blue-600/20"
                       >
                         <h3 className="text-white font-bold text-sm tracking-wide">Contact Information</h3>
                         <p className="text-gray-300 text-xs mt-1">Get in touch with us</p>
                       </motion.div>
 
                       {/* 2-Column Grid Layout */}
-                      <div className="grid grid-cols-2 gap-0 p-2">
+                      <div className="grid grid-cols-2 gap-0 p-1.5">
                         {contactDropdownItems.map((item, index) => (
                           <motion.div
                             key={item.path}
@@ -352,7 +364,7 @@ const Header: React.FC = () => {
                             <Link
                               to={item.path}
                               onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                              className="flex flex-col items-center p-4 m-1 hover:bg-white/10 rounded-xl transition-all duration-300 group/item relative overflow-hidden"
+                              className="flex flex-col items-center p-3 m-1 hover:bg-white/10 rounded-xl transition-all duration-300 group/item relative overflow-hidden"
                             >
                               {/* Hover Background Effect */}
                               <motion.div
@@ -365,7 +377,7 @@ const Header: React.FC = () => {
 
                               {/* Icon with Enhanced Hover Effect */}
                               <motion.div
-                                className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 mb-3 flex-shrink-0 flex items-center justify-center relative"
+                                className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 mb-2 flex-shrink-0 flex items-center justify-center relative"
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ duration: 0.3, ease: "easeOut" }}
                               >
