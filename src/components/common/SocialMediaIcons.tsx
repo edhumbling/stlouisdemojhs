@@ -47,10 +47,10 @@ const SocialMediaIcons: React.FC<SocialMediaIconsProps> = ({ className = '' }) =
   };
   return (
     <div
-      className={`fixed right-3 top-1/2 transform -translate-y-1/2 sm:right-4 md:right-6
+      className={`fixed right-3 top-1/2 -translate-y-1/2 sm:right-4 md:right-6
         ${isFullScreenPage ? 'z-[99999]' : 'z-[9999]'} flex flex-col space-y-1 sm:space-y-2 ${className}`}
       style={{
-        transform: 'translateZ(0) translateY(-50%)',
+        transform: 'translateZ(0)',
         backfaceVisibility: 'hidden',
         willChange: 'transform',
         contain: 'layout style',

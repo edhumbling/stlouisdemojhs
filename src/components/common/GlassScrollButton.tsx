@@ -74,9 +74,8 @@ const GlassScrollButton: React.FC<GlassScrollButtonProps> = ({ className = '' })
       {isVisible && (
         <motion.button
           onClick={handleClick}
-          className={`fixed
-            left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-8 md:bottom-8
-            lg:left-auto lg:right-4 lg:bottom-4 xl:right-6 xl:bottom-6 2xl:right-8 2xl:bottom-8
+          className={`fixed bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8
+            lg:bottom-4 lg:left-auto lg:right-4 xl:bottom-6 xl:right-6 2xl:bottom-8 2xl:right-8
             ${isFullScreenPage ? 'z-[99995]' : 'z-[9995]'} flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14
             rounded-full shadow-lg hover:shadow-xl transition-all duration-300
             bg-yellow-500/20 backdrop-blur-md border border-yellow-400/30
