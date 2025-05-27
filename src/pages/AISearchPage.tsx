@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Search, Globe, Zap, Brain, Sparkles, Bot } from 'lucide-react';
+import { ArrowLeft, Search, Globe, Zap, Brain, Sparkles, Bot, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useHeader } from '../contexts/HeaderContext';
 
@@ -120,6 +120,16 @@ const AISearchPage: React.FC = () => {
       icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-violet-600 to-purple-600',
       glowColor: '#7c3aed'
+    },
+    {
+      id: 'britannica-chatbot',
+      name: 'Britannica Chatbot',
+      url: 'https://www.britannica.com/chatbot',
+      description: 'Educational AI chatbot powered by Britannica\'s trusted knowledge base',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-amber-600 to-orange-600',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true
     }
   ];
 
