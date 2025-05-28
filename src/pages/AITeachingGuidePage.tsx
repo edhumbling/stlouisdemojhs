@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Download, ExternalLink } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
@@ -6,12 +6,14 @@ import { useHeader } from '../contexts/HeaderContext';
 const AITeachingGuidePage: React.FC = () => {
   const navigate = useNavigate();
   const flipbookRef = useRef<HTMLDivElement>(null);
+  const [useFallback, setUseFallback] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { setShowHeader } = useHeader();
 
   // Hide header when viewing the guide
   useEffect(() => {
     setShowHeader(false);
-    
+
     // Cleanup: ensure header is shown when component unmounts
     return () => {
       setShowHeader(true);
@@ -20,27 +22,60 @@ const AITeachingGuidePage: React.FC = () => {
 
   // Initialize DearFlip when component mounts
   useEffect(() => {
+    let link: HTMLLinkElement | null = null;
+    let script: HTMLScriptElement | null = null;
+
     // Load DearFlip CSS
-    const link = document.createElement('link');
+    link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'https://cdn.jsdelivr.net/npm/dearflip@1.0.0/css/dearflip.min.css';
+    link.href = 'https://cdn.jsdelivr.net/gh/dearhive/dearflip-js-flipbook@latest/css/dearflip.min.css';
     document.head.appendChild(link);
 
     // Load DearFlip JS
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/dearflip@1.0.0/js/dearflip.min.js';
+    script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/gh/dearhive/dearflip-js-flipbook@latest/js/dearflip.min.js';
     script.onload = () => {
       // Initialize the flipbook after script loads
-      if (flipbookRef.current && (window as any).DEARFLIP) {
-        (window as any).DEARFLIP.parseBooks();
-      }
+      setTimeout(() => {
+        try {
+          if (flipbookRef.current && (window as any).DEARFLIP) {
+            (window as any).DEARFLIP.parseBooks();
+            setIsLoading(false);
+          } else {
+            throw new Error('DearFlip not available');
+          }
+        } catch (error) {
+          console.error('DearFlip initialization failed:', error);
+          setUseFallback(true);
+          setIsLoading(false);
+        }
+      }, 500);
     };
+    script.onerror = () => {
+      console.error('Failed to load DearFlip script');
+      setUseFallback(true);
+      setIsLoading(false);
+    };
+
+    // Fallback timeout
+    const fallbackTimer = setTimeout(() => {
+      if (isLoading) {
+        console.log('DearFlip loading timeout, using fallback');
+        setUseFallback(true);
+        setIsLoading(false);
+      }
+    }, 5000);
     document.body.appendChild(script);
 
     // Cleanup function
     return () => {
-      document.head.removeChild(link);
-      document.body.removeChild(script);
+      clearTimeout(fallbackTimer);
+      if (link && document.head.contains(link)) {
+        document.head.removeChild(link);
+      }
+      if (script && document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
@@ -104,43 +139,56 @@ const AITeachingGuidePage: React.FC = () => {
               🚀 The Future of Education is Here - Embrace AI Now!
             </h2>
             <p className="text-lg text-emerald-800 mb-6">
-              This comprehensive guide provides African teachers with practical strategies, tools, and insights 
-              to leverage AI technology in their classrooms. From basic AI literacy to advanced implementation 
+              This comprehensive guide provides African teachers with practical strategies, tools, and insights
+              to leverage AI technology in their classrooms. From basic AI literacy to advanced implementation
               techniques, this guide is your roadmap to educational transformation.
             </p>
             <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg text-left">
               <h3 className="font-bold text-yellow-800 mb-2">⚡ Urgent Call to Action for Teachers:</h3>
               <p className="text-yellow-700">
-                The AI revolution in education is happening NOW. Teachers who embrace AI tools today will lead 
+                The AI revolution in education is happening NOW. Teachers who embrace AI tools today will lead
                 tomorrow's classrooms. Don't wait - start your AI journey today and stay ahead of the curve!
               </p>
             </div>
           </div>
         </div>
 
-        {/* DearFlip Flipbook Container */}
+        {/* PDF Viewer Container */}
         <div className="flex-1 p-4">
           <div className="container mx-auto max-w-6xl h-full">
-            <div 
-              ref={flipbookRef}
-              className="_df_book"
-              data-source="https://ik.imagekit.io/humbling/154bc2e9-7d08-4e69-be18-d83fad2cae34.pdf"
-              data-height="600"
-              data-webgl="true"
-              data-hard="false"
-              data-pdf-thumb="true"
-              data-auto-sound="false"
-              style={{ height: '600px', width: '100%' }}
-            >
-              {/* Fallback content while loading */}
-              <div className="flex items-center justify-center h-full bg-white rounded-lg shadow-lg">
-                <div className="text-center">
-                  <div className="w-16 h-16 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                  <h3 className="text-xl font-bold text-emerald-900 mb-2">Loading AI Teaching Guide...</h3>
-                  <p className="text-emerald-700">Preparing your comprehensive guide to AI in education</p>
-                </div>
+            {useFallback ? (
+              /* Fallback: Regular PDF iframe */
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden" style={{ height: '600px' }}>
+                <iframe
+                  src="https://ik.imagekit.io/humbling/154bc2e9-7d08-4e69-be18-d83fad2cae34.pdf"
+                  className="w-full h-full border-0"
+                  title="AI Teaching Guide PDF"
+                  loading="lazy"
+                />
               </div>
-            </div>
+            ) : (
+              /* DearFlip Flipbook */
+              <div
+                ref={flipbookRef}
+                className="_df_book"
+                source="https://ik.imagekit.io/humbling/154bc2e9-7d08-4e69-be18-d83fad2cae34.pdf"
+                height="600"
+                webgl="true"
+                hard="false"
+                style={{ height: '600px', width: '100%' }}
+              >
+                {/* Loading content */}
+                {isLoading && (
+                  <div className="flex items-center justify-center h-full bg-white rounded-lg shadow-lg">
+                    <div className="text-center">
+                      <div className="w-16 h-16 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                      <h3 className="text-xl font-bold text-emerald-900 mb-2">Loading Interactive Guide...</h3>
+                      <p className="text-emerald-700">Preparing your comprehensive AI teaching guide</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
