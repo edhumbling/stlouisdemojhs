@@ -175,7 +175,7 @@ const FacebookPostsSection: React.FC = () => {
 
       {/* Right Gallery Strip - Slow Vertical Scrolling */}
       <div className="hidden lg:block gallery-container right-4 w-20">
-        <div className="gallery-scroll-right space-y-4" style={{ animationDelay: '-100s' }}>
+        <div className="gallery-scroll-right space-y-4" style={{ animationDelay: '-360s' }}>
           {[...galleryImages.slice().reverse(), ...galleryImages.slice().reverse()].map((image, index) => (
             <div
               key={`right-${index}`}

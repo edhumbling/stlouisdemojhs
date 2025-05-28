@@ -24,14 +24,14 @@
 }
 
 .gallery-scroll-left {
-  animation: slow-scroll-up 180s linear infinite;
+  animation: slow-scroll-up 600s linear infinite;
   will-change: transform;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
 
 .gallery-scroll-right {
-  animation: slow-scroll-down 200s linear infinite;
+  animation: slow-scroll-down 720s linear infinite;
   will-change: transform;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
