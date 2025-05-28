@@ -11,28 +11,33 @@ const Hero: React.FC = () => {
   const [loadedImageIndices, setLoadedImageIndices] = useState<number[]>([]);
   const [isMobile, setIsMobile] = useState(false);
 
-  // 🎨 CREATIVE DAILY CYCLING HERO SYSTEM 🎨
+  // 🎨 FUTURE-PROOF DAILY CYCLING HERO SYSTEM 🎨
   // Every day, the hero section displays a different set of 11 images from the gallery
-  // Day 1: Images 1-11, Day 2: Images 12-22, Day 3: Images 23-26 + 1-7, etc.
-  // This keeps the homepage fresh and showcases all school photos over time!
+  // Automatically adapts when new images are added to the gallery!
+  // Current: 26 images = 3 day cycle, Future: 50 images = 5 day cycle, etc.
+  // This keeps the homepage fresh and showcases ALL school photos over time!
   const getDailyHeroImages = () => {
+    const totalImages = galleryImages.length;
+    const imagesPerDay = 11;
+    const totalDays = Math.ceil(totalImages / imagesPerDay);
+
     // Calculate days since a reference date (e.g., Jan 1, 2025)
     const referenceDate = new Date('2025-01-01');
     const currentDate = new Date();
     const daysDifference = Math.floor((currentDate.getTime() - referenceDate.getTime()) / (1000 * 60 * 60 * 24));
 
     // Since this is "day 2", let's start from day 2 (index 1)
-    const currentDay = (daysDifference + 1) % Math.ceil(galleryImages.length / 11);
+    const currentDay = (daysDifference + 1) % totalDays;
 
     // Calculate starting index for today's set of 11 images
-    const startIndex = currentDay * 11;
+    const startIndex = currentDay * imagesPerDay;
 
     // Get 11 images starting from the calculated index, wrapping around if needed
     const todaysImages = [];
     const imageIds = [];
 
-    for (let i = 0; i < 11; i++) {
-      const imageIndex = (startIndex + i) % galleryImages.length;
+    for (let i = 0; i < imagesPerDay; i++) {
+      const imageIndex = (startIndex + i) % totalImages;
       const galleryImage = galleryImages[imageIndex];
 
       // Track which images we're using
@@ -49,13 +54,21 @@ const Hero: React.FC = () => {
       });
     }
 
-    // Log today's hero images for debugging
-    console.log(`🎨 Hero Day ${currentDay + 1}: Displaying gallery images [${imageIds.join(', ')}]`);
+    // Enhanced logging with future-proof information
+    console.log(`🎨 Hero System Status:`);
+    console.log(`   📊 Total Gallery Images: ${totalImages}`);
+    console.log(`   📅 Total Cycle Days: ${totalDays}`);
+    console.log(`   🎆 Current Day: ${currentDay + 1}/${totalDays}`);
+    console.log(`   🖼️ Today's Images: [${imageIds.join(', ')}]`);
+    console.log(`   🔄 Next refresh: Tomorrow with images starting from ID ${((currentDay + 1) % totalDays) * imagesPerDay + 1}`);
 
     return todaysImages;
   };
 
-  // Get today's hero images (starting with day 2 set: images 12-22)
+  // Get today's hero images - automatically adapts to gallery size!
+  // Current (26 images): Day 2 = images 12-22
+  // Future (50 images): Day 2 = images 12-22, but cycle extends to 5 days
+  // Future (100 images): Day 2 = images 12-22, but cycle extends to 10 days
   const images = getDailyHeroImages();
 
   // Handle responsive design
