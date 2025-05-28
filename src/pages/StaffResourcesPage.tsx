@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -146,6 +146,16 @@ const StaffResourcesPage: React.FC = () => {
       icon: Bot,
       category: 'AI Tools',
       color: 'from-purple-500 to-purple-600'
+    },
+    {
+      id: 'chief-examiners-reports',
+      title: 'Chief Examiners Reports',
+      subtitle: 'WAEC Ghana',
+      description: 'Official examination reports and analysis from WAEC Ghana',
+      url: 'https://waecgh.org/chief-examiners-report/',
+      icon: FileBarChart,
+      category: 'Assessment',
+      color: 'from-orange-500 to-orange-600'
     }
   ];
 
@@ -309,7 +319,10 @@ const StaffResourcesPage: React.FC = () => {
                     <div
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
                       style={{
-                        backgroundColor: resource.id === 'khamingo' ? '#a855f7' : '#3b82f6' // Purple-500 or Blue-500
+                        backgroundColor:
+                          resource.id === 'khamingo' ? '#a855f7' :
+                          resource.id === 'chief-examiners-reports' ? '#f97316' :
+                          '#3b82f6' // Purple-500, Orange-500, or Blue-500
                       }}
                     >
                       <IconComponent size={20} className="sm:w-6 sm:h-6" />
