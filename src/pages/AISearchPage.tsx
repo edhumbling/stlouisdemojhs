@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Globe, Zap, Search, BookOpen } from 'lucide-react';
+import { ArrowLeft, Globe, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useHeader } from '../contexts/HeaderContext';
 
@@ -283,6 +283,16 @@ const AISearchPage: React.FC = () => {
       icon: <img src="https://huggingface.co/favicon.ico" alt="Hugging Face Chat" className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-yellow-500 to-amber-600',
       glowColor: '#f59e0b',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'notebooklm',
+      name: 'NotebookLM',
+      url: 'https://notebooklm.google.com/',
+      description: 'Google\'s AI-powered research and note-taking assistant for personalized insights',
+      icon: <img src="https://notebooklm.google.com/favicon.ico" alt="NotebookLM" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-500 to-indigo-600',
+      glowColor: '#3b82f6',
       hasWhiteBackground: true
     }
   ];
