@@ -61,24 +61,24 @@ const StaffResourcesPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-16">
+    <div className="min-h-screen bg-black pt-16">
       {/* Back Button and Title Section */}
-      <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200 py-4">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleBack}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-all duration-300 text-sm"
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
 
             <div className="flex-1">
-              <h1 className="text-2xl font-bold text-gray-900">
+              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
                 Staff Resources
               </h1>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="text-xs sm:text-sm text-blue-200 mt-1">
                 Access curriculum guides, teaching materials, and educational resources
               </p>
             </div>
@@ -86,45 +86,60 @@ const StaffResourcesPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Apple-style Small Resource Cards */}
+      {/* Dark Aero Resource Cards */}
       <div className="container mx-auto px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 max-w-4xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
           {resources.map((resource) => {
             const IconComponent = resource.icon;
             return (
               <motion.div
                 key={resource.id}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
                 className="group cursor-pointer"
                 onClick={() => openResource(resource.id)}
               >
-                <div className="bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-4 hover:border-blue-300 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 hover:scale-105 active:scale-95 hover:bg-white">
+                <div className="bg-gray-900/50 backdrop-blur-md border border-gray-700 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:scale-105">
                   {/* Resource Icon */}
-                  <div className={`w-12 h-12 bg-gradient-to-br ${resource.color} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-                    <IconComponent size={20} className="text-white" />
+                  <div className={`w-16 h-16 bg-gradient-to-r ${resource.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent size={32} className="text-white" />
                   </div>
 
                   {/* Resource Info */}
-                  <div className="space-y-1">
-                    <h3 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight">
-                      {resource.title}
-                    </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-start justify-between">
+                      <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                        {resource.title}
+                      </h3>
+                      <ExternalLink size={18} className="text-gray-400 group-hover:text-blue-400 transition-colors flex-shrink-0 ml-2" />
+                    </div>
 
-                    <p className="text-xs text-gray-500 font-medium">
+                    <p className="text-sm text-gray-300 font-medium">
                       {resource.subtitle}
                     </p>
 
-                    <div className="pt-2">
-                      <span className="px-2 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-lg border border-blue-100">
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      {resource.description}
+                    </p>
+
+                    <div className="flex items-center gap-2">
+                      <span className="px-3 py-1 bg-blue-600/20 text-blue-400 text-xs font-medium rounded-full border border-blue-500/30">
                         {resource.category}
                       </span>
+                    </div>
+                  </div>
+
+                  {/* Hover Effect */}
+                  <div className="mt-4 pt-4 border-t border-gray-700 group-hover:border-blue-500/30 transition-colors">
+                    <div className="flex items-center text-blue-400 text-sm font-medium">
+                      <span>Click to access resource</span>
+                      <ArrowLeft size={14} className="ml-2 rotate-180 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
