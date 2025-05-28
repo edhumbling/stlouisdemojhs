@@ -4,47 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Facebook Section Gallery Animations - Slow Vertical Scrolling */
-@keyframes slow-scroll-up {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
-
-@keyframes slow-scroll-down {
-  0% {
-    transform: translateY(-50%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.gallery-scroll-left {
-  animation: slow-scroll-up 600s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-}
-
-.gallery-scroll-right {
-  animation: slow-scroll-down 720s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-}
-
-.gallery-container {
+/* Facebook Section Static Gallery Strips */
+.gallery-strip {
   position: absolute;
   top: 0;
-  height: 200%; /* Double height for seamless loop */
+  height: 100%;
   overflow: hidden;
-  will-change: transform;
+  will-change: auto;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
+}
+
+.gallery-content {
+  will-change: auto;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  height: 100%;
 }
 
 .gallery-image {
@@ -55,20 +30,6 @@
   backface-visibility: hidden;
   image-rendering: optimizeSpeed;
   image-rendering: -webkit-optimize-contrast;
-}
-
-/* Pause animations on hover for better user experience */
-.gallery-container:hover .gallery-scroll-left,
-.gallery-container:hover .gallery-scroll-right {
-  animation-play-state: paused;
-}
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .gallery-scroll-left,
-  .gallery-scroll-right {
-    animation: none !important;
-  }
 }
 
 @layer utilities {

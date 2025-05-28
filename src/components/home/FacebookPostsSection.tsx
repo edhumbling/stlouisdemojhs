@@ -143,61 +143,242 @@ const FacebookPostsSection: React.FC = () => {
     }
   }, [fbLoaded]);
 
+  // Create 8 strips with different image sets
+  const createImageStrip = (stripIndex: number) => {
+    const startIndex = (stripIndex * 3) % galleryImages.length;
+    const stripImages = [];
+
+    // Fill the strip with images, cycling through the gallery
+    for (let i = 0; i < 12; i++) {
+      const imageIndex = (startIndex + i) % galleryImages.length;
+      stripImages.push(galleryImages[imageIndex]);
+    }
+
+    return stripImages;
+  };
+
+  // Color overlays for each strip
+  const stripColors = [
+    'bg-blue-500/8',
+    'bg-green-500/8',
+    'bg-purple-500/8',
+    'bg-yellow-500/8',
+    'bg-red-500/8',
+    'bg-cyan-500/8',
+    'bg-pink-500/8',
+    'bg-indigo-500/8'
+  ];
+
   return (
     <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
-      {/* Left Gallery Strip - Slow Vertical Scrolling */}
-      <div className="hidden lg:block gallery-container left-4 w-20">
-        <div className="gallery-scroll-left space-y-4">
-          {[...galleryImages, ...galleryImages].map((image, index) => (
-            <div
-              key={`left-${index}`}
-              className="gallery-image w-16 h-16 rounded-lg shadow-md"
-              style={{
-                filter: 'blur(0.3px) brightness(0.85)',
-                opacity: 0.6,
-                transform: 'rotate(1deg)'
-              }}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover rounded-lg"
-                loading="lazy"
-                draggable="false"
-              />
+      {/* 8 Static Gallery Strips */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none">
+        {/* Strip 1 - Far Left */}
+        <div className="gallery-strip left-2 w-16">
+          <div className="gallery-content space-y-3">
+            {createImageStrip(0).map((image, index) => (
               <div
-                className="absolute inset-0 bg-blue-500/10 mix-blend-multiply rounded-lg"
-              />
-            </div>
-          ))}
+                key={`strip1-${index}`}
+                className="gallery-image w-12 h-12 rounded-lg shadow-sm"
+                style={{
+                  filter: 'blur(0.4px) brightness(0.8)',
+                  opacity: 0.5,
+                  transform: 'rotate(2deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[0]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Right Gallery Strip - Slow Vertical Scrolling */}
-      <div className="hidden lg:block gallery-container right-4 w-20">
-        <div className="gallery-scroll-right space-y-4" style={{ animationDelay: '-360s' }}>
-          {[...galleryImages.slice().reverse(), ...galleryImages.slice().reverse()].map((image, index) => (
-            <div
-              key={`right-${index}`}
-              className="gallery-image w-16 h-16 rounded-lg shadow-md"
-              style={{
-                filter: 'blur(0.3px) brightness(0.85)',
-                opacity: 0.6,
-                transform: 'rotate(-1deg)'
-              }}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover rounded-lg"
-                loading="lazy"
-                draggable="false"
-              />
+        {/* Strip 2 - Left */}
+        <div className="gallery-strip left-20 w-16">
+          <div className="gallery-content space-y-4">
+            {createImageStrip(1).map((image, index) => (
               <div
-                className="absolute inset-0 bg-green-500/10 mix-blend-multiply rounded-lg"
-              />
-            </div>
-          ))}
+                key={`strip2-${index}`}
+                className="gallery-image w-14 h-14 rounded-lg shadow-md"
+                style={{
+                  filter: 'blur(0.3px) brightness(0.85)',
+                  opacity: 0.6,
+                  transform: 'rotate(-1deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[1]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 3 - Left Center */}
+        <div className="gallery-strip left-38 w-16">
+          <div className="gallery-content space-y-5">
+            {createImageStrip(2).map((image, index) => (
+              <div
+                key={`strip3-${index}`}
+                className="gallery-image w-10 h-10 rounded-lg shadow-sm"
+                style={{
+                  filter: 'blur(0.5px) brightness(0.75)',
+                  opacity: 0.4,
+                  transform: 'rotate(1deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[2]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 4 - Center Left */}
+        <div className="gallery-strip left-56 w-16">
+          <div className="gallery-content space-y-3">
+            {createImageStrip(3).map((image, index) => (
+              <div
+                key={`strip4-${index}`}
+                className="gallery-image w-12 h-12 rounded-lg shadow-sm"
+                style={{
+                  filter: 'blur(0.4px) brightness(0.8)',
+                  opacity: 0.5,
+                  transform: 'rotate(-2deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[3]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 5 - Center Right */}
+        <div className="gallery-strip right-56 w-16">
+          <div className="gallery-content space-y-4">
+            {createImageStrip(4).map((image, index) => (
+              <div
+                key={`strip5-${index}`}
+                className="gallery-image w-12 h-12 rounded-lg shadow-sm"
+                style={{
+                  filter: 'blur(0.4px) brightness(0.8)',
+                  opacity: 0.5,
+                  transform: 'rotate(2deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[4]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 6 - Right Center */}
+        <div className="gallery-strip right-38 w-16">
+          <div className="gallery-content space-y-5">
+            {createImageStrip(5).map((image, index) => (
+              <div
+                key={`strip6-${index}`}
+                className="gallery-image w-10 h-10 rounded-lg shadow-sm"
+                style={{
+                  filter: 'blur(0.5px) brightness(0.75)',
+                  opacity: 0.4,
+                  transform: 'rotate(-1deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[5]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 7 - Right */}
+        <div className="gallery-strip right-20 w-16">
+          <div className="gallery-content space-y-4">
+            {createImageStrip(6).map((image, index) => (
+              <div
+                key={`strip7-${index}`}
+                className="gallery-image w-14 h-14 rounded-lg shadow-md"
+                style={{
+                  filter: 'blur(0.3px) brightness(0.85)',
+                  opacity: 0.6,
+                  transform: 'rotate(1deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[6]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 8 - Far Right */}
+        <div className="gallery-strip right-2 w-16">
+          <div className="gallery-content space-y-3">
+            {createImageStrip(7).map((image, index) => (
+              <div
+                key={`strip8-${index}`}
+                className="gallery-image w-12 h-12 rounded-lg shadow-sm"
+                style={{
+                  filter: 'blur(0.4px) brightness(0.8)',
+                  opacity: 0.5,
+                  transform: 'rotate(-2deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[7]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
