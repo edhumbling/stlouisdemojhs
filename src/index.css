@@ -4,6 +4,59 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Facebook Section Animated Galleries */
+@keyframes scroll-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes scroll-up-slow {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes scroll-down-slow {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scroll-up {
+  animation: scroll-up 20s linear infinite;
+}
+
+.animate-scroll-down {
+  animation: scroll-down 20s linear infinite;
+}
+
+.animate-scroll-up-slow {
+  animation: scroll-up-slow 30s linear infinite;
+}
+
+.animate-scroll-down-slow {
+  animation: scroll-down-slow 30s linear infinite;
+}
+
 @layer utilities {
   @keyframes shimmer {
     0% {

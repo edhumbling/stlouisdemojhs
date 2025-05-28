@@ -27,7 +27,7 @@ const FacebookPostsSection: React.FC = () => {
   const facebookPageUrl = "https://www.facebook.com/stlouisdemojhs";
 
   useEffect(() => {
-    // Load Facebook SDK
+    // Optimized Facebook SDK loading
     const loadFacebookSDK = () => {
       if (window.FB) {
         setFbLoaded(true);
@@ -35,11 +35,17 @@ const FacebookPostsSection: React.FC = () => {
         return;
       }
 
-      // Create Facebook SDK script
+      // Check if script already exists
+      const existingScript = document.querySelector('script[src*="connect.facebook.net"]');
+      if (existingScript) {
+        setIsLoading(false);
+        return;
+      }
+
+      // Create optimized Facebook SDK script
       const script = document.createElement('script');
       script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0';
       script.async = true;
-      script.defer = true;
       script.crossOrigin = 'anonymous';
 
       script.onload = () => {
@@ -49,8 +55,8 @@ const FacebookPostsSection: React.FC = () => {
             version: 'v18.0'
           });
           setFbLoaded(true);
-          setIsLoading(false);
         }
+        setIsLoading(false);
       };
 
       script.onerror = () => {
@@ -58,27 +64,29 @@ const FacebookPostsSection: React.FC = () => {
         setLoadError(true);
       };
 
-      document.head.appendChild(script);
-    };
-
-    loadFacebookSDK();
-
-    // Cleanup
-    return () => {
-      // Remove script if component unmounts
-      const existingScript = document.querySelector('script[src*="connect.facebook.net"]');
-      if (existingScript) {
-        existingScript.remove();
+      // Use requestIdleCallback for non-blocking loading
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+          document.head.appendChild(script);
+        });
+      } else {
+        setTimeout(() => {
+          document.head.appendChild(script);
+        }, 0);
       }
     };
+
+    // Start loading immediately
+    loadFacebookSDK();
   }, []);
 
-  // Refresh Facebook widgets when loaded
+  // Optimized Facebook widgets refresh
   useEffect(() => {
     if (fbLoaded && window.FB) {
-      setTimeout(() => {
+      // Use requestAnimationFrame for smooth rendering
+      requestAnimationFrame(() => {
         window.FB.XFBML.parse();
-      }, 100);
+      });
     }
   }, [fbLoaded]);
 
@@ -103,39 +111,13 @@ const FacebookPostsSection: React.FC = () => {
     return 'other';
   };
 
-  // Add click handlers to Facebook posts after they load
+  // Optimized click handlers for Facebook posts
   useEffect(() => {
     if (fbLoaded && window.FB) {
+      // Reduced delay for faster interaction
       setTimeout(() => {
-        // Method 1: Try to intercept clicks on the Facebook iframe
-        const fbIframes = document.querySelectorAll('iframe[src*="facebook.com"]');
-
-        fbIframes.forEach((iframe) => {
-          try {
-            // Add overlay to capture clicks (for cross-origin iframe)
-            const overlay = document.createElement('div');
-            overlay.style.position = 'absolute';
-            overlay.style.top = '0';
-            overlay.style.left = '0';
-            overlay.style.width = '100%';
-            overlay.style.height = '100%';
-            overlay.style.zIndex = '10';
-            overlay.style.pointerEvents = 'none'; // Allow normal interaction
-            overlay.style.background = 'transparent';
-
-            // Add to iframe parent
-            const parent = iframe.parentElement;
-            if (parent) {
-              parent.style.position = 'relative';
-              parent.appendChild(overlay);
-            }
-          } catch (error) {
-            console.log('Cannot access iframe content due to CORS policy');
-          }
-        });
-
-        // Method 2: Add global click listener for video URLs
-        document.addEventListener('click', (e) => {
+        // Add global click listener for video URLs
+        const handleVideoLinks = (e: Event) => {
           const target = e.target as HTMLElement;
           const link = target.closest('a[href*="facebook.com/watch"], a[href*="youtube.com"], a[href*="youtu.be"]');
 
@@ -149,37 +131,161 @@ const FacebookPostsSection: React.FC = () => {
               handleVideoClick(anchor.href, anchor.textContent || 'Facebook Video');
             }
           }
-        });
+        };
 
+        document.addEventListener('click', handleVideoLinks, { passive: false });
 
-      }, 3000); // Wait for Facebook content to fully load
+        // Cleanup function
+        return () => {
+          document.removeEventListener('click', handleVideoLinks);
+        };
+      }, 1000); // Reduced from 3000ms to 1000ms
     }
   }, [fbLoaded]);
 
+  // Student gallery images for animated background
+  const studentImages = [
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?tr=w-120,h-120,q-60',
+    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?tr=w-120,h-120,q-60'
+  ];
+
+  // Generate random colors for faded overlays
+  const getRandomColor = () => {
+    const colors = [
+      'rgba(59, 130, 246, 0.3)', // Blue
+      'rgba(34, 197, 94, 0.3)',  // Green
+      'rgba(251, 191, 36, 0.3)', // Yellow
+      'rgba(239, 68, 68, 0.3)',  // Red
+      'rgba(168, 85, 247, 0.3)', // Purple
+      'rgba(236, 72, 153, 0.3)', // Pink
+      'rgba(6, 182, 212, 0.3)',  // Cyan
+      'rgba(245, 101, 101, 0.3)' // Orange
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
-      {/* Enhanced Background Pattern */}
-      <div className="absolute inset-0">
-        {/* Subtle gradient orbs */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-yellow-200 to-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-green-200 to-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-blue-200 to-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-25 animate-pulse delay-500"></div>
+    <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+      {/* Animated Student Photo Galleries - Desktop Only */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none">
+        {/* Left Gallery - Scrolling Up */}
+        <div className="absolute left-4 top-0 w-24 h-full overflow-hidden">
+          <div className="animate-scroll-up space-y-3">
+            {[...studentImages, ...studentImages].map((img, index) => (
+              <div
+                key={`left-${index}`}
+                className="relative w-20 h-20 rounded-lg overflow-hidden shadow-lg transform rotate-3 hover:rotate-6 transition-transform duration-300"
+                style={{
+                  filter: 'blur(0.5px) brightness(0.7)',
+                  opacity: 0.6
+                }}
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0 mix-blend-multiply"
+                  style={{ backgroundColor: getRandomColor() }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
-        {/* Floating particles */}
-        <div className="absolute top-20 left-20 w-2 h-2 bg-yellow-400 rounded-full opacity-60 animate-bounce delay-300"></div>
-        <div className="absolute top-40 right-32 w-3 h-3 bg-green-400 rounded-full opacity-40 animate-bounce delay-700"></div>
-        <div className="absolute bottom-32 left-40 w-2 h-2 bg-blue-400 rounded-full opacity-50 animate-bounce delay-1000"></div>
-        <div className="absolute bottom-20 right-20 w-4 h-4 bg-yellow-300 rounded-full opacity-30 animate-bounce delay-1500"></div>
+        {/* Right Gallery - Scrolling Down */}
+        <div className="absolute right-4 top-0 w-24 h-full overflow-hidden">
+          <div className="animate-scroll-down space-y-3">
+            {[...studentImages, ...studentImages].map((img, index) => (
+              <div
+                key={`right-${index}`}
+                className="relative w-20 h-20 rounded-lg overflow-hidden shadow-lg transform -rotate-2 hover:-rotate-4 transition-transform duration-300"
+                style={{
+                  filter: 'blur(0.5px) brightness(0.7)',
+                  opacity: 0.6
+                }}
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0 mix-blend-multiply"
+                  style={{ backgroundColor: getRandomColor() }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
-        {/* Grid pattern overlay */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        {/* Additional Left Gallery - Slower Scroll */}
+        <div className="absolute left-32 top-0 w-24 h-full overflow-hidden">
+          <div className="animate-scroll-up-slow space-y-4">
+            {[...studentImages, ...studentImages].map((img, index) => (
+              <div
+                key={`left2-${index}`}
+                className="relative w-16 h-16 rounded-lg overflow-hidden shadow-md transform rotate-1 hover:rotate-3 transition-transform duration-300"
+                style={{
+                  filter: 'blur(1px) brightness(0.6)',
+                  opacity: 0.4
+                }}
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0 mix-blend-multiply"
+                  style={{ backgroundColor: getRandomColor() }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
-        {/* Subtle noise texture */}
-        <div className="absolute inset-0 bg-noise-pattern opacity-10"></div>
+        {/* Additional Right Gallery - Slower Scroll */}
+        <div className="absolute right-32 top-0 w-24 h-full overflow-hidden">
+          <div className="animate-scroll-down-slow space-y-4">
+            {[...studentImages, ...studentImages].map((img, index) => (
+              <div
+                key={`right2-${index}`}
+                className="relative w-16 h-16 rounded-lg overflow-hidden shadow-md transform -rotate-1 hover:-rotate-2 transition-transform duration-300"
+                style={{
+                  filter: 'blur(1px) brightness(0.6)',
+                  opacity: 0.4
+                }}
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0 mix-blend-multiply"
+                  style={{ backgroundColor: getRandomColor() }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-
-      {/* Light overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent backdrop-blur-[0.5px]"></div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
