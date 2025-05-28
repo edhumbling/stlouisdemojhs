@@ -189,14 +189,7 @@ header {
   backface-visibility: hidden;
 }
 
-/* ElevenLabs ConvAI Widget Styling - Simple and effective */
-elevenlabs-convai {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: relative !important;
-  z-index: 999999 !important;
-}
+
 
 /* Global performance optimizations */
 * {

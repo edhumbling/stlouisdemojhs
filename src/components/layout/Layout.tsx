@@ -113,20 +113,6 @@ const Layout: React.FC = () => {
 
       {/* Global Scroll Button - Always visible like taskbar time */}
       <ScrollButton />
-
-      {/* ElevenLabs ConvAI Widget - Simple bottom positioning */}
-      <div
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          zIndex: 999999,
-          width: 'auto',
-          height: 'auto'
-        }}
-      >
-        <elevenlabs-convai agent-id="fAiPNUtMGChNGFI7nFy4"></elevenlabs-convai>
-      </div>
     </div>
   );
 };

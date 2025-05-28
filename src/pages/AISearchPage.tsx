@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Search, Globe, Zap, Brain, Bot, BookOpen } from 'lucide-react';
+import { ArrowLeft, Globe, Zap, Search, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useHeader } from '../contexts/HeaderContext';
 
@@ -8,6 +8,8 @@ const AISearchPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedEngine, setSelectedEngine] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [iframeError, setIframeError] = useState(false);
+  const [showAlternatives, setShowAlternatives] = useState(false);
   const { setShowHeader } = useHeader();
 
   // Control header visibility based on whether we're viewing an individual engine
@@ -30,6 +32,8 @@ const AISearchPage: React.FC = () => {
     if (selectedEngine) {
       setSelectedEngine(null);
       setIsLoading(false);
+      setIframeError(false);
+      setShowAlternatives(false);
       // Scroll to top when returning to main page
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -54,7 +58,7 @@ const AISearchPage: React.FC = () => {
       name: 'Farfalle',
       url: 'https://www.farfalle.dev',
       description: 'Intelligent search platform designed for developers and researchers',
-      icon: <Search className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-purple-600 to-pink-600',
       glowColor: '#ec4899'
     },
@@ -63,7 +67,7 @@ const AISearchPage: React.FC = () => {
       name: 'TurboSeek',
       url: 'https://www.turboseek.io',
       description: 'Lightning-fast AI search with turbocharged performance',
-      icon: <Zap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-yellow-500 to-orange-600',
       glowColor: '#f97316'
     },
@@ -72,7 +76,7 @@ const AISearchPage: React.FC = () => {
       name: 'Omniplex AI',
       url: 'https://omniplex.ai',
       description: 'Comprehensive AI search solution with multi-modal capabilities',
-      icon: <Brain className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-green-600 to-emerald-600',
       glowColor: '#10b981'
     },
@@ -81,7 +85,7 @@ const AISearchPage: React.FC = () => {
       name: 'Andi Search',
       url: 'https://andisearch.com',
       description: 'Next-generation search engine powered by conversational AI',
-      icon: <Bot className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-indigo-600 to-purple-600',
       glowColor: '#8b5cf6'
     },
@@ -90,7 +94,7 @@ const AISearchPage: React.FC = () => {
       name: 'MemFree',
       url: 'https://www.memfree.me/',
       description: 'Free AI-powered search engine with memory and context awareness',
-      icon: <Brain className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-emerald-600 to-teal-600',
       glowColor: '#14b8a6'
     },
@@ -99,7 +103,7 @@ const AISearchPage: React.FC = () => {
       name: 'Felladrin MiniSearch',
       url: 'https://felladrin-minisearch.hf.space/',
       description: 'Compact AI search engine powered by Hugging Face with fast results',
-      icon: <Search className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-orange-600 to-red-600',
       glowColor: '#ea580c'
     },
@@ -130,17 +134,182 @@ const AISearchPage: React.FC = () => {
       color: 'from-amber-600 to-orange-600',
       glowColor: '#f59e0b',
       hasWhiteBackground: true
+    },
+    {
+      id: 'grok',
+      name: 'Grok',
+      url: 'https://grok.com',
+      description: 'Advanced AI assistant with real-time information and witty personality',
+      icon: <img src="https://grok.com/favicon.ico" alt="Grok" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-gray-800 to-black',
+      glowColor: '#000000',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'claude',
+      name: 'Claude AI',
+      url: 'https://claude.ai',
+      description: 'Anthropic\'s AI assistant for thoughtful, helpful, and harmless conversations',
+      icon: <img src="https://claude.ai/favicon.ico" alt="Claude" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-500 to-red-600',
+      glowColor: '#ea580c',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'chatgpt',
+      name: 'ChatGPT',
+      url: 'https://chatgpt.com/c/',
+      description: 'OpenAI\'s conversational AI for creative and analytical tasks',
+      icon: <img src="https://chatgpt.com/favicon.ico" alt="ChatGPT" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-green-500 to-emerald-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'mistral',
+      name: 'Mistral Chat',
+      url: 'https://chat.mistral.ai/chat',
+      description: 'European AI assistant with advanced reasoning capabilities',
+      icon: <img src="https://chat.mistral.ai/favicon.ico" alt="Mistral" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-600 to-indigo-700',
+      glowColor: '#3b82f6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'gemini',
+      name: 'Gemini',
+      url: 'https://gemini.google.com',
+      description: 'Google\'s most capable AI model for multimodal understanding',
+      icon: <img src="https://gemini.google.com/favicon.ico" alt="Gemini" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-500 to-purple-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'deepseek',
+      name: 'DeepSeek Chat',
+      url: 'https://deepseek.com/chat',
+      description: 'Advanced AI model with deep reasoning and coding capabilities',
+      icon: <img src="https://deepseek.com/favicon.ico" alt="DeepSeek" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-pink-600',
+      glowColor: '#ec4899',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'opennote',
+      name: 'OpenNote',
+      url: 'https://opennote.me/',
+      description: 'AI-powered note-taking and knowledge management platform',
+      icon: <img src="https://opennote.me/favicon.ico" alt="OpenNote" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-500 to-cyan-600',
+      glowColor: '#06b6d4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'perplexity',
+      name: 'Perplexity AI',
+      url: 'https://perplexity.ai',
+      description: 'AI-powered search engine that provides accurate answers with cited sources',
+      icon: <img src="https://perplexity.ai/favicon.ico" alt="Perplexity" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-blue-700',
+      glowColor: '#3b82f6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'copilot',
+      name: 'Microsoft Copilot',
+      url: 'https://copilot.microsoft.com/',
+      description: 'Microsoft\'s AI assistant for productivity, creativity, and everyday tasks',
+      icon: <img src="https://copilot.microsoft.com/favicon.ico" alt="Microsoft Copilot" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-600 to-cyan-600',
+      glowColor: '#0078d4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'genspark',
+      name: 'Genspark AI',
+      url: 'https://www.genspark.ai/',
+      description: 'AI-powered search engine that generates comprehensive sparkpages for queries',
+      icon: <img src="https://www.genspark.ai/favicon.ico" alt="Genspark" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-pink-500 to-rose-600',
+      glowColor: '#ec4899',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'pi',
+      name: 'Pi AI',
+      url: 'https://pi.ai/',
+      description: 'Personal AI assistant designed for supportive, smart, and helpful conversations',
+      icon: <img src="https://pi.ai/favicon.ico" alt="Pi AI" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-violet-500 to-purple-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'qwen',
+      name: 'Qwen Chat',
+      url: 'https://chat.qwen.ai/',
+      description: 'Advanced AI chat model with multilingual capabilities and reasoning skills',
+      icon: <img src="https://chat.qwen.ai/favicon.ico" alt="Qwen Chat" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-red-500 to-orange-600',
+      glowColor: '#f97316',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'manus',
+      name: 'Manus',
+      url: 'https://manus.im/app',
+      description: 'AI-powered writing and productivity assistant for enhanced creativity',
+      icon: <img src="https://manus.im/favicon.ico" alt="Manus" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-emerald-500 to-green-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'together',
+      name: 'Together AI',
+      url: 'https://chat.together.ai/',
+      description: 'Collaborative AI platform with access to multiple open-source models',
+      icon: <img src="https://chat.together.ai/favicon.ico" alt="Together AI" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-slate-600 to-gray-700',
+      glowColor: '#64748b',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'huggingface',
+      name: 'Hugging Face Chat',
+      url: 'https://huggingface.co/chat/',
+      description: 'Open-source AI chat platform with access to cutting-edge language models',
+      icon: <img src="https://huggingface.co/favicon.ico" alt="Hugging Face Chat" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-500 to-amber-600',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true
     }
   ];
 
   const handleEngineClick = (engineId: string) => {
     setIsLoading(true);
+    setIframeError(false);
+    setShowAlternatives(false);
     setSelectedEngine(engineId);
     // Loading will be hidden when iframe loads
   };
 
   const handleIframeLoad = () => {
     setIsLoading(false);
+    setIframeError(false);
+  };
+
+  const handleIframeError = () => {
+    setIsLoading(false);
+    setIframeError(true);
+    setShowAlternatives(true);
+  };
+
+  const handleOpenInBrowser = () => {
+    if (selectedEngineData) {
+      window.open(selectedEngineData.url, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const selectedEngineData = aiEngines.find(engine => engine.id === selectedEngine);
@@ -166,31 +335,78 @@ const AISearchPage: React.FC = () => {
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                 {selectedEngineData.name}
               </h1>
+
+              {/* Quick access button */}
+              <button
+                onClick={handleOpenInBrowser}
+                className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
+              >
+                <Globe size={14} />
+                <span className="hidden sm:inline">Open in Browser</span>
+              </button>
             </div>
           </div>
         </div>
 
         {/* Full viewport iframe - No footer */}
         <div className="w-full h-full pt-20 sm:pt-24 relative">
-          <iframe
-            src={selectedEngineData.url}
-            className="w-full h-full border-0 relative z-10"
-            title={selectedEngineData.name}
-            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
-            onLoad={handleIframeLoad}
-            style={selectedEngineData.hasWhiteBackground ? {
-              filter: 'invert(1) hue-rotate(180deg)',
-              background: 'white'
-            } : {}}
-          />
+          {!iframeError ? (
+            <>
+              <iframe
+                src={selectedEngineData.url}
+                className="w-full h-full border-0 relative z-10"
+                title={selectedEngineData.name}
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads allow-modals"
+                onLoad={handleIframeLoad}
+                onError={handleIframeError}
+                style={selectedEngineData.hasWhiteBackground ? {
+                  filter: 'invert(1) hue-rotate(180deg)',
+                  background: 'white'
+                } : {}}
+              />
 
-          {/* Loading Overlay */}
-          {isLoading && (
-            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-20">
-              <div className="text-center">
-                <div className="w-12 h-12 border-4 border-gray-300 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-gray-800 font-medium">Loading {selectedEngineData.name}...</p>
-                <p className="text-gray-600 text-sm mt-1">Please wait while we load the AI search engine</p>
+              {/* Loading Overlay */}
+              {isLoading && (
+                <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-20">
+                  <div className="text-center">
+                    <div className="w-12 h-12 border-4 border-gray-300 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-gray-800 font-medium">Loading {selectedEngineData.name}...</p>
+                    <p className="text-gray-600 text-sm mt-1">Please wait while we load the AI search engine</p>
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            /* Error State - Show alternatives */
+            <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
+              <div className="text-center max-w-md">
+                <div className="mb-8">
+                  <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Globe className="w-10 h-10 text-red-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Access Restricted</h3>
+                  <p className="text-gray-300 mb-6">
+                    {selectedEngineData.name} cannot be embedded directly. Click below to open it in a new browser tab for the best experience.
+                  </p>
+                </div>
+
+                {/* Open in Browser Button */}
+                <div className="space-y-4">
+                  <button
+                    onClick={handleOpenInBrowser}
+                    className="w-full p-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                  >
+                    <Globe className="w-6 h-6" />
+                    <div className="text-left">
+                      <div className="font-semibold">Open {selectedEngineData.name}</div>
+                      <div className="text-sm opacity-90">Launch in new browser tab</div>
+                    </div>
+                  </button>
+
+                  <p className="text-sm text-gray-400">
+                    This will open {selectedEngineData.name} in a new tab where you can use all its features without restrictions.
+                  </p>
+                </div>
               </div>
             </div>
           )}
@@ -242,9 +458,13 @@ const AISearchPage: React.FC = () => {
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
                     style={{ backgroundColor: engine.glowColor }}
                   >
-                    {React.cloneElement(engine.icon, {
-                      className: "w-5 h-5"
-                    })}
+                    {React.isValidElement(engine.icon) && engine.icon.type === 'img' ? (
+                      engine.icon
+                    ) : (
+                      React.cloneElement(engine.icon, {
+                        className: "w-5 h-5"
+                      })
+                    )}
                   </div>
 
                   {/* Title */}
