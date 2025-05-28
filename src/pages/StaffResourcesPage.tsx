@@ -156,68 +156,74 @@ const StaffResourcesPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Dark Aero Resource Cards */}
-      <div className="container mx-auto px-4 py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
-        >
-          {resources.map((resource) => {
-            const IconComponent = resource.icon;
-            return (
-              <motion.div
-                key={resource.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="group cursor-pointer"
-                onClick={() => openResource(resource.id)}
-              >
-                <div className="bg-gray-900/50 backdrop-blur-md border border-gray-700 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:scale-105">
-                  {/* Resource Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-r ${resource.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent size={32} className="text-white" />
-                  </div>
-
-                  {/* Resource Info */}
-                  <div className="space-y-3">
-                    <div className="flex items-start justify-between">
-                      <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                        {resource.title}
-                      </h3>
-                      <ExternalLink size={18} className="text-gray-400 group-hover:text-blue-400 transition-colors flex-shrink-0 ml-2" />
+      {/* Main Content - Students Hub Style */}
+      <main className="flex-1 py-6 sm:py-8">
+        <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
+          {/* Resources Grid - Apple Style (Same as Students Hub) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
+            {resources.map((resource, index) => {
+              const IconComponent = resource.icon;
+              return (
+                <motion.div
+                  key={resource.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="group"
+                >
+                  <button
+                    onClick={() => openResource(resource.id)}
+                    className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                  >
+                    {/* Icon */}
+                    <div
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
+                      style={{ backgroundColor: '#3b82f6' }} // Blue-500
+                    >
+                      <IconComponent size={20} className="sm:w-6 sm:h-6" />
                     </div>
 
-                    <p className="text-sm text-gray-300 font-medium">
+                    {/* Title */}
+                    <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
+                      {resource.title}
+                    </h3>
+
+                    {/* Subtitle */}
+                    <p className="text-xs text-gray-400 mb-2 font-medium">
                       {resource.subtitle}
                     </p>
 
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    {/* Description */}
+                    <p className="text-xs sm:text-sm text-gray-300 leading-tight">
                       {resource.description}
                     </p>
 
-                    <div className="flex items-center gap-2">
-                      <span className="px-3 py-1 bg-blue-600/20 text-blue-400 text-xs font-medium rounded-full border border-blue-500/30">
+                    {/* Category Badge */}
+                    <div className="mt-2">
+                      <span className="px-2 py-1 bg-blue-600/20 text-blue-400 text-xs font-medium rounded-full border border-blue-500/30">
                         {resource.category}
                       </span>
                     </div>
-                  </div>
+                  </button>
+                </motion.div>
+              );
+            })}
+          </div>
 
-                  {/* Hover Effect */}
-                  <div className="mt-4 pt-4 border-t border-gray-700 group-hover:border-blue-500/30 transition-colors">
-                    <div className="flex items-center text-blue-400 text-sm font-medium">
-                      <span>Click to access resource</span>
-                      <ArrowLeft size={14} className="ml-2 rotate-180 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
+          {/* Footer Message - Same as Students Hub */}
+          <div className="mt-8 sm:mt-12 text-center">
+            <p className="text-sm text-gray-300 mb-2">
+              Tap any resource to open it within Staff Resources
+            </p>
+            <div className="flex items-center justify-center text-xs text-gray-400">
+              <div className="flex items-center gap-1">
+                <BookOpen size={12} className="text-blue-400" />
+                <span>Educational resources for teaching excellence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 };
