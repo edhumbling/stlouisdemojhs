@@ -96,17 +96,8 @@ const AITeachingGuidePage: React.FC = () => {
                   <div className="h-4 w-56 mx-auto rounded bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-pulse"></div>
                 </div>
 
-                {/* Loading Text */}
-                <h3 className="text-xl font-bold text-gray-700 mb-2">Loading AI Teaching Guide...</h3>
-                <p className="text-gray-600 mb-6">Preparing your comprehensive guide to AI in education</p>
-
-                {/* Call to Action */}
-                <div className="bg-yellow-100/80 border-l-4 border-yellow-500 p-4 rounded-lg text-left backdrop-blur-sm">
-                  <h4 className="font-bold text-yellow-800 mb-2">⚡ Urgent Call to Action:</h4>
-                  <p className="text-yellow-700 text-sm">
-                    The AI revolution in education is happening NOW. Teachers who embrace AI tools today will lead tomorrow's classrooms!
-                  </p>
-                </div>
+                {/* Minimal Loading Text */}
+                <h3 className="text-xl font-bold text-gray-700">Loading...</h3>
               </div>
             </div>
           </div>
@@ -170,17 +161,7 @@ const AITeachingGuidePage: React.FC = () => {
         )}
       </div>
 
-      {/* Introduction Section - Only show when loading */}
-      {isLoading && (
-        <div className="fixed bottom-4 left-4 right-4 z-[70] bg-emerald-900/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-700/50 p-4">
-          <div className="text-center">
-            <h3 className="font-bold text-white mb-2">📚 Comprehensive AI Teaching Guide</h3>
-            <p className="text-emerald-200 text-sm">
-              50,000+ words of practical strategies, tools, and insights for integrating AI in African classrooms
-            </p>
-          </div>
-        </div>
-      )}
+
     </div>
   );
 };
