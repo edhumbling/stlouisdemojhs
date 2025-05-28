@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, FileText } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -63,14 +63,14 @@ const StaffResourcesPage: React.FC = () => {
       color: 'from-blue-500 to-blue-600'
     },
     {
-      id: 'teacher-resource-pack',
-      title: 'Teacher Resource Pack',
-      subtitle: 'P1-P6 Materials',
-      description: 'Comprehensive teaching materials and resources for Primary 1-6',
-      url: 'https://nacca.gov.gh/wp-content/uploads/2019/06/TEACHER-RESOURCE-PACK-P1-P6.pdf',
-      icon: FileText,
-      category: 'Teaching Materials',
-      color: 'from-green-500 to-green-600'
+      id: 'khamingo',
+      title: 'Khamingo',
+      subtitle: 'AI Teaching Assistant',
+      description: 'Khan Academy\'s AI-powered teaching assistant for educators',
+      url: 'https://www.khanmigo.ai/teachers',
+      icon: Bot,
+      category: 'AI Tools',
+      color: 'from-purple-500 to-purple-600'
     }
   ];
 
@@ -189,7 +189,7 @@ const StaffResourcesPage: React.FC = () => {
                     <div
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
                       style={{
-                        backgroundColor: resource.id === 'teacher-resource-pack' ? '#22c55e' : '#3b82f6' // Green-500 or Blue-500
+                        backgroundColor: resource.id === 'khamingo' ? '#a855f7' : '#3b82f6' // Purple-500 or Blue-500
                       }}
                     >
                       <IconComponent size={20} className="sm:w-6 sm:h-6" />
