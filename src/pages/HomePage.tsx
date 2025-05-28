@@ -6,6 +6,7 @@ import ProgramsSection from '../components/home/ProgramsSection';
 import NewsEventsSection from '../components/home/NewsEventsSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import GalleryPreview from '../components/home/GalleryPreview';
+import FacebookPostsSection from '../components/home/FacebookPostsSection';
 import CTASection from '../components/home/CTASection';
 import SectionDivider from '../components/common/SectionDivider';
 
@@ -32,6 +33,9 @@ const HomePage: React.FC = () => {
 
       <TestimonialsSection />
       <SectionDivider position="bottom" flip={true} />
+
+      <FacebookPostsSection />
+      <SectionDivider position="bottom" />
 
       <CTASection />
     </>
