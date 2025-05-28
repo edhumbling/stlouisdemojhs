@@ -1,22 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Download, ExternalLink } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
-// Declare global DearFlip types
-declare global {
-  interface Window {
-    DFLIP: any;
-    jQuery: any;
-    $: any;
-  }
-}
-
 const AITeachingGuidePage: React.FC = () => {
   const navigate = useNavigate();
-  const flipbookRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [flipbookReady, setFlipbookReady] = useState(false);
   const { setShowHeader } = useHeader();
 
   // Hide header when viewing the guide
@@ -29,75 +18,13 @@ const AITeachingGuidePage: React.FC = () => {
     };
   }, [setShowHeader]);
 
-  // Initialize DearFlip when component mounts
+  // Simple loading timer
   useEffect(() => {
-    const loadDearFlip = async () => {
-      try {
-        // Load DearFlip CSS
-        const dflipCSS = document.createElement('link');
-        dflipCSS.rel = 'stylesheet';
-        dflipCSS.type = 'text/css';
-        dflipCSS.href = 'https://cdn.jsdelivr.net/gh/dearhive/dearflip-js-flipbook@master/dflip/css/dflip.min.css';
-        document.head.appendChild(dflipCSS);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
 
-        // Load Themify Icons CSS
-        const themifyCSS = document.createElement('link');
-        themifyCSS.rel = 'stylesheet';
-        themifyCSS.type = 'text/css';
-        themifyCSS.href = 'https://cdn.jsdelivr.net/gh/dearhive/dearflip-js-flipbook@master/dflip/css/themify-icons.min.css';
-        document.head.appendChild(themifyCSS);
-
-        // Load jQuery if not already loaded
-        if (!window.jQuery) {
-          const jqueryScript = document.createElement('script');
-          jqueryScript.src = 'https://cdn.jsdelivr.net/gh/dearhive/dearflip-js-flipbook@master/dflip/js/libs/jquery.min.js';
-          jqueryScript.type = 'text/javascript';
-          document.body.appendChild(jqueryScript);
-
-          await new Promise((resolve) => {
-            jqueryScript.onload = resolve;
-          });
-        }
-
-        // Load DearFlip JS
-        const dflipScript = document.createElement('script');
-        dflipScript.src = 'https://cdn.jsdelivr.net/gh/dearhive/dearflip-js-flipbook@master/dflip/js/dflip.min.js';
-        dflipScript.type = 'text/javascript';
-        document.body.appendChild(dflipScript);
-
-        await new Promise((resolve) => {
-          dflipScript.onload = resolve;
-        });
-
-        // Wait for DearFlip to initialize and set options
-        setTimeout(() => {
-          if (window.DFLIP) {
-            console.log('DearFlip loaded successfully');
-
-            // Set global options for the flipbook
-            (window as any).option_ai_teaching_guide = {
-              webgl: true,
-              height: 'auto',
-              backgroundColor: '#f3f4f6',
-              autoSound: false,
-              hard: false
-            };
-
-            setFlipbookReady(true);
-            setIsLoading(false);
-          } else {
-            console.log('DearFlip not available, using fallback');
-            setIsLoading(false);
-          }
-        }, 1000);
-
-      } catch (error) {
-        console.error('Failed to load DearFlip:', error);
-        setIsLoading(false);
-      }
-    };
-
-    loadDearFlip();
+    return () => clearTimeout(timer);
   }, []);
 
   const handleBack = () => {
@@ -151,15 +78,15 @@ const AITeachingGuidePage: React.FC = () => {
         </div>
       </div>
 
-      {/* Content Area - Full height flipbook */}
+      {/* Content Area - Native PDF Viewer */}
       <div className="w-full h-full pt-20 sm:pt-24 relative">
         {isLoading ? (
           /* Loading Screen */
           <div className="flex items-center justify-center w-full h-full bg-gradient-to-br from-emerald-50 to-green-50">
             <div className="text-center max-w-md px-6">
               <div className="w-16 h-16 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-              <h3 className="text-xl font-bold text-emerald-900 mb-2">Loading Interactive AI Teaching Guide...</h3>
-              <p className="text-emerald-700">Preparing your comprehensive flipbook guide to AI in education</p>
+              <h3 className="text-xl font-bold text-emerald-900 mb-2">Loading AI Teaching Guide...</h3>
+              <p className="text-emerald-700">Preparing your comprehensive guide to AI in education</p>
 
               <div className="mt-6 bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg text-left">
                 <h4 className="font-bold text-yellow-800 mb-2">⚡ Urgent Call to Action:</h4>
@@ -169,41 +96,35 @@ const AITeachingGuidePage: React.FC = () => {
               </div>
             </div>
           </div>
-        ) : flipbookReady ? (
-          /* DearFlip Flipbook - Full Screen */
-          <div className="w-full h-full bg-gray-100">
-            <div
-              ref={flipbookRef}
-              className="_df_book"
-              source="https://ik.imagekit.io/humbling/154bc2e9-7d08-4e69-be18-d83fad2cae34.pdf"
-              id="ai_teaching_guide"
+        ) : (
+          /* Native PDF Viewer - Full Screen */
+          <div className="w-full h-full bg-white">
+            <iframe
+              src="https://ik.imagekit.io/humbling/154bc2e9-7d08-4e69-be18-d83fad2cae34.pdf#toolbar=1&navpanes=1&scrollbar=1&page=1&view=FitH"
+              className="w-full h-full border-0"
+              title="AI Teaching Guide PDF"
               style={{
-                width: '100%',
                 height: 'calc(100vh - 96px)',
                 minHeight: '600px'
               }}
-            >
-              {/* Fallback content */}
-              <div className="flex items-center justify-center w-full h-full bg-white">
-                <div className="text-center">
-                  <div className="w-16 h-16 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                  <p className="text-emerald-700">Initializing flipbook...</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          /* PDF Fallback - Full Screen */
-          <div className="w-full h-full bg-white">
-            <iframe
-              src="https://ik.imagekit.io/humbling/154bc2e9-7d08-4e69-be18-d83fad2cae34.pdf"
-              className="w-full h-full border-0"
-              title="AI Teaching Guide PDF"
-              style={{ height: 'calc(100vh - 96px)' }}
+              loading="lazy"
+              allow="fullscreen"
             />
           </div>
         )}
       </div>
+
+      {/* Introduction Section - Only show when loading */}
+      {isLoading && (
+        <div className="fixed bottom-4 left-4 right-4 z-[70] bg-emerald-900/95 backdrop-blur-md rounded-xl shadow-2xl border border-emerald-700/50 p-4">
+          <div className="text-center">
+            <h3 className="font-bold text-white mb-2">📚 Comprehensive AI Teaching Guide</h3>
+            <p className="text-emerald-200 text-sm">
+              50,000+ words of practical strategies, tools, and insights for integrating AI in African classrooms
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
