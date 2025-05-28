@@ -194,11 +194,11 @@ const FacebookPostsSection: React.FC = () => {
             <div className="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/25 ring-4 ring-blue-100">
               <Facebook size={28} className="text-white" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-green-700 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl font-bold text-black" style={{ textShadow: '0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.4)' }}>
               Latest Updates
             </h2>
           </div>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-black font-medium max-w-2xl mx-auto leading-relaxed" style={{ textShadow: '0 0 8px rgba(255,255,255,0.7), 0 0 16px rgba(255,255,255,0.5)' }}>
             Stay connected with our school community. Follow our latest news, events, and achievements on Facebook.
           </p>
 
