@@ -157,19 +157,19 @@ const FacebookPostsSection: React.FC = () => {
   }, [fbLoaded]);
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
       {/* Enhanced Background Pattern */}
       <div className="absolute inset-0">
-        {/* Animated gradient orbs */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-indigo-400 to-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse delay-500"></div>
+        {/* Subtle gradient orbs */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-yellow-200 to-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-green-200 to-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-blue-200 to-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-25 animate-pulse delay-500"></div>
 
         {/* Floating particles */}
-        <div className="absolute top-20 left-20 w-2 h-2 bg-blue-300 rounded-full opacity-60 animate-bounce delay-300"></div>
-        <div className="absolute top-40 right-32 w-3 h-3 bg-purple-300 rounded-full opacity-40 animate-bounce delay-700"></div>
-        <div className="absolute bottom-32 left-40 w-2 h-2 bg-cyan-300 rounded-full opacity-50 animate-bounce delay-1000"></div>
-        <div className="absolute bottom-20 right-20 w-4 h-4 bg-pink-300 rounded-full opacity-30 animate-bounce delay-1500"></div>
+        <div className="absolute top-20 left-20 w-2 h-2 bg-yellow-400 rounded-full opacity-60 animate-bounce delay-300"></div>
+        <div className="absolute top-40 right-32 w-3 h-3 bg-green-400 rounded-full opacity-40 animate-bounce delay-700"></div>
+        <div className="absolute bottom-32 left-40 w-2 h-2 bg-blue-400 rounded-full opacity-50 animate-bounce delay-1000"></div>
+        <div className="absolute bottom-20 right-20 w-4 h-4 bg-yellow-300 rounded-full opacity-30 animate-bounce delay-1500"></div>
 
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -178,8 +178,8 @@ const FacebookPostsSection: React.FC = () => {
         <div className="absolute inset-0 bg-noise-pattern opacity-10"></div>
       </div>
 
-      {/* Glass morphism overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-transparent backdrop-blur-[0.5px]"></div>
+      {/* Light overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent backdrop-blur-[0.5px]"></div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -191,24 +191,24 @@ const FacebookPostsSection: React.FC = () => {
           className="text-center mb-12"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/25 ring-4 ring-white/10">
+            <div className="w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/25 ring-4 ring-blue-100">
               <Facebook size={28} className="text-white" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-green-700 bg-clip-text text-transparent">
               Latest Updates
             </h2>
           </div>
-          <p className="text-lg text-blue-100/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
             Stay connected with our school community. Follow our latest news, events, and achievements on Facebook.
           </p>
 
           {/* Decorative elements */}
           <div className="flex items-center justify-center gap-2 mt-6">
-            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-blue-400 rounded-full"></div>
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <div className="w-8 h-0.5 bg-blue-400 rounded-full"></div>
-            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse delay-300"></div>
-            <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-cyan-400 rounded-full"></div>
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-yellow-400 rounded-full"></div>
+            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+            <div className="w-8 h-0.5 bg-yellow-400 rounded-full"></div>
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse delay-300"></div>
+            <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-green-400 rounded-full"></div>
           </div>
         </motion.div>
 
@@ -223,16 +223,16 @@ const FacebookPostsSection: React.FC = () => {
           {/* Loading State */}
           {isLoading && !loadError && (
             <div className="flex items-center justify-center py-16">
-              <div className="text-center bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+              <div className="text-center bg-white/80 backdrop-blur-md rounded-2xl p-8 border border-gray-200 shadow-lg">
                 <div className="relative">
-                  <Loader2 size={48} className="text-blue-300 animate-spin mx-auto mb-4" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-20 animate-ping"></div>
+                  <Loader2 size={48} className="text-blue-600 animate-spin mx-auto mb-4" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-green-400 rounded-full opacity-20 animate-ping"></div>
                 </div>
-                <p className="text-blue-100 font-medium">Loading Facebook posts...</p>
+                <p className="text-gray-700 font-medium">Loading Facebook posts...</p>
                 <div className="flex items-center justify-center gap-1 mt-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce delay-100"></div>
-                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce delay-200"></div>
+                  <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"></div>
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-bounce delay-100"></div>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce delay-200"></div>
                 </div>
               </div>
             </div>
@@ -240,22 +240,22 @@ const FacebookPostsSection: React.FC = () => {
 
           {/* Error State - Fallback */}
           {loadError && (
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden border border-white/20 p-8">
+            <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden border border-gray-200 p-8">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/25 ring-4 ring-white/10">
+                <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/25 ring-4 ring-blue-100">
                   <Facebook size={36} className="text-white" />
                 </div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent mb-3">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent mb-3">
                   Connect with us on Facebook
                 </h3>
-                <p className="text-blue-100/80 mb-8 leading-relaxed max-w-md mx-auto">
+                <p className="text-gray-700 mb-8 leading-relaxed max-w-md mx-auto">
                   Stay updated with our latest news, events, and school activities by following our official Facebook page.
                 </p>
                 <a
                   href={facebookPageUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 ring-2 ring-white/20"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 ring-2 ring-blue-100"
                 >
                   <Facebook size={22} />
                   <span>Visit Our Facebook Page</span>
@@ -264,62 +264,80 @@ const FacebookPostsSection: React.FC = () => {
 
                 {/* Decorative elements */}
                 <div className="flex items-center justify-center gap-2 mt-6">
-                  <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-blue-400 rounded-full"></div>
-                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></div>
-                  <div className="w-6 h-0.5 bg-blue-400 rounded-full"></div>
-                  <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse delay-300"></div>
-                  <div className="w-8 h-0.5 bg-gradient-to-l from-transparent to-cyan-400 rounded-full"></div>
+                  <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-yellow-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></div>
+                  <div className="w-6 h-0.5 bg-yellow-400 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse delay-300"></div>
+                  <div className="w-8 h-0.5 bg-gradient-to-l from-transparent to-green-400 rounded-full"></div>
                 </div>
               </div>
             </div>
           )}
 
-          {/* Facebook Page Plugin - Native Feel */}
+          {/* Facebook Page Plugin - Neon Glow Container */}
           {!isLoading && !loadError && (
-            <div className="w-full">
-              {/* Desktop Layout - Full Width Native Feel */}
+            <div className="flex justify-center">
+              {/* Desktop Layout - Centered with Neon Glow */}
               <div className="hidden lg:block">
-                <div
-                  className="fb-page w-full"
-                  data-href={facebookPageUrl}
-                  data-tabs="timeline"
-                  data-width="1200"
-                  data-height="700"
-                  data-small-header="false"
-                  data-adapt-container-width="true"
-                  data-hide-cover="false"
-                  data-show-facepile="true"
-                  data-show-posts="true"
-                  data-lazy="true"
-                >
-                  <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
-                    <a href={facebookPageUrl} className="text-blue-300 hover:text-blue-100 transition-colors">
-                      Visit our Facebook page
-                    </a>
-                  </blockquote>
+                <div className="relative">
+                  {/* Neon Glow Effects */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-green-400 to-yellow-400 rounded-2xl blur-sm opacity-75 animate-pulse"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400 via-yellow-400 to-green-400 rounded-2xl blur-xs opacity-50 animate-pulse delay-300"></div>
+
+                  {/* Main Container */}
+                  <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white">
+                    <div
+                      className="fb-page"
+                      data-href={facebookPageUrl}
+                      data-tabs="timeline"
+                      data-width="800"
+                      data-height="700"
+                      data-small-header="false"
+                      data-adapt-container-width="false"
+                      data-hide-cover="false"
+                      data-show-facepile="true"
+                      data-show-posts="true"
+                      data-lazy="true"
+                    >
+                      <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
+                        <a href={facebookPageUrl} className="text-blue-600 hover:text-blue-800 transition-colors">
+                          Visit our Facebook page
+                        </a>
+                      </blockquote>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Mobile/Tablet Layout */}
-              <div className="block lg:hidden">
-                <div
-                  className="fb-page w-full"
-                  data-href={facebookPageUrl}
-                  data-tabs="timeline"
-                  data-width="400"
-                  data-height="600"
-                  data-small-header="true"
-                  data-adapt-container-width="true"
-                  data-hide-cover="false"
-                  data-show-facepile="false"
-                  data-show-posts="true"
-                  data-lazy="true"
-                >
-                  <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
-                    <a href={facebookPageUrl} className="text-blue-300 hover:text-blue-100 transition-colors">
-                      Visit our Facebook page
-                    </a>
-                  </blockquote>
+              {/* Mobile/Tablet Layout - Centered with Subtle Glow */}
+              <div className="block lg:hidden w-full max-w-md mx-auto">
+                <div className="relative">
+                  {/* Mobile Neon Glow Effects */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-green-400 to-yellow-400 rounded-xl blur-sm opacity-60 animate-pulse"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400 via-yellow-400 to-green-400 rounded-xl blur-xs opacity-40 animate-pulse delay-300"></div>
+
+                  {/* Mobile Container */}
+                  <div className="relative bg-white rounded-xl shadow-xl overflow-hidden border-2 border-white">
+                    <div
+                      className="fb-page w-full"
+                      data-href={facebookPageUrl}
+                      data-tabs="timeline"
+                      data-width="400"
+                      data-height="600"
+                      data-small-header="true"
+                      data-adapt-container-width="true"
+                      data-hide-cover="false"
+                      data-show-facepile="false"
+                      data-show-posts="true"
+                      data-lazy="true"
+                    >
+                      <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
+                        <a href={facebookPageUrl} className="text-blue-600 hover:text-blue-800 transition-colors">
+                          Visit our Facebook page
+                        </a>
+                      </blockquote>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -338,7 +356,7 @@ const FacebookPostsSection: React.FC = () => {
               href={facebookPageUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 ring-2 ring-white/20 backdrop-blur-sm"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 ring-2 ring-blue-100"
             >
               <Facebook size={22} />
               <span>Visit Our Facebook Page</span>
