@@ -7,9 +7,11 @@ import ShimmerLoader from '../components/common/ShimmerLoader';
 const AITeachingGuidePage: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const { setShowHeader } = useHeader();
 
   const pdfUrl = 'https://ik.imagekit.io/humbling/154bc2e9-7d08-4e69-be18-d83fad2cae34.pdf';
+  const googleViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
 
   // Hide header when viewing the guide
   useEffect(() => {
@@ -20,6 +22,21 @@ const AITeachingGuidePage: React.FC = () => {
       setShowHeader(true);
     };
   }, [setShowHeader]);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const mobileKeywords = ['mobile', 'android', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
+      const isMobileDevice = mobileKeywords.some(keyword => userAgent.includes(keyword)) || window.innerWidth <= 768;
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Simple loading timer
   useEffect(() => {
@@ -93,8 +110,22 @@ const AITeachingGuidePage: React.FC = () => {
               </div>
             </div>
           </div>
+        ) : isMobile ? (
+          /* Google Docs Viewer for Mobile */
+          <div className="w-full h-full bg-white">
+            <iframe
+              src={googleViewerUrl}
+              className="w-full h-full border-0"
+              title="AI Teaching Guide PDF - Mobile Viewer"
+              style={{
+                height: 'calc(100vh - 96px)',
+                minHeight: '600px'
+              }}
+              loading="lazy"
+            />
+          </div>
         ) : (
-          /* Native PDF Viewer Only */
+          /* Native PDF Viewer for Desktop */
           <div className="w-full h-full bg-white">
             <object
               data={pdfUrl}
