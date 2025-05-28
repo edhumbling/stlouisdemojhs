@@ -149,7 +149,7 @@ const Header: React.FC = () => {
                         }}
                         onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                         onMouseLeave={() => setIsSchoolDropdownOpen(false)}
-                        className="absolute top-full left-0 mt-3 w-[500px] bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden z-[9999]"
+                        className="absolute top-full left-0 mt-3 w-[600px] min-h-[280px] bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden z-[9999]"
                         style={{
                           position: 'absolute',
                           top: '100%',
@@ -172,7 +172,7 @@ const Header: React.FC = () => {
                         </motion.div>
 
                         {/* Horizontal Layout with Beautiful Dividers */}
-                        <div className="flex gap-0 p-1.5 relative">
+                        <div className="flex gap-0 p-3 relative min-h-[200px]">
                           {/* Vertical Dividers between items */}
                           {schoolDropdownItems.map((_, index) => (
                             index < schoolDropdownItems.length - 1 && (
@@ -203,7 +203,7 @@ const Header: React.FC = () => {
                             >
                               <Link
                                 to={item.path}
-                                className="flex flex-col items-center p-2 mx-1 hover:bg-white/10 rounded-xl transition-all duration-300 group relative overflow-hidden h-full"
+                                className="flex flex-col items-center p-3 mx-1 hover:bg-white/10 rounded-xl transition-all duration-300 group relative overflow-hidden h-full min-h-[160px]"
                                 onClick={() => {
                                   setIsSchoolDropdownOpen(false);
                                   window.scrollTo({ top: 0, behavior: 'instant' });
