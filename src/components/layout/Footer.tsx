@@ -310,7 +310,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Primus Intaparis Text */}
+        {/* Primus Interparis Text */}
         <div className="relative z-10 text-center mt-12 mb-8 overflow-hidden">
           <h2
             className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] font-bold leading-none tracking-tight relative"
@@ -321,7 +321,7 @@ const Footer: React.FC = () => {
               textShadow: '0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3)'
             }}
           >
-Primus Intaparis
+Primus Interparis
           </h2>
         </div>
 
