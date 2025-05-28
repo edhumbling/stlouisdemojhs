@@ -138,11 +138,12 @@ const AlumniPage: React.FC = () => {
     {
       name: "Emmanuel H. Dwamena",
       class: "Class of 2012",
-      profession: "Founder of AIDEL",
-      achievement: "Tech entrepreneur and innovator in educational technology",
+      profession: "Founder of AIDEL | Author",
+      achievement: "Tech entrepreneur, innovator in educational technology, and published author",
       image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/1718218562009.jpeg?updatedAt=1748301421227",
       quote: "St. Louis Demo JHS instilled in me the entrepreneurial spirit and problem-solving mindset that led to founding AIDEL.",
-      linkedin: "https://www.linkedin.com/in/edhumbling/"
+      linkedin: "https://www.linkedin.com/in/edhumbling/",
+      bookUrl: "https://www.amazon.com/Simple-Yet-Great-simplicity-greatness/dp/1072303825"
     },
     {
       name: "Michael Boateng Duah, MS, MLS(ASCPi)CM",
@@ -350,8 +351,8 @@ const AlumniPage: React.FC = () => {
                     <blockquote className="text-gray-300 text-xs sm:text-sm italic border-l-4 border-blue-500 pl-3 mb-3">
                       "{alumni.quote}"
                     </blockquote>
-                    {alumni.linkedin && (
-                      <div className="text-center sm:text-left">
+                    <div className="flex flex-col sm:flex-row gap-2 text-center sm:text-left">
+                      {alumni.linkedin && (
                         <a
                           href={alumni.linkedin}
                           target="_blank"
@@ -361,8 +362,19 @@ const AlumniPage: React.FC = () => {
                           <span className="mr-1 sm:mr-2">💼</span>
                           LinkedIn Profile
                         </a>
-                      </div>
-                    )}
+                      )}
+                      {alumni.bookUrl && (
+                        <a
+                          href={alumni.bookUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm font-medium rounded-lg sm:rounded-full transition-all duration-300 transform hover:scale-105"
+                        >
+                          <span className="mr-1 sm:mr-2">📚</span>
+                          Author
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>
