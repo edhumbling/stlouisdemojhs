@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -8,38 +8,6 @@ import { useHeader } from '../../contexts/HeaderContext';
 const Layout: React.FC = () => {
   const location = useLocation();
   const { showHeader } = useHeader();
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-
-  // Check for ElevenLabs ConvAI widget script (now loaded via HTML)
-  useEffect(() => {
-    console.log('🚀 Layout mounted, checking for ElevenLabs script...');
-
-    // Since script is now in HTML, just wait a bit and check if it's loaded
-    const checkScript = () => {
-      const scriptExists = document.querySelector('script[src*="elevenlabs.io/convai-widget"]');
-      console.log('Script exists in DOM:', !!scriptExists);
-
-      if (scriptExists) {
-        setScriptLoaded(true);
-        console.log('✅ ElevenLabs script found in DOM');
-
-        // Check for custom element
-        setTimeout(() => {
-          if (customElements.get('elevenlabs-convai')) {
-            console.log('✅ elevenlabs-convai custom element is defined');
-          } else {
-            console.warn('⚠️ elevenlabs-convai custom element not yet defined, will keep checking...');
-          }
-        }, 2000);
-      } else {
-        console.log('⏳ Script not yet loaded, will check again...');
-        setTimeout(checkScript, 1000);
-      }
-    };
-
-    // Start checking after a short delay
-    setTimeout(checkScript, 500);
-  }, []);
 
   // Pages that should not show the footer
   const noFooterPages = ['/news', '/calendar', '/ai-search', '/schedule-visit', '/learnhub', '/advice-speeches'];
@@ -146,36 +114,18 @@ const Layout: React.FC = () => {
       {/* Global Scroll Button - Always visible like taskbar time */}
       <ScrollButton />
 
-      {/* ElevenLabs ConvAI Widget - Fixed on right side, more visible positioning */}
+      {/* ElevenLabs ConvAI Widget - Simple bottom positioning */}
       <div
-        className="fixed right-4 top-1/2 transform -translate-y-1/2 z-[9999] pointer-events-auto"
         style={{
           position: 'fixed',
-          right: '16px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          zIndex: 9999,
-          pointerEvents: 'auto'
+          bottom: '20px',
+          right: '20px',
+          zIndex: 999999,
+          width: 'auto',
+          height: 'auto'
         }}
       >
-        {/* Always show a test indicator first */}
-        <div className="mb-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
-          Widget Area
-        </div>
-
-        {scriptLoaded ? (
-          <div className="convai-widget-container bg-white/10 p-2 rounded">
-            <elevenlabs-convai agent-id="fAiPNUtMGChNGFI7nFy4"></elevenlabs-convai>
-            {/* Debug indicator */}
-            <div className="mt-2 bg-green-500 text-white text-xs px-2 py-1 rounded text-center">
-              AI Chat Loaded
-            </div>
-          </div>
-        ) : (
-          <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-xl border-4 border-white">
-            <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-          </div>
-        )}
+        <elevenlabs-convai agent-id="fAiPNUtMGChNGFI7nFy4"></elevenlabs-convai>
       </div>
     </div>
   );

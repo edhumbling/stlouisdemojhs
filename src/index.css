@@ -189,27 +189,13 @@ header {
   backface-visibility: hidden;
 }
 
-/* ElevenLabs ConvAI Widget Styling */
-.convai-widget-container {
-  /* Ensure the widget is visible and properly positioned */
-  position: relative;
-  z-index: 50;
-}
-
-/* Style the elevenlabs-convai custom element */
+/* ElevenLabs ConvAI Widget Styling - Simple and effective */
 elevenlabs-convai {
   display: block !important;
-  position: relative !important;
-  z-index: 50 !important;
-  /* Ensure minimum dimensions */
-  min-width: 60px !important;
-  min-height: 60px !important;
-}
-
-/* Override any potential hiding styles */
-elevenlabs-convai * {
   visibility: visible !important;
   opacity: 1 !important;
+  position: relative !important;
+  z-index: 999999 !important;
 }
 
 /* Global performance optimizations */
