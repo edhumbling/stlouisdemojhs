@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ShimmerLoader from '../common/ShimmerLoader';
 import AsSeenOn from './AsSeenOn';
+import { galleryImages } from '../../data';
 
 const Hero: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -10,74 +11,52 @@ const Hero: React.FC = () => {
   const [loadedImageIndices, setLoadedImageIndices] = useState<number[]>([]);
   const [isMobile, setIsMobile] = useState(false);
 
-  const images = [
-    {
-      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MvnyEMdmbxU06Mca57V3tJ1r8NOShqgZsCH9p',
-      isPortrait: true, // This image needs bottom portion visible
-      mobilePosition: 'center 70%', // Show more of the bottom on mobile
-      desktopPosition: 'center 65%' // Show more of the bottom on desktop
-    },
-    {
-      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MRZwFWWpo7s1MlWNERCjA3OUSQ9nHvY65ui4I',
-      isPortrait: true, // Portrait image with students holding books
-      mobilePosition: 'center 80%', // Show more of the bottom on mobile
-      desktopPosition: 'center 75%' // Show more of the bottom on desktop
-    },
-    {
-      url: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2006.05.16_4d8aef13.jpg',
-      isPortrait: false, // New landscape image
-      mobilePosition: 'center 45%', // Show middle portion for better composition
-      desktopPosition: 'center 40%' // Balanced view
-    },
-    {
-      url: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2006.05.16_f4d2c9bc.jpg',
-      isPortrait: false, // New landscape image
-      mobilePosition: 'center 45%', // Show middle portion for better composition
-      desktopPosition: 'center 40%' // Balanced view
-    },
-    {
-      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mtqqjxq2Z4OUSfDyHBMwru2hG3KJe97qYaoNx',
-      isPortrait: false, // Landscape image
-      mobilePosition: 'center 40%', // Slightly lower for better composition
-      desktopPosition: 'center 35%' // Balanced positioning
-    },
-    {
-      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MC9tZ4UzDLioRYz5qf92ZpIJwTgmKdEu6AcFh',
-      isPortrait: false, // Landscape image
-      mobilePosition: 'center 45%', // Show middle portion
-      desktopPosition: 'center 40%' // Balanced view
-    },
-    {
-      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MSsSuPjLzTgIL0eaoWJ8UQBqvRNFysYxGXktA',
-      isPortrait: false, // Landscape image
-      mobilePosition: 'center 35%', // Standard positioning
-      desktopPosition: 'center 30%' // Standard positioning
-    },
-    {
-      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K',
-      isPortrait: false, // Landscape image
-      mobilePosition: 'center 40%', // Balanced positioning
-      desktopPosition: 'center 35%' // Balanced positioning
-    },
-    {
-      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO',
-      isPortrait: false, // Landscape image
-      mobilePosition: 'center 45%', // Show middle portion
-      desktopPosition: 'center 40%' // Balanced view
-    },
-    {
-      url: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3',
-      isPortrait: false, // Landscape image
-      mobilePosition: 'center 40%', // Balanced positioning
-      desktopPosition: 'center 65%' // Show from beneath - bottom portion visible
-    },
-    {
-      url: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/ChatGPT%20Image%20May%2025,%202025,%2005_40_11%20PM.png',
-      isPortrait: false, // Landscape image
-      mobilePosition: 'center 50%', // Centered positioning for good composition
-      desktopPosition: 'center 45%' // Balanced view on desktop
+  // 🎨 CREATIVE DAILY CYCLING HERO SYSTEM 🎨
+  // Every day, the hero section displays a different set of 11 images from the gallery
+  // Day 1: Images 1-11, Day 2: Images 12-22, Day 3: Images 23-26 + 1-7, etc.
+  // This keeps the homepage fresh and showcases all school photos over time!
+  const getDailyHeroImages = () => {
+    // Calculate days since a reference date (e.g., Jan 1, 2025)
+    const referenceDate = new Date('2025-01-01');
+    const currentDate = new Date();
+    const daysDifference = Math.floor((currentDate.getTime() - referenceDate.getTime()) / (1000 * 60 * 60 * 24));
+
+    // Since this is "day 2", let's start from day 2 (index 1)
+    const currentDay = (daysDifference + 1) % Math.ceil(galleryImages.length / 11);
+
+    // Calculate starting index for today's set of 11 images
+    const startIndex = currentDay * 11;
+
+    // Get 11 images starting from the calculated index, wrapping around if needed
+    const todaysImages = [];
+    const imageIds = [];
+
+    for (let i = 0; i < 11; i++) {
+      const imageIndex = (startIndex + i) % galleryImages.length;
+      const galleryImage = galleryImages[imageIndex];
+
+      // Track which images we're using
+      imageIds.push(galleryImage.id);
+
+      // Determine if image is portrait or landscape based on URL patterns
+      const isPortrait = galleryImage.src.includes('HEIC') || galleryImage.src.includes('portrait');
+
+      todaysImages.push({
+        url: galleryImage.src,
+        isPortrait: isPortrait,
+        mobilePosition: isPortrait ? 'center 75%' : 'center 45%',
+        desktopPosition: isPortrait ? 'center 70%' : 'center 40%'
+      });
     }
-  ];
+
+    // Log today's hero images for debugging
+    console.log(`🎨 Hero Day ${currentDay + 1}: Displaying gallery images [${imageIds.join(', ')}]`);
+
+    return todaysImages;
+  };
+
+  // Get today's hero images (starting with day 2 set: images 12-22)
+  const images = getDailyHeroImages();
 
   // Handle responsive design
   useEffect(() => {
