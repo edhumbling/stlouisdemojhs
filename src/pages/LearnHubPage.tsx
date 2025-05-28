@@ -627,7 +627,26 @@ const LearnHubPage: React.FC = () => {
   if (selectedResource?.isUSSD) {
     return (
       <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-orange-400/30 relative overflow-hidden">
+        {/* Header with Back Button */}
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-orange-900 via-orange-800 to-red-900 py-4 sm:py-5 shadow-2xl border-b border-orange-700/50">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={() => setSelectedResource(null)}
+                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-orange-700/70 hover:bg-orange-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-orange-500/50 hover:border-orange-400/70 flex-shrink-0 ring-2 ring-orange-500/20 hover:ring-orange-400/30"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                📱 BECE Pasco Via USSD
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-orange-400/30 relative overflow-hidden mt-20">
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-2xl"></div>
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
@@ -635,13 +654,6 @@ const LearnHubPage: React.FC = () => {
 
           {/* Content */}
           <div className="relative z-10">
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedResource(null)}
-              className="absolute -top-2 -right-2 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-200"
-            >
-              <X size={16} className="text-white" />
-            </button>
 
             {/* Icon */}
             <div className="text-center mb-6">
@@ -663,7 +675,7 @@ const LearnHubPage: React.FC = () => {
                   🎉 Free Download Available!
                 </h3>
                 <p className="text-orange-100 text-sm mb-4">
-                  Get instant access to BECE past questions and all other educational resources
+                  Get BECE past questions sent directly to your phone via SMS
                 </p>
 
                 {/* USSD Code Display */}
@@ -681,16 +693,32 @@ const LearnHubPage: React.FC = () => {
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-orange-300 font-bold">2.</span>
-                    <span className="text-orange-100 text-sm">Type <strong>*790*700#</strong></span>
+                    <span className="text-orange-100 text-sm">Type <strong>*790*700#</strong> and press call</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-orange-300 font-bold">3.</span>
-                    <span className="text-orange-100 text-sm">Press call button</span>
+                    <span className="text-orange-100 text-sm">You'll receive an <strong>SMS message</strong> with download link</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-orange-300 font-bold">4.</span>
-                    <span className="text-orange-100 text-sm">Follow the menu to access BECE past questions</span>
+                    <span className="text-orange-100 text-sm">Use the <strong>password</strong> in the SMS to open the files</span>
                   </div>
+                </div>
+
+                {/* SMS Info Box */}
+                <div className="bg-green-500/20 border border-green-400/30 rounded-lg p-3 mt-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-lg">📱</span>
+                    <span className="text-green-200 font-semibold text-sm">SMS Delivery</span>
+                  </div>
+                  <p className="text-green-100 text-xs">
+                    You'll receive a text message with:
+                  </p>
+                  <ul className="text-green-100 text-xs mt-1 space-y-1">
+                    <li>• Download link for BECE past questions</li>
+                    <li>• Password to unlock the files</li>
+                    <li>• Instructions for easy access</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -698,14 +726,17 @@ const LearnHubPage: React.FC = () => {
             {/* Call to Action */}
             <div className="text-center">
               <p className="text-orange-100 text-sm mb-4">
-                ✨ <strong>Try it now!</strong> See it work in real-time on your phone
+                ✨ <strong>Dial now!</strong> Get your SMS with download link and password
               </p>
               <button
                 onClick={() => setSelectedResource(null)}
                 className="w-full bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm border border-white/30"
               >
-                Got it! Let me try 📞
+                Got it! Let me dial 📞
               </button>
+              <p className="text-orange-200 text-xs mt-3">
+                💡 <strong>Tip:</strong> Save the SMS for future access to your files
+              </p>
             </div>
           </div>
         </div>
