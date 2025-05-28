@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -9,6 +9,9 @@ const StaffResourcesPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedResource, setSelectedResource] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [iframeError, setIframeError] = useState(false);
+  const [showAlternatives, setShowAlternatives] = useState(false);
+  const [autoRedirectTimer, setAutoRedirectTimer] = useState<number | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { setShowHeader } = useHeader();
 
@@ -35,20 +38,92 @@ const StaffResourcesPage: React.FC = () => {
   const handleBack = () => {
     setSelectedResource(null);
     setIsLoading(false);
+    setIframeError(false);
+    setShowAlternatives(false);
+    // Clear auto-redirect timer
+    if (autoRedirectTimer) {
+      clearTimeout(autoRedirectTimer);
+      setAutoRedirectTimer(null);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const openResource = (resourceId: string) => {
     setIsLoading(true);
+    setIframeError(false);
+    setShowAlternatives(false);
     setSelectedResource(resourceId);
+
+    // Simulate connection timeout for certain resources (like AI tools)
+    const timer = setTimeout(() => {
+      if (resourceId === 'khamingo') {
+        console.log('Simulating connection timeout for Khamingo');
+        setIsLoading(false);
+        setIframeError(true);
+        setShowAlternatives(true);
+
+        // Auto-redirect to browser after showing error
+        const resource = resources.find(r => r.id === resourceId);
+        if (resource) {
+          setTimeout(() => {
+            window.open(resource.url, '_blank', 'noopener,noreferrer');
+            // Go back to main page after opening
+            setTimeout(() => {
+              setSelectedResource(null);
+              setIframeError(false);
+              setShowAlternatives(false);
+            }, 500);
+          }, 1500); // Wait 1.5 seconds to show the error message
+        }
+      }
+    }, 2000);
+
+    setAutoRedirectTimer(timer);
   };
 
   const handleIframeLoad = () => {
     setIsLoading(false);
+    setIframeError(false);
+    // Clear auto-redirect timer since iframe loaded successfully
+    if (autoRedirectTimer) {
+      clearTimeout(autoRedirectTimer);
+      setAutoRedirectTimer(null);
+    }
   };
 
   const handleIframeError = () => {
+    console.log('Iframe error detected');
     setIsLoading(false);
+    setIframeError(true);
+    setShowAlternatives(true);
+
+    // Clear auto-redirect timer
+    if (autoRedirectTimer) {
+      clearTimeout(autoRedirectTimer);
+      setAutoRedirectTimer(null);
+    }
+
+    // Auto-redirect immediately when iframe fails
+    const resource = resources.find(r => r.id === selectedResource);
+    if (resource) {
+      console.log(`Auto-redirecting ${resource.title} to browser due to iframe error`);
+      setTimeout(() => {
+        window.open(resource.url, '_blank', 'noopener,noreferrer');
+        // Go back to main page after opening
+        setTimeout(() => {
+          setSelectedResource(null);
+          setIframeError(false);
+          setShowAlternatives(false);
+        }, 500);
+      }, 1500); // Wait 1.5 seconds to show the error message
+    }
+  };
+
+  const handleOpenInBrowser = () => {
+    const resource = resources.find(r => r.id === selectedResource);
+    if (resource) {
+      window.open(resource.url, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const resources = [
@@ -94,43 +169,88 @@ const StaffResourcesPage: React.FC = () => {
                 {resources.find(r => r.id === selectedResource)?.title}
               </h1>
 
-              <a
-                href={resources.find(r => r.id === selectedResource)?.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={handleOpenInBrowser}
                 className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
               >
-                <ExternalLink size={14} />
-                <span className="hidden sm:inline">Open Original</span>
-              </a>
+                <Globe size={14} />
+                <span className="hidden sm:inline">Open in Browser</span>
+              </button>
             </div>
           </div>
         </div>
 
         {/* Content Area - Full height iframe */}
         <div className="w-full h-full pt-20 sm:pt-24 relative">
-          <iframe
-            ref={iframeRef}
-            src={resources.find(r => r.id === selectedResource)?.url}
-            className="w-full h-full border-0 relative z-10"
-            title={resources.find(r => r.id === selectedResource)?.title}
-            onLoad={handleIframeLoad}
-            onError={handleIframeError}
-            style={{ background: 'white' }}
-          />
-
-          {/* Shimmer Loading Overlay */}
-          {isLoading && (
-            <div className="absolute inset-0 z-20">
-              <ShimmerLoader
-                variant="hero"
-                className="w-full h-full"
+          {!iframeError ? (
+            <>
+              <iframe
+                ref={iframeRef}
+                src={resources.find(r => r.id === selectedResource)?.url}
+                className="w-full h-full border-0 relative z-10"
+                title={resources.find(r => r.id === selectedResource)?.title}
+                onLoad={handleIframeLoad}
+                onError={handleIframeError}
+                style={{ background: 'white' }}
               />
-              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 border-4 border-gray-600 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
-                  <h3 className="text-xl font-bold text-white mb-2">Loading {resources.find(r => r.id === selectedResource)?.title}...</h3>
-                  <p className="text-gray-300 text-sm">Please wait while we load the educational resource</p>
+
+              {/* Shimmer Loading Overlay */}
+              {isLoading && (
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center z-20">
+                  <div className="text-center max-w-md px-6">
+                    {/* Shimmer Logo Placeholder */}
+                    <div className="w-20 h-20 mx-auto mb-6 rounded-xl shimmer-dark"></div>
+
+                    {/* Shimmer Text Lines */}
+                    <div className="space-y-3 mb-6">
+                      <div className="h-6 w-48 mx-auto rounded shimmer-dark"></div>
+                      <div className="h-4 w-64 mx-auto rounded shimmer-dark"></div>
+                      <div className="h-4 w-56 mx-auto rounded shimmer-dark"></div>
+                    </div>
+
+                    {/* Loading Spinner */}
+                    <div className="w-8 h-8 border-2 border-gray-600 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
+
+                    {/* Loading Text */}
+                    <p className="text-white font-medium text-lg">Loading {resources.find(r => r.id === selectedResource)?.title}...</p>
+                    <p className="text-gray-300 text-sm mt-2">Preparing your educational resource</p>
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            /* Error State - Show alternatives */
+            <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
+              <div className="text-center max-w-md">
+                <div className="mb-8">
+                  <div className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Globe className="w-10 h-10 text-blue-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Opening {resources.find(r => r.id === selectedResource)?.title}</h3>
+                  <p className="text-gray-300 mb-4">
+                    {resources.find(r => r.id === selectedResource)?.title} requires opening in a new browser tab for the best experience.
+                  </p>
+                  <p className="text-blue-400 mb-6 font-medium">
+                    🚀 Opening in browser now...
+                  </p>
+                </div>
+
+                {/* Open in Browser Button */}
+                <div className="space-y-4">
+                  <button
+                    onClick={handleOpenInBrowser}
+                    className="w-full p-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                  >
+                    <Globe className="w-6 h-6" />
+                    <div className="text-left">
+                      <div className="font-semibold">Open {resources.find(r => r.id === selectedResource)?.title}</div>
+                      <div className="text-sm opacity-90">Launch in new browser tab</div>
+                    </div>
+                  </button>
+
+                  <p className="text-sm text-gray-400">
+                    This will open {resources.find(r => r.id === selectedResource)?.title} in a new tab where you can use all its features without restrictions.
+                  </p>
                 </div>
               </div>
             </div>
