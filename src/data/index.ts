@@ -3,7 +3,7 @@ import { NavLink, DropdownItem, Event, NewsItem, StaffMember, Program, GalleryIm
 export const navLinks: NavLink[] = [
   { label: 'News & Events', path: '/news' },
   { label: 'STEM', path: '/stem' },
-  { label: 'LearnHub', path: '/learnhub' },
+  { label: 'Students Hub', path: '/learnhub' },
   { label: 'AI Search', path: '/ai-search' },
   { label: 'Gallery', path: '/gallery' },
 ];

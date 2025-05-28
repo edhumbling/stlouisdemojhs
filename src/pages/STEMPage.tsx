@@ -23,7 +23,7 @@ const STEMPage: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
-  // STEM Resources organized like LearnHub
+  // STEM Resources organized like Students Hub
   const stemCategories = [
     {
       id: 1,

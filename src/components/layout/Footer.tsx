@@ -221,7 +221,7 @@ const Footer: React.FC = () => {
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
                   >
-                    LearnHub
+                    Students Hub
                   </Link>
                 </li>
               </ul>

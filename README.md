@@ -28,7 +28,7 @@ St. Louis Demonstration Junior High School is a prestigious public junior high s
 ### 🚀 Advanced Features
 - **AI Search Integration**: Multiple AI-powered search engines for educational resources
 - **STEM Resources**: Dedicated section for Science, Technology, Engineering, and Mathematics
-- **LearnHub**: Educational resource center with embedded learning tools
+- **Students Hub**: Educational resource center with embedded learning tools
 - **Donation Portal**: Secure online donation system via Paystack
 - **Social Media Integration**: Facebook and WhatsApp connectivity
 - **Floating Action Buttons**: Quick access to social media and scroll functionality
@@ -85,7 +85,7 @@ src/
 - **GalleryPage** - Photo gallery of school activities
 - **ContactPage** - Contact information and location
 - **STEMPage** - STEM resources and programs
-- **LearnHubPage** - Educational resource center
+- **StudentsHubPage** - Educational resource center
 - **AISearchPage** - AI-powered search tools
 - **DonationPage** - Secure donation portal
 

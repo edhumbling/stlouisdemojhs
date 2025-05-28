@@ -534,7 +534,7 @@ const Header: React.FC = () => {
                   switch (label) {
                     case 'News & Events': return <Newspaper size={14} className="mr-1.5" />;
                     case 'STEM': return <Beaker size={14} className="mr-1.5" />;
-                    case 'LearnHub': return <BookOpen size={14} className="mr-1.5" />;
+                    case 'Students Hub': return <BookOpen size={14} className="mr-1.5" />;
                     case 'AI Search': return <Zap size={14} className="mr-1.5" />;
                     case 'Gallery': return <Camera size={14} className="mr-1.5" />;
                     default: return null;

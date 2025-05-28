@@ -188,6 +188,16 @@ const AISearchPage: React.FC = () => {
       hasWhiteBackground: true
     },
     {
+      id: 'perplexity-labs',
+      name: 'Perplexity Labs',
+      url: 'https://labs.perplexity.ai/',
+      description: 'Experimental AI features and cutting-edge search capabilities from Perplexity',
+      icon: <img src="https://labs.perplexity.ai/favicon.ico" alt="Perplexity Labs" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/7c3aed/ffffff?text=PL'; }} />,
+      color: 'from-purple-600 to-violet-700',
+      glowColor: '#7c3aed',
+      hasWhiteBackground: true
+    },
+    {
       id: 'copilot',
       name: 'Microsoft Copilot',
       url: 'https://copilot.microsoft.com/',
@@ -351,7 +361,7 @@ const AISearchPage: React.FC = () => {
     const engineData = aiEngines.find(engine => engine.id === engineId);
 
     // List of engines that are known to block iframe embedding - redirect immediately
-    const blockedEngines = ['grok', 'claude', 'chatgpt', 'mistral', 'gemini', 'perplexity', 'copilot', 'genspark', 'pi', 'manus', 'huggingface'];
+    const blockedEngines = ['grok', 'claude', 'chatgpt', 'mistral', 'gemini', 'perplexity', 'perplexity-labs', 'copilot', 'genspark', 'pi', 'manus', 'huggingface'];
 
     if (blockedEngines.includes(engineId)) {
       console.log(`${engineData?.name} is known to block iframes, redirecting immediately`);

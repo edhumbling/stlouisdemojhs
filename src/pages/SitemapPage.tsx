@@ -19,7 +19,7 @@ const SitemapPage: React.FC = () => {
         { name: 'Home', path: '/', description: 'Welcome to St. Louis Demonstration JHS' },
         { name: 'News & Events', path: '/news', description: 'Latest school news and upcoming events' },
         { name: 'STEM Education', path: '/stem', description: 'Science, Technology, Engineering & Mathematics' },
-        { name: 'LearnHub', path: '/learnhub', description: 'Digital learning platform and resources' },
+        { name: 'Students Hub', path: '/learnhub', description: 'Digital learning platform and resources' },
         { name: 'AI Search', path: '/ai-search', description: 'Intelligent search for school information' },
         { name: 'Gallery', path: '/gallery', description: 'Photos and videos from school events' },
       ]

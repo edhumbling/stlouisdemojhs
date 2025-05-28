@@ -20,7 +20,7 @@ interface Resource {
   isUSSD?: boolean;
 }
 
-const LearnHubPage: React.FC = () => {
+const StudentsHubPage: React.FC = () => {
   const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [iframeError, setIframeError] = useState(false);
@@ -259,6 +259,34 @@ const LearnHubPage: React.FC = () => {
     setLoadingProgress(0);
     setSmartLoadingPhase('connecting');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleUSSDDial = () => {
+    const ussdCode = '*790*700#';
+
+    // Try multiple methods to open the phone app with the USSD code
+    try {
+      // Method 1: tel: protocol with USSD code (works on most mobile browsers)
+      window.location.href = `tel:${encodeURIComponent(ussdCode)}`;
+    } catch (error) {
+      try {
+        // Method 2: Direct tel link
+        window.open(`tel:${ussdCode}`, '_self');
+      } catch (error2) {
+        try {
+          // Method 3: Create a temporary link and click it
+          const link = document.createElement('a');
+          link.href = `tel:${ussdCode}`;
+          link.style.display = 'none';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (error3) {
+          // Fallback: Show alert with instructions
+          alert(`Please dial ${ussdCode} on your phone to access BECE past questions.`);
+        }
+      }
+    }
   };
 
   const handleIframeLoad = () => {
@@ -678,13 +706,20 @@ const LearnHubPage: React.FC = () => {
                   Get BECE past questions sent directly to your phone via SMS
                 </p>
 
-                {/* USSD Code Display */}
-                <div className="bg-black/30 rounded-lg p-4 mb-4">
-                  <p className="text-orange-200 text-sm mb-2">Dial this code on your mobile phone:</p>
-                  <div className="text-3xl font-bold text-white tracking-wider">
+                {/* USSD Code Display - Clickable */}
+                <button
+                  onClick={handleUSSDDial}
+                  className="w-full bg-black/30 hover:bg-black/40 rounded-lg p-4 mb-4 transition-all duration-200 border border-orange-500/30 hover:border-orange-400/50"
+                >
+                  <p className="text-orange-200 text-sm mb-2">Tap to dial this code on your mobile phone:</p>
+                  <div className="text-3xl font-bold text-white tracking-wider mb-2">
                     *790*700#
                   </div>
-                </div>
+                  <div className="text-xs text-orange-300 flex items-center justify-center gap-1">
+                    <span>📞</span>
+                    <span>Tap to open phone app</span>
+                  </div>
+                </button>
 
                 <div className="space-y-3 text-left">
                   <div className="flex items-start gap-3">
@@ -728,12 +763,20 @@ const LearnHubPage: React.FC = () => {
               <p className="text-orange-100 text-sm mb-4">
                 ✨ <strong>Dial now!</strong> Get your SMS with download link and password
               </p>
-              <button
-                onClick={() => setSelectedResource(null)}
-                className="w-full bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm border border-white/30"
-              >
-                Got it! Let me dial 📞
-              </button>
+              <div className="space-y-3">
+                <button
+                  onClick={handleUSSDDial}
+                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25"
+                >
+                  📞 Dial *790*700# Now
+                </button>
+                <button
+                  onClick={() => setSelectedResource(null)}
+                  className="w-full bg-white/20 hover:bg-white/30 text-white font-semibold py-2 px-6 rounded-xl transition-all duration-300 backdrop-blur-sm border border-white/30"
+                >
+                  Close
+                </button>
+              </div>
               <p className="text-orange-200 text-xs mt-3">
                 💡 <strong>Tip:</strong> Save the SMS for future access to your files
               </p>
@@ -903,7 +946,7 @@ const LearnHubPage: React.FC = () => {
             </button>
 
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              LearnHub
+              Students Hub
             </h1>
           </div>
         </div>
@@ -966,7 +1009,7 @@ const LearnHubPage: React.FC = () => {
           {/* Enhanced Footer Message */}
           <div className="mt-8 sm:mt-12 text-center">
             <p className="text-sm text-gray-300 mb-2">
-              Tap any resource to open it within LearnHub
+              Tap any resource to open it within Students Hub
             </p>
             <div className="flex items-center justify-center text-xs text-gray-400">
               <div className="flex items-center gap-1">
@@ -981,4 +1024,4 @@ const LearnHubPage: React.FC = () => {
   );
 };
 
-export default LearnHubPage;
+export default StudentsHubPage;

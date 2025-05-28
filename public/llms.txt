@@ -90,7 +90,7 @@ St. Louis Demonstration Junior High School is a premier educational institution 
 - Home: / (Welcome and overview)
 - News & Events: /news (Latest updates and announcements)
 - STEM Education: /stem (Science and technology programs)
-- LearnHub: /learnhub (Digital learning platform)
+- Students Hub: /learnhub (Digital learning platform)
 - AI Search: /ai-search (Intelligent search functionality)
 - Gallery: /gallery (Photos and videos)
 
