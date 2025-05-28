@@ -178,15 +178,16 @@ const FacebookPostsSection: React.FC = () => {
       {/* Animated Student Photo Galleries - Desktop Only (6 Strips) */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none">
         {/* Strip 1 - Far Left - Scrolling Up */}
-        <div className="absolute left-2 top-0 w-20 h-full overflow-hidden">
-          <div className="animate-scroll-up space-y-3">
+        <div className="gallery-strip left-2 w-20">
+          <div className="animate-scroll-up space-y-4">
             {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
               <div
                 key={`strip1-${index}`}
-                className="relative w-16 h-16 rounded-lg overflow-hidden shadow-lg transform rotate-3 hover:rotate-6 transition-transform duration-300"
+                className="gallery-item w-16 h-16 rounded-lg shadow-lg"
                 style={{
                   filter: 'blur(0.5px) brightness(0.7)',
-                  opacity: 0.5
+                  opacity: 0.5,
+                  transform: 'rotate(2deg)'
                 }}
               >
                 <img
@@ -194,6 +195,7 @@ const FacebookPostsSection: React.FC = () => {
                   alt=""
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  draggable="false"
                 />
                 <div
                   className="absolute inset-0 mix-blend-multiply"
@@ -205,15 +207,16 @@ const FacebookPostsSection: React.FC = () => {
         </div>
 
         {/* Strip 2 - Left Inner - Scrolling Down */}
-        <div className="absolute left-24 top-0 w-20 h-full overflow-hidden">
-          <div className="animate-scroll-down space-y-4">
+        <div className="gallery-strip left-24 w-20">
+          <div className="animate-scroll-down space-y-5">
             {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
               <div
                 key={`strip2-${index}`}
-                className="relative w-18 h-18 rounded-lg overflow-hidden shadow-md transform -rotate-2 hover:-rotate-4 transition-transform duration-300"
+                className="gallery-item w-14 h-14 rounded-lg shadow-md"
                 style={{
                   filter: 'blur(0.8px) brightness(0.6)',
-                  opacity: 0.4
+                  opacity: 0.4,
+                  transform: 'rotate(-1deg)'
                 }}
               >
                 <img
@@ -221,6 +224,7 @@ const FacebookPostsSection: React.FC = () => {
                   alt=""
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  draggable="false"
                 />
                 <div
                   className="absolute inset-0 mix-blend-multiply"
@@ -232,15 +236,16 @@ const FacebookPostsSection: React.FC = () => {
         </div>
 
         {/* Strip 3 - Left Center - Scrolling Up Slow */}
-        <div className="absolute left-48 top-0 w-20 h-full overflow-hidden">
-          <div className="animate-scroll-up-slow space-y-5">
+        <div className="gallery-strip left-48 w-20">
+          <div className="animate-scroll-up-slow space-y-6">
             {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
               <div
                 key={`strip3-${index}`}
-                className="relative w-14 h-14 rounded-lg overflow-hidden shadow-sm transform rotate-1 hover:rotate-3 transition-transform duration-300"
+                className="gallery-item w-12 h-12 rounded-lg shadow-sm"
                 style={{
                   filter: 'blur(1px) brightness(0.5)',
-                  opacity: 0.3
+                  opacity: 0.3,
+                  transform: 'rotate(1deg)'
                 }}
               >
                 <img
@@ -248,6 +253,7 @@ const FacebookPostsSection: React.FC = () => {
                   alt=""
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  draggable="false"
                 />
                 <div
                   className="absolute inset-0 mix-blend-multiply"
@@ -259,15 +265,16 @@ const FacebookPostsSection: React.FC = () => {
         </div>
 
         {/* Strip 4 - Right Center - Scrolling Down Slow */}
-        <div className="absolute right-48 top-0 w-20 h-full overflow-hidden">
-          <div className="animate-scroll-down-slow space-y-5">
+        <div className="gallery-strip right-48 w-20">
+          <div className="animate-scroll-down-slow space-y-6">
             {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
               <div
                 key={`strip4-${index}`}
-                className="relative w-14 h-14 rounded-lg overflow-hidden shadow-sm transform -rotate-1 hover:-rotate-2 transition-transform duration-300"
+                className="gallery-item w-12 h-12 rounded-lg shadow-sm"
                 style={{
                   filter: 'blur(1px) brightness(0.5)',
-                  opacity: 0.3
+                  opacity: 0.3,
+                  transform: 'rotate(-1deg)'
                 }}
               >
                 <img
@@ -275,6 +282,7 @@ const FacebookPostsSection: React.FC = () => {
                   alt=""
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  draggable="false"
                 />
                 <div
                   className="absolute inset-0 mix-blend-multiply"
@@ -286,15 +294,16 @@ const FacebookPostsSection: React.FC = () => {
         </div>
 
         {/* Strip 5 - Right Inner - Scrolling Up Slower */}
-        <div className="absolute right-24 top-0 w-20 h-full overflow-hidden">
-          <div className="animate-scroll-up-slower space-y-4">
+        <div className="gallery-strip right-24 w-20">
+          <div className="animate-scroll-up-slower space-y-5">
             {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
               <div
                 key={`strip5-${index}`}
-                className="relative w-18 h-18 rounded-lg overflow-hidden shadow-md transform rotate-2 hover:rotate-4 transition-transform duration-300"
+                className="gallery-item w-14 h-14 rounded-lg shadow-md"
                 style={{
                   filter: 'blur(0.8px) brightness(0.6)',
-                  opacity: 0.4
+                  opacity: 0.4,
+                  transform: 'rotate(1deg)'
                 }}
               >
                 <img
@@ -302,6 +311,7 @@ const FacebookPostsSection: React.FC = () => {
                   alt=""
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  draggable="false"
                 />
                 <div
                   className="absolute inset-0 mix-blend-multiply"
@@ -313,15 +323,16 @@ const FacebookPostsSection: React.FC = () => {
         </div>
 
         {/* Strip 6 - Far Right - Scrolling Down Slower */}
-        <div className="absolute right-2 top-0 w-20 h-full overflow-hidden">
-          <div className="animate-scroll-down-slower space-y-3">
+        <div className="gallery-strip right-2 w-20">
+          <div className="animate-scroll-down-slower space-y-4">
             {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
               <div
                 key={`strip6-${index}`}
-                className="relative w-16 h-16 rounded-lg overflow-hidden shadow-lg transform -rotate-3 hover:-rotate-6 transition-transform duration-300"
+                className="gallery-item w-16 h-16 rounded-lg shadow-lg"
                 style={{
                   filter: 'blur(0.5px) brightness(0.7)',
-                  opacity: 0.5
+                  opacity: 0.5,
+                  transform: 'rotate(-2deg)'
                 }}
               >
                 <img
@@ -329,6 +340,7 @@ const FacebookPostsSection: React.FC = () => {
                   alt=""
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  draggable="false"
                 />
                 <div
                   className="absolute inset-0 mix-blend-multiply"
