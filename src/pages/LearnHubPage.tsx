@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -17,6 +17,7 @@ interface Resource {
   forceExternal?: boolean;
   proxyUrls?: string[];
   customScripts?: boolean;
+  isUSSD?: boolean;
 }
 
 const LearnHubPage: React.FC = () => {
@@ -75,6 +76,25 @@ const LearnHubPage: React.FC = () => {
       url: "https://emmadeeofficial.gumroad.com/l/becepasco",
       icon: <FileText className="w-5 h-5" />,
       color: "#34C759"
+    },
+    {
+      id: 11,
+      title: "BECE Pasco 2",
+      description: "Alternative BECE past questions database",
+      url: "https://www.becepastquestions.com/",
+      icon: <FileText className="w-5 h-5" />,
+      color: "#7C3AED",
+      embedStrategy: 'iframe',
+      customScripts: true
+    },
+    {
+      id: 12,
+      title: "BECE Pasco Via USSD",
+      description: "Access past questions directly on your mobile phone!",
+      url: "ussd://dial",
+      icon: <Smartphone className="w-5 h-5" />,
+      color: "#FF9500",
+      isUSSD: true
     },
     {
       id: 4,
@@ -153,16 +173,6 @@ const LearnHubPage: React.FC = () => {
       icon: <Lightbulb className="w-5 h-5" />,
       color: "#F59E0B"
     },
-    {
-      id: 11,
-      title: "BECE Past Questions Old",
-      description: "Comprehensive BECE past questions database",
-      url: "https://www.becepastquestions.com/",
-      icon: <FileText className="w-5 h-5" />,
-      color: "#8B5CF6",
-      embedStrategy: 'iframe',
-      customScripts: true
-    }
   ];
 
   // Smart loading simulation effect
@@ -215,6 +225,12 @@ const LearnHubPage: React.FC = () => {
   }, [isLoading, selectedResource]);
 
   const handleResourceClick = (resource: Resource) => {
+    // Handle USSD cards with special modal
+    if (resource.isUSSD) {
+      setSelectedResource(resource);
+      return;
+    }
+
     if (resource.isInternal) {
       navigate(resource.url);
     } else if (resource.embedStrategy === 'smart') {
@@ -260,18 +276,15 @@ const LearnHubPage: React.FC = () => {
           // Create and inject custom CSS to hide unwanted elements
           const style = iframeDoc.createElement('style');
           style.textContent = `
-            /* Hide footer */
-            footer, .footer, #footer, [class*="footer"], [id*="footer"] {
-              display: none !important;
-            }
-
-            /* Hide ads and advertisement sections */
-            .ad, .ads, .advertisement, .advert, .adsense, .google-ads,
-            [class*="ad-"], [class*="ads-"], [class*="advert"], [class*="banner"],
-            [id*="ad-"], [id*="ads-"], [id*="advert"], [id*="banner"],
-            .sidebar-ads, .header-ads, .content-ads, .popup-ad,
-            iframe[src*="googlesyndication"], iframe[src*="doubleclick"],
-            iframe[src*="googleadservices"], .google-auto-placed {
+            /* BRUTE FORCE FOOTER REMOVAL - Multiple approaches */
+            footer, .footer, #footer, [class*="footer"], [id*="footer"],
+            [class*="Footer"], [id*="Footer"], .site-footer, #site-footer,
+            .page-footer, #page-footer, .main-footer, #main-footer,
+            .website-footer, #website-footer, .bottom-footer, #bottom-footer,
+            .footer-section, .footer-content, .footer-wrapper, .footer-container,
+            .footer-area, .footer-widget, .footer-info, .footer-links,
+            .copyright, .copyright-text, .copyright-info, .copyright-notice,
+            [class*="copyright"], [id*="copyright"], .site-info, .site-credits {
               display: none !important;
               visibility: hidden !important;
               opacity: 0 !important;
@@ -279,47 +292,126 @@ const LearnHubPage: React.FC = () => {
               width: 0 !important;
               margin: 0 !important;
               padding: 0 !important;
+              position: absolute !important;
+              left: -9999px !important;
+              top: -9999px !important;
+              z-index: -9999 !important;
             }
 
-            /* Hide recent/popular sections that might be distracting */
-            .recent, .popular, .trending, .related, .suggestions,
-            [class*="recent"], [class*="popular"], [class*="trending"],
-            [class*="related"], [class*="suggest"], .sidebar-recent,
-            .sidebar-popular, .widget-recent, .widget-popular {
+            /* BRUTE FORCE AD BLOCKING - Comprehensive removal */
+            .ad, .ads, .advertisement, .advert, .adsense, .google-ads,
+            [class*="ad-"], [class*="ads-"], [class*="advert"], [class*="banner"],
+            [id*="ad-"], [id*="ads-"], [id*="advert"], [id*="banner"],
+            .sidebar-ads, .header-ads, .content-ads, .popup-ad, .inline-ad,
+            .sponsored, .promotion, .promo, [class*="sponsor"], [class*="promo"],
+            iframe[src*="googlesyndication"], iframe[src*="doubleclick"],
+            iframe[src*="googleadservices"], iframe[src*="amazon-adsystem"],
+            iframe[src*="adsystem"], .google-auto-placed, .adsbygoogle,
+            ins.adsbygoogle, .adsbox, .ad-container, .ad-wrapper, .ad-space,
+            .advertisement-container, .ads-container, .banner-container {
               display: none !important;
+              visibility: hidden !important;
+              opacity: 0 !important;
+              height: 0 !important;
+              width: 0 !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              position: absolute !important;
+              left: -9999px !important;
+              top: -9999px !important;
+              z-index: -9999 !important;
             }
 
-            /* Hide social media widgets and share buttons */
+            /* BRUTE FORCE DISTRACTION REMOVAL */
+            .recent, .popular, .trending, .related, .suggestions, .recommended,
+            [class*="recent"], [class*="popular"], [class*="trending"],
+            [class*="related"], [class*="suggest"], [class*="recommend"],
+            .sidebar-recent, .sidebar-popular, .widget-recent, .widget-popular,
+            .recent-posts, .popular-posts, .related-posts, .more-posts,
+            .you-may-like, .similar-content, .other-articles {
+              display: none !important;
+              visibility: hidden !important;
+              opacity: 0 !important;
+              height: 0 !important;
+              width: 0 !important;
+            }
+
+            /* BRUTE FORCE SOCIAL MEDIA REMOVAL */
             .social-share, .share-buttons, .social-media, .social-icons,
             [class*="social"], [class*="share"], .fb-like, .twitter-share,
-            .addthis, .sharethis {
+            .addthis, .sharethis, .social-widget, .share-widget,
+            .facebook-share, .twitter-share, .linkedin-share, .whatsapp-share,
+            .social-follow, .follow-us, .social-links {
+              display: none !important;
+              visibility: hidden !important;
+              opacity: 0 !important;
+            }
+
+            /* BRUTE FORCE NEWSLETTER/SIGNUP REMOVAL */
+            .newsletter, .subscribe, .subscription, .email-signup, .signup-form,
+            [class*="newsletter"], [class*="subscribe"], [class*="signup"],
+            .email-capture, .lead-magnet, .opt-in, .mailing-list {
+              display: none !important;
+              visibility: hidden !important;
+              opacity: 0 !important;
+            }
+
+            /* BRUTE FORCE POPUP/MODAL REMOVAL */
+            .modal, .popup, .overlay, [class*="modal"], [class*="popup"],
+            .lightbox, .dialog, .alert, .notification, .toast,
+            .cookie-notice, .cookie-banner, .gdpr-notice, .privacy-notice,
+            [class*="cookie"], [class*="gdpr"], [class*="privacy"],
+            .consent-banner, .privacy-banner, .terms-notice {
+              display: none !important;
+              visibility: hidden !important;
+              opacity: 0 !important;
+              position: absolute !important;
+              left: -9999px !important;
+              top: -9999px !important;
+              z-index: -9999 !important;
+            }
+
+            /* BRUTE FORCE SIDEBAR REMOVAL */
+            .sidebar, .side-bar, #sidebar, #side-bar, .widget-area,
+            .secondary, .aside, aside, .complementary,
+            [class*="sidebar"], [id*="sidebar"] {
+              display: none !important;
+              visibility: hidden !important;
+              opacity: 0 !important;
+            }
+
+            /* BRUTE FORCE NAVIGATION CLEANUP */
+            .breadcrumb, .breadcrumbs, .nav-breadcrumb, .page-breadcrumb,
+            .pagination, .page-numbers, .nav-links, .post-navigation {
               display: none !important;
             }
 
-            /* Hide newsletter signup and subscription boxes */
-            .newsletter, .subscribe, .subscription, .email-signup,
-            [class*="newsletter"], [class*="subscribe"], [class*="signup"] {
-              display: none !important;
-            }
-
-            /* Clean up the layout */
+            /* CLEAN LAYOUT ENFORCEMENT */
             body {
               margin: 0 !important;
               padding: 10px !important;
               background: #ffffff !important;
+              overflow-x: hidden !important;
             }
 
-            /* Ensure main content is visible and well-spaced */
-            .main, .content, .container, .wrapper, main, article {
+            /* MAIN CONTENT OPTIMIZATION */
+            .main, .content, .container, .wrapper, main, article,
+            .post-content, .entry-content, .page-content, .single-content {
               max-width: 100% !important;
               margin: 0 auto !important;
-              padding: 10px !important;
+              padding: 15px !important;
+              width: 100% !important;
+              box-sizing: border-box !important;
             }
 
-            /* Hide cookie notices and popups */
-            .cookie-notice, .cookie-banner, .gdpr-notice, .privacy-notice,
-            [class*="cookie"], [class*="gdpr"], [class*="privacy"],
-            .modal, .popup, .overlay, [class*="modal"], [class*="popup"] {
+            /* FORCE HIDE ANY REMAINING BOTTOM ELEMENTS */
+            body > *:last-child:not(.main):not(.content):not(.container):not(.wrapper):not(main):not(article) {
+              display: none !important;
+            }
+
+            /* NUCLEAR OPTION - Hide elements at bottom of page */
+            [style*="position: fixed"][style*="bottom"],
+            [style*="position: absolute"][style*="bottom"] {
               display: none !important;
             }
           `;
@@ -330,49 +422,139 @@ const LearnHubPage: React.FC = () => {
           const script = iframeDoc.createElement('script');
           script.textContent = `
             (function() {
-              // Function to remove unwanted elements
+              // BRUTE FORCE ELEMENT REMOVAL FUNCTION
               function removeUnwantedElements() {
                 const selectors = [
+                  // FOOTER BRUTE FORCE
                   'footer', '.footer', '#footer', '[class*="footer"]', '[id*="footer"]',
+                  '[class*="Footer"]', '[id*="Footer"]', '.site-footer', '#site-footer',
+                  '.page-footer', '#page-footer', '.main-footer', '#main-footer',
+                  '.website-footer', '#website-footer', '.bottom-footer', '#bottom-footer',
+                  '.footer-section', '.footer-content', '.footer-wrapper', '.footer-container',
+                  '.footer-area', '.footer-widget', '.footer-info', '.footer-links',
+                  '.copyright', '.copyright-text', '.copyright-info', '.copyright-notice',
+                  '[class*="copyright"]', '[id*="copyright"]', '.site-info', '.site-credits',
+
+                  // AD BRUTE FORCE
                   '.ad', '.ads', '.advertisement', '.advert', '.adsense', '.google-ads',
                   '[class*="ad-"]', '[class*="ads-"]', '[class*="advert"]', '[class*="banner"]',
                   '[id*="ad-"]', '[id*="ads-"]', '[id*="advert"]', '[id*="banner"]',
-                  '.sidebar-ads', '.header-ads', '.content-ads', '.popup-ad',
+                  '.sidebar-ads', '.header-ads', '.content-ads', '.popup-ad', '.inline-ad',
+                  '.sponsored', '.promotion', '.promo', '[class*="sponsor"]', '[class*="promo"]',
                   'iframe[src*="googlesyndication"]', 'iframe[src*="doubleclick"]',
-                  'iframe[src*="googleadservices"]', '.google-auto-placed',
-                  '.recent', '.popular', '.trending', '.related', '.suggestions',
+                  'iframe[src*="googleadservices"]', 'iframe[src*="amazon-adsystem"]',
+                  'iframe[src*="adsystem"]', '.google-auto-placed', '.adsbygoogle',
+                  'ins.adsbygoogle', '.adsbox', '.ad-container', '.ad-wrapper', '.ad-space',
+                  '.advertisement-container', '.ads-container', '.banner-container',
+
+                  // DISTRACTION BRUTE FORCE
+                  '.recent', '.popular', '.trending', '.related', '.suggestions', '.recommended',
                   '[class*="recent"]', '[class*="popular"]', '[class*="trending"]',
-                  '[class*="related"]', '[class*="suggest"]', '.sidebar-recent',
-                  '.sidebar-popular', '.widget-recent', '.widget-popular',
+                  '[class*="related"]', '[class*="suggest"]', '[class*="recommend"]',
+                  '.sidebar-recent', '.sidebar-popular', '.widget-recent', '.widget-popular',
+                  '.recent-posts', '.popular-posts', '.related-posts', '.more-posts',
+                  '.you-may-like', '.similar-content', '.other-articles',
+
+                  // SOCIAL MEDIA BRUTE FORCE
                   '.social-share', '.share-buttons', '.social-media', '.social-icons',
                   '[class*="social"]', '[class*="share"]', '.fb-like', '.twitter-share',
-                  '.addthis', '.sharethis',
-                  '.newsletter', '.subscribe', '.subscription', '.email-signup',
+                  '.addthis', '.sharethis', '.social-widget', '.share-widget',
+                  '.facebook-share', '.twitter-share', '.linkedin-share', '.whatsapp-share',
+                  '.social-follow', '.follow-us', '.social-links',
+
+                  // NEWSLETTER BRUTE FORCE
+                  '.newsletter', '.subscribe', '.subscription', '.email-signup', '.signup-form',
                   '[class*="newsletter"]', '[class*="subscribe"]', '[class*="signup"]',
+                  '.email-capture', '.lead-magnet', '.opt-in', '.mailing-list',
+
+                  // POPUP BRUTE FORCE
+                  '.modal', '.popup', '.overlay', '[class*="modal"]', '[class*="popup"]',
+                  '.lightbox', '.dialog', '.alert', '.notification', '.toast',
                   '.cookie-notice', '.cookie-banner', '.gdpr-notice', '.privacy-notice',
                   '[class*="cookie"]', '[class*="gdpr"]', '[class*="privacy"]',
-                  '.modal', '.popup', '.overlay', '[class*="modal"]', '[class*="popup"]'
+                  '.consent-banner', '.privacy-banner', '.terms-notice',
+
+                  // SIDEBAR BRUTE FORCE
+                  '.sidebar', '.side-bar', '#sidebar', '#side-bar', '.widget-area',
+                  '.secondary', '.aside', 'aside', '.complementary',
+                  '[class*="sidebar"]', '[id*="sidebar"]',
+
+                  // NAVIGATION BRUTE FORCE
+                  '.breadcrumb', '.breadcrumbs', '.nav-breadcrumb', '.page-breadcrumb',
+                  '.pagination', '.page-numbers', '.nav-links', '.post-navigation'
                 ];
 
+                // BRUTE FORCE REMOVAL - Multiple methods
                 selectors.forEach(selector => {
                   try {
                     const elements = document.querySelectorAll(selector);
                     elements.forEach(el => {
                       if (el) {
+                        // Method 1: Hide completely
                         el.style.display = 'none';
                         el.style.visibility = 'hidden';
                         el.style.opacity = '0';
                         el.style.height = '0';
                         el.style.width = '0';
-                        el.remove();
+                        el.style.margin = '0';
+                        el.style.padding = '0';
+
+                        // Method 2: Move off-screen
+                        el.style.position = 'absolute';
+                        el.style.left = '-9999px';
+                        el.style.top = '-9999px';
+                        el.style.zIndex = '-9999';
+
+                        // Method 3: Remove from DOM
+                        try {
+                          el.parentNode && el.parentNode.removeChild(el);
+                        } catch (e) {
+                          el.remove();
+                        }
                       }
                     });
                   } catch (e) {
                     // Ignore errors for invalid selectors
                   }
                 });
+
+                // NUCLEAR OPTION: Remove last child if it looks like footer
+                try {
+                  const lastChild = document.body.lastElementChild;
+                  if (lastChild && (
+                    lastChild.tagName.toLowerCase() === 'footer' ||
+                    lastChild.className.toLowerCase().includes('footer') ||
+                    lastChild.id.toLowerCase().includes('footer') ||
+                    lastChild.className.toLowerCase().includes('copyright') ||
+                    lastChild.textContent.toLowerCase().includes('copyright') ||
+                    lastChild.textContent.toLowerCase().includes('all rights reserved')
+                  )) {
+                    lastChild.remove();
+                  }
+                } catch (e) {
+                  // Ignore errors
+                }
+
+                // BRUTE FORCE: Remove elements with footer-like text content
+                try {
+                  const allElements = document.querySelectorAll('*');
+                  allElements.forEach(el => {
+                    const text = el.textContent.toLowerCase();
+                    if (text.includes('copyright') ||
+                        text.includes('all rights reserved') ||
+                        text.includes('terms of service') ||
+                        text.includes('privacy policy') ||
+                        (text.includes('©') && text.length < 200)) {
+                      el.style.display = 'none';
+                      el.remove();
+                    }
+                  });
+                } catch (e) {
+                  // Ignore errors
+                }
               }
 
+              // AGGRESSIVE CLEANUP SCHEDULE
               // Remove elements immediately
               removeUnwantedElements();
 
@@ -380,6 +562,9 @@ const LearnHubPage: React.FC = () => {
               if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', removeUnwantedElements);
               }
+
+              // Remove after window load
+              window.addEventListener('load', removeUnwantedElements);
 
               // Continuously monitor for new ads/unwanted content
               const observer = new MutationObserver(function(mutations) {
@@ -390,7 +575,7 @@ const LearnHubPage: React.FC = () => {
                   }
                 });
                 if (shouldClean) {
-                  setTimeout(removeUnwantedElements, 100);
+                  setTimeout(removeUnwantedElements, 50);
                 }
               });
 
@@ -399,8 +584,15 @@ const LearnHubPage: React.FC = () => {
                 subtree: true
               });
 
-              // Also run cleanup every 2 seconds to catch any delayed content
-              setInterval(removeUnwantedElements, 2000);
+              // AGGRESSIVE INTERVALS - Multiple cleanup schedules
+              setInterval(removeUnwantedElements, 1000);  // Every 1 second
+              setInterval(removeUnwantedElements, 5000);  // Every 5 seconds
+              setInterval(removeUnwantedElements, 10000); // Every 10 seconds
+
+              // SCROLL-BASED CLEANUP
+              window.addEventListener('scroll', function() {
+                setTimeout(removeUnwantedElements, 100);
+              });
             })();
           `;
 
@@ -430,6 +622,96 @@ const LearnHubPage: React.FC = () => {
       window.open(selectedResource.url, '_blank', 'noopener,noreferrer');
     }
   };
+
+  // If a USSD resource is selected, show the USSD modal
+  if (selectedResource?.isUSSD) {
+    return (
+      <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-orange-400/30 relative overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-2xl"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
+
+          {/* Content */}
+          <div className="relative z-10">
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedResource(null)}
+              className="absolute -top-2 -right-2 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-200"
+            >
+              <X size={16} className="text-white" />
+            </button>
+
+            {/* Icon */}
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Smartphone size={32} className="text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-2">
+                📱 BECE Pasco Via USSD
+              </h2>
+              <p className="text-orange-100 text-sm">
+                Access past questions directly on your mobile phone!
+              </p>
+            </div>
+
+            {/* Main Content */}
+            <div className="bg-white/10 rounded-xl p-4 mb-6 backdrop-blur-sm">
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-white mb-3">
+                  🎉 Free Download Available!
+                </h3>
+                <p className="text-orange-100 text-sm mb-4">
+                  Get instant access to BECE past questions and all other educational resources
+                </p>
+
+                {/* USSD Code Display */}
+                <div className="bg-black/30 rounded-lg p-4 mb-4">
+                  <p className="text-orange-200 text-sm mb-2">Dial this code on your mobile phone:</p>
+                  <div className="text-3xl font-bold text-white tracking-wider">
+                    *790*700#
+                  </div>
+                </div>
+
+                <div className="space-y-3 text-left">
+                  <div className="flex items-start gap-3">
+                    <span className="text-orange-300 font-bold">1.</span>
+                    <span className="text-orange-100 text-sm">Open your phone's dialer</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-orange-300 font-bold">2.</span>
+                    <span className="text-orange-100 text-sm">Type <strong>*790*700#</strong></span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-orange-300 font-bold">3.</span>
+                    <span className="text-orange-100 text-sm">Press call button</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-orange-300 font-bold">4.</span>
+                    <span className="text-orange-100 text-sm">Follow the menu to access BECE past questions</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center">
+              <p className="text-orange-100 text-sm mb-4">
+                ✨ <strong>Try it now!</strong> See it work in real-time on your phone
+              </p>
+              <button
+                onClick={() => setSelectedResource(null)}
+                className="w-full bg-white/20 hover:bg-white/30 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm border border-white/30"
+              >
+                Got it! Let me try 📞
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // If a resource is selected, show the iframe view - Full page without footer
   if (selectedResource) {
