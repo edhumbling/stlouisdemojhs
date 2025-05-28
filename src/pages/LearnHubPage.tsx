@@ -57,8 +57,7 @@ const LearnHubPage: React.FC = () => {
       description: "Free audiobooks collection",
       url: "https://marhamilresearch4.blob.core.windows.net/gutenberg-public/Website/browse.html",
       icon: <Mic className="w-5 h-5" />,
-      color: "#007AFF",
-      embedStrategy: 'iframe'
+      color: "#007AFF"
     },
     {
       id: 2,
@@ -66,8 +65,7 @@ const LearnHubPage: React.FC = () => {
       description: "Children's poetry collection",
       url: "https://childrens.poetryarchive.org/",
       icon: <BookOpen className="w-5 h-5" />,
-      color: "#FF3B30",
-      embedStrategy: 'iframe'
+      color: "#FF3B30"
     },
     {
       id: 3,
@@ -75,9 +73,7 @@ const LearnHubPage: React.FC = () => {
       description: "BECE past questions",
       url: "https://emmadeeofficial.gumroad.com/l/becepasco",
       icon: <FileText className="w-5 h-5" />,
-      color: "#34C759",
-      embedStrategy: 'external',
-      forceExternal: true
+      color: "#34C759"
     },
     {
       id: 4,
@@ -85,9 +81,7 @@ const LearnHubPage: React.FC = () => {
       description: "JHS mock examinations",
       url: "https://emmadeeofficial.gumroad.com/l/jhsmocks",
       icon: <FileText className="w-5 h-5" />,
-      color: "#FF9500",
-      embedStrategy: 'external',
-      forceExternal: true
+      color: "#FF9500"
     },
     {
       id: 5,
@@ -95,8 +89,7 @@ const LearnHubPage: React.FC = () => {
       description: "AI maths problem solver",
       url: "https://qwen-qwen2-math-demo.hf.space",
       icon: <Calculator className="w-5 h-5" />,
-      color: "#5856D6",
-      embedStrategy: 'iframe'
+      color: "#5856D6"
     },
     {
       id: 6,
@@ -104,8 +97,7 @@ const LearnHubPage: React.FC = () => {
       description: "AI language translator",
       url: "https://translate.ghananlp.org/",
       icon: <Languages className="w-5 h-5" />,
-      color: "#AF52DE",
-      embedStrategy: 'iframe'
+      color: "#AF52DE"
     },
     {
       id: 7,
@@ -158,13 +150,7 @@ const LearnHubPage: React.FC = () => {
       description: "Learn product development and creation",
       url: "https://www.lennybot.com/",
       icon: <Lightbulb className="w-5 h-5" />,
-      color: "#F59E0B",
-      embedStrategy: 'smart',
-      alternativeUrls: [
-        "https://www.productplan.com/learn/",
-        "https://www.mindtheproduct.com/",
-        "https://productschool.com/blog/"
-      ]
+      color: "#F59E0B"
     }
   ];
 
@@ -220,18 +206,15 @@ const LearnHubPage: React.FC = () => {
   const handleResourceClick = (resource: Resource) => {
     if (resource.isInternal) {
       navigate(resource.url);
-    } else if (resource.forceExternal || resource.embedStrategy === 'external') {
-      // Open directly in new tab for resources that don't embed well
-      window.open(resource.url, '_blank', 'noopener,noreferrer');
     } else if (resource.embedStrategy === 'smart') {
-      // Use smart loading strategy for problematic resources
+      // Use smart loading strategy for Financial Literacy and Business Skills Chat
       setIsLoading(true);
       setIframeError(false);
       setCurrentUrlIndex(0);
       setShowAlternatives(false);
       setSelectedResource(resource);
     } else {
-      // Try iframe first for regular resources
+      // Regular iframe loading for all other resources
       setIsLoading(true);
       setIframeError(false);
       setCurrentUrlIndex(0);
@@ -455,10 +438,10 @@ const LearnHubPage: React.FC = () => {
                   onClick={() => handleResourceClick(resource)}
                   className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
                 >
-                  {/* External/Smart link indicator */}
-                  {(resource.forceExternal || resource.embedStrategy === 'external' || resource.embedStrategy === 'smart') && (
+                  {/* Smart link indicator - only for Financial Literacy and Business Skills Chat */}
+                  {resource.embedStrategy === 'smart' && (
                     <div className="absolute top-2 right-2 w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
-                      <ExternalLink size={12} className="text-white" />
+                      <AlertCircle size={12} className="text-white" />
                     </div>
                   )}
 
@@ -495,18 +478,12 @@ const LearnHubPage: React.FC = () => {
           {/* Enhanced Footer Message */}
           <div className="mt-8 sm:mt-12 text-center">
             <p className="text-sm text-gray-300 mb-2">
-              Tap any resource to access educational content
+              Tap any resource to open it within LearnHub
             </p>
-            <div className="flex items-center justify-center gap-4 text-xs text-gray-400">
-              <div className="flex items-center gap-1">
-                <div className="w-3 h-3 bg-blue-500/80 rounded-full flex items-center justify-center">
-                  <ExternalLink size={8} className="text-white" />
-                </div>
-                <span>External Access</span>
-              </div>
+            <div className="flex items-center justify-center text-xs text-gray-400">
               <div className="flex items-center gap-1">
                 <AlertCircle size={12} className="text-blue-400" />
-                <span>Smart Access with Alternatives</span>
+                <span>Smart Access - Financial Literacy & Business Skills provide alternatives when blocked</span>
               </div>
             </div>
           </div>
