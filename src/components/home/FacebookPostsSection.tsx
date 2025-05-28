@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Facebook, ExternalLink, Loader2 } from 'lucide-react';
 import VideoModal from '../common/VideoModal';
+import { galleryImages } from '../../data';
 
 // Facebook SDK types
 declare global {
@@ -144,6 +145,62 @@ const FacebookPostsSection: React.FC = () => {
 
   return (
     <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
+      {/* Left Gallery Strip - Slow Vertical Scrolling */}
+      <div className="hidden lg:block gallery-container left-4 w-20">
+        <div className="gallery-scroll-left space-y-4">
+          {[...galleryImages, ...galleryImages].map((image, index) => (
+            <div
+              key={`left-${index}`}
+              className="gallery-image w-16 h-16 rounded-lg shadow-md"
+              style={{
+                filter: 'blur(0.3px) brightness(0.85)',
+                opacity: 0.6,
+                transform: 'rotate(1deg)'
+              }}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover rounded-lg"
+                loading="lazy"
+                draggable="false"
+              />
+              <div
+                className="absolute inset-0 bg-blue-500/10 mix-blend-multiply rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right Gallery Strip - Slow Vertical Scrolling */}
+      <div className="hidden lg:block gallery-container right-4 w-20">
+        <div className="gallery-scroll-right space-y-4" style={{ animationDelay: '-100s' }}>
+          {[...galleryImages.slice().reverse(), ...galleryImages.slice().reverse()].map((image, index) => (
+            <div
+              key={`right-${index}`}
+              className="gallery-image w-16 h-16 rounded-lg shadow-md"
+              style={{
+                filter: 'blur(0.3px) brightness(0.85)',
+                opacity: 0.6,
+                transform: 'rotate(-1deg)'
+              }}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover rounded-lg"
+                loading="lazy"
+                draggable="false"
+              />
+              <div
+                className="absolute inset-0 bg-green-500/10 mix-blend-multiply rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
