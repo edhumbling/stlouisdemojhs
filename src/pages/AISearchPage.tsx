@@ -10,42 +10,8 @@ const AISearchPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [iframeError, setIframeError] = useState(false);
   const [showAlternatives, setShowAlternatives] = useState(false);
-  const [autoRedirectTimer, setAutoRedirectTimer] = useState<NodeJS.Timeout | null>(null);
+  const [autoRedirectTimer, setAutoRedirectTimer] = useState<number | null>(null);
   const { setShowHeader } = useHeader();
-
-  // Control header visibility based on whether we're viewing an individual engine
-  useEffect(() => {
-    if (selectedEngine) {
-      // Hide header when viewing individual engine
-      setShowHeader(false);
-    } else {
-      // Show header when viewing main grid
-      setShowHeader(true);
-    }
-
-    // Cleanup: ensure header is shown when component unmounts
-    return () => {
-      setShowHeader(true);
-    };
-  }, [selectedEngine, setShowHeader]);
-
-  const handleBack = () => {
-    if (selectedEngine) {
-      setSelectedEngine(null);
-      setIsLoading(false);
-      setIframeError(false);
-      setShowAlternatives(false);
-      // Clear any auto-redirect timer
-      if (autoRedirectTimer) {
-        clearTimeout(autoRedirectTimer);
-        setAutoRedirectTimer(null);
-      }
-      // Scroll to top when returning to main page
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate(-1);
-    }
-  };
 
   const aiEngines = [
     {
@@ -146,7 +112,7 @@ const AISearchPage: React.FC = () => {
       name: 'Grok',
       url: 'https://grok.com',
       description: 'Advanced AI assistant with real-time information and witty personality',
-      icon: <img src="https://x.ai/favicon.ico" alt="Grok" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=G'; }} />,
+      icon: <img src="https://x.ai/favicon.ico" alt="Grok" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=G'; }} />,
       color: 'from-gray-800 to-black',
       glowColor: '#000000',
       hasWhiteBackground: true
@@ -156,7 +122,7 @@ const AISearchPage: React.FC = () => {
       name: 'Claude AI',
       url: 'https://claude.ai',
       description: 'Anthropic\'s AI assistant for thoughtful, helpful, and harmless conversations',
-      icon: <img src="https://claude.ai/favicon.ico" alt="Claude" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ea580c/ffffff?text=C'; }} />,
+      icon: <img src="https://claude.ai/favicon.ico" alt="Claude" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ea580c/ffffff?text=C'; }} />,
       color: 'from-orange-500 to-red-600',
       glowColor: '#ea580c',
       hasWhiteBackground: true
@@ -166,7 +132,7 @@ const AISearchPage: React.FC = () => {
       name: 'ChatGPT',
       url: 'https://chatgpt.com/c/',
       description: 'OpenAI\'s conversational AI for creative and analytical tasks',
-      icon: <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=GPT'; }} />,
+      icon: <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=GPT'; }} />,
       color: 'from-green-500 to-emerald-600',
       glowColor: '#10b981',
       hasWhiteBackground: true
@@ -176,7 +142,7 @@ const AISearchPage: React.FC = () => {
       name: 'Mistral Chat',
       url: 'https://chat.mistral.ai/chat',
       description: 'European AI assistant with advanced reasoning capabilities',
-      icon: <img src="https://chat.mistral.ai/favicon.ico" alt="Mistral" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://chat.mistral.ai/favicon.ico" alt="Mistral" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=M'; }} />,
       color: 'from-blue-600 to-indigo-700',
       glowColor: '#3b82f6',
       hasWhiteBackground: true
@@ -186,7 +152,7 @@ const AISearchPage: React.FC = () => {
       name: 'Gemini',
       url: 'https://gemini.google.com',
       description: 'Google\'s most capable AI model for multimodal understanding',
-      icon: <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=G'; }} />,
+      icon: <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=G'; }} />,
       color: 'from-blue-500 to-purple-600',
       glowColor: '#8b5cf6',
       hasWhiteBackground: true
@@ -196,7 +162,7 @@ const AISearchPage: React.FC = () => {
       name: 'DeepSeek Chat',
       url: 'https://deepseek.com/chat',
       description: 'Advanced AI model with deep reasoning and coding capabilities',
-      icon: <img src="https://chat.deepseek.com/favicon.ico" alt="DeepSeek" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ec4899/ffffff?text=DS'; }} />,
+      icon: <img src="https://chat.deepseek.com/favicon.ico" alt="DeepSeek" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ec4899/ffffff?text=DS'; }} />,
       color: 'from-purple-600 to-pink-600',
       glowColor: '#ec4899',
       hasWhiteBackground: true
@@ -206,7 +172,7 @@ const AISearchPage: React.FC = () => {
       name: 'OpenNote',
       url: 'https://opennote.me/',
       description: 'AI-powered note-taking and knowledge management platform',
-      icon: <img src="https://opennote.me/favicon.ico" alt="OpenNote" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://opennote.me/favicon.ico" alt="OpenNote" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/06b6d4/ffffff?text=ON'; }} />,
       color: 'from-teal-500 to-cyan-600',
       glowColor: '#06b6d4',
       hasWhiteBackground: true
@@ -216,7 +182,7 @@ const AISearchPage: React.FC = () => {
       name: 'Perplexity AI',
       url: 'https://perplexity.ai',
       description: 'AI-powered search engine that provides accurate answers with cited sources',
-      icon: <img src="https://perplexity.ai/favicon.ico" alt="Perplexity" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://perplexity.ai/favicon.ico" alt="Perplexity" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=P'; }} />,
       color: 'from-indigo-600 to-blue-700',
       glowColor: '#3b82f6',
       hasWhiteBackground: true
@@ -226,7 +192,7 @@ const AISearchPage: React.FC = () => {
       name: 'Microsoft Copilot',
       url: 'https://copilot.microsoft.com/',
       description: 'Microsoft\'s AI assistant for productivity, creativity, and everyday tasks',
-      icon: <img src="https://copilot.microsoft.com/favicon.ico" alt="Microsoft Copilot" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://copilot.microsoft.com/favicon.ico" alt="Microsoft Copilot" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/0078d4/ffffff?text=MS'; }} />,
       color: 'from-blue-600 to-cyan-600',
       glowColor: '#0078d4',
       hasWhiteBackground: true
@@ -236,7 +202,7 @@ const AISearchPage: React.FC = () => {
       name: 'Genspark AI',
       url: 'https://www.genspark.ai/',
       description: 'AI-powered search engine that generates comprehensive sparkpages for queries',
-      icon: <img src="https://www.genspark.ai/favicon.ico" alt="Genspark" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://www.genspark.ai/favicon.ico" alt="Genspark" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ec4899/ffffff?text=GS'; }} />,
       color: 'from-pink-500 to-rose-600',
       glowColor: '#ec4899',
       hasWhiteBackground: true
@@ -246,7 +212,7 @@ const AISearchPage: React.FC = () => {
       name: 'Pi AI',
       url: 'https://pi.ai/',
       description: 'Personal AI assistant designed for supportive, smart, and helpful conversations',
-      icon: <img src="https://pi.ai/favicon.svg" alt="Pi AI" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=π'; }} />,
+      icon: <img src="https://pi.ai/favicon.svg" alt="Pi AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=π'; }} />,
       color: 'from-violet-500 to-purple-600',
       glowColor: '#8b5cf6',
       hasWhiteBackground: true
@@ -256,7 +222,7 @@ const AISearchPage: React.FC = () => {
       name: 'Qwen Chat',
       url: 'https://chat.qwen.ai/',
       description: 'Advanced AI chat model with multilingual capabilities and reasoning skills',
-      icon: <img src="https://qwen.ai/favicon.ico" alt="Qwen Chat" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=Q'; }} />,
+      icon: <img src="https://qwen.ai/favicon.ico" alt="Qwen Chat" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=Q'; }} />,
       color: 'from-red-500 to-orange-600',
       glowColor: '#f97316',
       hasWhiteBackground: true
@@ -266,7 +232,7 @@ const AISearchPage: React.FC = () => {
       name: 'Manus',
       url: 'https://manus.im/app',
       description: 'AI-powered writing and productivity assistant for enhanced creativity',
-      icon: <img src="https://manus.im/favicon.ico" alt="Manus" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://manus.im/favicon.ico" alt="Manus" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=M'; }} />,
       color: 'from-emerald-500 to-green-600',
       glowColor: '#10b981',
       hasWhiteBackground: true
@@ -276,7 +242,7 @@ const AISearchPage: React.FC = () => {
       name: 'Together AI',
       url: 'https://chat.together.ai/',
       description: 'Collaborative AI platform with access to multiple open-source models',
-      icon: <img src="https://chat.together.ai/favicon.ico" alt="Together AI" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://chat.together.ai/favicon.ico" alt="Together AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/64748b/ffffff?text=T'; }} />,
       color: 'from-slate-600 to-gray-700',
       glowColor: '#64748b',
       hasWhiteBackground: true
@@ -286,7 +252,7 @@ const AISearchPage: React.FC = () => {
       name: 'Hugging Face Chat',
       url: 'https://huggingface.co/chat/',
       description: 'Open-source AI chat platform with access to cutting-edge language models',
-      icon: <img src="https://huggingface.co/favicon.ico" alt="Hugging Face Chat" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://huggingface.co/favicon.ico" alt="Hugging Face Chat" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=HF'; }} />,
       color: 'from-yellow-500 to-amber-600',
       glowColor: '#f59e0b',
       hasWhiteBackground: true
@@ -296,12 +262,85 @@ const AISearchPage: React.FC = () => {
       name: 'NotebookLM',
       url: 'https://notebooklm.google.com/',
       description: 'Google\'s AI-powered research and note-taking assistant for personalized insights',
-      icon: <img src="https://notebooklm.google.com/favicon.ico" alt="NotebookLM" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://notebooklm.google.com/favicon.ico" alt="NotebookLM" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=NB'; }} />,
       color: 'from-blue-500 to-indigo-600',
       glowColor: '#3b82f6',
       hasWhiteBackground: true
+    },
+    {
+      id: 'khoj',
+      name: 'Khoj AI',
+      url: 'https://app.khoj.dev/',
+      description: 'AI-powered personal assistant for search, chat, and knowledge management',
+      icon: <img src="https://app.khoj.dev/static/assets/icons/favicon-32x32.png" alt="Khoj AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=K'; }} />,
+      color: 'from-amber-500 to-yellow-600',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true
     }
   ];
+
+  const selectedEngineData = aiEngines.find(engine => engine.id === selectedEngine);
+
+  // Control header visibility based on whether we're viewing an individual engine
+  useEffect(() => {
+    if (selectedEngine) {
+      // Hide header when viewing individual engine
+      setShowHeader(false);
+    } else {
+      // Show header when viewing main grid
+      setShowHeader(true);
+    }
+
+    // Cleanup: ensure header is shown when component unmounts
+    return () => {
+      setShowHeader(true);
+    };
+  }, [selectedEngine, setShowHeader]);
+
+  // Enhanced iframe monitoring
+  useEffect(() => {
+    if (selectedEngine && !iframeError) {
+      // Additional check for iframe blocking after a delay
+      const checkTimer = setTimeout(() => {
+        const iframe = document.querySelector('iframe[title="' + selectedEngineData?.name + '"]') as HTMLIFrameElement;
+        if (iframe && isLoading) {
+          try {
+            // Try to access iframe content to detect blocking
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+            if (!iframeDoc) {
+              console.log('Iframe blocked by CORS policy, triggering redirect');
+              handleIframeError();
+            }
+          } catch (e) {
+            console.log('Iframe access denied, triggering redirect');
+            handleIframeError();
+          }
+        }
+      }, 2000);
+
+      return () => clearTimeout(checkTimer);
+    }
+  }, [selectedEngine, iframeError, isLoading, selectedEngineData]);
+
+  const handleBack = () => {
+    if (selectedEngine) {
+      setSelectedEngine(null);
+      setIsLoading(false);
+      setIframeError(false);
+      setShowAlternatives(false);
+      // Clear any auto-redirect timer
+      if (autoRedirectTimer) {
+        clearTimeout(autoRedirectTimer);
+        setAutoRedirectTimer(null);
+      }
+      // Scroll to top when returning to main page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate(-1);
+    }
+  };
+
+
 
   const handleEngineClick = (engineId: string) => {
     setIsLoading(true);
@@ -309,17 +348,26 @@ const AISearchPage: React.FC = () => {
     setShowAlternatives(false);
     setSelectedEngine(engineId);
 
-    // Set up auto-redirect timer - if iframe doesn't load in 5 seconds, auto-redirect
+    // Set up auto-redirect timer - if iframe doesn't load in 3 seconds, auto-redirect
     const timer = setTimeout(() => {
       const engineData = aiEngines.find(engine => engine.id === engineId);
       if (engineData) {
         console.log(`Auto-redirecting ${engineData.name} to browser due to loading timeout`);
-        window.open(engineData.url, '_blank', 'noopener,noreferrer');
-        // Go back to main page
-        setSelectedEngine(null);
         setIsLoading(false);
+        setIframeError(true);
+
+        // Show error message briefly then redirect
+        setTimeout(() => {
+          window.open(engineData.url, '_blank', 'noopener,noreferrer');
+          // Go back to main page after opening
+          setTimeout(() => {
+            setSelectedEngine(null);
+            setIframeError(false);
+            setShowAlternatives(false);
+          }, 500);
+        }, 1500);
       }
-    }, 5000);
+    }, 3000);
 
     setAutoRedirectTimer(timer);
   };
@@ -335,6 +383,7 @@ const AISearchPage: React.FC = () => {
   };
 
   const handleIframeError = () => {
+    console.log('Iframe error detected');
     setIsLoading(false);
     setIframeError(true);
     setShowAlternatives(true);
@@ -346,17 +395,18 @@ const AISearchPage: React.FC = () => {
     }
 
     // Auto-redirect immediately when iframe fails
-    if (selectedEngineData) {
-      console.log(`Auto-redirecting ${selectedEngineData.name} to browser due to iframe error`);
+    const engineData = aiEngines.find(engine => engine.id === selectedEngine);
+    if (engineData) {
+      console.log(`Auto-redirecting ${engineData.name} to browser due to iframe error`);
       setTimeout(() => {
-        window.open(selectedEngineData.url, '_blank', 'noopener,noreferrer');
-        // Go back to main page after a short delay
+        window.open(engineData.url, '_blank', 'noopener,noreferrer');
+        // Go back to main page after opening
         setTimeout(() => {
           setSelectedEngine(null);
           setIframeError(false);
           setShowAlternatives(false);
-        }, 1000);
-      }, 2000); // Wait 2 seconds to show the error message
+        }, 500);
+      }, 1500); // Wait 1.5 seconds to show the error message
     }
   };
 
@@ -365,8 +415,6 @@ const AISearchPage: React.FC = () => {
       window.open(selectedEngineData.url, '_blank', 'noopener,noreferrer');
     }
   };
-
-  const selectedEngineData = aiEngines.find(engine => engine.id === selectedEngine);
 
   // If an engine is selected, show the full-page iframe view - Like LearnHub
   if (selectedEngine && selectedEngineData) {
@@ -410,22 +458,36 @@ const AISearchPage: React.FC = () => {
                 src={selectedEngineData.url}
                 className="w-full h-full border-0 relative z-10"
                 title={selectedEngineData.name}
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads allow-modals"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads allow-modals allow-presentation"
                 onLoad={handleIframeLoad}
                 onError={handleIframeError}
+                referrerPolicy="no-referrer-when-downgrade"
                 style={selectedEngineData.hasWhiteBackground ? {
                   filter: 'invert(1) hue-rotate(180deg)',
                   background: 'white'
                 } : {}}
               />
 
-              {/* Loading Overlay */}
+              {/* Loading Overlay with Shimmer Effect */}
               {isLoading && (
-                <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-20">
-                  <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-gray-300 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-gray-800 font-medium">Loading {selectedEngineData.name}...</p>
-                    <p className="text-gray-600 text-sm mt-1">Please wait while we load the AI search engine</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center z-20">
+                  <div className="text-center max-w-md px-6">
+                    {/* Shimmer Logo Placeholder */}
+                    <div className="w-20 h-20 mx-auto mb-6 rounded-xl shimmer-dark"></div>
+
+                    {/* Shimmer Text Lines */}
+                    <div className="space-y-3 mb-6">
+                      <div className="h-6 w-48 mx-auto rounded shimmer-dark"></div>
+                      <div className="h-4 w-64 mx-auto rounded shimmer-dark"></div>
+                      <div className="h-4 w-56 mx-auto rounded shimmer-dark"></div>
+                    </div>
+
+                    {/* Loading Spinner */}
+                    <div className="w-8 h-8 border-2 border-gray-600 border-t-purple-500 rounded-full animate-spin mx-auto mb-4"></div>
+
+                    {/* Loading Text */}
+                    <p className="text-white font-medium text-lg">Loading {selectedEngineData.name}...</p>
+                    <p className="text-gray-300 text-sm mt-2">Preparing your AI assistant</p>
                   </div>
                 </div>
               )}
