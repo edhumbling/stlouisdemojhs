@@ -304,7 +304,7 @@ const StudentsHubPage: React.FC = () => {
           // Create and inject custom CSS to hide unwanted elements
           const style = iframeDoc.createElement('style');
           style.textContent = `
-            /* BRUTE FORCE FOOTER REMOVAL - Multiple approaches */
+            /* NUCLEAR FOOTER REMOVAL - Based on actual website structure */
             footer, .footer, #footer, [class*="footer"], [id*="footer"],
             [class*="Footer"], [id*="Footer"], .site-footer, #site-footer,
             .page-footer, #page-footer, .main-footer, #main-footer,
@@ -312,7 +312,10 @@ const StudentsHubPage: React.FC = () => {
             .footer-section, .footer-content, .footer-wrapper, .footer-container,
             .footer-area, .footer-widget, .footer-info, .footer-links,
             .copyright, .copyright-text, .copyright-info, .copyright-notice,
-            [class*="copyright"], [id*="copyright"], .site-info, .site-credits {
+            [class*="copyright"], [id*="copyright"], .site-info, .site-credits,
+            /* Specific to becepastquestions.com */
+            .site-footer-wrapper, .footer-widgets, .footer-bottom,
+            .footer-copyright, .site-info-wrapper {
               display: none !important;
               visibility: hidden !important;
               opacity: 0 !important;
@@ -324,9 +327,10 @@ const StudentsHubPage: React.FC = () => {
               left: -9999px !important;
               top: -9999px !important;
               z-index: -9999 !important;
+              overflow: hidden !important;
             }
 
-            /* BRUTE FORCE AD BLOCKING - Comprehensive removal */
+            /* NUCLEAR AD BLOCKING - Based on actual website analysis */
             .ad, .ads, .advertisement, .advert, .adsense, .google-ads,
             [class*="ad-"], [class*="ads-"], [class*="advert"], [class*="banner"],
             [id*="ad-"], [id*="ads-"], [id*="advert"], [id*="banner"],
@@ -336,7 +340,19 @@ const StudentsHubPage: React.FC = () => {
             iframe[src*="googleadservices"], iframe[src*="amazon-adsystem"],
             iframe[src*="adsystem"], .google-auto-placed, .adsbygoogle,
             ins.adsbygoogle, .adsbox, .ad-container, .ad-wrapper, .ad-space,
-            .advertisement-container, .ads-container, .banner-container {
+            .advertisement-container, .ads-container, .banner-container,
+            /* Specific ad patterns found on becepastquestions.com */
+            div[style*="height: required"], .sticky-sidebar, .advertisment,
+            .advertisement-section, [class*="advertisment"], [id*="advertisment"],
+            /* Facebook tracking pixel */
+            img[src*="facebook.com/tr"], noscript img[src*="facebook.com"],
+            /* Generic ad tracking */
+            [src*="googletagmanager"], [src*="google-analytics"],
+            script[src*="ads"], script[src*="adsystem"],
+            /* Ad click tracking */
+            [onclick*="Ad Clicks"], [onclick*="Ad Views"],
+            /* Newsletter and subscription boxes */
+            .newsletter-signup, .email-subscription, .subscribe-box {
               display: none !important;
               visibility: hidden !important;
               opacity: 0 !important;
@@ -348,20 +364,34 @@ const StudentsHubPage: React.FC = () => {
               left: -9999px !important;
               top: -9999px !important;
               z-index: -9999 !important;
+              overflow: hidden !important;
             }
 
-            /* BRUTE FORCE DISTRACTION REMOVAL */
+            /* NUCLEAR DISTRACTION REMOVAL - Based on website analysis */
             .recent, .popular, .trending, .related, .suggestions, .recommended,
             [class*="recent"], [class*="popular"], [class*="trending"],
             [class*="related"], [class*="suggest"], [class*="recommend"],
             .sidebar-recent, .sidebar-popular, .widget-recent, .widget-popular,
             .recent-posts, .popular-posts, .related-posts, .more-posts,
-            .you-may-like, .similar-content, .other-articles {
+            .you-may-like, .similar-content, .other-articles,
+            /* Specific to becepastquestions.com sidebar */
+            .sidebar, .widget-area, .secondary, aside,
+            h3:contains("Recent popular post"), h3:contains("ADVERTISMENT"),
+            h3:contains("Social Media"), h3:contains("Quick Links"),
+            h3:contains("Newsletter"), h3:contains("Recent Posts"),
+            /* Remove entire sidebar sections */
+            .sidebar-wrapper, .widget-wrapper, .sidebar-content {
               display: none !important;
               visibility: hidden !important;
               opacity: 0 !important;
               height: 0 !important;
               width: 0 !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              position: absolute !important;
+              left: -9999px !important;
+              top: -9999px !important;
+              z-index: -9999 !important;
             }
 
             /* BRUTE FORCE SOCIAL MEDIA REMOVAL */
@@ -450,10 +480,10 @@ const StudentsHubPage: React.FC = () => {
           const script = iframeDoc.createElement('script');
           script.textContent = `
             (function() {
-              // BRUTE FORCE ELEMENT REMOVAL FUNCTION
+              // NUCLEAR ELEMENT REMOVAL FUNCTION - Enhanced for becepastquestions.com
               function removeUnwantedElements() {
                 const selectors = [
-                  // FOOTER BRUTE FORCE
+                  // FOOTER NUCLEAR REMOVAL
                   'footer', '.footer', '#footer', '[class*="footer"]', '[id*="footer"]',
                   '[class*="Footer"]', '[id*="Footer"]', '.site-footer', '#site-footer',
                   '.page-footer', '#page-footer', '.main-footer', '#main-footer',
@@ -462,6 +492,7 @@ const StudentsHubPage: React.FC = () => {
                   '.footer-area', '.footer-widget', '.footer-info', '.footer-links',
                   '.copyright', '.copyright-text', '.copyright-info', '.copyright-notice',
                   '[class*="copyright"]', '[id*="copyright"]', '.site-info', '.site-credits',
+                  '.site-footer-wrapper', '.footer-widgets', '.footer-bottom', '.footer-copyright',
 
                   // AD BRUTE FORCE
                   '.ad', '.ads', '.advertisement', '.advert', '.adsense', '.google-ads',
@@ -475,13 +506,16 @@ const StudentsHubPage: React.FC = () => {
                   'ins.adsbygoogle', '.adsbox', '.ad-container', '.ad-wrapper', '.ad-space',
                   '.advertisement-container', '.ads-container', '.banner-container',
 
-                  // DISTRACTION BRUTE FORCE
+                  // DISTRACTION NUCLEAR REMOVAL
                   '.recent', '.popular', '.trending', '.related', '.suggestions', '.recommended',
                   '[class*="recent"]', '[class*="popular"]', '[class*="trending"]',
                   '[class*="related"]', '[class*="suggest"]', '[class*="recommend"]',
                   '.sidebar-recent', '.sidebar-popular', '.widget-recent', '.widget-popular',
                   '.recent-posts', '.popular-posts', '.related-posts', '.more-posts',
                   '.you-may-like', '.similar-content', '.other-articles',
+                  // Specific sidebar elements from becepastquestions.com
+                  '.sidebar', '.widget-area', '.secondary', 'aside',
+                  '.sidebar-wrapper', '.widget-wrapper', '.sidebar-content',
 
                   // SOCIAL MEDIA BRUTE FORCE
                   '.social-share', '.share-buttons', '.social-media', '.social-icons',
@@ -512,7 +546,7 @@ const StudentsHubPage: React.FC = () => {
                   '.pagination', '.page-numbers', '.nav-links', '.post-navigation'
                 ];
 
-                // BRUTE FORCE REMOVAL - Multiple methods
+                // NUCLEAR REMOVAL - Multiple aggressive methods
                 selectors.forEach(selector => {
                   try {
                     const elements = document.querySelectorAll(selector);
@@ -526,6 +560,7 @@ const StudentsHubPage: React.FC = () => {
                         el.style.width = '0';
                         el.style.margin = '0';
                         el.style.padding = '0';
+                        el.style.overflow = 'hidden';
 
                         // Method 2: Move off-screen
                         el.style.position = 'absolute';
@@ -533,7 +568,12 @@ const StudentsHubPage: React.FC = () => {
                         el.style.top = '-9999px';
                         el.style.zIndex = '-9999';
 
-                        // Method 3: Remove from DOM
+                        // Method 3: Disable interactions
+                        el.style.pointerEvents = 'none';
+                        el.style.userSelect = 'none';
+                        el.setAttribute('aria-hidden', 'true');
+
+                        // Method 4: Remove from DOM
                         try {
                           el.parentNode && el.parentNode.removeChild(el);
                         } catch (e) {
@@ -543,6 +583,49 @@ const StudentsHubPage: React.FC = () => {
                     });
                   } catch (e) {
                     // Ignore errors for invalid selectors
+                  }
+                });
+
+                // ADDITIONAL AGGRESSIVE TECHNIQUES
+                // Remove elements by text content
+                const textPatterns = [
+                  'ADVERTISMENT', 'Recent popular post', 'Social Media',
+                  'Quick Links', 'Newsletter', 'Recent Posts', 'Ad Clicks',
+                  'Ad Views', 'Copyright at 2025', 'All Rights Reserved'
+                ];
+
+                textPatterns.forEach(pattern => {
+                  try {
+                    const xpath = \`//\*[contains(text(), '\${pattern}')]\`;
+                    const result = document.evaluate(xpath, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+                    for (let i = 0; i < result.snapshotLength; i++) {
+                      const element = result.snapshotItem(i);
+                      if (element && element.parentNode) {
+                        // Remove the parent container too
+                        const parent = element.closest('div, section, aside, footer, header');
+                        if (parent) {
+                          parent.remove();
+                        } else {
+                          element.remove();
+                        }
+                      }
+                    }
+                  } catch (e) {
+                    // Ignore XPath errors
+                  }
+                });
+
+                // Remove tracking scripts
+                const scripts = document.querySelectorAll('script');
+                scripts.forEach(script => {
+                  const src = script.src || '';
+                  const content = script.textContent || '';
+                  if (src.includes('facebook.com') ||
+                      src.includes('google-analytics') ||
+                      src.includes('googletagmanager') ||
+                      content.includes('Ad Clicks') ||
+                      content.includes('Ad Views')) {
+                    script.remove();
                   }
                 });
 
@@ -612,15 +695,61 @@ const StudentsHubPage: React.FC = () => {
                 subtree: true
               });
 
-              // AGGRESSIVE INTERVALS - Multiple cleanup schedules
-              setInterval(removeUnwantedElements, 1000);  // Every 1 second
+              // NUCLEAR INTERVALS - Extremely aggressive cleanup
+              setInterval(removeUnwantedElements, 500);   // Every 0.5 seconds
+              setInterval(removeUnwantedElements, 2000);  // Every 2 seconds
               setInterval(removeUnwantedElements, 5000);  // Every 5 seconds
               setInterval(removeUnwantedElements, 10000); // Every 10 seconds
 
-              // SCROLL-BASED CLEANUP
+              // EVENT-BASED CLEANUP
               window.addEventListener('scroll', function() {
+                setTimeout(removeUnwantedElements, 50);
+              });
+
+              window.addEventListener('resize', function() {
                 setTimeout(removeUnwantedElements, 100);
               });
+
+              window.addEventListener('focus', function() {
+                setTimeout(removeUnwantedElements, 100);
+              });
+
+              // ADDITIONAL NUCLEAR TECHNIQUES
+              // Block new script injections
+              const originalAppendChild = Node.prototype.appendChild;
+              Node.prototype.appendChild = function(child) {
+                if (child.tagName === 'SCRIPT') {
+                  const src = child.src || '';
+                  const content = child.textContent || '';
+                  if (src.includes('ads') ||
+                      src.includes('facebook.com') ||
+                      src.includes('google-analytics') ||
+                      content.includes('Ad Clicks') ||
+                      content.includes('Ad Views')) {
+                    return child; // Block the script
+                  }
+                }
+                return originalAppendChild.call(this, child);
+              };
+
+              // Block new iframe injections for ads
+              const originalCreateElement = document.createElement;
+              document.createElement = function(tagName) {
+                const element = originalCreateElement.call(this, tagName);
+                if (tagName.toLowerCase() === 'iframe') {
+                  const originalSetAttribute = element.setAttribute;
+                  element.setAttribute = function(name, value) {
+                    if (name === 'src' && (
+                        value.includes('googlesyndication') ||
+                        value.includes('doubleclick') ||
+                        value.includes('adsystem'))) {
+                      return; // Block ad iframes
+                    }
+                    return originalSetAttribute.call(this, name, value);
+                  };
+                }
+                return element;
+              };
             })();
           `;
 
