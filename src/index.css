@@ -4,110 +4,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Facebook Section Animated Galleries - Optimized for Stability */
-@keyframes scroll-up {
+/* Facebook Section Animated Galleries - Smooth Vertical Scrolling */
+@keyframes peaceful-scroll {
   0% {
-    transform: translate3d(0, 100%, 0);
+    transform: translateY(0);
   }
   100% {
-    transform: translate3d(0, -100%, 0);
+    transform: translateY(-50%);
   }
 }
 
-@keyframes scroll-down {
-  0% {
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    transform: translate3d(0, 100%, 0);
-  }
-}
-
-@keyframes scroll-up-slow {
-  0% {
-    transform: translate3d(0, 100%, 0);
-  }
-  100% {
-    transform: translate3d(0, -100%, 0);
-  }
-}
-
-@keyframes scroll-down-slow {
-  0% {
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    transform: translate3d(0, 100%, 0);
-  }
-}
-
-.animate-scroll-up {
-  animation: scroll-up 60s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-.animate-scroll-down {
-  animation: scroll-down 60s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-.animate-scroll-up-slow {
-  animation: scroll-up-slow 80s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-.animate-scroll-down-slow {
-  animation: scroll-down-slow 80s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-.animate-scroll-up-slower {
-  animation: scroll-up-slow 100s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-.animate-scroll-down-slower {
-  animation: scroll-down-slow 100s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-/* Stable Gallery Container */
+/* Smooth Gallery Container */
 .gallery-strip {
   position: absolute;
   top: 0;
-  height: 100%;
+  height: 200%; /* Double height for seamless loop */
   overflow: hidden;
   will-change: transform;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
+}
+
+.gallery-content {
+  animation: peaceful-scroll 120s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  height: 200%; /* Double height for seamless loop */
 }
 
 .gallery-item {
   position: relative;
   overflow: hidden;
-  will-change: transform;
+  will-change: auto;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   image-rendering: optimizeSpeed;
   image-rendering: -webkit-optimize-contrast;
+}
+
+/* Reduce motion for better performance and accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-content {
+    animation: none !important;
+  }
+}
+
+/* Pause animations on hover for better user experience */
+.gallery-strip:hover .gallery-content {
+  animation-play-state: paused;
 }
 
 @layer utilities {
