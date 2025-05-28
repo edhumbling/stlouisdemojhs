@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -49,6 +49,12 @@ const StaffResourcesPage: React.FC = () => {
   };
 
   const openResource = (resourceId: string) => {
+    // Handle internal routes
+    if (resourceId === 'leveraging-ai-teaching') {
+      navigate('/ai-teaching-guide');
+      return;
+    }
+
     setIsLoading(true);
     setIframeError(false);
     setShowAlternatives(false);
@@ -156,6 +162,16 @@ const StaffResourcesPage: React.FC = () => {
       icon: FileBarChart,
       category: 'Assessment',
       color: 'from-orange-500 to-orange-600'
+    },
+    {
+      id: 'leveraging-ai-teaching',
+      title: 'Leveraging AI in Teaching',
+      subtitle: 'Comprehensive Guide',
+      description: 'Complete guide to integrating AI tools in African classrooms',
+      url: '/ai-teaching-guide',
+      icon: Brain,
+      category: 'Professional Development',
+      color: 'from-emerald-500 to-emerald-600'
     }
   ];
 
@@ -322,7 +338,8 @@ const StaffResourcesPage: React.FC = () => {
                         backgroundColor:
                           resource.id === 'khamingo' ? '#a855f7' :
                           resource.id === 'chief-examiners-reports' ? '#f97316' :
-                          '#3b82f6' // Purple-500, Orange-500, or Blue-500
+                          resource.id === 'leveraging-ai-teaching' ? '#10b981' :
+                          '#3b82f6' // Purple-500, Orange-500, Emerald-500, or Blue-500
                       }}
                     >
                       <IconComponent size={20} className="sm:w-6 sm:h-6" />

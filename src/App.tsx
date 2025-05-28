@@ -30,6 +30,7 @@ import CreativeArtsPage from './pages/CreativeArtsPage';
 import LanguageCommunicationPage from './pages/LanguageCommunicationPage';
 import CoreAcademicPage from './pages/CoreAcademicPage';
 import StaffResourcesPage from './pages/StaffResourcesPage';
+import AITeachingGuidePage from './pages/AITeachingGuidePage';
 import NotFoundPage from './pages/NotFoundPage';
 
 
@@ -107,6 +108,7 @@ const App: React.FC = () => {
           <Route path="admissions" element={<AdmissionsPage />} />
           <Route path="faculty" element={<FacultyPage />} />
           <Route path="staff-resources" element={<StaffResourcesPage />} />
+          <Route path="ai-teaching-guide" element={<AITeachingGuidePage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="news" element={<NewsPage />} />
           <Route path="stem" element={<STEMPage />} />
