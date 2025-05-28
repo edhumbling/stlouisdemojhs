@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 const StaffResourcesPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedResource, setSelectedResource] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const { setShowHeader } = useHeader();
 
   // Control header visibility based on whether we're viewing an individual resource
@@ -25,16 +28,27 @@ const StaffResourcesPage: React.FC = () => {
     };
   }, [selectedResource, setShowHeader]);
 
-  const handleBack = () => {
+  const handleMainBack = () => {
     navigate(-1); // Go back to previous page
   };
 
+  const handleBack = () => {
+    setSelectedResource(null);
+    setIsLoading(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const openResource = (resourceId: string) => {
+    setIsLoading(true);
     setSelectedResource(resourceId);
   };
 
-  const closeResource = () => {
-    setSelectedResource(null);
+  const handleIframeLoad = () => {
+    setIsLoading(false);
+  };
+
+  const handleIframeError = () => {
+    setIsLoading(false);
   };
 
   const resources = [
@@ -59,7 +73,7 @@ const StaffResourcesPage: React.FC = () => {
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
-                onClick={closeResource}
+                onClick={handleBack}
                 className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-blue-700/70 hover:bg-blue-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/50 hover:border-blue-400/70 flex-shrink-0 ring-2 ring-blue-500/20 hover:ring-blue-400/30"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
@@ -86,12 +100,31 @@ const StaffResourcesPage: React.FC = () => {
         {/* Content Area - Full height iframe */}
         <div className="w-full h-full pt-20 sm:pt-24 relative">
           <iframe
+            ref={iframeRef}
             src={resources.find(r => r.id === selectedResource)?.url}
             className="w-full h-full border-0 relative z-10"
             title={resources.find(r => r.id === selectedResource)?.title}
-            loading="lazy"
+            onLoad={handleIframeLoad}
+            onError={handleIframeError}
             style={{ background: 'white' }}
           />
+
+          {/* Shimmer Loading Overlay */}
+          {isLoading && (
+            <div className="absolute inset-0 z-20">
+              <ShimmerLoader
+                variant="hero"
+                className="w-full h-full"
+              />
+              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 border-4 border-gray-600 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
+                  <h3 className="text-xl font-bold text-white mb-2">Loading {resources.find(r => r.id === selectedResource)?.title}...</h3>
+                  <p className="text-gray-300 text-sm">Please wait while we load the educational resource</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -104,7 +137,7 @@ const StaffResourcesPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
-              onClick={handleBack}
+              onClick={handleMainBack}
               className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
             >
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
