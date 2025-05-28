@@ -1,11 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useHeader } from '../contexts/HeaderContext';
 
 const StaffResourcesPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedResource, setSelectedResource] = useState<string | null>(null);
+  const { setShowHeader } = useHeader();
+
+  // Control header visibility based on whether we're viewing an individual resource
+  useEffect(() => {
+    if (selectedResource) {
+      // Hide header when viewing individual resource
+      setShowHeader(false);
+    } else {
+      // Show header when viewing main grid
+      setShowHeader(true);
+    }
+
+    // Cleanup: ensure header is shown when component unmounts
+    return () => {
+      setShowHeader(true);
+    };
+  }, [selectedResource, setShowHeader]);
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
@@ -33,27 +51,46 @@ const StaffResourcesPage: React.FC = () => {
   ];
 
   if (selectedResource) {
-    // Full-screen embedded view
+    // Full-screen embedded view - No header, no footer
     return (
-      <div className="h-screen flex flex-col bg-white">
-        {/* Back Button Header - Fixed at top */}
-        <div className="flex-shrink-0 bg-blue-600 px-4 py-3 shadow-lg">
-          <button
-            onClick={closeResource}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg transition-all duration-300 text-sm"
-          >
-            <ArrowLeft size={16} />
-            <span>Back</span>
-          </button>
+      <div className="fixed inset-0 z-50 bg-white">
+        {/* Header - Enhanced Blue Back Button */}
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-4 sm:py-5 shadow-2xl border-b border-blue-700/50">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={closeResource}
+                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-blue-700/70 hover:bg-blue-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/50 hover:border-blue-400/70 flex-shrink-0 ring-2 ring-blue-500/20 hover:ring-blue-400/30"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                {resources.find(r => r.id === selectedResource)?.title}
+              </h1>
+
+              <a
+                href={resources.find(r => r.id === selectedResource)?.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
+              >
+                <ExternalLink size={14} />
+                <span className="hidden sm:inline">Open Original</span>
+              </a>
+            </div>
+          </div>
         </div>
 
-        {/* Main Content - Full height iframe */}
-        <div className="flex-1 overflow-hidden">
+        {/* Content Area - Full height iframe */}
+        <div className="w-full h-full pt-20 sm:pt-24 relative">
           <iframe
             src={resources.find(r => r.id === selectedResource)?.url}
-            className="w-full h-full border-0"
+            className="w-full h-full border-0 relative z-10"
             title={resources.find(r => r.id === selectedResource)?.title}
             loading="lazy"
+            style={{ background: 'white' }}
           />
         </div>
       </div>
