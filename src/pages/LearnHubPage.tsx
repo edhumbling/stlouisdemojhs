@@ -16,6 +16,7 @@ interface Resource {
   embedStrategy?: 'iframe' | 'external' | 'smart';
   forceExternal?: boolean;
   proxyUrls?: string[];
+  customScripts?: boolean;
 }
 
 const LearnHubPage: React.FC = () => {
@@ -151,6 +152,16 @@ const LearnHubPage: React.FC = () => {
       url: "https://www.lennybot.com/",
       icon: <Lightbulb className="w-5 h-5" />,
       color: "#F59E0B"
+    },
+    {
+      id: 11,
+      title: "BECE Past Questions Old",
+      description: "Comprehensive BECE past questions database",
+      url: "https://www.becepastquestions.com/",
+      icon: <FileText className="w-5 h-5" />,
+      color: "#8B5CF6",
+      embedStrategy: 'iframe',
+      customScripts: true
     }
   ];
 
@@ -238,6 +249,170 @@ const LearnHubPage: React.FC = () => {
     setIsLoading(false);
     setIframeError(false);
     setSmartLoadingPhase('success');
+
+    // Inject custom scripts for BECE Past Questions to remove ads and unwanted sections
+    if (selectedResource?.customScripts && iframeRef.current) {
+      try {
+        const iframe = iframeRef.current;
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+
+        if (iframeDoc) {
+          // Create and inject custom CSS to hide unwanted elements
+          const style = iframeDoc.createElement('style');
+          style.textContent = `
+            /* Hide footer */
+            footer, .footer, #footer, [class*="footer"], [id*="footer"] {
+              display: none !important;
+            }
+
+            /* Hide ads and advertisement sections */
+            .ad, .ads, .advertisement, .advert, .adsense, .google-ads,
+            [class*="ad-"], [class*="ads-"], [class*="advert"], [class*="banner"],
+            [id*="ad-"], [id*="ads-"], [id*="advert"], [id*="banner"],
+            .sidebar-ads, .header-ads, .content-ads, .popup-ad,
+            iframe[src*="googlesyndication"], iframe[src*="doubleclick"],
+            iframe[src*="googleadservices"], .google-auto-placed {
+              display: none !important;
+              visibility: hidden !important;
+              opacity: 0 !important;
+              height: 0 !important;
+              width: 0 !important;
+              margin: 0 !important;
+              padding: 0 !important;
+            }
+
+            /* Hide recent/popular sections that might be distracting */
+            .recent, .popular, .trending, .related, .suggestions,
+            [class*="recent"], [class*="popular"], [class*="trending"],
+            [class*="related"], [class*="suggest"], .sidebar-recent,
+            .sidebar-popular, .widget-recent, .widget-popular {
+              display: none !important;
+            }
+
+            /* Hide social media widgets and share buttons */
+            .social-share, .share-buttons, .social-media, .social-icons,
+            [class*="social"], [class*="share"], .fb-like, .twitter-share,
+            .addthis, .sharethis {
+              display: none !important;
+            }
+
+            /* Hide newsletter signup and subscription boxes */
+            .newsletter, .subscribe, .subscription, .email-signup,
+            [class*="newsletter"], [class*="subscribe"], [class*="signup"] {
+              display: none !important;
+            }
+
+            /* Clean up the layout */
+            body {
+              margin: 0 !important;
+              padding: 10px !important;
+              background: #ffffff !important;
+            }
+
+            /* Ensure main content is visible and well-spaced */
+            .main, .content, .container, .wrapper, main, article {
+              max-width: 100% !important;
+              margin: 0 auto !important;
+              padding: 10px !important;
+            }
+
+            /* Hide cookie notices and popups */
+            .cookie-notice, .cookie-banner, .gdpr-notice, .privacy-notice,
+            [class*="cookie"], [class*="gdpr"], [class*="privacy"],
+            .modal, .popup, .overlay, [class*="modal"], [class*="popup"] {
+              display: none !important;
+            }
+          `;
+
+          iframeDoc.head.appendChild(style);
+
+          // Also inject JavaScript to continuously remove ads that might load dynamically
+          const script = iframeDoc.createElement('script');
+          script.textContent = `
+            (function() {
+              // Function to remove unwanted elements
+              function removeUnwantedElements() {
+                const selectors = [
+                  'footer', '.footer', '#footer', '[class*="footer"]', '[id*="footer"]',
+                  '.ad', '.ads', '.advertisement', '.advert', '.adsense', '.google-ads',
+                  '[class*="ad-"]', '[class*="ads-"]', '[class*="advert"]', '[class*="banner"]',
+                  '[id*="ad-"]', '[id*="ads-"]', '[id*="advert"]', '[id*="banner"]',
+                  '.sidebar-ads', '.header-ads', '.content-ads', '.popup-ad',
+                  'iframe[src*="googlesyndication"]', 'iframe[src*="doubleclick"]',
+                  'iframe[src*="googleadservices"]', '.google-auto-placed',
+                  '.recent', '.popular', '.trending', '.related', '.suggestions',
+                  '[class*="recent"]', '[class*="popular"]', '[class*="trending"]',
+                  '[class*="related"]', '[class*="suggest"]', '.sidebar-recent',
+                  '.sidebar-popular', '.widget-recent', '.widget-popular',
+                  '.social-share', '.share-buttons', '.social-media', '.social-icons',
+                  '[class*="social"]', '[class*="share"]', '.fb-like', '.twitter-share',
+                  '.addthis', '.sharethis',
+                  '.newsletter', '.subscribe', '.subscription', '.email-signup',
+                  '[class*="newsletter"]', '[class*="subscribe"]', '[class*="signup"]',
+                  '.cookie-notice', '.cookie-banner', '.gdpr-notice', '.privacy-notice',
+                  '[class*="cookie"]', '[class*="gdpr"]', '[class*="privacy"]',
+                  '.modal', '.popup', '.overlay', '[class*="modal"]', '[class*="popup"]'
+                ];
+
+                selectors.forEach(selector => {
+                  try {
+                    const elements = document.querySelectorAll(selector);
+                    elements.forEach(el => {
+                      if (el) {
+                        el.style.display = 'none';
+                        el.style.visibility = 'hidden';
+                        el.style.opacity = '0';
+                        el.style.height = '0';
+                        el.style.width = '0';
+                        el.remove();
+                      }
+                    });
+                  } catch (e) {
+                    // Ignore errors for invalid selectors
+                  }
+                });
+              }
+
+              // Remove elements immediately
+              removeUnwantedElements();
+
+              // Remove elements after DOM is loaded
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', removeUnwantedElements);
+              }
+
+              // Continuously monitor for new ads/unwanted content
+              const observer = new MutationObserver(function(mutations) {
+                let shouldClean = false;
+                mutations.forEach(function(mutation) {
+                  if (mutation.addedNodes.length > 0) {
+                    shouldClean = true;
+                  }
+                });
+                if (shouldClean) {
+                  setTimeout(removeUnwantedElements, 100);
+                }
+              });
+
+              observer.observe(document.body, {
+                childList: true,
+                subtree: true
+              });
+
+              // Also run cleanup every 2 seconds to catch any delayed content
+              setInterval(removeUnwantedElements, 2000);
+            })();
+          `;
+
+          iframeDoc.body.appendChild(script);
+
+          console.log('Custom scripts injected for BECE Past Questions - ads and unwanted sections blocked');
+        }
+      } catch (error) {
+        console.log('Could not inject custom scripts (cross-origin restriction):', error);
+        // This is expected for cross-origin iframes, but we still try
+      }
+    }
   };
 
   const handleIframeError = () => {
