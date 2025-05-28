@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -8,6 +8,22 @@ import { useHeader } from '../../contexts/HeaderContext';
 const Layout: React.FC = () => {
   const location = useLocation();
   const { showHeader } = useHeader();
+
+  // Load ElevenLabs ConvAI widget script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://elevenlabs.io/convai-widget/index.js';
+    script.async = true;
+    script.type = 'text/javascript';
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
 
   // Pages that should not show the footer
   const noFooterPages = ['/news', '/calendar', '/ai-search', '/schedule-visit', '/learnhub', '/advice-speeches'];
@@ -113,6 +129,11 @@ const Layout: React.FC = () => {
 
       {/* Global Scroll Button - Always visible like taskbar time */}
       <ScrollButton />
+
+      {/* ElevenLabs ConvAI Widget - Fixed on right side, responsive positioning */}
+      <div className="fixed right-2 sm:right-4 md:right-6 top-1/2 transform -translate-y-1/2 z-40 pointer-events-auto">
+        <elevenlabs-convai agent-id="fAiPNUtMGChNGFI7nFy4"></elevenlabs-convai>
+      </div>
     </div>
   );
 };
