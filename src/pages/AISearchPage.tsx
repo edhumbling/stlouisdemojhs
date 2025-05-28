@@ -10,6 +10,7 @@ const AISearchPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [iframeError, setIframeError] = useState(false);
   const [showAlternatives, setShowAlternatives] = useState(false);
+  const [autoRedirectTimer, setAutoRedirectTimer] = useState<NodeJS.Timeout | null>(null);
   const { setShowHeader } = useHeader();
 
   // Control header visibility based on whether we're viewing an individual engine
@@ -34,6 +35,11 @@ const AISearchPage: React.FC = () => {
       setIsLoading(false);
       setIframeError(false);
       setShowAlternatives(false);
+      // Clear any auto-redirect timer
+      if (autoRedirectTimer) {
+        clearTimeout(autoRedirectTimer);
+        setAutoRedirectTimer(null);
+      }
       // Scroll to top when returning to main page
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -140,7 +146,7 @@ const AISearchPage: React.FC = () => {
       name: 'Grok',
       url: 'https://grok.com',
       description: 'Advanced AI assistant with real-time information and witty personality',
-      icon: <img src="https://grok.com/favicon.ico" alt="Grok" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://x.ai/favicon.ico" alt="Grok" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=G'; }} />,
       color: 'from-gray-800 to-black',
       glowColor: '#000000',
       hasWhiteBackground: true
@@ -150,7 +156,7 @@ const AISearchPage: React.FC = () => {
       name: 'Claude AI',
       url: 'https://claude.ai',
       description: 'Anthropic\'s AI assistant for thoughtful, helpful, and harmless conversations',
-      icon: <img src="https://claude.ai/favicon.ico" alt="Claude" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://claude.ai/favicon.ico" alt="Claude" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ea580c/ffffff?text=C'; }} />,
       color: 'from-orange-500 to-red-600',
       glowColor: '#ea580c',
       hasWhiteBackground: true
@@ -160,7 +166,7 @@ const AISearchPage: React.FC = () => {
       name: 'ChatGPT',
       url: 'https://chatgpt.com/c/',
       description: 'OpenAI\'s conversational AI for creative and analytical tasks',
-      icon: <img src="https://chatgpt.com/favicon.ico" alt="ChatGPT" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=GPT'; }} />,
       color: 'from-green-500 to-emerald-600',
       glowColor: '#10b981',
       hasWhiteBackground: true
@@ -180,7 +186,7 @@ const AISearchPage: React.FC = () => {
       name: 'Gemini',
       url: 'https://gemini.google.com',
       description: 'Google\'s most capable AI model for multimodal understanding',
-      icon: <img src="https://gemini.google.com/favicon.ico" alt="Gemini" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=G'; }} />,
       color: 'from-blue-500 to-purple-600',
       glowColor: '#8b5cf6',
       hasWhiteBackground: true
@@ -190,7 +196,7 @@ const AISearchPage: React.FC = () => {
       name: 'DeepSeek Chat',
       url: 'https://deepseek.com/chat',
       description: 'Advanced AI model with deep reasoning and coding capabilities',
-      icon: <img src="https://deepseek.com/favicon.ico" alt="DeepSeek" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://chat.deepseek.com/favicon.ico" alt="DeepSeek" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ec4899/ffffff?text=DS'; }} />,
       color: 'from-purple-600 to-pink-600',
       glowColor: '#ec4899',
       hasWhiteBackground: true
@@ -240,7 +246,7 @@ const AISearchPage: React.FC = () => {
       name: 'Pi AI',
       url: 'https://pi.ai/',
       description: 'Personal AI assistant designed for supportive, smart, and helpful conversations',
-      icon: <img src="https://pi.ai/favicon.ico" alt="Pi AI" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://pi.ai/favicon.svg" alt="Pi AI" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=π'; }} />,
       color: 'from-violet-500 to-purple-600',
       glowColor: '#8b5cf6',
       hasWhiteBackground: true
@@ -250,7 +256,7 @@ const AISearchPage: React.FC = () => {
       name: 'Qwen Chat',
       url: 'https://chat.qwen.ai/',
       description: 'Advanced AI chat model with multilingual capabilities and reasoning skills',
-      icon: <img src="https://chat.qwen.ai/favicon.ico" alt="Qwen Chat" className="w-6 h-6 sm:w-8 sm:h-8" />,
+      icon: <img src="https://qwen.ai/favicon.ico" alt="Qwen Chat" className="w-6 h-6 sm:w-8 sm:h-8" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=Q'; }} />,
       color: 'from-red-500 to-orange-600',
       glowColor: '#f97316',
       hasWhiteBackground: true
@@ -302,18 +308,56 @@ const AISearchPage: React.FC = () => {
     setIframeError(false);
     setShowAlternatives(false);
     setSelectedEngine(engineId);
-    // Loading will be hidden when iframe loads
+
+    // Set up auto-redirect timer - if iframe doesn't load in 5 seconds, auto-redirect
+    const timer = setTimeout(() => {
+      const engineData = aiEngines.find(engine => engine.id === engineId);
+      if (engineData) {
+        console.log(`Auto-redirecting ${engineData.name} to browser due to loading timeout`);
+        window.open(engineData.url, '_blank', 'noopener,noreferrer');
+        // Go back to main page
+        setSelectedEngine(null);
+        setIsLoading(false);
+      }
+    }, 5000);
+
+    setAutoRedirectTimer(timer);
   };
 
   const handleIframeLoad = () => {
     setIsLoading(false);
     setIframeError(false);
+    // Clear auto-redirect timer since iframe loaded successfully
+    if (autoRedirectTimer) {
+      clearTimeout(autoRedirectTimer);
+      setAutoRedirectTimer(null);
+    }
   };
 
   const handleIframeError = () => {
     setIsLoading(false);
     setIframeError(true);
     setShowAlternatives(true);
+
+    // Clear auto-redirect timer
+    if (autoRedirectTimer) {
+      clearTimeout(autoRedirectTimer);
+      setAutoRedirectTimer(null);
+    }
+
+    // Auto-redirect immediately when iframe fails
+    if (selectedEngineData) {
+      console.log(`Auto-redirecting ${selectedEngineData.name} to browser due to iframe error`);
+      setTimeout(() => {
+        window.open(selectedEngineData.url, '_blank', 'noopener,noreferrer');
+        // Go back to main page after a short delay
+        setTimeout(() => {
+          setSelectedEngine(null);
+          setIframeError(false);
+          setShowAlternatives(false);
+        }, 1000);
+      }, 2000); // Wait 2 seconds to show the error message
+    }
   };
 
   const handleOpenInBrowser = () => {
@@ -395,8 +439,11 @@ const AISearchPage: React.FC = () => {
                     <Globe className="w-10 h-10 text-red-400" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">Access Restricted</h3>
-                  <p className="text-gray-300 mb-6">
-                    {selectedEngineData.name} cannot be embedded directly. Click below to open it in a new browser tab for the best experience.
+                  <p className="text-gray-300 mb-4">
+                    {selectedEngineData.name} cannot be embedded directly.
+                  </p>
+                  <p className="text-blue-400 mb-6 font-medium">
+                    🚀 Auto-redirecting to browser in a moment...
                   </p>
                 </div>
 
