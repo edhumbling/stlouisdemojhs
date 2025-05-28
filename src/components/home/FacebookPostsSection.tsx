@@ -27,8 +27,9 @@ const FacebookPostsSection: React.FC = () => {
   const facebookPageUrl = "https://www.facebook.com/stlouisdemojhs";
 
   useEffect(() => {
-    // Optimized Facebook SDK loading
+    // Blazing fast Facebook SDK loading
     const loadFacebookSDK = () => {
+      // Immediate check for existing FB
       if (window.FB) {
         setFbLoaded(true);
         setIsLoading(false);
@@ -38,16 +39,24 @@ const FacebookPostsSection: React.FC = () => {
       // Check if script already exists
       const existingScript = document.querySelector('script[src*="connect.facebook.net"]');
       if (existingScript) {
-        setIsLoading(false);
+        // Listen for existing script load
+        existingScript.addEventListener('load', () => {
+          if (window.FB) {
+            setFbLoaded(true);
+          }
+          setIsLoading(false);
+        });
         return;
       }
 
-      // Create optimized Facebook SDK script
+      // Create ultra-optimized Facebook SDK script
       const script = document.createElement('script');
       script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0';
       script.async = true;
+      script.defer = false; // Remove defer for faster loading
       script.crossOrigin = 'anonymous';
 
+      // Immediate loading handlers
       script.onload = () => {
         if (window.FB) {
           window.FB.init({
@@ -64,29 +73,19 @@ const FacebookPostsSection: React.FC = () => {
         setLoadError(true);
       };
 
-      // Use requestIdleCallback for non-blocking loading
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-          document.head.appendChild(script);
-        });
-      } else {
-        setTimeout(() => {
-          document.head.appendChild(script);
-        }, 0);
-      }
+      // Immediate append for fastest loading
+      document.head.appendChild(script);
     };
 
-    // Start loading immediately
+    // Start loading immediately without any delays
     loadFacebookSDK();
   }, []);
 
-  // Optimized Facebook widgets refresh
+  // Blazing fast Facebook widgets refresh
   useEffect(() => {
     if (fbLoaded && window.FB) {
-      // Use requestAnimationFrame for smooth rendering
-      requestAnimationFrame(() => {
-        window.FB.XFBML.parse();
-      });
+      // Immediate parsing for fastest rendering
+      window.FB.XFBML.parse();
     }
   }, [fbLoaded]);
 
@@ -176,18 +175,18 @@ const FacebookPostsSection: React.FC = () => {
 
   return (
     <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
-      {/* Animated Student Photo Galleries - Desktop Only */}
+      {/* Animated Student Photo Galleries - Desktop Only (6 Strips) */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none">
-        {/* Left Gallery - Scrolling Up */}
-        <div className="absolute left-4 top-0 w-24 h-full overflow-hidden">
+        {/* Strip 1 - Far Left - Scrolling Up */}
+        <div className="absolute left-2 top-0 w-20 h-full overflow-hidden">
           <div className="animate-scroll-up space-y-3">
-            {[...studentImages, ...studentImages].map((img, index) => (
+            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
               <div
-                key={`left-${index}`}
-                className="relative w-20 h-20 rounded-lg overflow-hidden shadow-lg transform rotate-3 hover:rotate-6 transition-transform duration-300"
+                key={`strip1-${index}`}
+                className="relative w-16 h-16 rounded-lg overflow-hidden shadow-lg transform rotate-3 hover:rotate-6 transition-transform duration-300"
                 style={{
                   filter: 'blur(0.5px) brightness(0.7)',
-                  opacity: 0.6
+                  opacity: 0.5
                 }}
               >
                 <img
@@ -205,42 +204,15 @@ const FacebookPostsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Gallery - Scrolling Down */}
-        <div className="absolute right-4 top-0 w-24 h-full overflow-hidden">
-          <div className="animate-scroll-down space-y-3">
-            {[...studentImages, ...studentImages].map((img, index) => (
+        {/* Strip 2 - Left Inner - Scrolling Down */}
+        <div className="absolute left-24 top-0 w-20 h-full overflow-hidden">
+          <div className="animate-scroll-down space-y-4">
+            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
               <div
-                key={`right-${index}`}
-                className="relative w-20 h-20 rounded-lg overflow-hidden shadow-lg transform -rotate-2 hover:-rotate-4 transition-transform duration-300"
+                key={`strip2-${index}`}
+                className="relative w-18 h-18 rounded-lg overflow-hidden shadow-md transform -rotate-2 hover:-rotate-4 transition-transform duration-300"
                 style={{
-                  filter: 'blur(0.5px) brightness(0.7)',
-                  opacity: 0.6
-                }}
-              >
-                <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div
-                  className="absolute inset-0 mix-blend-multiply"
-                  style={{ backgroundColor: getRandomColor() }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Additional Left Gallery - Slower Scroll */}
-        <div className="absolute left-32 top-0 w-24 h-full overflow-hidden">
-          <div className="animate-scroll-up-slow space-y-4">
-            {[...studentImages, ...studentImages].map((img, index) => (
-              <div
-                key={`left2-${index}`}
-                className="relative w-16 h-16 rounded-lg overflow-hidden shadow-md transform rotate-1 hover:rotate-3 transition-transform duration-300"
-                style={{
-                  filter: 'blur(1px) brightness(0.6)',
+                  filter: 'blur(0.8px) brightness(0.6)',
                   opacity: 0.4
                 }}
               >
@@ -259,16 +231,97 @@ const FacebookPostsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Additional Right Gallery - Slower Scroll */}
-        <div className="absolute right-32 top-0 w-24 h-full overflow-hidden">
-          <div className="animate-scroll-down-slow space-y-4">
-            {[...studentImages, ...studentImages].map((img, index) => (
+        {/* Strip 3 - Left Center - Scrolling Up Slow */}
+        <div className="absolute left-48 top-0 w-20 h-full overflow-hidden">
+          <div className="animate-scroll-up-slow space-y-5">
+            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
               <div
-                key={`right2-${index}`}
-                className="relative w-16 h-16 rounded-lg overflow-hidden shadow-md transform -rotate-1 hover:-rotate-2 transition-transform duration-300"
+                key={`strip3-${index}`}
+                className="relative w-14 h-14 rounded-lg overflow-hidden shadow-sm transform rotate-1 hover:rotate-3 transition-transform duration-300"
                 style={{
-                  filter: 'blur(1px) brightness(0.6)',
+                  filter: 'blur(1px) brightness(0.5)',
+                  opacity: 0.3
+                }}
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0 mix-blend-multiply"
+                  style={{ backgroundColor: getRandomColor() }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 4 - Right Center - Scrolling Down Slow */}
+        <div className="absolute right-48 top-0 w-20 h-full overflow-hidden">
+          <div className="animate-scroll-down-slow space-y-5">
+            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
+              <div
+                key={`strip4-${index}`}
+                className="relative w-14 h-14 rounded-lg overflow-hidden shadow-sm transform -rotate-1 hover:-rotate-2 transition-transform duration-300"
+                style={{
+                  filter: 'blur(1px) brightness(0.5)',
+                  opacity: 0.3
+                }}
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0 mix-blend-multiply"
+                  style={{ backgroundColor: getRandomColor() }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 5 - Right Inner - Scrolling Up Slower */}
+        <div className="absolute right-24 top-0 w-20 h-full overflow-hidden">
+          <div className="animate-scroll-up-slower space-y-4">
+            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
+              <div
+                key={`strip5-${index}`}
+                className="relative w-18 h-18 rounded-lg overflow-hidden shadow-md transform rotate-2 hover:rotate-4 transition-transform duration-300"
+                style={{
+                  filter: 'blur(0.8px) brightness(0.6)',
                   opacity: 0.4
+                }}
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0 mix-blend-multiply"
+                  style={{ backgroundColor: getRandomColor() }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 6 - Far Right - Scrolling Down Slower */}
+        <div className="absolute right-2 top-0 w-20 h-full overflow-hidden">
+          <div className="animate-scroll-down-slower space-y-3">
+            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
+              <div
+                key={`strip6-${index}`}
+                className="relative w-16 h-16 rounded-lg overflow-hidden shadow-lg transform -rotate-3 hover:-rotate-6 transition-transform duration-300"
+                style={{
+                  filter: 'blur(0.5px) brightness(0.7)',
+                  opacity: 0.5
                 }}
               >
                 <img
@@ -326,19 +379,59 @@ const FacebookPostsSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="w-full"
         >
-          {/* Loading State */}
+          {/* Shimmer Loading State */}
           {isLoading && !loadError && (
-            <div className="flex items-center justify-center py-16">
-              <div className="text-center bg-white/80 backdrop-blur-md rounded-2xl p-8 border border-gray-200 shadow-lg">
-                <div className="relative">
-                  <Loader2 size={48} className="text-blue-600 animate-spin mx-auto mb-4" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-green-400 rounded-full opacity-20 animate-ping"></div>
-                </div>
-                <p className="text-gray-700 font-medium">Loading Facebook posts...</p>
-                <div className="flex items-center justify-center gap-1 mt-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-bounce delay-100"></div>
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce delay-200"></div>
+            <div className="flex justify-center">
+              <div className="relative">
+                {/* Neon Glow Effects for Loading */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-green-400 to-yellow-400 rounded-2xl blur-sm opacity-75 animate-pulse"></div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400 via-yellow-400 to-green-400 rounded-2xl blur-xs opacity-50 animate-pulse delay-300"></div>
+
+                {/* Shimmer Container */}
+                <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-white w-[800px] h-[700px]">
+                  {/* Header Shimmer */}
+                  <div className="p-4 border-b border-gray-100">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-gray-200 rounded-full shimmer"></div>
+                      <div className="flex-1 space-y-2">
+                        <div className="h-4 bg-gray-200 rounded shimmer w-3/4"></div>
+                        <div className="h-3 bg-gray-200 rounded shimmer w-1/2"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Posts Shimmer */}
+                  <div className="p-4 space-y-6">
+                    {[1, 2, 3].map((item) => (
+                      <div key={item} className="space-y-3">
+                        {/* Post Header */}
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 bg-gray-200 rounded-full shimmer"></div>
+                          <div className="flex-1 space-y-2">
+                            <div className="h-3 bg-gray-200 rounded shimmer w-1/3"></div>
+                            <div className="h-2 bg-gray-200 rounded shimmer w-1/4"></div>
+                          </div>
+                        </div>
+
+                        {/* Post Content */}
+                        <div className="space-y-2">
+                          <div className="h-3 bg-gray-200 rounded shimmer w-full"></div>
+                          <div className="h-3 bg-gray-200 rounded shimmer w-4/5"></div>
+                          <div className="h-3 bg-gray-200 rounded shimmer w-3/5"></div>
+                        </div>
+
+                        {/* Post Image/Video */}
+                        <div className="h-48 bg-gray-200 rounded-lg shimmer"></div>
+
+                        {/* Post Actions */}
+                        <div className="flex items-center space-x-6">
+                          <div className="h-3 bg-gray-200 rounded shimmer w-12"></div>
+                          <div className="h-3 bg-gray-200 rounded shimmer w-16"></div>
+                          <div className="h-3 bg-gray-200 rounded shimmer w-14"></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
