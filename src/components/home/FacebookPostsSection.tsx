@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, ExternalLink, Loader2 } from 'lucide-react';
+import { Facebook, ExternalLink, Loader2, Play, Calendar, Users } from 'lucide-react';
+import VideoModal from '../common/VideoModal';
 
 // Facebook SDK types
 declare global {
@@ -14,13 +15,63 @@ declare global {
   }
 }
 
+interface FacebookPost {
+  id: string;
+  title: string;
+  description: string;
+  videoUrl?: string;
+  imageUrl: string;
+  date: string;
+  likes: number;
+  comments: number;
+  type: 'video' | 'image' | 'event';
+}
+
 const FacebookPostsSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [fbLoaded, setFbLoaded] = useState(false);
   const [loadError, setLoadError] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<FacebookPost | null>(null);
+  const [showVideoModal, setShowVideoModal] = useState(false);
 
   // Facebook Page URL - St. Louis Demonstration JHS Official Page
   const facebookPageUrl = "https://www.facebook.com/stlouisdemojhs";
+
+  // Sample Facebook posts (in real implementation, these would come from Facebook API)
+  const samplePosts: FacebookPost[] = [
+    {
+      id: '1',
+      title: 'BECE Excellence Celebration',
+      description: 'Our students celebrating their outstanding BECE results! Primus Interparis - The Best Among the Rest! 🎉📚',
+      videoUrl: 'https://www.facebook.com/watch/?v=4921581154635610',
+      imageUrl: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-600,h-400,q-80',
+      date: '2 days ago',
+      likes: 245,
+      comments: 32,
+      type: 'video'
+    },
+    {
+      id: '2',
+      title: 'Science Fair 2024',
+      description: 'Amazing innovations from our STEM students! The future scientists and engineers of Ghana 🔬⚗️',
+      imageUrl: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?tr=w-600,h-400,q-80',
+      date: '5 days ago',
+      likes: 189,
+      comments: 28,
+      type: 'image'
+    },
+    {
+      id: '3',
+      title: 'Inter-House Sports Competition',
+      description: 'Exciting moments from our annual sports day! Building character through healthy competition 🏃‍♂️🏆',
+      videoUrl: 'https://www.youtube.com/watch?v=c90tOBl5K6g',
+      imageUrl: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?tr=w-600,h-400,q-80',
+      date: '1 week ago',
+      likes: 312,
+      comments: 45,
+      type: 'video'
+    }
+  ];
 
   useEffect(() => {
     // Load Facebook SDK
@@ -77,6 +128,27 @@ const FacebookPostsSection: React.FC = () => {
       }, 100);
     }
   }, [fbLoaded]);
+
+  // Handle video modal
+  const handleVideoClick = (post: FacebookPost) => {
+    if (post.videoUrl) {
+      setSelectedVideo(post);
+      setShowVideoModal(true);
+    }
+  };
+
+  const handleCloseVideoModal = () => {
+    setShowVideoModal(false);
+    setSelectedVideo(null);
+  };
+
+  // Determine video platform
+  const getVideoPlatform = (url: string): 'facebook' | 'youtube' | 'vimeo' | 'other' => {
+    if (url.includes('facebook.com')) return 'facebook';
+    if (url.includes('youtube.com') || url.includes('youtu.be')) return 'youtube';
+    if (url.includes('vimeo.com')) return 'vimeo';
+    return 'other';
+  };
 
   return (
     <section className="py-16 sm:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
@@ -196,55 +268,130 @@ const FacebookPostsSection: React.FC = () => {
             </div>
           )}
 
-          {/* Facebook Page Plugin Container */}
+          {/* Custom Facebook Posts Display */}
           {!isLoading && !loadError && (
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-white/30 ring-1 ring-white/20">
-            {/* Desktop Layout - 3 Posts Horizontally */}
-            <div className="hidden lg:block">
-              <div
-                className="fb-page"
-                data-href={facebookPageUrl}
-                data-tabs="timeline"
-                data-width="1000"
-                data-height="600"
-                data-small-header="true"
-                data-adapt-container-width="true"
-                data-hide-cover="false"
-                data-show-facepile="false"
-                data-show-posts="true"
-                data-lazy="true"
-              >
-                <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
-                  <a href={facebookPageUrl} className="text-blue-600 hover:text-blue-800 transition-colors">
-                    Visit our Facebook page
-                  </a>
-                </blockquote>
-              </div>
-            </div>
+            <div className="space-y-6">
+              {/* Desktop Layout - 3 Posts Horizontally */}
+              <div className="hidden lg:grid lg:grid-cols-3 gap-6">
+                {samplePosts.map((post, index) => (
+                  <motion.div
+                    key={post.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-white/30 hover:shadow-xl transition-all duration-300 group"
+                  >
+                    {/* Post Image/Video */}
+                    <div className="relative aspect-video overflow-hidden">
+                      <img
+                        src={post.imageUrl}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      {post.type === 'video' && (
+                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                          <button
+                            onClick={() => handleVideoClick(post)}
+                            className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:scale-110 transition-all duration-300"
+                          >
+                            <Play size={24} className="text-blue-600 ml-1" />
+                          </button>
+                        </div>
+                      )}
+                    </div>
 
-            {/* Mobile/Tablet Layout - Vertical Stack */}
-            <div className="block lg:hidden">
-              <div
-                className="fb-page"
-                data-href={facebookPageUrl}
-                data-tabs="timeline"
-                data-width="400"
-                data-height="600"
-                data-small-header="true"
-                data-adapt-container-width="true"
-                data-hide-cover="false"
-                data-show-facepile="false"
-                data-show-posts="true"
-                data-lazy="true"
-              >
-                <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
-                  <a href={facebookPageUrl} className="text-blue-600 hover:text-blue-800 transition-colors">
-                    Visit our Facebook page
-                  </a>
-                </blockquote>
+                    {/* Post Content */}
+                    <div className="p-4">
+                      <h3 className="font-bold text-gray-900 mb-2 line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-3 line-clamp-3">
+                        {post.description}
+                      </p>
+
+                      {/* Post Stats */}
+                      <div className="flex items-center justify-between text-xs text-gray-500">
+                        <div className="flex items-center gap-4">
+                          <span className="flex items-center gap-1">
+                            <span className="text-blue-600">👍</span>
+                            {post.likes}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <span className="text-gray-600">💬</span>
+                            {post.comments}
+                          </span>
+                        </div>
+                        <span className="flex items-center gap-1">
+                          <Calendar size={12} />
+                          {post.date}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Mobile/Tablet Layout - Vertical Stack */}
+              <div className="block lg:hidden space-y-4">
+                {samplePosts.map((post, index) => (
+                  <motion.div
+                    key={post.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="bg-white/95 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-white/30"
+                  >
+                    <div className="flex gap-4 p-4">
+                      {/* Post Image/Video */}
+                      <div className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
+                        <img
+                          src={post.imageUrl}
+                          alt={post.title}
+                          className="w-full h-full object-cover"
+                        />
+                        {post.type === 'video' && (
+                          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                            <button
+                              onClick={() => handleVideoClick(post)}
+                              className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center"
+                            >
+                              <Play size={14} className="text-blue-600 ml-0.5" />
+                            </button>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Post Content */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-bold text-gray-900 text-sm mb-1 line-clamp-2">
+                          {post.title}
+                        </h3>
+                        <p className="text-xs text-gray-600 mb-2 line-clamp-2">
+                          {post.description}
+                        </p>
+
+                        {/* Post Stats */}
+                        <div className="flex items-center justify-between text-xs text-gray-500">
+                          <div className="flex items-center gap-3">
+                            <span className="flex items-center gap-1">
+                              <span className="text-blue-600">👍</span>
+                              {post.likes}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <span className="text-gray-600">💬</span>
+                              {post.comments}
+                            </span>
+                          </div>
+                          <span>{post.date}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </div>
           )}
 
           {/* Visit Facebook Page Button */}
@@ -270,6 +417,18 @@ const FacebookPostsSection: React.FC = () => {
           )}
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <VideoModal
+          isOpen={showVideoModal}
+          onClose={handleCloseVideoModal}
+          videoUrl={selectedVideo.videoUrl || ''}
+          title={selectedVideo.title}
+          description={selectedVideo.description}
+          platform={selectedVideo.videoUrl ? getVideoPlatform(selectedVideo.videoUrl) : 'other'}
+        />
+      )}
     </section>
   );
 };
