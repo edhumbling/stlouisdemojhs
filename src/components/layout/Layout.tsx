@@ -10,46 +10,35 @@ const Layout: React.FC = () => {
   const { showHeader } = useHeader();
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
-  // Load ElevenLabs ConvAI widget script
+  // Check for ElevenLabs ConvAI widget script (now loaded via HTML)
   useEffect(() => {
-    // Check if script is already loaded
-    const existingScript = document.querySelector('script[src="https://elevenlabs.io/convai-widget/index.js"]');
-    if (existingScript) {
-      setScriptLoaded(true);
-      return;
-    }
+    console.log('🚀 Layout mounted, checking for ElevenLabs script...');
 
-    const script = document.createElement('script');
-    script.src = 'https://elevenlabs.io/convai-widget/index.js';
-    script.async = true;
-    script.type = 'text/javascript';
+    // Since script is now in HTML, just wait a bit and check if it's loaded
+    const checkScript = () => {
+      const scriptExists = document.querySelector('script[src*="elevenlabs.io/convai-widget"]');
+      console.log('Script exists in DOM:', !!scriptExists);
 
-    script.onload = () => {
-      console.log('ElevenLabs ConvAI script loaded successfully');
-      setScriptLoaded(true);
+      if (scriptExists) {
+        setScriptLoaded(true);
+        console.log('✅ ElevenLabs script found in DOM');
 
-      // Wait a bit for the custom element to be defined
-      setTimeout(() => {
-        if (customElements.get('elevenlabs-convai')) {
-          console.log('elevenlabs-convai custom element is defined');
-        } else {
-          console.warn('elevenlabs-convai custom element not yet defined');
-        }
-      }, 1000);
-    };
-
-    script.onerror = () => {
-      console.error('Failed to load ElevenLabs ConvAI script');
-    };
-
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
+        // Check for custom element
+        setTimeout(() => {
+          if (customElements.get('elevenlabs-convai')) {
+            console.log('✅ elevenlabs-convai custom element is defined');
+          } else {
+            console.warn('⚠️ elevenlabs-convai custom element not yet defined, will keep checking...');
+          }
+        }, 2000);
+      } else {
+        console.log('⏳ Script not yet loaded, will check again...');
+        setTimeout(checkScript, 1000);
       }
     };
+
+    // Start checking after a short delay
+    setTimeout(checkScript, 500);
   }, []);
 
   // Pages that should not show the footer
@@ -157,23 +146,34 @@ const Layout: React.FC = () => {
       {/* Global Scroll Button - Always visible like taskbar time */}
       <ScrollButton />
 
-      {/* ElevenLabs ConvAI Widget - Fixed on right side, responsive positioning */}
-      <div className="fixed right-2 sm:right-4 md:right-6 top-1/2 transform -translate-y-1/2 z-40 pointer-events-auto">
+      {/* ElevenLabs ConvAI Widget - Fixed on right side, more visible positioning */}
+      <div
+        className="fixed right-4 top-1/2 transform -translate-y-1/2 z-[9999] pointer-events-auto"
+        style={{
+          position: 'fixed',
+          right: '16px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: 9999,
+          pointerEvents: 'auto'
+        }}
+      >
+        {/* Always show a test indicator first */}
+        <div className="mb-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
+          Widget Area
+        </div>
+
         {scriptLoaded ? (
-          <div className="convai-widget-container">
+          <div className="convai-widget-container bg-white/10 p-2 rounded">
             <elevenlabs-convai agent-id="fAiPNUtMGChNGFI7nFy4"></elevenlabs-convai>
-            {/* Debug indicator - remove this later */}
-            <div className="absolute -top-8 -left-4 bg-green-500 text-white text-xs px-2 py-1 rounded opacity-75">
-              AI Chat
+            {/* Debug indicator */}
+            <div className="mt-2 bg-green-500 text-white text-xs px-2 py-1 rounded text-center">
+              AI Chat Loaded
             </div>
           </div>
         ) : (
-          <div className="w-12 h-12 bg-blue-600/80 rounded-full flex items-center justify-center backdrop-blur-sm border border-blue-400/30 shadow-lg">
-            <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-            {/* Loading indicator */}
-            <div className="absolute -top-8 -left-6 bg-blue-500 text-white text-xs px-2 py-1 rounded opacity-75">
-              Loading AI
-            </div>
+          <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-xl border-4 border-white">
+            <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
           </div>
         )}
       </div>
