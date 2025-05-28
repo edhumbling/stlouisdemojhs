@@ -325,7 +325,7 @@ const AlumniPage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-4 sm:gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {featuredAlumni.map((alumni, index) => (
               <motion.div
                 key={index}
@@ -333,26 +333,26 @@ const AlumniPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20"
+                className="glass-card rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 h-full flex flex-col"
                 whileHover={{ y: -3, transition: { duration: 0.2 } }}
               >
-                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0">
+                <div className="flex flex-col items-center text-center gap-4 flex-1">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex-shrink-0">
                     <OptimizedImage
                       src={alumni.image}
                       alt={alumni.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="flex-1 text-center sm:text-left">
+                  <div className="flex-1 flex flex-col">
                     <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">{alumni.name}</h3>
                     <p className="text-blue-400 font-semibold mb-1 text-sm sm:text-base">{alumni.class}</p>
                     <p className="text-gray-300 font-medium mb-2 text-xs sm:text-sm">{alumni.profession}</p>
-                    <p className="text-gray-400 text-xs sm:text-sm mb-3">{alumni.achievement}</p>
-                    <blockquote className="text-gray-300 text-xs sm:text-sm italic border-l-4 border-blue-500 pl-3 mb-3">
+                    <p className="text-gray-400 text-xs sm:text-sm mb-3 flex-1">{alumni.achievement}</p>
+                    <blockquote className="text-gray-300 text-xs sm:text-sm italic border-l-4 border-blue-500 pl-3 mb-4 text-left">
                       "{alumni.quote}"
                     </blockquote>
-                    <div className="flex flex-col sm:flex-row gap-2 text-center sm:text-left">
+                    <div className="flex flex-col gap-2 mt-auto">
                       {alumni.linkedin && (
                         <a
                           href={alumni.linkedin}
