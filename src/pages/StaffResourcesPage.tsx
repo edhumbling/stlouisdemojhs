@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, FileText } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -61,6 +61,16 @@ const StaffResourcesPage: React.FC = () => {
       icon: BookOpen,
       category: 'Curriculum',
       color: 'from-blue-500 to-blue-600'
+    },
+    {
+      id: 'teacher-resource-pack',
+      title: 'Teacher Resource Pack',
+      subtitle: 'P1-P6 Materials',
+      description: 'Comprehensive teaching materials and resources for Primary 1-6',
+      url: 'https://nacca.gov.gh/wp-content/uploads/2019/06/TEACHER-RESOURCE-PACK-P1-P6.pdf',
+      icon: FileText,
+      category: 'Teaching Materials',
+      color: 'from-green-500 to-green-600'
     }
   ];
 
@@ -178,7 +188,9 @@ const StaffResourcesPage: React.FC = () => {
                     {/* Icon */}
                     <div
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                      style={{ backgroundColor: '#3b82f6' }} // Blue-500
+                      style={{
+                        backgroundColor: resource.id === 'teacher-resource-pack' ? '#22c55e' : '#3b82f6' // Green-500 or Blue-500
+                      }}
                     >
                       <IconComponent size={20} className="sm:w-6 sm:h-6" />
                     </div>
