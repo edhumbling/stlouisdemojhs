@@ -348,9 +348,33 @@ const AISearchPage: React.FC = () => {
     setShowAlternatives(false);
     setSelectedEngine(engineId);
 
-    // Set up auto-redirect timer - if iframe doesn't load in 3 seconds, auto-redirect
+    const engineData = aiEngines.find(engine => engine.id === engineId);
+
+    // List of engines that are known to block iframe embedding - redirect immediately
+    const blockedEngines = ['grok', 'claude', 'chatgpt', 'mistral', 'gemini', 'perplexity', 'copilot', 'genspark', 'pi', 'manus', 'huggingface'];
+
+    if (blockedEngines.includes(engineId)) {
+      console.log(`${engineData?.name} is known to block iframes, redirecting immediately`);
+      setIsLoading(false);
+      setIframeError(true);
+
+      // Show brief message then redirect
+      setTimeout(() => {
+        if (engineData) {
+          window.open(engineData.url, '_blank', 'noopener,noreferrer');
+          // Go back to main page
+          setTimeout(() => {
+            setSelectedEngine(null);
+            setIframeError(false);
+            setShowAlternatives(false);
+          }, 500);
+        }
+      }, 1000);
+      return;
+    }
+
+    // For other engines, set up auto-redirect timer - if iframe doesn't load in 2 seconds, auto-redirect
     const timer = setTimeout(() => {
-      const engineData = aiEngines.find(engine => engine.id === engineId);
       if (engineData) {
         console.log(`Auto-redirecting ${engineData.name} to browser due to loading timeout`);
         setIsLoading(false);
@@ -365,9 +389,9 @@ const AISearchPage: React.FC = () => {
             setIframeError(false);
             setShowAlternatives(false);
           }, 500);
-        }, 1500);
+        }, 1000);
       }
-    }, 3000);
+    }, 2000);
 
     setAutoRedirectTimer(timer);
   };
@@ -497,15 +521,15 @@ const AISearchPage: React.FC = () => {
             <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
               <div className="text-center max-w-md">
                 <div className="mb-8">
-                  <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Globe className="w-10 h-10 text-red-400" />
+                  <div className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Globe className="w-10 h-10 text-blue-400" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Access Restricted</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">Opening {selectedEngineData.name}</h3>
                   <p className="text-gray-300 mb-4">
-                    {selectedEngineData.name} cannot be embedded directly.
+                    {selectedEngineData.name} requires opening in a new browser tab for the best experience.
                   </p>
                   <p className="text-blue-400 mb-6 font-medium">
-                    🚀 Auto-redirecting to browser in a moment...
+                    🚀 Opening in browser now...
                   </p>
                 </div>
 
