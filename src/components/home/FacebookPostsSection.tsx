@@ -151,49 +151,7 @@ const FacebookPostsSection: React.FC = () => {
           }
         });
 
-        // Method 3: Add sample video button for demonstration
-        const fbContainer = document.querySelector('.fb-page');
-        if (fbContainer) {
-          const demoButton = document.createElement('button');
-          demoButton.innerHTML = '🎬 Watch Sample School Video';
-          demoButton.className = 'demo-video-btn';
-          demoButton.style.cssText = `
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: linear-gradient(45deg, #3b82f6, #06b6d4);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease;
-          `;
 
-          demoButton.addEventListener('click', () => {
-            handleVideoClick('https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'St. Louis Demo JHS - School Excellence');
-          });
-
-          demoButton.addEventListener('mouseenter', () => {
-            demoButton.style.transform = 'scale(1.05)';
-            demoButton.style.boxShadow = '0 6px 16px rgba(59, 130, 246, 0.4)';
-          });
-
-          demoButton.addEventListener('mouseleave', () => {
-            demoButton.style.transform = 'scale(1)';
-            demoButton.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.3)';
-          });
-
-          const parent = fbContainer.parentElement;
-          if (parent) {
-            parent.style.position = 'relative';
-            parent.appendChild(demoButton);
-          }
-        }
       }, 3000); // Wait for Facebook content to fully load
     }
   }, [fbLoaded]);
@@ -223,7 +181,7 @@ const FacebookPostsSection: React.FC = () => {
       {/* Glass morphism overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-transparent backdrop-blur-[0.5px]"></div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -260,7 +218,7 @@ const FacebookPostsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-6xl mx-auto"
+          className="w-full"
         >
           {/* Loading State */}
           {isLoading && !loadError && (
@@ -316,55 +274,55 @@ const FacebookPostsSection: React.FC = () => {
             </div>
           )}
 
-          {/* Facebook Page Plugin Container */}
+          {/* Facebook Page Plugin - Native Feel */}
           {!isLoading && !loadError && (
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-white/30 ring-1 ring-white/20">
-            {/* Desktop Layout - 3 Posts Horizontally */}
-            <div className="hidden lg:block">
-              <div
-                className="fb-page"
-                data-href={facebookPageUrl}
-                data-tabs="timeline"
-                data-width="1000"
-                data-height="600"
-                data-small-header="true"
-                data-adapt-container-width="true"
-                data-hide-cover="false"
-                data-show-facepile="false"
-                data-show-posts="true"
-                data-lazy="true"
-              >
-                <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
-                  <a href={facebookPageUrl} className="text-blue-600 hover:text-blue-800 transition-colors">
-                    Visit our Facebook page
-                  </a>
-                </blockquote>
+            <div className="w-full">
+              {/* Desktop Layout - Full Width Native Feel */}
+              <div className="hidden lg:block">
+                <div
+                  className="fb-page w-full"
+                  data-href={facebookPageUrl}
+                  data-tabs="timeline"
+                  data-width="1200"
+                  data-height="700"
+                  data-small-header="false"
+                  data-adapt-container-width="true"
+                  data-hide-cover="false"
+                  data-show-facepile="true"
+                  data-show-posts="true"
+                  data-lazy="true"
+                >
+                  <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
+                    <a href={facebookPageUrl} className="text-blue-300 hover:text-blue-100 transition-colors">
+                      Visit our Facebook page
+                    </a>
+                  </blockquote>
+                </div>
               </div>
-            </div>
 
-            {/* Mobile/Tablet Layout - Vertical Stack */}
-            <div className="block lg:hidden">
-              <div
-                className="fb-page"
-                data-href={facebookPageUrl}
-                data-tabs="timeline"
-                data-width="400"
-                data-height="600"
-                data-small-header="true"
-                data-adapt-container-width="true"
-                data-hide-cover="false"
-                data-show-facepile="false"
-                data-show-posts="true"
-                data-lazy="true"
-              >
-                <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
-                  <a href={facebookPageUrl} className="text-blue-600 hover:text-blue-800 transition-colors">
-                    Visit our Facebook page
-                  </a>
-                </blockquote>
+              {/* Mobile/Tablet Layout */}
+              <div className="block lg:hidden">
+                <div
+                  className="fb-page w-full"
+                  data-href={facebookPageUrl}
+                  data-tabs="timeline"
+                  data-width="400"
+                  data-height="600"
+                  data-small-header="true"
+                  data-adapt-container-width="true"
+                  data-hide-cover="false"
+                  data-show-facepile="false"
+                  data-show-posts="true"
+                  data-lazy="true"
+                >
+                  <blockquote cite={facebookPageUrl} className="fb-xfbml-parse-ignore">
+                    <a href={facebookPageUrl} className="text-blue-300 hover:text-blue-100 transition-colors">
+                      Visit our Facebook page
+                    </a>
+                  </blockquote>
+                </div>
               </div>
             </div>
-          </div>
           )}
 
           {/* Visit Facebook Page Button */}
