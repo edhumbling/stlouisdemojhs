@@ -1349,6 +1349,318 @@ const MoneySmartLinksPage: React.FC = () => {
         level: 'Advanced' as const
       }
     ],
+    "🌍 Nonprofit Financial Education Organizations": [
+      {
+        id: 'foundation-financial-education',
+        title: 'Foundation for Financial Education (F3E)',
+        description: '501(c)(3) nonprofit dedicated to spreading financial literacy with free resources',
+        url: 'https://f3eonline.org/',
+        category: 'Nonprofit Organization',
+        icon: <Users className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'operation-hope-financial-literacy',
+        title: 'Operation HOPE - Financial Literacy for All',
+        description: 'Financial literacy education in the classroom and community',
+        url: 'https://operationhope.org/initiatives/financial-literacy-for-all/',
+        category: 'Nonprofit Organization',
+        icon: <Users className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'schwab-moneywise',
+        title: 'Schwab Moneywise Financial Literacy Programs',
+        description: 'Free financial literacy programs from leading nonprofit organizations',
+        url: 'https://www.schwabmoneywise.com/teaching-kids/financial-literacy-programs',
+        category: 'Corporate Foundation',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'council-economic-education',
+        title: 'Council for Economic Education (CEE)',
+        description: 'Financial education organization transforming lives by equipping K-12 students',
+        url: 'https://www.councilforeconed.org/',
+        category: 'Educational Organization',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'junior-achievement',
+        title: 'Junior Achievement USA',
+        description: 'World\'s largest organization providing youth financial education resources',
+        url: 'https://www.ja.org/',
+        category: 'Youth Organization',
+        icon: <Users className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      }
+    ],
+    "🏦 Federal & State Government Programs": [
+      {
+        id: 'fdic-money-smart',
+        title: 'FDIC Money Smart Program',
+        description: 'Federal financial education program with lesson plans and videos',
+        url: 'https://www.fdic.gov/consumer-resource-center/money-smart',
+        category: 'Federal Program',
+        icon: <Building className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'treasury-financial-literacy-commission',
+        title: 'Financial Literacy and Education Commission',
+        description: 'U.S. Treasury federal financial literacy programs and grants',
+        url: 'https://home.treasury.gov/policy-issues/consumer-policy/financial-literacy-and-education-commission',
+        category: 'Federal Commission',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'mymoney-gov',
+        title: 'MyMoney.gov',
+        description: 'Federal government\'s one-stop shop for financial literacy and education',
+        url: 'https://www.mymoney.gov/',
+        category: 'Federal Portal',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'vermont-financial-literacy',
+        title: 'Vermont Financial Literacy Education',
+        description: 'State Treasurer\'s Office financial literacy website MyMoney.Vermont.Gov',
+        url: 'https://www.vermonttreasurer.gov/financial-literacy-vermont',
+        category: 'State Program',
+        icon: <Building className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'tennessee-financial-education',
+        title: 'Tennessee Financial Education Commission',
+        description: 'State financial literacy resources for Tennessee schools and families',
+        url: 'https://treasury.tn.gov/Financial-Education/Financial-Literacy-Commission/Education-Worth-the-Investment',
+        category: 'State Program',
+        icon: <Building className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      }
+    ],
+    "🏦 Banking Industry Education Resources": [
+      {
+        id: 'occ-financial-literacy-directory',
+        title: 'OCC Financial Literacy Resource Directory',
+        description: 'Office of Comptroller of Currency financial literacy resources for banks',
+        url: 'https://www.occ.gov/topics/consumers-and-communities/community-affairs/resource-directories/financial-literacy/',
+        category: 'Federal Banking',
+        icon: <Building className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'aba-foundation-financial-education',
+        title: 'American Bankers Association Foundation',
+        description: 'Financial education programs for bankers to strengthen community well-being',
+        url: 'https://www.aba.com/about-us/aba-foundation/financial-education-programs',
+        category: 'Banking Association',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'oregon-bankers-education',
+        title: 'Oregon Bankers Association - Financial Education',
+        description: 'Financial education resource guide for teachers and bankers',
+        url: 'https://www.oregonbankers.com/financial-education-resource-guide.html',
+        category: 'State Banking Association',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'community-bankers-education',
+        title: 'Independent Community Bankers of America (ICBA)',
+        description: 'Community banking financial education and resources',
+        url: 'https://www.icba.org/',
+        category: 'Banking Association',
+        icon: <Building className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'mortgage-bankers-education',
+        title: 'Mortgage Bankers Association (MBA)',
+        description: 'Mortgage industry education and homeownership resources',
+        url: 'https://www.mba.org/',
+        category: 'Industry Association',
+        icon: <Building className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      }
+    ],
+    "🎯 Military & Veterans Financial Resources": [
+      {
+        id: 'va-financial-literacy',
+        title: 'VA Financial Literacy Resources',
+        description: 'Veterans Affairs financial literacy and personal finance management',
+        url: 'https://benefits.va.gov/benefits/financial-literacy.asp',
+        category: 'Veterans Affairs',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'military-saves',
+        title: 'Military Saves',
+        description: 'Financial education and savings program for military families',
+        url: 'https://militarysaves.org/',
+        category: 'Military Program',
+        icon: <Users className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'military-family-life-counselors',
+        title: 'Military Family Life Counselors (MFLC)',
+        description: 'Financial counseling and education for military families',
+        url: 'https://www.militaryfamilylife.org/',
+        category: 'Military Support',
+        icon: <Users className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'armed-forces-financial-network',
+        title: 'Armed Forces Financial Network',
+        description: 'Financial education and resources for all military branches',
+        url: 'https://www.affn.org/',
+        category: 'Military Network',
+        icon: <Users className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'usaa-educational-foundation',
+        title: 'USAA Educational Foundation',
+        description: 'Financial education for military members and their families',
+        url: 'https://www.usaa.com/inet/wc/about-usaa-educational-foundation',
+        category: 'Military Foundation',
+        icon: <Building className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      }
+    ],
+    "👩 Women & Minority Financial Empowerment": [
+      {
+        id: 'women-financial-empowerment',
+        title: 'UN Women - Economic Empowerment',
+        description: 'Global women\'s economic empowerment and financial inclusion resources',
+        url: 'https://www.unwomen.org/en/what-we-do/economic-empowerment',
+        category: 'International Organization',
+        icon: <Globe className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'illinois-minority-business',
+        title: 'Illinois Economic Equity & Empowerment',
+        description: 'Minority, Veteran & Woman Owned Business financial resources',
+        url: 'https://dceo.illinois.gov/',
+        category: 'State Program',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'national-womens-business-council',
+        title: 'National Women\'s Business Council',
+        description: 'Federal advisory council on women\'s business and financial issues',
+        url: 'https://www.nwbc.gov/',
+        category: 'Federal Council',
+        icon: <Building className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'minority-business-development-agency',
+        title: 'Minority Business Development Agency (MBDA)',
+        description: 'Federal agency promoting minority business enterprise and financial growth',
+        url: 'https://www.mbda.gov/',
+        category: 'Federal Agency',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'women-business-centers',
+        title: 'Women\'s Business Centers (WBC)',
+        description: 'SBA-funded centers providing business and financial education for women',
+        url: 'https://www.sba.gov/local-assistance/resource-partners/womens-business-centers-wbc',
+        category: 'SBA Program',
+        icon: <Users className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      }
+    ],
+    "🌍 International Financial Education": [
+      {
+        id: 'gflec-global-financial-literacy',
+        title: 'Global Financial Literacy Excellence Center (GFLEC)',
+        description: 'World\'s leading center for financial literacy research and policy',
+        url: 'https://gflec.org/',
+        category: 'Research Center',
+        icon: <Globe className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'oecd-infe',
+        title: 'OECD International Network on Financial Education (INFE)',
+        description: 'Global network promoting financial literacy and education worldwide',
+        url: 'https://www.oecd.org/en/networks/infe.html',
+        category: 'International Organization',
+        icon: <Globe className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'world-bank-financial-inclusion',
+        title: 'World Bank - Financial Inclusion',
+        description: 'Global financial inclusion and literacy development programs',
+        url: 'https://www.worldbank.org/en/topic/financialinclusion',
+        category: 'International Bank',
+        icon: <Globe className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-planning-standards-board',
+        title: 'Financial Planning Standards Board (FPSB)',
+        description: 'Global financial planning standards and education',
+        url: 'https://www.fpsb.org/',
+        category: 'International Standards',
+        icon: <Globe className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'child-youth-finance-international',
+        title: 'Child & Youth Finance International',
+        description: 'Global movement advancing financial inclusion for children and youth',
+        url: 'https://www.childfinanceinternational.org/',
+        category: 'Youth Organization',
+        icon: <Users className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      }
+    ],
     "🎥 Financial Education Videos": [
       {
         id: 'khan-academy-financial-literacy',
