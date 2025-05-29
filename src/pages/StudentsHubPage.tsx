@@ -116,6 +116,15 @@ const StudentsHubPage: React.FC = () => {
         icon: <GraduationCap className="w-5 h-5" />,
         color: "#0F766E",
         isInternal: true
+      },
+      {
+        id: 26,
+        title: "Dream Hive Scholarship Resources",
+        description: "Professional development guides: resume writing, essay crafting, and email etiquette",
+        url: "/dream-hive-resources",
+        icon: <Briefcase className="w-5 h-5" />,
+        color: "#7C3AED",
+        isInternal: true
       }
     ],
     "📝 Exam Preparation": [
