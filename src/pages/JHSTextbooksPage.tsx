@@ -51,6 +51,16 @@ const JHSTextbooksPage: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Prevent body scroll when viewer is open
+  useEffect(() => {
+    if (selectedPdf) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [selectedPdf]);
+
   // Extracted PDF resources from mcgregorinri.com categorized by subject
   const textbookCategories = {
     "📊 Mathematics": [
@@ -106,7 +116,11 @@ const JHSTextbooksPage: React.FC = () => {
   // Flatten all resources for easy access
   const allTextbooks: TextbookResource[] = Object.values(textbookCategories).flat();
 
-  const openPdfViewer = (pdfUrl: string) => {
+  const openPdfViewer = (pdfUrl: string, event?: React.MouseEvent) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
     setSelectedPdf(pdfUrl);
   };
 
@@ -133,7 +147,7 @@ const JHSTextbooksPage: React.FC = () => {
   // If a PDF is selected, show the internal PDF viewer
   if (selectedPdf) {
     return (
-      <div className="fixed inset-0 z-50 bg-black">
+      <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
         {/* Header */}
         <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-4 sm:py-5 shadow-2xl border-b border-teal-700/50">
           <div className="container mx-auto px-4">
@@ -305,7 +319,7 @@ const JHSTextbooksPage: React.FC = () => {
                         className="group"
                       >
                         <button
-                          onClick={() => openPdfViewer(book.pdfUrl)}
+                          onClick={(e) => openPdfViewer(book.pdfUrl, e)}
                           className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
                         >
                           {/* PDF Badge */}

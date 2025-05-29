@@ -53,6 +53,16 @@ const CareerReelResourcesPage: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Prevent body scroll when viewer is open
+  useEffect(() => {
+    if (selectedResource) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [selectedResource]);
+
   // Extracted resources from thecareerreel.com/resources/
   const resourceCategories = {
     "📊 Job Tracking Tools": [
@@ -206,7 +216,12 @@ const CareerReelResourcesPage: React.FC = () => {
   // Flatten all resources for easy access
   const allResources: Resource[] = Object.values(resourceCategories).flat();
 
-  const openResource = (resource: Resource) => {
+  const openResource = (resource: Resource, event?: React.MouseEvent) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     if (resource.type === 'tool') {
       // Open tools in new tab
       window.open(resource.url, '_blank', 'noopener,noreferrer');
@@ -240,7 +255,7 @@ const CareerReelResourcesPage: React.FC = () => {
   // If a resource is selected, show the viewer
   if (selectedResource) {
     return (
-      <div className="fixed inset-0 z-50 bg-black">
+      <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
         {/* Header */}
         <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-4 sm:py-5 shadow-2xl border-b border-red-700/50">
           <div className="container mx-auto px-4">
@@ -449,7 +464,7 @@ const CareerReelResourcesPage: React.FC = () => {
                       className="group"
                     >
                       <button
-                        onClick={() => openResource(resource)}
+                        onClick={(e) => openResource(resource, e)}
                         className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
                       >
                         {/* Type Badge */}
