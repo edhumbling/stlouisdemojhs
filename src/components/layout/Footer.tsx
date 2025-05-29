@@ -224,6 +224,15 @@ const Footer: React.FC = () => {
                     Students Hub
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/staff-resources"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    Staff Resources
+                  </Link>
+                </li>
               </ul>
             </div>
 
