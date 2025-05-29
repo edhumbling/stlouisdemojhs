@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, DollarSign, TrendingUp, PiggyBank, CreditCard, GraduationCap, Building, Users, Globe, BookOpen, Calculator, Video } from 'lucide-react';
+import { ArrowLeft, ExternalLink, DollarSign, TrendingUp, PiggyBank, CreditCard, GraduationCap, Building, Users, Globe, BookOpen, Calculator, Video, Mic, Briefcase } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -1035,6 +1035,318 @@ const MoneySmartLinksPage: React.FC = () => {
         icon: <CreditCard className="w-4 h-4" />,
         color: '#F59E0B',
         level: 'Intermediate' as const
+      }
+    ],
+    "🏦 Credit Unions & Community Banking": [
+      {
+        id: 'ncua-financial-education',
+        title: 'NCUA Financial Education Resources',
+        description: 'National Credit Union Administration financial literacy and education',
+        url: 'https://www.ncua.gov/consumers/financial-literacy-resources',
+        category: 'Credit Union Education',
+        icon: <Building className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'credit-union-national-association',
+        title: 'Credit Union National Association (CUNA)',
+        description: 'National trade association for credit unions and financial education',
+        url: 'https://www.cuna.org/',
+        category: 'Credit Union Organization',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'balance-financial-fitness',
+        title: 'Balance Financial Fitness Program',
+        description: 'Comprehensive financial wellness and education platform',
+        url: 'https://www.balancepro.org/',
+        category: 'Financial Wellness',
+        icon: <Users className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'cooperative-trust',
+        title: 'Cooperative Trust',
+        description: 'Financial education and resources for cooperative members',
+        url: 'https://www.cooperativetrust.org/',
+        category: 'Cooperative Finance',
+        icon: <Users className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'community-development-financial-institutions',
+        title: 'CDFI Fund - Community Development Financial Institutions',
+        description: 'Community development and financial inclusion resources',
+        url: 'https://www.cdfifund.gov/',
+        category: 'Community Development',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      }
+    ],
+    "🛡️ Insurance Education & Protection": [
+      {
+        id: 'insurance-information-institute',
+        title: 'Insurance Information Institute (III)',
+        description: 'Comprehensive insurance education and consumer information',
+        url: 'https://www.iii.org/',
+        category: 'Insurance Education',
+        icon: <Building className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'life-happens',
+        title: 'Life Happens - Life Insurance Education',
+        description: 'Life insurance awareness and education nonprofit organization',
+        url: 'https://www.lifehappens.org/',
+        category: 'Life Insurance',
+        icon: <Users className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'naic-consumer-information',
+        title: 'NAIC Consumer Information',
+        description: 'National Association of Insurance Commissioners consumer resources',
+        url: 'https://content.naic.org/consumer-information',
+        category: 'Insurance Regulation',
+        icon: <Building className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'healthcare-gov-learn',
+        title: 'HealthCare.gov Learn',
+        description: 'Health insurance education and marketplace information',
+        url: 'https://www.healthcare.gov/learn/',
+        category: 'Health Insurance',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'disability-insurance-education',
+        title: 'Council for Disability Awareness',
+        description: 'Disability insurance education and awareness resources',
+        url: 'https://disabilitycanhappen.org/',
+        category: 'Disability Insurance',
+        icon: <Users className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      }
+    ],
+    "🎅 Retirement Planning & Social Security": [
+      {
+        id: 'usa-gov-retirement-planning',
+        title: 'USA.gov Retirement Planning Tools',
+        description: 'Official U.S. government retirement planning resources and tools',
+        url: 'https://www.usa.gov/retirement-planning-tools',
+        category: 'Government Retirement',
+        icon: <Building className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'tiaa-retirement-planning',
+        title: 'TIAA Retirement Planning',
+        description: 'Retirement income, planning, investing, and financial advice',
+        url: 'https://www.tiaa.org/public',
+        category: 'Retirement Services',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'john-hancock-retirement',
+        title: 'John Hancock Retirement Plan Services',
+        description: 'Retirement plan education, calculators, and financial planning',
+        url: 'https://myplan.johnhancock.com/us/en',
+        category: 'Retirement Services',
+        icon: <Calculator className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'california-dfpi-retirement',
+        title: 'California DFPI - Retirement Planning',
+        description: 'State financial protection and retirement planning education',
+        url: 'https://dfpi.ca.gov/news/insights/consumer-financial-education-savings-planning-for-retirement/',
+        category: 'State Government',
+        icon: <Building className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'employee-benefit-research-institute',
+        title: 'Employee Benefit Research Institute (EBRI)',
+        description: 'Retirement and employee benefit research and education',
+        url: 'https://www.ebri.org/',
+        category: 'Research Organization',
+        icon: <BookOpen className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      }
+    ],
+    "📊 Tax Education & Preparation": [
+      {
+        id: 'irs-understanding-taxes',
+        title: 'IRS Understanding Taxes - Teacher Site',
+        description: 'Tax education curriculum and resources for educators',
+        url: 'https://apps.irs.gov/app/understandingTaxes/teacher/index.jsp',
+        category: 'Tax Education',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'irs-charities-nonprofits',
+        title: 'IRS Charities and Nonprofits',
+        description: 'Tax education and guidance for charitable organizations',
+        url: 'https://www.irs.gov/charities-and-nonprofits',
+        category: 'Tax Education',
+        icon: <Building className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'vita-tax-preparation',
+        title: 'VITA - Volunteer Income Tax Assistance',
+        description: 'Free tax preparation help for qualifying taxpayers',
+        url: 'https://www.irs.gov/individuals/free-tax-return-preparation-for-qualifying-taxpayers',
+        category: 'Tax Assistance',
+        icon: <Users className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ny-state-taxation-finance',
+        title: 'NYS Department of Taxation and Finance',
+        description: 'New York State tax responsibilities and education',
+        url: 'https://www.tax.ny.gov/',
+        category: 'State Tax',
+        icon: <Building className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'taxpayer-advocate-service',
+        title: 'Taxpayer Advocate Service',
+        description: 'Independent organization within IRS to help taxpayers',
+        url: 'https://www.taxpayeradvocate.irs.gov/',
+        category: 'Tax Assistance',
+        icon: <Users className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      }
+    ],
+    "🎓 College Financial Aid & Student Resources": [
+      {
+        id: 'federal-student-aid',
+        title: 'Federal Student Aid',
+        description: 'Largest provider of financial aid for college in the U.S.',
+        url: 'https://studentaid.gov/',
+        category: 'Federal Aid',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'pheaa-student-aid',
+        title: 'PHEAA - Pennsylvania Higher Education Assistance Agency',
+        description: 'National provider of financial aid services for students and schools',
+        url: 'https://www.pheaa.org/',
+        category: 'State Aid Agency',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'college-board-financial-aid',
+        title: 'College Board Financial Aid',
+        description: 'College planning and financial aid information and tools',
+        url: 'https://bigfuture.collegeboard.org/pay-for-college',
+        category: 'College Planning',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'fastweb-scholarships',
+        title: 'Fastweb Scholarship Search',
+        description: 'Free scholarship search and college financial aid information',
+        url: 'https://www.fastweb.com/',
+        category: 'Scholarship Search',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'college-navigator',
+        title: 'College Navigator - NCES',
+        description: 'National Center for Education Statistics college search tool',
+        url: 'https://nces.ed.gov/collegenavigator/',
+        category: 'College Search',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      }
+    ],
+    "💰 Cryptocurrency & Digital Assets": [
+      {
+        id: 'rba-cryptocurrency-education',
+        title: 'Reserve Bank of Australia - Digital Currencies',
+        description: 'Central bank education on cryptocurrencies and digital tokens',
+        url: 'https://www.rba.gov.au/education/resources/explainers/cryptocurrencies.html',
+        category: 'Central Bank Education',
+        icon: <Globe className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'cftc-digital-assets',
+        title: 'CFTC Digital Assets',
+        description: 'Commodity Futures Trading Commission digital asset education',
+        url: 'https://www.cftc.gov/digitalassets/index.htm',
+        category: 'Federal Regulation',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'connecticut-cryptocurrency-risks',
+        title: 'Connecticut - Cryptocurrency Risks',
+        description: 'State education on cryptocurrency risks and scam prevention',
+        url: 'https://portal.ct.gov/dob/consumer/consumer-education/cryptocurrency-risks',
+        category: 'State Education',
+        icon: <Building className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'south-carolina-digital-assets',
+        title: 'South Carolina Digital Assets Literacy Project',
+        description: 'State digital currencies financial literacy education',
+        url: 'https://treasurer.sc.gov/what-we-do/for-governments/digital-assets/',
+        category: 'State Education',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'blockchain-education-network',
+        title: 'Blockchain Education Network',
+        description: 'Student-run organization promoting blockchain education',
+        url: 'https://www.blockchainedu.org/',
+        category: 'Educational Organization',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
       }
     ],
     "🎥 Financial Education Videos": [
