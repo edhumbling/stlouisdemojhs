@@ -126,7 +126,7 @@ const DreamHiveResourcesPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Content Viewer */}
+        {/* Content Viewer - Fixed routing */}
         <div className="absolute inset-0 pt-20 sm:pt-24">
           {selectedResource.type === 'video' ? (
             <iframe
@@ -135,13 +135,14 @@ const DreamHiveResourcesPage: React.FC = () => {
               title={selectedResource.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-presentation"
             />
           ) : (
             <iframe
               src={getGooglePdfViewerUrl(selectedResource.url)}
               className="w-full h-full border-0"
               title={selectedResource.title}
-              sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+              sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-downloads"
             />
           )}
         </div>
@@ -214,77 +215,51 @@ const DreamHiveResourcesPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Category Resources Grid - Apple Style Cute Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Category Resources Grid - Small Cute Cards */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                   {categoryResources.map((resource, index) => (
                     <motion.div
                       key={resource.id}
-                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                      animate={{ opacity: 1, scale: 1, y: 0 }}
-                      transition={{
-                        duration: 0.5,
-                        delay: (categoryIndex * 0.15) + (index * 0.1),
-                        type: "spring",
-                        stiffness: 100
-                      }}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
                       className="group"
                     >
                       <button
                         onClick={() => openResource(resource)}
-                        className="w-full bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:bg-white/10 active:scale-95 text-left relative overflow-hidden group-hover:scale-105"
+                        className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
                       >
-                        {/* Gradient Background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        
-                        {/* Type Badge - Apple Style */}
-                        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full backdrop-blur-sm ${
-                          resource.type === 'pdf' ? 'bg-red-500/90' : 'bg-red-600/90'
+                        {/* Type Badge */}
+                        <div className={`absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center ${
+                          resource.type === 'pdf' ? 'bg-red-500/80' : 'bg-red-600/80'
                         }`}>
-                          <span className="text-white text-xs font-semibold uppercase">
-                            {resource.type}
+                          <span className="text-white text-xs font-bold">
+                            {resource.type === 'pdf' ? 'PDF' : 'VID'}
                           </span>
                         </div>
 
-                        {/* Resource Icon - Large and Cute */}
-                        <div className="relative z-10">
-                          <div 
-                            className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
-                            style={{ backgroundColor: resource.color }}
-                          >
-                            {resource.icon}
-                          </div>
-
-                          {/* Resource Info */}
-                          <h4 className="text-lg sm:text-xl font-bold text-white mb-3 leading-tight group-hover:text-purple-300 transition-colors duration-300">
-                            {resource.title}
-                          </h4>
-
-                          <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/20 rounded-full mb-4">
-                            <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                            <span className="text-sm text-purple-300 font-medium">
-                              {resource.category}
-                            </span>
-                          </div>
-
-                          <p className="text-sm text-gray-300 leading-relaxed mb-6">
-                            {resource.description}
-                          </p>
-
-                          {/* Action Button - Apple Style */}
-                          <div className="flex items-center justify-center gap-2 px-4 py-3 bg-purple-500/20 hover:bg-purple-500/30 rounded-2xl border border-purple-500/30 group-hover:border-purple-400/50 transition-all duration-300">
-                            {resource.type === 'video' ? (
-                              <>
-                                <Play size={16} className="text-purple-400" />
-                                <span className="text-purple-300 font-semibold">Watch Video</span>
-                              </>
-                            ) : (
-                              <>
-                                <FileText size={16} className="text-purple-400" />
-                                <span className="text-purple-300 font-semibold">Read Guide</span>
-                              </>
-                            )}
-                          </div>
+                        {/* Icon */}
+                        <div
+                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
+                          style={{ backgroundColor: resource.color }}
+                        >
+                          {resource.icon}
                         </div>
+
+                        {/* Title */}
+                        <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
+                          {resource.title}
+                        </h3>
+
+                        {/* Category */}
+                        <p className="text-xs text-gray-400 mb-2 font-medium">
+                          {resource.category}
+                        </p>
+
+                        {/* Description */}
+                        <p className="text-xs sm:text-sm text-gray-300 leading-tight">
+                          {resource.description}
+                        </p>
                       </button>
                     </motion.div>
                   ))}
@@ -299,11 +274,11 @@ const DreamHiveResourcesPage: React.FC = () => {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl mb-6">
                 <BookOpen size={32} className="text-white" />
               </div>
-              
+
               <h3 className="text-2xl font-bold text-white mb-6">
                 About Dream Hive Scholarship
               </h3>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300 mb-8">
                 <div className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl">
                   <div className="w-2 h-2 bg-green-400 rounded-full"></div>
@@ -322,13 +297,13 @@ const DreamHiveResourcesPage: React.FC = () => {
                   <span className="text-sm">Scholarship opportunities</span>
                 </div>
               </div>
-              
+
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 rounded-full border border-purple-500/30">
                 <span className="text-sm text-purple-300">Source:</span>
-                <a 
-                  href="https://dhscholarship.org/resources/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://dhscholarship.org/resources/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-purple-400 hover:text-purple-300 font-medium transition-colors duration-300"
                 >
                   Dream Hive Scholarship
