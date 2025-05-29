@@ -119,7 +119,7 @@ const StudentsHubPage: React.FC = () => {
       },
       {
         id: 26,
-        title: "Dream Hive Scholarship Resources",
+        title: "Dreamhive Resources",
         description: "Professional development guides: resume writing, essay crafting, and email etiquette",
         url: "/dream-hive-resources",
         icon: <Briefcase className="w-5 h-5" />,

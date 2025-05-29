@@ -187,7 +187,7 @@ const DreamHiveResourcesPage: React.FC = () => {
 
             <div className="flex-1 text-center">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-                🎓 Dream Hive Scholarship Resources
+                🎓 Dreamhive Resources
               </h1>
               <p className="text-sm sm:text-base text-purple-200">
                 Professional development guides for career and academic success
