@@ -683,6 +683,360 @@ const MoneySmartLinksPage: React.FC = () => {
         level: 'Advanced' as const
       }
     ],
+    "🎓 Educational Organizations": [
+      {
+        id: 'nefe-financial-education',
+        title: 'National Endowment for Financial Education (NEFE)',
+        description: 'Leading nonprofit foundation for empowered financial decision making',
+        url: 'https://www.nefe.org/',
+        category: 'Educational Organization',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'cfp-board',
+        title: 'CFP Board - Certified Financial Planner',
+        description: 'Standards and certification for financial planning professionals',
+        url: 'https://www.cfp.net/',
+        category: 'Professional Organization',
+        icon: <Building className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'lets-make-a-plan-cfp',
+        title: 'Let\'s Make a Plan - CFP Board',
+        description: 'Find trusted financial advisors and planning professionals',
+        url: 'https://www.letsmakeaplan.org/',
+        category: 'Professional Organization',
+        icon: <Users className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'seminole-state-financial-literacy',
+        title: 'Seminole State College - Financial Literacy Guide',
+        description: 'Comprehensive financial literacy resources for college students',
+        url: 'https://www.seminolestate.edu/financial-aid/resources/financial-literacy',
+        category: 'Educational Institution',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'purdue-global-finance-tools',
+        title: 'Purdue Global - Personal Finance Tools',
+        description: 'Best personal finance tools and budgeting apps for 2025',
+        url: 'https://www.purdueglobal.edu/blog/student-life/budgeting-apps-personal-finance-tools/',
+        category: 'Educational Institution',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      }
+    ],
+    "🏦 Government Consumer Protection": [
+      {
+        id: 'cfpb-consumer-finance',
+        title: 'Consumer Financial Protection Bureau (CFPB)',
+        description: 'U.S. government agency for fair treatment by financial institutions',
+        url: 'https://www.consumerfinance.gov/',
+        category: 'Government Agency',
+        icon: <Building className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'fdic-money-smart-older-adults',
+        title: 'FDIC Money Smart for Older Adults',
+        description: 'Financial education for older adults including lesson plans and videos',
+        url: 'https://www.fdic.gov/consumer-resource-center/money-smart-older-adults',
+        category: 'Government Agency',
+        icon: <Building className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'nd-dfi-financial-literacy',
+        title: 'North Dakota Department of Financial Institutions',
+        description: 'State financial literacy resources and consumer protection',
+        url: 'https://www.nd.gov/dfi/education-and-other-resources/financial-literacy',
+        category: 'State Government',
+        icon: <Building className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      }
+    ],
+    "📱 Personal Finance Apps & Tools": [
+      {
+        id: 'ynab-budgeting',
+        title: 'You Need A Budget (YNAB)',
+        description: 'Award-winning budgeting software for personal finance management',
+        url: 'https://www.youneedabudget.com/',
+        category: 'Budgeting Tool',
+        icon: <Calculator className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'personal-capital',
+        title: 'Personal Capital (Empower)',
+        description: 'Free financial tools for tracking net worth and investments',
+        url: 'https://www.empower.com/',
+        category: 'Investment Tracking',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'tiller-spreadsheets',
+        title: 'Tiller Money',
+        description: 'Automated spreadsheet-based budgeting and financial tracking',
+        url: 'https://www.tillerhq.com/',
+        category: 'Budgeting Tool',
+        icon: <Calculator className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'pocketguard-app',
+        title: 'PocketGuard',
+        description: 'Simple budgeting app to prevent overspending',
+        url: 'https://pocketguard.com/',
+        category: 'Budgeting Tool',
+        icon: <PiggyBank className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'goodbudget-app',
+        title: 'Goodbudget',
+        description: 'Envelope budgeting app for couples and families',
+        url: 'https://goodbudget.com/',
+        category: 'Budgeting Tool',
+        icon: <PiggyBank className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      }
+    ],
+    "🎧 Financial Podcasts & Media": [
+      {
+        id: 'suze-orman-website',
+        title: 'Suze Orman Official Website',
+        description: 'Personal finance expert with 40+ years of experience',
+        url: 'https://www.suzeorman.com/',
+        category: 'Financial Expert',
+        icon: <Mic className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'clark-howard-website',
+        title: 'Clark Howard',
+        description: 'Consumer expert and money-saving advice',
+        url: 'https://www.clarkhoward.com/',
+        category: 'Financial Expert',
+        icon: <Mic className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'motley-fool',
+        title: 'The Motley Fool',
+        description: 'Investment advice and stock market education',
+        url: 'https://www.fool.com/',
+        category: 'Investment Education',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'kiplinger',
+        title: 'Kiplinger',
+        description: 'Personal finance, investing, and business forecasts',
+        url: 'https://www.kiplinger.com/',
+        category: 'Financial Media',
+        icon: <BookOpen className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'money-magazine',
+        title: 'Money Magazine',
+        description: 'Personal finance news, advice, and money management tips',
+        url: 'https://money.com/',
+        category: 'Financial Media',
+        icon: <BookOpen className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'forbes-personal-finance',
+        title: 'Forbes Personal Finance',
+        description: 'Personal finance news and advice from Forbes',
+        url: 'https://www.forbes.com/personal-finance/',
+        category: 'Financial Media',
+        icon: <BookOpen className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      }
+    ],
+    "🏠 Real Estate & Housing Finance": [
+      {
+        id: 'zillow-learning-center',
+        title: 'Zillow Learning Center',
+        description: 'Real estate education and home buying guides',
+        url: 'https://www.zillow.com/learn/',
+        category: 'Real Estate Education',
+        icon: <Building className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'bigger-pockets',
+        title: 'BiggerPockets',
+        description: 'Real estate investing education and community',
+        url: 'https://www.biggerpockets.com/',
+        category: 'Real Estate Investing',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'rocket-mortgage-learning',
+        title: 'Rocket Mortgage Learning Center',
+        description: 'Mortgage education and home financing guides',
+        url: 'https://www.rocketmortgage.com/learn',
+        category: 'Mortgage Education',
+        icon: <Building className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'bankrate-mortgages',
+        title: 'Bankrate Mortgages',
+        description: 'Mortgage rates, calculators, and home loan advice',
+        url: 'https://www.bankrate.com/mortgages/',
+        category: 'Mortgage Education',
+        icon: <Calculator className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'realtor-com-advice',
+        title: 'Realtor.com Advice',
+        description: 'Home buying, selling, and real estate investment advice',
+        url: 'https://www.realtor.com/advice/',
+        category: 'Real Estate Education',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      }
+    ],
+    "💼 Business & Entrepreneurship Finance": [
+      {
+        id: 'score-business-mentors',
+        title: 'SCORE Business Mentors',
+        description: 'Free business mentoring and small business resources',
+        url: 'https://www.score.org/',
+        category: 'Business Education',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'sba-learning-center',
+        title: 'SBA Learning Center',
+        description: 'Small Business Administration education and training',
+        url: 'https://www.sba.gov/learning-center',
+        category: 'Business Education',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'quickbooks-resource-center',
+        title: 'QuickBooks Resource Center',
+        description: 'Small business accounting and financial management resources',
+        url: 'https://quickbooks.intuit.com/resources/',
+        category: 'Business Finance',
+        icon: <Calculator className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'entrepreneur-finance',
+        title: 'Entrepreneur - Finance',
+        description: 'Business finance advice and entrepreneurship resources',
+        url: 'https://www.entrepreneur.com/topic/finance',
+        category: 'Business Finance',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'inc-finance-section',
+        title: 'Inc. Magazine - Finance',
+        description: 'Business finance news and advice for entrepreneurs',
+        url: 'https://www.inc.com/finance',
+        category: 'Business Finance',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      }
+    ],
+    "🔒 Financial Security & Fraud Prevention": [
+      {
+        id: 'ftc-consumer-information',
+        title: 'FTC Consumer Information',
+        description: 'Federal Trade Commission consumer protection and fraud prevention',
+        url: 'https://consumer.ftc.gov/',
+        category: 'Consumer Protection',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'identity-theft-gov',
+        title: 'IdentityTheft.gov',
+        description: 'Official U.S. government site for identity theft recovery',
+        url: 'https://www.identitytheft.gov/',
+        category: 'Identity Protection',
+        icon: <Building className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'aarp-fraud-watch',
+        title: 'AARP Fraud Watch Network',
+        description: 'Fraud prevention resources and scam alerts',
+        url: 'https://www.aarp.org/money/scams-fraud/',
+        category: 'Fraud Prevention',
+        icon: <Users className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'better-business-bureau',
+        title: 'Better Business Bureau (BBB)',
+        description: 'Business reliability and scam prevention resources',
+        url: 'https://www.bbb.org/',
+        category: 'Consumer Protection',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'experian-credit-education',
+        title: 'Experian Credit Education',
+        description: 'Credit monitoring, identity protection, and financial education',
+        url: 'https://www.experian.com/blogs/ask-experian/',
+        category: 'Credit Education',
+        icon: <CreditCard className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      }
+    ],
     "🎥 Financial Education Videos": [
       {
         id: 'khan-academy-financial-literacy',
