@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -107,6 +107,15 @@ const StudentsHubPage: React.FC = () => {
         icon: <Archive className="w-5 h-5" />,
         color: "#7C2D12",
         embedStrategy: 'iframe'
+      },
+      {
+        id: 22,
+        title: "JHS Textbooks",
+        description: "Free Junior High School textbooks and notes organized by subject",
+        url: "/jhs-textbooks",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#0F766E",
+        isInternal: true
       }
     ],
     "📝 Exam Preparation": [
