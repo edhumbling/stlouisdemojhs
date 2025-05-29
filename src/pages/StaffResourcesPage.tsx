@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -172,6 +172,16 @@ const StaffResourcesPage: React.FC = () => {
       icon: Brain,
       category: 'Professional Development',
       color: 'from-emerald-500 to-emerald-600'
+    },
+    {
+      id: 'visual-teaching-aid',
+      title: 'Visual Teaching Aid Tool',
+      subtitle: 'AI-Powered Visual Generator',
+      description: 'Create visual aids, diagrams, and educational images with advanced AI',
+      url: 'https://huggingface.co/spaces/deepseek-ai/Janus-Pro-7B',
+      icon: Eye,
+      category: 'AI Tools',
+      color: 'from-indigo-500 to-indigo-600'
     }
   ];
 
