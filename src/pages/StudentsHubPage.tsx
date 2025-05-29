@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, MousePointer, Wind } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, MousePointer, Wind, Globe } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -265,6 +265,15 @@ const StudentsHubPage: React.FC = () => {
         icon: <DollarSign className="w-5 h-5" />,
         color: "#EF4444",
         embedStrategy: 'iframe'
+      },
+      {
+        id: 33,
+        title: "Money Smart Links",
+        description: "300+ comprehensive financial education websites and resources directory",
+        url: "/money-smart-links",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#059669",
+        isInternal: true
       }
     ],
     "💼 Life Skills & Career": [
