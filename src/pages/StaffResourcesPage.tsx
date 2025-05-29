@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap, ScanText } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -192,6 +192,16 @@ const StaffResourcesPage: React.FC = () => {
       icon: GraduationCap,
       category: 'Professional Development',
       color: 'from-teal-500 to-teal-600'
+    },
+    {
+      id: 'paper-to-text-notes',
+      title: 'Paper to Text Notes',
+      subtitle: 'OCR Document Scanner',
+      description: 'Convert handwritten notes and documents to digital text with AI-powered OCR',
+      url: 'https://llamaocr.com/',
+      icon: ScanText,
+      category: 'Productivity',
+      color: 'from-cyan-500 to-cyan-600'
     }
   ];
 
