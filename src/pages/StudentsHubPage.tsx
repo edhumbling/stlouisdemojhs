@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -97,6 +97,15 @@ const StudentsHubPage: React.FC = () => {
         url: "https://www.gutenberg.org/ebooks/categories",
         icon: <BookOpen className="w-5 h-5" />,
         color: "#DC2626",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 21,
+        title: "Anna's Archive Library",
+        description: "Comprehensive digital archive with millions of books, papers, and documents",
+        url: "https://annas-archive.org/",
+        icon: <Archive className="w-5 h-5" />,
+        color: "#7C2D12",
         embedStrategy: 'iframe'
       }
     ],
