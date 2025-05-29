@@ -121,6 +121,7 @@ const App: React.FC = () => {
           <Route path="news" element={<NewsPage />} />
           <Route path="stem" element={<STEMPage />} />
           <Route path="learnhub" element={<StudentsHubPage />} />
+          <Route path="students-hub" element={<StudentsHubPage />} />
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
           <Route path="advice-speeches" element={<AdviceSpeechesPage />} />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, DollarSign, TrendingUp, PiggyBank, CreditCard, GraduationCap, Building, Users, Globe, BookOpen, Calculator } from 'lucide-react';
+import { ArrowLeft, ExternalLink, DollarSign, TrendingUp, PiggyBank, CreditCard, GraduationCap, Building, Users, Globe, BookOpen, Calculator, Video } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -511,6 +511,208 @@ const MoneySmartLinksPage: React.FC = () => {
         color: '#F59E0B',
         level: 'Intermediate' as const
       }
+    ],
+    "🎥 YouTube Finance Channels": [
+      {
+        id: 'graham-stephan',
+        title: 'Graham Stephan',
+        description: 'Real estate investing and personal finance tips',
+        url: 'https://www.youtube.com/@GrahamStephan',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'dave-ramsey',
+        title: 'The Ramsey Show',
+        description: 'Debt-free living and financial peace',
+        url: 'https://www.youtube.com/@TheRamseyShow',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ben-felix',
+        title: 'Ben Felix',
+        description: 'Evidence-based investing and portfolio theory',
+        url: 'https://www.youtube.com/@BenFelixCSI',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'two-cents',
+        title: 'Two Cents',
+        description: 'Personal finance education made simple',
+        url: 'https://www.youtube.com/@TwoCentsPBS',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'andrei-jikh',
+        title: 'Andrei Jikh',
+        description: 'Investing, credit cards, and financial freedom',
+        url: 'https://www.youtube.com/@AndreiJikh',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'meet-kevin',
+        title: 'Meet Kevin',
+        description: 'Real estate, stocks, and market analysis',
+        url: 'https://www.youtube.com/@MeetKevin',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'minority-mindset',
+        title: 'Minority Mindset',
+        description: 'Financial education and entrepreneurship',
+        url: 'https://www.youtube.com/@MinorityMindset',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'the-plain-bagel',
+        title: 'The Plain Bagel',
+        description: 'Finance and economics explained simply',
+        url: 'https://www.youtube.com/@ThePlainBagel',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ryan-kaji',
+        title: 'Ryan Kaji',
+        description: 'Personal finance and investing for millennials',
+        url: 'https://www.youtube.com/@RyanKajiPersonalFinance',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-education',
+        title: 'Financial Education',
+        description: 'Stock market education and analysis',
+        url: 'https://www.youtube.com/@FinancialEducationJeremyPS',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'biaheza',
+        title: 'Biaheza',
+        description: 'Entrepreneurship and business finance',
+        url: 'https://www.youtube.com/@Biaheza',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'matt-giovanisci',
+        title: 'Matt Giovanisci',
+        description: 'Personal finance and side hustles',
+        url: 'https://www.youtube.com/@MattGiovanisci',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'whiteboard-finance',
+        title: 'Whiteboard Finance',
+        description: 'Financial concepts explained visually',
+        url: 'https://www.youtube.com/@WhiteboardFinance',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'marko-whiteboard-finance',
+        title: 'Marko - WhiteBoard Finance',
+        description: 'Personal finance education and investing',
+        url: 'https://www.youtube.com/@MarkoWhiteboardFinance',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'rose-han',
+        title: 'Rose Han',
+        description: 'Personal finance for young professionals',
+        url: 'https://www.youtube.com/@RoseHan',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'charlie-chang',
+        title: 'Charlie Chang',
+        description: 'Credit cards, investing, and personal finance',
+        url: 'https://www.youtube.com/@CharlieChang',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'nate-obrien',
+        title: 'Nate O\'Brien',
+        description: 'Investing and personal finance for millennials',
+        url: 'https://www.youtube.com/@NateOBrien',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'austin-williams',
+        title: 'Austin Williams',
+        description: 'Real estate investing and wealth building',
+        url: 'https://www.youtube.com/@AustinWilliams',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'stock-moe',
+        title: 'Stock Moe',
+        description: 'Stock market analysis and trading education',
+        url: 'https://www.youtube.com/@StockMoe',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ziptrader',
+        title: 'ZipTrader',
+        description: 'Stock trading and market analysis',
+        url: 'https://www.youtube.com/@ZipTrader',
+        category: 'YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Advanced' as const
+      }
     ]
   };
 
@@ -579,7 +781,7 @@ const MoneySmartLinksPage: React.FC = () => {
               Comprehensive Financial Education Directory
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Discover {totalResources}+ carefully curated financial education websites covering everything from basic budgeting to advanced investing. 
+              Discover {totalResources}+ carefully curated financial education websites covering everything from basic budgeting to advanced investing.
               Resources are organized by category and difficulty level to help you learn at your own pace.
             </p>
           </div>
@@ -605,8 +807,8 @@ const MoneySmartLinksPage: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Category Resources Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* Category Resources Grid - 2 Column Layout for Better Mobile */}
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   {categoryResources.map((resource, index) => (
                     <motion.div
                       key={resource.id}
@@ -626,7 +828,7 @@ const MoneySmartLinksPage: React.FC = () => {
                         </div>
 
                         {/* Icon */}
-                        <div 
+                        <div
                           className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
                           style={{ backgroundColor: resource.color }}
                         >
