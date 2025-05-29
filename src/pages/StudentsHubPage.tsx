@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -52,137 +52,165 @@ const StudentsHubPage: React.FC = () => {
     navigate(-1); // Go back to previous page
   };
 
-  const resources: Resource[] = [
-    {
-      id: 1,
-      title: "Audiobooks",
-      description: "Free audiobooks collection",
-      url: "https://marhamilresearch4.blob.core.windows.net/gutenberg-public/Website/browse.html",
-      icon: <Mic className="w-5 h-5" />,
-      color: "#007AFF"
-    },
-    {
-      id: 2,
-      title: "Poetry Archive",
-      description: "Children's poetry collection",
-      url: "https://childrens.poetryarchive.org/",
-      icon: <BookOpen className="w-5 h-5" />,
-      color: "#FF3B30"
-    },
-    {
-      id: 3,
-      title: "BECE PASCO",
-      description: "BECE past questions",
-      url: "https://emmadeeofficial.gumroad.com/l/becepasco",
-      icon: <FileText className="w-5 h-5" />,
-      color: "#34C759"
-    },
-    {
-      id: 11,
-      title: "BECE Pasco 2",
-      description: "Alternative BECE past questions database",
-      url: "https://www.becepastquestions.com/",
-      icon: <FileText className="w-5 h-5" />,
-      color: "#7C3AED",
-      embedStrategy: 'iframe',
-      customScripts: true
-    },
-    {
-      id: 12,
-      title: "BECE Pasco Via USSD",
-      description: "Access past questions directly on your mobile phone!",
-      url: "ussd://dial",
-      icon: <Smartphone className="w-5 h-5" />,
-      color: "#FF9500",
-      isUSSD: true
-    },
-    {
-      id: 4,
-      title: "JHS MOCKS",
-      description: "JHS mock examinations",
-      url: "https://emmadeeofficial.gumroad.com/l/jhsmocks",
-      icon: <FileText className="w-5 h-5" />,
-      color: "#FF9500"
-    },
-    {
-      id: 5,
-      title: "QWEN Maths",
-      description: "AI maths problem solver",
-      url: "https://qwen-qwen2-math-demo.hf.space",
-      icon: <Calculator className="w-5 h-5" />,
-      color: "#5856D6"
-    },
-    {
-      id: 6,
-      title: "KHAYA Translator",
-      description: "AI language translator",
-      url: "https://translate.ghananlp.org/",
-      icon: <Languages className="w-5 h-5" />,
-      color: "#AF52DE"
-    },
-    {
-      id: 7,
-      title: "Advice from Successful People",
-      description: "Commencement speeches from leaders",
-      url: "/advice-speeches",
-      icon: <Users className="w-5 h-5" />,
-      color: "#FF6B35",
-      isInternal: true
-    },
-    {
-      id: 8,
-      title: "Financial Literacy",
-      description: "Learn personal finance and money management",
-      url: "https://www.khanacademy.org/college-careers-more/financial-literacy",
-      icon: <DollarSign className="w-5 h-5" />,
-      color: "#00C896",
-      embedStrategy: 'smart',
-      alternativeUrls: [
-        "https://www.investopedia.com/financial-literacy-4776932",
-        "https://www.practicalmoneyskills.com/",
-        "https://www.jumpstart.org/",
-        "https://www.mymoney.gov/"
-      ],
-      proxyUrls: [
-        "https://web.archive.org/web/20240101000000*/https://www.khanacademy.org/college-careers-more/financial-literacy"
-      ]
-    },
-    {
-      id: 9,
-      title: "Business Skills Chat",
-      description: "AI-powered business skills development",
-      url: "https://www.nfx.com/chat",
-      icon: <Briefcase className="w-5 h-5" />,
-      color: "#1E40AF",
-      embedStrategy: 'smart',
-      alternativeUrls: [
-        "https://www.coursera.org/browse/business",
-        "https://www.edx.org/learn/business",
-        "https://www.futurelearn.com/subjects/business-and-management-courses",
-        "https://alison.com/courses/business"
-      ],
-      proxyUrls: [
-        "https://web.archive.org/web/20240101000000*/https://www.nfx.com/chat"
-      ]
-    },
-    {
-      id: 10,
-      title: "Product Creation Chat",
-      description: "Learn product development and creation",
-      url: "https://www.lennybot.com/",
-      icon: <Lightbulb className="w-5 h-5" />,
-      color: "#F59E0B"
-    },
-    {
-      id: 13,
-      title: "AI Comic Factory",
-      description: "Create amazing comics and stories with AI - unleash your creativity!",
-      url: "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
-      icon: <Palette className="w-5 h-5" />,
-      color: "#E91E63",
-      embedStrategy: 'iframe'
-    },
-  ];
+  // 📚 CATEGORIZED STUDENTS HUB RESOURCES 📚
+  // Organized by learning areas for better navigation and discovery
+  const resourceCategories = {
+    "📚 Academic Resources": [
+      {
+        id: 1,
+        title: "Audiobooks",
+        description: "Free audiobooks collection",
+        url: "https://marhamilresearch4.blob.core.windows.net/gutenberg-public/Website/browse.html",
+        icon: <Mic className="w-5 h-5" />,
+        color: "#007AFF"
+      },
+      {
+        id: 2,
+        title: "Poetry Archive",
+        description: "Children's poetry collection",
+        url: "https://childrens.poetryarchive.org/",
+        icon: <BookOpen className="w-5 h-5" />,
+        color: "#FF3B30"
+      }
+    ],
+    "📝 Exam Preparation": [
+      {
+        id: 3,
+        title: "BECE PASCO",
+        description: "BECE past questions",
+        url: "https://emmadeeofficial.gumroad.com/l/becepasco",
+        icon: <FileText className="w-5 h-5" />,
+        color: "#34C759"
+      },
+      {
+        id: 11,
+        title: "BECE Pasco 2",
+        description: "Alternative BECE past questions database",
+        url: "https://www.becepastquestions.com/",
+        icon: <FileText className="w-5 h-5" />,
+        color: "#7C3AED",
+        embedStrategy: 'iframe',
+        customScripts: true
+      },
+      {
+        id: 12,
+        title: "BECE Pasco Via USSD",
+        description: "Access past questions directly on your mobile phone!",
+        url: "ussd://dial",
+        icon: <Smartphone className="w-5 h-5" />,
+        color: "#FF9500",
+        isUSSD: true
+      },
+      {
+        id: 4,
+        title: "JHS MOCKS",
+        description: "JHS mock examinations",
+        url: "https://emmadeeofficial.gumroad.com/l/jhsmocks",
+        icon: <FileText className="w-5 h-5" />,
+        color: "#FF9500"
+      }
+    ],
+    "🧮 STEM Tools": [
+      {
+        id: 5,
+        title: "QWEN Maths",
+        description: "AI maths problem solver",
+        url: "https://qwen-qwen2-math-demo.hf.space",
+        icon: <Calculator className="w-5 h-5" />,
+        color: "#5856D6"
+      }
+    ],
+    "🌍 Language & Communication": [
+      {
+        id: 6,
+        title: "KHAYA Translator",
+        description: "AI language translator",
+        url: "https://translate.ghananlp.org/",
+        icon: <Languages className="w-5 h-5" />,
+        color: "#AF52DE"
+      }
+    ],
+    "💼 Life Skills & Career": [
+      {
+        id: 7,
+        title: "Advice from Successful People",
+        description: "Commencement speeches from leaders",
+        url: "/advice-speeches",
+        icon: <Users className="w-5 h-5" />,
+        color: "#FF6B35",
+        isInternal: true
+      },
+      {
+        id: 8,
+        title: "Financial Literacy",
+        description: "Learn personal finance and money management",
+        url: "https://www.khanacademy.org/college-careers-more/financial-literacy",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#00C896",
+        embedStrategy: 'smart',
+        alternativeUrls: [
+          "https://www.investopedia.com/financial-literacy-4776932",
+          "https://www.practicalmoneyskills.com/",
+          "https://www.jumpstart.org/",
+          "https://www.mymoney.gov/"
+        ],
+        proxyUrls: [
+          "https://web.archive.org/web/20240101000000*/https://www.khanacademy.org/college-careers-more/financial-literacy"
+        ]
+      },
+      {
+        id: 9,
+        title: "Business Skills Chat",
+        description: "AI-powered business skills development",
+        url: "https://www.nfx.com/chat",
+        icon: <Briefcase className="w-5 h-5" />,
+        color: "#1E40AF",
+        embedStrategy: 'smart',
+        alternativeUrls: [
+          "https://www.coursera.org/browse/business",
+          "https://www.edx.org/learn/business",
+          "https://www.futurelearn.com/subjects/business-and-management-courses",
+          "https://alison.com/courses/business"
+        ],
+        proxyUrls: [
+          "https://web.archive.org/web/20240101000000*/https://www.nfx.com/chat"
+        ]
+      },
+      {
+        id: 10,
+        title: "Product Creation Chat",
+        description: "Learn product development and creation",
+        url: "https://www.lennybot.com/",
+        icon: <Lightbulb className="w-5 h-5" />,
+        color: "#F59E0B"
+      }
+    ],
+    "🎨 Creative Tools": [
+      {
+        id: 13,
+        title: "AI Comic Factory",
+        description: "Create amazing comics and stories with AI - unleash your creativity!",
+        url: "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#E91E63",
+        embedStrategy: 'iframe'
+      }
+    ],
+    "💻 Coding": [
+      {
+        id: 14,
+        title: "LlamaCoder",
+        description: "AI-powered coding assistant - learn programming with AI guidance!",
+        url: "https://llamacoder.together.ai/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#10B981",
+        embedStrategy: 'iframe'
+      }
+    ]
+  };
+
+  // Flatten all resources for backward compatibility
+  const resources: Resource[] = Object.values(resourceCategories).flat();
 
   // Smart loading simulation effect
   useEffect(() => {
@@ -1092,54 +1120,78 @@ const StudentsHubPage: React.FC = () => {
 
       {/* Main Content */}
       <main className="flex-1 py-6 sm:py-8">
-        <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
-          {/* Resources Grid - Apple Style */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
-            {resources.map((resource, index) => (
+        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+          {/* Categorized Resources */}
+          <div className="space-y-8">
+            {Object.entries(resourceCategories).map(([categoryName, categoryResources], categoryIndex) => (
               <motion.div
-                key={resource.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group"
+                key={categoryName}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
+                className="space-y-4"
               >
-                <button
-                  onClick={() => handleResourceClick(resource)}
-                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
-                >
-                  {/* Smart link indicator - only for Financial Literacy and Business Skills Chat */}
-                  {resource.embedStrategy === 'smart' && (
-                    <div className="absolute top-2 right-2 w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
-                      <AlertCircle size={12} className="text-white" />
-                    </div>
-                  )}
+                {/* Category Header */}
+                <div className="flex items-center gap-3">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white">
+                    {categoryName}
+                  </h2>
+                  <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent"></div>
+                  <span className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
+                    {categoryResources.length} {categoryResources.length === 1 ? 'tool' : 'tools'}
+                  </span>
+                </div>
 
-                  {/* Icon */}
-                  <div
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                    style={{ backgroundColor: resource.color }}
-                  >
-                    {resource.icon}
-                  </div>
+                {/* Category Resources Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                  {categoryResources.map((resource, index) => (
+                    <motion.div
+                      key={resource.id}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                      className="group"
+                    >
+                      <button
+                        onClick={() => handleResourceClick(resource)}
+                        className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                      >
+                        {/* Smart link indicator */}
+                        {resource.embedStrategy === 'smart' && (
+                          <div className="absolute top-2 right-2 w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
+                            <AlertCircle size={12} className="text-white" />
+                          </div>
+                        )}
 
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
-                    {resource.title}
-                  </h3>
+                        {/* Icon */}
+                        <div
+                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
+                          style={{ backgroundColor: resource.color }}
+                        >
+                          {resource.icon}
+                        </div>
 
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-300 leading-tight">
-                    {resource.description}
-                  </p>
+                        {/* Title */}
+                        <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
+                          {resource.title}
+                        </h3>
 
-                  {/* Smart resource indicator */}
-                  {resource.embedStrategy === 'smart' && (
-                    <div className="mt-2 text-xs text-blue-400 flex items-center gap-1">
-                      <AlertCircle size={12} />
-                      <span>Smart Access</span>
-                    </div>
-                  )}
-                </button>
+                        {/* Description */}
+                        <p className="text-xs sm:text-sm text-gray-300 leading-tight">
+                          {resource.description}
+                        </p>
+
+                        {/* Smart resource indicator */}
+                        {resource.embedStrategy === 'smart' && (
+                          <div className="mt-2 text-xs text-blue-400 flex items-center gap-1">
+                            <AlertCircle size={12} />
+                            <span>Smart Access</span>
+                          </div>
+                        )}
+                      </button>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
