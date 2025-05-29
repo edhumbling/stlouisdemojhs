@@ -103,7 +103,7 @@ const StudentsHubPage: React.FC = () => {
         id: 21,
         title: "Anna's Archive Library",
         description: "Comprehensive digital archive with millions of books, papers, and documents",
-        url: "https://annas-archive.org/",
+        url: "https://libgen.is/",
         icon: <Archive className="w-5 h-5" />,
         color: "#7C2D12",
         embedStrategy: 'iframe'
@@ -235,7 +235,7 @@ const StudentsHubPage: React.FC = () => {
         id: 13,
         title: "AI Comic Factory",
         description: "Create amazing comics and stories with AI - unleash your creativity!",
-        url: "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+        url: "https://www.pixton.com/",
         icon: <Palette className="w-5 h-5" />,
         color: "#E91E63",
         embedStrategy: 'iframe'
