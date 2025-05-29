@@ -19,6 +19,7 @@ const DreamHiveResourcesPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleBack = () => {
     navigate('/students-hub');
@@ -27,6 +28,21 @@ const DreamHiveResourcesPage: React.FC = () => {
   const handleResourceBack = () => {
     setSelectedResource(null);
   };
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const mobileKeywords = ['mobile', 'android', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
+      const isMobileDevice = mobileKeywords.some(keyword => userAgent.includes(keyword)) || window.innerWidth <= 768;
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Loading timer
   useEffect(() => {
@@ -94,7 +110,19 @@ const DreamHiveResourcesPage: React.FC = () => {
 
   const getYouTubeEmbedUrl = (url: string) => {
     const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)?.[1];
-    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+    if (!videoId) return url;
+
+    // Enhanced YouTube embed with custom parameters
+    const params = [
+      'autoplay=1',           // Auto-play when loaded
+      'rel=0',                // Don't show related videos
+      'modestbranding=1',     // Minimal YouTube branding
+      'playsinline=1',        // Play inline on mobile
+      'enablejsapi=1',        // Enable JavaScript API
+      'vq=hd720'              // Force HD quality
+    ].join('&');
+
+    return `https://www.youtube.com/embed/${videoId}?${params}`;
   };
 
   const getGooglePdfViewerUrl = (pdfUrl: string) => {
@@ -138,24 +166,81 @@ const DreamHiveResourcesPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Content Viewer - Fixed routing */}
-        <div className="absolute inset-0 pt-20 sm:pt-24">
+        {/* Content Viewer - Enhanced PDF and Video */}
+        <div className="w-full h-full pt-20 sm:pt-24 relative">
           {selectedResource.type === 'video' ? (
-            <iframe
-              src={getYouTubeEmbedUrl(selectedResource.url)}
-              className="w-full h-full border-0"
-              title={selectedResource.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-presentation"
-            />
+            /* Enhanced YouTube Player */
+            <div className="w-full h-full bg-black">
+              <iframe
+                src={getYouTubeEmbedUrl(selectedResource.url)}
+                className="w-full h-full border-0"
+                title={selectedResource.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+                style={{
+                  height: 'calc(100vh - 96px)',
+                  minHeight: '400px'
+                }}
+                loading="lazy"
+              />
+            </div>
+          ) : isMobile ? (
+            /* Google Docs Viewer for Mobile PDFs */
+            <div className="w-full h-full bg-white">
+              <iframe
+                src={getGooglePdfViewerUrl(selectedResource.url)}
+                className="w-full h-full border-0"
+                title={`${selectedResource.title} - Mobile PDF Viewer`}
+                style={{
+                  height: 'calc(100vh - 96px)',
+                  minHeight: '600px'
+                }}
+                loading="lazy"
+              />
+            </div>
           ) : (
-            <iframe
-              src={getGooglePdfViewerUrl(selectedResource.url)}
-              className="w-full h-full border-0"
-              title={selectedResource.title}
-              sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-downloads"
-            />
+            /* Native PDF Viewer for Desktop */
+            <div className="w-full h-full bg-white">
+              <object
+                data={selectedResource.url}
+                type="application/pdf"
+                className="w-full h-full"
+                style={{
+                  height: 'calc(100vh - 96px)',
+                  minHeight: '600px'
+                }}
+              >
+                {/* Fallback to Google Viewer for browsers that don't support object tag */}
+                <iframe
+                  src={getGooglePdfViewerUrl(selectedResource.url)}
+                  className="w-full h-full border-0"
+                  title={selectedResource.title}
+                  style={{
+                    height: 'calc(100vh - 96px)',
+                    minHeight: '600px'
+                  }}
+                >
+                  {/* Final fallback message */}
+                  <div className="flex items-center justify-center w-full h-full bg-gray-50">
+                    <div className="text-center max-w-md px-6">
+                      <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <ArrowLeft className="w-8 h-8 text-purple-600 rotate-180" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
+                      <p className="text-gray-600 mb-6">
+                        Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
+                      </p>
+                      <button
+                        onClick={() => window.location.reload()}
+                        className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+                      >
+                        Refresh Page
+                      </button>
+                    </div>
+                  </div>
+                </iframe>
+              </object>
+            </div>
           )}
         </div>
       </div>

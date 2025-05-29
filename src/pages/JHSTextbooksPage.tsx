@@ -17,6 +17,7 @@ const JHSTextbooksPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleBack = () => {
     navigate('/students-hub');
@@ -25,6 +26,21 @@ const JHSTextbooksPage: React.FC = () => {
   const handlePdfBack = () => {
     setSelectedPdf(null);
   };
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const mobileKeywords = ['mobile', 'android', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone'];
+      const isMobileDevice = mobileKeywords.some(keyword => userAgent.includes(keyword)) || window.innerWidth <= 768;
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Loading timer
   useEffect(() => {
@@ -94,6 +110,10 @@ const JHSTextbooksPage: React.FC = () => {
     setSelectedPdf(pdfUrl);
   };
 
+  const getGooglePdfViewerUrl = (pdfUrl: string) => {
+    return `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
+  };
+
   const getSubjectIcon = (subject: string) => {
     if (subject.includes('Math')) return Calculator;
     if (subject.includes('Science')) return Beaker;
@@ -145,14 +165,66 @@ const JHSTextbooksPage: React.FC = () => {
           </div>
         </div>
 
-        {/* PDF Viewer */}
-        <div className="absolute inset-0 pt-20 sm:pt-24">
-          <iframe
-            src={selectedPdf}
-            className="w-full h-full border-0"
-            title="JHS Textbook PDF Viewer"
-            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-downloads"
-          />
+        {/* Enhanced PDF Viewer */}
+        <div className="w-full h-full pt-20 sm:pt-24 relative">
+          {isMobile ? (
+            /* Google Docs Viewer for Mobile PDFs */
+            <div className="w-full h-full bg-white">
+              <iframe
+                src={getGooglePdfViewerUrl(selectedPdf)}
+                className="w-full h-full border-0"
+                title="JHS Textbook - Mobile PDF Viewer"
+                style={{
+                  height: 'calc(100vh - 96px)',
+                  minHeight: '600px'
+                }}
+                loading="lazy"
+              />
+            </div>
+          ) : (
+            /* Native PDF Viewer for Desktop */
+            <div className="w-full h-full bg-white">
+              <object
+                data={selectedPdf}
+                type="application/pdf"
+                className="w-full h-full"
+                style={{
+                  height: 'calc(100vh - 96px)',
+                  minHeight: '600px'
+                }}
+              >
+                {/* Fallback to Google Viewer for browsers that don't support object tag */}
+                <iframe
+                  src={getGooglePdfViewerUrl(selectedPdf)}
+                  className="w-full h-full border-0"
+                  title="JHS Textbook PDF Viewer"
+                  style={{
+                    height: 'calc(100vh - 96px)',
+                    minHeight: '600px'
+                  }}
+                >
+                  {/* Final fallback message */}
+                  <div className="flex items-center justify-center w-full h-full bg-gray-50">
+                    <div className="text-center max-w-md px-6">
+                      <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <ArrowLeft className="w-8 h-8 text-teal-600 rotate-180" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
+                      <p className="text-gray-600 mb-6">
+                        Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
+                      </p>
+                      <button
+                        onClick={() => window.location.reload()}
+                        className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+                      >
+                        Refresh Page
+                      </button>
+                    </div>
+                  </div>
+                </iframe>
+              </object>
+            </div>
+          )}
         </div>
       </div>
     );
