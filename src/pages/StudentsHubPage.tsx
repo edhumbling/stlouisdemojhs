@@ -959,8 +959,8 @@ const StudentsHubPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Content Area */}
-        <div className="w-full h-full pt-20 sm:pt-24 relative">
+        {/* Content Area - Full Screen */}
+        <div className="w-full h-full pt-20 sm:pt-24 relative" style={{ height: 'calc(100vh - 80px)' }}>
           {!iframeError && selectedResource.embedStrategy !== 'smart' ? (
             <>
               <iframe
