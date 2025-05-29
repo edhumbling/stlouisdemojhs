@@ -125,6 +125,15 @@ const StudentsHubPage: React.FC = () => {
         icon: <Briefcase className="w-5 h-5" />,
         color: "#7C3AED",
         isInternal: true
+      },
+      {
+        id: 27,
+        title: "Career Reel Resources",
+        description: "Job hunting tools: tracking sheets, resume guides, and career development resources",
+        url: "/career-reel-resources",
+        icon: <Users className="w-5 h-5" />,
+        color: "#DC2626",
+        isInternal: true
       }
     ],
     "📝 Exam Preparation": [

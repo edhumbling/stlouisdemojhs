@@ -33,6 +33,7 @@ import StaffResourcesPage from './pages/StaffResourcesPage';
 import AITeachingGuidePage from './pages/AITeachingGuidePage';
 import JHSTextbooksPage from './pages/JHSTextbooksPage';
 import DreamHiveResourcesPage from './pages/DreamHiveResourcesPage';
+import CareerReelResourcesPage from './pages/CareerReelResourcesPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 
@@ -113,6 +114,7 @@ const App: React.FC = () => {
           <Route path="ai-teaching-guide" element={<AITeachingGuidePage />} />
           <Route path="jhs-textbooks" element={<JHSTextbooksPage />} />
           <Route path="dream-hive-resources" element={<DreamHiveResourcesPage />} />
+          <Route path="career-reel-resources" element={<CareerReelResourcesPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="news" element={<NewsPage />} />
           <Route path="stem" element={<STEMPage />} />
