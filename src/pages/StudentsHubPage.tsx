@@ -368,7 +368,7 @@ const StudentsHubPage: React.FC = () => {
         url: "https://ai.dev/",
         icon: <Bot className="w-5 h-5" />,
         color: "#6366F1",
-        embedStrategy: 'iframe'
+        openInNewTab: true
       },
       {
         id: 24,
@@ -377,7 +377,7 @@ const StudentsHubPage: React.FC = () => {
         url: "https://cursor.com/",
         icon: <MousePointer className="w-5 h-5" />,
         color: "#000000",
-        embedStrategy: 'iframe'
+        openInNewTab: true
       },
       {
         id: 25,
@@ -386,7 +386,7 @@ const StudentsHubPage: React.FC = () => {
         url: "https://windsurf.com/",
         icon: <Wind className="w-5 h-5" />,
         color: "#0EA5E9",
-        embedStrategy: 'iframe'
+        openInNewTab: true
       }
     ]
   };
