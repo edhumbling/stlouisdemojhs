@@ -101,7 +101,7 @@ const StudentsHubPage: React.FC = () => {
       },
       {
         id: 21,
-        title: "Anna's Archive Library",
+        title: "Libgen Library",
         description: "Comprehensive digital archive with millions of books, papers, and documents",
         url: "https://libgen.is/",
         icon: <Archive className="w-5 h-5" />,

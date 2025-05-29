@@ -112,7 +112,8 @@ const JHSTextbooksPage: React.FC = () => {
                 className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-teal-700/70 hover:bg-teal-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-teal-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-teal-500/50 hover:border-teal-400/70 flex-shrink-0"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span>Back to Textbooks</span>
+                <span className="hidden sm:inline">Back to Textbooks</span>
+                <span className="sm:hidden">Back</span>
               </button>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
