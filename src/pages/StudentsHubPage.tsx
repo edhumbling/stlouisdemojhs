@@ -194,11 +194,20 @@ const StudentsHubPage: React.FC = () => {
       },
       {
         id: 18,
-        title: "Cambridge Dictionary",
-        description: "Comprehensive English dictionary with definitions, pronunciation, and examples",
-        url: "https://dictionary.cambridge.org/",
+        title: "Britannica Dictionary",
+        description: "Comprehensive English dictionary with clear definitions and usage examples",
+        url: "https://www.britannica.com/dictionary",
         icon: <Book className="w-5 h-5" />,
         color: "#0066CC",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 34,
+        title: "Wikipedia",
+        description: "Free online encyclopedia with millions of articles on every topic",
+        url: "https://en.wikipedia.org/wiki/Main_Page",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#000000",
         embedStrategy: 'iframe'
       }
     ],
