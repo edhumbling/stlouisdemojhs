@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -204,6 +204,24 @@ const StudentsHubPage: React.FC = () => {
         url: "https://llamacoder.together.ai/",
         icon: <Code className="w-5 h-5" />,
         color: "#10B981",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 15,
+        title: "Bolt.new",
+        description: "Build and deploy full-stack web apps instantly with AI!",
+        url: "https://bolt.new/",
+        icon: <Zap className="w-5 h-5" />,
+        color: "#F59E0B",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 16,
+        title: "Lovable",
+        description: "Create beautiful web applications with AI-powered development!",
+        url: "https://lovable.dev/",
+        icon: <Heart className="w-5 h-5" />,
+        color: "#EC4899",
         embedStrategy: 'iframe'
       }
     ]
