@@ -1019,7 +1019,7 @@ const StudentsHubPage: React.FC = () => {
   // If a resource is selected, show the iframe view - Full page without footer
   if (selectedResource) {
     return (
-      <div className="fixed inset-0 z-50 bg-white">
+      <div className="fixed inset-0 z-50 bg-black">
         {/* Header - Enhanced Purple Back Button */}
         <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 sm:py-5 shadow-2xl border-b border-purple-700/50">
           <div className="container mx-auto px-4">
@@ -1051,18 +1051,17 @@ const StudentsHubPage: React.FC = () => {
         </div>
 
         {/* Content Area - Full Screen */}
-        <div className="w-full h-full pt-20 sm:pt-24 relative" style={{ height: 'calc(100vh - 80px)' }}>
+        <div className="absolute inset-0 pt-20 sm:pt-24">
           {!iframeError && selectedResource.embedStrategy !== 'smart' ? (
             <>
               <iframe
                 ref={iframeRef}
                 src={selectedResource.url}
-                className="w-full h-full border-0 relative z-10"
+                className="w-full h-full border-0"
                 title={selectedResource.title}
                 sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads allow-modals"
                 onLoad={handleIframeLoad}
                 onError={handleIframeError}
-                style={{ background: 'white' }}
               />
 
               {/* Regular Loading Overlay */}
@@ -1078,7 +1077,7 @@ const StudentsHubPage: React.FC = () => {
             </>
           ) : (
             /* Smart Loading or Error State */
-            <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
               {isLoading ? (
                 /* Smart Loading Animation */
                 <div className="text-center max-w-md">
