@@ -80,6 +80,15 @@ const StudentsHubPage: React.FC = () => {
         icon: <Library className="w-5 h-5" />,
         color: "#8B5CF6",
         embedStrategy: 'iframe'
+      },
+      {
+        id: 19,
+        title: "DBooks Library",
+        description: "Free programming and technical books library for developers and students",
+        url: "https://www.dbooks.org/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#059669",
+        embedStrategy: 'iframe'
       }
     ],
     "📝 Exam Preparation": [
