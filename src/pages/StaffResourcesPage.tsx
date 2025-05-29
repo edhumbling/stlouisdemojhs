@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap, ScanText } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap, ScanText, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -202,6 +202,16 @@ const StaffResourcesPage: React.FC = () => {
       icon: ScanText,
       category: 'Productivity',
       color: 'from-cyan-500 to-cyan-600'
+    },
+    {
+      id: 'teachers-ai-researcher',
+      title: 'Teacher\'s AI Researcher',
+      subtitle: 'Intelligent Research Assistant',
+      description: 'AI-powered research tool to find reliable sources and information for lesson planning',
+      url: 'https://chat.exa.ai/',
+      icon: Search,
+      category: 'Research',
+      color: 'from-violet-500 to-violet-600'
     }
   ];
 
