@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, FileText, Video, Download, ExternalLink, Play, BookOpen, Users, Target, Briefcase, PenTool, Link } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface Resource {
@@ -20,6 +21,7 @@ const CareerReelResourcesPage: React.FC = () => {
   const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const { setShowHeader } = useHeader();
 
   const handleBack = () => {
     navigate('/students-hub');
@@ -52,6 +54,22 @@ const CareerReelResourcesPage: React.FC = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Control header visibility based on whether we're viewing an individual resource
+  useEffect(() => {
+    if (selectedResource) {
+      // Hide header when viewing individual resource
+      setShowHeader(false);
+    } else {
+      // Show header when viewing main grid
+      setShowHeader(true);
+    }
+
+    // Cleanup: ensure header is shown when component unmounts
+    return () => {
+      setShowHeader(true);
+    };
+  }, [selectedResource, setShowHeader]);
 
   // Prevent body scroll when viewer is open
   useEffect(() => {

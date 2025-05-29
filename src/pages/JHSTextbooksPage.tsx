@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, Calculator, Beaker, Globe, Monitor, FileText, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface TextbookResource {
@@ -18,6 +19,7 @@ const JHSTextbooksPage: React.FC = () => {
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const { setShowHeader } = useHeader();
 
   const handleBack = () => {
     navigate('/students-hub');
@@ -50,6 +52,22 @@ const JHSTextbooksPage: React.FC = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Control header visibility based on whether we're viewing an individual PDF
+  useEffect(() => {
+    if (selectedPdf) {
+      // Hide header when viewing individual PDF
+      setShowHeader(false);
+    } else {
+      // Show header when viewing main grid
+      setShowHeader(true);
+    }
+
+    // Cleanup: ensure header is shown when component unmounts
+    return () => {
+      setShowHeader(true);
+    };
+  }, [selectedPdf, setShowHeader]);
 
   // Prevent body scroll when viewer is open
   useEffect(() => {
