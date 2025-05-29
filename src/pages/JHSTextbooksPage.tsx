@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Calculator, Beaker, Globe, Monitor, ExternalLink } from 'lucide-react';
+import { ArrowLeft, BookOpen, Calculator, Beaker, Globe, Monitor, FileText, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface TextbookResource {
@@ -79,9 +79,8 @@ const JHSTextbooksPage: React.FC = () => {
   // Flatten all resources for easy access
   const allTextbooks: TextbookResource[] = Object.values(textbookCategories).flat();
 
-  const openPdfInGoogleViewer = (pdfUrl: string) => {
-    const googleViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
-    setSelectedPdf(googleViewerUrl);
+  const openPdfViewer = (pdfUrl: string) => {
+    setSelectedPdf(pdfUrl);
   };
 
   const getSubjectIcon = (subject: string) => {
@@ -100,7 +99,7 @@ const JHSTextbooksPage: React.FC = () => {
     return '#6B7280'; // Gray
   };
 
-  // If a PDF is selected, show the Google PDF viewer
+  // If a PDF is selected, show the internal PDF viewer
   if (selectedPdf) {
     return (
       <div className="fixed inset-0 z-50 bg-black">
@@ -119,6 +118,17 @@ const JHSTextbooksPage: React.FC = () => {
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                 JHS Textbook Viewer
               </h1>
+
+              {/* Download Button */}
+              <a
+                href={selectedPdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
+              >
+                <Download size={14} />
+                <span className="hidden sm:inline">Download</span>
+              </a>
             </div>
           </div>
         </div>
@@ -129,7 +139,7 @@ const JHSTextbooksPage: React.FC = () => {
             src={selectedPdf}
             className="w-full h-full border-0"
             title="JHS Textbook PDF Viewer"
-            sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-downloads"
           />
         </div>
       </div>
@@ -137,25 +147,25 @@ const JHSTextbooksPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black pt-16">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-3 sm:py-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
+      {/* Header - Apple Style */}
+      <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-6 sm:py-8">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleBack}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-teal-700/50 hover:bg-teal-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-teal-500/30 flex-shrink-0"
+              className="inline-flex items-center gap-2 px-4 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-white/20 flex-shrink-0 hover:scale-105"
             >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <ArrowLeft size={16} />
               <span>Back</span>
             </button>
 
-            <div className="flex-1">
-              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                JHS Textbooks
+            <div className="flex-1 text-center">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+                📚 JHS Textbooks
               </h1>
-              <p className="text-xs sm:text-sm text-teal-200 mt-1">
-                Free Junior High School textbooks and notes organized by subject
+              <p className="text-sm sm:text-base text-teal-200">
+                Free Junior High School textbooks organized by subject
               </p>
             </div>
           </div>
@@ -163,88 +173,106 @@ const JHSTextbooksPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 py-6 sm:py-8">
-        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
-          {/* Introduction */}
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-              📚 Free JHS Textbooks & Notes
+      <main className="flex-1 py-8 sm:py-12">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          {/* Introduction - Apple Style */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-teal-400 to-teal-600 rounded-3xl mb-6 shadow-2xl">
+              <BookOpen size={40} className="text-white" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Free JHS Textbooks
             </h2>
-            <p className="text-gray-300 max-w-3xl mx-auto">
-              Access free Junior High School textbooks and educational materials organized by subject. 
-              All PDFs are viewed using Google's secure PDF viewer for the best reading experience.
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Access official Junior High School textbooks and educational materials.
+              All PDFs are viewed securely within the app for the best reading experience.
             </p>
           </div>
 
-          {/* Categorized Textbooks */}
-          <div className="space-y-8">
+          {/* Categorized Textbooks - Apple Style */}
+          <div className="space-y-12">
             {Object.entries(textbookCategories).map(([categoryName, categoryBooks], categoryIndex) => (
               <motion.div
                 key={categoryName}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
-                className="space-y-4"
+                transition={{ duration: 0.6, delay: categoryIndex * 0.15 }}
+                className="space-y-6"
               >
-                {/* Category Header */}
-                <div className="flex items-center gap-3">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                {/* Category Header - Apple Style */}
+                <div className="text-center">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                     {categoryName}
                   </h3>
-                  <div className="flex-1 h-px bg-gradient-to-r from-teal-500/50 to-transparent"></div>
-                  <span className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
-                    {categoryBooks.length} {categoryBooks.length === 1 ? 'book' : 'books'}
-                  </span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
+                    <FileText size={16} className="text-teal-400" />
+                    <span className="text-sm text-gray-300 font-medium">
+                      {categoryBooks.length} {categoryBooks.length === 1 ? 'textbook' : 'textbooks'}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Category Books Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* Category Books Grid - Apple Style Cute Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {categoryBooks.map((book, index) => {
                     const IconComponent = getSubjectIcon(book.subject);
                     const subjectColor = getSubjectColor(book.subject);
-                    
+
                     return (
                       <motion.div
                         key={book.id}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{
+                          duration: 0.5,
+                          delay: (categoryIndex * 0.15) + (index * 0.1),
+                          type: "spring",
+                          stiffness: 100
+                        }}
                         className="group"
                       >
                         <button
-                          onClick={() => openPdfInGoogleViewer(book.pdfUrl)}
-                          className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                          onClick={() => openPdfViewer(book.pdfUrl)}
+                          className="w-full bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:bg-white/10 active:scale-95 text-left relative overflow-hidden group-hover:scale-105"
                         >
-                          {/* PDF Indicator */}
-                          <div className="absolute top-3 right-3 w-6 h-6 bg-red-500/80 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">PDF</span>
+                          {/* Gradient Background */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                          {/* PDF Badge - Apple Style */}
+                          <div className="absolute top-4 right-4 px-3 py-1 bg-red-500/90 rounded-full backdrop-blur-sm">
+                            <span className="text-white text-xs font-semibold">PDF</span>
                           </div>
 
-                          {/* Subject Icon */}
-                          <div 
-                            className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl mb-4 flex items-center justify-center text-white"
-                            style={{ backgroundColor: subjectColor }}
-                          >
-                            <IconComponent size={24} className="sm:w-7 sm:h-7" />
-                          </div>
+                          {/* Subject Icon - Large and Cute */}
+                          <div className="relative z-10">
+                            <div
+                              className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl mb-6 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
+                              style={{ backgroundColor: subjectColor }}
+                            >
+                              <IconComponent size={32} className="sm:w-9 sm:h-9" />
+                            </div>
 
-                          {/* Book Info */}
-                          <h4 className="text-base sm:text-lg font-semibold text-white mb-2 leading-tight">
-                            {book.title}
-                          </h4>
+                            {/* Book Info */}
+                            <h4 className="text-lg sm:text-xl font-bold text-white mb-3 leading-tight group-hover:text-teal-300 transition-colors duration-300">
+                              {book.title}
+                            </h4>
 
-                          <p className="text-sm text-gray-400 mb-2 font-medium">
-                            {book.level}
-                          </p>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-teal-500/20 rounded-full mb-4">
+                              <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
+                              <span className="text-sm text-teal-300 font-medium">
+                                {book.level}
+                              </span>
+                            </div>
 
-                          <p className="text-sm text-gray-300 leading-relaxed mb-3">
-                            {book.description}
-                          </p>
+                            <p className="text-sm text-gray-300 leading-relaxed mb-6">
+                              {book.description}
+                            </p>
 
-                          {/* View PDF Button */}
-                          <div className="flex items-center gap-2 text-teal-400 text-sm font-medium">
-                            <ExternalLink size={14} />
-                            <span>View PDF</span>
+                            {/* View Button - Apple Style */}
+                            <div className="flex items-center justify-center gap-2 px-4 py-3 bg-teal-500/20 hover:bg-teal-500/30 rounded-2xl border border-teal-500/30 group-hover:border-teal-400/50 transition-all duration-300">
+                              <FileText size={16} className="text-teal-400" />
+                              <span className="text-teal-300 font-semibold">Open Textbook</span>
+                            </div>
                           </div>
                         </button>
                       </motion.div>
@@ -267,7 +295,7 @@ const JHSTextbooksPage: React.FC = () => {
                 <p>• Materials are organized by subject for easy navigation</p>
                 <p>• Perfect for JHS students, teachers, and educational support</p>
               </div>
-              
+
               <div className="mt-4 text-xs text-gray-400">
                 <p>Source: <a href="https://mcgregorinri.com/" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300">McGregorInri.com</a></p>
               </div>
