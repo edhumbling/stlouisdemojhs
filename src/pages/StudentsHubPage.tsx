@@ -89,6 +89,15 @@ const StudentsHubPage: React.FC = () => {
         icon: <Code className="w-5 h-5" />,
         color: "#059669",
         embedStrategy: 'iframe'
+      },
+      {
+        id: 20,
+        title: "Gutenberg Library",
+        description: "Classic literature and public domain books - over 70,000 free ebooks",
+        url: "https://www.gutenberg.org/ebooks/categories",
+        icon: <BookOpen className="w-5 h-5" />,
+        color: "#DC2626",
+        embedStrategy: 'iframe'
       }
     ],
     "📝 Exam Preparation": [
