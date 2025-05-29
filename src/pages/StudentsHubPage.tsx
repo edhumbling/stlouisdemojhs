@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -137,6 +137,15 @@ const StudentsHubPage: React.FC = () => {
         url: "https://translate.ghananlp.org/",
         icon: <Languages className="w-5 h-5" />,
         color: "#AF52DE"
+      },
+      {
+        id: 18,
+        title: "Cambridge Dictionary",
+        description: "Comprehensive English dictionary with definitions, pronunciation, and examples",
+        url: "https://dictionary.cambridge.org/",
+        icon: <Book className="w-5 h-5" />,
+        color: "#0066CC",
+        embedStrategy: 'iframe'
       }
     ],
     "💼 Life Skills & Career": [
