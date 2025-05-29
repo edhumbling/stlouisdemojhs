@@ -171,7 +171,8 @@ const StaffResourcesPage: React.FC = () => {
         description: 'Khan Academy\'s AI-powered teaching assistant for educators',
         url: 'https://www.khanmigo.ai/teachers',
         icon: Bot,
-        color: 'from-purple-500 to-purple-600'
+        color: 'from-purple-500 to-purple-600',
+        openInNewTab: true
       },
       {
         id: 'visual-teaching-aid',
