@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, Cursor, Wind } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -244,10 +244,10 @@ const StudentsHubPage: React.FC = () => {
         id: 13,
         title: "AI Comic Factory",
         description: "Create amazing comics and stories with AI - unleash your creativity!",
-        url: "https://www.pixton.com/",
+        url: "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
         icon: <Palette className="w-5 h-5" />,
         color: "#E91E63",
-        embedStrategy: 'iframe'
+        openInNewTab: true
       }
     ],
     "💻 Coding": [
@@ -276,6 +276,33 @@ const StudentsHubPage: React.FC = () => {
         url: "https://lovable.dev/",
         icon: <Heart className="w-5 h-5" />,
         color: "#EC4899",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 23,
+        title: "AI.dev",
+        description: "AI-powered development platform for building applications with artificial intelligence!",
+        url: "https://ai.dev/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#6366F1",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 24,
+        title: "Cursor",
+        description: "AI-powered code editor that helps you write code faster and smarter!",
+        url: "https://cursor.com/",
+        icon: <Cursor className="w-5 h-5" />,
+        color: "#000000",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 25,
+        title: "Windsurf",
+        description: "Advanced AI coding assistant for seamless development experience!",
+        url: "https://windsurf.com/",
+        icon: <Wind className="w-5 h-5" />,
+        color: "#0EA5E9",
         embedStrategy: 'iframe'
       }
     ]
@@ -337,6 +364,12 @@ const StudentsHubPage: React.FC = () => {
     // Handle USSD cards with special modal
     if (resource.isUSSD) {
       setSelectedResource(resource);
+      return;
+    }
+
+    // Handle resources that should open in new tab
+    if (resource.openInNewTab) {
+      window.open(resource.url, '_blank', 'noopener,noreferrer');
       return;
     }
 
@@ -1234,6 +1267,13 @@ const StudentsHubPage: React.FC = () => {
                           </div>
                         )}
 
+                        {/* New tab indicator */}
+                        {resource.openInNewTab && (
+                          <div className="absolute top-2 right-2 w-5 h-5 bg-green-500/80 rounded-full flex items-center justify-center">
+                            <ExternalLink size={12} className="text-white" />
+                          </div>
+                        )}
+
                         {/* Icon */}
                         <div
                           className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
@@ -1257,6 +1297,14 @@ const StudentsHubPage: React.FC = () => {
                           <div className="mt-2 text-xs text-blue-400 flex items-center gap-1">
                             <AlertCircle size={12} />
                             <span>Smart Access</span>
+                          </div>
+                        )}
+
+                        {/* New tab indicator text */}
+                        {resource.openInNewTab && (
+                          <div className="mt-2 text-xs text-green-400 flex items-center gap-1">
+                            <ExternalLink size={12} />
+                            <span>Opens in New Tab</span>
                           </div>
                         )}
                       </button>
