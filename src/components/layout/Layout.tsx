@@ -10,7 +10,7 @@ const Layout: React.FC = () => {
   const { showHeader } = useHeader();
 
   // Pages that should not show the footer
-  const noFooterPages = ['/news', '/calendar', '/ai-search', '/schedule-visit', '/learnhub', '/advice-speeches', '/staff-resources', '/ai-teaching-guide'];
+  const noFooterPages = ['/news', '/calendar', '/ai-search', '/schedule-visit', '/learnhub', '/advice-speeches', '/staff-resources', '/ai-teaching-guide', '/jhs-textbooks', '/dream-hive-resources', '/career-reel-resources'];
   const shouldShowFooter = !noFooterPages.includes(location.pathname);
 
   // Homepage should not have top padding (content can go under header)
