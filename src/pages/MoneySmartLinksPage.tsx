@@ -19,19 +19,28 @@ interface FinancialResource {
 const MoneySmartLinksPage: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedVideo, setSelectedVideo] = useState<FinancialResource | null>(null);
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {
     navigate('/students-hub');
   };
 
+  const handleVideoBack = () => {
+    setSelectedVideo(null);
+  };
+
   // Control header visibility
   useEffect(() => {
-    setShowHeader(true);
+    if (selectedVideo) {
+      setShowHeader(false);
+    } else {
+      setShowHeader(true);
+    }
     return () => {
       setShowHeader(true);
     };
-  }, [setShowHeader]);
+  }, [selectedVideo, setShowHeader]);
 
   // Loading timer
   useEffect(() => {
@@ -713,6 +722,140 @@ const MoneySmartLinksPage: React.FC = () => {
         color: '#FF0000',
         level: 'Advanced' as const
       }
+    ],
+    "🌍 African Finance & Economics": [
+      {
+        id: 'bank-of-ghana',
+        title: 'Bank of Ghana',
+        description: 'Central bank of Ghana - monetary policy and financial education',
+        url: 'https://www.bog.gov.gh/',
+        category: 'Central Banking',
+        icon: <Building className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-stock-exchange',
+        title: 'Ghana Stock Exchange',
+        description: 'Official stock exchange of Ghana - market data and investor education',
+        url: 'https://gse.com.gh/',
+        category: 'Stock Market',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'african-development-bank',
+        title: 'African Development Bank',
+        description: 'Pan-African development finance institution',
+        url: 'https://www.afdb.org/',
+        category: 'Development Finance',
+        icon: <Globe className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'nigeria-stock-exchange',
+        title: 'Nigerian Exchange Group',
+        description: 'Premier stock exchange in West Africa',
+        url: 'https://ngxgroup.com/',
+        category: 'Stock Market',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#008751',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'south-africa-reserve-bank',
+        title: 'South African Reserve Bank',
+        description: 'Central bank of South Africa - financial education',
+        url: 'https://www.resbank.co.za/',
+        category: 'Central Banking',
+        icon: <Building className="w-4 h-4" />,
+        color: '#FFB612',
+        level: 'Intermediate' as const
+      }
+    ],
+    "🎬 African YouTube Finance Creators": [
+      {
+        id: 'ghana-talks-business',
+        title: 'Ghana Talks Business',
+        description: 'Business and entrepreneurship in Ghana',
+        url: 'https://www.youtube.com/@GhanaTalksBusiness',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'african-entrepreneur',
+        title: 'The African Entrepreneur',
+        description: 'Entrepreneurship and business across Africa',
+        url: 'https://www.youtube.com/@TheAfricanEntrepreneur',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-business-news',
+        title: 'Ghana Business News',
+        description: 'Latest business and financial news from Ghana',
+        url: 'https://www.youtube.com/@GhanaBusinessNews',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'african-markets',
+        title: 'African Markets',
+        description: 'Stock markets and investing across Africa',
+        url: 'https://www.youtube.com/@AfricanMarkets',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#228B22',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'nigeria-finance-tv',
+        title: 'Nigeria Finance TV',
+        description: 'Financial education and market analysis for Nigeria',
+        url: 'https://www.youtube.com/@NigeriaFinanceTV',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#008751',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'south-african-investor',
+        title: 'South African Investor',
+        description: 'Investment strategies for South African markets',
+        url: 'https://www.youtube.com/@SouthAfricanInvestor',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FFB612',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'kenyan-entrepreneur',
+        title: 'Kenyan Entrepreneur',
+        description: 'Business and finance education for East Africa',
+        url: 'https://www.youtube.com/@KenyanEntrepreneur',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#BB0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'african-crypto',
+        title: 'African Crypto',
+        description: 'Cryptocurrency and blockchain education for Africa',
+        url: 'https://www.youtube.com/@AfricanCrypto',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#9932CC',
+        level: 'Advanced' as const
+      }
     ]
   };
 
@@ -721,7 +864,30 @@ const MoneySmartLinksPage: React.FC = () => {
   const totalResources = allResources.length;
 
   const openResource = (resource: FinancialResource) => {
-    window.open(resource.url, '_blank', 'noopener,noreferrer');
+    if (resource.url.includes('youtube.com') || resource.url.includes('youtu.be')) {
+      // Open YouTube videos in full-screen viewer
+      setSelectedVideo(resource);
+    } else {
+      // Open other resources in new tab
+      window.open(resource.url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const getYouTubeEmbedUrl = (url: string) => {
+    const videoId = url.match(/(?:youtube\.com\/(?:watch\?v=|@[^/]+)|youtu\.be\/)([^&\n?#]+)/)?.[1];
+    if (!videoId) return url;
+
+    // Enhanced YouTube embed with custom parameters
+    const params = [
+      'autoplay=1',           // Auto-play when loaded
+      'rel=0',                // Don't show related videos
+      'modestbranding=1',     // Minimal YouTube branding
+      'playsinline=1',        // Play inline on mobile
+      'enablejsapi=1',        // Enable JavaScript API
+      'vq=hd720'              // Force HD quality
+    ].join('&');
+
+    return `https://www.youtube.com/embed/${videoId}?${params}`;
   };
 
   const getLevelColor = (level: string) => {
@@ -738,6 +904,63 @@ const MoneySmartLinksPage: React.FC = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
         <ShimmerLoader variant="hero" className="w-full h-full" />
+      </div>
+    );
+  }
+
+  // If a video is selected, show the full-screen viewer
+  if (selectedVideo) {
+    return (
+      <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
+        {/* Header */}
+        <div className="fixed top-0 left-0 right-0 z-[10000] bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4 sm:py-5 shadow-2xl border-b border-green-700/50">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                type="button"
+                onClick={handleVideoBack}
+                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-green-700/70 hover:bg-green-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/50 hover:border-green-400/70 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span className="hidden sm:inline">Back to Directory</span>
+                <span className="sm:hidden">Back</span>
+              </button>
+
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                {selectedVideo.title}
+              </h1>
+
+              {/* External Link Button */}
+              <a
+                href={selectedVideo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
+              >
+                <ExternalLink size={14} />
+                <span className="hidden sm:inline">Open Original</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Video Player */}
+        <div className="w-full h-full pt-20 sm:pt-24 relative">
+          <div className="w-full h-full bg-black">
+            <iframe
+              src={getYouTubeEmbedUrl(selectedVideo.url)}
+              className="w-full h-full border-0"
+              title={selectedVideo.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowFullScreen
+              style={{
+                height: 'calc(100vh - 96px)',
+                minHeight: '400px'
+              }}
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
     );
   }
