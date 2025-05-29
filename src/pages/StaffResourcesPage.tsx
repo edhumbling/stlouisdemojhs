@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap, ScanText, Search } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap, ScanText, Search, PenTool } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -212,6 +212,16 @@ const StaffResourcesPage: React.FC = () => {
       icon: Search,
       category: 'Research',
       color: 'from-violet-500 to-violet-600'
+    },
+    {
+      id: 'teachers-writing-assistant',
+      title: 'Teacher\'s Writing Assistant',
+      subtitle: 'AI Content Creator',
+      description: 'AI-powered writing tool to create lesson plans, educational content, and teaching materials',
+      url: 'https://demo.exa.ai/writing',
+      icon: PenTool,
+      category: 'Content Creation',
+      color: 'from-rose-500 to-rose-600'
     }
   ];
 
