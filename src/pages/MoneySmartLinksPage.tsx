@@ -763,6 +763,446 @@ const MoneySmartLinksPage: React.FC = () => {
         icon: <Video className="w-4 h-4" />,
         color: '#7C3AED',
         level: 'Advanced' as const
+      },
+      {
+        id: 'investopedia-what-are-stocks',
+        title: 'Investopedia - What Are Stocks?',
+        description: 'Complete explanation of stocks and how they work',
+        url: 'https://www.youtube.com/watch?v=JrGp4ofULzQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'investopedia-earnings-per-share',
+        title: 'Investopedia - Earnings Per Share Explained (EPS)',
+        description: 'Understanding earnings per share and financial metrics',
+        url: 'https://www.youtube.com/watch?v=XGmNahd9Ne0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'warren-buffett-beginners',
+        title: 'Warren Buffett - How to Invest for Beginners',
+        description: 'Investment wisdom from the Oracle of Omaha',
+        url: 'https://www.youtube.com/watch?v=EsqewS_DEbk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ali-abdaal-investing',
+        title: 'Ali Abdaal - How to Invest for Beginners',
+        description: 'Modern approach to investing for young people',
+        url: 'https://www.youtube.com/watch?v=gFQNPmLKj1k',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'how-to-investopedia',
+        title: 'How to Use Investopedia',
+        description: 'Guide to using Investopedia for financial education',
+        url: 'https://www.youtube.com/watch?v=yA4SGfmL6JA',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'stock-market-beginners-2025',
+        title: 'How to Invest for Beginners (2025)',
+        description: 'Updated investing guide for the current year',
+        url: 'https://www.youtube.com/watch?v=lNdOtlpmH5U',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'stock-market-beginners-why-invest',
+        title: 'Stock Market For Beginners - Why You Should Invest NOW',
+        description: 'Motivation and basics for starting your investment journey',
+        url: 'https://www.youtube.com/watch?v=Hk9huA6Q28k',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'bogleheads-investing-principles',
+        title: '5 Boglehead Investing Principles',
+        description: 'Core principles of index fund investing',
+        url: 'https://www.youtube.com/watch?v=voaiJ_GGDgw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'vanguard-index-portfolios',
+        title: 'Vanguard Index Portfolios - Inside Look',
+        description: 'Deep dive into Vanguard\'s index fund strategies',
+        url: 'https://www.youtube.com/watch?v=4vR_GWdKIzQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'bogleheads-factor-investing',
+        title: 'Bogleheads University - Factor Investing',
+        description: 'Advanced factor investing strategies',
+        url: 'https://www.youtube.com/watch?v=8C3KhRJCwCQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'vanguard-index-fund-secrets',
+        title: 'Things You DON\'T Know About Vanguard',
+        description: 'Hidden facts about Vanguard and index fund investing',
+        url: 'https://www.youtube.com/watch?v=I7A1ufp-HKc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'build-credit-at-18',
+        title: 'How to Build Credit at 18',
+        description: 'Complete guide to building credit as a young adult',
+        url: 'https://www.youtube.com/watch?v=mGASUQv997g',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'build-credit-with-cards',
+        title: 'How To Build Credit Using A Credit Card',
+        description: 'Step-by-step guide to building credit with credit cards',
+        url: 'https://www.youtube.com/watch?v=nzbYMqZQ4yY',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'pick-best-credit-card',
+        title: 'How To Pick The BEST Credit Card (For You)',
+        description: 'Guide to choosing the right credit card for your needs',
+        url: 'https://www.youtube.com/watch?v=xWxZHQw5xK8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'credit-card-how-it-works',
+        title: 'How Does A Credit Card Work? Beginner Guide 101',
+        description: 'Complete beginner\'s guide to understanding credit cards',
+        url: 'https://www.youtube.com/watch?v=EqpZYH9FEe8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'business-credit-fast',
+        title: 'How to Build Business Credit FAST in 2023',
+        description: 'Strategies for building business credit quickly',
+        url: 'https://www.youtube.com/watch?v=HTw4kWMPZgk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'complete-retirement-plan',
+        title: 'Complete Retirement Plan Guide - 3 Hour Masterclass',
+        description: 'Comprehensive retirement planning strategies and 401k/IRA rules',
+        url: 'https://www.youtube.com/watch?v=SJ70TPt2-Iw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'rollover-ira-tutorial',
+        title: 'Rollover IRA - Step-by-Step Tutorial at Fidelity',
+        description: 'Complete guide to rolling over your 401k to an IRA',
+        url: 'https://www.youtube.com/watch?v=kulruQn0fE8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'roth-vs-traditional-401k',
+        title: 'Retirement Planning - ROTH vs Traditional 401k/IRA',
+        description: 'Choosing between Roth and traditional retirement accounts',
+        url: 'https://www.youtube.com/watch?v=OQUAkNeCtfk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'roth-401k-and-ira',
+        title: 'Can You Max Out a Roth 401k and Roth IRA in the Same Year?',
+        description: 'Understanding contribution limits for retirement accounts',
+        url: 'https://www.youtube.com/watch?v=gwXsFts8_-U',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'should-roll-401k-to-ira',
+        title: 'Should You Roll Your 401k Into an IRA?',
+        description: 'Pros and cons of rolling over your 401k to an IRA',
+        url: 'https://www.youtube.com/watch?v=uAPRxAtkiTw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: '50-30-20-budget-rule',
+        title: 'How to Use the 50/30/20 Rule to Budget & Manage Money',
+        description: 'Simple budgeting method for managing your finances',
+        url: 'https://www.youtube.com/watch?v=1EqXMvJMJIw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'stress-free-budget-50-30-20',
+        title: 'How to Make a Stress-Free Budget: 50/30/20 Rule',
+        description: 'Easy budgeting method for beginners using the 50/30/20 rule',
+        url: 'https://www.youtube.com/watch?v=7pROCR24cVg',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'budget-like-pro-50-30-20',
+        title: 'Build a Budget Like a Pro - Use the 50/30/20 Budgeting Rule',
+        description: 'Professional budgeting strategies using the 50/30/20 method',
+        url: 'https://www.youtube.com/watch?v=EZQs4HygT_o',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'notion-budgeting-50-30-20',
+        title: 'How to use Notion for Budgeting (50-30-20 Rule)',
+        description: 'Using Notion app for budget tracking with the 50/30/20 rule',
+        url: 'https://www.youtube.com/watch?v=zC60IxEHX5w',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'google-sheets-50-30-20-budget',
+        title: 'How to Make a 50/30/20 Budget in Google Sheets',
+        description: 'Creating a budget spreadsheet using Google Sheets',
+        url: 'https://www.youtube.com/watch?v=bLqsx6aWljk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'what-i-wish-knew-reits',
+        title: 'What I Wish I Knew Before Buying REITs',
+        description: 'Important considerations before investing in REITs',
+        url: 'https://www.youtube.com/watch?v=CNMR9DjbbCY',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'dangers-of-reit-investing',
+        title: 'The Dangers of REIT Investing: 5 MUST KNOWS',
+        description: 'Critical risks to understand before buying REITs',
+        url: 'https://www.youtube.com/watch?v=rXZheBmZHQ4',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'reits-explained-canadians',
+        title: 'REITs Explained for CANADIANS - Real Estate Investing',
+        description: 'Understanding REITs for Canadian investors',
+        url: 'https://www.youtube.com/watch?v=4j0VuUQHpB8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'what-is-reit-explained',
+        title: 'What is a REIT? - Real Estate Investment Trust Explained',
+        description: 'Complete explanation of Real Estate Investment Trusts',
+        url: 'https://www.youtube.com/watch?v=UyhzcglO0oE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'liquid-real-estate-investing',
+        title: 'Masterclass in Liquid Real Estate Investing',
+        description: 'Advanced strategies for liquid real estate investments',
+        url: 'https://www.youtube.com/watch?v=EXx6vCa9ff8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'bitcoin-trading-beginners',
+        title: 'How To Trade Bitcoin Cryptocurrency for Beginners',
+        description: 'Complete guide to trading Bitcoin and cryptocurrency',
+        url: 'https://www.youtube.com/watch?v=M-qYym-i1_8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F7931A',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'what-is-bitcoin-beginners',
+        title: 'What is Bitcoin? Ultimate Beginners Guide',
+        description: 'Complete explanation of Bitcoin for absolute beginners',
+        url: 'https://www.youtube.com/watch?v=i201o7k8C5o',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F7931A',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'buy-sell-bitcoin-beginners',
+        title: 'How to Buy and Sell Bitcoin for Beginners',
+        description: 'Step-by-step guide to buying and selling Bitcoin',
+        url: 'https://www.youtube.com/watch?v=SekU_uJC96I',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F7931A',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'tax-planning-high-net-worth',
+        title: '10 Tax Planning Strategies for High Net Worth Individuals',
+        description: 'Advanced tax strategies for wealthy individuals',
+        url: 'https://www.youtube.com/watch?v=LJtcDH999mg',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'tax-planning-rentals',
+        title: 'Tax Planning for your Rentals',
+        description: 'Tax strategies for real estate rental properties',
+        url: 'https://www.youtube.com/watch?v=xRboubGX2K0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'year-end-tax-strategies',
+        title: '5 Year-End Tax Strategies The IRS Wants You To Ignore',
+        description: 'Year-end tax planning strategies and tips',
+        url: 'https://www.youtube.com/watch?v=A9LXhPfnDx0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'tax-planning-2024-year-end',
+        title: 'Tax Planning 2024 Year End - Projecting Taxable Income',
+        description: 'Year-end tax planning and income projection strategies',
+        url: 'https://www.youtube.com/watch?v=KJfmQjh2lcE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'real-estate-tax-strategy',
+        title: 'The Real Estate Tax Strategy NO One Is Talking About',
+        description: 'Hidden real estate tax strategies for investors',
+        url: 'https://www.youtube.com/watch?v=VFVK8zfQlMk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'best-ai-passive-income-2024',
+        title: 'The BEST A.I. Passive Income Side Hustle 2024',
+        description: 'AI-powered passive income strategies for 2024',
+        url: 'https://www.youtube.com/watch?v=BD9aVGh-vmc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'easiest-passive-income-ai-2025',
+        title: 'Easiest Passive Income - Best A.I. Side Hustle in 2025',
+        description: 'Latest AI side hustle strategies for passive income',
+        url: 'https://www.youtube.com/watch?v=-s-kk3m_xwI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'earn-1000-passive-income',
+        title: 'Earn $1000+ / Month in Passive Income With THIS Easy Side Hustle',
+        description: 'Proven methods to earn $1000+ monthly in passive income',
+        url: 'https://www.youtube.com/watch?v=wFWZkDb9hcU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'easiest-passive-income-side-hustle',
+        title: 'I found the EASIEST passive income side hustle ($300+ daily)',
+        description: 'Simple passive income strategies earning $300+ per day',
+        url: 'https://www.youtube.com/watch?v=hQ1z0_O-M14',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'best-side-hustle-passive-income',
+        title: 'I Found the BEST Side Hustle to Make a Passive Income Online',
+        description: 'Top side hustle strategies for making passive income online',
+        url: 'https://www.youtube.com/watch?v=zihSs5KClSw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
       }
     ]
   };
