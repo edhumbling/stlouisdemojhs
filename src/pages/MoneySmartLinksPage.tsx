@@ -1661,6 +1661,266 @@ const MoneySmartLinksPage: React.FC = () => {
         level: 'Intermediate' as const
       }
     ],
+    "💼 Professional Financial Organizations": [
+      {
+        id: 'financial-planning-association',
+        title: 'Financial Planning Association (FPA)',
+        description: 'Professional development and practice management support for CFPs and financial planning professionals',
+        url: 'https://www.financialplanningassociation.org/',
+        category: 'Professional Association',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'fpa-pro-bono-program',
+        title: 'FPA Pro Bono Program',
+        description: 'Free financial planning advice and education workshops from FPA members',
+        url: 'https://www.financialplanningassociation.org/advocacy/pro-bono-program',
+        category: 'Professional Service',
+        icon: <Users className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'association-financial-counseling-planning',
+        title: 'Association for Financial Counseling & Planning Education (AFCPE)',
+        description: 'Professional organization for financial counselors and educators',
+        url: 'https://www.afcpe.org/',
+        category: 'Professional Association',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-therapy-association',
+        title: 'Financial Therapy Association',
+        description: 'Professional organization advancing the field of financial therapy',
+        url: 'https://www.financialtherapyassociation.org/',
+        category: 'Professional Association',
+        icon: <Users className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'national-association-personal-financial-advisors',
+        title: 'National Association of Personal Financial Advisors (NAPFA)',
+        description: 'Fee-only financial advisor association with consumer education resources',
+        url: 'https://www.napfa.org/',
+        category: 'Professional Association',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      }
+    ],
+    "🎓 Academic & Research Institutions": [
+      {
+        id: 'texas-tech-financial-planning',
+        title: 'Texas Tech University - Personal Financial Planning',
+        description: 'Academic program and research in personal financial planning',
+        url: 'https://www.depts.ttu.edu/hs/pfp/',
+        category: 'Academic Institution',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'university-georgia-financial-planning',
+        title: 'University of Georgia - Financial Planning Program',
+        description: 'Academic financial planning education and research center',
+        url: 'https://www.fcs.uga.edu/extension/financial-planning-program',
+        category: 'Academic Institution',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'kansas-state-financial-counseling',
+        title: 'Kansas State University - Financial Counseling',
+        description: 'Research and education in financial counseling and planning',
+        url: 'https://www.k-state.edu/finplan/',
+        category: 'Academic Institution',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ohio-state-financial-wellness',
+        title: 'Ohio State University - Financial Wellness',
+        description: 'University financial wellness and education programs',
+        url: 'https://financialwellness.osu.edu/',
+        category: 'Academic Institution',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'purdue-extension-financial-education',
+        title: 'Purdue Extension - Financial Education',
+        description: 'Extension programs for financial education and money management',
+        url: 'https://extension.purdue.edu/programs/financial-education',
+        category: 'Extension Program',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      }
+    ],
+    "🌎 State & Local Financial Education Programs": [
+      {
+        id: 'california-jump-start-coalition',
+        title: 'California Jump$tart Coalition',
+        description: 'State coalition advancing financial literacy education in California',
+        url: 'https://www.cajumpstart.org/',
+        category: 'State Coalition',
+        icon: <Building className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'texas-jump-start-coalition',
+        title: 'Texas Jump$tart Coalition',
+        description: 'Advancing financial literacy education throughout Texas',
+        url: 'https://www.texasjumpstart.org/',
+        category: 'State Coalition',
+        icon: <Building className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'florida-financial-literacy-council',
+        title: 'Florida Financial Literacy Council',
+        description: 'State council promoting financial education in Florida schools',
+        url: 'https://www.fldoe.org/academics/standards/financial-literacy/',
+        category: 'State Council',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'new-york-financial-literacy-coalition',
+        title: 'New York Financial Literacy Coalition',
+        description: 'Coalition of organizations promoting financial education in New York',
+        url: 'https://www.wise-ny.org/',
+        category: 'State Coalition',
+        icon: <Building className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'minnesota-council-economic-education',
+        title: 'Minnesota Council on Economic Education',
+        description: 'Nonpartisan nonprofit promoting economic and financial education',
+        url: 'https://www.mncouncil.org/',
+        category: 'State Organization',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      }
+    ],
+    "📺 Corporate Financial Education Programs": [
+      {
+        id: 'visa-practical-money-skills',
+        title: 'Visa Practical Money Skills',
+        description: 'Free financial education resources for teachers, parents, and students',
+        url: 'https://www.practicalmoneyskills.com/',
+        category: 'Corporate Program',
+        icon: <CreditCard className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'mastercard-financial-education',
+        title: 'Mastercard Financial Education',
+        description: 'Global financial inclusion and education initiatives',
+        url: 'https://www.mastercardcenter.org/financial-inclusion',
+        category: 'Corporate Program',
+        icon: <CreditCard className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'wells-fargo-hands-on-banking',
+        title: 'Wells Fargo Hands on Banking',
+        description: 'Free financial education curriculum for all ages',
+        url: 'https://handsonbanking.org/',
+        category: 'Corporate Program',
+        icon: <Building className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'chase-financial-education',
+        title: 'Chase Financial Education',
+        description: 'Financial education resources and community programs',
+        url: 'https://www.chase.com/personal/education',
+        category: 'Corporate Program',
+        icon: <Building className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'bank-of-america-better-money-habits',
+        title: 'Bank of America Better Money Habits',
+        description: 'Free financial education resources and tools',
+        url: 'https://bettermoneyhabits.bankofamerica.com/',
+        category: 'Corporate Program',
+        icon: <Building className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      }
+    ],
+    "📱 Digital Financial Education Platforms": [
+      {
+        id: 'everfi-financial-literacy',
+        title: 'Everfi Financial Literacy',
+        description: 'Digital learning platform for K-12 financial education',
+        url: 'https://everfi.com/courses/k-12/financial-literacy-high-school/',
+        category: 'Digital Platform',
+        icon: <Calculator className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'biz-kid-educational-resources',
+        title: 'Biz Kid$ Educational Resources',
+        description: 'Financial education and entrepreneurship for kids and teens',
+        url: 'https://bizkids.com/',
+        category: 'Youth Platform',
+        icon: <Users className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'practical-money-skills-games',
+        title: 'Practical Money Skills Games',
+        description: 'Interactive financial education games and simulations',
+        url: 'https://www.practicalmoneyskills.com/games',
+        category: 'Interactive Platform',
+        icon: <Calculator className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'money-as-you-grow',
+        title: 'Money As You Grow',
+        description: 'Age-appropriate financial lessons from birth to college',
+        url: 'https://www.moneyasyougrow.org/',
+        category: 'Government Platform',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-football',
+        title: 'Financial Football',
+        description: 'NFL-themed financial education video game',
+        url: 'https://www.practicalmoneyskills.com/games/financial_football',
+        category: 'Educational Game',
+        icon: <Calculator className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      }
+    ],
     "🎥 Financial Education Videos": [
       {
         id: 'khan-academy-financial-literacy',
@@ -2931,6 +3191,476 @@ const MoneySmartLinksPage: React.FC = () => {
         icon: <Video className="w-4 h-4" />,
         color: '#8B5CF6',
         level: 'Beginner' as const
+      },
+      {
+        id: 'khan-academy-finance-capital-markets',
+        title: 'Khan Academy - Finance and Capital Markets',
+        description: 'Comprehensive course on finance, banking, money, and capital markets',
+        url: 'https://www.youtube.com/watch?v=Fm2gU4voIcI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'crash-course-economics-intro',
+        title: 'Crash Course Economics #1: Intro to Economics',
+        description: 'Introduction to economics and how it affects your daily life',
+        url: 'https://www.youtube.com/watch?v=3ez10ADR_gM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'crash-course-economics-supply-demand',
+        title: 'Crash Course Economics #4: Supply and Demand',
+        description: 'Understanding supply and demand in economics and markets',
+        url: 'https://www.youtube.com/watch?v=kIFBaaPJUO0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'dave-ramsey-baby-steps-explained',
+        title: 'Dave Ramsey Baby Steps Explained',
+        description: 'Complete explanation of Dave Ramsey\'s 7 Baby Steps to financial freedom',
+        url: 'https://www.youtube.com/watch?v=V8h1cXNQWwk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-diet-money-mistakes',
+        title: 'The Financial Diet - 10 Money Mistakes Everyone Makes',
+        description: 'Common financial mistakes and how to avoid them',
+        url: 'https://www.youtube.com/watch?v=jLkXoahASYE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ted-ed-economics-basics',
+        title: 'TED-Ed: How Does the Stock Market Work?',
+        description: 'Simple explanation of how the stock market functions',
+        url: 'https://www.youtube.com/watch?v=F3QpgXBtDeo',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ted-ed-compound-interest',
+        title: 'TED-Ed: How Does Compound Interest Work?',
+        description: 'Visual explanation of compound interest and its power',
+        url: 'https://www.youtube.com/watch?v=kIFBaaPJUO0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'personal-finance-101-basics',
+        title: 'Personal Finance 101: Everything You Need to Know',
+        description: 'Complete beginner\'s guide to personal finance fundamentals',
+        url: 'https://www.youtube.com/watch?v=HQzoZfc3GwQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'money-management-tips-2025',
+        title: 'Money Management Tips for 2025',
+        description: 'Current money management strategies and tips for the new year',
+        url: 'https://www.youtube.com/watch?v=tniPAtlMlZc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'budgeting-for-beginners-complete',
+        title: 'Budgeting for Beginners - Complete Guide',
+        description: 'Step-by-step guide to creating and maintaining a budget',
+        url: 'https://www.youtube.com/watch?v=sVKQn2R7yd0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'emergency-fund-how-much',
+        title: 'Emergency Fund: How Much Do You Really Need?',
+        description: 'Determining the right emergency fund size for your situation',
+        url: 'https://www.youtube.com/watch?v=i0ub12TKBBc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'investing-101-stock-market',
+        title: 'Investing 101: Stock Market for Beginners',
+        description: 'Basic introduction to stock market investing for beginners',
+        url: 'https://www.youtube.com/watch?v=hMqNOiqmvbA',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'retirement-planning-20s-30s',
+        title: 'Retirement Planning in Your 20s and 30s',
+        description: 'Early retirement planning strategies for young adults',
+        url: 'https://www.youtube.com/watch?v=qSIONdvvo_c',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'credit-score-improvement-guide',
+        title: 'How to Improve Your Credit Score Fast',
+        description: 'Proven strategies to improve your credit score quickly',
+        url: 'https://www.youtube.com/watch?v=HQzoZfc3GwQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'passive-income-strategies',
+        title: '10 Passive Income Ideas for 2025',
+        description: 'Multiple passive income strategies and how to implement them',
+        url: 'https://www.youtube.com/watch?v=zihSs5KClSw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'real-estate-investing-beginners',
+        title: 'Real Estate Investing for Beginners',
+        description: 'Introduction to real estate investment strategies and basics',
+        url: 'https://www.youtube.com/watch?v=hMqNOiqmvbA',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-independence-guide',
+        title: 'Complete Guide to Financial Independence',
+        description: 'Comprehensive guide to achieving financial independence',
+        url: 'https://www.youtube.com/watch?v=isqpzOsMluI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'tax-strategies-optimization',
+        title: 'Tax Strategies for Wealth Building',
+        description: 'Advanced tax optimization strategies for building wealth',
+        url: 'https://www.youtube.com/watch?v=gdQ357almxQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'business-finance-fundamentals',
+        title: 'Business Finance Fundamentals',
+        description: 'Essential business finance concepts for entrepreneurs',
+        url: 'https://www.youtube.com/watch?v=L-4cET5vFG4',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'international-investing-guide',
+        title: 'International Investing: A Complete Guide',
+        description: 'Guide to investing in international markets and currencies',
+        url: 'https://www.youtube.com/watch?v=O3YnDObbuD0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-psychology-behavior',
+        title: 'The Psychology of Money and Financial Behavior',
+        description: 'Understanding the psychological aspects of financial decision-making',
+        url: 'https://www.youtube.com/watch?v=IL44lnpUwEc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'estate-planning-basics',
+        title: 'Estate Planning Basics Everyone Should Know',
+        description: 'Introduction to estate planning and wealth transfer strategies',
+        url: 'https://www.youtube.com/watch?v=_J9hWWQG1cY',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-planning-software-tools',
+        title: 'Best Financial Planning Software and Tools',
+        description: 'Review of top financial planning software and digital tools',
+        url: 'https://www.youtube.com/watch?v=3AA1q4ufFpk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'college-funding-strategies',
+        title: 'College Funding Strategies for Parents',
+        description: 'Comprehensive guide to funding college education',
+        url: 'https://www.youtube.com/watch?v=W1Z5yp6K0q0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'small-business-financial-management',
+        title: 'Small Business Financial Management',
+        description: 'Financial management strategies for small business owners',
+        url: 'https://www.youtube.com/watch?v=OA0FNsmzqNM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-literacy-teens-complete',
+        title: 'Complete Financial Literacy Course for Teens',
+        description: 'Comprehensive financial education designed specifically for teenagers',
+        url: 'https://www.youtube.com/watch?v=QQrpD9rlJR0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'women-financial-empowerment',
+        title: 'Financial Empowerment for Women',
+        description: 'Addressing unique financial challenges and opportunities for women',
+        url: 'https://www.youtube.com/watch?v=IL44lnpUwEc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'retirement-income-planning',
+        title: 'Retirement Income Planning Strategies',
+        description: 'Creating sustainable income streams in retirement',
+        url: 'https://www.youtube.com/watch?v=h96IyenPZHM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-goals-smart-setting',
+        title: 'Setting SMART Financial Goals',
+        description: 'How to set specific, measurable, achievable financial goals',
+        url: 'https://www.youtube.com/watch?v=Duxo4xXeMec',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-stress-management',
+        title: 'Managing Financial Stress and Anxiety',
+        description: 'Strategies for dealing with financial stress and building confidence',
+        url: 'https://www.youtube.com/watch?v=lQFCGOsyEnY',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-education-kids-parents',
+        title: 'Teaching Kids About Money: A Parent\'s Guide',
+        description: 'How parents can teach children about money and financial responsibility',
+        url: 'https://www.youtube.com/watch?v=0iRbD5rM5qc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-technology-fintech',
+        title: 'Understanding Financial Technology (FinTech)',
+        description: 'How financial technology is changing personal finance',
+        url: 'https://www.youtube.com/watch?v=BXfRm16S7gk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'sustainable-investing-esg',
+        title: 'Sustainable Investing and ESG Factors',
+        description: 'Introduction to environmental, social, and governance investing',
+        url: 'https://www.youtube.com/watch?v=9adHRqfVhoU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-planning-couples',
+        title: 'Financial Planning for Couples',
+        description: 'How couples can work together on financial goals and planning',
+        url: 'https://www.youtube.com/watch?v=aTCi3L9RzZY',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-independence-retire-early',
+        title: 'FIRE: Financial Independence, Retire Early',
+        description: 'Complete guide to the FIRE movement and early retirement strategies',
+        url: 'https://www.youtube.com/watch?v=jWlsRqpjoHE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-literacy-immigrants',
+        title: 'Financial Literacy for Immigrants',
+        description: 'Financial education tailored for immigrants and new residents',
+        url: 'https://www.youtube.com/watch?v=OA0FNsmzqNM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-wellness-workplace',
+        title: 'Financial Wellness in the Workplace',
+        description: 'How employers and employees can promote financial wellness',
+        url: 'https://www.youtube.com/watch?v=4zEV8NyXQ-s',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-planning-millennials',
+        title: 'Financial Planning for Millennials',
+        description: 'Addressing unique financial challenges facing the millennial generation',
+        url: 'https://www.youtube.com/watch?v=c3KatwgK4x8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-planning-gen-z',
+        title: 'Financial Planning for Generation Z',
+        description: 'Financial strategies and advice tailored for Gen Z',
+        url: 'https://www.youtube.com/watch?v=BXfRm16S7gk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-planning-seniors',
+        title: 'Financial Planning for Seniors',
+        description: 'Financial strategies for older adults and retirees',
+        url: 'https://www.youtube.com/watch?v=h96IyenPZHM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-recovery-crisis',
+        title: 'Financial Recovery After Crisis',
+        description: 'Strategies for rebuilding finances after economic hardship',
+        url: 'https://www.youtube.com/watch?v=sjyMYeb9i90',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-education-global-perspective',
+        title: 'Financial Education: A Global Perspective',
+        description: 'How financial education varies across different countries and cultures',
+        url: 'https://www.youtube.com/watch?v=klVGlU4-VmQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-literacy-assessment',
+        title: 'Assessing Your Financial Literacy',
+        description: 'Tools and methods to evaluate your current financial knowledge',
+        url: 'https://www.youtube.com/watch?v=Duxo4xXeMec',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-education-future-trends',
+        title: 'The Future of Financial Education',
+        description: 'Emerging trends and technologies in financial education',
+        url: 'https://www.youtube.com/watch?v=bd_j0cDokQE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-coaching-vs-planning',
+        title: 'Financial Coaching vs Financial Planning',
+        description: 'Understanding the difference between financial coaching and planning',
+        url: 'https://www.youtube.com/watch?v=lQFCGOsyEnY',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-education-policy-advocacy',
+        title: 'Financial Education Policy and Advocacy',
+        description: 'The role of policy in promoting financial education',
+        url: 'https://www.youtube.com/watch?v=isqpzOsMluI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-education-measurement-impact',
+        title: 'Measuring the Impact of Financial Education',
+        description: 'How to evaluate the effectiveness of financial education programs',
+        url: 'https://www.youtube.com/watch?v=jWlsRqpjoHE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
       }
     ]
   };
