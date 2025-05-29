@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -172,6 +172,15 @@ const StudentsHubPage: React.FC = () => {
       url: "https://www.lennybot.com/",
       icon: <Lightbulb className="w-5 h-5" />,
       color: "#F59E0B"
+    },
+    {
+      id: 13,
+      title: "AI Comic Factory",
+      description: "Create amazing comics and stories with AI - unleash your creativity!",
+      url: "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+      icon: <Palette className="w-5 h-5" />,
+      color: "#E91E63",
+      embedStrategy: 'iframe'
     },
   ];
 
