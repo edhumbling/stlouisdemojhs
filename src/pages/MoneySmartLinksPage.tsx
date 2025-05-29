@@ -521,168 +521,6 @@ const MoneySmartLinksPage: React.FC = () => {
         level: 'Intermediate' as const
       }
     ],
-    "🎥 YouTube Finance Channels": [
-      {
-        id: 'graham-stephan',
-        title: 'Graham Stephan - Personal Finance Basics',
-        description: 'How to invest for beginners - Complete guide',
-        url: 'https://www.youtube.com/watch?v=fwe-PjrX23o',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Beginner' as const
-      },
-      {
-        id: 'dave-ramsey',
-        title: 'Dave Ramsey - Debt Free Journey',
-        description: 'How to get out of debt and build wealth',
-        url: 'https://www.youtube.com/watch?v=S6YMoLGlKaQ',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Beginner' as const
-      },
-      {
-        id: 'ben-felix',
-        title: 'Ben Felix - Portfolio Theory',
-        description: 'Evidence-based investing and modern portfolio theory',
-        url: 'https://www.youtube.com/watch?v=uERGaXuplqk',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Advanced' as const
-      },
-      {
-        id: 'two-cents',
-        title: 'Two Cents - Budgeting 101',
-        description: 'Personal finance and budgeting made simple',
-        url: 'https://www.youtube.com/watch?v=sVKQn2R7eys',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Beginner' as const
-      },
-      {
-        id: 'andrei-jikh',
-        title: 'Andrei Jikh - Credit Card Guide',
-        description: 'Credit cards and investing for financial freedom',
-        url: 'https://www.youtube.com/watch?v=4j2emMn7UaI',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Intermediate' as const
-      },
-      {
-        id: 'meet-kevin',
-        title: 'Meet Kevin - Real Estate Investing',
-        description: 'How to invest in real estate for beginners',
-        url: 'https://www.youtube.com/watch?v=YTc0rT8kTZs',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Intermediate' as const
-      },
-      {
-        id: 'minority-mindset',
-        title: 'Minority Mindset - Building Wealth',
-        description: 'Financial education and wealth building strategies',
-        url: 'https://www.youtube.com/watch?v=8rMlBBrhbf0',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Beginner' as const
-      },
-      {
-        id: 'the-plain-bagel',
-        title: 'The Plain Bagel - Stock Market Basics',
-        description: 'How the stock market works explained simply',
-        url: 'https://www.youtube.com/watch?v=p7HKvqRI_Bo',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Intermediate' as const
-      },
-      {
-        id: 'khan-academy-finance',
-        title: 'Khan Academy - Finance Fundamentals',
-        description: 'Introduction to finance and capital markets',
-        url: 'https://www.youtube.com/watch?v=WEDIj9JBTC8',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Beginner' as const
-      },
-      {
-        id: 'financial-education',
-        title: 'Financial Education - Stock Analysis',
-        description: 'How to analyze stocks and build a portfolio',
-        url: 'https://www.youtube.com/watch?v=7pwKL_km9hg',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Intermediate' as const
-      },
-      {
-        id: 'biaheza',
-        title: 'Biaheza - Online Business',
-        description: 'How to start an online business and make money',
-        url: 'https://www.youtube.com/watch?v=GOTQSbCbhOI',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Intermediate' as const
-      },
-      {
-        id: 'whiteboard-finance',
-        title: 'Whiteboard Finance - Investing 101',
-        description: 'Financial concepts and investing explained visually',
-        url: 'https://www.youtube.com/watch?v=gFQNPmLKj1k',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Beginner' as const
-      },
-      {
-        id: 'nate-obrien',
-        title: 'Nate O\'Brien - Passive Income',
-        description: 'How to build passive income streams',
-        url: 'https://www.youtube.com/watch?v=mQUhJTxK5mA',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Beginner' as const
-      },
-      {
-        id: 'charlie-chang',
-        title: 'Charlie Chang - Credit Cards',
-        description: 'Best credit cards and rewards strategies',
-        url: 'https://www.youtube.com/watch?v=Cq_jzHtS8eU',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Intermediate' as const
-      },
-      {
-        id: 'stock-moe',
-        title: 'Stock Moe - Day Trading',
-        description: 'Day trading strategies and market analysis',
-        url: 'https://www.youtube.com/watch?v=3dLrhrRJUgU',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Advanced' as const
-      },
-      {
-        id: 'ziptrader',
-        title: 'ZipTrader - Trading Basics',
-        description: 'Stock trading fundamentals and strategies',
-        url: 'https://www.youtube.com/watch?v=Ll9IGXTkgZI',
-        category: 'YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FF0000',
-        level: 'Advanced' as const
-      }
-    ],
     "🌍 African Finance & Economics": [
       {
         id: 'bank-of-ghana',
@@ -845,75 +683,85 @@ const MoneySmartLinksPage: React.FC = () => {
         level: 'Advanced' as const
       }
     ],
-    "🎬 African YouTube Finance Creators": [
+    "🎥 Financial Education Videos": [
       {
-        id: 'ghana-talks-business',
-        title: 'Ghana Business - Starting a Business',
-        description: 'How to start a business in Ghana',
-        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        category: 'African YouTube',
+        id: 'khan-academy-financial-literacy',
+        title: 'Khan Academy - Financial Literacy',
+        description: 'Complete introduction to personal finance and financial literacy',
+        url: 'https://www.youtube.com/watch?v=Lys4EVugJmk',
+        category: 'Educational Video',
         icon: <Video className="w-4 h-4" />,
-        color: '#CE1126',
+        color: '#1BA05B',
         level: 'Beginner' as const
       },
       {
-        id: 'african-entrepreneur',
-        title: 'African Entrepreneur - Business Tips',
-        description: 'Entrepreneurship strategies across Africa',
-        url: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
-        category: 'African YouTube',
+        id: 'dave-ramsey-baby-steps',
+        title: 'Dave Ramsey - The 7 Baby Steps Explained',
+        description: 'Complete guide to Dave Ramsey\'s 7 Baby Steps for financial freedom',
+        url: 'https://www.youtube.com/watch?v=OO25TrVo_dU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ben-felix-common-sense-investing',
+        title: 'Ben Felix - Welcome to Common Sense Investing',
+        description: 'Evidence-based investing principles and portfolio theory',
+        url: 'https://www.youtube.com/watch?v=tvXw2Jfqz9w',
+        category: 'Educational Video',
         icon: <Video className="w-4 h-4" />,
         color: '#FF6B35',
-        level: 'Intermediate' as const
+        level: 'Advanced' as const
       },
       {
-        id: 'african-markets',
-        title: 'African Markets - Investment Guide',
-        description: 'How to invest in African stock markets',
-        url: 'https://www.youtube.com/watch?v=y6120QOlsfU',
-        category: 'African YouTube',
+        id: 'personal-finance-101-guide',
+        title: 'Personal Finance 101 - Complete Guide to Building Wealth',
+        description: 'Comprehensive guide to personal finance fundamentals',
+        url: 'https://www.youtube.com/watch?v=ASYMb_q55Bk',
+        category: 'Educational Video',
         icon: <Video className="w-4 h-4" />,
-        color: '#228B22',
-        level: 'Intermediate' as const
-      },
-      {
-        id: 'nigeria-finance',
-        title: 'Nigeria Finance - Banking Guide',
-        description: 'Banking and finance in Nigeria',
-        url: 'https://www.youtube.com/watch?v=kJQP7kiw5Fk',
-        category: 'African YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#008751',
-        level: 'Intermediate' as const
-      },
-      {
-        id: 'south-african-investor',
-        title: 'SA Investor - JSE Guide',
-        description: 'How to invest in the Johannesburg Stock Exchange',
-        url: 'https://www.youtube.com/watch?v=lAhg_P_U2qc',
-        category: 'African YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#FFB612',
-        level: 'Intermediate' as const
-      },
-      {
-        id: 'kenyan-entrepreneur',
-        title: 'Kenya Business - Mobile Money',
-        description: 'Mobile money and fintech in East Africa',
-        url: 'https://www.youtube.com/watch?v=hxUAntt1z2c',
-        category: 'African YouTube',
-        icon: <Video className="w-4 h-4" />,
-        color: '#BB0000',
+        color: '#8B5CF6',
         level: 'Beginner' as const
       },
       {
-        id: 'african-crypto',
-        title: 'African Crypto - Bitcoin Guide',
-        description: 'Cryptocurrency and blockchain education for Africa',
-        url: 'https://www.youtube.com/watch?v=bBC-nXj3Ng4',
-        category: 'African YouTube',
+        id: 'personal-finance-basics',
+        title: 'Personal Finance Basics - Money Management Fundamentals',
+        description: 'Learn personal finance basics, fundamentals, and best practices',
+        url: 'https://www.youtube.com/watch?v=EsOTfVIcdEI',
+        category: 'Educational Video',
         icon: <Video className="w-4 h-4" />,
-        color: '#9932CC',
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'student-personal-finance',
+        title: 'Student Guide to Personal Finance - Adulting 101',
+        description: 'Personal finance guide specifically designed for students',
+        url: 'https://www.youtube.com/watch?v=MXCvtC0HqLE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'money-management-learning-path',
+        title: 'Money Management Learning Path',
+        description: 'Complete learning path for money management and investing basics',
+        url: 'https://www.youtube.com/watch?v=BJlXQrsvVTk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ben-felix-timing-market',
+        title: 'Ben Felix - Is Now the Best Time to Invest?',
+        description: 'Market timing and investment strategy analysis',
+        url: 'https://www.youtube.com/watch?v=X1qzuPRvsM0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
         level: 'Advanced' as const
       }
     ]
