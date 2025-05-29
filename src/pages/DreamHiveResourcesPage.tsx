@@ -152,6 +152,7 @@ const DreamHiveResourcesPage: React.FC = () => {
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
+                type="button"
                 onClick={handleResourceBack}
                 className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-purple-700/70 hover:bg-purple-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/50 hover:border-purple-400/70 flex-shrink-0"
               >
@@ -277,6 +278,7 @@ const DreamHiveResourcesPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
+              type="button"
               onClick={handleBack}
               className="inline-flex items-center gap-2 px-4 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-white/20 flex-shrink-0 hover:scale-105"
             >
@@ -346,6 +348,7 @@ const DreamHiveResourcesPage: React.FC = () => {
                       className="group"
                     >
                       <button
+                        type="button"
                         onClick={(e) => openResource(resource, e)}
                         className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
                       >

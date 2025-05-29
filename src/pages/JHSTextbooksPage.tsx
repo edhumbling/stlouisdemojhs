@@ -153,6 +153,7 @@ const JHSTextbooksPage: React.FC = () => {
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
+                type="button"
                 onClick={handlePdfBack}
                 className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-teal-700/70 hover:bg-teal-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-teal-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-teal-500/50 hover:border-teal-400/70 flex-shrink-0"
               >
@@ -260,6 +261,7 @@ const JHSTextbooksPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
+              type="button"
               onClick={handleBack}
               className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-teal-700/50 hover:bg-teal-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-teal-500/30 flex-shrink-0"
             >
@@ -319,6 +321,7 @@ const JHSTextbooksPage: React.FC = () => {
                         className="group"
                       >
                         <button
+                          type="button"
                           onClick={(e) => openPdfViewer(book.pdfUrl, e)}
                           className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
                         >
