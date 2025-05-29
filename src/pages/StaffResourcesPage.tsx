@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap, ScanText, Search, PenTool } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap, ScanText, Search, PenTool, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -222,6 +222,16 @@ const StaffResourcesPage: React.FC = () => {
       icon: PenTool,
       category: 'Content Creation',
       color: 'from-rose-500 to-rose-600'
+    },
+    {
+      id: 'teachers-agent',
+      title: 'Teacher\'s Agent',
+      subtitle: 'Comprehensive AI Assistant',
+      description: 'Advanced AI agent to answer questions, solve problems, and assist with all teaching tasks',
+      url: 'https://demo.exa.ai/answer',
+      icon: Zap,
+      category: 'AI Assistant',
+      color: 'from-amber-500 to-amber-600'
     }
   ];
 
