@@ -55,6 +55,15 @@ const StaffResourcesPage: React.FC = () => {
       return;
     }
 
+    // Find the resource to check if it should open in new tab
+    const resource = resources.find(r => r.id === resourceId);
+
+    // Handle resources that should open in new tab
+    if (resource?.openInNewTab) {
+      window.open(resource.url, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
     setIsLoading(true);
     setIframeError(false);
     setShowAlternatives(false);
@@ -69,7 +78,6 @@ const StaffResourcesPage: React.FC = () => {
         setShowAlternatives(true);
 
         // Auto-redirect to browser after showing error
-        const resource = resources.find(r => r.id === resourceId);
         if (resource) {
           setTimeout(() => {
             window.open(resource.url, '_blank', 'noopener,noreferrer');
@@ -132,108 +140,114 @@ const StaffResourcesPage: React.FC = () => {
     }
   };
 
-  const resources = [
-    {
-      id: 'nacca-ccp',
-      title: 'NaCCA CCP',
-      subtitle: 'All Subjects',
-      description: 'Ghana\'s Common Core Programme curriculum guidelines',
-      url: 'https://nacca.gov.gh/common-core-programme-ccp/',
-      icon: BookOpen,
-      category: 'Curriculum',
-      color: 'from-blue-500 to-blue-600'
-    },
-    {
-      id: 'khamingo',
-      title: 'Khamingo',
-      subtitle: 'AI Teaching Assistant',
-      description: 'Khan Academy\'s AI-powered teaching assistant for educators',
-      url: 'https://www.khanmigo.ai/teachers',
-      icon: Bot,
-      category: 'AI Tools',
-      color: 'from-purple-500 to-purple-600'
-    },
-    {
-      id: 'chief-examiners-reports',
-      title: 'Chief Examiners Reports',
-      subtitle: 'WAEC Ghana',
-      description: 'Official examination reports and analysis from WAEC Ghana',
-      url: 'https://waecgh.org/chief-examiners-report/',
-      icon: FileBarChart,
-      category: 'Assessment',
-      color: 'from-orange-500 to-orange-600'
-    },
-    {
-      id: 'leveraging-ai-teaching',
-      title: 'Leveraging AI in Teaching',
-      subtitle: 'Comprehensive Guide',
-      description: 'Complete guide to integrating AI tools in African classrooms',
-      url: '/ai-teaching-guide',
-      icon: Brain,
-      category: 'Professional Development',
-      color: 'from-emerald-500 to-emerald-600'
-    },
-    {
-      id: 'visual-teaching-aid',
-      title: 'Visual Teaching Aid Tool',
-      subtitle: 'AI-Powered Visual Generator',
-      description: 'Create visual aids, diagrams, and educational images with advanced AI',
-      url: 'https://huggingface.co/spaces/deepseek-ai/Janus-Pro-7B',
-      icon: Eye,
-      category: 'AI Tools',
-      color: 'from-indigo-500 to-indigo-600'
-    },
-    {
-      id: 'teachers-personal-tutor',
-      title: 'Teacher\'s Personal Tutor',
-      subtitle: 'AI Learning Assistant',
-      description: 'Personal AI tutor to help teachers learn new concepts and enhance their knowledge',
-      url: 'https://llamatutor.together.ai/',
-      icon: GraduationCap,
-      category: 'Professional Development',
-      color: 'from-teal-500 to-teal-600'
-    },
-    {
-      id: 'paper-to-text-notes',
-      title: 'Paper to Text Notes',
-      subtitle: 'OCR Document Scanner',
-      description: 'Convert handwritten notes and documents to digital text with AI-powered OCR',
-      url: 'https://llamaocr.com/',
-      icon: ScanText,
-      category: 'Productivity',
-      color: 'from-cyan-500 to-cyan-600'
-    },
-    {
-      id: 'teachers-ai-researcher',
-      title: 'Teacher\'s AI Researcher',
-      subtitle: 'Intelligent Research Assistant',
-      description: 'AI-powered research tool to find reliable sources and information for lesson planning',
-      url: 'https://chat.exa.ai/',
-      icon: Search,
-      category: 'Research',
-      color: 'from-violet-500 to-violet-600'
-    },
-    {
-      id: 'teachers-writing-assistant',
-      title: 'Teacher\'s Writing Assistant',
-      subtitle: 'AI Content Creator',
-      description: 'AI-powered writing tool to create lesson plans, educational content, and teaching materials',
-      url: 'https://demo.exa.ai/writing',
-      icon: PenTool,
-      category: 'Content Creation',
-      color: 'from-rose-500 to-rose-600'
-    },
-    {
-      id: 'teachers-agent',
-      title: 'Teacher\'s Agent',
-      subtitle: 'Comprehensive AI Assistant',
-      description: 'Advanced AI agent to answer questions, solve problems, and assist with all teaching tasks',
-      url: 'https://demo.exa.ai/answer',
-      icon: Zap,
-      category: 'AI Assistant',
-      color: 'from-amber-500 to-amber-600'
-    }
-  ];
+  // 🎯 CATEGORIZED STAFF RESOURCES 🎯
+  // Organized by professional areas for better navigation and discovery
+  const resourceCategories = {
+    "📚 Curriculum & Assessment": [
+      {
+        id: 'nacca-ccp',
+        title: 'NaCCA CCP',
+        subtitle: 'All Subjects',
+        description: 'Ghana\'s Common Core Programme curriculum guidelines',
+        url: 'https://nacca.gov.gh/common-core-programme-ccp/',
+        icon: BookOpen,
+        color: 'from-blue-500 to-blue-600'
+      },
+      {
+        id: 'chief-examiners-reports',
+        title: 'Chief Examiners Reports',
+        subtitle: 'WAEC Ghana',
+        description: 'Official examination reports and analysis from WAEC Ghana',
+        url: 'https://waecgh.org/chief-examiners-report/',
+        icon: FileBarChart,
+        color: 'from-orange-500 to-orange-600'
+      }
+    ],
+    "🤖 AI Teaching Tools": [
+      {
+        id: 'khamingo',
+        title: 'Khamingo',
+        subtitle: 'AI Teaching Assistant',
+        description: 'Khan Academy\'s AI-powered teaching assistant for educators',
+        url: 'https://www.khanmigo.ai/teachers',
+        icon: Bot,
+        color: 'from-purple-500 to-purple-600'
+      },
+      {
+        id: 'visual-teaching-aid',
+        title: 'Visual Teaching Aid Tool',
+        subtitle: 'AI-Powered Visual Generator',
+        description: 'Create visual aids, diagrams, and educational images with advanced AI',
+        url: 'https://huggingface.co/spaces/deepseek-ai/Janus-Pro-7B',
+        icon: Eye,
+        color: 'from-indigo-500 to-indigo-600',
+        openInNewTab: true
+      },
+      {
+        id: 'teachers-agent',
+        title: 'Teacher\'s Agent',
+        subtitle: 'Comprehensive AI Assistant',
+        description: 'Advanced AI agent to answer questions, solve problems, and assist with all teaching tasks',
+        url: 'https://demo.exa.ai/answer',
+        icon: Zap,
+        color: 'from-amber-500 to-amber-600'
+      }
+    ],
+    "🎓 Professional Development": [
+      {
+        id: 'leveraging-ai-teaching',
+        title: 'Leveraging AI in Teaching',
+        subtitle: 'Comprehensive Guide',
+        description: 'Complete guide to integrating AI tools in African classrooms',
+        url: '/ai-teaching-guide',
+        icon: Brain,
+        color: 'from-emerald-500 to-emerald-600'
+      },
+      {
+        id: 'teachers-personal-tutor',
+        title: 'Teacher\'s Personal Tutor',
+        subtitle: 'AI Learning Assistant',
+        description: 'Personal AI tutor to help teachers learn new concepts and enhance their knowledge',
+        url: 'https://llamatutor.together.ai/',
+        icon: GraduationCap,
+        color: 'from-teal-500 to-teal-600'
+      }
+    ],
+    "📝 Content Creation & Research": [
+      {
+        id: 'teachers-writing-assistant',
+        title: 'Teacher\'s Writing Assistant',
+        subtitle: 'AI Content Creator',
+        description: 'AI-powered writing tool to create lesson plans, educational content, and teaching materials',
+        url: 'https://demo.exa.ai/writing',
+        icon: PenTool,
+        color: 'from-rose-500 to-rose-600'
+      },
+      {
+        id: 'teachers-ai-researcher',
+        title: 'Teacher\'s AI Researcher',
+        subtitle: 'Intelligent Research Assistant',
+        description: 'AI-powered research tool to find reliable sources and information for lesson planning',
+        url: 'https://chat.exa.ai/',
+        icon: Search,
+        color: 'from-violet-500 to-violet-600'
+      }
+    ],
+    "⚡ Productivity Tools": [
+      {
+        id: 'paper-to-text-notes',
+        title: 'Paper to Text Notes',
+        subtitle: 'OCR Document Scanner',
+        description: 'Convert handwritten notes and documents to digital text with AI-powered OCR',
+        url: 'https://llamaocr.com/',
+        icon: ScanText,
+        color: 'from-cyan-500 to-cyan-600'
+      }
+    ]
+  };
+
+  // Flatten all resources for backward compatibility
+  const resources = Object.values(resourceCategories).flat();
 
   if (selectedResource) {
     // Full-screen embedded view - No header, no footer
@@ -372,64 +386,87 @@ const StaffResourcesPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content - Students Hub Style */}
+      {/* Main Content - Categorized Resources */}
       <main className="flex-1 py-6 sm:py-8">
-        <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
-          {/* Resources Grid - Apple Style (Same as Students Hub) */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
-            {resources.map((resource, index) => {
-              const IconComponent = resource.icon;
-              return (
-                <motion.div
-                  key={resource.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="group"
-                >
-                  <button
-                    onClick={() => openResource(resource.id)}
-                    className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
-                  >
-                    {/* Icon */}
-                    <div
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                      style={{
-                        backgroundColor:
-                          resource.id === 'khamingo' ? '#a855f7' :
-                          resource.id === 'chief-examiners-reports' ? '#f97316' :
-                          resource.id === 'leveraging-ai-teaching' ? '#10b981' :
-                          '#3b82f6' // Purple-500, Orange-500, Emerald-500, or Blue-500
-                      }}
-                    >
-                      <IconComponent size={20} className="sm:w-6 sm:h-6" />
-                    </div>
+        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+          {/* Categorized Resources */}
+          <div className="space-y-8">
+            {Object.entries(resourceCategories).map(([categoryName, categoryResources], categoryIndex) => (
+              <motion.div
+                key={categoryName}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
+                className="space-y-4"
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-3">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white">
+                    {categoryName}
+                  </h2>
+                  <div className="flex-1 h-px bg-gradient-to-r from-blue-500/50 to-transparent"></div>
+                  <span className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
+                    {categoryResources.length} {categoryResources.length === 1 ? 'tool' : 'tools'}
+                  </span>
+                </div>
 
-                    {/* Title */}
-                    <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
-                      {resource.title}
-                    </h3>
+                {/* Category Resources Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                  {categoryResources.map((resource, index) => {
+                    const IconComponent = resource.icon;
+                    return (
+                      <motion.div
+                        key={resource.id}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                        className="group"
+                      >
+                        <button
+                          onClick={() => openResource(resource.id)}
+                          className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                        >
+                          {/* New Tab Indicator */}
+                          {resource.openInNewTab && (
+                            <div className="absolute top-2 right-2 w-5 h-5 bg-green-500/80 rounded-full flex items-center justify-center">
+                              <ExternalLink size={12} className="text-white" />
+                            </div>
+                          )}
 
-                    {/* Subtitle */}
-                    <p className="text-xs text-gray-400 mb-2 font-medium">
-                      {resource.subtitle}
-                    </p>
+                          {/* Icon with gradient background */}
+                          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white bg-gradient-to-br ${resource.color}`}>
+                            <IconComponent size={20} className="sm:w-6 sm:h-6" />
+                          </div>
 
-                    {/* Description */}
-                    <p className="text-xs sm:text-sm text-gray-300 leading-tight">
-                      {resource.description}
-                    </p>
+                          {/* Title */}
+                          <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
+                            {resource.title}
+                          </h3>
 
-                    {/* Category Badge */}
-                    <div className="mt-2">
-                      <span className="px-2 py-1 bg-blue-600/20 text-blue-400 text-xs font-medium rounded-full border border-blue-500/30">
-                        {resource.category}
-                      </span>
-                    </div>
-                  </button>
-                </motion.div>
-              );
-            })}
+                          {/* Subtitle */}
+                          <p className="text-xs text-gray-400 mb-2 font-medium">
+                            {resource.subtitle}
+                          </p>
+
+                          {/* Description */}
+                          <p className="text-xs sm:text-sm text-gray-300 leading-tight">
+                            {resource.description}
+                          </p>
+
+                          {/* New Tab Indicator Text */}
+                          {resource.openInNewTab && (
+                            <div className="mt-2 text-xs text-green-400 flex items-center gap-1">
+                              <ExternalLink size={12} />
+                              <span>Opens in New Tab</span>
+                            </div>
+                          )}
+                        </button>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Footer Message - Same as Students Hub */}
