@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -182,6 +182,16 @@ const StaffResourcesPage: React.FC = () => {
       icon: Eye,
       category: 'AI Tools',
       color: 'from-indigo-500 to-indigo-600'
+    },
+    {
+      id: 'teachers-personal-tutor',
+      title: 'Teacher\'s Personal Tutor',
+      subtitle: 'AI Learning Assistant',
+      description: 'Personal AI tutor to help teachers learn new concepts and enhance their knowledge',
+      url: 'https://llamatutor.together.ai/',
+      icon: GraduationCap,
+      category: 'Professional Development',
+      color: 'from-teal-500 to-teal-600'
     }
   ];
 
