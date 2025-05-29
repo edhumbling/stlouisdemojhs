@@ -202,19 +202,10 @@ const StudentsHubPage: React.FC = () => {
         embedStrategy: 'iframe'
       }
     ],
-    "💼 Life Skills & Career": [
-      {
-        id: 7,
-        title: "Advice from Successful People",
-        description: "Commencement speeches from leaders",
-        url: "/advice-speeches",
-        icon: <Users className="w-5 h-5" />,
-        color: "#FF6B35",
-        isInternal: true
-      },
+    "💰 Financial Literacy": [
       {
         id: 8,
-        title: "Financial Literacy",
+        title: "Khan Academy Financial Literacy",
         description: "Learn personal finance and money management",
         url: "https://www.khanacademy.org/college-careers-more/financial-literacy",
         icon: <DollarSign className="w-5 h-5" />,
@@ -229,6 +220,62 @@ const StudentsHubPage: React.FC = () => {
         proxyUrls: [
           "https://web.archive.org/web/20240101000000*/https://www.khanacademy.org/college-careers-more/financial-literacy"
         ]
+      },
+      {
+        id: 28,
+        title: "Personal Finance Basics",
+        description: "Essential guide to managing your money and building financial security",
+        url: "https://drive.google.com/file/d/1Sg8I986nRXGfk3Ir1Eyx6aDyw6F4E6lz/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#059669",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 29,
+        title: "Budgeting and Saving",
+        description: "Learn how to create budgets and develop smart saving habits",
+        url: "https://drive.google.com/file/d/1dwEaBuMyCFvmt0D8go44SpZTxq-PiJUN/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#0EA5E9",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 30,
+        title: "Investment Fundamentals",
+        description: "Introduction to investing and growing your wealth over time",
+        url: "https://drive.google.com/file/d/1wehgmwts4fLxPkVIgjXSDeXNOPMtzFIP/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#8B5CF6",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 31,
+        title: "Credit and Debt Management",
+        description: "Understanding credit scores, loans, and responsible debt management",
+        url: "https://drive.google.com/file/d/1tDhpCsr36husIUKf-OIfUWZZ6GuuAGEh/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#F59E0B",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 32,
+        title: "Financial Planning for Students",
+        description: "Money management strategies specifically designed for students",
+        url: "https://drive.google.com/file/d/11M0ZPnV5OLqRPoqPBoDDcuAJFE11u6QC/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#EF4444",
+        embedStrategy: 'iframe'
+      }
+    ],
+    "💼 Life Skills & Career": [
+      {
+        id: 7,
+        title: "Advice from Successful People",
+        description: "Commencement speeches from leaders",
+        url: "/advice-speeches",
+        icon: <Users className="w-5 h-5" />,
+        color: "#FF6B35",
+        isInternal: true
       },
       {
         id: 9,
