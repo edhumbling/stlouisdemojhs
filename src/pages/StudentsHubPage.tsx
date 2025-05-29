@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -71,6 +71,15 @@ const StudentsHubPage: React.FC = () => {
         url: "https://childrens.poetryarchive.org/",
         icon: <BookOpen className="w-5 h-5" />,
         color: "#FF3B30"
+      },
+      {
+        id: 17,
+        title: "Ebook Library",
+        description: "Comprehensive digital library with thousands of free ebooks",
+        url: "https://divinemonk.github.io/ebooklibrary/",
+        icon: <Library className="w-5 h-5" />,
+        color: "#8B5CF6",
+        embedStrategy: 'iframe'
       }
     ],
     "📝 Exam Preparation": [
