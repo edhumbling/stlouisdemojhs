@@ -1203,6 +1203,436 @@ const MoneySmartLinksPage: React.FC = () => {
         icon: <Video className="w-4 h-4" />,
         color: '#DC2626',
         level: 'Beginner' as const
+      },
+      {
+        id: 'life-insurance-explained',
+        title: 'Life Insurance, Explained',
+        description: 'Term Life Insurance vs Whole Life Insurance explained',
+        url: 'https://www.youtube.com/watch?v=yTN5GmyNUAI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'types-life-insurance',
+        title: 'Different Types Of Life Insurance Explained',
+        description: 'Term Life, Whole Life, Universal Life, Variable Life explained',
+        url: 'https://www.youtube.com/watch?v=Sz7mIFuPQp0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'life-insurance-101',
+        title: 'Life Insurance 101 (WATCH THIS BEFORE YOU BUY)',
+        description: 'Everything you need to know before buying life insurance',
+        url: 'https://www.youtube.com/watch?v=gdQ357almxQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'indexed-universal-life',
+        title: 'What is Indexed Universal Life Insurance (IUL Explained)',
+        description: 'Complete explanation of Indexed Universal Life Insurance',
+        url: 'https://www.youtube.com/watch?v=O3YnDObbuD0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'wills-and-trusts-explained',
+        title: 'Wills and Trusts Explained',
+        description: 'Understanding the basics of wills and trusts for estate planning',
+        url: 'https://www.youtube.com/watch?v=_J9hWWQG1cY',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'diy-trusts-wills-danger',
+        title: 'The Hidden Danger in Do It Yourself Trusts and Wills',
+        description: 'Why DIY estate planning can be risky and costly',
+        url: 'https://www.youtube.com/watch?v=EC5SbKJK66c',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'differences-trusts-wills',
+        title: 'Differences Between Trusts and Wills',
+        description: 'Should you set up a Trust or Will? Key differences explained',
+        url: 'https://www.youtube.com/watch?v=DOyWP3GPWJ8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-goals-couple',
+        title: 'Can this Couple Achieve their Financial Goals?',
+        description: 'Real-world financial planning process and goal setting',
+        url: 'https://www.youtube.com/watch?v=aTCi3L9RzZY',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-planning-tools',
+        title: '4 Free Tools To Effortlessly Create The Perfect Financial Plan',
+        description: 'Free tools for creating comprehensive financial plans',
+        url: 'https://www.youtube.com/watch?v=3AA1q4ufFpk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-planning-secrets',
+        title: 'FINANCIAL Planning Secrets Revealed!',
+        description: 'Values-based financial planning and goal integration',
+        url: 'https://www.youtube.com/watch?v=rfVbPW1ylx4',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'retirement-steps',
+        title: '6 Essential Steps Before You Retire - Don\'t Miss These!',
+        description: 'Critical steps to take before retirement using financial planning software',
+        url: 'https://www.youtube.com/watch?v=h96IyenPZHM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'pay-off-debt-fast',
+        title: 'How To Pay Off Debt Fast (6 Steps)',
+        description: 'Proven 6-step method for paying off debt quickly',
+        url: 'https://www.youtube.com/watch?v=sjyMYeb9i90',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'paid-off-43000-debt',
+        title: 'How I Paid Off $43,000 In Debt',
+        description: 'Real-world debt payoff story and strategies',
+        url: 'https://www.youtube.com/watch?v=TAmC6aVOOE0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'debt-snowball-method',
+        title: 'How to Use the Debt Snowball Method to Pay Off Debt Fast',
+        description: 'Complete guide to the debt snowball method for debt elimination',
+        url: 'https://www.youtube.com/watch?v=sUXXoHy5v6M',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'debt-management-fall-2024',
+        title: 'Debt Management | Fall 2024',
+        description: 'Current debt management strategies and plans',
+        url: 'https://www.youtube.com/watch?v=jco0IRCwSz0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'analyze-stocks-screener-part1',
+        title: 'How to Analyze Stocks on Screener Website? Part 1',
+        description: 'Learn stock analysis fundamentals using screener website',
+        url: 'https://www.youtube.com/watch?v=9fal90DXuMU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'analyze-stocks-screener-part2',
+        title: 'How to Analyze Stocks on Screener Website? Part 2',
+        description: 'Advanced stock analysis techniques using screener tools',
+        url: 'https://www.youtube.com/watch?v=rnMsMSjrMgM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'options-trading-beginners-complete',
+        title: 'Options Trading For Beginners: Complete Guide with Examples',
+        description: 'Comprehensive options trading guide with detailed examples',
+        url: 'https://www.youtube.com/watch?v=NW1ziUDjB7w',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'options-trading-detailed-examples',
+        title: 'Options Trading for Beginners (WITH DETAILED EXAMPLES)',
+        description: 'Options trading explained with real-world examples',
+        url: 'https://www.youtube.com/watch?v=TyZsemV_0YA',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'options-trading-full-course',
+        title: 'Options Trading for Beginners FULL FREE COURSE (4 Hours)',
+        description: 'Complete 4-hour options trading course for beginners',
+        url: 'https://www.youtube.com/watch?v=SXd-v1z5AY8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'options-trading-webull',
+        title: 'ULTIMATE Guide to Options Trading on WeBull',
+        description: 'Complete guide to options trading on WeBull platform',
+        url: 'https://www.youtube.com/watch?v=ZJjRnKpwDyw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'options-trading-2024-guide',
+        title: 'Options Trading for Beginners 2024 (The ULTIMATE In-Depth Guide)',
+        description: 'Most comprehensive options trading guide for 2024',
+        url: 'https://www.youtube.com/watch?v=0GSB5YZx9ZE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'money-market-funds-explained',
+        title: 'Money Market Funds | Everything You Need to Know',
+        description: 'Complete guide to money market funds for emergency funds and savings',
+        url: 'https://www.youtube.com/watch?v=vyj8aP0Vmmc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'investing-20s-30s-retirement',
+        title: 'How to Start Investing In Your 20s & 30s For Retirement',
+        description: 'Investment strategies for young adults planning for retirement',
+        url: 'https://www.youtube.com/watch?v=qSIONdvvo_c',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'dividend-investing-strategy-2025',
+        title: 'MY DIVIDEND INVESTING STRATEGY EXPLAINED (2025 & Beyond)',
+        description: 'Complete dividend investing strategy for 2025 and beyond',
+        url: 'https://www.youtube.com/watch?v=9adHRqfVhoU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'research-dividend-stocks',
+        title: 'How to research dividend stocks with Seeking Alpha',
+        description: 'Learn to research and analyze dividend stocks effectively',
+        url: 'https://www.youtube.com/watch?v=tXE5MheNock',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'dividend-stocks-etfs-40s',
+        title: 'DIVIDEND STOCKS (and ETFs): How I\'m Investing In My 40s',
+        description: 'Dividend investing strategies for middle-aged investors',
+        url: 'https://www.youtube.com/watch?v=yyPlqREqE1I',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'getting-started-investing-2025',
+        title: 'Getting Started With Investing In 2025 (2 Dividend Stocks I\'m Buying)',
+        description: 'How to start investing in 2025 with specific dividend stock picks',
+        url: 'https://www.youtube.com/watch?v=HPDNHLzPSUI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'dividend-stocks-vs-sp500',
+        title: 'Dividend Stocks vs S&P 500 | The Power of Dividend Investing',
+        description: 'Comparing dividend stocks to S&P 500 index investing',
+        url: 'https://www.youtube.com/watch?v=6I5IOrzstXI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'fire-movement-dead',
+        title: 'Is the FIRE Movement Dead? (Financial Independence, Retire Early)',
+        description: 'Analysis of the FIRE movement and its current relevance',
+        url: 'https://www.youtube.com/watch?v=jWlsRqpjoHE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'fire-movement-explained',
+        title: 'Financial Independence Retire Early (FIRE) Explained',
+        description: 'Complete explanation of the FIRE movement and strategies',
+        url: 'https://www.youtube.com/watch?v=isqpzOsMluI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'fire-actually-achievable',
+        title: 'Is FIRE actually achievable? Can you retire early?',
+        description: 'Realistic assessment of achieving financial independence and early retirement',
+        url: 'https://www.youtube.com/watch?v=klVGlU4-VmQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'college-financial-aid-secrets',
+        title: '"Dirty Little Secrets" of College Financial Aid',
+        description: 'Hidden truths about college financial aid and FAFSA strategies',
+        url: 'https://www.youtube.com/watch?v=8Gx-VEahASc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'fafsa-assets-cost-aid',
+        title: 'Completing the FAFSA: What Assets Can Cost Students Financial Aid',
+        description: 'Understanding how assets affect college financial aid eligibility',
+        url: 'https://www.youtube.com/watch?v=Kyantg50lAs',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'college-financial-aid-award',
+        title: 'Understanding Your College Financial Aid Award Letter',
+        description: 'How to read and understand your college financial aid award letter',
+        url: 'https://www.youtube.com/watch?v=QeL_vclb1QU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-aid-college-admissions',
+        title: 'Financial Aid & College Admissions',
+        description: 'How financial aid affects college admissions and application strategies',
+        url: 'https://www.youtube.com/watch?v=NsSz6S7-r94',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'quickbooks-loan-payments',
+        title: 'How to Record a New Loan and Loan Payments in QuickBooks Online',
+        description: 'Step-by-step guide to recording business loans in QuickBooks',
+        url: 'https://www.youtube.com/watch?v=L-4cET5vFG4',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'small-business-loans-minority',
+        title: 'Small Business Loans for Immigrant and Minority-Owned Businesses',
+        description: 'Financing options for immigrant and minority-owned small businesses',
+        url: 'https://www.youtube.com/watch?v=OA0FNsmzqNM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'buy-house-2025-step-by-step',
+        title: 'How to Buy a House in 2025 Step By Step',
+        description: 'Complete guide to buying a house in 2025 for first-time buyers',
+        url: 'https://www.youtube.com/watch?v=991Sw9U9nQU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'first-time-home-buyer-class',
+        title: 'Massachusetts First Time Home Buyer Class',
+        description: 'Free first-time home buyer education class and mortgage guidance',
+        url: 'https://www.youtube.com/watch?v=ORh84jg5ClE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'expert-advice-first-time-buyers',
+        title: 'Expert Advice For First Time Home Buyers In 2024',
+        description: 'Professional advice for first-time home buyers navigating the market',
+        url: 'https://www.youtube.com/watch?v=yqeDffcKdQc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'how-to-buy-home-first-time',
+        title: 'How to Buy a Home as a First Time Home Buyer',
+        description: 'Complete process of buying your first home step by step',
+        url: 'https://www.youtube.com/watch?v=UXXV9RvrOAc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'first-time-homebuyer-programs',
+        title: 'First-Time Homebuyer Programs and Down-Payment Assistance',
+        description: 'Available programs and assistance for first-time home buyers',
+        url: 'https://www.youtube.com/watch?v=g0KdxmuA-V8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
       }
     ]
   };
