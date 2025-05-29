@@ -1633,6 +1633,326 @@ const MoneySmartLinksPage: React.FC = () => {
         icon: <Video className="w-4 h-4" />,
         color: '#F59E0B',
         level: 'Beginner' as const
+      },
+      {
+        id: 'financial-literacy-teens-managing-money',
+        title: 'Financial Literacy for Teens: Managing Money with Your Teen',
+        description: 'Importance of personal finance for teenagers and how to start',
+        url: 'https://www.youtube.com/watch?v=QQrpD9rlJR0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'financial-literacy-kids',
+        title: 'Financial Literacy for Kids',
+        description: 'Teaching financial concepts including saving versus borrowing',
+        url: 'https://www.youtube.com/watch?v=0iRbD5rM5qc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'what-is-money-teens',
+        title: 'What Is Money? - Financial Literacy for Teens!',
+        description: 'Basic understanding of money and financial concepts for teenagers',
+        url: 'https://www.youtube.com/watch?v=BXfRm16S7gk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'banking-basics-fraud-protection',
+        title: 'Banking Basics: How to Protect Yourself Against Fraud',
+        description: 'Essential fraud protection knowledge for teens and young adults',
+        url: 'https://www.youtube.com/watch?v=4zEV8NyXQ-s',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'power-compound-interest-explained',
+        title: 'The Power of Compound Interest',
+        description: 'Understanding how compound interest can build wealth over time',
+        url: 'https://www.youtube.com/watch?v=i0ub12TKBBc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'power-compound-interest-2024',
+        title: 'The Power Of Compound Interest',
+        description: 'Learn about the power of compound interest for financial planning',
+        url: 'https://www.youtube.com/watch?v=PiDLxJQrrqw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'compound-interest-simple-example',
+        title: 'The POWER of Compound Interest Explained with One Simple Example',
+        description: 'Simple example demonstrating the power of compound interest',
+        url: 'https://www.youtube.com/watch?v=PgKNRq6O6JQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'compound-interest-nerdwallet',
+        title: 'Compound Interest Explained | NerdWallet',
+        description: 'NerdWallet\'s explanation of compound interest and how it works',
+        url: 'https://www.youtube.com/watch?v=WgVPgNFgrAo',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'roth-traditional-401k-ira-comparison',
+        title: 'Roth IRA vs Traditional IRA vs 401K (SIMILARITIES & DIFFERENCES)',
+        description: 'Complete comparison of retirement account types and their differences',
+        url: 'https://www.youtube.com/watch?v=2iUwj4A91Yc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'best-investing-account-401k-ira-taxable',
+        title: 'Which Investing Account is Best? (401k vs IRA vs Taxable)',
+        description: 'Comparing different investment account types and their benefits',
+        url: 'https://www.youtube.com/watch?v=udIhZUOEbOk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'hsa-basics-health-savings',
+        title: 'Health Savings Account (HSA) Basics',
+        description: 'Complete guide to HSA: what it is, how it works, and how to use it',
+        url: 'https://www.youtube.com/watch?v=aJiHmiLcZh0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'complete-guide-hsa',
+        title: 'The Complete Guide to Health Savings Accounts (HSA)',
+        description: 'Comprehensive HSA guide with tips and strategies to maximize benefits',
+        url: 'https://www.youtube.com/watch?v=5RZgszXENvw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'hsa-explained-dummies',
+        title: 'What is a Health Savings Account? HSA Explained for Dummies',
+        description: 'Simple explanation of health savings accounts for beginners',
+        url: 'https://www.youtube.com/watch?v=sii1kX7awFQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'hsa-dont-do-this',
+        title: 'If You Have an HSA, DON\'T Do THIS! - Health Savings Account For Financial Independence',
+        description: 'Common HSA mistakes to avoid for financial independence',
+        url: 'https://www.youtube.com/watch?v=Tj8MbBWsxzU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: '529-college-savings-explained',
+        title: '529 College Savings Plan Explained',
+        description: 'Comprehensive explanation of 529 college savings plans',
+        url: 'https://www.youtube.com/watch?v=W1Z5yp6K0q0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: '529-beginners-guide',
+        title: '529 College Savings Plan Fully Explained! (Beginner\'s Guide)',
+        description: 'Complete beginner\'s guide to 529 college savings plans',
+        url: 'https://www.youtube.com/watch?v=niT-I8QAbD0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: '529-tax-advantaged-explained',
+        title: '529 Plans EXPLAINED: Tax-Advantaged College Savings Account',
+        description: 'Understanding 529 plans as tax-advantaged college savings vehicles',
+        url: 'https://www.youtube.com/watch?v=Njo8OvO0IhI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'best-529-investment-strategy',
+        title: 'Best Investment Strategy For Your 529 Plan?',
+        description: 'Optimal investment strategies for 529 college savings plans',
+        url: 'https://www.youtube.com/watch?v=_cCGQwG20UI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'choose-best-529-plan-2023',
+        title: 'How to choose the BEST 529 Plan in 2023',
+        description: 'Practical tips for choosing the best 529 plan for your needs',
+        url: 'https://www.youtube.com/watch?v=vGVtTscbnk0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'etfs-explained-beginners',
+        title: 'ETFs Explained for Beginners',
+        description: 'Complete beginner\'s guide to Exchange-Traded Funds (ETFs)',
+        url: 'https://www.youtube.com/watch?v=zwJ-xK7gJ9s',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'how-to-invest-etfs-beginners',
+        title: 'How To Invest In ETFs: Step-by-Step For Beginners',
+        description: 'Step-by-step guide to investing in ETFs for beginners',
+        url: 'https://www.youtube.com/watch?v=DwxrfBMTCuA',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'etf-investing-vs-mutual-funds',
+        title: 'ETF Investing for Beginners | ETF vs Mutual Funds',
+        description: 'Beginner\'s guide to ETF investing and comparison with mutual funds',
+        url: 'https://www.youtube.com/watch?v=t86OsSL7Opk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'sp500-index-investing-beginners',
+        title: 'How to Invest in the S&P 500 Index for Beginners',
+        description: 'Complete guide to investing in S&P 500 index funds for beginners',
+        url: 'https://www.youtube.com/watch?v=OP6LS30H3eo',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'set-financial-goals-guide',
+        title: 'How to Set Financial Goals | Step-by-Step Guide',
+        description: 'Learn to formulate SMART financial goals and turn desires into achievements',
+        url: 'https://www.youtube.com/watch?v=Duxo4xXeMec',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'smart-financial-goals-2025',
+        title: 'How to Set SMART Financial Goals for 2025',
+        description: 'Setting specific, measurable, achievable financial goals for 2025',
+        url: 'https://www.youtube.com/watch?v=bd_j0cDokQE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'positive-mindset-money-brian-tracy',
+        title: 'How to Have a Positive Mindset About Money | Brian Tracy',
+        description: 'Developing a positive relationship with money and financial goals',
+        url: 'https://www.youtube.com/watch?v=IL44lnpUwEc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'top-5-personal-finance-tips-2025',
+        title: 'Top 5 Personal Finance Tips in 2025 how I would approach saving',
+        description: 'Current personal finance tips and money management strategies for 2025',
+        url: 'https://www.youtube.com/watch?v=tniPAtlMlZc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'money-management-tony-robbins',
+        title: '6 Ways to Manage Your Money with Tony Robbins',
+        description: 'Money management strategies from renowned success coach Tony Robbins',
+        url: 'https://www.youtube.com/watch?v=lQFCGOsyEnY',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'save-money-minimalist',
+        title: 'How to Save Money Like a Minimalist',
+        description: 'Ultimate frugal living tips, tricks and money-saving hacks',
+        url: 'https://www.youtube.com/watch?v=oMwW46V3s5s',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'money-saving-tips-australia-2023',
+        title: '10 Tips To Save More Money • Money Saving Tips Australia 2023',
+        description: 'Practical frugal living and money saving tips for 2023',
+        url: 'https://www.youtube.com/watch?v=OK6wMf97Bfw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'cut-costs-frugal-tips',
+        title: 'Cut Costs Save Money...Easy Frugal Tips',
+        description: 'How to save money tips for people on tight budgets',
+        url: 'https://www.youtube.com/watch?v=JcpsiiAKLGk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'save-money-nyc-25-year-old',
+        title: 'How I Save Money Living In NYC as a 25 Year Old',
+        description: 'Money saving strategies for young adults living in expensive cities',
+        url: 'https://www.youtube.com/watch?v=c3KatwgK4x8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
       }
     ]
   };
