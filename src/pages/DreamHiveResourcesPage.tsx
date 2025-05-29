@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, FileText, Video, Download, ExternalLink, Play, BookOpen, Mail, PenTool } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface Resource {
   id: string;
@@ -17,14 +18,24 @@ interface Resource {
 const DreamHiveResourcesPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleBack = () => {
-    navigate(-1);
+    navigate('/students-hub');
   };
 
   const handleResourceBack = () => {
     setSelectedResource(null);
   };
+
+  // Loading timer
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Extracted resources from dhscholarship.org/resources/
   const resourceCategories = {
@@ -151,6 +162,15 @@ const DreamHiveResourcesPage: React.FC = () => {
     );
   }
 
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
+        <ShimmerLoader variant="hero" className="w-full h-full" />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
       {/* Header - Apple Style */}
@@ -269,49 +289,7 @@ const DreamHiveResourcesPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Footer Info - Apple Style */}
-          <div className="mt-16 text-center">
-            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-4xl mx-auto">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl mb-6">
-                <BookOpen size={32} className="text-white" />
-              </div>
 
-              <h3 className="text-2xl font-bold text-white mb-6">
-                About Dream Hive Scholarship
-              </h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-300 mb-8">
-                <div className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span className="text-sm">Professional development resources</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  <span className="text-sm">Career guidance and tips</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                  <span className="text-sm">Academic writing support</span>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span className="text-sm">Scholarship opportunities</span>
-                </div>
-              </div>
-
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 rounded-full border border-purple-500/30">
-                <span className="text-sm text-purple-300">Source:</span>
-                <a
-                  href="https://dhscholarship.org/resources/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-purple-400 hover:text-purple-300 font-medium transition-colors duration-300"
-                >
-                  Dream Hive Scholarship
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </main>
     </div>
