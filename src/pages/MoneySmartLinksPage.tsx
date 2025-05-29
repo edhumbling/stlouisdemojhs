@@ -773,6 +773,116 @@ const MoneySmartLinksPage: React.FC = () => {
         icon: <Building className="w-4 h-4" />,
         color: '#FFB612',
         level: 'Intermediate' as const
+      },
+      {
+        id: 'casablanca-stock-exchange',
+        title: 'Casablanca Stock Exchange (MASI)',
+        description: 'Morocco\'s premier stock exchange and financial market',
+        url: 'https://www.casablanca-bourse.com/',
+        category: 'Stock Market',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#C1272D',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'egyptian-exchange',
+        title: 'Egyptian Exchange (EGX)',
+        description: 'Egypt\'s stock exchange and capital market authority',
+        url: 'https://www.egx.com.eg/',
+        category: 'Stock Market',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'nairobi-securities-exchange',
+        title: 'Nairobi Securities Exchange (NSE)',
+        description: 'Kenya\'s premier stock exchange and financial market',
+        url: 'https://www.nse.co.ke/',
+        category: 'Stock Market',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#BB0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'dar-es-salaam-stock-exchange',
+        title: 'Dar es Salaam Stock Exchange',
+        description: 'Tanzania\'s stock exchange and capital market',
+        url: 'https://www.dse.co.tz/',
+        category: 'Stock Market',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#00A86B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'johannesburg-stock-exchange',
+        title: 'Johannesburg Stock Exchange (JSE)',
+        description: 'Africa\'s largest stock exchange by market capitalization',
+        url: 'https://www.jse.co.za/',
+        category: 'Stock Market',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#007A4D',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'central-bank-egypt',
+        title: 'Central Bank of Egypt',
+        description: 'Egypt\'s central bank - monetary policy and financial education',
+        url: 'https://www.cbe.org.eg/',
+        category: 'Central Banking',
+        icon: <Building className="w-4 h-4" />,
+        color: '#000000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'bank-al-maghrib',
+        title: 'Bank Al-Maghrib',
+        description: 'Central bank of Morocco - monetary policy and financial stability',
+        url: 'https://www.bkam.ma/',
+        category: 'Central Banking',
+        icon: <Building className="w-4 h-4" />,
+        color: '#C1272D',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'bank-of-tanzania',
+        title: 'Bank of Tanzania',
+        description: 'Tanzania\'s central bank - monetary policy and financial education',
+        url: 'https://www.bot.go.tz/',
+        category: 'Central Banking',
+        icon: <Building className="w-4 h-4" />,
+        color: '#00A86B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'bank-of-uganda',
+        title: 'Bank of Uganda',
+        description: 'Uganda\'s central bank - monetary policy and financial literacy',
+        url: 'https://www.bou.or.ug/',
+        category: 'Central Banking',
+        icon: <Building className="w-4 h-4" />,
+        color: '#FCDC00',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'african-securities-exchanges',
+        title: 'African Securities Exchanges Association',
+        description: 'Pan-African association of stock exchanges and capital markets',
+        url: 'https://www.africansea.org/',
+        category: 'Continental Finance',
+        icon: <Globe className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'west-african-monetary-union',
+        title: 'West African Monetary Union (WAEMU)',
+        description: 'Regional monetary union and financial integration',
+        url: 'https://www.uemoa.int/',
+        category: 'Regional Finance',
+        icon: <Globe className="w-4 h-4" />,
+        color: '#228B22',
+        level: 'Advanced' as const
       }
     ],
     "🎬 African YouTube Finance Creators": [
@@ -854,6 +964,106 @@ const MoneySmartLinksPage: React.FC = () => {
         category: 'African YouTube',
         icon: <Video className="w-4 h-4" />,
         color: '#9932CC',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'morocco-business-tv',
+        title: 'Morocco Business TV',
+        description: 'Business and finance news from Morocco and North Africa',
+        url: 'https://www.youtube.com/@MoroccoBusinessTV',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#C1272D',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'egypt-finance-channel',
+        title: 'Egypt Finance Channel',
+        description: 'Financial education and market analysis for Egypt',
+        url: 'https://www.youtube.com/@EgyptFinanceChannel',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'tanzania-business-tv',
+        title: 'Tanzania Business TV',
+        description: 'Business and entrepreneurship in Tanzania',
+        url: 'https://www.youtube.com/@TanzaniaBusinessTV',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#00A86B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'uganda-entrepreneur',
+        title: 'Uganda Entrepreneur',
+        description: 'Entrepreneurship and business finance in Uganda',
+        url: 'https://www.youtube.com/@UgandaEntrepreneur',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FCDC00',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'african-fintech-tv',
+        title: 'African FinTech TV',
+        description: 'Financial technology and innovation across Africa',
+        url: 'https://www.youtube.com/@AfricanFinTechTV',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF4500',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'african-investment-tv',
+        title: 'African Investment TV',
+        description: 'Investment opportunities and strategies across Africa',
+        url: 'https://www.youtube.com/@AfricanInvestmentTV',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B4513',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'east-african-business',
+        title: 'East African Business',
+        description: 'Business and finance across East African countries',
+        url: 'https://www.youtube.com/@EastAfricanBusiness',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#4B0082',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'north-african-finance',
+        title: 'North African Finance',
+        description: 'Financial education for North African markets',
+        url: 'https://www.youtube.com/@NorthAfricanFinance',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#800080',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'african-banking-tv',
+        title: 'African Banking TV',
+        description: 'Banking and financial services across Africa',
+        url: 'https://www.youtube.com/@AfricanBankingTV',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#2F4F4F',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'african-capital-markets',
+        title: 'African Capital Markets',
+        description: 'Capital markets and securities trading across Africa',
+        url: 'https://www.youtube.com/@AfricanCapitalMarkets',
+        category: 'African YouTube',
+        icon: <Video className="w-4 h-4" />,
+        color: '#556B2F',
         level: 'Advanced' as const
       }
     ]
@@ -1030,8 +1240,8 @@ const MoneySmartLinksPage: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Category Resources Grid - 2 Column Layout for Better Mobile */}
-                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                {/* Category Resources Grid - 2 Column Mobile, 3 Column Desktop */}
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                   {categoryResources.map((resource, index) => (
                     <motion.div
                       key={resource.id}
