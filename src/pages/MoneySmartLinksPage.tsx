@@ -122,7 +122,7 @@ const MoneySmartLinksPage: React.FC = () => {
     ],
     "🎥 Financial Education Videos": [
       { id: 'khan-academy-financial-literacy-video', title: 'Khan Academy - Financial Literacy', description: 'Complete introduction to personal finance and financial literacy', url: 'https://www.youtube.com/watch?v=Lys4EVugJmk', category: 'Educational Video', icon: <Video className="w-4 h-4" />, color: '#1BA05B', level: 'Beginner' as const, keywords: ['khan academy', 'video', 'personal finance', 'budgeting', 'saving', 'investing 101'], resourceType: 'video' as const },
-      { id: 'dave-ramsey-baby-steps', title: 'Dave Ramsey - The 7 Baby Steps Explained', description: 'Complete guide to Dave Ramsey\\\'s 7 Baby Steps for financial freedom', url: 'https://www.youtube.com/watch?v=OO25TrVo_dU', category: 'Educational Video', icon: <Video className="w-4 h-4" />, color: '#0066CC', level: 'Beginner' as const, keywords: ['dave ramsey', 'baby steps', 'debt snowball', 'financial freedom', 'video guide'], resourceType: 'video' as const },
+      { id: 'dave-ramsey-baby-steps', title: 'Dave Ramsey - The 7 Baby Steps Explained', description: 'Complete guide to Dave Ramsey\'s 7 Baby Steps for financial freedom', url: 'https://www.youtube.com/watch?v=OO25TrVo_dU', category: 'Educational Video', icon: <Video className="w-4 h-4" />, color: '#0066CC', level: 'Beginner' as const, keywords: ['dave ramsey', 'baby steps', 'debt snowball', 'financial freedom', 'video guide'], resourceType: 'video' as const },
       // ... many more video resources
     ],
     // ... (All other 20+ categories and their resources, with keywords added to samples)
@@ -371,7 +371,8 @@ const MoneySmartLinksPage: React.FC = () => {
 
   // --- HELPERS & MEMOIZED VALUES ---
   const getYouTubeEmbedUrl = (url: string) => {
-    const videoIdMatch = url.match(/(?:youtube\\.com\\/(?:watch\\?v=|embed\\/|@[^/]+\\/video\\/)|youtu\\.be\\/)([^&\\n?#]+)/);
+    // Corrected regex pattern
+    const videoIdMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|@[^/]+\/video\/)|youtu\.be\/)([^&\n?#]+)/);
     const videoId = videoIdMatch ? videoIdMatch[1] : null;
     if (!videoId) return url; // Fallback or handle error
     return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd720`;
