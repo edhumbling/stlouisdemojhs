@@ -65,6 +65,19 @@ const MoneySmartLinksPage: React.FC = () => {
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
+  // Click outside to close filter dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (showFilters && !target.closest('.filter-dropdown')) {
+        setShowFilters(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showFilters]);
+
   // Loading timer
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -4469,125 +4482,144 @@ const MoneySmartLinksPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Search and Filters */}
-          <div className="mb-8 space-y-4">
-            {/* Search Bar */}
-            <div className="relative max-w-2xl mx-auto">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Search className="h-5 w-5 text-gray-400" />
-              </div>
-              <input
-                type="text"
-                placeholder="Search resources by title, description, or category..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-gray-800/50 border border-gray-600/50 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all duration-200 backdrop-blur-sm"
-              />
-              {searchTerm && (
-                <button
-                  onClick={() => setSearchTerm('')}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-white transition-colors"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              )}
-            </div>
+          {/* Modern Search Bar with Integrated Filters */}
+          <div className="mb-8 space-y-6">
+            {/* Enhanced Search Bar */}
+            <div className="relative max-w-3xl mx-auto">
+              <div className="relative flex items-center">
+                {/* Search Icon */}
+                <div className="absolute left-4 flex items-center pointer-events-none z-10">
+                  <Search className="h-5 w-5 text-gray-400" />
+                </div>
 
-            {/* Filter Toggle and Filters */}
-            <div className="flex flex-col items-center space-y-4">
-              <button
-                onClick={() => setShowFilters(!showFilters)}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700/50 hover:bg-gray-600/50 text-white rounded-xl transition-all duration-200 border border-gray-600/30"
-              >
-                <Filter className="h-4 w-4" />
-                <span>Filters</span>
-                {(selectedCategory || selectedLevel || selectedType) && (
-                  <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">
-                    {[selectedCategory, selectedLevel, selectedType].filter(Boolean).length}
-                  </span>
-                )}
-              </button>
+                {/* Search Input */}
+                <input
+                  type="text"
+                  placeholder="Search 800+ financial resources..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-12 pr-32 py-4 bg-white/5 border border-gray-600/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all duration-200 backdrop-blur-sm hover:bg-white/10"
+                />
 
-              {/* Filter Options */}
-              {showFilters && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="w-full max-w-4xl bg-gray-800/30 rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm"
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                    {/* Category Filter */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Category</label>
-                      <select
-                        value={selectedCategory}
-                        onChange={(e) => setSelectedCategory(e.target.value)}
-                        className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500/50"
-                      >
-                        <option value="">All Categories</option>
-                        {categories.map(category => (
-                          <option key={category} value={category}>{category}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Level Filter */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Difficulty Level</label>
-                      <select
-                        value={selectedLevel}
-                        onChange={(e) => setSelectedLevel(e.target.value)}
-                        className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500/50"
-                      >
-                        <option value="">All Levels</option>
-                        {levels.map(level => (
-                          <option key={level} value={level}>{level}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Type Filter */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Resource Type</label>
-                      <select
-                        value={selectedType}
-                        onChange={(e) => setSelectedType(e.target.value)}
-                        className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500/50"
-                      >
-                        <option value="">All Types</option>
-                        <option value="website">Websites</option>
-                        <option value="video">Videos</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Clear Filters Button */}
-                  {(debouncedSearchTerm || selectedCategory || selectedLevel || selectedType) && (
-                    <div className="flex justify-center">
-                      <button
-                        onClick={clearFilters}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 rounded-lg transition-all duration-200 border border-red-500/30"
-                      >
-                        <X className="h-4 w-4" />
-                        Clear All Filters
-                      </button>
-                    </div>
+                {/* Filter Dropdown Button */}
+                <div className="absolute right-2 flex items-center gap-2">
+                  {searchTerm && (
+                    <button
+                      onClick={() => setSearchTerm('')}
+                      className="p-2 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-gray-700/50"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
                   )}
-                </motion.div>
-              )}
+
+                  <div className="relative filter-dropdown">
+                    <button
+                      onClick={() => setShowFilters(!showFilters)}
+                      className="inline-flex items-center gap-2 px-3 py-2 bg-gray-700/50 hover:bg-gray-600/70 text-white rounded-xl transition-all duration-200 border border-gray-600/30 text-sm font-medium"
+                    >
+                      <Filter className="h-4 w-4" />
+                      <span className="hidden sm:inline">Filters</span>
+                      {(selectedCategory || selectedLevel || selectedType) && (
+                        <span className="bg-green-500 text-white text-xs px-1.5 py-0.5 rounded-full min-w-[18px] h-[18px] flex items-center justify-center">
+                          {[selectedCategory, selectedLevel, selectedType].filter(Boolean).length}
+                        </span>
+                      )}
+                    </button>
+
+                    {/* Dropdown Filter Menu */}
+                    {showFilters && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                        className="absolute right-0 top-full mt-2 w-80 bg-gray-800/95 backdrop-blur-xl rounded-2xl border border-gray-600/30 shadow-2xl z-50"
+                      >
+                        <div className="p-4 space-y-4">
+                          <div className="flex items-center justify-between">
+                            <h3 className="text-sm font-semibold text-white">Filter Resources</h3>
+                            <button
+                              onClick={() => setShowFilters(false)}
+                              className="p-1 text-gray-400 hover:text-white transition-colors rounded"
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+                          </div>
+
+                          {/* Category Filter */}
+                          <div>
+                            <label className="block text-xs font-medium text-gray-300 mb-2">Category</label>
+                            <select
+                              value={selectedCategory}
+                              onChange={(e) => setSelectedCategory(e.target.value)}
+                              className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50"
+                            >
+                              <option value="">All Categories</option>
+                              {categories.map(category => (
+                                <option key={category} value={category}>{category}</option>
+                              ))}
+                            </select>
+                          </div>
+
+                          {/* Level Filter */}
+                          <div>
+                            <label className="block text-xs font-medium text-gray-300 mb-2">Difficulty Level</label>
+                            <select
+                              value={selectedLevel}
+                              onChange={(e) => setSelectedLevel(e.target.value)}
+                              className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50"
+                            >
+                              <option value="">All Levels</option>
+                              {levels.map(level => (
+                                <option key={level} value={level}>{level}</option>
+                              ))}
+                            </select>
+                          </div>
+
+                          {/* Type Filter */}
+                          <div>
+                            <label className="block text-xs font-medium text-gray-300 mb-2">Resource Type</label>
+                            <select
+                              value={selectedType}
+                              onChange={(e) => setSelectedType(e.target.value)}
+                              className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50"
+                            >
+                              <option value="">All Types</option>
+                              <option value="website">Websites</option>
+                              <option value="video">Videos</option>
+                            </select>
+                          </div>
+
+                          {/* Clear Filters Button */}
+                          {(debouncedSearchTerm || selectedCategory || selectedLevel || selectedType) && (
+                            <div className="pt-2 border-t border-gray-600/30">
+                              <button
+                                onClick={clearFilters}
+                                className="w-full inline-flex items-center justify-center gap-2 px-3 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 rounded-lg transition-all duration-200 border border-red-500/30 text-sm"
+                              >
+                                <X className="h-4 w-4" />
+                                Clear All Filters
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Results Summary */}
             <div className="text-center">
               <p className="text-gray-400 text-sm">
-                Showing {filteredResources.length} of {totalResources} resources
+                Showing <span className="text-white font-medium">{filteredResources.length}</span> of <span className="text-white font-medium">{totalResources}</span> resources
                 {(debouncedSearchTerm || selectedCategory || selectedLevel || selectedType) && (
-                  <span className="text-green-400 ml-1">
+                  <span className="text-green-400 ml-1 font-medium">
                     (filtered)
                   </span>
                 )}
                 {searchTerm !== debouncedSearchTerm && (
-                  <span className="text-yellow-400 ml-1">
+                  <span className="text-yellow-400 ml-1 font-medium">
                     (searching...)
                   </span>
                 )}
@@ -4634,52 +4666,85 @@ const MoneySmartLinksPage: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Category Resources Grid - 2 Column Mobile, 3 Column Desktop */}
-                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                  {/* Modern Card Grid - Responsive Layout */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                     {categoryResources.map((resource, index) => (
                       <motion.div
                         key={resource.id}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: (categoryIndex * 0.1) + (index * 0.05) }}
                         className="group"
                       >
                         <button
                           type="button"
                           onClick={() => openResource(resource)}
-                          className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                          className="w-full bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-gray-600/20 hover:border-gray-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-black/20 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group"
                         >
+                          {/* Background Gradient */}
+                          <div
+                            className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                            style={{
+                              background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
+                            }}
+                          />
+
                           {/* Level Badge */}
-                          <div className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-semibold border ${getLevelColor(resource.level)}`}>
+                          <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold border backdrop-blur-sm ${getLevelColor(resource.level)}`}>
                             {resource.level}
                           </div>
 
-                          {/* Icon */}
-                          <div
-                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                            style={{ backgroundColor: resource.color }}
-                          >
-                            {resource.icon}
+                          {/* Icon Container */}
+                          <div className="relative mb-4">
+                            <div
+                              className="w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
+                              style={{ backgroundColor: resource.color }}
+                            >
+                              {resource.icon}
+                            </div>
+
+                            {/* Resource Type Indicator */}
+                            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
+                              {resource.url.includes('youtube.com') ? (
+                                <Video className="w-3 h-3 text-red-400" />
+                              ) : (
+                                <ExternalLink className="w-3 h-3 text-blue-400" />
+                              )}
+                            </div>
                           </div>
 
-                          {/* Resource Info */}
-                          <h3 className="text-sm sm:text-base font-semibold text-white mb-2 leading-tight pr-16">
-                            {resource.title}
-                          </h3>
+                          {/* Content */}
+                          <div className="space-y-3">
+                            {/* Title */}
+                            <h3 className="text-base font-bold text-white leading-tight pr-12 group-hover:text-green-300 transition-colors duration-300">
+                              {resource.title}
+                            </h3>
 
-                          <p className="text-xs text-gray-400 mb-2 font-medium">
-                            {resource.category}
-                          </p>
+                            {/* Category Tag */}
+                            <div className="inline-flex items-center px-2 py-1 bg-gray-700/50 rounded-lg">
+                              <span className="text-xs font-medium text-gray-300">
+                                {resource.category}
+                              </span>
+                            </div>
 
-                          <p className="text-xs sm:text-sm text-gray-300 leading-tight mb-3">
-                            {resource.description}
-                          </p>
+                            {/* Description */}
+                            <p className="text-sm text-gray-400 leading-relaxed line-clamp-3">
+                              {resource.description}
+                            </p>
 
-                          {/* External Link Icon */}
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs text-green-400 font-medium">Visit Site</span>
-                            <ExternalLink size={14} className="text-green-400" />
+                            {/* Action Footer */}
+                            <div className="flex items-center justify-between pt-2 border-t border-gray-700/30">
+                              <span className="text-xs font-semibold text-green-400 group-hover:text-green-300 transition-colors duration-300">
+                                {resource.url.includes('youtube.com') ? 'Watch Video' : 'Visit Site'}
+                              </span>
+                              <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors duration-300">
+                                <ExternalLink size={12} className="text-green-400 group-hover:text-green-300" />
+                              </div>
+                            </div>
                           </div>
+
+                          {/* Hover Effect Overlay */}
+                          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                         </button>
                       </motion.div>
                     ))}
