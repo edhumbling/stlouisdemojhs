@@ -20,6 +20,7 @@ const MoneySmartLinksPage: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [selectedVideo, setSelectedVideo] = useState<FinancialResource | null>(null);
+  const [previousScrollPosition, setPreviousScrollPosition] = useState(0);
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {
@@ -28,6 +29,13 @@ const MoneySmartLinksPage: React.FC = () => {
 
   const handleVideoBack = () => {
     setSelectedVideo(null);
+    // Restore scroll position after a brief delay to allow DOM to update
+    setTimeout(() => {
+      window.scrollTo({
+        top: previousScrollPosition,
+        behavior: 'smooth'
+      });
+    }, 100);
   };
 
   // Control header visibility
@@ -3661,6 +3669,486 @@ const MoneySmartLinksPage: React.FC = () => {
         icon: <Video className="w-4 h-4" />,
         color: '#F59E0B',
         level: 'Advanced' as const
+      },
+      {
+        id: 'warren-buffett-bubble-2024',
+        title: 'Warren Buffett on 1999 vs. 2024: Are We in a Bubble?',
+        description: 'Warren Buffett\'s insights on market bubbles and investment strategy',
+        url: 'https://www.youtube.com/watch?v=ePHIFZ6YeKE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'warren-buffett-apple-stock-sale',
+        title: 'Warren Buffett explains Why He Sold Apple Stock',
+        description: 'Buffett addresses the recent sale of 115 million Apple shares by Berkshire Hathaway',
+        url: 'https://www.youtube.com/watch?v=9fQwp4UHZHQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'warren-buffett-overvalued-market',
+        title: 'Warren Buffett: How to Invest in an Overvalued Market',
+        description: 'Investment strategies for navigating overvalued market conditions',
+        url: 'https://www.youtube.com/watch?v=1Hxy2NBD7J8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ray-dalio-economic-machine',
+        title: 'How The Economic Machine Works by Ray Dalio',
+        description: 'Comprehensive explanation of how the economy works in 30 minutes',
+        url: 'https://www.youtube.com/watch?v=PHe0bXAIuk0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ray-dalio-changing-world-order',
+        title: 'Principles for Dealing with the Changing World Order by Ray Dalio',
+        description: 'Understanding global economic and political changes',
+        url: 'https://www.youtube.com/watch?v=xguam0TKMw8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'robert-kiyosaki-cashflow-quadrant',
+        title: 'The CashFlow Quadrant for Financial Literacy | Robert Kiyosaki',
+        description: 'Financial model for understanding different income sources',
+        url: 'https://www.youtube.com/watch?v=WyOC4230738',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'cashflow-quadrant-explained',
+        title: 'Cash Flow Quadrant by Robert Kiyosaki',
+        description: 'Detailed explanation of the four quadrants of income generation',
+        url: 'https://www.youtube.com/watch?v=13zmg0BSDk0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ramit-sethi-be-rich-10-minutes',
+        title: 'I Will Teach You To Be Rich in 10 Minutes',
+        description: 'Quick overview of Ramit Sethi\'s wealth-building principles',
+        url: 'https://www.youtube.com/watch?v=zAtRt8EU6fg',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ramit-sethi-google-talk',
+        title: 'I Will Teach You to Be Rich | Ramit Sethi | Talks at Google',
+        description: 'Comprehensive presentation on personal finance and wealth building',
+        url: 'https://www.youtube.com/watch?v=BmAwa1nnB6w',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ramit-sethi-6-months-finances',
+        title: 'You Can Change Your Finances in 6 Months… Here\'s How',
+        description: 'Practical steps to transform your financial situation quickly',
+        url: 'https://www.youtube.com/watch?v=zzYpMBjbPlc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'graham-stephan-millionaire-girlfriend',
+        title: 'Girlfriend Reacts To How I Became A Millionaire',
+        description: 'Personal story of wealth building and financial success',
+        url: 'https://www.youtube.com/watch?v=UlyxmDkaxzA',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'california-real-estate-million',
+        title: 'What $1,000,000 Buys You In California',
+        description: 'Real estate market analysis and property investment insights',
+        url: 'https://www.youtube.com/watch?v=NJjZlmajrBM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-independence-early-retirement',
+        title: 'The Complete Guide to Financial Independence and Early Retirement',
+        description: 'Comprehensive FIRE strategy and implementation guide',
+        url: 'https://www.youtube.com/watch?v=isqpzOsMluI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'index-fund-investing-complete',
+        title: 'Index Fund Investing: The Complete Guide',
+        description: 'Everything you need to know about index fund investing',
+        url: 'https://www.youtube.com/watch?v=OP6LS30H3eo',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'dollar-cost-averaging-explained',
+        title: 'Dollar Cost Averaging Explained',
+        description: 'Investment strategy for reducing market timing risk',
+        url: 'https://www.youtube.com/watch?v=Fm2gU4voIcI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'roth-ira-complete-guide',
+        title: 'Roth IRA: The Complete Guide',
+        description: 'Everything about Roth IRAs including rules, benefits, and strategies',
+        url: 'https://www.youtube.com/watch?v=2iUwj4A91Yc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'traditional-401k-vs-roth-401k',
+        title: 'Traditional 401k vs Roth 401k: Which is Better?',
+        description: 'Comparison of traditional and Roth 401k retirement accounts',
+        url: 'https://www.youtube.com/watch?v=udIhZUOEbOk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'asset-allocation-portfolio-theory',
+        title: 'Asset Allocation and Modern Portfolio Theory',
+        description: 'Understanding portfolio diversification and risk management',
+        url: 'https://www.youtube.com/watch?v=9fal90DXuMU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'value-investing-principles',
+        title: 'Value Investing Principles and Strategies',
+        description: 'Fundamental analysis and value investing methodology',
+        url: 'https://www.youtube.com/watch?v=rnMsMSjrMgM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'growth-vs-value-investing',
+        title: 'Growth vs Value Investing: Which Strategy Wins?',
+        description: 'Comparison of growth and value investment strategies',
+        url: 'https://www.youtube.com/watch?v=NW1ziUDjB7w',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'reits-real-estate-investing',
+        title: 'REITs: Real Estate Investing for Beginners',
+        description: 'Introduction to Real Estate Investment Trusts',
+        url: 'https://www.youtube.com/watch?v=TyZsemV_0YA',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'bond-investing-complete-guide',
+        title: 'Bond Investing: The Complete Guide',
+        description: 'Understanding bonds, yields, and fixed-income investing',
+        url: 'https://www.youtube.com/watch?v=SXd-v1z5AY8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'international-diversification',
+        title: 'International Diversification: Why and How',
+        description: 'Benefits and strategies for global portfolio diversification',
+        url: 'https://www.youtube.com/watch?v=ZJjRnKpwDyw',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'market-volatility-psychology',
+        title: 'Market Volatility and Investor Psychology',
+        description: 'Understanding emotional investing and market behavior',
+        url: 'https://www.youtube.com/watch?v=0GSB5YZx9ZE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-planning-young-professionals',
+        title: 'Financial Planning for Young Professionals',
+        description: 'Money management strategies for career starters',
+        url: 'https://www.youtube.com/watch?v=vyj8aP0Vmmc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'side-hustle-income-streams',
+        title: 'Building Multiple Income Streams: Side Hustle Guide',
+        description: 'Creating additional income sources beyond your main job',
+        url: 'https://www.youtube.com/watch?v=qSIONdvvo_c',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'freelancing-financial-management',
+        title: 'Financial Management for Freelancers and Gig Workers',
+        description: 'Managing irregular income and business expenses',
+        url: 'https://www.youtube.com/watch?v=9adHRqfVhoU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'small-business-accounting-basics',
+        title: 'Small Business Accounting Basics',
+        description: 'Essential accounting principles for small business owners',
+        url: 'https://www.youtube.com/watch?v=tXE5MheNock',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'business-credit-vs-personal-credit',
+        title: 'Business Credit vs Personal Credit: What You Need to Know',
+        description: 'Understanding the differences and building business credit',
+        url: 'https://www.youtube.com/watch?v=yyPlqREqE1I',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'startup-funding-options',
+        title: 'Startup Funding Options: From Bootstrapping to VC',
+        description: 'Different ways to fund your startup or business',
+        url: 'https://www.youtube.com/watch?v=HPDNHLzPSUI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-ratios-analysis',
+        title: 'Financial Ratios Analysis for Investors',
+        description: 'Key financial ratios for evaluating company performance',
+        url: 'https://www.youtube.com/watch?v=6I5IOrzstXI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'reading-financial-statements',
+        title: 'How to Read Financial Statements',
+        description: 'Understanding income statements, balance sheets, and cash flow',
+        url: 'https://www.youtube.com/watch?v=jWlsRqpjoHE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'economic-indicators-explained',
+        title: 'Economic Indicators Every Investor Should Know',
+        description: 'Understanding GDP, inflation, unemployment, and market indicators',
+        url: 'https://www.youtube.com/watch?v=isqpzOsMluI',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'federal-reserve-monetary-policy',
+        title: 'Federal Reserve and Monetary Policy Explained',
+        description: 'How the Fed influences the economy and your investments',
+        url: 'https://www.youtube.com/watch?v=klVGlU4-VmQ',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'inflation-hedging-strategies',
+        title: 'Inflation Hedging: Protecting Your Wealth',
+        description: 'Investment strategies to protect against inflation',
+        url: 'https://www.youtube.com/watch?v=8Gx-VEahASc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'recession-investing-strategies',
+        title: 'How to Invest During a Recession',
+        description: 'Investment strategies for economic downturns',
+        url: 'https://www.youtube.com/watch?v=Kyantg50lAs',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'market-cycles-timing',
+        title: 'Understanding Market Cycles and Timing',
+        description: 'How markets move in cycles and investment timing strategies',
+        url: 'https://www.youtube.com/watch?v=QeL_vclb1QU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'behavioral-finance-biases',
+        title: 'Behavioral Finance: Common Investment Biases',
+        description: 'Psychological biases that affect investment decisions',
+        url: 'https://www.youtube.com/watch?v=NsSz6S7-r94',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'financial-advisor-choosing',
+        title: 'How to Choose a Financial Advisor',
+        description: 'What to look for when selecting professional financial help',
+        url: 'https://www.youtube.com/watch?v=L-4cET5vFG4',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'diy-vs-professional-investing',
+        title: 'DIY Investing vs Professional Management',
+        description: 'Pros and cons of managing your own investments',
+        url: 'https://www.youtube.com/watch?v=OA0FNsmzqNM',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'robo-advisors-explained',
+        title: 'Robo-Advisors: Automated Investing Explained',
+        description: 'Understanding automated investment platforms and their benefits',
+        url: 'https://www.youtube.com/watch?v=991Sw9U9nQU',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'investment-fees-costs',
+        title: 'Investment Fees and Costs: What You Need to Know',
+        description: 'Understanding how fees impact your investment returns',
+        url: 'https://www.youtube.com/watch?v=ORh84jg5ClE',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'tax-efficient-investing',
+        title: 'Tax-Efficient Investing Strategies',
+        description: 'Minimizing taxes on your investment gains',
+        url: 'https://www.youtube.com/watch?v=yqeDffcKdQc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#1E40AF',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'retirement-withdrawal-strategies',
+        title: 'Retirement Withdrawal Strategies',
+        description: 'How to withdraw money from retirement accounts efficiently',
+        url: 'https://www.youtube.com/watch?v=UXXV9RvrOAc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'social-security-optimization',
+        title: 'Social Security Optimization Strategies',
+        description: 'Maximizing your Social Security benefits',
+        url: 'https://www.youtube.com/watch?v=g0KdxmuA-V8',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'medicare-financial-planning',
+        title: 'Medicare and Healthcare Financial Planning',
+        description: 'Planning for healthcare costs in retirement',
+        url: 'https://www.youtube.com/watch?v=QQrpD9rlJR0',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'long-term-care-planning',
+        title: 'Long-Term Care Insurance and Planning',
+        description: 'Preparing for potential long-term care needs',
+        url: 'https://www.youtube.com/watch?v=0iRbD5rM5qc',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#F59E0B',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'financial-legacy-planning',
+        title: 'Financial Legacy and Wealth Transfer Planning',
+        description: 'Strategies for passing wealth to the next generation',
+        url: 'https://www.youtube.com/watch?v=BXfRm16S7gk',
+        category: 'Educational Video',
+        icon: <Video className="w-4 h-4" />,
+        color: '#7C3AED',
+        level: 'Advanced' as const
       }
     ]
   };
@@ -3671,6 +4159,8 @@ const MoneySmartLinksPage: React.FC = () => {
 
   const openResource = (resource: FinancialResource) => {
     if (resource.url.includes('youtube.com') || resource.url.includes('youtu.be')) {
+      // Save current scroll position before opening video
+      setPreviousScrollPosition(window.scrollY);
       // Open YouTube videos in full-screen viewer
       setSelectedVideo(resource);
     } else {
