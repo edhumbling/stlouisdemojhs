@@ -96,8 +96,5 @@ User-agent: DotBot
 Allow: /
 Crawl-delay: 2
 
-# Sitemap location
-Sitemap: https://stlouisdemojhs.com/sitemap.xml
-
 # Host declaration
 Host: stlouisdemojhs.com

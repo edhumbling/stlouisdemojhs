@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, MousePointer, Wind, Globe } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -52,128 +52,347 @@ const StudentsHubPage: React.FC = () => {
     navigate(-1); // Go back to previous page
   };
 
-  const resources: Resource[] = [
-    {
-      id: 1,
-      title: "Audiobooks",
-      description: "Free audiobooks collection",
-      url: "https://marhamilresearch4.blob.core.windows.net/gutenberg-public/Website/browse.html",
-      icon: <Mic className="w-5 h-5" />,
-      color: "#007AFF"
-    },
-    {
-      id: 2,
-      title: "Poetry Archive",
-      description: "Children's poetry collection",
-      url: "https://childrens.poetryarchive.org/",
-      icon: <BookOpen className="w-5 h-5" />,
-      color: "#FF3B30"
-    },
-    {
-      id: 3,
-      title: "BECE PASCO",
-      description: "BECE past questions",
-      url: "https://emmadeeofficial.gumroad.com/l/becepasco",
-      icon: <FileText className="w-5 h-5" />,
-      color: "#34C759"
-    },
-    {
-      id: 11,
-      title: "BECE Pasco 2",
-      description: "Alternative BECE past questions database",
-      url: "https://www.becepastquestions.com/",
-      icon: <FileText className="w-5 h-5" />,
-      color: "#7C3AED",
-      embedStrategy: 'iframe',
-      customScripts: true
-    },
-    {
-      id: 12,
-      title: "BECE Pasco Via USSD",
-      description: "Access past questions directly on your mobile phone!",
-      url: "ussd://dial",
-      icon: <Smartphone className="w-5 h-5" />,
-      color: "#FF9500",
-      isUSSD: true
-    },
-    {
-      id: 4,
-      title: "JHS MOCKS",
-      description: "JHS mock examinations",
-      url: "https://emmadeeofficial.gumroad.com/l/jhsmocks",
-      icon: <FileText className="w-5 h-5" />,
-      color: "#FF9500"
-    },
-    {
-      id: 5,
-      title: "QWEN Maths",
-      description: "AI maths problem solver",
-      url: "https://qwen-qwen2-math-demo.hf.space",
-      icon: <Calculator className="w-5 h-5" />,
-      color: "#5856D6"
-    },
-    {
-      id: 6,
-      title: "KHAYA Translator",
-      description: "AI language translator",
-      url: "https://translate.ghananlp.org/",
-      icon: <Languages className="w-5 h-5" />,
-      color: "#AF52DE"
-    },
-    {
-      id: 7,
-      title: "Advice from Successful People",
-      description: "Commencement speeches from leaders",
-      url: "/advice-speeches",
-      icon: <Users className="w-5 h-5" />,
-      color: "#FF6B35",
-      isInternal: true
-    },
-    {
-      id: 8,
-      title: "Financial Literacy",
-      description: "Learn personal finance and money management",
-      url: "https://www.khanacademy.org/college-careers-more/financial-literacy",
-      icon: <DollarSign className="w-5 h-5" />,
-      color: "#00C896",
-      embedStrategy: 'smart',
-      alternativeUrls: [
-        "https://www.investopedia.com/financial-literacy-4776932",
-        "https://www.practicalmoneyskills.com/",
-        "https://www.jumpstart.org/",
-        "https://www.mymoney.gov/"
-      ],
-      proxyUrls: [
-        "https://web.archive.org/web/20240101000000*/https://www.khanacademy.org/college-careers-more/financial-literacy"
-      ]
-    },
-    {
-      id: 9,
-      title: "Business Skills Chat",
-      description: "AI-powered business skills development",
-      url: "https://www.nfx.com/chat",
-      icon: <Briefcase className="w-5 h-5" />,
-      color: "#1E40AF",
-      embedStrategy: 'smart',
-      alternativeUrls: [
-        "https://www.coursera.org/browse/business",
-        "https://www.edx.org/learn/business",
-        "https://www.futurelearn.com/subjects/business-and-management-courses",
-        "https://alison.com/courses/business"
-      ],
-      proxyUrls: [
-        "https://web.archive.org/web/20240101000000*/https://www.nfx.com/chat"
-      ]
-    },
-    {
-      id: 10,
-      title: "Product Creation Chat",
-      description: "Learn product development and creation",
-      url: "https://www.lennybot.com/",
-      icon: <Lightbulb className="w-5 h-5" />,
-      color: "#F59E0B"
-    },
-  ];
+  // 📚 CATEGORIZED STUDENTS HUB RESOURCES 📚
+  // Organized by learning areas for better navigation and discovery
+  const resourceCategories = {
+    "📚 Academic Resources": [
+      {
+        id: 1,
+        title: "Audiobooks",
+        description: "Free audiobooks collection",
+        url: "https://marhamilresearch4.blob.core.windows.net/gutenberg-public/Website/browse.html",
+        icon: <Mic className="w-5 h-5" />,
+        color: "#007AFF"
+      },
+      {
+        id: 2,
+        title: "Poetry Archive",
+        description: "Children's poetry collection",
+        url: "https://childrens.poetryarchive.org/",
+        icon: <BookOpen className="w-5 h-5" />,
+        color: "#FF3B30"
+      },
+      {
+        id: 17,
+        title: "Ebook Library",
+        description: "Comprehensive digital library with thousands of free ebooks",
+        url: "https://divinemonk.github.io/ebooklibrary/",
+        icon: <Library className="w-5 h-5" />,
+        color: "#8B5CF6",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 19,
+        title: "DBooks Library",
+        description: "Free programming and technical books library for developers and students",
+        url: "https://www.dbooks.org/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#059669",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 20,
+        title: "Gutenberg Library",
+        description: "Classic literature and public domain books - over 70,000 free ebooks",
+        url: "https://www.gutenberg.org/ebooks/categories",
+        icon: <BookOpen className="w-5 h-5" />,
+        color: "#DC2626",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 21,
+        title: "Libgen Library",
+        description: "Comprehensive digital archive with millions of books, papers, and documents",
+        url: "https://libgen.is/",
+        icon: <Archive className="w-5 h-5" />,
+        color: "#7C2D12",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 22,
+        title: "JHS Textbooks",
+        description: "Free Junior High School textbooks and notes organized by subject",
+        url: "/jhs-textbooks",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#0F766E",
+        isInternal: true
+      },
+      {
+        id: 26,
+        title: "Dreamhive Resources",
+        description: "Professional development guides: resume writing, essay crafting, and email etiquette",
+        url: "/dream-hive-resources",
+        icon: <Briefcase className="w-5 h-5" />,
+        color: "#7C3AED",
+        isInternal: true
+      },
+      {
+        id: 27,
+        title: "Career Reel Resources",
+        description: "Job hunting tools: tracking sheets, resume guides, and career development resources",
+        url: "/career-reel-resources",
+        icon: <Users className="w-5 h-5" />,
+        color: "#DC2626",
+        isInternal: true
+      }
+    ],
+    "📝 Exam Preparation": [
+      {
+        id: 3,
+        title: "BECE PASCO",
+        description: "BECE past questions",
+        url: "https://emmadeeofficial.gumroad.com/l/becepasco",
+        icon: <FileText className="w-5 h-5" />,
+        color: "#34C759"
+      },
+      {
+        id: 11,
+        title: "BECE Pasco 2",
+        description: "Alternative BECE past questions database",
+        url: "https://www.becepastquestions.com/",
+        icon: <FileText className="w-5 h-5" />,
+        color: "#7C3AED",
+        embedStrategy: 'iframe',
+        customScripts: true
+      },
+      {
+        id: 12,
+        title: "BECE Pasco Via USSD",
+        description: "Access past questions directly on your mobile phone!",
+        url: "ussd://dial",
+        icon: <Smartphone className="w-5 h-5" />,
+        color: "#FF9500",
+        isUSSD: true
+      },
+      {
+        id: 4,
+        title: "JHS MOCKS",
+        description: "JHS mock examinations",
+        url: "https://emmadeeofficial.gumroad.com/l/jhsmocks",
+        icon: <FileText className="w-5 h-5" />,
+        color: "#FF9500"
+      }
+    ],
+    "🧮 STEM Tools": [
+      {
+        id: 5,
+        title: "QWEN Maths",
+        description: "AI maths problem solver",
+        url: "https://qwen-qwen2-math-demo.hf.space",
+        icon: <Calculator className="w-5 h-5" />,
+        color: "#5856D6"
+      }
+    ],
+    "🌍 Language & Communication": [
+      {
+        id: 6,
+        title: "KHAYA Translator",
+        description: "AI language translator",
+        url: "https://translate.ghananlp.org/",
+        icon: <Languages className="w-5 h-5" />,
+        color: "#AF52DE"
+      },
+      {
+        id: 18,
+        title: "Britannica Dictionary",
+        description: "Comprehensive English dictionary with clear definitions and usage examples",
+        url: "https://www.britannica.com/dictionary",
+        icon: <Book className="w-5 h-5" />,
+        color: "#0066CC",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 34,
+        title: "Wikipedia",
+        description: "Free online encyclopedia with millions of articles on every topic",
+        url: "https://en.wikipedia.org/wiki/Main_Page",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#000000",
+        embedStrategy: 'iframe'
+      }
+    ],
+    "💰 Financial Literacy": [
+      {
+        id: 8,
+        title: "Khan Academy Financial Literacy",
+        description: "Learn personal finance and money management",
+        url: "https://www.khanacademy.org/college-careers-more/financial-literacy",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#00C896",
+        embedStrategy: 'smart',
+        alternativeUrls: [
+          "https://www.investopedia.com/financial-literacy-4776932",
+          "https://www.practicalmoneyskills.com/",
+          "https://www.jumpstart.org/",
+          "https://www.mymoney.gov/"
+        ],
+        proxyUrls: [
+          "https://web.archive.org/web/20240101000000*/https://www.khanacademy.org/college-careers-more/financial-literacy"
+        ]
+      },
+      {
+        id: 28,
+        title: "Personal Finance Basics",
+        description: "Essential guide to managing your money and building financial security",
+        url: "https://drive.google.com/file/d/1Sg8I986nRXGfk3Ir1Eyx6aDyw6F4E6lz/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#059669",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 29,
+        title: "Budgeting and Saving",
+        description: "Learn how to create budgets and develop smart saving habits",
+        url: "https://drive.google.com/file/d/1dwEaBuMyCFvmt0D8go44SpZTxq-PiJUN/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#0EA5E9",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 30,
+        title: "Investment Fundamentals",
+        description: "Introduction to investing and growing your wealth over time",
+        url: "https://drive.google.com/file/d/1wehgmwts4fLxPkVIgjXSDeXNOPMtzFIP/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#8B5CF6",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 31,
+        title: "Credit and Debt Management",
+        description: "Understanding credit scores, loans, and responsible debt management",
+        url: "https://drive.google.com/file/d/1tDhpCsr36husIUKf-OIfUWZZ6GuuAGEh/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#F59E0B",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 32,
+        title: "Financial Planning for Students",
+        description: "Money management strategies specifically designed for students",
+        url: "https://drive.google.com/file/d/11M0ZPnV5OLqRPoqPBoDDcuAJFE11u6QC/preview",
+        icon: <DollarSign className="w-5 h-5" />,
+        color: "#EF4444",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 33,
+        title: "Money Smart Links",
+        description: "300+ comprehensive financial education websites and resources directory",
+        url: "/money-smart-links",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#059669",
+        isInternal: true
+      }
+    ],
+    "💼 Life Skills & Career": [
+      {
+        id: 7,
+        title: "Advice from Successful People",
+        description: "Commencement speeches from leaders",
+        url: "/advice-speeches",
+        icon: <Users className="w-5 h-5" />,
+        color: "#FF6B35",
+        isInternal: true
+      },
+      {
+        id: 9,
+        title: "Business Skills Chat",
+        description: "AI-powered business skills development",
+        url: "https://www.nfx.com/chat",
+        icon: <Briefcase className="w-5 h-5" />,
+        color: "#1E40AF",
+        embedStrategy: 'smart',
+        alternativeUrls: [
+          "https://www.coursera.org/browse/business",
+          "https://www.edx.org/learn/business",
+          "https://www.futurelearn.com/subjects/business-and-management-courses",
+          "https://alison.com/courses/business"
+        ],
+        proxyUrls: [
+          "https://web.archive.org/web/20240101000000*/https://www.nfx.com/chat"
+        ]
+      },
+      {
+        id: 10,
+        title: "Product Creation Chat",
+        description: "Learn product development and creation",
+        url: "https://www.lennybot.com/",
+        icon: <Lightbulb className="w-5 h-5" />,
+        color: "#F59E0B"
+      }
+    ],
+    "🎨 Creative Tools": [
+      {
+        id: 13,
+        title: "AI Comic Factory",
+        description: "Create amazing comics and stories with AI - unleash your creativity!",
+        url: "https://huggingface.co/spaces/jbilcke-hf/ai-comic-factory",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#E91E63",
+        openInNewTab: true
+      }
+    ],
+    "💻 Coding": [
+      {
+        id: 14,
+        title: "LlamaCoder",
+        description: "AI-powered coding assistant - learn programming with AI guidance!",
+        url: "https://llamacoder.together.ai/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#10B981",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 15,
+        title: "Bolt.new",
+        description: "Build and deploy full-stack web apps instantly with AI!",
+        url: "https://bolt.new/",
+        icon: <Zap className="w-5 h-5" />,
+        color: "#F59E0B",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 16,
+        title: "Lovable",
+        description: "Create beautiful web applications with AI-powered development!",
+        url: "https://lovable.dev/",
+        icon: <Heart className="w-5 h-5" />,
+        color: "#EC4899",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 23,
+        title: "AI.dev",
+        description: "AI-powered development platform for building applications with artificial intelligence!",
+        url: "https://ai.dev/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#6366F1",
+        openInNewTab: true
+      },
+      {
+        id: 24,
+        title: "Cursor",
+        description: "AI-powered code editor that helps you write code faster and smarter!",
+        url: "https://cursor.com/",
+        icon: <MousePointer className="w-5 h-5" />,
+        color: "#000000",
+        openInNewTab: true
+      },
+      {
+        id: 25,
+        title: "Windsurf",
+        description: "Advanced AI coding assistant for seamless development experience!",
+        url: "https://windsurf.com/",
+        icon: <Wind className="w-5 h-5" />,
+        color: "#0EA5E9",
+        openInNewTab: true
+      }
+    ]
+  };
+
+  // Flatten all resources for backward compatibility
+  const resources: Resource[] = Object.values(resourceCategories).flat();
 
   // Smart loading simulation effect
   useEffect(() => {
@@ -228,6 +447,12 @@ const StudentsHubPage: React.FC = () => {
     // Handle USSD cards with special modal
     if (resource.isUSSD) {
       setSelectedResource(resource);
+      return;
+    }
+
+    // Handle resources that should open in new tab
+    if (resource.openInNewTab) {
+      window.open(resource.url, '_blank', 'noopener,noreferrer');
       return;
     }
 
@@ -919,7 +1144,7 @@ const StudentsHubPage: React.FC = () => {
   // If a resource is selected, show the iframe view - Full page without footer
   if (selectedResource) {
     return (
-      <div className="fixed inset-0 z-50 bg-white">
+      <div className="fixed inset-0 z-50 bg-black">
         {/* Header - Enhanced Purple Back Button */}
         <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 sm:py-5 shadow-2xl border-b border-purple-700/50">
           <div className="container mx-auto px-4">
@@ -950,19 +1175,18 @@ const StudentsHubPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Content Area */}
-        <div className="w-full h-full pt-20 sm:pt-24 relative">
+        {/* Content Area - Full Screen */}
+        <div className="absolute inset-0 pt-20 sm:pt-24">
           {!iframeError && selectedResource.embedStrategy !== 'smart' ? (
             <>
               <iframe
                 ref={iframeRef}
                 src={selectedResource.url}
-                className="w-full h-full border-0 relative z-10"
+                className="w-full h-full border-0"
                 title={selectedResource.title}
                 sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads allow-modals"
                 onLoad={handleIframeLoad}
                 onError={handleIframeError}
-                style={{ background: 'white' }}
               />
 
               {/* Regular Loading Overlay */}
@@ -978,7 +1202,7 @@ const StudentsHubPage: React.FC = () => {
             </>
           ) : (
             /* Smart Loading or Error State */
-            <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
               {isLoading ? (
                 /* Smart Loading Animation */
                 <div className="text-center max-w-md">
@@ -1083,54 +1307,93 @@ const StudentsHubPage: React.FC = () => {
 
       {/* Main Content */}
       <main className="flex-1 py-6 sm:py-8">
-        <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
-          {/* Resources Grid - Apple Style */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
-            {resources.map((resource, index) => (
+        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+          {/* Categorized Resources */}
+          <div className="space-y-8">
+            {Object.entries(resourceCategories).map(([categoryName, categoryResources], categoryIndex) => (
               <motion.div
-                key={resource.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group"
+                key={categoryName}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
+                className="space-y-4"
               >
-                <button
-                  onClick={() => handleResourceClick(resource)}
-                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
-                >
-                  {/* Smart link indicator - only for Financial Literacy and Business Skills Chat */}
-                  {resource.embedStrategy === 'smart' && (
-                    <div className="absolute top-2 right-2 w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
-                      <AlertCircle size={12} className="text-white" />
-                    </div>
-                  )}
+                {/* Category Header */}
+                <div className="flex items-center gap-3">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white">
+                    {categoryName}
+                  </h2>
+                  <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent"></div>
+                  <span className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
+                    {categoryResources.length} {categoryResources.length === 1 ? 'tool' : 'tools'}
+                  </span>
+                </div>
 
-                  {/* Icon */}
-                  <div
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                    style={{ backgroundColor: resource.color }}
-                  >
-                    {resource.icon}
-                  </div>
+                {/* Category Resources Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                  {categoryResources.map((resource, index) => (
+                    <motion.div
+                      key={resource.id}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                      className="group"
+                    >
+                      <button
+                        onClick={() => handleResourceClick(resource)}
+                        className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                      >
+                        {/* Smart link indicator */}
+                        {resource.embedStrategy === 'smart' && (
+                          <div className="absolute top-2 right-2 w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
+                            <AlertCircle size={12} className="text-white" />
+                          </div>
+                        )}
 
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
-                    {resource.title}
-                  </h3>
+                        {/* New tab indicator */}
+                        {resource.openInNewTab && (
+                          <div className="absolute top-2 right-2 w-5 h-5 bg-green-500/80 rounded-full flex items-center justify-center">
+                            <ExternalLink size={12} className="text-white" />
+                          </div>
+                        )}
 
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-300 leading-tight">
-                    {resource.description}
-                  </p>
+                        {/* Icon */}
+                        <div
+                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
+                          style={{ backgroundColor: resource.color }}
+                        >
+                          {resource.icon}
+                        </div>
 
-                  {/* Smart resource indicator */}
-                  {resource.embedStrategy === 'smart' && (
-                    <div className="mt-2 text-xs text-blue-400 flex items-center gap-1">
-                      <AlertCircle size={12} />
-                      <span>Smart Access</span>
-                    </div>
-                  )}
-                </button>
+                        {/* Title */}
+                        <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
+                          {resource.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-xs sm:text-sm text-gray-300 leading-tight">
+                          {resource.description}
+                        </p>
+
+                        {/* Smart resource indicator */}
+                        {resource.embedStrategy === 'smart' && (
+                          <div className="mt-2 text-xs text-blue-400 flex items-center gap-1">
+                            <AlertCircle size={12} />
+                            <span>Smart Access</span>
+                          </div>
+                        )}
+
+                        {/* New tab indicator text */}
+                        {resource.openInNewTab && (
+                          <div className="mt-2 text-xs text-green-400 flex items-center gap-1">
+                            <ExternalLink size={12} />
+                            <span>Opens in New Tab</span>
+                          </div>
+                        )}
+                      </button>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>

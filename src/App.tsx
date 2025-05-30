@@ -29,6 +29,12 @@ import STEMEducationPage from './pages/STEMEducationPage';
 import CreativeArtsPage from './pages/CreativeArtsPage';
 import LanguageCommunicationPage from './pages/LanguageCommunicationPage';
 import CoreAcademicPage from './pages/CoreAcademicPage';
+import StaffResourcesPage from './pages/StaffResourcesPage';
+import AITeachingGuidePage from './pages/AITeachingGuidePage';
+import JHSTextbooksPage from './pages/JHSTextbooksPage';
+import DreamHiveResourcesPage from './pages/DreamHiveResourcesPage';
+import CareerReelResourcesPage from './pages/CareerReelResourcesPage';
+import MoneySmartLinksPage from './pages/MoneySmartLinksPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 
@@ -105,10 +111,17 @@ const App: React.FC = () => {
           <Route path="academics" element={<AcademicsPage />} />
           <Route path="admissions" element={<AdmissionsPage />} />
           <Route path="faculty" element={<FacultyPage />} />
+          <Route path="staff-resources" element={<StaffResourcesPage />} />
+          <Route path="ai-teaching-guide" element={<AITeachingGuidePage />} />
+          <Route path="jhs-textbooks" element={<JHSTextbooksPage />} />
+          <Route path="dream-hive-resources" element={<DreamHiveResourcesPage />} />
+          <Route path="career-reel-resources" element={<CareerReelResourcesPage />} />
+          <Route path="money-smart-links" element={<MoneySmartLinksPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="news" element={<NewsPage />} />
           <Route path="stem" element={<STEMPage />} />
           <Route path="learnhub" element={<StudentsHubPage />} />
+          <Route path="students-hub" element={<StudentsHubPage />} />
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
           <Route path="advice-speeches" element={<AdviceSpeechesPage />} />

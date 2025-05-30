@@ -35,6 +35,12 @@ export const schoolDropdownItems: DropdownItem[] = [
     image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-22%20at%2020.45.32_fdbdf1e5.png?updatedAt=1748195389676'
   },
   {
+    label: 'Staff Resources',
+    path: '/staff-resources',
+    description: 'Access curriculum guides, teaching materials, and educational resources',
+    image: 'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
     label: 'Alumni Community',
     path: '/alumni',
     description: 'Connect with our 30,000+ graduates and success stories',

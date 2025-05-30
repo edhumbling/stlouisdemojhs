@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Facebook, ExternalLink, Loader2 } from 'lucide-react';
 import VideoModal from '../common/VideoModal';
+import { galleryImages } from '../../data';
 
 // Facebook SDK types
 declare global {
@@ -142,210 +143,239 @@ const FacebookPostsSection: React.FC = () => {
     }
   }, [fbLoaded]);
 
-  // Student gallery images for animated background
-  const studentImages = [
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7111.HEIC?tr=w-120,h-120,q-60',
-    'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7124.HEIC?tr=w-120,h-120,q-60'
-  ];
+  // Create 8 strips with different image sets
+  const createImageStrip = (stripIndex: number) => {
+    const startIndex = (stripIndex * 3) % galleryImages.length;
+    const stripImages = [];
 
-  // Generate random colors for faded overlays
-  const getRandomColor = () => {
-    const colors = [
-      'rgba(59, 130, 246, 0.3)', // Blue
-      'rgba(34, 197, 94, 0.3)',  // Green
-      'rgba(251, 191, 36, 0.3)', // Yellow
-      'rgba(239, 68, 68, 0.3)',  // Red
-      'rgba(168, 85, 247, 0.3)', // Purple
-      'rgba(236, 72, 153, 0.3)', // Pink
-      'rgba(6, 182, 212, 0.3)',  // Cyan
-      'rgba(245, 101, 101, 0.3)' // Orange
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
+    // Fill the strip with images, cycling through the gallery
+    for (let i = 0; i < 12; i++) {
+      const imageIndex = (startIndex + i) % galleryImages.length;
+      stripImages.push(galleryImages[imageIndex]);
+    }
+
+    return stripImages;
   };
+
+  // Color overlays for each strip
+  const stripColors = [
+    'bg-blue-500/8',
+    'bg-green-500/8',
+    'bg-purple-500/8',
+    'bg-yellow-500/8',
+    'bg-red-500/8',
+    'bg-cyan-500/8',
+    'bg-pink-500/8',
+    'bg-indigo-500/8'
+  ];
 
   return (
     <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
-      {/* Animated Student Photo Galleries - Desktop Only (6 Strips) */}
+      {/* 8 Static Gallery Strips */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none">
-        {/* Strip 1 - Far Left - Scrolling Up */}
-        <div className="gallery-strip left-2 w-20">
-          <div className="animate-scroll-up space-y-4">
-            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
+        {/* Strip 1 - Far Left */}
+        <div className="gallery-strip left-2 w-16">
+          <div className="gallery-content space-y-3">
+            {createImageStrip(0).map((image, index) => (
               <div
                 key={`strip1-${index}`}
-                className="gallery-item w-16 h-16 rounded-lg shadow-lg"
+                className="gallery-image w-12 h-12 rounded-lg shadow-sm"
                 style={{
-                  filter: 'blur(0.5px) brightness(0.7)',
+                  filter: 'blur(0.4px) brightness(0.8)',
                   opacity: 0.5,
                   transform: 'rotate(2deg)'
                 }}
               >
                 <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
                   draggable="false"
                 />
-                <div
-                  className="absolute inset-0 mix-blend-multiply"
-                  style={{ backgroundColor: getRandomColor() }}
-                />
+                <div className={`absolute inset-0 ${stripColors[0]} mix-blend-multiply rounded-lg`} />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Strip 2 - Left Inner - Scrolling Down */}
-        <div className="gallery-strip left-24 w-20">
-          <div className="animate-scroll-down space-y-5">
-            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
+        {/* Strip 2 - Left */}
+        <div className="gallery-strip left-20 w-16">
+          <div className="gallery-content space-y-4">
+            {createImageStrip(1).map((image, index) => (
               <div
                 key={`strip2-${index}`}
-                className="gallery-item w-14 h-14 rounded-lg shadow-md"
+                className="gallery-image w-14 h-14 rounded-lg shadow-md"
                 style={{
-                  filter: 'blur(0.8px) brightness(0.6)',
-                  opacity: 0.4,
+                  filter: 'blur(0.3px) brightness(0.85)',
+                  opacity: 0.6,
                   transform: 'rotate(-1deg)'
                 }}
               >
                 <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
                   draggable="false"
                 />
-                <div
-                  className="absolute inset-0 mix-blend-multiply"
-                  style={{ backgroundColor: getRandomColor() }}
-                />
+                <div className={`absolute inset-0 ${stripColors[1]} mix-blend-multiply rounded-lg`} />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Strip 3 - Left Center - Scrolling Up Slow */}
-        <div className="gallery-strip left-48 w-20">
-          <div className="animate-scroll-up-slow space-y-6">
-            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
+        {/* Strip 3 - Left Center */}
+        <div className="gallery-strip left-38 w-16">
+          <div className="gallery-content space-y-5">
+            {createImageStrip(2).map((image, index) => (
               <div
                 key={`strip3-${index}`}
-                className="gallery-item w-12 h-12 rounded-lg shadow-sm"
+                className="gallery-image w-10 h-10 rounded-lg shadow-sm"
                 style={{
-                  filter: 'blur(1px) brightness(0.5)',
-                  opacity: 0.3,
-                  transform: 'rotate(1deg)'
-                }}
-              >
-                <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  draggable="false"
-                />
-                <div
-                  className="absolute inset-0 mix-blend-multiply"
-                  style={{ backgroundColor: getRandomColor() }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Strip 4 - Right Center - Scrolling Down Slow */}
-        <div className="gallery-strip right-48 w-20">
-          <div className="animate-scroll-down-slow space-y-6">
-            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
-              <div
-                key={`strip4-${index}`}
-                className="gallery-item w-12 h-12 rounded-lg shadow-sm"
-                style={{
-                  filter: 'blur(1px) brightness(0.5)',
-                  opacity: 0.3,
-                  transform: 'rotate(-1deg)'
-                }}
-              >
-                <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  draggable="false"
-                />
-                <div
-                  className="absolute inset-0 mix-blend-multiply"
-                  style={{ backgroundColor: getRandomColor() }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Strip 5 - Right Inner - Scrolling Up Slower */}
-        <div className="gallery-strip right-24 w-20">
-          <div className="animate-scroll-up-slower space-y-5">
-            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
-              <div
-                key={`strip5-${index}`}
-                className="gallery-item w-14 h-14 rounded-lg shadow-md"
-                style={{
-                  filter: 'blur(0.8px) brightness(0.6)',
+                  filter: 'blur(0.5px) brightness(0.75)',
                   opacity: 0.4,
                   transform: 'rotate(1deg)'
                 }}
               >
                 <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
                   draggable="false"
                 />
-                <div
-                  className="absolute inset-0 mix-blend-multiply"
-                  style={{ backgroundColor: getRandomColor() }}
-                />
+                <div className={`absolute inset-0 ${stripColors[2]} mix-blend-multiply rounded-lg`} />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Strip 6 - Far Right - Scrolling Down Slower */}
-        <div className="gallery-strip right-2 w-20">
-          <div className="animate-scroll-down-slower space-y-4">
-            {[...studentImages, ...studentImages, ...studentImages].map((img, index) => (
+        {/* Strip 4 - Center Left */}
+        <div className="gallery-strip left-56 w-16">
+          <div className="gallery-content space-y-3">
+            {createImageStrip(3).map((image, index) => (
               <div
-                key={`strip6-${index}`}
-                className="gallery-item w-16 h-16 rounded-lg shadow-lg"
+                key={`strip4-${index}`}
+                className="gallery-image w-12 h-12 rounded-lg shadow-sm"
                 style={{
-                  filter: 'blur(0.5px) brightness(0.7)',
+                  filter: 'blur(0.4px) brightness(0.8)',
                   opacity: 0.5,
                   transform: 'rotate(-2deg)'
                 }}
               >
                 <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover"
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
                   draggable="false"
                 />
-                <div
-                  className="absolute inset-0 mix-blend-multiply"
-                  style={{ backgroundColor: getRandomColor() }}
+                <div className={`absolute inset-0 ${stripColors[3]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 5 - Center Right */}
+        <div className="gallery-strip right-56 w-16">
+          <div className="gallery-content space-y-4">
+            {createImageStrip(4).map((image, index) => (
+              <div
+                key={`strip5-${index}`}
+                className="gallery-image w-12 h-12 rounded-lg shadow-sm"
+                style={{
+                  filter: 'blur(0.4px) brightness(0.8)',
+                  opacity: 0.5,
+                  transform: 'rotate(2deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
                 />
+                <div className={`absolute inset-0 ${stripColors[4]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 6 - Right Center */}
+        <div className="gallery-strip right-38 w-16">
+          <div className="gallery-content space-y-5">
+            {createImageStrip(5).map((image, index) => (
+              <div
+                key={`strip6-${index}`}
+                className="gallery-image w-10 h-10 rounded-lg shadow-sm"
+                style={{
+                  filter: 'blur(0.5px) brightness(0.75)',
+                  opacity: 0.4,
+                  transform: 'rotate(-1deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[5]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 7 - Right */}
+        <div className="gallery-strip right-20 w-16">
+          <div className="gallery-content space-y-4">
+            {createImageStrip(6).map((image, index) => (
+              <div
+                key={`strip7-${index}`}
+                className="gallery-image w-14 h-14 rounded-lg shadow-md"
+                style={{
+                  filter: 'blur(0.3px) brightness(0.85)',
+                  opacity: 0.6,
+                  transform: 'rotate(1deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[6]} mix-blend-multiply rounded-lg`} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strip 8 - Far Right */}
+        <div className="gallery-strip right-2 w-16">
+          <div className="gallery-content space-y-3">
+            {createImageStrip(7).map((image, index) => (
+              <div
+                key={`strip8-${index}`}
+                className="gallery-image w-12 h-12 rounded-lg shadow-sm"
+                style={{
+                  filter: 'blur(0.4px) brightness(0.8)',
+                  opacity: 0.5,
+                  transform: 'rotate(-2deg)'
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                  draggable="false"
+                />
+                <div className={`absolute inset-0 ${stripColors[7]} mix-blend-multiply rounded-lg`} />
               </div>
             ))}
           </div>
