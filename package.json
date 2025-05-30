@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/simple-sitemap.js && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-sitemap": "node scripts/generate-sitemap.js",
     "clean": "node scripts/clean-dependencies.js",
     "fresh-install": "npm run clean && npm install"
   },

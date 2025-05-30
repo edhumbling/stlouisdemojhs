@@ -4162,30 +4162,89 @@ const MoneySmartLinksPage: React.FC = () => {
   const allResources: FinancialResource[] = Object.values(resourceCategories).flat();
   const totalResources = allResources.length;
 
-  // Filter resources based on search and filters
+  // Filter and prioritize resources based on search and filters
   const filteredResources = allResources.filter(resource => {
-    const matchesSearch = searchTerm === '' ||
-      resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      resource.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      resource.category.toLowerCase().includes(searchTerm.toLowerCase());
+    const searchLower = searchTerm.toLowerCase();
+    const titleMatch = resource.title.toLowerCase().includes(searchLower);
+    const descriptionMatch = resource.description.toLowerCase().includes(searchLower);
+    const categoryMatch = resource.category.toLowerCase().includes(searchLower);
 
+    const matchesSearch = searchTerm === '' || titleMatch || descriptionMatch || categoryMatch;
     const matchesLevel = selectedLevel === '' || resource.level === selectedLevel;
     const matchesType = selectedType === '' ||
       (selectedType === 'video' && resource.url.includes('youtube.com')) ||
       (selectedType === 'website' && !resource.url.includes('youtube.com'));
 
     return matchesSearch && matchesLevel && matchesType;
+  }).sort((a, b) => {
+    // If there's a search term, prioritize by relevance
+    if (searchTerm) {
+      const searchLower = searchTerm.toLowerCase();
+
+      // Calculate relevance scores
+      const getRelevanceScore = (resource: any) => {
+        let score = 0;
+        const title = resource.title.toLowerCase();
+        const description = resource.description.toLowerCase();
+        const category = resource.category.toLowerCase();
+
+        // Exact title match gets highest priority
+        if (title === searchLower) score += 100;
+        // Title starts with search term
+        else if (title.startsWith(searchLower)) score += 80;
+        // Title contains search term
+        else if (title.includes(searchLower)) score += 60;
+
+        // Category matches
+        if (category === searchLower) score += 50;
+        else if (category.includes(searchLower)) score += 30;
+
+        // Description matches
+        if (description.includes(searchLower)) score += 20;
+
+        // Boost for exact word matches
+        const words = searchLower.split(' ');
+        words.forEach(word => {
+          if (title.includes(` ${word} `) || title.startsWith(`${word} `) || title.endsWith(` ${word}`)) {
+            score += 15;
+          }
+        });
+
+        return score;
+      };
+
+      const scoreA = getRelevanceScore(a);
+      const scoreB = getRelevanceScore(b);
+
+      // Sort by relevance score (highest first)
+      if (scoreA !== scoreB) {
+        return scoreB - scoreA;
+      }
+    }
+
+    // Default sort: alphabetical by title
+    return a.title.localeCompare(b.title);
   });
 
-  // Group filtered resources by category
-  const filteredCategories = Object.entries(resourceCategories).reduce((acc, [categoryName, categoryResources]) => {
-    const filtered = categoryResources.filter(resource => filteredResources.includes(resource));
-    if (filtered.length > 0 || selectedCategory === '' || selectedCategory === categoryName) {
-      acc[categoryName] = selectedCategory === '' ? filtered :
-        selectedCategory === categoryName ? filtered : [];
+  // Group filtered resources by category, maintaining search order
+  const filteredCategories = (() => {
+    if (searchTerm && filteredResources.length > 0) {
+      // When searching, show all results in a single "Search Results" category to maintain relevance order
+      return {
+        "🔍 Search Results": filteredResources
+      };
+    } else {
+      // Normal category grouping when not searching
+      return Object.entries(resourceCategories).reduce((acc, [categoryName, categoryResources]) => {
+        const filtered = categoryResources.filter(resource => filteredResources.includes(resource));
+        if (filtered.length > 0 || selectedCategory === '' || selectedCategory === categoryName) {
+          acc[categoryName] = selectedCategory === '' ? filtered :
+            selectedCategory === categoryName ? filtered : [];
+        }
+        return acc;
+      }, {} as Record<string, FinancialResource[]>);
     }
-    return acc;
-  }, {} as Record<string, FinancialResource[]>);
+  })();
 
   // Get unique categories, levels, and types for filter options
   const categories = Object.keys(resourceCategories);
