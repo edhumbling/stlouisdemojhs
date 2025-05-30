@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, DollarSign, TrendingUp, PiggyBank, CreditCard, GraduationCap, Building, Users, Globe, BookOpen, Calculator, Video, Mic, Briefcase } from 'lucide-react';
+import { ArrowLeft, ExternalLink, DollarSign, TrendingUp, PiggyBank, CreditCard, GraduationCap, Building, Users, Globe, BookOpen, Calculator, Video, Mic, Briefcase, Search, Filter, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -21,6 +21,11 @@ const MoneySmartLinksPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedVideo, setSelectedVideo] = useState<FinancialResource | null>(null);
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedLevel, setSelectedLevel] = useState<string>('');
+  const [selectedType, setSelectedType] = useState<string>('');
+  const [showFilters, setShowFilters] = useState(false);
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {
@@ -4157,6 +4162,44 @@ const MoneySmartLinksPage: React.FC = () => {
   const allResources: FinancialResource[] = Object.values(resourceCategories).flat();
   const totalResources = allResources.length;
 
+  // Filter resources based on search and filters
+  const filteredResources = allResources.filter(resource => {
+    const matchesSearch = searchTerm === '' ||
+      resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      resource.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      resource.category.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchesLevel = selectedLevel === '' || resource.level === selectedLevel;
+    const matchesType = selectedType === '' ||
+      (selectedType === 'video' && resource.url.includes('youtube.com')) ||
+      (selectedType === 'website' && !resource.url.includes('youtube.com'));
+
+    return matchesSearch && matchesLevel && matchesType;
+  });
+
+  // Group filtered resources by category
+  const filteredCategories = Object.entries(resourceCategories).reduce((acc, [categoryName, categoryResources]) => {
+    const filtered = categoryResources.filter(resource => filteredResources.includes(resource));
+    if (filtered.length > 0 || selectedCategory === '' || selectedCategory === categoryName) {
+      acc[categoryName] = selectedCategory === '' ? filtered :
+        selectedCategory === categoryName ? filtered : [];
+    }
+    return acc;
+  }, {} as Record<string, FinancialResource[]>);
+
+  // Get unique categories, levels, and types for filter options
+  const categories = Object.keys(resourceCategories);
+  const levels = ['Beginner', 'Intermediate', 'Advanced'];
+  const types = ['website', 'video'];
+
+  // Clear all filters
+  const clearFilters = () => {
+    setSearchTerm('');
+    setSelectedCategory('');
+    setSelectedLevel('');
+    setSelectedType('');
+  };
+
   const openResource = (resource: FinancialResource) => {
     if (resource.url.includes('youtube.com') || resource.url.includes('youtu.be')) {
       // Save current scroll position before opening video
@@ -4305,79 +4348,219 @@ const MoneySmartLinksPage: React.FC = () => {
             </p>
           </div>
 
+          {/* Search and Filters */}
+          <div className="mb-8 space-y-4">
+            {/* Search Bar */}
+            <div className="relative max-w-2xl mx-auto">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search resources by title, description, or category..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-12 pr-4 py-4 bg-gray-800/50 border border-gray-600/50 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all duration-200 backdrop-blur-sm"
+              />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-white transition-colors"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              )}
+            </div>
+
+            {/* Filter Toggle and Filters */}
+            <div className="flex flex-col items-center space-y-4">
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700/50 hover:bg-gray-600/50 text-white rounded-xl transition-all duration-200 border border-gray-600/30"
+              >
+                <Filter className="h-4 w-4" />
+                <span>Filters</span>
+                {(selectedCategory || selectedLevel || selectedType) && (
+                  <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">
+                    {[selectedCategory, selectedLevel, selectedType].filter(Boolean).length}
+                  </span>
+                )}
+              </button>
+
+              {/* Filter Options */}
+              {showFilters && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="w-full max-w-4xl bg-gray-800/30 rounded-2xl p-6 border border-gray-600/30 backdrop-blur-sm"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    {/* Category Filter */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Category</label>
+                      <select
+                        value={selectedCategory}
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500/50"
+                      >
+                        <option value="">All Categories</option>
+                        {categories.map(category => (
+                          <option key={category} value={category}>{category}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Level Filter */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Difficulty Level</label>
+                      <select
+                        value={selectedLevel}
+                        onChange={(e) => setSelectedLevel(e.target.value)}
+                        className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500/50"
+                      >
+                        <option value="">All Levels</option>
+                        {levels.map(level => (
+                          <option key={level} value={level}>{level}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Type Filter */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Resource Type</label>
+                      <select
+                        value={selectedType}
+                        onChange={(e) => setSelectedType(e.target.value)}
+                        className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500/50"
+                      >
+                        <option value="">All Types</option>
+                        <option value="website">Websites</option>
+                        <option value="video">Videos</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Clear Filters Button */}
+                  {(searchTerm || selectedCategory || selectedLevel || selectedType) && (
+                    <div className="flex justify-center">
+                      <button
+                        onClick={clearFilters}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 rounded-lg transition-all duration-200 border border-red-500/30"
+                      >
+                        <X className="h-4 w-4" />
+                        Clear All Filters
+                      </button>
+                    </div>
+                  )}
+                </motion.div>
+              )}
+            </div>
+
+            {/* Results Summary */}
+            <div className="text-center">
+              <p className="text-gray-400 text-sm">
+                Showing {filteredResources.length} of {totalResources} resources
+                {(searchTerm || selectedCategory || selectedLevel || selectedType) && (
+                  <span className="text-green-400 ml-1">
+                    (filtered)
+                  </span>
+                )}
+              </p>
+            </div>
+          </div>
+
           {/* Resource Categories */}
           <div className="space-y-8">
-            {Object.entries(resourceCategories).map(([categoryName, categoryResources], categoryIndex) => (
-              <motion.div
-                key={categoryName}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
-                className="space-y-4"
-              >
-                {/* Category Header */}
-                <div className="flex items-center gap-3">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white">
-                    {categoryName}
-                  </h2>
-                  <div className="flex-1 h-px bg-gradient-to-r from-green-500/50 to-transparent"></div>
-                  <span className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
-                    {categoryResources.length} resources
-                  </span>
+            {Object.entries(filteredCategories).length === 0 ? (
+              <div className="text-center py-12">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-700/50 rounded-2xl mb-4">
+                  <Search size={32} className="text-gray-400" />
                 </div>
+                <h3 className="text-xl font-semibold text-white mb-2">No resources found</h3>
+                <p className="text-gray-400 mb-4">
+                  Try adjusting your search terms or filters to find what you're looking for.
+                </p>
+                <button
+                  onClick={clearFilters}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-green-600/20 hover:bg-green-600/30 text-green-400 rounded-lg transition-all duration-200 border border-green-500/30"
+                >
+                  <X className="h-4 w-4" />
+                  Clear All Filters
+                </button>
+              </div>
+            ) : (
+              Object.entries(filteredCategories).map(([categoryName, categoryResources], categoryIndex) => (
+                <motion.div
+                  key={categoryName}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
+                  className="space-y-4"
+                >
+                  {/* Category Header */}
+                  <div className="flex items-center gap-3">
+                    <h2 className="text-xl sm:text-2xl font-bold text-white">
+                      {categoryName}
+                    </h2>
+                    <div className="flex-1 h-px bg-gradient-to-r from-green-500/50 to-transparent"></div>
+                    <span className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
+                      {categoryResources.length} resources
+                    </span>
+                  </div>
 
-                {/* Category Resources Grid - 2 Column Mobile, 3 Column Desktop */}
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                  {categoryResources.map((resource, index) => (
-                    <motion.div
-                      key={resource.id}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
-                      className="group"
-                    >
-                      <button
-                        type="button"
-                        onClick={() => openResource(resource)}
-                        className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                  {/* Category Resources Grid - 2 Column Mobile, 3 Column Desktop */}
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                    {categoryResources.map((resource, index) => (
+                      <motion.div
+                        key={resource.id}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                        className="group"
                       >
-                        {/* Level Badge */}
-                        <div className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-semibold border ${getLevelColor(resource.level)}`}>
-                          {resource.level}
-                        </div>
-
-                        {/* Icon */}
-                        <div
-                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                          style={{ backgroundColor: resource.color }}
+                        <button
+                          type="button"
+                          onClick={() => openResource(resource)}
+                          className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
                         >
-                          {resource.icon}
-                        </div>
+                          {/* Level Badge */}
+                          <div className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-semibold border ${getLevelColor(resource.level)}`}>
+                            {resource.level}
+                          </div>
 
-                        {/* Resource Info */}
-                        <h3 className="text-sm sm:text-base font-semibold text-white mb-2 leading-tight pr-16">
-                          {resource.title}
-                        </h3>
+                          {/* Icon */}
+                          <div
+                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
+                            style={{ backgroundColor: resource.color }}
+                          >
+                            {resource.icon}
+                          </div>
 
-                        <p className="text-xs text-gray-400 mb-2 font-medium">
-                          {resource.category}
-                        </p>
+                          {/* Resource Info */}
+                          <h3 className="text-sm sm:text-base font-semibold text-white mb-2 leading-tight pr-16">
+                            {resource.title}
+                          </h3>
 
-                        <p className="text-xs sm:text-sm text-gray-300 leading-tight mb-3">
-                          {resource.description}
-                        </p>
+                          <p className="text-xs text-gray-400 mb-2 font-medium">
+                            {resource.category}
+                          </p>
 
-                        {/* External Link Icon */}
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs text-green-400 font-medium">Visit Site</span>
-                          <ExternalLink size={14} className="text-green-400" />
-                        </div>
-                      </button>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                          <p className="text-xs sm:text-sm text-gray-300 leading-tight mb-3">
+                            {resource.description}
+                          </p>
+
+                          {/* External Link Icon */}
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs text-green-400 font-medium">Visit Site</span>
+                            <ExternalLink size={14} className="text-green-400" />
+                          </div>
+                        </button>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))
+            )}
           </div>
 
           {/* Footer Summary */}
