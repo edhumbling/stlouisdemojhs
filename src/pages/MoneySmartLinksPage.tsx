@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, DollarSign, TrendingUp, PiggyBank, CreditCard, GraduationCap, Building, Users, Globe, BookOpen, Calculator, Video, Mic, Briefcase, Search, Filter, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -22,6 +22,7 @@ const MoneySmartLinksPage: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<FinancialResource | null>(null);
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [selectedLevel, setSelectedLevel] = useState<string>('');
   const [selectedType, setSelectedType] = useState<string>('');
@@ -54,6 +55,15 @@ const MoneySmartLinksPage: React.FC = () => {
       setShowHeader(true);
     };
   }, [selectedVideo, setShowHeader]);
+
+  // Debounce search term for better performance
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
   // Loading timer
   useEffect(() => {
@@ -4159,92 +4169,143 @@ const MoneySmartLinksPage: React.FC = () => {
   };
 
   // Flatten all resources for easy access
-  const allResources: FinancialResource[] = Object.values(resourceCategories).flat();
+  const allResources: FinancialResource[] = useMemo(() =>
+    Object.values(resourceCategories).flat(),
+    [resourceCategories]
+  );
   const totalResources = allResources.length;
 
-  // Filter and prioritize resources based on search and filters
-  const filteredResources = allResources.filter(resource => {
-    const searchLower = searchTerm.toLowerCase();
-    const titleMatch = resource.title.toLowerCase().includes(searchLower);
-    const descriptionMatch = resource.description.toLowerCase().includes(searchLower);
-    const categoryMatch = resource.category.toLowerCase().includes(searchLower);
+  // Advanced search function with fuzzy matching
+  const searchResources = useCallback((resources: FinancialResource[], searchTerm: string) => {
+    if (!searchTerm.trim()) return resources;
 
-    const matchesSearch = searchTerm === '' || titleMatch || descriptionMatch || categoryMatch;
-    const matchesLevel = selectedLevel === '' || resource.level === selectedLevel;
-    const matchesType = selectedType === '' ||
-      (selectedType === 'video' && resource.url.includes('youtube.com')) ||
-      (selectedType === 'website' && !resource.url.includes('youtube.com'));
+    const searchLower = searchTerm.toLowerCase().trim();
+    const searchWords = searchLower.split(/\s+/).filter(word => word.length > 0);
 
-    return matchesSearch && matchesLevel && matchesType;
-  }).sort((a, b) => {
-    // If there's a search term, prioritize by relevance
-    if (searchTerm) {
-      const searchLower = searchTerm.toLowerCase();
+    return resources.map(resource => {
+      const title = resource.title.toLowerCase();
+      const description = resource.description.toLowerCase();
+      const category = resource.category.toLowerCase();
 
-      // Calculate relevance scores
-      const getRelevanceScore = (resource: any) => {
-        let score = 0;
-        const title = resource.title.toLowerCase();
-        const description = resource.description.toLowerCase();
-        const category = resource.category.toLowerCase();
+      let score = 0;
+      let hasMatch = false;
 
-        // Exact title match gets highest priority
-        if (title === searchLower) score += 100;
-        // Title starts with search term
-        else if (title.startsWith(searchLower)) score += 80;
-        // Title contains search term
-        else if (title.includes(searchLower)) score += 60;
-
-        // Category matches
-        if (category === searchLower) score += 50;
-        else if (category.includes(searchLower)) score += 30;
-
-        // Description matches
-        if (description.includes(searchLower)) score += 20;
-
-        // Boost for exact word matches
-        const words = searchLower.split(' ');
-        words.forEach(word => {
-          if (title.includes(` ${word} `) || title.startsWith(`${word} `) || title.endsWith(` ${word}`)) {
-            score += 15;
-          }
-        });
-
-        return score;
-      };
-
-      const scoreA = getRelevanceScore(a);
-      const scoreB = getRelevanceScore(b);
-
-      // Sort by relevance score (highest first)
-      if (scoreA !== scoreB) {
-        return scoreB - scoreA;
+      // Exact matches (highest priority)
+      if (title === searchLower) {
+        score += 1000;
+        hasMatch = true;
+      } else if (category === searchLower) {
+        score += 800;
+        hasMatch = true;
       }
+
+      // Phrase matches
+      if (title.includes(searchLower)) {
+        score += title.startsWith(searchLower) ? 600 : 400;
+        hasMatch = true;
+      }
+      if (category.includes(searchLower)) {
+        score += 300;
+        hasMatch = true;
+      }
+      if (description.includes(searchLower)) {
+        score += 200;
+        hasMatch = true;
+      }
+
+      // Individual word matches
+      searchWords.forEach(word => {
+        if (word.length < 2) return; // Skip very short words
+
+        // Title word matches
+        if (title.includes(word)) {
+          const titleWords = title.split(/\s+/);
+          const exactWordMatch = titleWords.some(titleWord =>
+            titleWord === word || titleWord.startsWith(word)
+          );
+          score += exactWordMatch ? 150 : 100;
+          hasMatch = true;
+        }
+
+        // Category word matches
+        if (category.includes(word)) {
+          score += 80;
+          hasMatch = true;
+        }
+
+        // Description word matches
+        if (description.includes(word)) {
+          score += 50;
+          hasMatch = true;
+        }
+      });
+
+      // Bonus for multiple word matches
+      const matchedWords = searchWords.filter(word =>
+        title.includes(word) || category.includes(word) || description.includes(word)
+      );
+      if (matchedWords.length > 1) {
+        score += matchedWords.length * 25;
+      }
+
+      return { ...resource, searchScore: score, hasMatch };
+    })
+    .filter(resource => resource.hasMatch)
+    .sort((a, b) => {
+      // Sort by search score (highest first)
+      if (a.searchScore !== b.searchScore) {
+        return b.searchScore - a.searchScore;
+      }
+      // Secondary sort by title
+      return a.title.localeCompare(b.title);
+    });
+  }, []);
+
+  // Memoized filtered resources for performance
+  const filteredResources = useMemo(() => {
+    let resources = allResources;
+
+    // Apply search filter
+    if (debouncedSearchTerm) {
+      resources = searchResources(resources, debouncedSearchTerm);
     }
 
-    // Default sort: alphabetical by title
-    return a.title.localeCompare(b.title);
-  });
+    // Apply other filters
+    return resources.filter(resource => {
+      const matchesLevel = selectedLevel === '' || resource.level === selectedLevel;
+      const matchesType = selectedType === '' ||
+        (selectedType === 'video' && resource.url.includes('youtube.com')) ||
+        (selectedType === 'website' && !resource.url.includes('youtube.com'));
 
-  // Group filtered resources by category, maintaining search order
-  const filteredCategories = (() => {
-    if (searchTerm && filteredResources.length > 0) {
+      return matchesLevel && matchesType;
+    });
+  }, [allResources, debouncedSearchTerm, selectedLevel, selectedType, searchResources]);
+
+  // Memoized category grouping for performance
+  const filteredCategories = useMemo(() => {
+    if (debouncedSearchTerm && filteredResources.length > 0) {
       // When searching, show all results in a single "Search Results" category to maintain relevance order
       return {
         "🔍 Search Results": filteredResources
       };
     } else {
       // Normal category grouping when not searching
-      return Object.entries(resourceCategories).reduce((acc, [categoryName, categoryResources]) => {
-        const filtered = categoryResources.filter(resource => filteredResources.includes(resource));
-        if (filtered.length > 0 || selectedCategory === '' || selectedCategory === categoryName) {
-          acc[categoryName] = selectedCategory === '' ? filtered :
-            selectedCategory === categoryName ? filtered : [];
+      const categories: Record<string, FinancialResource[]> = {};
+
+      Object.entries(resourceCategories).forEach(([categoryName, categoryResources]) => {
+        const filtered = categoryResources.filter(resource =>
+          filteredResources.some(fr => fr.id === resource.id)
+        );
+
+        // Include category if it has resources or if it's specifically selected
+        if (filtered.length > 0 || (selectedCategory && selectedCategory === categoryName)) {
+          categories[categoryName] = selectedCategory === '' || selectedCategory === categoryName ? filtered : [];
         }
-        return acc;
-      }, {} as Record<string, FinancialResource[]>);
+      });
+
+      return categories;
     }
-  })();
+  }, [debouncedSearchTerm, filteredResources, resourceCategories, selectedCategory]);
 
   // Get unique categories, levels, and types for filter options
   const categories = Object.keys(resourceCategories);
@@ -4252,12 +4313,13 @@ const MoneySmartLinksPage: React.FC = () => {
   const types = ['website', 'video'];
 
   // Clear all filters
-  const clearFilters = () => {
+  const clearFilters = useCallback(() => {
     setSearchTerm('');
+    setDebouncedSearchTerm('');
     setSelectedCategory('');
     setSelectedLevel('');
     setSelectedType('');
-  };
+  }, []);
 
   const openResource = (resource: FinancialResource) => {
     if (resource.url.includes('youtube.com') || resource.url.includes('youtu.be')) {
@@ -4500,7 +4562,7 @@ const MoneySmartLinksPage: React.FC = () => {
                   </div>
 
                   {/* Clear Filters Button */}
-                  {(searchTerm || selectedCategory || selectedLevel || selectedType) && (
+                  {(debouncedSearchTerm || selectedCategory || selectedLevel || selectedType) && (
                     <div className="flex justify-center">
                       <button
                         onClick={clearFilters}
@@ -4519,9 +4581,14 @@ const MoneySmartLinksPage: React.FC = () => {
             <div className="text-center">
               <p className="text-gray-400 text-sm">
                 Showing {filteredResources.length} of {totalResources} resources
-                {(searchTerm || selectedCategory || selectedLevel || selectedType) && (
+                {(debouncedSearchTerm || selectedCategory || selectedLevel || selectedType) && (
                   <span className="text-green-400 ml-1">
                     (filtered)
+                  </span>
+                )}
+                {searchTerm !== debouncedSearchTerm && (
+                  <span className="text-yellow-400 ml-1">
+                    (searching...)
                   </span>
                 )}
               </p>
