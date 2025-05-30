@@ -4188,17 +4188,35 @@ const MoneySmartLinksPage: React.FC = () => {
   );
   const totalResources = allResources.length;
 
-  // Advanced search function with fuzzy matching
+  // Advanced search function with fuzzy matching and content type prioritization
   const searchResources = useCallback((resources: FinancialResource[], searchTerm: string) => {
     if (!searchTerm.trim()) return resources;
 
     const searchLower = searchTerm.toLowerCase().trim();
     const searchWords = searchLower.split(/\s+/).filter(word => word.length > 0);
 
+    // Define content type keywords for intelligent prioritization
+    const videoKeywords = ['video', 'watch', 'tutorial', 'lesson', 'course', 'lecture', 'webinar', 'presentation', 'demo', 'demonstration', 'youtube', 'channel'];
+    const websiteKeywords = ['website', 'site', 'portal', 'platform', 'tool', 'calculator', 'resource', 'guide', 'article', 'blog', 'page'];
+    const educationKeywords = ['learn', 'education', 'educational', 'teaching', 'study', 'academic', 'school', 'university', 'college', 'institution'];
+    const governmentKeywords = ['government', 'official', 'federal', 'state', 'agency', 'department', 'bureau', 'administration', 'treasury', 'irs'];
+    const beginnerKeywords = ['beginner', 'basic', 'intro', 'introduction', 'start', 'starting', 'fundamentals', 'basics', 'simple', 'easy'];
+    const advancedKeywords = ['advanced', 'expert', 'professional', 'complex', 'sophisticated', 'detailed', 'comprehensive', 'in-depth'];
+
+    // Determine search intent based on keywords
+    const isVideoSearch = videoKeywords.some(keyword => searchLower.includes(keyword));
+    const isWebsiteSearch = websiteKeywords.some(keyword => searchLower.includes(keyword));
+    const isEducationSearch = educationKeywords.some(keyword => searchLower.includes(keyword));
+    const isGovernmentSearch = governmentKeywords.some(keyword => searchLower.includes(keyword));
+    const isBeginnerSearch = beginnerKeywords.some(keyword => searchLower.includes(keyword));
+    const isAdvancedSearch = advancedKeywords.some(keyword => searchLower.includes(keyword));
+
     return resources.map(resource => {
       const title = resource.title.toLowerCase();
       const description = resource.description.toLowerCase();
       const category = resource.category.toLowerCase();
+      const isVideo = resource.url.includes('youtube.com') || resource.url.includes('youtu.be');
+      const isWebsite = !isVideo;
 
       let score = 0;
       let hasMatch = false;
@@ -4252,6 +4270,64 @@ const MoneySmartLinksPage: React.FC = () => {
           hasMatch = true;
         }
       });
+
+      // Content type prioritization based on search intent
+      if (hasMatch) {
+        // Video content prioritization
+        if (isVideoSearch && isVideo) {
+          score += 500; // Strong boost for videos when searching for video content
+        } else if (isVideoSearch && isWebsite) {
+          score -= 100; // Slight penalty for websites when searching for videos
+        }
+
+        // Website content prioritization
+        if (isWebsiteSearch && isWebsite) {
+          score += 400; // Boost for websites when searching for website content
+        } else if (isWebsiteSearch && isVideo) {
+          score -= 50; // Slight penalty for videos when searching for websites
+        }
+
+        // Educational content prioritization
+        if (isEducationSearch) {
+          if (category.includes('educational') || category.includes('academic') || category.includes('university')) {
+            score += 300;
+          }
+        }
+
+        // Government content prioritization
+        if (isGovernmentSearch) {
+          if (category.includes('government') || category.includes('official') || category.includes('federal')) {
+            score += 350;
+          }
+        }
+
+        // Difficulty level prioritization
+        if (isBeginnerSearch && resource.level === 'Beginner') {
+          score += 200;
+        } else if (isAdvancedSearch && resource.level === 'Advanced') {
+          score += 200;
+        }
+
+        // Category-specific boosts
+        const categoryBoosts: Record<string, string[]> = {
+          'investing': ['investing', 'investment', 'stocks', 'bonds', 'portfolio', 'market'],
+          'budgeting': ['budget', 'budgeting', 'money management', 'spending', 'saving'],
+          'credit': ['credit', 'credit score', 'credit card', 'debt', 'loan'],
+          'retirement': ['retirement', 'pension', '401k', 'ira', 'social security'],
+          'insurance': ['insurance', 'health insurance', 'life insurance', 'coverage'],
+          'taxes': ['tax', 'taxes', 'irs', 'filing', 'deduction'],
+          'business': ['business', 'entrepreneur', 'startup', 'small business'],
+          'real estate': ['real estate', 'mortgage', 'home buying', 'property']
+        };
+
+        Object.entries(categoryBoosts).forEach(([categoryType, keywords]) => {
+          if (keywords.some(keyword => searchLower.includes(keyword))) {
+            if (category.includes(categoryType) || title.includes(categoryType)) {
+              score += 150;
+            }
+          }
+        });
+      }
 
       // Bonus for multiple word matches
       const matchedWords = searchWords.filter(word =>
