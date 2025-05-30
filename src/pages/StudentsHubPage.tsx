@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Search } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 
 interface Resource {
@@ -18,6 +18,7 @@ interface Resource {
   proxyUrls?: string[];
   customScripts?: boolean;
   isUSSD?: boolean;
+  keywords?: string[]; // Added keywords for better search
 }
 
 const StudentsHubPage: React.FC = () => {
@@ -28,9 +29,23 @@ const StudentsHubPage: React.FC = () => {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [showAlternatives, setShowAlternatives] = useState(false);
   const [smartLoadingPhase, setSmartLoadingPhase] = useState<'connecting' | 'loading' | 'error' | 'success'>('connecting');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const navigate = useNavigate();
   const { setShowHeader } = useHeader();
+
+  // Debounce search term
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchTerm]);
 
   // Control header visibility based on whether we're viewing an individual resource
   useEffect(() => {
@@ -56,83 +71,92 @@ const StudentsHubPage: React.FC = () => {
     {
       id: 1,
       title: "Audiobooks",
-      description: "Free audiobooks collection",
+      description: "Free audiobooks collection for students",
       url: "https://marhamilresearch4.blob.core.windows.net/gutenberg-public/Website/browse.html",
       icon: <Mic className="w-5 h-5" />,
-      color: "#007AFF"
+      color: "#007AFF",
+      keywords: ["books", "reading", "literature", "stories", "audio", "listen", "gutenberg", "free books"]
     },
     {
       id: 2,
       title: "Poetry Archive",
-      description: "Children's poetry collection",
+      description: "Children's poetry collection with classic and modern poems",
       url: "https://childrens.poetryarchive.org/",
       icon: <BookOpen className="w-5 h-5" />,
-      color: "#FF3B30"
+      color: "#FF3B30",
+      keywords: ["poems", "rhymes", "literature", "english", "reading", "writing", "verse"]
     },
     {
       id: 3,
       title: "BECE PASCO",
-      description: "BECE past questions",
+      description: "BECE past questions and answers for exam preparation",
       url: "https://emmadeeofficial.gumroad.com/l/becepasco",
       icon: <FileText className="w-5 h-5" />,
-      color: "#34C759"
+      color: "#34C759",
+      keywords: ["exams", "tests", "study", "practice", "questions", "answers", "basic education"]
     },
     {
       id: 11,
       title: "BECE Pasco 2",
-      description: "Alternative BECE past questions database",
+      description: "Alternative BECE past questions database with comprehensive solutions",
       url: "https://www.becepastquestions.com/",
       icon: <FileText className="w-5 h-5" />,
       color: "#7C3AED",
       embedStrategy: 'iframe',
-      customScripts: true
+      customScripts: true,
+      keywords: ["exams", "tests", "study", "practice", "questions", "answers", "basic education", "solutions"]
     },
     {
       id: 12,
       title: "BECE Pasco Via USSD",
-      description: "Access past questions directly on your mobile phone!",
+      description: "Access past questions directly on your mobile phone via USSD code",
       url: "ussd://dial",
       icon: <Smartphone className="w-5 h-5" />,
       color: "#FF9500",
-      isUSSD: true
+      isUSSD: true,
+      keywords: ["exams", "mobile", "phone", "sms", "ussd", "offline", "text", "basic education"]
     },
     {
       id: 4,
       title: "JHS MOCKS",
-      description: "JHS mock examinations",
+      description: "JHS mock examinations for test preparation and practice",
       url: "https://emmadeeofficial.gumroad.com/l/jhsmocks",
       icon: <FileText className="w-5 h-5" />,
-      color: "#FF9500"
+      color: "#FF9500",
+      keywords: ["exams", "tests", "study", "practice", "questions", "answers", "junior high", "mock exams"]
     },
     {
       id: 5,
       title: "QWEN Maths",
-      description: "AI maths problem solver",
+      description: "AI maths problem solver for step-by-step solutions",
       url: "https://qwen-qwen2-math-demo.hf.space",
       icon: <Calculator className="w-5 h-5" />,
-      color: "#5856D6"
+      color: "#5856D6",
+      keywords: ["mathematics", "calculator", "problem solving", "equations", "algebra", "geometry", "arithmetic", "AI"]
     },
     {
       id: 6,
       title: "KHAYA Translator",
-      description: "AI language translator",
+      description: "AI language translator for multiple Ghanaian languages",
       url: "https://translate.ghananlp.org/",
       icon: <Languages className="w-5 h-5" />,
-      color: "#AF52DE"
+      color: "#AF52DE",
+      keywords: ["language", "translation", "twi", "ga", "ewe", "hausa", "dagbani", "akan", "ghanaian languages"]
     },
     {
       id: 7,
       title: "Advice from Successful People",
-      description: "Commencement speeches from leaders",
+      description: "Commencement speeches from leaders and inspirational figures",
       url: "/advice-speeches",
       icon: <Users className="w-5 h-5" />,
       color: "#FF6B35",
-      isInternal: true
+      isInternal: true,
+      keywords: ["motivation", "inspiration", "success", "career", "leadership", "speeches", "advice", "life lessons"]
     },
     {
       id: 8,
       title: "Financial Literacy",
-      description: "Learn personal finance and money management",
+      description: "Learn personal finance, money management, and financial planning",
       url: "https://www.khanacademy.org/college-careers-more/financial-literacy",
       icon: <DollarSign className="w-5 h-5" />,
       color: "#00C896",
@@ -145,12 +169,13 @@ const StudentsHubPage: React.FC = () => {
       ],
       proxyUrls: [
         "https://web.archive.org/web/20240101000000*/https://www.khanacademy.org/college-careers-more/financial-literacy"
-      ]
+      ],
+      keywords: ["money", "finance", "savings", "budget", "investing", "banking", "money smarts", "economics", "personal finance", "credit", "debt", "financial planning"]
     },
     {
       id: 9,
       title: "Business Skills Chat",
-      description: "AI-powered business skills development",
+      description: "AI-powered business skills development and entrepreneurship training",
       url: "https://www.nfx.com/chat",
       icon: <Briefcase className="w-5 h-5" />,
       color: "#1E40AF",
@@ -163,17 +188,96 @@ const StudentsHubPage: React.FC = () => {
       ],
       proxyUrls: [
         "https://web.archive.org/web/20240101000000*/https://www.nfx.com/chat"
-      ]
+      ],
+      keywords: ["business", "entrepreneurship", "management", "leadership", "startup", "marketing", "sales", "career"]
     },
     {
       id: 10,
       title: "Product Creation Chat",
-      description: "Learn product development and creation",
+      description: "Learn product development, design thinking, and innovation methods",
       url: "https://www.lennybot.com/",
       icon: <Lightbulb className="w-5 h-5" />,
-      color: "#F59E0B"
+      color: "#F59E0B",
+      keywords: ["innovation", "product", "design", "development", "creativity", "entrepreneurship", "ideas", "startup"]
     },
   ];
+
+  // Calculate resource score based on search term
+  const calculateResourceScore = useCallback((resource: Resource, searchTerm: string) => {
+    if (!searchTerm) return 0;
+    
+    const lowerSearchTerm = searchTerm.toLowerCase().trim();
+    const terms = lowerSearchTerm.split(/\s+/).filter(term => term.length > 0);
+    
+    if (terms.length === 0) return 0;
+    
+    let score = 0;
+    
+    // Check for exact title match (highest priority)
+    if (resource.title.toLowerCase() === lowerSearchTerm) {
+      score += 100;
+    }
+    
+    // Check for title containing search term
+    if (resource.title.toLowerCase().includes(lowerSearchTerm)) {
+      score += 50;
+    }
+    
+    // Check for individual terms in title
+    for (const term of terms) {
+      if (resource.title.toLowerCase().includes(term)) {
+        score += 30;
+      }
+    }
+    
+    // Check for description containing search term
+    if (resource.description.toLowerCase().includes(lowerSearchTerm)) {
+      score += 20;
+    }
+    
+    // Check for individual terms in description
+    for (const term of terms) {
+      if (resource.description.toLowerCase().includes(term)) {
+        score += 10;
+      }
+    }
+    
+    // Check for keywords match
+    if (resource.keywords) {
+      for (const keyword of resource.keywords) {
+        if (keyword.toLowerCase() === lowerSearchTerm) {
+          score += 40;
+        } else if (keyword.toLowerCase().includes(lowerSearchTerm)) {
+          score += 25;
+        }
+        
+        // Check for individual terms in keywords
+        for (const term of terms) {
+          if (keyword.toLowerCase().includes(term)) {
+            score += 15;
+          }
+        }
+      }
+    }
+    
+    return score;
+  }, []);
+
+  // Filter and sort resources based on search term
+  const filteredResources = useMemo(() => {
+    if (!debouncedSearchTerm) {
+      return resources;
+    }
+
+    return [...resources]
+      .map(resource => ({
+        resource,
+        score: calculateResourceScore(resource, debouncedSearchTerm)
+      }))
+      .sort((a, b) => b.score - a.score)
+      .filter(item => item.score > 0)
+      .map(item => item.resource);
+  }, [resources, debouncedSearchTerm, calculateResourceScore]);
 
   // Smart loading simulation effect
   useEffect(() => {
@@ -596,7 +700,7 @@ const StudentsHubPage: React.FC = () => {
 
                 textPatterns.forEach(pattern => {
                   try {
-                    const xpath = \`//\*[contains(text(), '\${pattern}')]\`;
+                    const xpath = \`//\\*[contains(text(), '\${pattern}')]\`;
                     const result = document.evaluate(xpath, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
                     for (let i = 0; i < result.snapshotLength; i++) {
                       const element = result.snapshotItem(i);
@@ -778,6 +882,35 @@ const StudentsHubPage: React.FC = () => {
     if (selectedResource) {
       window.open(selectedResource.url, '_blank', 'noopener,noreferrer');
     }
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleClearSearch = () => {
+    setSearchTerm('');
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  };
+
+  const handleSearchFocus = () => {
+    // Scroll to search bar when focused on mobile
+    if (window.innerWidth < 768) {
+      const searchContainer = document.getElementById('search-container');
+      if (searchContainer) {
+        searchContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
+  // Highlight matching text in search results
+  const highlightMatch = (text: string, searchTerm: string) => {
+    if (!searchTerm || !text) return text;
+    
+    const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return text.replace(regex, '<mark class="bg-purple-300/30 text-white px-0.5 rounded">$1</mark>');
   };
 
   // If a USSD resource is selected, show the USSD modal
@@ -1084,66 +1217,199 @@ const StudentsHubPage: React.FC = () => {
       {/* Main Content */}
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
-          {/* Resources Grid - Apple Style */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
-            {resources.map((resource, index) => (
-              <motion.div
-                key={resource.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group"
-              >
-                <button
-                  onClick={() => handleResourceClick(resource)}
-                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
-                >
-                  {/* Smart link indicator - only for Financial Literacy and Business Skills Chat */}
-                  {resource.embedStrategy === 'smart' && (
-                    <div className="absolute top-2 right-2 w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
-                      <AlertCircle size={12} className="text-white" />
-                    </div>
-                  )}
-
-                  {/* Icon */}
-                  <div
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                    style={{ backgroundColor: resource.color }}
-                  >
-                    {resource.icon}
+          {/* Search Bar - New Component */}
+          <div id="search-container" className="mb-6 sm:mb-8">
+            <div className="bg-purple-900/60 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-purple-600/30 hover:border-purple-500/50 transition-all duration-200 shadow-lg">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Search className="h-5 w-5 text-purple-300" />
+                </div>
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  onFocus={handleSearchFocus}
+                  placeholder="Search for resources, topics, or skills..."
+                  className="block w-full pl-10 pr-10 py-3 bg-purple-800/50 text-white placeholder-purple-300 rounded-xl border border-purple-500/30 focus:border-purple-400/70 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-200"
+                />
+                {searchTerm && (
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                    <button
+                      onClick={handleClearSearch}
+                      className="text-purple-300 hover:text-white transition-colors duration-200"
+                      aria-label="Clear search"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
-                    {resource.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-300 leading-tight">
-                    {resource.description}
-                  </p>
-
-                  {/* Smart resource indicator */}
-                  {resource.embedStrategy === 'smart' && (
-                    <div className="mt-2 text-xs text-blue-400 flex items-center gap-1">
-                      <AlertCircle size={12} />
-                      <span>Smart Access</span>
-                    </div>
-                  )}
-                </button>
-              </motion.div>
-            ))}
+                )}
+              </div>
+              {debouncedSearchTerm && filteredResources.length === 0 && (
+                <div className="mt-3 text-center p-3 bg-purple-800/40 rounded-lg border border-purple-600/20">
+                  <p className="text-purple-200 text-sm">No resources found for "<span className="font-semibold">{debouncedSearchTerm}</span>"</p>
+                  <p className="text-purple-300/70 text-xs mt-1">Try searching for a different term or browse all resources below</p>
+                </div>
+              )}
+            </div>
           </div>
+
+          {/* Resources Grid - Apple Style */}
+          {filteredResources.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
+              {filteredResources.map((resource, index) => (
+                <motion.div
+                  key={resource.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="group"
+                >
+                  <button
+                    onClick={() => handleResourceClick(resource)}
+                    className={`w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative ${
+                      debouncedSearchTerm && calculateResourceScore(resource, debouncedSearchTerm) > 0 
+                        ? 'ring-2 ring-purple-500/30' 
+                        : ''
+                    }`}
+                  >
+                    {/* Smart link indicator - only for Financial Literacy and Business Skills Chat */}
+                    {resource.embedStrategy === 'smart' && (
+                      <div className="absolute top-2 right-2 w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
+                        <AlertCircle size={12} className="text-white" />
+                      </div>
+                    )}
+
+                    {/* Icon */}
+                    <div
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
+                      style={{ backgroundColor: resource.color }}
+                    >
+                      {resource.icon}
+                    </div>
+
+                    {/* Title - with highlighted search matches */}
+                    <h3 
+                      className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight"
+                      dangerouslySetInnerHTML={{
+                        __html: debouncedSearchTerm 
+                          ? highlightMatch(resource.title, debouncedSearchTerm) 
+                          : resource.title
+                      }}
+                    />
+
+                    {/* Description - with highlighted search matches */}
+                    <p 
+                      className="text-xs sm:text-sm text-gray-300 leading-tight"
+                      dangerouslySetInnerHTML={{
+                        __html: debouncedSearchTerm 
+                          ? highlightMatch(resource.description, debouncedSearchTerm) 
+                          : resource.description
+                      }}
+                    />
+
+                    {/* Smart resource indicator */}
+                    {resource.embedStrategy === 'smart' && (
+                      <div className="mt-2 text-xs text-blue-400 flex items-center gap-1">
+                        <AlertCircle size={12} />
+                        <span>Smart Access</span>
+                      </div>
+                    )}
+
+                    {/* Search match indicator - only show when searching */}
+                    {debouncedSearchTerm && calculateResourceScore(resource, debouncedSearchTerm) > 0 && (
+                      <div className="absolute top-2 right-2 text-xs text-purple-300 bg-purple-800/70 px-2 py-0.5 rounded-full">
+                        Match
+                      </div>
+                    )}
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          ) : debouncedSearchTerm ? (
+            // No results state
+            <div className="text-center py-12 px-4 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-700/30">
+              <div className="w-16 h-16 bg-purple-800/40 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="w-8 h-8 text-purple-300" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">No Resources Found</h3>
+              <p className="text-gray-300 mb-4 max-w-md mx-auto">
+                We couldn't find any resources matching "<span className="font-semibold">{debouncedSearchTerm}</span>"
+              </p>
+              <button
+                onClick={handleClearSearch}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-purple-700/70 hover:bg-purple-600/80 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm"
+              >
+                <RefreshCw size={16} />
+                <span>Clear Search</span>
+              </button>
+            </div>
+          ) : (
+            // Empty state - should never happen since we show all resources when no search term
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
+              {resources.map((resource, index) => (
+                <motion.div
+                  key={resource.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  className="group"
+                >
+                  <button
+                    onClick={() => handleResourceClick(resource)}
+                    className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                  >
+                    {/* Smart link indicator - only for Financial Literacy and Business Skills Chat */}
+                    {resource.embedStrategy === 'smart' && (
+                      <div className="absolute top-2 right-2 w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
+                        <AlertCircle size={12} className="text-white" />
+                      </div>
+                    )}
+
+                    {/* Icon */}
+                    <div
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
+                      style={{ backgroundColor: resource.color }}
+                    >
+                      {resource.icon}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
+                      {resource.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-sm text-gray-300 leading-tight">
+                      {resource.description}
+                    </p>
+
+                    {/* Smart resource indicator */}
+                    {resource.embedStrategy === 'smart' && (
+                      <div className="mt-2 text-xs text-blue-400 flex items-center gap-1">
+                        <AlertCircle size={12} />
+                        <span>Smart Access</span>
+                      </div>
+                    )}
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          )}
 
           {/* Enhanced Footer Message */}
           <div className="mt-8 sm:mt-12 text-center">
             <p className="text-sm text-gray-300 mb-2">
               Tap any resource to open it within Students Hub
             </p>
-            <div className="flex items-center justify-center text-xs text-gray-400">
+            <div className="flex flex-col sm:flex-row items-center justify-center text-xs text-gray-400 gap-2 sm:gap-4">
               <div className="flex items-center gap-1">
                 <AlertCircle size={12} className="text-blue-400" />
                 <span>Smart Access - Financial Literacy & Business Skills provide alternatives when blocked</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Search size={12} className="text-purple-400" />
+                <span>Search by topic, skill or resource name</span>
               </div>
             </div>
           </div>
