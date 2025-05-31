@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, X, ChevronLeft, ChevronRight, Grid, Play, Pause, Camera } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { galleryImages } from '../data';
+import EnhancedModal from '../components/common/EnhancedModal';
 
 // Optimized Silver Shimmer Loading Component
 const SilverShimmer: React.FC<{ className?: string; variant?: 'grid' | 'slideshow' | 'thumbnail' }> = ({
@@ -54,10 +55,60 @@ const SilverShimmer: React.FC<{ className?: string; variant?: 'grid' | 'slidesho
   }, [variant]);
 
   return (
-    <div className={`relative overflow-hidden bg-gradient-to-br from-gray-700 via-gray-600 to-gray-700 ${className}`}>
+    <div className={`relative overflow-hidden bg-gradient-to-br from-slate-600/90 via-gray-500/95 to-slate-700/90 ${className}`}>
       {shimmerContent}
-      {/* Silver Shimmer Wave */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-300/20 to-transparent animate-shimmer-wave"></div>
+
+      {/* Enhanced Silver Shimmer Waves */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-200/50 to-transparent"
+        animate={{
+          x: ['-100%', '100%']
+        }}
+        transition={{
+          duration: 1.2,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
+
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-100/40 to-transparent"
+        animate={{
+          x: ['-100%', '100%']
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 0.2
+        }}
+      />
+
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+        animate={{
+          x: ['-100%', '100%']
+        }}
+        transition={{
+          duration: 1.8,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 0.4
+        }}
+      />
+
+      {/* Strong metallic pulse */}
+      <motion.div
+        className="absolute inset-0 bg-slate-300/25"
+        animate={{
+          opacity: [0.3, 0.7, 0.3]
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      />
     </div>
   );
 };
@@ -487,48 +538,14 @@ const GalleryPage: React.FC = () => {
         )}
       </div>
 
-      {/* Modal */}
-      {selectedImage !== null && (
-        <div
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
-          onClick={closeModal}
-        >
-          <div className="relative max-w-6xl w-full">
-            <button
-              onClick={closeModal}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors p-2"
-            >
-              <X size={24} />
-            </button>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-gray-900 rounded-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {galleryImages.find(img => img.id === selectedImage) && (
-                <>
-                  <img
-                    src={galleryImages.find(img => img.id === selectedImage)?.src}
-                    alt={galleryImages.find(img => img.id === selectedImage)?.alt}
-                    className="w-full max-h-[80vh] object-contain"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      {galleryImages.find(img => img.id === selectedImage)?.alt}
-                    </h3>
-                    <p className="text-gray-400">
-                      Category: {galleryImages.find(img => img.id === selectedImage)?.category}
-                    </p>
-                  </div>
-                </>
-              )}
-            </motion.div>
-          </div>
-        </div>
-      )}
+      {/* Enhanced Modal with Background Blur and Pinch Zoom */}
+      <EnhancedModal
+        isOpen={selectedImage !== null}
+        onClose={closeModal}
+        imageSrc={galleryImages.find(img => img.id === selectedImage)?.src || ''}
+        imageAlt={galleryImages.find(img => img.id === selectedImage)?.alt || ''}
+        imageCategory={galleryImages.find(img => img.id === selectedImage)?.category || ''}
+      />
     </div>
   );
 };

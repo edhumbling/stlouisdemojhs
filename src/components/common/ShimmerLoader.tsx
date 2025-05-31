@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 interface ShimmerLoaderProps {
-  variant?: 'card' | 'hero' | 'image' | 'text' | 'section';
+  variant?: 'card' | 'hero' | 'image' | 'text' | 'section' | 'silver' | 'thumbnail';
   className?: string;
   width?: string;
   height?: string;
@@ -36,6 +36,10 @@ const ShimmerLoader: React.FC<ShimmerLoaderProps> = ({
         return 'h-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded';
       case 'section':
         return 'min-h-[400px] w-full bg-gradient-to-br from-blue-900/10 via-slate-900/20 to-green-900/10';
+      case 'silver':
+        return `${width} ${height} bg-gradient-to-br from-slate-700/80 via-gray-600/90 to-slate-800/80 rounded-xl`;
+      case 'thumbnail':
+        return `${width} ${height} bg-gradient-to-br from-slate-600/70 via-gray-500/80 to-slate-700/70 rounded-lg`;
       default:
         return `${width} ${height} bg-gradient-to-br from-gray-800/50 to-gray-700/50 rounded-xl`;
     }
@@ -43,13 +47,39 @@ const ShimmerLoader: React.FC<ShimmerLoaderProps> = ({
 
   return (
     <div className={`relative overflow-hidden ${getVariantClasses()} ${className}`}>
-      {/* Base shimmer effect */}
+      {/* Enhanced Silver Shimmer Effect */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+        className={`absolute inset-0 ${
+          variant === 'silver' || variant === 'thumbnail'
+            ? 'bg-gradient-to-r from-transparent via-slate-300/40 to-transparent'
+            : 'bg-gradient-to-r from-transparent via-white/10 to-transparent'
+        }`}
         variants={shimmerVariants}
         initial="initial"
         animate="animate"
       />
+
+      {/* Strong Silver Overlay for Silver Variant */}
+      {(variant === 'silver' || variant === 'thumbnail') && (
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent"
+          variants={{
+            initial: { x: '-100%', opacity: 0.8 },
+            animate: {
+              x: '100%',
+              opacity: [0.8, 1, 0.8],
+              transition: {
+                duration: 1.2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 0.3
+              }
+            }
+          }}
+          initial="initial"
+          animate="animate"
+        />
+      )}
       
       {/* Additional blur lights for beauty */}
       <div className="absolute inset-0 opacity-60">
