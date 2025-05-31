@@ -1,66 +1,119 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, X, ChevronLeft, ChevronRight, Grid, Play, Pause, Camera } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { galleryImages } from '../data';
 
-// Shimmer Loading Component for Gallery Images
-const ImageShimmer: React.FC<{ className?: string }> = ({ className = "" }) => (
-  <div className={`relative overflow-hidden bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 ${className}`}>
-    {/* Camera Icon */}
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="w-8 h-8 bg-blue-500/30 rounded-lg flex items-center justify-center animate-pulse">
-        <Camera className="w-5 h-5 text-blue-300" />
-      </div>
+// Optimized Silver Shimmer Loading Component
+const SilverShimmer: React.FC<{ className?: string; variant?: 'grid' | 'slideshow' | 'thumbnail' }> = ({
+  className = "",
+  variant = 'grid'
+}) => {
+  const shimmerContent = useMemo(() => {
+    switch (variant) {
+      case 'slideshow':
+        return (
+          <>
+            {/* Large Camera Icon for Slideshow */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-gray-400/20 to-gray-500/20 rounded-2xl flex items-center justify-center animate-pulse">
+                <Camera className="w-10 h-10 text-gray-300/60" />
+              </div>
+            </div>
+            {/* Loading Text Placeholder */}
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="h-6 bg-gradient-to-r from-gray-400/30 to-gray-500/30 rounded animate-pulse mb-2"></div>
+              <div className="h-4 w-1/3 bg-gradient-to-r from-gray-500/20 to-gray-400/20 rounded animate-pulse"></div>
+            </div>
+          </>
+        );
+      case 'thumbnail':
+        return (
+          <div className="w-full h-full flex items-center justify-center">
+            <Camera className="w-4 h-4 text-gray-400/60 animate-pulse" />
+          </div>
+        );
+      default: // grid
+        return (
+          <>
+            {/* Camera Icon */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-gray-400/20 to-gray-500/20 rounded-lg flex items-center justify-center animate-pulse">
+                <Camera className="w-5 h-5 text-gray-300/60" />
+              </div>
+            </div>
+            {/* Loading Dots */}
+            <div className="absolute bottom-2 left-2 flex space-x-1">
+              <div className="w-1.5 h-1.5 bg-gray-400/60 rounded-full animate-pulse"></div>
+              <div className="w-1.5 h-1.5 bg-gray-400/60 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-1.5 h-1.5 bg-gray-400/60 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+            </div>
+          </>
+        );
+    }
+  }, [variant]);
+
+  return (
+    <div className={`relative overflow-hidden bg-gradient-to-br from-gray-700 via-gray-600 to-gray-700 ${className}`}>
+      {shimmerContent}
+      {/* Silver Shimmer Wave */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-300/20 to-transparent animate-shimmer-wave"></div>
     </div>
+  );
+};
 
-    {/* Shimmer Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer-wave"></div>
-
-    {/* Loading Dots */}
-    <div className="absolute bottom-2 left-2 flex space-x-1">
-      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></div>
-      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-      <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-    </div>
-  </div>
-);
-
-// Gallery Image Component with Loading State
+// Optimized Gallery Image Component with Performance Enhancements
 const GalleryImage: React.FC<{
   image: any;
   index: number;
   onClick: () => void;
   className?: string;
-}> = ({ image, index, onClick, className = "" }) => {
+}> = React.memo(({ image, index, onClick, className = "" }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
+  // Optimized image loading handlers
+  const handleLoad = useCallback(() => setIsLoaded(true), []);
+  const handleError = useCallback(() => {
+    setHasError(true);
+    setIsLoaded(true);
+  }, []);
+
+  // Optimized click handler
+  const handleClick = useCallback(() => onClick(), [onClick]);
+
+  // Reduce animation delay for better perceived performance
+  const animationDelay = useMemo(() => Math.min(index * 0.02, 0.3), [index]);
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.3, delay: index * 0.05 }}
+      transition={{ duration: 0.2, delay: animationDelay }}
       className={`relative aspect-square overflow-hidden rounded-xl cursor-pointer group ${className}`}
-      onClick={onClick}
+      onClick={handleClick}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
     >
-      {/* Shimmer Loading State */}
+      {/* Silver Shimmer Loading State */}
       {!isLoaded && !hasError && (
-        <ImageShimmer className="absolute inset-0 z-10" />
+        <SilverShimmer variant="grid" className="absolute inset-0 z-10" />
       )}
 
-      {/* Actual Image */}
+      {/* Optimized Image with Better Loading */}
       <img
         src={image.src}
         alt={image.alt}
-        className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${
+        className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-105 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
         loading="lazy"
-        onLoad={() => setIsLoaded(true)}
-        onError={() => {
-          setHasError(true);
-          setIsLoaded(true);
+        decoding="async"
+        onLoad={handleLoad}
+        onError={handleError}
+        style={{
+          willChange: 'transform',
+          transform: 'translateZ(0)' // Force hardware acceleration
         }}
       />
 
@@ -74,22 +127,22 @@ const GalleryImage: React.FC<{
         </div>
       )}
 
-      {/* Hover Overlay */}
-      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+      {/* Optimized Hover Overlay */}
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end p-3">
         <div className="text-white">
           <p className="text-xs font-medium">{image.category}</p>
-          <p className="text-xs opacity-80 mt-1">{image.alt}</p>
+          <p className="text-xs opacity-80 mt-1 line-clamp-2">{image.alt}</p>
         </div>
       </div>
     </motion.div>
   );
-};
+});
 
-// Slideshow Image Component with Loading State
+// Optimized Slideshow Image Component
 const SlideshowImage: React.FC<{
   image: any;
   currentSlide: number;
-}> = ({ image, currentSlide }) => {
+}> = React.memo(({ image, currentSlide }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -99,48 +152,40 @@ const SlideshowImage: React.FC<{
     setHasError(false);
   }, [currentSlide]);
 
+  // Optimized handlers
+  const handleLoad = useCallback(() => setIsLoaded(true), []);
+  const handleError = useCallback(() => {
+    setHasError(true);
+    setIsLoaded(true);
+  }, []);
+
   return (
     <div className="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden">
-      {/* Shimmer Loading State for Slideshow */}
+      {/* Silver Shimmer Loading State for Slideshow */}
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 z-10">
-          <div className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 relative overflow-hidden">
-            {/* Large Camera Icon */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 bg-blue-500/30 rounded-2xl flex items-center justify-center animate-pulse">
-                <Camera className="w-10 h-10 text-blue-300" />
-              </div>
-            </div>
-
-            {/* Loading Text */}
-            <div className="absolute bottom-6 left-6 right-6">
-              <div className="h-6 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded animate-pulse mb-2"></div>
-              <div className="h-4 w-1/3 bg-gradient-to-r from-gray-500/30 to-gray-400/30 rounded animate-pulse"></div>
-            </div>
-
-            {/* Shimmer Wave */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer-wave"></div>
-          </div>
-        </div>
+        <SilverShimmer variant="slideshow" className="absolute inset-0 z-10" />
       )}
 
-      {/* Slideshow Image */}
+      {/* Optimized Slideshow Image */}
       <AnimatePresence mode="wait">
         <motion.img
           key={currentSlide}
           src={image?.src}
           alt={image?.alt}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`w-full h-full object-cover ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: isLoaded ? 1 : 0, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.5 }}
-          onLoad={() => setIsLoaded(true)}
-          onError={() => {
-            setHasError(true);
-            setIsLoaded(true);
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.3 }}
+          loading="eager" // Load slideshow images immediately
+          decoding="async"
+          onLoad={handleLoad}
+          onError={handleError}
+          style={{
+            willChange: 'transform',
+            transform: 'translateZ(0)'
           }}
         />
       </AnimatePresence>
@@ -156,63 +201,71 @@ const SlideshowImage: React.FC<{
         </div>
       )}
 
-      {/* Image Info Overlay */}
+      {/* Optimized Image Info Overlay */}
       {isLoaded && !hasError && (
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-          <h3 className="text-white text-lg font-semibold mb-1">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6"
+        >
+          <h3 className="text-white text-lg font-semibold mb-1 line-clamp-2">
             {image?.alt}
           </h3>
           <p className="text-gray-300 text-sm">
             {image?.category}
           </p>
-        </div>
+        </motion.div>
       )}
     </div>
   );
-};
+});
 
-// Thumbnail Image Component with Loading State
+// Optimized Thumbnail Image Component
 const ThumbnailImage: React.FC<{
   image: any;
   index: number;
   isActive: boolean;
   onClick: () => void;
-}> = ({ image, index, isActive, onClick }) => {
+}> = React.memo(({ image, index, isActive, onClick }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+
+  // Optimized handlers
+  const handleLoad = useCallback(() => setIsLoaded(true), []);
+  const handleError = useCallback(() => {
+    setHasError(true);
+    setIsLoaded(true);
+  }, []);
 
   return (
     <button
       onClick={onClick}
-      className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all relative ${
+      className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 relative ${
         isActive
-          ? 'border-blue-500 scale-110'
-          : 'border-gray-600 hover:border-gray-500'
+          ? 'border-blue-500 scale-110 shadow-lg shadow-blue-500/25'
+          : 'border-gray-600 hover:border-gray-500 hover:scale-105'
       }`}
     >
-      {/* Shimmer Loading for Thumbnail */}
+      {/* Silver Shimmer Loading for Thumbnail */}
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 z-10">
-          <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-            <div className="w-4 h-4 bg-blue-500/40 rounded animate-pulse">
-              <Camera className="w-3 h-3 text-blue-300" />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer-wave"></div>
-          </div>
-        </div>
+        <SilverShimmer variant="thumbnail" className="absolute inset-0 z-10" />
       )}
 
-      {/* Thumbnail Image */}
+      {/* Optimized Thumbnail Image */}
       <img
         src={image.src}
         alt={image.alt}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${
+        className={`w-full h-full object-cover transition-opacity duration-200 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
-        onLoad={() => setIsLoaded(true)}
-        onError={() => {
-          setHasError(true);
-          setIsLoaded(true);
+        loading="lazy"
+        decoding="async"
+        onLoad={handleLoad}
+        onError={handleError}
+        style={{
+          willChange: 'transform',
+          transform: 'translateZ(0)'
         }}
       />
 
@@ -224,7 +277,7 @@ const ThumbnailImage: React.FC<{
       )}
     </button>
   );
-};
+});
 
 const GalleryPage: React.FC = () => {
   const navigate = useNavigate();
@@ -234,21 +287,26 @@ const GalleryPage: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [filter, setFilter] = useState<string>('All');
 
-  const handleBack = () => {
-    navigate(-1); // Go back to previous page
-  };
+  // Optimized navigation handler
+  const handleBack = useCallback(() => {
+    navigate(-1);
+  }, [navigate]);
 
-  // Get unique categories
-  const categories = ['All', ...Array.from(new Set(galleryImages.map(img => img.category)))];
+  // Memoized categories to prevent recalculation
+  const categories = useMemo(() =>
+    ['All', ...Array.from(new Set(galleryImages.map(img => img.category)))],
+    []
+  );
 
-  // Filter images based on selected category
-  const filteredImages = filter === 'All'
-    ? galleryImages
-    : galleryImages.filter(img => img.category === filter);
+  // Memoized filtered images for better performance
+  const filteredImages = useMemo(() =>
+    filter === 'All' ? galleryImages : galleryImages.filter(img => img.category === filter),
+    [filter]
+  );
 
-  // Auto-play slideshow
+  // Optimized auto-play slideshow
   useEffect(() => {
-    if (viewMode === 'slideshow' && isPlaying) {
+    if (viewMode === 'slideshow' && isPlaying && filteredImages.length > 1) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % filteredImages.length);
       }, 4000);
@@ -256,29 +314,42 @@ const GalleryPage: React.FC = () => {
     }
   }, [viewMode, isPlaying, filteredImages.length]);
 
-  const openModal = (id: number) => {
+  // Optimized modal handlers
+  const openModal = useCallback((id: number) => {
     setSelectedImage(id);
     document.body.style.overflow = 'hidden';
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setSelectedImage(null);
     document.body.style.overflow = 'auto';
-  };
+  }, []);
 
-  const nextSlide = () => {
+  // Optimized slideshow navigation
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % filteredImages.length);
-  };
+  }, [filteredImages.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + filteredImages.length) % filteredImages.length);
-  };
+  }, [filteredImages.length]);
 
-  const toggleSlideshow = () => {
-    setViewMode(viewMode === 'grid' ? 'slideshow' : 'grid');
+  const toggleSlideshow = useCallback(() => {
+    setViewMode(prev => prev === 'grid' ? 'slideshow' : 'grid');
     setCurrentSlide(0);
     setIsPlaying(false);
-  };
+  }, []);
+
+  // Optimized filter handler
+  const handleFilterChange = useCallback((category: string) => {
+    setFilter(category);
+    setCurrentSlide(0);
+  }, []);
+
+  // Optimized play/pause handler
+  const togglePlayPause = useCallback(() => {
+    setIsPlaying(prev => !prev);
+  }, []);
 
   return (
     <div className="min-h-screen bg-black pt-16">
@@ -324,14 +395,11 @@ const GalleryPage: React.FC = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => {
-                  setFilter(category);
-                  setCurrentSlide(0);
-                }}
-                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+                onClick={() => handleFilterChange(category)}
+                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                   filter === category
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25'
+                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white'
                 }`}
               >
                 {category}
@@ -370,8 +438,8 @@ const GalleryPage: React.FC = () => {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
                 <button
-                  onClick={() => setIsPlaying(!isPlaying)}
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
+                  onClick={togglePlayPause}
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-all duration-200 hover:shadow-lg"
                 >
                   {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                   <span className="hidden sm:inline">{isPlaying ? 'Pause' : 'Play'}</span>
