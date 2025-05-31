@@ -214,6 +214,48 @@ export const programs: Program[] = [
 
 export const galleryImages: GalleryImage[] = [
   {
+    id: 27,
+    src: 'https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881',
+    alt: 'Election activities and student engagement',
+    category: 'School Events'
+  },
+  {
+    id: 28,
+    src: 'https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7318.HEIC?updatedAt=1748688793115',
+    alt: 'Student election participation and civic learning',
+    category: 'School Events'
+  },
+  {
+    id: 29,
+    src: 'https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7323.HEIC?updatedAt=1748689153632',
+    alt: 'Democratic process and student voting',
+    category: 'School Events'
+  },
+  {
+    id: 30,
+    src: 'https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7325.HEIC?updatedAt=1748689152846',
+    alt: 'Election day activities and student participation',
+    category: 'School Events'
+  },
+  {
+    id: 31,
+    src: 'https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7297.HEIC?updatedAt=1748689148423',
+    alt: 'Civic education and student democracy in action',
+    category: 'School Events'
+  },
+  {
+    id: 32,
+    src: 'https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7304.HEIC?updatedAt=1748689146289',
+    alt: 'Student election process and community engagement',
+    category: 'School Events'
+  },
+  {
+    id: 33,
+    src: 'https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7319.HEIC?updatedAt=1748689144891',
+    alt: 'Election learning experience and student involvement',
+    category: 'School Events'
+  },
+  {
     id: 1,
     src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC?updatedAt=1748185690882',
     alt: 'Students in classroom learning environment',
