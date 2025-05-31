@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, MousePointer, Wind, Globe } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
+import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
 interface Resource {
   id: number;
@@ -28,6 +29,7 @@ const StudentsHubPage: React.FC = () => {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [showAlternatives, setShowAlternatives] = useState(false);
   const [smartLoadingPhase, setSmartLoadingPhase] = useState<'connecting' | 'loading' | 'error' | 'success'>('connecting');
+  const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const navigate = useNavigate();
   const { setShowHeader } = useHeader();
@@ -393,6 +395,65 @@ const StudentsHubPage: React.FC = () => {
 
   // Flatten all resources for backward compatibility
   const resources: Resource[] = Object.values(resourceCategories).flat();
+
+  // Convert resources to searchable items
+  const searchableItems: SearchableItem[] = useMemo(() => {
+    return resources.map(resource => ({
+      id: resource.id,
+      title: resource.title,
+      description: resource.description,
+      category: Object.keys(resourceCategories).find(categoryName =>
+        resourceCategories[categoryName].some(r => r.id === resource.id)
+      ) || 'Other',
+      type: resource.isInternal ? 'internal' : 'website',
+      url: resource.url,
+      ...resource
+    }));
+  }, [resources]);
+
+  // Filter options for search
+  const categoryOptions: FilterOption[] = useMemo(() => {
+    return Object.keys(resourceCategories).map(categoryName => ({
+      value: categoryName,
+      label: categoryName,
+      count: resourceCategories[categoryName].length
+    }));
+  }, []);
+
+  const typeOptions: FilterOption[] = [
+    { value: 'website', label: 'Websites', count: resources.filter(r => !r.isInternal).length },
+    { value: 'internal', label: 'Internal Pages', count: resources.filter(r => r.isInternal).length }
+  ];
+
+  // Handle search results
+  const handleSearchResults = useCallback((results: SearchableItem[]) => {
+    setSearchResults(results);
+  }, []);
+
+  // Get filtered categories based on search results
+  const filteredCategories = useMemo(() => {
+    if (searchResults.length === 0) {
+      return resourceCategories;
+    }
+
+    // Group search results by category
+    const filtered: Record<string, Resource[]> = {};
+
+    searchResults.forEach(item => {
+      const categoryName = item.category;
+      if (!filtered[categoryName]) {
+        filtered[categoryName] = [];
+      }
+
+      // Find the original resource
+      const originalResource = resources.find(r => r.id === item.id);
+      if (originalResource) {
+        filtered[categoryName].push(originalResource);
+      }
+    });
+
+    return filtered;
+  }, [searchResults, resources]);
 
   // Smart loading simulation effect
   useEffect(() => {
@@ -1308,9 +1369,37 @@ const StudentsHubPage: React.FC = () => {
       {/* Main Content */}
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+          {/* Introduction */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl mb-4 shadow-2xl">
+              <GraduationCap size={32} className="text-white" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              Educational Resource Hub
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Discover {resources.length}+ carefully curated educational resources covering academics, STEM, financial literacy, and life skills.
+              Use the smart search to find exactly what you need.
+            </p>
+          </div>
+
+          {/* Smart Search Bar */}
+          <div className="mb-8">
+            <SmartSearchBar
+              items={searchableItems}
+              onSearchResults={handleSearchResults}
+              placeholder={`Search ${resources.length}+ educational resources...`}
+              accentColor="purple"
+              categories={categoryOptions}
+              types={typeOptions}
+              enableIntentDetection={true}
+              className="mb-6"
+            />
+          </div>
+
           {/* Categorized Resources */}
           <div className="space-y-8">
-            {Object.entries(resourceCategories).map(([categoryName, categoryResources], categoryIndex) => (
+            {Object.entries(filteredCategories).map(([categoryName, categoryResources], categoryIndex) => (
               <motion.div
                 key={categoryName}
                 initial={{ opacity: 0, y: 20 }}

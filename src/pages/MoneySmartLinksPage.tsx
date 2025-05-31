@@ -4,6 +4,7 @@ import { ArrowLeft, ExternalLink, DollarSign, TrendingUp, PiggyBank, CreditCard,
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
 interface FinancialResource {
   id: string;
@@ -21,12 +22,7 @@ const MoneySmartLinksPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedVideo, setSelectedVideo] = useState<FinancialResource | null>(null);
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const [selectedLevel, setSelectedLevel] = useState<string>('');
-  const [selectedType, setSelectedType] = useState<string>('');
-  const [showFilters, setShowFilters] = useState(false);
+  const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {
@@ -55,28 +51,6 @@ const MoneySmartLinksPage: React.FC = () => {
       setShowHeader(true);
     };
   }, [selectedVideo, setShowHeader]);
-
-  // Debounce search term for better performance
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm);
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [searchTerm]);
-
-  // Click outside to close filter dropdown
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element;
-      if (showFilters && !target.closest('.filter-dropdown')) {
-        setShowFilters(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [showFilters]);
 
   // Loading timer
   useEffect(() => {
@@ -4188,227 +4162,74 @@ const MoneySmartLinksPage: React.FC = () => {
   );
   const totalResources = allResources.length;
 
-  // Advanced search function with fuzzy matching and content type prioritization
-  const searchResources = useCallback((resources: FinancialResource[], searchTerm: string) => {
-    if (!searchTerm.trim()) return resources;
+  // Convert resources to searchable items
+  const searchableItems: SearchableItem[] = useMemo(() => {
+    return allResources.map(resource => ({
+      id: resource.id,
+      title: resource.title,
+      description: resource.description,
+      category: Object.keys(resourceCategories).find(categoryName =>
+        resourceCategories[categoryName].some(r => r.id === resource.id)
+      ) || 'Other',
+      level: resource.level,
+      type: resource.url.includes('youtube.com') || resource.url.includes('youtu.be') ? 'video' : 'website',
+      url: resource.url,
+      ...resource
+    }));
+  }, [allResources]);
 
-    const searchLower = searchTerm.toLowerCase().trim();
-    const searchWords = searchLower.split(/\s+/).filter(word => word.length > 0);
-
-    // Define content type keywords for intelligent prioritization
-    const videoKeywords = ['video', 'watch', 'tutorial', 'lesson', 'course', 'lecture', 'webinar', 'presentation', 'demo', 'demonstration', 'youtube', 'channel'];
-    const websiteKeywords = ['website', 'site', 'portal', 'platform', 'tool', 'calculator', 'resource', 'guide', 'article', 'blog', 'page'];
-    const educationKeywords = ['learn', 'education', 'educational', 'teaching', 'study', 'academic', 'school', 'university', 'college', 'institution'];
-    const governmentKeywords = ['government', 'official', 'federal', 'state', 'agency', 'department', 'bureau', 'administration', 'treasury', 'irs'];
-    const beginnerKeywords = ['beginner', 'basic', 'intro', 'introduction', 'start', 'starting', 'fundamentals', 'basics', 'simple', 'easy'];
-    const advancedKeywords = ['advanced', 'expert', 'professional', 'complex', 'sophisticated', 'detailed', 'comprehensive', 'in-depth'];
-
-    // Determine search intent based on keywords
-    const isVideoSearch = videoKeywords.some(keyword => searchLower.includes(keyword));
-    const isWebsiteSearch = websiteKeywords.some(keyword => searchLower.includes(keyword));
-    const isEducationSearch = educationKeywords.some(keyword => searchLower.includes(keyword));
-    const isGovernmentSearch = governmentKeywords.some(keyword => searchLower.includes(keyword));
-    const isBeginnerSearch = beginnerKeywords.some(keyword => searchLower.includes(keyword));
-    const isAdvancedSearch = advancedKeywords.some(keyword => searchLower.includes(keyword));
-
-    return resources.map(resource => {
-      const title = resource.title.toLowerCase();
-      const description = resource.description.toLowerCase();
-      const category = resource.category.toLowerCase();
-      const isVideo = resource.url.includes('youtube.com') || resource.url.includes('youtu.be');
-      const isWebsite = !isVideo;
-
-      let score = 0;
-      let hasMatch = false;
-
-      // Exact matches (highest priority)
-      if (title === searchLower) {
-        score += 1000;
-        hasMatch = true;
-      } else if (category === searchLower) {
-        score += 800;
-        hasMatch = true;
-      }
-
-      // Phrase matches
-      if (title.includes(searchLower)) {
-        score += title.startsWith(searchLower) ? 600 : 400;
-        hasMatch = true;
-      }
-      if (category.includes(searchLower)) {
-        score += 300;
-        hasMatch = true;
-      }
-      if (description.includes(searchLower)) {
-        score += 200;
-        hasMatch = true;
-      }
-
-      // Individual word matches
-      searchWords.forEach(word => {
-        if (word.length < 2) return; // Skip very short words
-
-        // Title word matches
-        if (title.includes(word)) {
-          const titleWords = title.split(/\s+/);
-          const exactWordMatch = titleWords.some(titleWord =>
-            titleWord === word || titleWord.startsWith(word)
-          );
-          score += exactWordMatch ? 150 : 100;
-          hasMatch = true;
-        }
-
-        // Category word matches
-        if (category.includes(word)) {
-          score += 80;
-          hasMatch = true;
-        }
-
-        // Description word matches
-        if (description.includes(word)) {
-          score += 50;
-          hasMatch = true;
-        }
-      });
-
-      // Content type prioritization based on search intent
-      if (hasMatch) {
-        // Video content prioritization
-        if (isVideoSearch && isVideo) {
-          score += 500; // Strong boost for videos when searching for video content
-        } else if (isVideoSearch && isWebsite) {
-          score -= 100; // Slight penalty for websites when searching for videos
-        }
-
-        // Website content prioritization
-        if (isWebsiteSearch && isWebsite) {
-          score += 400; // Boost for websites when searching for website content
-        } else if (isWebsiteSearch && isVideo) {
-          score -= 50; // Slight penalty for videos when searching for websites
-        }
-
-        // Educational content prioritization
-        if (isEducationSearch) {
-          if (category.includes('educational') || category.includes('academic') || category.includes('university')) {
-            score += 300;
-          }
-        }
-
-        // Government content prioritization
-        if (isGovernmentSearch) {
-          if (category.includes('government') || category.includes('official') || category.includes('federal')) {
-            score += 350;
-          }
-        }
-
-        // Difficulty level prioritization
-        if (isBeginnerSearch && resource.level === 'Beginner') {
-          score += 200;
-        } else if (isAdvancedSearch && resource.level === 'Advanced') {
-          score += 200;
-        }
-
-        // Category-specific boosts
-        const categoryBoosts: Record<string, string[]> = {
-          'investing': ['investing', 'investment', 'stocks', 'bonds', 'portfolio', 'market'],
-          'budgeting': ['budget', 'budgeting', 'money management', 'spending', 'saving'],
-          'credit': ['credit', 'credit score', 'credit card', 'debt', 'loan'],
-          'retirement': ['retirement', 'pension', '401k', 'ira', 'social security'],
-          'insurance': ['insurance', 'health insurance', 'life insurance', 'coverage'],
-          'taxes': ['tax', 'taxes', 'irs', 'filing', 'deduction'],
-          'business': ['business', 'entrepreneur', 'startup', 'small business'],
-          'real estate': ['real estate', 'mortgage', 'home buying', 'property']
-        };
-
-        Object.entries(categoryBoosts).forEach(([categoryType, keywords]) => {
-          if (keywords.some(keyword => searchLower.includes(keyword))) {
-            if (category.includes(categoryType) || title.includes(categoryType)) {
-              score += 150;
-            }
-          }
-        });
-      }
-
-      // Bonus for multiple word matches
-      const matchedWords = searchWords.filter(word =>
-        title.includes(word) || category.includes(word) || description.includes(word)
-      );
-      if (matchedWords.length > 1) {
-        score += matchedWords.length * 25;
-      }
-
-      return { ...resource, searchScore: score, hasMatch };
-    })
-    .filter(resource => resource.hasMatch)
-    .sort((a, b) => {
-      // Sort by search score (highest first)
-      if (a.searchScore !== b.searchScore) {
-        return b.searchScore - a.searchScore;
-      }
-      // Secondary sort by title
-      return a.title.localeCompare(b.title);
-    });
+  // Filter options for search
+  const categoryOptions: FilterOption[] = useMemo(() => {
+    return Object.keys(resourceCategories).map(categoryName => ({
+      value: categoryName,
+      label: categoryName,
+      count: resourceCategories[categoryName].length
+    }));
   }, []);
 
-  // Memoized filtered resources for performance
-  const filteredResources = useMemo(() => {
-    let resources = allResources;
+  const levelOptions: FilterOption[] = [
+    { value: 'Beginner', label: 'Beginner', count: allResources.filter(r => r.level === 'Beginner').length },
+    { value: 'Intermediate', label: 'Intermediate', count: allResources.filter(r => r.level === 'Intermediate').length },
+    { value: 'Advanced', label: 'Advanced', count: allResources.filter(r => r.level === 'Advanced').length }
+  ];
 
-    // Apply search filter
-    if (debouncedSearchTerm) {
-      resources = searchResources(resources, debouncedSearchTerm);
-    }
+  const typeOptions: FilterOption[] = [
+    { value: 'website', label: 'Websites', count: allResources.filter(r => !r.url.includes('youtube.com')).length },
+    { value: 'video', label: 'Videos', count: allResources.filter(r => r.url.includes('youtube.com')).length }
+  ];
 
-    // Apply other filters
-    return resources.filter(resource => {
-      const matchesLevel = selectedLevel === '' || resource.level === selectedLevel;
-      const matchesType = selectedType === '' ||
-        (selectedType === 'video' && resource.url.includes('youtube.com')) ||
-        (selectedType === 'website' && !resource.url.includes('youtube.com'));
+  // Handle search results
+  const handleSearchResults = useCallback((results: SearchableItem[]) => {
+    setSearchResults(results);
+  }, []);
 
-      return matchesLevel && matchesType;
-    });
-  }, [allResources, debouncedSearchTerm, selectedLevel, selectedType, searchResources]);
-
-  // Memoized category grouping for performance
+  // Get filtered categories based on search results
   const filteredCategories = useMemo(() => {
-    if (debouncedSearchTerm && filteredResources.length > 0) {
-      // When searching, show all results in a single "Search Results" category to maintain relevance order
-      return {
-        "🔍 Search Results": filteredResources
-      };
-    } else {
-      // Normal category grouping when not searching
-      const categories: Record<string, FinancialResource[]> = {};
-
-      Object.entries(resourceCategories).forEach(([categoryName, categoryResources]) => {
-        const filtered = categoryResources.filter(resource =>
-          filteredResources.some(fr => fr.id === resource.id)
-        );
-
-        // Include category if it has resources or if it's specifically selected
-        if (filtered.length > 0 || (selectedCategory && selectedCategory === categoryName)) {
-          categories[categoryName] = selectedCategory === '' || selectedCategory === categoryName ? filtered : [];
-        }
-      });
-
-      return categories;
+    if (searchResults.length === 0) {
+      return resourceCategories;
     }
-  }, [debouncedSearchTerm, filteredResources, resourceCategories, selectedCategory]);
 
-  // Get unique categories, levels, and types for filter options
-  const categories = Object.keys(resourceCategories);
-  const levels = ['Beginner', 'Intermediate', 'Advanced'];
-  const types = ['website', 'video'];
+    // Group search results by category
+    const filtered: Record<string, FinancialResource[]> = {};
 
-  // Clear all filters
-  const clearFilters = useCallback(() => {
-    setSearchTerm('');
-    setDebouncedSearchTerm('');
-    setSelectedCategory('');
-    setSelectedLevel('');
-    setSelectedType('');
-  }, []);
+    searchResults.forEach(item => {
+      const categoryName = item.category;
+      if (!filtered[categoryName]) {
+        filtered[categoryName] = [];
+      }
+
+      // Find the original resource
+      const originalResource = allResources.find(r => r.id === item.id);
+      if (originalResource) {
+        filtered[categoryName].push(originalResource);
+      }
+    });
+
+    return filtered;
+  }, [searchResults, allResources]);
+
+
+
 
   const openResource = (resource: FinancialResource) => {
     if (resource.url.includes('youtube.com') || resource.url.includes('youtu.be')) {
@@ -4558,149 +4379,19 @@ const MoneySmartLinksPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Modern Search Bar with Integrated Filters */}
-          <div className="mb-8 space-y-6">
-            {/* Enhanced Search Bar */}
-            <div className="relative max-w-3xl mx-auto">
-              <div className="relative flex items-center">
-                {/* Search Icon */}
-                <div className="absolute left-4 flex items-center pointer-events-none z-10">
-                  <Search className="h-5 w-5 text-gray-400" />
-                </div>
-
-                {/* Search Input */}
-                <input
-                  type="text"
-                  placeholder="Search 800+ financial resources..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-32 py-4 bg-white/5 border border-gray-600/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 transition-all duration-200 backdrop-blur-sm hover:bg-white/10"
-                />
-
-                {/* Filter Dropdown Button */}
-                <div className="absolute right-2 flex items-center gap-2">
-                  {searchTerm && (
-                    <button
-                      onClick={() => setSearchTerm('')}
-                      className="p-2 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-gray-700/50"
-                    >
-                      <X className="h-4 w-4" />
-                    </button>
-                  )}
-
-                  <div className="relative filter-dropdown">
-                    <button
-                      onClick={() => setShowFilters(!showFilters)}
-                      className="inline-flex items-center gap-2 px-3 py-2 bg-gray-700/50 hover:bg-gray-600/70 text-white rounded-xl transition-all duration-200 border border-gray-600/30 text-sm font-medium"
-                    >
-                      <Filter className="h-4 w-4" />
-                      <span className="hidden sm:inline">Filters</span>
-                      {(selectedCategory || selectedLevel || selectedType) && (
-                        <span className="bg-green-500 text-white text-xs px-1.5 py-0.5 rounded-full min-w-[18px] h-[18px] flex items-center justify-center">
-                          {[selectedCategory, selectedLevel, selectedType].filter(Boolean).length}
-                        </span>
-                      )}
-                    </button>
-
-                    {/* Dropdown Filter Menu */}
-                    {showFilters && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                        className="absolute right-0 top-full mt-2 w-80 bg-gray-800/95 backdrop-blur-xl rounded-2xl border border-gray-600/30 shadow-2xl z-50"
-                      >
-                        <div className="p-4 space-y-4">
-                          <div className="flex items-center justify-between">
-                            <h3 className="text-sm font-semibold text-white">Filter Resources</h3>
-                            <button
-                              onClick={() => setShowFilters(false)}
-                              className="p-1 text-gray-400 hover:text-white transition-colors rounded"
-                            >
-                              <X className="h-4 w-4" />
-                            </button>
-                          </div>
-
-                          {/* Category Filter */}
-                          <div>
-                            <label className="block text-xs font-medium text-gray-300 mb-2">Category</label>
-                            <select
-                              value={selectedCategory}
-                              onChange={(e) => setSelectedCategory(e.target.value)}
-                              className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50"
-                            >
-                              <option value="">All Categories</option>
-                              {categories.map(category => (
-                                <option key={category} value={category}>{category}</option>
-                              ))}
-                            </select>
-                          </div>
-
-                          {/* Level Filter */}
-                          <div>
-                            <label className="block text-xs font-medium text-gray-300 mb-2">Difficulty Level</label>
-                            <select
-                              value={selectedLevel}
-                              onChange={(e) => setSelectedLevel(e.target.value)}
-                              className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50"
-                            >
-                              <option value="">All Levels</option>
-                              {levels.map(level => (
-                                <option key={level} value={level}>{level}</option>
-                              ))}
-                            </select>
-                          </div>
-
-                          {/* Type Filter */}
-                          <div>
-                            <label className="block text-xs font-medium text-gray-300 mb-2">Resource Type</label>
-                            <select
-                              value={selectedType}
-                              onChange={(e) => setSelectedType(e.target.value)}
-                              className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600/50 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-green-500/50"
-                            >
-                              <option value="">All Types</option>
-                              <option value="website">Websites</option>
-                              <option value="video">Videos</option>
-                            </select>
-                          </div>
-
-                          {/* Clear Filters Button */}
-                          {(debouncedSearchTerm || selectedCategory || selectedLevel || selectedType) && (
-                            <div className="pt-2 border-t border-gray-600/30">
-                              <button
-                                onClick={clearFilters}
-                                className="w-full inline-flex items-center justify-center gap-2 px-3 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 rounded-lg transition-all duration-200 border border-red-500/30 text-sm"
-                              >
-                                <X className="h-4 w-4" />
-                                Clear All Filters
-                              </button>
-                            </div>
-                          )}
-                        </div>
-                      </motion.div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Results Summary */}
-            <div className="text-center">
-              <p className="text-gray-400 text-sm">
-                Showing <span className="text-white font-medium">{filteredResources.length}</span> of <span className="text-white font-medium">{totalResources}</span> resources
-                {(debouncedSearchTerm || selectedCategory || selectedLevel || selectedType) && (
-                  <span className="text-green-400 ml-1 font-medium">
-                    (filtered)
-                  </span>
-                )}
-                {searchTerm !== debouncedSearchTerm && (
-                  <span className="text-yellow-400 ml-1 font-medium">
-                    (searching...)
-                  </span>
-                )}
-              </p>
-            </div>
+          {/* Smart Search Bar */}
+          <div className="mb-8">
+            <SmartSearchBar
+              items={searchableItems}
+              onSearchResults={handleSearchResults}
+              placeholder={`Search ${totalResources}+ financial resources...`}
+              accentColor="green"
+              categories={categoryOptions}
+              levels={levelOptions}
+              types={typeOptions}
+              enableIntentDetection={true}
+              className="mb-6"
+            />
           </div>
 
           {/* Resource Categories */}
