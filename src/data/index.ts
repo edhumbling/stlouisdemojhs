@@ -215,60 +215,65 @@ export const programs: Program[] = [
 export const galleryImages: GalleryImage[] = [
   // Original Hero Slider Images - The Foundation Collection
   {
-    id: 34,
-    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MHr3Mth6P0GO9RqKnCz8srJMvFEYd4HP5xhQV',
-    alt: 'Original Hero Slider Image 1 - St. Louis Demo JHS',
-    category: 'Original Hero Collection'
-  },
-  {
     id: 35,
     src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3',
-    alt: 'Original Hero Slider Image 2 - St. Louis Demo JHS',
+    alt: 'Original Hero Slider Image 1 - St. Louis Demo JHS',
     category: 'Original Hero Collection'
   },
   {
     id: 36,
     src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO',
-    alt: 'Original Hero Slider Image 3 - St. Louis Demo JHS',
+    alt: 'Original Hero Slider Image 2 - St. Louis Demo JHS',
     category: 'Original Hero Collection'
   },
   {
     id: 37,
     src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K',
-    alt: 'Original Hero Slider Image 4 - St. Louis Demo JHS',
+    alt: 'Original Hero Slider Image 3 - St. Louis Demo JHS',
     category: 'Original Hero Collection'
   },
   {
     id: 38,
     src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mtqqjxq2Z4OUSfDyHBMwru2hG3KJe97qYaoNx',
-    alt: 'Original Hero Slider Image 5 - St. Louis Demo JHS',
+    alt: 'Original Hero Slider Image 4 - St. Louis Demo JHS',
     category: 'Original Hero Collection'
   },
   {
     id: 39,
     src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MSsSuPjLzTgIL0eaoWJ8UQBqvRNFysYxGXktA',
-    alt: 'Original Hero Slider Image 6 - St. Louis Demo JHS',
+    alt: 'Original Hero Slider Image 5 - St. Louis Demo JHS',
     category: 'Original Hero Collection'
   },
   {
     id: 40,
     src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MC9tZ4UzDLioRYz5qf92ZpIJwTgmKdEu6AcFh',
-    alt: 'Original Hero Slider Image 7 - St. Louis Demo JHS',
+    alt: 'Original Hero Slider Image 6 - St. Louis Demo JHS',
     category: 'Original Hero Collection'
   },
   {
     id: 41,
     src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mwf9R6zhW0NcVsvA1quWUypQ6IChZY53j4PSK',
-    alt: 'Original Hero Slider Image 8 - St. Louis Demo JHS',
+    alt: 'Original Hero Slider Image 7 - St. Louis Demo JHS',
     category: 'Original Hero Collection'
   },
   {
     id: 42,
     src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MvnyEMdmbxU06Mca57V3tJ1r8NOShqgZsCH9p',
+    alt: 'Original Hero Slider Image 8 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
+  },
+  {
+    id: 43,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2006.05.16_f4d2c9bc.jpg?updatedAt=1748174479174',
     alt: 'Original Hero Slider Image 9 - St. Louis Demo JHS',
     category: 'Original Hero Collection'
   },
-  // TODO: Add remaining 2-3 original slider images if you find more
+  {
+    id: 44,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/WhatsApp%20Image%202025-05-25%20at%2006.05.16_4d8aef13.jpg?updatedAt=1748174478883',
+    alt: 'Original Hero Slider Image 10 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
+  },
 
   {
     id: 27,
