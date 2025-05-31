@@ -302,6 +302,96 @@ const StudentsHubPage: React.FC = () => {
         icon: <Globe className="w-5 h-5" />,
         color: "#000000",
         embedStrategy: 'iframe'
+      },
+      {
+        id: 83,
+        title: "Duolingo",
+        description: "Fun and interactive language learning app perfect for junior high students!",
+        url: "https://www.duolingo.com/",
+        icon: <Languages className="w-5 h-5" />,
+        color: "#58CC02",
+        openInNewTab: true
+      },
+      {
+        id: 84,
+        title: "Babbel",
+        description: "Practical language learning designed for real conversations and communication!",
+        url: "https://www.babbel.com/",
+        icon: <Languages className="w-5 h-5" />,
+        color: "#FFD900",
+        openInNewTab: true
+      },
+      {
+        id: 85,
+        title: "Busuu",
+        description: "Language learning with speech recognition and conversation practice!",
+        url: "https://www.busuu.com/",
+        icon: <Languages className="w-5 h-5" />,
+        color: "#1CB0F6",
+        openInNewTab: true
+      },
+      {
+        id: 86,
+        title: "FluentU",
+        description: "Learn languages through real-world videos like music videos and movie trailers!",
+        url: "https://www.fluentu.com/",
+        icon: <Languages className="w-5 h-5" />,
+        color: "#FF6B35",
+        openInNewTab: true
+      },
+      {
+        id: 87,
+        title: "Speechling",
+        description: "Improve pronunciation and speaking skills with AI feedback and human coaches!",
+        url: "https://speechling.com/",
+        icon: <Mic className="w-5 h-5" />,
+        color: "#4CAF50",
+        openInNewTab: true
+      },
+      {
+        id: 88,
+        title: "Lingoda",
+        description: "Online language classes with certified teachers for structured learning!",
+        url: "https://www.lingoda.com/",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#FF4081",
+        openInNewTab: true
+      },
+      {
+        id: 89,
+        title: "HelloTalk",
+        description: "Language exchange app to chat with native speakers around the world!",
+        url: "https://www.hellotalk.com/",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#FF5722",
+        openInNewTab: true
+      },
+      {
+        id: 90,
+        title: "Memrise",
+        description: "Learn vocabulary and phrases through spaced repetition and memory techniques!",
+        url: "https://www.memrise.com/",
+        icon: <Lightbulb className="w-5 h-5" />,
+        color: "#9C27B0",
+        openInNewTab: true
+      },
+      {
+        id: 91,
+        title: "Rosetta Stone",
+        description: "Immersive language learning program trusted by schools worldwide!",
+        url: "https://www.rosettastone.com/",
+        icon: <Languages className="w-5 h-5" />,
+        color: "#FFB300",
+        openInNewTab: true
+      },
+      {
+        id: 92,
+        title: "Cambly",
+        description: "Practice English conversation with native speakers through video chat!",
+        url: "https://www.cambly.com/",
+        icon: <Mic className="w-5 h-5" />,
+        color: "#00BCD4",
+        openInNewTab: true
       }
     ],
     "💰 Financial Literacy": [
@@ -605,6 +695,51 @@ const StudentsHubPage: React.FC = () => {
         url: "https://www.grammarly.com/edu",
         icon: <FileCheck className="w-5 h-5" />,
         color: "#15C39A",
+        openInNewTab: true
+      },
+      {
+        id: 78,
+        title: "Notion",
+        description: "All-in-one workspace for notes, tasks, wikis, and databases - organize your entire academic life!",
+        url: "https://www.notion.so/",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#000000",
+        openInNewTab: true
+      },
+      {
+        id: 79,
+        title: "Obsidian",
+        description: "Knowledge management app with linked notes - perfect for building your personal knowledge graph!",
+        url: "https://obsidian.md/",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#7C3AED",
+        openInNewTab: true
+      },
+      {
+        id: 80,
+        title: "Otter.ai",
+        description: "AI-powered meeting transcription and note-taking for lectures and study sessions!",
+        url: "https://otter.ai/",
+        icon: <Mic className="w-5 h-5" />,
+        color: "#00D4AA",
+        openInNewTab: true
+      },
+      {
+        id: 81,
+        title: "Loom",
+        description: "Screen recording tool for creating educational videos and presentations effortlessly!",
+        url: "https://www.loom.com/",
+        icon: <Smartphone className="w-5 h-5" />,
+        color: "#625DF5",
+        openInNewTab: true
+      },
+      {
+        id: 82,
+        title: "Figma",
+        description: "Collaborative design tool perfect for creating presentations, diagrams, and visual projects!",
+        url: "https://www.figma.com/",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#F24E1E",
         openInNewTab: true
       }
     ],
