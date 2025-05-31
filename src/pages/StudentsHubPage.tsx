@@ -391,7 +391,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 26,
+        id: 37,
         title: "Factory AI",
         description: "AI-powered software development platform for building applications faster!",
         url: "https://www.factory.ai/",
@@ -400,7 +400,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 27,
+        id: 38,
         title: "GitHub Copilot",
         description: "AI pair programmer that helps you write code faster with intelligent suggestions!",
         url: "https://github.com/features/copilot",
@@ -409,7 +409,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 28,
+        id: 39,
         title: "Replit AI",
         description: "AI-powered online IDE for coding, collaborating, and learning programming!",
         url: "https://replit.com/ai",
@@ -418,7 +418,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 29,
+        id: 40,
         title: "Tabnine",
         description: "AI code completion tool that predicts and suggests your next lines of code!",
         url: "https://www.tabnine.com/",
@@ -427,7 +427,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 30,
+        id: 41,
         title: "CodeWhisperer",
         description: "Amazon's AI coding companion for generating code suggestions in real-time!",
         url: "https://aws.amazon.com/codewhisperer/",
@@ -436,7 +436,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 31,
+        id: 42,
         title: "Codeium",
         description: "Free AI-powered code acceleration toolkit with autocomplete and chat!",
         url: "https://codeium.com/",
@@ -445,7 +445,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 32,
+        id: 43,
         title: "Claude Dev",
         description: "AI assistant for software development with advanced reasoning and coding capabilities!",
         url: "https://claude.ai/",
@@ -454,7 +454,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 33,
+        id: 44,
         title: "Sourcegraph Cody",
         description: "AI coding assistant that understands your entire codebase for better suggestions!",
         url: "https://sourcegraph.com/cody",
@@ -463,7 +463,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 34,
+        id: 45,
         title: "CodeT5",
         description: "AI model for code understanding and generation with multilingual support!",
         url: "https://huggingface.co/Salesforce/codet5-large",
@@ -472,7 +472,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 35,
+        id: 46,
         title: "Codex by OpenAI",
         description: "Powerful AI system that translates natural language to code in multiple languages!",
         url: "https://openai.com/blog/openai-codex",
@@ -481,7 +481,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 36,
+        id: 47,
         title: "Aider",
         description: "AI pair programming tool that works with your existing codebase in the terminal!",
         url: "https://aider.chat/",
