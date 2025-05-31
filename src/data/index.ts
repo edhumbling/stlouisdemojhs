@@ -213,73 +213,63 @@ export const programs: Program[] = [
 ];
 
 export const galleryImages: GalleryImage[] = [
-  // Original First Slider Images - The Foundation Set
+  // Original Hero Slider Images - The Foundation Collection
   {
     id: 34,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC?updatedAt=1748185690882',
-    alt: 'Students in classroom learning environment - Original Slider Image 1',
-    category: 'Original Slider Collection'
+    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MHr3Mth6P0GO9RqKnCz8srJMvFEYd4HP5xhQV',
+    alt: 'Original Hero Slider Image 1 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
   },
   {
     id: 35,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7126.HEIC?updatedAt=1748185717978',
-    alt: 'Interactive classroom activities - Original Slider Image 2',
-    category: 'Original Slider Collection'
+    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3',
+    alt: 'Original Hero Slider Image 2 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
   },
   {
     id: 36,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7113.HEIC?updatedAt=1748185722552',
-    alt: 'Students engaged in group work - Original Slider Image 3',
-    category: 'Original Slider Collection'
+    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO',
+    alt: 'Original Hero Slider Image 3 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
   },
   {
     id: 37,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7120.HEIC?updatedAt=1748185723844',
-    alt: 'Collaborative learning session - Original Slider Image 4',
-    category: 'Original Slider Collection'
+    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K',
+    alt: 'Original Hero Slider Image 4 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
   },
   {
     id: 38,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6908.JPG',
-    alt: 'School campus and facilities - Original Slider Image 5',
-    category: 'Original Slider Collection'
+    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mtqqjxq2Z4OUSfDyHBMwru2hG3KJe97qYaoNx',
+    alt: 'Original Hero Slider Image 5 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
   },
   {
     id: 39,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7075.HEIC?updatedAt=1748185477324',
-    alt: 'Students in practical learning - Original Slider Image 6',
-    category: 'Original Slider Collection'
+    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MSsSuPjLzTgIL0eaoWJ8UQBqvRNFysYxGXktA',
+    alt: 'Original Hero Slider Image 6 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
   },
   {
     id: 40,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7078.HEIC?updatedAt=1748185473127',
-    alt: 'Hands-on learning activities - Original Slider Image 7',
-    category: 'Original Slider Collection'
+    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MC9tZ4UzDLioRYz5qf92ZpIJwTgmKdEu6AcFh',
+    alt: 'Original Hero Slider Image 7 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
   },
   {
     id: 41,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7029.HEIC?updatedAt=1748185491679',
-    alt: 'Student presentations and discussions - Original Slider Image 8',
-    category: 'Original Slider Collection'
+    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1Mwf9R6zhW0NcVsvA1quWUypQ6IChZY53j4PSK',
+    alt: 'Original Hero Slider Image 8 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
   },
   {
     id: 42,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7092.HEIC?updatedAt=1748185637223',
-    alt: 'Creative learning environment - Original Slider Image 9',
-    category: 'Original Slider Collection'
+    src: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MvnyEMdmbxU06Mca57V3tJ1r8NOShqgZsCH9p',
+    alt: 'Original Hero Slider Image 9 - St. Louis Demo JHS',
+    category: 'Original Hero Collection'
   },
-  {
-    id: 43,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7040.HEIC?updatedAt=1748185399093',
-    alt: 'Students working together - Original Slider Image 10',
-    category: 'Original Slider Collection'
-  },
-  {
-    id: 44,
-    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7077.HEIC?updatedAt=1748185424393',
-    alt: 'Classroom instruction and learning - Original Slider Image 11',
-    category: 'Original Slider Collection'
-  },
+  // TODO: Add remaining 2-3 original slider images if you find more
+
   {
     id: 27,
     src: 'https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881',
