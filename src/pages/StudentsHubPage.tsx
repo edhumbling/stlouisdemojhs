@@ -182,7 +182,98 @@ const StudentsHubPage: React.FC = () => {
         description: "AI maths problem solver",
         url: "https://qwen-qwen2-math-demo.hf.space",
         icon: <Calculator className="w-5 h-5" />,
-        color: "#5856D6"
+        color: "#5856D6",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 58,
+        title: "Khan Academy",
+        description: "Free world-class education in math, science, and more with interactive exercises!",
+        url: "https://www.khanacademy.org/",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#14A085",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 59,
+        title: "Wolfram Alpha",
+        description: "Computational knowledge engine for math, science, and engineering problems!",
+        url: "https://www.wolframalpha.com/",
+        icon: <Calculator className="w-5 h-5" />,
+        color: "#FF6C0C",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 60,
+        title: "Desmos Graphing Calculator",
+        description: "Advanced online graphing calculator for exploring mathematical functions!",
+        url: "https://www.desmos.com/calculator",
+        icon: <Calculator className="w-5 h-5" />,
+        color: "#2F7D32",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 61,
+        title: "PhET Interactive Simulations",
+        description: "Interactive science and math simulations from University of Colorado Boulder!",
+        url: "https://phet.colorado.edu/",
+        icon: <Zap className="w-5 h-5" />,
+        color: "#1976D2",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 62,
+        title: "GeoGebra",
+        description: "Dynamic mathematics software for geometry, algebra, and calculus!",
+        url: "https://www.geogebra.org/",
+        icon: <Calculator className="w-5 h-5" />,
+        color: "#666666",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 63,
+        title: "Brilliant",
+        description: "Learn STEM concepts through interactive problem-solving and guided courses!",
+        url: "https://brilliant.org/",
+        icon: <Lightbulb className="w-5 h-5" />,
+        color: "#FFB300",
+        openInNewTab: true
+      },
+      {
+        id: 64,
+        title: "Coursera STEM",
+        description: "University-level STEM courses from top institutions worldwide!",
+        url: "https://www.coursera.org/browse/physical-science-and-engineering",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#0056D3",
+        openInNewTab: true
+      },
+      {
+        id: 65,
+        title: "NASA Education",
+        description: "Educational resources, simulations, and activities from NASA!",
+        url: "https://www.nasa.gov/audience/foreducators/",
+        icon: <Rocket className="w-5 h-5" />,
+        color: "#FC3D21",
+        embedStrategy: 'iframe'
+      },
+      {
+        id: 66,
+        title: "Codecademy",
+        description: "Interactive coding lessons and computer science fundamentals!",
+        url: "https://www.codecademy.com/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#1F4056",
+        openInNewTab: true
+      },
+      {
+        id: 67,
+        title: "Scratch Programming",
+        description: "Visual programming language perfect for learning coding concepts!",
+        url: "https://scratch.mit.edu/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#FF8C1A",
+        embedStrategy: 'iframe'
       }
     ],
     "🌍 Language & Communication": [
