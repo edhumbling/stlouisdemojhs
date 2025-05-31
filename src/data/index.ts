@@ -213,6 +213,73 @@ export const programs: Program[] = [
 ];
 
 export const galleryImages: GalleryImage[] = [
+  // Original First Slider Images - The Foundation Set
+  {
+    id: 34,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC?updatedAt=1748185690882',
+    alt: 'Students in classroom learning environment - Original Slider Image 1',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 35,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7126.HEIC?updatedAt=1748185717978',
+    alt: 'Interactive classroom activities - Original Slider Image 2',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 36,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7113.HEIC?updatedAt=1748185722552',
+    alt: 'Students engaged in group work - Original Slider Image 3',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 37,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7120.HEIC?updatedAt=1748185723844',
+    alt: 'Collaborative learning session - Original Slider Image 4',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 38,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6908.JPG',
+    alt: 'School campus and facilities - Original Slider Image 5',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 39,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7075.HEIC?updatedAt=1748185477324',
+    alt: 'Students in practical learning - Original Slider Image 6',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 40,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7078.HEIC?updatedAt=1748185473127',
+    alt: 'Hands-on learning activities - Original Slider Image 7',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 41,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7029.HEIC?updatedAt=1748185491679',
+    alt: 'Student presentations and discussions - Original Slider Image 8',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 42,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7092.HEIC?updatedAt=1748185637223',
+    alt: 'Creative learning environment - Original Slider Image 9',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 43,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7040.HEIC?updatedAt=1748185399093',
+    alt: 'Students working together - Original Slider Image 10',
+    category: 'Original Slider Collection'
+  },
+  {
+    id: 44,
+    src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7077.HEIC?updatedAt=1748185424393',
+    alt: 'Classroom instruction and learning - Original Slider Image 11',
+    category: 'Original Slider Collection'
+  },
   {
     id: 27,
     src: 'https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881',
