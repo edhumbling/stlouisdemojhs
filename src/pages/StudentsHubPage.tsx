@@ -503,6 +503,96 @@ const StudentsHubPage: React.FC = () => {
         url: "https://www.lennybot.com/",
         icon: <Lightbulb className="w-5 h-5" />,
         color: "#F59E0B"
+      },
+      {
+        id: 93,
+        title: "LinkedIn Learning",
+        description: "Free career development courses and professional skills training!",
+        url: "https://www.linkedin.com/learning/",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#0077B5",
+        openInNewTab: true
+      },
+      {
+        id: 94,
+        title: "Coursera Career Courses",
+        description: "Free career-focused courses from top universities and companies!",
+        url: "https://www.coursera.org/browse/personal-development",
+        icon: <Briefcase className="w-5 h-5" />,
+        color: "#0056D3",
+        openInNewTab: true
+      },
+      {
+        id: 95,
+        title: "Indeed Career Guide",
+        description: "Free career advice, resume tips, and interview preparation resources!",
+        url: "https://www.indeed.com/career-advice",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#2557A7",
+        openInNewTab: true
+      },
+      {
+        id: 96,
+        title: "O*NET Interest Profiler",
+        description: "Free career assessment tool to discover careers that match your interests!",
+        url: "https://www.mynextmove.org/explore/ip",
+        icon: <Target className="w-5 h-5" />,
+        color: "#28A745",
+        openInNewTab: true
+      },
+      {
+        id: 97,
+        title: "Khan Academy Life Skills",
+        description: "Free courses on personal finance, college prep, and life skills!",
+        url: "https://www.khanacademy.org/college-careers-more",
+        icon: <Lightbulb className="w-5 h-5" />,
+        color: "#14A085",
+        openInNewTab: true
+      },
+      {
+        id: 98,
+        title: "Alison Life Skills",
+        description: "Free online courses in communication, leadership, and personal development!",
+        url: "https://alison.com/courses/personal-development",
+        icon: <Users className="w-5 h-5" />,
+        color: "#FF6B35",
+        openInNewTab: true
+      },
+      {
+        id: 99,
+        title: "edX Professional Skills",
+        description: "Free professional development courses from Harvard, MIT, and other top institutions!",
+        url: "https://www.edx.org/learn/professional-development",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#02262B",
+        openInNewTab: true
+      },
+      {
+        id: 100,
+        title: "Google Career Certificates",
+        description: "Free access to Google's career certificate programs and job training!",
+        url: "https://grow.google/certificates/",
+        icon: <Briefcase className="w-5 h-5" />,
+        color: "#4285F4",
+        openInNewTab: true
+      },
+      {
+        id: 101,
+        title: "FutureLearn Life Skills",
+        description: "Free courses on communication, leadership, and personal effectiveness!",
+        url: "https://www.futurelearn.com/subjects/personal-development-courses",
+        icon: <Lightbulb className="w-5 h-5" />,
+        color: "#DE00A5",
+        openInNewTab: true
+      },
+      {
+        id: 102,
+        title: "Skillshare Free Classes",
+        description: "Free creative and business skills classes for personal and professional growth!",
+        url: "https://www.skillshare.com/browse/business",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#00FF88",
+        openInNewTab: true
       }
     ],
     "🎨 Creative Tools": [
