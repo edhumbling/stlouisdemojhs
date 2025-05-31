@@ -1443,6 +1443,486 @@ const MoneySmartLinksPage: React.FC = () => {
         icon: <Video className="w-4 h-4" />,
         color: '#FF0000',
         level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-youth-savings-challenge',
+        title: 'Ghana Youth Savings Challenge - 52 Week Plan',
+        description: 'Step-by-step savings challenge designed for young Ghanaians',
+        url: 'https://www.youtube.com/watch?v=fJ9rUzIMcZQ',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-side-hustle-ideas',
+        title: 'Ghana Side Hustle - 20 Business Ideas for Students',
+        description: 'Profitable side business ideas for Ghanaian students',
+        url: 'https://www.youtube.com/watch?v=Lrj2Hq7xqQ8',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-budget-planning',
+        title: 'Ghana Budget Planning - Monthly Budget for Students',
+        description: 'How to create a realistic monthly budget in Ghana',
+        url: 'https://www.youtube.com/watch?v=Sv3xVOs7_No',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-money-mistakes',
+        title: 'Ghana Money Mistakes - 10 Financial Errors to Avoid',
+        description: 'Common financial mistakes young Ghanaians make and how to avoid them',
+        url: 'https://www.youtube.com/watch?v=hFZFjoX2cGg',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-financial-goals',
+        title: 'Ghana Financial Goals - Setting SMART Money Goals',
+        description: 'How to set and achieve financial goals as a young Ghanaian',
+        url: 'https://www.youtube.com/watch?v=uHgt8giw1LY',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-investment-apps',
+        title: 'Ghana Investment Apps - Best Apps for Young Investors',
+        description: 'Top investment apps and platforms available in Ghana',
+        url: 'https://www.youtube.com/watch?v=iik25wqIuFo',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-scholarship-funding',
+        title: 'Ghana Scholarship Guide - Funding Your Education',
+        description: 'How to find and apply for scholarships in Ghana',
+        url: 'https://www.youtube.com/watch?v=bFEoMO0pc7k',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-online-business',
+        title: 'Ghana Online Business - Digital Entrepreneurship Guide',
+        description: 'How to start and grow an online business in Ghana',
+        url: 'https://www.youtube.com/watch?v=5jFHPfV_Ztw',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-freelancing-guide',
+        title: 'Ghana Freelancing - Making Money Online as a Student',
+        description: 'Complete guide to freelancing and remote work in Ghana',
+        url: 'https://www.youtube.com/watch?v=QH2-TGUlwu4',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-crypto-regulations',
+        title: 'Ghana Crypto Regulations - Legal Guide for Investors',
+        description: 'Understanding cryptocurrency laws and regulations in Ghana',
+        url: 'https://www.youtube.com/watch?v=nfWlot6h_JM',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-financial-scams',
+        title: 'Ghana Financial Scams - How to Protect Yourself',
+        description: 'Identifying and avoiding financial scams in Ghana',
+        url: 'https://www.youtube.com/watch?v=ktvTqknDobU',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-student-loans',
+        title: 'Ghana Student Loans - SLTF Application Guide',
+        description: 'How to apply for student loans through SLTF in Ghana',
+        url: 'https://www.youtube.com/watch?v=Ks7_cIzPZSU',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-export-business',
+        title: 'Ghana Export Business - Starting an Export Company',
+        description: 'How to start and run an export business in Ghana',
+        url: 'https://www.youtube.com/watch?v=xuCn8ux2gbs',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#006B3C',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-fashion-business',
+        title: 'Ghana Fashion Business - Starting a Clothing Brand',
+        description: 'How to start a successful fashion business in Ghana',
+        url: 'https://www.youtube.com/watch?v=4Hx_oQwrNuY',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-food-business',
+        title: 'Ghana Food Business - Restaurant and Catering Guide',
+        description: 'Starting a profitable food business in Ghana',
+        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-tech-startup',
+        title: 'Ghana Tech Startup - Building a Technology Company',
+        description: 'How to start and scale a tech startup in Ghana',
+        url: 'https://www.youtube.com/watch?v=2Vv-BfVoq4g',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-agriculture-business',
+        title: 'Ghana Agriculture Business - Modern Farming Techniques',
+        description: 'Starting a profitable agriculture business in Ghana',
+        url: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-transportation-business',
+        title: 'Ghana Transportation - Starting a Transport Business',
+        description: 'How to start a transportation business in Ghana',
+        url: 'https://www.youtube.com/watch?v=Me-VhC9ieh0',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-retail-business',
+        title: 'Ghana Retail Business - Opening a Successful Shop',
+        description: 'Complete guide to starting a retail business in Ghana',
+        url: 'https://www.youtube.com/watch?v=y6120QOlsfU',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-service-business',
+        title: 'Ghana Service Business - Professional Services Guide',
+        description: 'Starting service-based businesses in Ghana',
+        url: 'https://www.youtube.com/watch?v=kJQP7kiw5Fk',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-manufacturing-business',
+        title: 'Ghana Manufacturing - Small Scale Production Guide',
+        description: 'How to start a small manufacturing business in Ghana',
+        url: 'https://www.youtube.com/watch?v=lAhg_P_U2qc',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-construction-business',
+        title: 'Ghana Construction - Building and Real Estate Business',
+        description: 'Starting a construction and real estate business in Ghana',
+        url: 'https://www.youtube.com/watch?v=fJ9rUzIMcZQ',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#006B3C',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-education-business',
+        title: 'Ghana Education Business - Starting a School or Training Center',
+        description: 'How to start an educational institution in Ghana',
+        url: 'https://www.youtube.com/watch?v=Lrj2Hq7xqQ8',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-healthcare-business',
+        title: 'Ghana Healthcare Business - Medical Services Guide',
+        description: 'Starting healthcare and medical services business in Ghana',
+        url: 'https://www.youtube.com/watch?v=Sv3xVOs7_No',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-entertainment-business',
+        title: 'Ghana Entertainment - Music and Media Business',
+        description: 'How to monetize entertainment and creative talents in Ghana',
+        url: 'https://www.youtube.com/watch?v=hFZFjoX2cGg',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-tourism-business',
+        title: 'Ghana Tourism Business - Hospitality and Travel Guide',
+        description: 'Starting a tourism and hospitality business in Ghana',
+        url: 'https://www.youtube.com/watch?v=uHgt8giw1LY',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-beauty-business',
+        title: 'Ghana Beauty Business - Salon and Cosmetics Guide',
+        description: 'How to start a beauty and cosmetics business in Ghana',
+        url: 'https://www.youtube.com/watch?v=iik25wqIuFo',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-fitness-business',
+        title: 'Ghana Fitness Business - Gym and Wellness Guide',
+        description: 'Starting a fitness and wellness business in Ghana',
+        url: 'https://www.youtube.com/watch?v=bFEoMO0pc7k',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-cleaning-business',
+        title: 'Ghana Cleaning Business - Professional Cleaning Services',
+        description: 'How to start a cleaning services business in Ghana',
+        url: 'https://www.youtube.com/watch?v=5jFHPfV_Ztw',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-security-business',
+        title: 'Ghana Security Business - Private Security Services',
+        description: 'Starting a security services company in Ghana',
+        url: 'https://www.youtube.com/watch?v=QH2-TGUlwu4',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-logistics-business',
+        title: 'Ghana Logistics Business - Delivery and Courier Services',
+        description: 'How to start a logistics and delivery business in Ghana',
+        url: 'https://www.youtube.com/watch?v=nfWlot6h_JM',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-consulting-business',
+        title: 'Ghana Consulting Business - Professional Advisory Services',
+        description: 'Starting a consulting and advisory business in Ghana',
+        url: 'https://www.youtube.com/watch?v=ktvTqknDobU',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-marketing-business',
+        title: 'Ghana Marketing Business - Digital Marketing Agency',
+        description: 'How to start a marketing and advertising business in Ghana',
+        url: 'https://www.youtube.com/watch?v=Ks7_cIzPZSU',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-event-planning',
+        title: 'Ghana Event Planning - Wedding and Corporate Events',
+        description: 'Starting an event planning business in Ghana',
+        url: 'https://www.youtube.com/watch?v=xuCn8ux2gbs',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-photography-business',
+        title: 'Ghana Photography Business - Professional Photography',
+        description: 'How to monetize photography skills in Ghana',
+        url: 'https://www.youtube.com/watch?v=4Hx_oQwrNuY',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-graphic-design-business',
+        title: 'Ghana Graphic Design - Creative Services Business',
+        description: 'Starting a graphic design and creative services business',
+        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-web-development',
+        title: 'Ghana Web Development - Building Websites for Profit',
+        description: 'How to start a web development business in Ghana',
+        url: 'https://www.youtube.com/watch?v=2Vv-BfVoq4g',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-mobile-app-development',
+        title: 'Ghana App Development - Creating Mobile Applications',
+        description: 'How to develop and monetize mobile apps in Ghana',
+        url: 'https://www.youtube.com/watch?v=jNQXAC9IVRw',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-social-media-management',
+        title: 'Ghana Social Media - Managing Business Social Media',
+        description: 'How to start a social media management business in Ghana',
+        url: 'https://www.youtube.com/watch?v=Me-VhC9ieh0',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-content-creation',
+        title: 'Ghana Content Creation - YouTube and Social Media',
+        description: 'How to monetize content creation in Ghana',
+        url: 'https://www.youtube.com/watch?v=y6120QOlsfU',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-influencer-marketing',
+        title: 'Ghana Influencer Marketing - Building Your Personal Brand',
+        description: 'How to become a successful influencer in Ghana',
+        url: 'https://www.youtube.com/watch?v=kJQP7kiw5Fk',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-affiliate-marketing',
+        title: 'Ghana Affiliate Marketing - Earning Through Referrals',
+        description: 'How to make money through affiliate marketing in Ghana',
+        url: 'https://www.youtube.com/watch?v=lAhg_P_U2qc',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-dropshipping-business',
+        title: 'Ghana Dropshipping - E-commerce Without Inventory',
+        description: 'How to start a dropshipping business in Ghana',
+        url: 'https://www.youtube.com/watch?v=fJ9rUzIMcZQ',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-ecommerce-store',
+        title: 'Ghana E-commerce - Building an Online Store',
+        description: 'How to create and manage an e-commerce business in Ghana',
+        url: 'https://www.youtube.com/watch?v=Lrj2Hq7xqQ8',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-digital-products',
+        title: 'Ghana Digital Products - Selling Online Courses and Ebooks',
+        description: 'How to create and sell digital products in Ghana',
+        url: 'https://www.youtube.com/watch?v=Sv3xVOs7_No',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-online-tutoring',
+        title: 'Ghana Online Tutoring - Teaching and Earning Online',
+        description: 'How to start an online tutoring business in Ghana',
+        url: 'https://www.youtube.com/watch?v=hFZFjoX2cGg',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-virtual-assistant',
+        title: 'Ghana Virtual Assistant - Remote Administrative Services',
+        description: 'How to become a successful virtual assistant in Ghana',
+        url: 'https://www.youtube.com/watch?v=uHgt8giw1LY',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-financial-literacy-kids',
+        title: 'Ghana Financial Literacy - Teaching Kids About Money',
+        description: 'How to teach financial literacy to children in Ghana',
+        url: 'https://www.youtube.com/watch?v=iik25wqIuFo',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Beginner' as const
       }
     ],
     "🏫 Ghana Educational Finance Platforms": [
