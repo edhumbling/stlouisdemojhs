@@ -164,10 +164,9 @@ const EnhancedModal: React.FC<EnhancedModalProps> = ({
         <div className="absolute inset-0 bg-black/90 backdrop-blur-md" />
         
         {/* Modal Content */}
-        <div 
+        <div
           ref={containerRef}
-          className="relative w-full h-full flex items-center justify-center p-4"
-          onClick={(e) => e.stopPropagation()}
+          className="relative w-full h-full flex items-center justify-center p-2 sm:p-4"
         >
           {/* Close Button */}
           <button
@@ -199,34 +198,37 @@ const EnhancedModal: React.FC<EnhancedModalProps> = ({
             </button>
           </div>
 
-          {/* Image Container */}
+          {/* Image Container - Optimized for immediate visibility */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center"
+            className="relative max-w-[95vw] max-h-[85vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Strong Silver Shimmer Loading */}
             {!isLoaded && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <ShimmerLoader 
-                  variant="silver" 
-                  className="w-96 h-96 max-w-[80vw] max-h-[80vh]" 
+                <ShimmerLoader
+                  variant="silver"
+                  className="w-full h-full max-w-[90vw] max-h-[80vh]"
                 />
               </div>
             )}
 
-            {/* Enhanced Image with Pinch Zoom */}
+            {/* Enhanced Image with Pinch Zoom - Optimized for immediate visibility */}
             <img
               ref={imageRef}
               src={imageSrc}
               alt={imageAlt}
-              className={`max-w-full max-h-full object-contain transition-all duration-200 ${
+              className={`w-auto h-auto max-w-full max-h-full object-contain transition-all duration-200 ${
                 isDragging ? 'cursor-grabbing' : scale > 1 ? 'cursor-grab' : 'cursor-zoom-in'
               } ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
               style={{
                 transform: `scale(${scale}) translate(${position.x / scale}px, ${position.y / scale}px)`,
-                transformOrigin: 'center center'
+                transformOrigin: 'center center',
+                maxWidth: '95vw',
+                maxHeight: '85vh'
               }}
               onLoad={() => setIsLoaded(true)}
               onWheel={handleWheel}
@@ -241,17 +243,18 @@ const EnhancedModal: React.FC<EnhancedModalProps> = ({
             />
           </motion.div>
 
-          {/* Image Info */}
-          <div className="absolute bottom-4 left-4 right-4 z-10">
+          {/* Image Info - Positioned to not interfere with image visibility */}
+          <div className="absolute bottom-2 left-2 right-2 z-10">
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              className="bg-black/50 backdrop-blur-sm rounded-xl p-4 text-white"
+              className="bg-black/60 backdrop-blur-sm rounded-lg p-3 text-white"
+              onClick={(e) => e.stopPropagation()}
             >
-              <h3 className="text-lg font-semibold mb-1">{imageAlt}</h3>
-              <p className="text-sm text-gray-300">Category: {imageCategory}</p>
-              <p className="text-xs text-gray-400 mt-2">
-                Use mouse wheel or pinch to zoom • Drag to pan when zoomed
+              <h3 className="text-sm sm:text-base font-semibold mb-1 line-clamp-1">{imageAlt}</h3>
+              <p className="text-xs text-gray-300">Category: {imageCategory}</p>
+              <p className="text-xs text-gray-400 mt-1">
+                Wheel/pinch to zoom • Drag to pan • Click outside to close
               </p>
             </motion.div>
           </div>
