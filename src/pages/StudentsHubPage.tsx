@@ -389,6 +389,105 @@ const StudentsHubPage: React.FC = () => {
         icon: <Wind className="w-5 h-5" />,
         color: "#0EA5E9",
         openInNewTab: true
+      },
+      {
+        id: 26,
+        title: "Factory AI",
+        description: "AI-powered software development platform for building applications faster!",
+        url: "https://www.factory.ai/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#FF6B35",
+        openInNewTab: true
+      },
+      {
+        id: 27,
+        title: "GitHub Copilot",
+        description: "AI pair programmer that helps you write code faster with intelligent suggestions!",
+        url: "https://github.com/features/copilot",
+        icon: <Code className="w-5 h-5" />,
+        color: "#24292e",
+        openInNewTab: true
+      },
+      {
+        id: 28,
+        title: "Replit AI",
+        description: "AI-powered online IDE for coding, collaborating, and learning programming!",
+        url: "https://replit.com/ai",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#F26207",
+        openInNewTab: true
+      },
+      {
+        id: 29,
+        title: "Tabnine",
+        description: "AI code completion tool that predicts and suggests your next lines of code!",
+        url: "https://www.tabnine.com/",
+        icon: <Zap className="w-5 h-5" />,
+        color: "#4A90E2",
+        openInNewTab: true
+      },
+      {
+        id: 30,
+        title: "CodeWhisperer",
+        description: "Amazon's AI coding companion for generating code suggestions in real-time!",
+        url: "https://aws.amazon.com/codewhisperer/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#FF9900",
+        openInNewTab: true
+      },
+      {
+        id: 31,
+        title: "Codeium",
+        description: "Free AI-powered code acceleration toolkit with autocomplete and chat!",
+        url: "https://codeium.com/",
+        icon: <Zap className="w-5 h-5" />,
+        color: "#09B6A2",
+        openInNewTab: true
+      },
+      {
+        id: 32,
+        title: "Claude Dev",
+        description: "AI assistant for software development with advanced reasoning and coding capabilities!",
+        url: "https://claude.ai/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#D97706",
+        openInNewTab: true
+      },
+      {
+        id: 33,
+        title: "Sourcegraph Cody",
+        description: "AI coding assistant that understands your entire codebase for better suggestions!",
+        url: "https://sourcegraph.com/cody",
+        icon: <Code className="w-5 h-5" />,
+        color: "#00B4FF",
+        openInNewTab: true
+      },
+      {
+        id: 34,
+        title: "CodeT5",
+        description: "AI model for code understanding and generation with multilingual support!",
+        url: "https://huggingface.co/Salesforce/codet5-large",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#FF6B6B",
+        openInNewTab: true
+      },
+      {
+        id: 35,
+        title: "Codex by OpenAI",
+        description: "Powerful AI system that translates natural language to code in multiple languages!",
+        url: "https://openai.com/blog/openai-codex",
+        icon: <Zap className="w-5 h-5" />,
+        color: "#412991",
+        openInNewTab: true
+      },
+      {
+        id: 36,
+        title: "Aider",
+        description: "AI pair programming tool that works with your existing codebase in the terminal!",
+        url: "https://aider.chat/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#2ECC71",
+        openInNewTab: true
       }
     ]
   };
