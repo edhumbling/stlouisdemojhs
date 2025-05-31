@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap, ScanText, Search, PenTool, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
 const StaffResourcesPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const StaffResourcesPage: React.FC = () => {
   const [iframeError, setIframeError] = useState(false);
   const [showAlternatives, setShowAlternatives] = useState(false);
   const [autoRedirectTimer, setAutoRedirectTimer] = useState<number | null>(null);
+  const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { setShowHeader } = useHeader();
 
@@ -250,6 +252,65 @@ const StaffResourcesPage: React.FC = () => {
   // Flatten all resources for backward compatibility
   const resources = Object.values(resourceCategories).flat();
 
+  // Convert resources to searchable items
+  const searchableItems: SearchableItem[] = useMemo(() => {
+    return resources.map(resource => ({
+      id: resource.id,
+      title: resource.title,
+      description: resource.description,
+      category: Object.keys(resourceCategories).find(categoryName =>
+        resourceCategories[categoryName].some(r => r.id === resource.id)
+      ) || 'Other',
+      type: (resource as any).openInNewTab ? 'external' : 'internal',
+      url: resource.url,
+      ...resource
+    }));
+  }, [resources]);
+
+  // Filter options for search
+  const categoryOptions: FilterOption[] = useMemo(() => {
+    return Object.keys(resourceCategories).map(categoryName => ({
+      value: categoryName,
+      label: categoryName,
+      count: resourceCategories[categoryName].length
+    }));
+  }, []);
+
+  const typeOptions: FilterOption[] = [
+    { value: 'external', label: 'External Tools', count: resources.filter(r => (r as any).openInNewTab).length },
+    { value: 'internal', label: 'Internal Resources', count: resources.filter(r => !(r as any).openInNewTab).length }
+  ];
+
+  // Handle search results
+  const handleSearchResults = useCallback((results: SearchableItem[]) => {
+    setSearchResults(results);
+  }, []);
+
+  // Get filtered categories based on search results
+  const filteredCategories = useMemo(() => {
+    if (searchResults.length === 0) {
+      return resourceCategories;
+    }
+
+    // Group search results by category
+    const filtered: Record<string, any[]> = {};
+
+    searchResults.forEach(item => {
+      const categoryName = item.category;
+      if (!filtered[categoryName]) {
+        filtered[categoryName] = [];
+      }
+
+      // Find the original resource
+      const originalResource = resources.find(r => r.id === item.id);
+      if (originalResource) {
+        filtered[categoryName].push(originalResource);
+      }
+    });
+
+    return filtered;
+  }, [searchResults, resources]);
+
   if (selectedResource) {
     // Full-screen embedded view - No header, no footer
     return (
@@ -390,9 +451,36 @@ const StaffResourcesPage: React.FC = () => {
       {/* Main Content - Categorized Resources */}
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+          {/* Introduction */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl mb-4 shadow-2xl">
+              <BookOpen size={32} className="text-white" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              Professional Teaching Resources
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Discover {resources.length}+ carefully curated teaching tools, curriculum guides, and AI-powered resources for educational excellence.
+            </p>
+          </div>
+
+          {/* Smart Search Bar */}
+          <div className="mb-8">
+            <SmartSearchBar
+              items={searchableItems}
+              onSearchResults={handleSearchResults}
+              placeholder={`Search ${resources.length}+ teaching resources...`}
+              accentColor="blue"
+              categories={categoryOptions}
+              types={typeOptions}
+              enableIntentDetection={true}
+              className="mb-6"
+            />
+          </div>
+
           {/* Categorized Resources */}
           <div className="space-y-8">
-            {Object.entries(resourceCategories).map(([categoryName, categoryResources], categoryIndex) => (
+            {Object.entries(filteredCategories).map(([categoryName, categoryResources], categoryIndex) => (
               <motion.div
                 key={categoryName}
                 initial={{ opacity: 0, y: 20 }}
@@ -412,7 +500,7 @@ const StaffResourcesPage: React.FC = () => {
                 </div>
 
                 {/* Category Resources Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                   {categoryResources.map((resource, index) => {
                     const IconComponent = resource.icon;
                     return (
@@ -425,42 +513,73 @@ const StaffResourcesPage: React.FC = () => {
                       >
                         <button
                           onClick={() => openResource(resource.id)}
-                          className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                          className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                         >
-                          {/* New Tab Indicator */}
-                          {resource.openInNewTab && (
-                            <div className="absolute top-2 right-2 w-5 h-5 bg-green-500/80 rounded-full flex items-center justify-center">
-                              <ExternalLink size={12} className="text-white" />
-                            </div>
-                          )}
+                          {/* Background Gradient */}
+                          <div
+                            className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                            style={{
+                              background: `linear-gradient(135deg, ${resource.color.replace('from-', '').replace('to-', '')}20 0%, transparent 50%)`
+                            }}
+                          />
 
-                          {/* Icon with gradient background */}
-                          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white bg-gradient-to-br ${resource.color}`}>
-                            <IconComponent size={20} className="sm:w-6 sm:h-6" />
+                          {/* Status Indicators */}
+                          <div className="absolute top-3 right-3 flex gap-1">
+                            {resource.openInNewTab && (
+                              <div className="w-5 h-5 bg-green-500/80 rounded-full flex items-center justify-center">
+                                <ExternalLink size={12} className="text-white" />
+                              </div>
+                            )}
                           </div>
 
-                          {/* Title */}
-                          <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
-                            {resource.title}
-                          </h3>
-
-                          {/* Subtitle */}
-                          <p className="text-xs text-gray-400 mb-2 font-medium">
-                            {resource.subtitle}
-                          </p>
-
-                          {/* Description */}
-                          <p className="text-xs sm:text-sm text-gray-300 leading-tight">
-                            {resource.description}
-                          </p>
-
-                          {/* New Tab Indicator Text */}
-                          {resource.openInNewTab && (
-                            <div className="mt-2 text-xs text-green-400 flex items-center gap-1">
-                              <ExternalLink size={12} />
-                              <span>Opens in New Tab</span>
+                          {/* Icon Container */}
+                          <div className="relative mb-3 flex-shrink-0">
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 bg-gradient-to-br ${resource.color}`}>
+                              <IconComponent size={20} />
                             </div>
-                          )}
+
+                            {/* Resource Type Indicator */}
+                            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
+                              {resource.openInNewTab ? (
+                                <ExternalLink className="w-2.5 h-2.5 text-blue-400" />
+                              ) : (
+                                <BookOpen className="w-2.5 h-2.5 text-green-400" />
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex-1 flex flex-col space-y-2">
+                            {/* Title */}
+                            <h3 className="text-sm font-bold text-white leading-tight group-hover:text-blue-300 transition-colors duration-300 line-clamp-2">
+                              {resource.title}
+                            </h3>
+
+                            {/* Subtitle */}
+                            <p className="text-xs text-blue-400 font-medium line-clamp-1">
+                              {resource.subtitle}
+                            </p>
+
+                            {/* Description */}
+                            <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                              {resource.description}
+                            </p>
+
+                            {/* Action Footer */}
+                            <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                              <div className="flex items-center gap-1">
+                                <span className="text-xs text-blue-400 font-medium">
+                                  {resource.openInNewTab ? 'External Tool' : 'Internal Resource'}
+                                </span>
+                              </div>
+                              <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors duration-300">
+                                <ExternalLink size={10} className="text-blue-400 group-hover:text-blue-300" />
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Hover Effect Overlay */}
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                         </button>
                       </motion.div>
                     );

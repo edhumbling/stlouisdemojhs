@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Atom, Calculator, Cpu, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen } from 'lucide-react';
+import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
 const STEMPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
+  const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
@@ -194,7 +196,82 @@ const STEMPage: React.FC = () => {
     }
   ];
 
+  // Flatten all resources for search
+  const allResources = useMemo(() => {
+    return stemCategories.flatMap(category =>
+      category.resources.map(resource => ({
+        ...resource,
+        categoryTitle: category.title,
+        categoryDescription: category.description,
+        categoryColor: category.color
+      }))
+    );
+  }, []);
 
+  // Convert resources to searchable items
+  const searchableItems: SearchableItem[] = useMemo(() => {
+    return allResources.map((resource, index) => ({
+      id: `${resource.categoryTitle}-${index}`,
+      title: resource.name,
+      description: `${resource.categoryDescription} - ${resource.categoryTitle}`,
+      category: resource.categoryTitle,
+      type: 'website',
+      url: resource.url,
+      ...resource
+    }));
+  }, [allResources]);
+
+  // Filter options for search
+  const categoryOptions: FilterOption[] = useMemo(() => {
+    return stemCategories.map(category => ({
+      value: category.title,
+      label: category.title,
+      count: category.resources.length
+    }));
+  }, []);
+
+  const typeOptions: FilterOption[] = [
+    { value: 'website', label: 'Websites', count: allResources.length }
+  ];
+
+  // Handle search results
+  const handleSearchResults = useCallback((results: SearchableItem[]) => {
+    setSearchResults(results);
+  }, []);
+
+  // Get filtered categories based on search results
+  const filteredCategories = useMemo(() => {
+    if (searchResults.length === 0) {
+      return stemCategories;
+    }
+
+    // Group search results by category
+    const filtered: any[] = [];
+    const categoryMap = new Map();
+
+    searchResults.forEach(item => {
+      const categoryTitle = item.category;
+      if (!categoryMap.has(categoryTitle)) {
+        const originalCategory = stemCategories.find(cat => cat.title === categoryTitle);
+        if (originalCategory) {
+          categoryMap.set(categoryTitle, {
+            ...originalCategory,
+            resources: []
+          });
+        }
+      }
+
+      const category = categoryMap.get(categoryTitle);
+      if (category) {
+        category.resources.push({
+          name: item.title,
+          url: item.url
+        });
+      }
+    });
+
+    return Array.from(categoryMap.values());
+  }, [searchResults]);
 
   // If a category is selected, show the dedicated category page
   if (selectedCategory) {
@@ -222,7 +299,7 @@ const STEMPage: React.FC = () => {
         {/* All Resources */}
         <main className="flex-1 py-6 sm:py-8">
           <div className="container mx-auto px-3 sm:px-4 max-w-4xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {selectedCategory.resources.map((resource: any, index: number) => (
                 <motion.div
                   key={index}
@@ -283,9 +360,36 @@ const STEMPage: React.FC = () => {
       {/* Main Content */}
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
+          {/* Introduction */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl mb-4 shadow-2xl">
+              <Rocket size={32} className="text-white" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              STEM Learning Resources
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Explore {allResources.length}+ STEM resources across {stemCategories.length} categories to enhance your learning journey.
+            </p>
+          </div>
+
+          {/* Smart Search Bar */}
+          <div className="mb-8">
+            <SmartSearchBar
+              items={searchableItems}
+              onSearchResults={handleSearchResults}
+              placeholder={`Search ${allResources.length}+ STEM resources...`}
+              accentColor="purple"
+              categories={categoryOptions}
+              types={typeOptions}
+              enableIntentDetection={true}
+              className="mb-6"
+            />
+          </div>
+
           {/* STEM Categories Grid - Apple Style */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4 mb-8">
-            {stemCategories.map((category, index) => (
+            {filteredCategories.map((category, index) => (
               <motion.div
                 key={category.id}
                 initial={{ opacity: 0, scale: 0.9 }}

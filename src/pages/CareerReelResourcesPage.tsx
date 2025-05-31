@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, FileText, Video, Download, ExternalLink, Play, BookOpen, Users, Target, Briefcase, PenTool, Link } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
 interface Resource {
   id: string;
@@ -21,6 +22,7 @@ const CareerReelResourcesPage: React.FC = () => {
   const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {
@@ -234,6 +236,66 @@ const CareerReelResourcesPage: React.FC = () => {
   // Flatten all resources for easy access
   const allResources: Resource[] = Object.values(resourceCategories).flat();
 
+  // Convert resources to searchable items
+  const searchableItems: SearchableItem[] = useMemo(() => {
+    return allResources.map(resource => ({
+      id: resource.id,
+      title: resource.title,
+      description: resource.description,
+      category: Object.keys(resourceCategories).find(categoryName =>
+        resourceCategories[categoryName].some(r => r.id === resource.id)
+      ) || 'Other',
+      type: resource.type,
+      url: resource.url,
+      ...resource
+    }));
+  }, [allResources]);
+
+  // Filter options for search
+  const categoryOptions: FilterOption[] = useMemo(() => {
+    return Object.keys(resourceCategories).map(categoryName => ({
+      value: categoryName,
+      label: categoryName,
+      count: resourceCategories[categoryName].length
+    }));
+  }, []);
+
+  const typeOptions: FilterOption[] = [
+    { value: 'tool', label: 'Tools', count: allResources.filter(r => r.type === 'tool').length },
+    { value: 'pdf', label: 'PDFs', count: allResources.filter(r => r.type === 'pdf').length },
+    { value: 'video', label: 'Videos', count: allResources.filter(r => r.type === 'video').length }
+  ];
+
+  // Handle search results
+  const handleSearchResults = useCallback((results: SearchableItem[]) => {
+    setSearchResults(results);
+  }, []);
+
+  // Get filtered categories based on search results
+  const filteredCategories = useMemo(() => {
+    if (searchResults.length === 0) {
+      return resourceCategories;
+    }
+
+    // Group search results by category
+    const filtered: Record<string, Resource[]> = {};
+
+    searchResults.forEach(item => {
+      const categoryName = item.category;
+      if (!filtered[categoryName]) {
+        filtered[categoryName] = [];
+      }
+
+      // Find the original resource
+      const originalResource = allResources.find(r => r.id === item.id);
+      if (originalResource) {
+        filtered[categoryName].push(originalResource);
+      }
+    });
+
+    return filtered;
+  }, [searchResults, allResources]);
+
   const openResource = (resource: Resource, event?: React.MouseEvent) => {
     if (event) {
       event.preventDefault();
@@ -446,13 +508,27 @@ const CareerReelResourcesPage: React.FC = () => {
               Career Development Tools
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Make your job hunt less chaotic and more manageable with our comprehensive career tools and resources.
+              Discover {allResources.length}+ career tools and resources to make your job hunt more manageable.
             </p>
+          </div>
+
+          {/* Smart Search Bar */}
+          <div className="mb-12">
+            <SmartSearchBar
+              items={searchableItems}
+              onSearchResults={handleSearchResults}
+              placeholder={`Search ${allResources.length}+ career resources...`}
+              accentColor="red"
+              categories={categoryOptions}
+              types={typeOptions}
+              enableIntentDetection={true}
+              className="mb-6"
+            />
           </div>
 
           {/* Categorized Resources - Apple Style */}
           <div className="space-y-12">
-            {Object.entries(resourceCategories).map(([categoryName, categoryResources], categoryIndex) => (
+            {Object.entries(filteredCategories).map(([categoryName, categoryResources], categoryIndex) => (
               <motion.div
                 key={categoryName}
                 initial={{ opacity: 0, y: 30 }}
@@ -473,8 +549,8 @@ const CareerReelResourcesPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Category Resources Grid - Small Cute Cards */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                {/* Category Resources Grid - Standardized Cards */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                   {categoryResources.map((resource, index) => (
                     <motion.div
                       key={resource.id}
@@ -486,40 +562,83 @@ const CareerReelResourcesPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={(e) => openResource(resource, e)}
-                        className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                        className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                       >
-                        {/* Type Badge */}
-                        <div className={`absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center ${
-                          resource.type === 'pdf' ? 'bg-red-500/80' :
-                          resource.type === 'video' ? 'bg-red-600/80' : 'bg-green-500/80'
-                        }`}>
-                          <span className="text-white text-xs font-bold">
-                            {resource.type === 'pdf' ? 'PDF' : resource.type === 'video' ? 'VID' : 'TOOL'}
-                          </span>
-                        </div>
-
-                        {/* Icon */}
+                        {/* Background Gradient */}
                         <div
-                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                          style={{ backgroundColor: resource.color }}
-                        >
-                          {resource.icon}
+                          className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                          style={{
+                            background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
+                          }}
+                        />
+
+                        {/* Status Indicators */}
+                        <div className="absolute top-3 right-3 flex gap-1">
+                          <div className={`px-2 py-1 rounded-full text-xs font-bold text-white ${
+                            resource.type === 'pdf' ? 'bg-red-500/80' :
+                            resource.type === 'video' ? 'bg-red-600/80' : 'bg-green-500/80'
+                          }`}>
+                            {resource.type === 'pdf' ? 'PDF' : resource.type === 'video' ? 'VID' : 'TOOL'}
+                          </div>
                         </div>
 
-                        {/* Title */}
-                        <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
-                          {resource.title}
-                        </h3>
+                        {/* Icon Container */}
+                        <div className="relative mb-3 flex-shrink-0">
+                          <div
+                            className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
+                            style={{ backgroundColor: resource.color }}
+                          >
+                            {resource.icon}
+                          </div>
 
-                        {/* Category */}
-                        <p className="text-xs text-gray-400 mb-2 font-medium">
-                          {resource.category}
-                        </p>
+                          {/* Resource Type Indicator */}
+                          <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
+                            {resource.type === 'pdf' ? (
+                              <FileText className="w-2.5 h-2.5 text-red-400" />
+                            ) : resource.type === 'video' ? (
+                              <Video className="w-2.5 h-2.5 text-red-400" />
+                            ) : (
+                              <ExternalLink className="w-2.5 h-2.5 text-green-400" />
+                            )}
+                          </div>
+                        </div>
 
-                        {/* Description */}
-                        <p className="text-xs sm:text-sm text-gray-300 leading-tight">
-                          {resource.description}
-                        </p>
+                        {/* Content */}
+                        <div className="flex-1 flex flex-col space-y-2">
+                          {/* Title */}
+                          <h3 className="text-sm font-bold text-white leading-tight group-hover:text-red-300 transition-colors duration-300 line-clamp-2">
+                            {resource.title}
+                          </h3>
+
+                          {/* Category */}
+                          <p className="text-xs text-red-400 font-medium line-clamp-1">
+                            {resource.category}
+                          </p>
+
+                          {/* Description */}
+                          <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                            {resource.description}
+                          </p>
+
+                          {/* Action Footer */}
+                          <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                            <div className="flex items-center gap-1">
+                              <span className="text-xs text-red-400 font-medium">
+                                {resource.type === 'tool' ? 'External Tool' : resource.type === 'pdf' ? 'PDF Document' : 'Video Tutorial'}
+                              </span>
+                            </div>
+                            <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center group-hover:bg-red-500/30 transition-colors duration-300">
+                              {resource.type === 'tool' ? (
+                                <ExternalLink size={10} className="text-red-400 group-hover:text-red-300" />
+                              ) : (
+                                <Play size={10} className="text-red-400 group-hover:text-red-300" />
+                              )}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Hover Effect Overlay */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                       </button>
                     </motion.div>
                   ))}
