@@ -26,7 +26,12 @@ const MoneySmartLinksPage: React.FC = () => {
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
 
   // Search state management
-  const { handleExternalLinkClick } = useSearchState('money-smart-links');
+  const { handleExternalLinkClick, clearSearchState } = useSearchState('money-smart-links');
+
+  // Clear filters function for the no results button
+  const clearFilters = () => {
+    clearSearchState();
+  };
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {

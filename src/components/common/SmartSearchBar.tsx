@@ -241,6 +241,11 @@ const SmartSearchBar: React.FC<SmartSearchBarProps> = ({
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
   const [isSearching, setIsSearching] = useState(false);
 
+  // Initialize debounced search term when search term changes from external state
+  useEffect(() => {
+    setDebouncedSearchTerm(searchTerm);
+  }, [searchTerm]);
+
   // Debounce search term
   useEffect(() => {
     setIsSearching(true);
