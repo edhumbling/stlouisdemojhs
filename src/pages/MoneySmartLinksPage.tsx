@@ -4446,7 +4446,7 @@ const MoneySmartLinksPage: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => openResource(resource)}
-                          className="w-full bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-gray-600/20 hover:border-gray-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-black/20 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group"
+                          className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-green-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                         >
                           {/* Background Gradient */}
                           <div
@@ -4457,61 +4457,61 @@ const MoneySmartLinksPage: React.FC = () => {
                           />
 
                           {/* Level Badge */}
-                          <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold border backdrop-blur-sm ${getLevelColor(resource.level)}`}>
+                          <div className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold border backdrop-blur-sm ${getLevelColor(resource.level)}`}>
                             {resource.level}
                           </div>
 
                           {/* Icon Container */}
-                          <div className="relative mb-4">
+                          <div className="relative mb-3 flex-shrink-0">
                             <div
-                              className="w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
+                              className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
                               style={{ backgroundColor: resource.color }}
                             >
                               {resource.icon}
                             </div>
 
                             {/* Resource Type Indicator */}
-                            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
+                            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
                               {resource.url.includes('youtube.com') ? (
-                                <Video className="w-3 h-3 text-red-400" />
+                                <Video className="w-2.5 h-2.5 text-red-400" />
                               ) : (
-                                <ExternalLink className="w-3 h-3 text-blue-400" />
+                                <ExternalLink className="w-2.5 h-2.5 text-blue-400" />
                               )}
                             </div>
                           </div>
 
                           {/* Content */}
-                          <div className="space-y-3">
+                          <div className="flex-1 flex flex-col space-y-2">
                             {/* Title */}
-                            <h3 className="text-base font-bold text-white leading-tight pr-12 group-hover:text-green-300 transition-colors duration-300">
+                            <h3 className="text-sm font-bold text-white leading-tight group-hover:text-green-300 transition-colors duration-300 line-clamp-2">
                               {resource.title}
                             </h3>
 
                             {/* Category Tag */}
-                            <div className="inline-flex items-center px-2 py-1 bg-gray-700/50 rounded-lg">
-                              <span className="text-xs font-medium text-gray-300">
+                            <div className="inline-flex items-center px-2 py-1 bg-gray-700/50 rounded-lg flex-shrink-0">
+                              <span className="text-xs font-medium text-gray-300 truncate">
                                 {resource.category}
                               </span>
                             </div>
 
                             {/* Description */}
-                            <p className="text-sm text-gray-400 leading-relaxed line-clamp-3">
+                            <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
                               {resource.description}
                             </p>
 
                             {/* Action Footer */}
-                            <div className="flex items-center justify-between pt-2 border-t border-gray-700/30">
+                            <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
                               <span className="text-xs font-semibold text-green-400 group-hover:text-green-300 transition-colors duration-300">
                                 {resource.url.includes('youtube.com') ? 'Watch Video' : 'Visit Site'}
                               </span>
-                              <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors duration-300">
-                                <ExternalLink size={12} className="text-green-400 group-hover:text-green-300" />
+                              <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center group-hover:bg-green-500/30 transition-colors duration-300">
+                                <ExternalLink size={10} className="text-green-400 group-hover:text-green-300" />
                               </div>
                             </div>
                           </div>
 
                           {/* Hover Effect Overlay */}
-                          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                         </button>
                       </motion.div>
                     ))}

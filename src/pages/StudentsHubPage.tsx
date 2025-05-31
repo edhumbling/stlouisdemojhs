@@ -1419,7 +1419,7 @@ const StudentsHubPage: React.FC = () => {
                 </div>
 
                 {/* Category Resources Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                   {categoryResources.map((resource, index) => (
                     <motion.div
                       key={resource.id}
@@ -1430,55 +1430,84 @@ const StudentsHubPage: React.FC = () => {
                     >
                       <button
                         onClick={() => handleResourceClick(resource)}
-                        className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                        className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                       >
-                        {/* Smart link indicator */}
-                        {resource.embedStrategy === 'smart' && (
-                          <div className="absolute top-2 right-2 w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
-                            <AlertCircle size={12} className="text-white" />
-                          </div>
-                        )}
-
-                        {/* New tab indicator */}
-                        {resource.openInNewTab && (
-                          <div className="absolute top-2 right-2 w-5 h-5 bg-green-500/80 rounded-full flex items-center justify-center">
-                            <ExternalLink size={12} className="text-white" />
-                          </div>
-                        )}
-
-                        {/* Icon */}
+                        {/* Background Gradient */}
                         <div
-                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                          style={{ backgroundColor: resource.color }}
-                        >
-                          {resource.icon}
+                          className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                          style={{
+                            background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
+                          }}
+                        />
+
+                        {/* Status Indicators */}
+                        <div className="absolute top-3 right-3 flex gap-1">
+                          {resource.embedStrategy === 'smart' && (
+                            <div className="w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
+                              <AlertCircle size={12} className="text-white" />
+                            </div>
+                          )}
+                          {resource.openInNewTab && (
+                            <div className="w-5 h-5 bg-green-500/80 rounded-full flex items-center justify-center">
+                              <ExternalLink size={12} className="text-white" />
+                            </div>
+                          )}
                         </div>
 
-                        {/* Title */}
-                        <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
-                          {resource.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-xs sm:text-sm text-gray-300 leading-tight">
-                          {resource.description}
-                        </p>
-
-                        {/* Smart resource indicator */}
-                        {resource.embedStrategy === 'smart' && (
-                          <div className="mt-2 text-xs text-blue-400 flex items-center gap-1">
-                            <AlertCircle size={12} />
-                            <span>Smart Access</span>
+                        {/* Icon Container */}
+                        <div className="relative mb-3 flex-shrink-0">
+                          <div
+                            className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
+                            style={{ backgroundColor: resource.color }}
+                          >
+                            {resource.icon}
                           </div>
-                        )}
 
-                        {/* New tab indicator text */}
-                        {resource.openInNewTab && (
-                          <div className="mt-2 text-xs text-green-400 flex items-center gap-1">
-                            <ExternalLink size={12} />
-                            <span>Opens in New Tab</span>
+                          {/* Resource Type Indicator */}
+                          <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
+                            {resource.isInternal ? (
+                              <Smartphone className="w-2.5 h-2.5 text-purple-400" />
+                            ) : (
+                              <ExternalLink className="w-2.5 h-2.5 text-blue-400" />
+                            )}
                           </div>
-                        )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-1 flex flex-col space-y-2">
+                          {/* Title */}
+                          <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
+                            {resource.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="text-xs text-gray-400 leading-relaxed line-clamp-3 flex-1">
+                            {resource.description}
+                          </p>
+
+                          {/* Action Footer */}
+                          <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                            <div className="flex items-center gap-1">
+                              {resource.embedStrategy === 'smart' && (
+                                <span className="text-xs text-blue-400 font-medium">Smart</span>
+                              )}
+                              {resource.openInNewTab && (
+                                <span className="text-xs text-green-400 font-medium">External</span>
+                              )}
+                              {!resource.embedStrategy && !resource.openInNewTab && (
+                                <span className="text-xs text-purple-400 font-medium">
+                                  {resource.isInternal ? 'Internal' : 'Website'}
+                                </span>
+                              )}
+                            </div>
+                            <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
+                              <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Hover Effect Overlay */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                       </button>
                     </motion.div>
                   ))}
