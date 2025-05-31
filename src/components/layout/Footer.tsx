@@ -394,6 +394,8 @@ Primus Interparis
                 <span className="absolute inset-0 -m-0.5 bg-yellow-300/20 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
               </a>
               {" "}- 2012 Alumnus
+              <br />
+              <span className="text-xs text-gray-500">(As a Personal Donation Project)</span>
             </p>
           </div>
         </div>
