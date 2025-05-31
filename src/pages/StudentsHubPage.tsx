@@ -333,6 +333,96 @@ const StudentsHubPage: React.FC = () => {
         icon: <Palette className="w-5 h-5" />,
         color: "#E91E63",
         openInNewTab: true
+      },
+      {
+        id: 48,
+        title: "DALL-E 3",
+        description: "OpenAI's most advanced AI image generator for creating stunning artwork from text!",
+        url: "https://openai.com/dall-e-3",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#412991",
+        openInNewTab: true
+      },
+      {
+        id: 49,
+        title: "Midjourney",
+        description: "Premium AI art generator known for creating beautiful, artistic images!",
+        url: "https://www.midjourney.com/",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#FF6B35",
+        openInNewTab: true
+      },
+      {
+        id: 50,
+        title: "Stable Diffusion",
+        description: "Open-source AI image generator with incredible customization options!",
+        url: "https://stability.ai/stable-diffusion",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#8B5CF6",
+        openInNewTab: true
+      },
+      {
+        id: 51,
+        title: "Leonardo AI",
+        description: "AI-powered creative suite for generating art, designs, and visual content!",
+        url: "https://leonardo.ai/",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#059669",
+        openInNewTab: true
+      },
+      {
+        id: 52,
+        title: "Canva AI",
+        description: "AI-enhanced design platform for creating presentations, posters, and graphics!",
+        url: "https://www.canva.com/ai-image-generator/",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#00C4CC",
+        openInNewTab: true
+      },
+      {
+        id: 53,
+        title: "Adobe Firefly",
+        description: "Adobe's AI creative suite for generating images, text effects, and designs!",
+        url: "https://www.adobe.com/products/firefly.html",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#FF0000",
+        openInNewTab: true
+      },
+      {
+        id: 54,
+        title: "RunwayML",
+        description: "AI-powered video editing and creative tools for next-generation content creation!",
+        url: "https://runwayml.com/",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#000000",
+        openInNewTab: true
+      },
+      {
+        id: 55,
+        title: "Artbreeder",
+        description: "Collaborative AI art platform for creating and evolving unique images!",
+        url: "https://www.artbreeder.com/",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#9333EA",
+        openInNewTab: true
+      },
+      {
+        id: 56,
+        title: "DeepArt",
+        description: "Transform your photos into artwork using AI and famous artistic styles!",
+        url: "https://deepart.io/",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#DC2626",
+        openInNewTab: true
+      },
+      {
+        id: 57,
+        title: "Playground AI",
+        description: "Free AI image generator with powerful editing tools and creative features!",
+        url: "https://playgroundai.com/",
+        icon: <Palette className="w-5 h-5" />,
+        color: "#F59E0B",
+        openInNewTab: true
       }
     ],
     "💻 Coding": [
