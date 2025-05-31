@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Globe, BookOpen } from 'lucide-react';
+import { ArrowLeft, Globe, BookOpen, ExternalLink, Bot } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useHeader } from '../contexts/HeaderContext';
+import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
 const AISearchPage: React.FC = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const AISearchPage: React.FC = () => {
   const [iframeError, setIframeError] = useState(false);
   const [showAlternatives, setShowAlternatives] = useState(false);
   const [autoRedirectTimer, setAutoRedirectTimer] = useState<number | null>(null);
+  const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const { setShowHeader } = useHeader();
 
   const aiEngines = [
@@ -290,6 +292,45 @@ const AISearchPage: React.FC = () => {
   ];
 
   const selectedEngineData = aiEngines.find(engine => engine.id === selectedEngine);
+
+  // Convert engines to searchable items
+  const searchableItems: SearchableItem[] = useMemo(() => {
+    return aiEngines.map(engine => ({
+      id: engine.id,
+      title: engine.name,
+      description: engine.description,
+      category: engine.name.includes('Chat') || engine.name.includes('AI') || engine.name.includes('GPT') ? 'AI Assistants' : 'Search Engines',
+      type: 'ai-tool',
+      url: engine.url,
+      ...engine
+    }));
+  }, []);
+
+  // Filter options for search
+  const categoryOptions: FilterOption[] = [
+    { value: 'AI Assistants', label: 'AI Assistants', count: aiEngines.filter(e => e.name.includes('Chat') || e.name.includes('AI') || e.name.includes('GPT')).length },
+    { value: 'Search Engines', label: 'Search Engines', count: aiEngines.filter(e => !e.name.includes('Chat') && !e.name.includes('AI') && !e.name.includes('GPT')).length }
+  ];
+
+  const typeOptions: FilterOption[] = [
+    { value: 'ai-tool', label: 'AI Tools', count: aiEngines.length }
+  ];
+
+  // Handle search results
+  const handleSearchResults = useCallback((results: SearchableItem[]) => {
+    setSearchResults(results);
+  }, []);
+
+  // Get filtered engines based on search results
+  const filteredEngines = useMemo(() => {
+    if (searchResults.length === 0) {
+      return aiEngines;
+    }
+
+    return searchResults.map(result => {
+      return aiEngines.find(engine => engine.id === result.id);
+    }).filter(Boolean) as typeof aiEngines;
+  }, [searchResults]);
 
   // Control header visibility based on whether we're viewing an individual engine
   useEffect(() => {
@@ -591,10 +632,37 @@ const AISearchPage: React.FC = () => {
 
       {/* Main Content */}
       <main className="flex-1 py-6 sm:py-8">
-        <div className="container mx-auto px-3 sm:px-4 max-w-5xl">
-          {/* AI Engines Grid - Apple Style */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
-            {aiEngines.map((engine, index) => (
+        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+          {/* Introduction */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl mb-4 shadow-2xl">
+              <Bot size={32} className="text-white" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              AI Search & Chat Tools
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Access {aiEngines.length}+ powerful AI search engines and chat assistants in one place.
+            </p>
+          </div>
+
+          {/* Smart Search Bar */}
+          <div className="mb-8">
+            <SmartSearchBar
+              items={searchableItems}
+              onSearchResults={handleSearchResults}
+              placeholder={`Search ${aiEngines.length}+ AI tools...`}
+              accentColor="purple"
+              categories={categoryOptions}
+              types={typeOptions}
+              enableIntentDetection={true}
+              className="mb-6"
+            />
+          </div>
+
+          {/* AI Engines Grid - Standardized Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+            {filteredEngines.map((engine, index) => (
               <motion.div
                 key={engine.id}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -604,41 +672,97 @@ const AISearchPage: React.FC = () => {
               >
                 <button
                   onClick={() => handleEngineClick(engine.id)}
-                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left"
+                  className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
-                  {/* Icon */}
+                  {/* Background Gradient */}
                   <div
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 flex items-center justify-center text-white"
-                    style={{ backgroundColor: engine.glowColor }}
-                  >
-                    {React.isValidElement(engine.icon) && engine.icon.type === 'img' ? (
-                      engine.icon
-                    ) : (
-                      React.cloneElement(engine.icon, {
-                        className: "w-5 h-5"
-                      })
-                    )}
+                    className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                    style={{
+                      background: `linear-gradient(135deg, ${engine.glowColor}20 0%, transparent 50%)`
+                    }}
+                  />
+
+                  {/* Status Indicators */}
+                  <div className="absolute top-3 right-3 flex gap-1">
+                    <div className="px-2 py-1 rounded-full text-xs font-bold text-white bg-purple-500/80">
+                      AI
+                    </div>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight">
-                    {engine.name}
-                  </h3>
+                  {/* Icon Container */}
+                  <div className="relative mb-3 flex-shrink-0">
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
+                      style={{ backgroundColor: engine.glowColor }}
+                    >
+                      {React.isValidElement(engine.icon) && engine.icon.type === 'img' ? (
+                        React.cloneElement(engine.icon, {
+                          className: "w-6 h-6"
+                        })
+                      ) : (
+                        React.cloneElement(engine.icon, {
+                          className: "w-6 h-6"
+                        })
+                      )}
+                    </div>
 
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-300 leading-tight">
-                    {engine.description}
-                  </p>
+                    {/* Resource Type Indicator */}
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
+                      <ExternalLink className="w-2.5 h-2.5 text-purple-400" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 flex flex-col space-y-2">
+                    {/* Title */}
+                    <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
+                      {engine.name}
+                    </h3>
+
+                    {/* Category */}
+                    <p className="text-xs text-purple-400 font-medium line-clamp-1">
+                      {engine.name.includes('Chat') || engine.name.includes('AI') || engine.name.includes('GPT') ? 'AI Assistant' : 'Search Engine'}
+                    </p>
+
+                    {/* Description */}
+                    <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                      {engine.description}
+                    </p>
+
+                    {/* Action Footer */}
+                    <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                      <div className="flex items-center gap-1">
+                        <span className="text-xs text-purple-400 font-medium">
+                          AI Tool
+                        </span>
+                      </div>
+                      <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
+                        <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hover Effect Overlay */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </button>
               </motion.div>
             ))}
           </div>
 
-          {/* Simple Footer Message */}
+          {/* Enhanced Footer Message */}
           <div className="mt-8 sm:mt-12 text-center">
-            <p className="text-sm text-gray-300">
-              Tap any AI search engine to open it within the website
-            </p>
+            <div className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/30">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Bot className="w-5 h-5 text-purple-400" />
+                <h3 className="text-lg font-semibold text-white">AI-Powered Search & Chat</h3>
+              </div>
+              <p className="text-sm text-gray-300 mb-2">
+                Access {aiEngines.length}+ AI tools including ChatGPT, Claude, Gemini, and specialized search engines
+              </p>
+              <p className="text-xs text-gray-400">
+                Click any tool to open it directly in your browser with full functionality
+              </p>
+            </div>
           </div>
         </div>
       </main>
