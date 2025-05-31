@@ -4,6 +4,7 @@ import { ArrowLeft, Globe, BookOpen, ExternalLink, Bot } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
+import { useSearchState } from '../hooks/useSearchState';
 
 const AISearchPage: React.FC = () => {
   const navigate = useNavigate();
@@ -14,6 +15,9 @@ const AISearchPage: React.FC = () => {
   const [autoRedirectTimer, setAutoRedirectTimer] = useState<number | null>(null);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const { setShowHeader } = useHeader();
+
+  // Search state management
+  const { handleExternalLinkClick } = useSearchState('ai-search');
 
   const aiEngines = [
     {
@@ -412,7 +416,7 @@ const AISearchPage: React.FC = () => {
       // Show brief message then redirect
       setTimeout(() => {
         if (engineData) {
-          window.open(engineData.url, '_blank', 'noopener,noreferrer');
+          handleExternalLinkClick(engineData.url);
           // Go back to main page
           setTimeout(() => {
             setSelectedEngine(null);
@@ -433,7 +437,7 @@ const AISearchPage: React.FC = () => {
 
         // Show error message briefly then redirect
         setTimeout(() => {
-          window.open(engineData.url, '_blank', 'noopener,noreferrer');
+          handleExternalLinkClick(engineData.url);
           // Go back to main page after opening
           setTimeout(() => {
             setSelectedEngine(null);
@@ -474,7 +478,7 @@ const AISearchPage: React.FC = () => {
     if (engineData) {
       console.log(`Auto-redirecting ${engineData.name} to browser due to iframe error`);
       setTimeout(() => {
-        window.open(engineData.url, '_blank', 'noopener,noreferrer');
+        handleExternalLinkClick(engineData.url);
         // Go back to main page after opening
         setTimeout(() => {
           setSelectedEngine(null);
@@ -487,7 +491,7 @@ const AISearchPage: React.FC = () => {
 
   const handleOpenInBrowser = () => {
     if (selectedEngineData) {
-      window.open(selectedEngineData.url, '_blank', 'noopener,noreferrer');
+      handleExternalLinkClick(selectedEngineData.url);
     }
   };
 
@@ -657,6 +661,8 @@ const AISearchPage: React.FC = () => {
               types={typeOptions}
               enableIntentDetection={true}
               className="mb-6"
+              pageKey="ai-search"
+              onExternalLinkClick={handleExternalLinkClick}
             />
           </div>
 

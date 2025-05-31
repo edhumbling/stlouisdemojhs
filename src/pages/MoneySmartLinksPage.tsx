@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
+import { useSearchState } from '../hooks/useSearchState';
 
 interface FinancialResource {
   id: string;
@@ -23,6 +24,9 @@ const MoneySmartLinksPage: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<FinancialResource | null>(null);
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
+
+  // Search state management
+  const { handleExternalLinkClick } = useSearchState('money-smart-links');
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {
@@ -4758,8 +4762,8 @@ const MoneySmartLinksPage: React.FC = () => {
       // Open YouTube videos in full-screen viewer
       setSelectedVideo(resource);
     } else {
-      // Open other resources in new tab
-      window.open(resource.url, '_blank', 'noopener,noreferrer');
+      // Use external link handler to preserve search state
+      handleExternalLinkClick(resource.url);
     }
   };
 
@@ -4911,6 +4915,8 @@ const MoneySmartLinksPage: React.FC = () => {
               types={typeOptions}
               enableIntentDetection={true}
               className="mb-6"
+              pageKey="money-smart-links"
+              onExternalLinkClick={handleExternalLinkClick}
             />
           </div>
 

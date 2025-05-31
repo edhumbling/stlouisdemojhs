@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { Search, Filter, X, ChevronDown } from 'lucide-react';
+import { useSearchState } from '../../hooks/useSearchState';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export interface SearchableItem {
@@ -30,6 +31,8 @@ export interface SmartSearchBarProps {
   enableIntentDetection?: boolean;
   className?: string;
   searchDelay?: number;
+  pageKey?: string; // For search state management
+  onExternalLinkClick?: (url: string) => void; // For handling external link clicks
 }
 
 export interface SearchIntent {
@@ -209,14 +212,33 @@ const SmartSearchBar: React.FC<SmartSearchBarProps> = ({
   types = [],
   enableIntentDetection = true,
   className = "",
-  searchDelay = 300
+  searchDelay = 300,
+  pageKey,
+  onExternalLinkClick
 }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedLevel, setSelectedLevel] = useState('');
-  const [selectedType, setSelectedType] = useState('');
-  const [showFilters, setShowFilters] = useState(false);
+  // Use search state management if pageKey is provided
+  const searchStateHook = pageKey ? useSearchState(pageKey) : null;
+
+  const [localSearchTerm, setLocalSearchTerm] = useState('');
+  const [localSelectedCategory, setLocalSelectedCategory] = useState('');
+  const [localSelectedLevel, setLocalSelectedLevel] = useState('');
+  const [localSelectedType, setLocalSelectedType] = useState('');
+  const [localShowFilters, setLocalShowFilters] = useState(false);
+
+  // Use either managed state or local state
+  const searchTerm = searchStateHook?.searchState.searchTerm ?? localSearchTerm;
+  const selectedCategory = searchStateHook?.searchState.selectedCategory ?? localSelectedCategory;
+  const selectedLevel = searchStateHook?.searchState.selectedLevel ?? localSelectedLevel;
+  const selectedType = searchStateHook?.searchState.selectedType ?? localSelectedType;
+  const showFilters = searchStateHook?.searchState.showFilters ?? localShowFilters;
+
+  const setSearchTerm = searchStateHook?.updateSearchTerm ?? setLocalSearchTerm;
+  const setSelectedCategory = searchStateHook?.updateSelectedCategory ?? setLocalSelectedCategory;
+  const setSelectedLevel = searchStateHook?.updateSelectedLevel ?? setLocalSelectedLevel;
+  const setSelectedType = searchStateHook?.updateSelectedType ?? setLocalSelectedType;
+  const setShowFilters = searchStateHook?.updateShowFilters ?? setLocalShowFilters;
+
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
   const [isSearching, setIsSearching] = useState(false);
 
   // Debounce search term
@@ -333,12 +355,16 @@ const SmartSearchBar: React.FC<SmartSearchBarProps> = ({
 
   // Clear all filters
   const clearFilters = useCallback(() => {
-    setSearchTerm('');
+    if (searchStateHook) {
+      searchStateHook.clearSearchState();
+    } else {
+      setSearchTerm('');
+      setSelectedCategory('');
+      setSelectedLevel('');
+      setSelectedType('');
+    }
     setDebouncedSearchTerm('');
-    setSelectedCategory('');
-    setSelectedLevel('');
-    setSelectedType('');
-  }, []);
+  }, [searchStateHook]);
 
   // Count active filters
   const activeFiltersCount = [selectedCategory, selectedLevel, selectedType].filter(Boolean).length;
