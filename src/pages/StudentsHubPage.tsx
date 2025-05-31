@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, MousePointer, Wind, Globe } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, MousePointer, Wind, Globe, Settings, Workflow, Clock, Mail, Calendar, FileCheck, Repeat, Target, Cpu } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
@@ -192,7 +192,7 @@ const StudentsHubPage: React.FC = () => {
         url: "https://www.khanacademy.org/",
         icon: <GraduationCap className="w-5 h-5" />,
         color: "#14A085",
-        embedStrategy: 'iframe'
+        openInNewTab: true
       },
       {
         id: 59,
@@ -201,7 +201,7 @@ const StudentsHubPage: React.FC = () => {
         url: "https://www.wolframalpha.com/",
         icon: <Calculator className="w-5 h-5" />,
         color: "#FF6C0C",
-        embedStrategy: 'iframe'
+        openInNewTab: true
       },
       {
         id: 60,
@@ -219,7 +219,7 @@ const StudentsHubPage: React.FC = () => {
         url: "https://phet.colorado.edu/",
         icon: <Zap className="w-5 h-5" />,
         color: "#1976D2",
-        embedStrategy: 'iframe'
+        openInNewTab: true
       },
       {
         id: 62,
@@ -255,7 +255,7 @@ const StudentsHubPage: React.FC = () => {
         url: "https://www.nasa.gov/audience/foreducators/",
         icon: <Rocket className="w-5 h-5" />,
         color: "#FC3D21",
-        embedStrategy: 'iframe'
+        openInNewTab: true
       },
       {
         id: 66,
@@ -273,7 +273,7 @@ const StudentsHubPage: React.FC = () => {
         url: "https://scratch.mit.edu/",
         icon: <Code className="w-5 h-5" />,
         color: "#FF8C1A",
-        embedStrategy: 'iframe'
+        openInNewTab: true
       }
     ],
     "🌍 Language & Communication": [
@@ -513,6 +513,98 @@ const StudentsHubPage: React.FC = () => {
         url: "https://playgroundai.com/",
         icon: <Palette className="w-5 h-5" />,
         color: "#F59E0B",
+        openInNewTab: true
+      }
+    ],
+    "⚙️ Automation Tools for Students": [
+      {
+        id: 68,
+        title: "Zapier",
+        description: "Automate workflows between your favorite apps and services - connect everything!",
+        url: "https://zapier.com/",
+        icon: <Workflow className="w-5 h-5" />,
+        color: "#FF4A00",
+        openInNewTab: true
+      },
+      {
+        id: 69,
+        title: "IFTTT",
+        description: "If This Then That - simple automation for your digital life and smart devices!",
+        url: "https://ifttt.com/",
+        icon: <Settings className="w-5 h-5" />,
+        color: "#33C3F0",
+        openInNewTab: true
+      },
+      {
+        id: 70,
+        title: "Notion",
+        description: "All-in-one workspace for notes, tasks, wikis, and databases - organize everything!",
+        url: "https://www.notion.so/",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#000000",
+        openInNewTab: true
+      },
+      {
+        id: 71,
+        title: "Calendly",
+        description: "Automated scheduling tool that eliminates back-and-forth emails!",
+        url: "https://calendly.com/",
+        icon: <Calendar className="w-5 h-5" />,
+        color: "#006BFF",
+        openInNewTab: true
+      },
+      {
+        id: 72,
+        title: "Grammarly",
+        description: "AI-powered writing assistant that automatically checks grammar and style!",
+        url: "https://www.grammarly.com/",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#15C39A",
+        openInNewTab: true
+      },
+      {
+        id: 73,
+        title: "Forest",
+        description: "Productivity app that helps you stay focused and build healthy habits!",
+        url: "https://www.forestapp.cc/",
+        icon: <Target className="w-5 h-5" />,
+        color: "#4CAF50",
+        openInNewTab: true
+      },
+      {
+        id: 74,
+        title: "RescueTime",
+        description: "Automatic time tracking to understand your digital habits and boost productivity!",
+        url: "https://www.rescuetime.com/",
+        icon: <Clock className="w-5 h-5" />,
+        color: "#FF6B35",
+        openInNewTab: true
+      },
+      {
+        id: 75,
+        title: "Todoist",
+        description: "Smart task manager with natural language processing and project organization!",
+        url: "https://todoist.com/",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#E44332",
+        openInNewTab: true
+      },
+      {
+        id: 76,
+        title: "Buffer",
+        description: "Social media automation tool for scheduling and managing posts across platforms!",
+        url: "https://buffer.com/",
+        icon: <Repeat className="w-5 h-5" />,
+        color: "#168EEA",
+        openInNewTab: true
+      },
+      {
+        id: 77,
+        title: "LastPass",
+        description: "Password manager that automatically fills and generates secure passwords!",
+        url: "https://www.lastpass.com/",
+        icon: <Settings className="w-5 h-5" />,
+        color: "#D32D27",
         openInNewTab: true
       }
     ],
