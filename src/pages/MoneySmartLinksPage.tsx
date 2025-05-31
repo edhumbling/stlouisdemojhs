@@ -531,6 +531,676 @@ const MoneySmartLinksPage: React.FC = () => {
         level: 'Intermediate' as const
       }
     ],
+    "🇬🇭 Ghana Youth Financial Education": [
+      {
+        id: 'bank-of-ghana-youth',
+        title: 'Bank of Ghana Youth Financial Literacy',
+        description: 'Central bank youth programs and financial education initiatives',
+        url: 'https://www.bog.gov.gh/financial-literacy/',
+        category: 'Youth Finance Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-stock-exchange-youth',
+        title: 'GSE Youth Investment Club',
+        description: 'Ghana Stock Exchange youth investor education and market literacy',
+        url: 'https://gse.com.gh/investor-education/',
+        category: 'Youth Investing Ghana',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'mtn-mobile-money-ghana',
+        title: 'MTN MoMo Financial Literacy',
+        description: 'Mobile money education and digital financial services for youth',
+        url: 'https://www.mtn.com.gh/momo/',
+        category: 'Digital Finance Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#FFCB05',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'vodafone-cash-ghana',
+        title: 'Vodafone Cash Education',
+        description: 'Digital payment solutions and financial literacy for Ghanaian youth',
+        url: 'https://vodafone.com.gh/vodafone-cash/',
+        category: 'Digital Finance Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#E60000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'airtel-money-ghana',
+        title: 'AirtelTigo Money Education',
+        description: 'Mobile financial services and youth financial inclusion programs',
+        url: 'https://www.airteltigo.com.gh/airtel-money/',
+        category: 'Digital Finance Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-youth-employment',
+        title: 'Ghana Youth Employment Agency (GYEA)',
+        description: 'Youth entrepreneurship and financial empowerment programs',
+        url: 'https://www.gyea.gov.gh/',
+        category: 'Youth Entrepreneurship Ghana',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#006B3C',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'national-youth-authority-ghana',
+        title: 'National Youth Authority Ghana',
+        description: 'Youth development programs including financial literacy initiatives',
+        url: 'https://www.nya.gov.gh/',
+        category: 'Youth Development Ghana',
+        icon: <Users className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-microfinance-institutions',
+        title: 'Ghana Microfinance Institutions Network',
+        description: 'Microfinance education and youth financial inclusion',
+        url: 'https://ghamfin.org/',
+        category: 'Microfinance Ghana',
+        icon: <PiggyBank className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-rural-banks',
+        title: 'Association of Rural Banks Ghana',
+        description: 'Rural banking services and community financial education',
+        url: 'https://www.abrghana.org/',
+        category: 'Rural Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#006B3C',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-cooperative-credit-unions',
+        title: 'Ghana Cooperative Credit Unions Association',
+        description: 'Credit union services and cooperative financial education',
+        url: 'https://www.gccua.com.gh/',
+        category: 'Credit Unions Ghana',
+        icon: <Users className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'fidelity-bank-ghana-youth',
+        title: 'Fidelity Bank Ghana Youth Programs',
+        description: 'Youth banking services and financial literacy programs',
+        url: 'https://www.fidelitybank.com.gh/personal/youth-banking/',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'gcb-bank-youth-ghana',
+        title: 'GCB Bank Youth Account',
+        description: 'Ghana Commercial Bank youth financial services and education',
+        url: 'https://www.gcbbank.com.gh/personal/accounts/youth-account/',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ecobank-ghana-youth',
+        title: 'Ecobank Ghana Youth Banking',
+        description: 'Pan-African bank youth services and financial education',
+        url: 'https://ecobank.com/gh/personal/accounts/youth-account',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'stanbic-bank-ghana-youth',
+        title: 'Stanbic Bank Ghana Youth Programs',
+        description: 'Youth banking solutions and financial literacy initiatives',
+        url: 'https://www.stanbicbank.com.gh/ghana/personal/youth-banking',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'absa-bank-ghana-youth',
+        title: 'Absa Bank Ghana Youth Account',
+        description: 'Youth-focused banking products and financial education',
+        url: 'https://www.absa.com.gh/personal/bank-accounts/youth-account/',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'cal-bank-ghana-youth',
+        title: 'CAL Bank Ghana Youth Banking',
+        description: 'Comprehensive youth banking services and financial literacy',
+        url: 'https://www.calbank.net/personal/accounts/youth-account/',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#006B3C',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'republic-bank-ghana-youth',
+        title: 'Republic Bank Ghana Youth Services',
+        description: 'Youth banking products and financial education programs',
+        url: 'https://www.republicghana.com/personal/accounts/youth-account/',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'uba-ghana-youth',
+        title: 'UBA Ghana Youth Account',
+        description: 'United Bank for Africa youth banking and financial literacy',
+        url: 'https://www.ubagroup.com/countries/gh/personal/accounts/youth-account',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'access-bank-ghana-youth',
+        title: 'Access Bank Ghana Youth Banking',
+        description: 'Youth-centric banking solutions and financial education',
+        url: 'https://ghana.accessbankplc.com/personal/accounts/youth-account/',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'zenith-bank-ghana-youth',
+        title: 'Zenith Bank Ghana Youth Account',
+        description: 'Youth banking services and financial literacy programs',
+        url: 'https://www.zenithbank.com.gh/personal/accounts/youth-account/',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'prudential-bank-ghana-youth',
+        title: 'Prudential Bank Ghana Youth Services',
+        description: 'Youth banking products and financial education initiatives',
+        url: 'https://www.prudentialbank.com.gh/personal/accounts/youth-account/',
+        category: 'Youth Banking Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      }
+    ],
+    "🎥 Ghana YouTube Financial Educators": [
+      {
+        id: 'wode-maya-finance',
+        title: 'Wode Maya - African Finance',
+        description: 'Popular Ghanaian YouTuber covering African economics and finance',
+        url: 'https://www.youtube.com/@wodemaya',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'kwadwo-sheldon-money-talks',
+        title: 'Kwadwo Sheldon - Money Talks',
+        description: 'Ghanaian content creator discussing money, business, and finance',
+        url: 'https://www.youtube.com/@KwadwoSheldon',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'zionfelix-business-talks',
+        title: 'ZionFelix Business & Finance',
+        description: 'Entertainment and business content with financial insights',
+        url: 'https://www.youtube.com/@zionfelixdotcom',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-web-tv-finance',
+        title: 'GhanaWeb TV - Finance & Business',
+        description: 'Leading Ghanaian news platform with financial education content',
+        url: 'https://www.youtube.com/@GhanaWebTV',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'citi-tv-ghana-business',
+        title: 'Citi TV Ghana - Business & Finance',
+        description: 'Ghanaian television station with business and finance programs',
+        url: 'https://www.youtube.com/@CitiTVGH',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'joy-business-ghana',
+        title: 'Joy Business - MultiMedia Group',
+        description: 'Premier Ghanaian business news and financial education',
+        url: 'https://www.youtube.com/@JoyNewsGhana',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'tv3-ghana-business',
+        title: 'TV3 Ghana - Business & Finance',
+        description: 'Leading Ghanaian television with business and finance content',
+        url: 'https://www.youtube.com/@TV3Ghana',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'adom-tv-business',
+        title: 'Adom TV - Business & Finance',
+        description: 'Popular Ghanaian TV station with financial education programs',
+        url: 'https://www.youtube.com/@AdomTV',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-youth-entrepreneur',
+        title: 'Ghana Youth Entrepreneur TV',
+        description: 'Dedicated channel for young Ghanaian entrepreneurs and finance',
+        url: 'https://www.youtube.com/@GhanaYouthEntrepreneur',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'business-ghana-tv',
+        title: 'Business Ghana TV',
+        description: 'Specialized business and finance content for Ghanaian audience',
+        url: 'https://www.youtube.com/@BusinessGhanaTV',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-stock-exchange-youtube',
+        title: 'Ghana Stock Exchange Official',
+        description: 'Official GSE YouTube channel with investor education content',
+        url: 'https://www.youtube.com/@GhanaStockExchange',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'bank-of-ghana-youtube',
+        title: 'Bank of Ghana Official',
+        description: 'Central bank official channel with monetary policy and education',
+        url: 'https://www.youtube.com/@BankofGhana',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-fintech-hub',
+        title: 'Ghana FinTech Hub',
+        description: 'Financial technology education and innovation in Ghana',
+        url: 'https://www.youtube.com/@GhanaFinTechHub',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'young-entrepreneurs-ghana',
+        title: 'Young Entrepreneurs Ghana',
+        description: 'Platform for young Ghanaian entrepreneurs and business education',
+        url: 'https://www.youtube.com/@YoungEntrepreneursGhana',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-investment-club',
+        title: 'Ghana Investment Club',
+        description: 'Investment education and financial literacy for Ghanaians',
+        url: 'https://www.youtube.com/@GhanaInvestmentClub',
+        category: 'YouTube Ghana Finance',
+        icon: <Video className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      }
+    ],
+    "🏫 Ghana Educational Finance Platforms": [
+      {
+        id: 'university-of-ghana-business-school',
+        title: 'University of Ghana Business School',
+        description: 'Premier business education and financial literacy programs',
+        url: 'https://www.ugbs.ug.edu.gh/',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'knust-business-school',
+        title: 'KNUST School of Business',
+        description: 'Kwame Nkrumah University business and finance education',
+        url: 'https://www.knust.edu.gh/ksb/',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ashesi-university-business',
+        title: 'Ashesi University Business Department',
+        description: 'Liberal arts university with strong business and finance programs',
+        url: 'https://www.ashesi.edu.gh/academics/schools-departments/business.html',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'central-university-business',
+        title: 'Central University Business School',
+        description: 'Private university with comprehensive business education',
+        url: 'https://www.central.edu.gh/business-school/',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-institute-management',
+        title: 'Ghana Institute of Management and Public Administration',
+        description: 'Premier management and public administration education',
+        url: 'https://www.gimpa.edu.gh/',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#006B3C',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'wisconsin-university-ghana',
+        title: 'Wisconsin International University Ghana',
+        description: 'International university with business and finance programs',
+        url: 'https://www.wiuc.edu.gh/business-administration/',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'ghana-technology-university',
+        title: 'Ghana Technology University College',
+        description: 'Technology-focused university with business programs',
+        url: 'https://www.gtuc.edu.gh/business/',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'presbyterian-university-business',
+        title: 'Presbyterian University Business School',
+        description: 'Faith-based university with business and economics programs',
+        url: 'https://www.presbyuniversity.edu.gh/business-school/',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'valley-view-university-business',
+        title: 'Valley View University Business School',
+        description: 'Adventist university with comprehensive business education',
+        url: 'https://www.vvu.edu.gh/business-school/',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Advanced' as const
+      },
+      {
+        id: 'methodist-university-business',
+        title: 'Methodist University Business School',
+        description: 'Methodist university with business and finance programs',
+        url: 'https://www.mucg.edu.gh/business-school/',
+        category: 'Higher Education Ghana',
+        icon: <GraduationCap className="w-4 h-4" />,
+        color: '#DC2626',
+        level: 'Advanced' as const
+      }
+    ],
+    "💱 Ghana FinTech & Digital Finance": [
+      {
+        id: 'zeepay-ghana',
+        title: 'Zeepay Ghana',
+        description: 'Digital payment platform and financial services for youth',
+        url: 'https://www.zeepay.com/',
+        category: 'FinTech Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'expresspay-ghana',
+        title: 'ExpressPay Ghana',
+        description: 'Digital payment solutions and financial technology',
+        url: 'https://www.expresspaygh.com/',
+        category: 'FinTech Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'slydepay-ghana',
+        title: 'SlydePay Ghana',
+        description: 'Mobile payment platform for digital transactions',
+        url: 'https://www.slydepay.com.gh/',
+        category: 'FinTech Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'hubtel-ghana',
+        title: 'Hubtel Ghana',
+        description: 'Leading FinTech company with payment and financial services',
+        url: 'https://www.hubtel.com/',
+        category: 'FinTech Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'tigo-cash-ghana',
+        title: 'Tigo Cash Ghana',
+        description: 'Mobile money and digital financial services',
+        url: 'https://www.tigo.com.gh/tigo-cash/',
+        category: 'FinTech Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'paystack-ghana',
+        title: 'Paystack Ghana',
+        description: 'Online payment platform for businesses and individuals',
+        url: 'https://paystack.com/gh/',
+        category: 'FinTech Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'flutterwave-ghana',
+        title: 'Flutterwave Ghana',
+        description: 'Pan-African payment technology company',
+        url: 'https://flutterwave.com/gh/',
+        category: 'FinTech Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'mazzuma-ghana',
+        title: 'Mazzuma Ghana',
+        description: 'Digital payment platform and financial services',
+        url: 'https://www.mazzuma.com/',
+        category: 'FinTech Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'interswitch-ghana',
+        title: 'Interswitch Ghana',
+        description: 'Digital payment and financial technology solutions',
+        url: 'https://www.interswitchgroup.com/gh/',
+        category: 'FinTech Ghana',
+        icon: <DollarSign className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'gh-link-ghana',
+        title: 'GhIPSS (Ghana Interbank Payment)',
+        description: 'National payment system infrastructure and education',
+        url: 'https://www.ghipss.net/',
+        category: 'Payment Systems Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Intermediate' as const
+      }
+    ],
+    "📚 Ghana Financial Literacy Organizations": [
+      {
+        id: 'financial-literacy-ghana',
+        title: 'Financial Literacy Foundation Ghana',
+        description: 'Non-profit organization promoting financial education',
+        url: 'https://www.financialliteracyghana.org/',
+        category: 'Financial Education Ghana',
+        icon: <BookOpen className="w-4 h-4" />,
+        color: '#059669',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'ghana-association-banks',
+        title: 'Ghana Association of Banks',
+        description: 'Banking industry association with financial education programs',
+        url: 'https://www.gab.com.gh/',
+        category: 'Banking Association Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'securities-industry-association-ghana',
+        title: 'Securities Industry Association Ghana',
+        description: 'Capital market education and investor protection',
+        url: 'https://www.sia-ghana.com/',
+        category: 'Securities Ghana',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'insurance-association-ghana',
+        title: 'Ghana Insurance Association',
+        description: 'Insurance industry education and consumer protection',
+        url: 'https://www.gia.com.gh/',
+        category: 'Insurance Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#FF6B35',
+        level: 'Beginner' as const
+      },
+      {
+        id: 'pension-trust-ghana',
+        title: 'National Pensions Regulatory Authority',
+        description: 'Pension education and retirement planning for Ghanaians',
+        url: 'https://www.npra.gov.gh/',
+        category: 'Pensions Ghana',
+        icon: <Building className="w-4 h-4" />,
+        color: '#8B5CF6',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-chamber-commerce',
+        title: 'Ghana National Chamber of Commerce',
+        description: 'Business development and financial education for entrepreneurs',
+        url: 'https://www.ghanachamber.org/',
+        category: 'Business Ghana',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#CE1126',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'association-ghana-industries',
+        title: 'Association of Ghana Industries',
+        description: 'Industrial development and business finance education',
+        url: 'https://www.agighana.org/',
+        category: 'Industry Ghana',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#006B3C',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-employers-association',
+        title: 'Ghana Employers Association',
+        description: 'Employer organization with business and finance resources',
+        url: 'https://www.ghanaemployers.com/',
+        category: 'Employers Ghana',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#FF0000',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'private-enterprise-foundation',
+        title: 'Private Enterprise Foundation Ghana',
+        description: 'Private sector development and entrepreneurship education',
+        url: 'https://www.pef.org.gh/',
+        category: 'Private Sector Ghana',
+        icon: <Briefcase className="w-4 h-4" />,
+        color: '#0066CC',
+        level: 'Intermediate' as const
+      },
+      {
+        id: 'ghana-investment-promotion',
+        title: 'Ghana Investment Promotion Centre',
+        description: 'Investment promotion and business development resources',
+        url: 'https://www.gipcghana.com/',
+        category: 'Investment Ghana',
+        icon: <TrendingUp className="w-4 h-4" />,
+        color: '#FCD116',
+        level: 'Advanced' as const
+      }
+    ],
     "🌍 African Finance & Economics": [
       {
         id: 'bank-of-ghana',
