@@ -1028,29 +1028,452 @@ const StudentsHubPage: React.FC = () => {
     "🎵 Lofi Playlists for Study/Focused Learning": [
       {
         id: 1001,
-        title: "Big Buck Bunny",
-        description: "Open source animated short film for testing",
-        url: "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+        title: "lofi hip hop radio 📚 - beats to relax/study to",
+        description: "24/7 lofi hip hop radio - beats to relax/study to",
+        url: "https://www.youtube.com/watch?v=jfKfPfyJRdk",
         icon: <Music className="w-5 h-5" />,
         color: "#FF6B6B",
         isYouTube: true
       },
       {
         id: 1002,
-        title: "Sintel",
-        description: "Open source animated short film",
-        url: "https://www.youtube.com/watch?v=eRsGyueVLvQ",
+        title: "Chillhop Radio - jazzy & lofi hip hop beats 🐾",
+        description: "24/7 jazzy & lofi hip hop beats radio",
+        url: "https://www.youtube.com/watch?v=5yx6BWlEVcY",
         icon: <Music className="w-5 h-5" />,
         color: "#4ECDC4",
         isYouTube: true
       },
       {
         id: 1003,
-        title: "Tears of Steel",
-        description: "Open source sci-fi short film",
-        url: "https://www.youtube.com/watch?v=R6MlUcmOul8",
+        title: "synthwave radio 🌌 - beats to chill/game to",
+        description: "24/7 synthwave radio - beats to chill/game to",
+        url: "https://www.youtube.com/watch?v=4xDzrJKXOOY",
         icon: <Music className="w-5 h-5" />,
         color: "#45B7D1",
+        isYouTube: true
+      },
+      {
+        id: 1004,
+        title: "Coffee Shop Radio ☕ 24/7 lofi hip-hop beats",
+        description: "Cozy coffee shop atmosphere with lofi music",
+        url: "https://www.youtube.com/watch?v=h2zkV-l_TbY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#96CEB4",
+        isYouTube: true
+      },
+      {
+        id: 1005,
+        title: "1 A.M Study Session 📚 - [lofi hip hop/chill beats]",
+        description: "Late night study vibes with calming lofi beats",
+        url: "https://www.youtube.com/watch?v=lTRiuFIWV54",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FFEAA7",
+        isYouTube: true
+      },
+      {
+        id: 1006,
+        title: "Lofi Hip Hop Mix - Beats to Study/Relax to [1 hour]",
+        description: "1 hour compilation of the best lofi hip hop beats",
+        url: "https://www.youtube.com/watch?v=DWcJFNfaw9c",
+        icon: <Music className="w-5 h-5" />,
+        color: "#DDA0DD",
+        isYouTube: true
+      },
+      {
+        id: 1007,
+        title: "Rainy Day ☔ Lofi Hip Hop Mix [Chill/Study Beats]",
+        description: "Cozy rainy day vibes with lofi beats for studying",
+        url: "https://www.youtube.com/watch?v=4oStw0r33so",
+        icon: <Music className="w-5 h-5" />,
+        color: "#98D8C8",
+        isYouTube: true
+      },
+      {
+        id: 1008,
+        title: "Peaceful Piano Music 🎹 Relaxing Music for Study",
+        description: "Gentle piano melodies perfect for concentration",
+        url: "https://www.youtube.com/watch?v=EcEMX-63PKY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F7DC6F",
+        isYouTube: true
+      },
+      {
+        id: 1009,
+        title: "Library Ambience 📚 Background Noise for Studying",
+        description: "Quiet library atmosphere with subtle background sounds",
+        url: "https://www.youtube.com/watch?v=2_5EJPh3MdE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#AED6F1",
+        isYouTube: true
+      },
+      {
+        id: 1010,
+        title: "Jazz Lofi Hip Hop Mix 🎷 Smooth Beats to Study/Relax",
+        description: "Smooth jazz-influenced lofi beats for focus",
+        url: "https://www.youtube.com/watch?v=Ak6rkjkANaY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F8C471",
+        isYouTube: true
+      },
+      {
+        id: 1011,
+        title: "Lofi Fruits Music 🍓 Chill Beats to Study/Relax",
+        description: "Fresh and colorful lofi beats with fruit-themed visuals",
+        url: "https://www.youtube.com/watch?v=rUxyKA_-grg",
+        icon: <Music className="w-5 h-5" />,
+        color: "#82E0AA",
+        isYouTube: true
+      },
+      {
+        id: 1012,
+        title: "Vintage Lofi 📻 Old School Hip Hop Beats",
+        description: "Classic vintage-style lofi with nostalgic vibes",
+        url: "https://www.youtube.com/watch?v=1K4Ym5Ib-jE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D7BDE2",
+        isYouTube: true
+      },
+      {
+        id: 1013,
+        title: "Winter Lofi ❄️ Cozy Beats for Cold Days",
+        description: "Seasonal winter lofi perfect for cozy study sessions",
+        url: "https://www.youtube.com/watch?v=MCkPAa8f5a0",
+        icon: <Music className="w-5 h-5" />,
+        color: "#85C1E9",
+        isYouTube: true
+      },
+      {
+        id: 1014,
+        title: "Lofi Guitar 🎸 Acoustic Chill Beats",
+        description: "Gentle acoustic guitar melodies with lofi production",
+        url: "https://www.youtube.com/watch?v=DMuAr_VtHdw",
+        icon: <Music className="w-5 h-5" />,
+        color: "#A9CCE3",
+        isYouTube: true
+      },
+      {
+        id: 1015,
+        title: "Study Sanctuary 🏛️ Focus Music for Deep Work",
+        description: "Create your perfect study environment with these beats",
+        url: "https://www.youtube.com/watch?v=lHvptBJnOgI",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F9E79F",
+        isYouTube: true
+      },
+      {
+        id: 1016,
+        title: "Chill Study Beats 📖 Focus Music for Homework",
+        description: "Minimalist beats designed to enhance focus and productivity",
+        url: "https://www.youtube.com/watch?v=lP26UCnoH9s",
+        icon: <Music className="w-5 h-5" />,
+        color: "#ABEBC6",
+        isYouTube: true
+      },
+      {
+        id: 1017,
+        title: "Coding Music 💻 Programming Lofi Hip Hop Mix",
+        description: "Perfect background music for coding and programming",
+        url: "https://www.youtube.com/watch?v=bmVKaAV_7-A",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D5A6BD",
+        isYouTube: true
+      },
+      {
+        id: 1018,
+        title: "Lofi Sleep Music 😴 Beats for Late Night Study",
+        description: "Soft lofi beats perfect for late-night study sessions",
+        url: "https://www.youtube.com/watch?v=rR4n-0KYeKQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D1ECF1",
+        isYouTube: true
+      },
+      {
+        id: 1019,
+        title: "Lofi Anime 🌸 Study Beats with Anime Visuals",
+        description: "Anime-inspired lofi perfect for manga reading and study",
+        url: "https://www.youtube.com/watch?v=kgx4WGK0oNU",
+        icon: <Music className="w-5 h-5" />,
+        color: "#E8DAEF",
+        isYouTube: true
+      },
+      {
+        id: 1020,
+        title: "Nature Sounds + Lofi 🌿 Forest Study Ambience",
+        description: "Lofi beats combined with relaxing nature sounds",
+        url: "https://www.youtube.com/watch?v=5qap5aO4i9A",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D5F4E6",
+        isYouTube: true
+      },
+      {
+        id: 1021,
+        title: "Midnight Lofi 🌙 Deep Focus for Night Owls",
+        description: "Dark and atmospheric lofi for intense study sessions",
+        url: "https://www.youtube.com/watch?v=DgzSR4WaEpE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D6EAF8",
+        isYouTube: true
+      },
+      {
+        id: 1022,
+        title: "Lofi Jazz Café ☕ Smooth Study Session",
+        description: "Smooth jazz elements blended with lofi aesthetics",
+        url: "https://www.youtube.com/watch?v=Dx5qFachd3A",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FEF9E7",
+        isYouTube: true
+      },
+      {
+        id: 1023,
+        title: "Dreamy Lofi ☁️ Ethereal Beats for Concentration",
+        description: "Ethereal and dreamy beats for deep concentration",
+        url: "https://www.youtube.com/watch?v=36YnV9STBqc",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FDEDEC",
+        isYouTube: true
+      },
+      {
+        id: 1024,
+        title: "Lofi Chill Hop 🎵 Study Session Vibes",
+        description: "Perfect blend of chill and hip hop for active studying",
+        url: "https://www.youtube.com/watch?v=f02mOEt11OQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F8F9FA",
+        isYouTube: true
+      },
+      {
+        id: 1025,
+        title: "Ambient Lofi 🌌 Background Study Music",
+        description: "Subtle ambient textures perfect for background listening",
+        url: "https://www.youtube.com/watch?v=7NOSDKb0HlU",
+        icon: <Music className="w-5 h-5" />,
+        color: "#E9ECEF",
+        isYouTube: true
+      },
+      {
+        id: 1026,
+        title: "Lofi Vibes ✨ Productive Study Motivation",
+        description: "Uplifting lofi vibes to boost productivity and motivation",
+        url: "https://www.youtube.com/watch?v=bebuiaSKtU4",
+        icon: <Music className="w-5 h-5" />,
+        color: "#DEE2E6",
+        isYouTube: true
+      },
+      {
+        id: 1027,
+        title: "Peaceful Lofi 🕊️ Calm Study Environment",
+        description: "Ultra-peaceful beats for stress-free studying",
+        url: "https://www.youtube.com/watch?v=1fueZCTYkpA",
+        icon: <Music className="w-5 h-5" />,
+        color: "#6C757D",
+        isYouTube: true
+      },
+      {
+        id: 1028,
+        title: "Lofi Beats 🎧 Night Owl Study Sessions",
+        description: "Perfect for late-night study sessions and all-nighters",
+        url: "https://www.youtube.com/watch?v=2atVWuF16kE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#495057",
+        isYouTube: true
+      },
+      {
+        id: 1029,
+        title: "Study Lofi 📚 Academic Focus Enhancement",
+        description: "Scientifically optimized lofi for academic performance",
+        url: "https://www.youtube.com/watch?v=9bZkp7q19f0",
+        icon: <Music className="w-5 h-5" />,
+        color: "#343A40",
+        isYouTube: true
+      },
+      {
+        id: 1030,
+        title: "Lofi Chill 🌊 Reading Music for Literature",
+        description: "Perfect accompaniment for reading and literature study",
+        url: "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
+        icon: <Music className="w-5 h-5" />,
+        color: "#212529",
+        isYouTube: true
+      },
+      {
+        id: 1031,
+        title: "Atmospheric Lofi 🌫️ Deep Work Soundscape",
+        description: "Atmospheric soundscapes for deep work and concentration",
+        url: "https://www.youtube.com/watch?v=hHW1oY26kxQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FF6B6B",
+        isYouTube: true
+      },
+      {
+        id: 1032,
+        title: "Lofi Study Playlist 📝 Extended Marathon Session",
+        description: "Extended playlist for marathon study sessions",
+        url: "https://www.youtube.com/watch?v=YQHsXMglC9A",
+        icon: <Music className="w-5 h-5" />,
+        color: "#4ECDC4",
+        isYouTube: true
+      },
+      {
+        id: 1033,
+        title: "Chill Lofi 🧘 Homework Helper Beats",
+        description: "Your reliable homework companion with soothing beats",
+        url: "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#45B7D1",
+        isYouTube: true
+      },
+      {
+        id: 1034,
+        title: "Lofi Focus 🎯 Exam Preparation Music",
+        description: "Specially designed for exam preparation and review sessions",
+        url: "https://www.youtube.com/watch?v=eRsGyueVLvQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#96CEB4",
+        isYouTube: true
+      },
+      {
+        id: 1035,
+        title: "Study Beats 🎼 Lofi Collection for Students",
+        description: "Comprehensive collection of the best study-focused lofi",
+        url: "https://www.youtube.com/watch?v=R6MlUcmOul8",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FFEAA7",
+        isYouTube: true
+      },
+      {
+        id: 1036,
+        title: "Lofi Hip Hop 🧠 Brain Food for Learning",
+        description: "Nutritious beats for your brain during study sessions",
+        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#DDA0DD",
+        isYouTube: true
+      },
+      {
+        id: 1037,
+        title: "Chill Study Vibes 🌈 Lofi Mix for Productivity",
+        description: "The ultimate chill vibes for productive study time",
+        url: "https://www.youtube.com/watch?v=oHg5SJYRHA0",
+        icon: <Music className="w-5 h-5" />,
+        color: "#98D8C8",
+        isYouTube: true
+      },
+      {
+        id: 1038,
+        title: "Lofi Beats 🎨 Study Zone Activation",
+        description: "Enter the study zone with these perfectly crafted beats",
+        url: "https://www.youtube.com/watch?v=ScMzIvxBSi4",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F7DC6F",
+        isYouTube: true
+      },
+      {
+        id: 1039,
+        title: "Ultimate Lofi Study Mix 🏆 Premium Collection",
+        description: "The ultimate compilation of lofi tracks for serious students",
+        url: "https://www.youtube.com/watch?v=astISOttCQ0",
+        icon: <Music className="w-5 h-5" />,
+        color: "#AED6F1",
+        isYouTube: true
+      },
+      {
+        id: 1040,
+        title: "Lofi Morning ☀️ Fresh Start Study Session",
+        description: "Energizing morning lofi to start your study day right",
+        url: "https://www.youtube.com/watch?v=M7lc1UVf-VE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F8C471",
+        isYouTube: true
+      },
+      {
+        id: 1041,
+        title: "Sunset Lofi 🌅 Evening Study Relaxation",
+        description: "Warm sunset vibes for peaceful evening study sessions",
+        url: "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#82E0AA",
+        isYouTube: true
+      },
+      {
+        id: 1042,
+        title: "Lofi Workspace 💼 Professional Study Environment",
+        description: "Professional-grade lofi for serious academic work",
+        url: "https://www.youtube.com/watch?v=QH2-TGUlwu4",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D7BDE2",
+        isYouTube: true
+      },
+      {
+        id: 1043,
+        title: "Minimalist Lofi 🔲 Clean Study Sounds",
+        description: "Clean, minimalist beats for distraction-free studying",
+        url: "https://www.youtube.com/watch?v=nfWlot6h_JM",
+        icon: <Music className="w-5 h-5" />,
+        color: "#85C1E9",
+        isYouTube: true
+      },
+      {
+        id: 1044,
+        title: "Lofi Concentration 🎯 Laser Focus Beats",
+        description: "Laser-focused beats for maximum concentration power",
+        url: "https://www.youtube.com/watch?v=xvFZjo5PgG0",
+        icon: <Music className="w-5 h-5" />,
+        color: "#A9CCE3",
+        isYouTube: true
+      },
+      {
+        id: 1045,
+        title: "Study Flow 🌊 Lofi for Flow State",
+        description: "Designed to help you enter and maintain a flow state",
+        url: "https://www.youtube.com/watch?v=Jjy2YjXXAeE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F9E79F",
+        isYouTube: true
+      },
+      {
+        id: 1046,
+        title: "Lofi Memory 🧩 Cognitive Enhancement Beats",
+        description: "Specially tuned frequencies to enhance memory retention",
+        url: "https://www.youtube.com/watch?v=BaW_jenozKc",
+        icon: <Music className="w-5 h-5" />,
+        color: "#ABEBC6",
+        isYouTube: true
+      },
+      {
+        id: 1047,
+        title: "Creative Lofi 🎨 Inspiration for Projects",
+        description: "Inspiring lofi beats to fuel your creative projects",
+        url: "https://www.youtube.com/watch?v=y6120QOlsfU",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D5A6BD",
+        isYouTube: true
+      },
+      {
+        id: 1048,
+        title: "Lofi Productivity 📈 Efficiency Booster",
+        description: "Productivity-boosting beats for efficient study sessions",
+        url: "https://www.youtube.com/watch?v=ktvTqknDobU",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F8D7DA",
+        isYouTube: true
+      },
+      {
+        id: 1049,
+        title: "Deep Study Lofi 🔍 Research Mode Activation",
+        description: "Deep, contemplative beats for research and analysis",
+        url: "https://www.youtube.com/watch?v=Tn6-PIqc4UM",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D1ECF1",
+        isYouTube: true
+      },
+      {
+        id: 1050,
+        title: "Lofi Mastery 🎓 Academic Excellence Soundtrack",
+        description: "The ultimate soundtrack for academic excellence and mastery",
+        url: "https://www.youtube.com/watch?v=rYEDA3JcQqw",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FADBD8",
         isYouTube: true
       }
     ]
