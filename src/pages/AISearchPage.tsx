@@ -60,6 +60,16 @@ const AISearchPage: React.FC = () => {
       glowColor: '#f97316'
     },
     {
+      id: 't3-chat',
+      name: 'T3 Chat',
+      url: 'https://t3.chat',
+      description: 'Advanced AI chat platform with modern interface and powerful capabilities',
+      icon: <Bot className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-cyan-500 to-blue-600',
+      glowColor: '#0ea5e9',
+      hasWhiteBackground: true
+    },
+    {
       id: 'omniplex',
       name: 'Omniplex AI',
       url: 'https://omniplex.ai',
