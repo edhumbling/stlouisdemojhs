@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, MousePointer, Wind, Globe, Settings, Workflow, Clock, Mail, Calendar, FileCheck, Repeat, Target, Cpu } from 'lucide-react';
+import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, MousePointer, Wind, Globe, Settings, Workflow, Clock, Mail, Calendar, FileCheck, Repeat, Target, Cpu, Music, Play } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
@@ -19,6 +19,8 @@ interface Resource {
   proxyUrls?: string[];
   customScripts?: boolean;
   isUSSD?: boolean;
+  openInNewTab?: boolean;
+  isYouTube?: boolean;
 }
 
 const StudentsHubPage: React.FC = () => {
@@ -987,6 +989,458 @@ const StudentsHubPage: React.FC = () => {
         color: "#2ECC71",
         openInNewTab: true
       }
+    ],
+    "🎵 Lofi Playlists for Study/Focused Learning": [
+      {
+        id: 1001,
+        title: "Chillhop Music - Lofi Hip Hop Radio",
+        description: "24/7 lofi hip hop beats for studying and relaxation",
+        url: "https://www.youtube.com/watch?v=5yx6BWlEVcY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FF6B6B",
+        isYouTube: true
+      },
+      {
+        id: 1002,
+        title: "Lofi Girl - Study Beats",
+        description: "The original lofi study stream that started it all",
+        url: "https://www.youtube.com/watch?v=jfKfPfyJRdk",
+        icon: <Music className="w-5 h-5" />,
+        color: "#4ECDC4",
+        isYouTube: true
+      },
+      {
+        id: 1003,
+        title: "ChilledCow - Lofi Hip Hop Mix",
+        description: "Relaxing beats perfect for concentration and focus",
+        url: "https://www.youtube.com/watch?v=DWcJFNfaw9c",
+        icon: <Music className="w-5 h-5" />,
+        color: "#45B7D1",
+        isYouTube: true
+      },
+      {
+        id: 1004,
+        title: "College Music - Study Lofi",
+        description: "Chill beats designed specifically for academic work",
+        url: "https://www.youtube.com/watch?v=lTRiuFIWV54",
+        icon: <Music className="w-5 h-5" />,
+        color: "#96CEB4",
+        isYouTube: true
+      },
+      {
+        id: 1005,
+        title: "Dreamy - Lofi Study Session",
+        description: "Dreamy atmospheric beats for deep focus",
+        url: "https://www.youtube.com/watch?v=36YnV9STBqc",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FFEAA7",
+        isYouTube: true
+      },
+      {
+        id: 1006,
+        title: "Homework Radio - Lofi Mix",
+        description: "Perfect background music for homework and assignments",
+        url: "https://www.youtube.com/watch?v=f02mOEt11OQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#DDA0DD",
+        isYouTube: true
+      },
+      {
+        id: 1007,
+        title: "Chill Hop Music - Focus Beats",
+        description: "Smooth jazz-influenced lofi for enhanced concentration",
+        url: "https://www.youtube.com/watch?v=7NOSDKb0HlU",
+        icon: <Music className="w-5 h-5" />,
+        color: "#98D8C8",
+        isYouTube: true
+      },
+      {
+        id: 1008,
+        title: "Study MD - Medical Student Lofi",
+        description: "Specially curated for medical and science students",
+        url: "https://www.youtube.com/watch?v=1fueZCTYkpA",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F7DC6F",
+        isYouTube: true
+      },
+      {
+        id: 1009,
+        title: "Ambient Worlds - Library Sounds",
+        description: "Lofi beats mixed with ambient library atmosphere",
+        url: "https://www.youtube.com/watch?v=2_5EJPh3MdE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#AED6F1",
+        isYouTube: true
+      },
+      {
+        id: 1010,
+        title: "Jazz Hop Café - Study Jazz",
+        description: "Jazz-influenced lofi perfect for reading and writing",
+        url: "https://www.youtube.com/watch?v=Dx5qFachd3A",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F8C471",
+        isYouTube: true
+      },
+      {
+        id: 1011,
+        title: "Lofi Fruits Music - Chill Study",
+        description: "Fresh and fruity lofi beats for productive study sessions",
+        url: "https://www.youtube.com/watch?v=rUxyKA_-grg",
+        icon: <Music className="w-5 h-5" />,
+        color: "#82E0AA",
+        isYouTube: true
+      },
+      {
+        id: 1012,
+        title: "The Bootleg Boy - Lofi Remix",
+        description: "Creative lofi remixes of popular songs for studying",
+        url: "https://www.youtube.com/watch?v=2atVWuF16kE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D7BDE2",
+        isYouTube: true
+      },
+      {
+        id: 1013,
+        title: "Chillhop Essentials - Winter",
+        description: "Seasonal lofi collection perfect for cold study nights",
+        url: "https://www.youtube.com/watch?v=MCkPAa8f5a0",
+        icon: <Music className="w-5 h-5" />,
+        color: "#85C1E9",
+        isYouTube: true
+      },
+      {
+        id: 1014,
+        title: "Lofi Hip Hop - Rainy Day",
+        description: "Cozy rainy day vibes for indoor study sessions",
+        url: "https://www.youtube.com/watch?v=4oStw0r33so",
+        icon: <Music className="w-5 h-5" />,
+        color: "#A9CCE3",
+        isYouTube: true
+      },
+      {
+        id: 1015,
+        title: "Study Vibes - Lofi Playlist",
+        description: "Curated playlist of the best lofi tracks for studying",
+        url: "https://www.youtube.com/watch?v=bebuiaSKtU4",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F9E79F",
+        isYouTube: true
+      },
+      {
+        id: 1016,
+        title: "Chill Study Beats - Focus Mode",
+        description: "Minimalist beats designed to enhance focus and productivity",
+        url: "https://www.youtube.com/watch?v=lP26UCnoH9s",
+        icon: <Music className="w-5 h-5" />,
+        color: "#ABEBC6",
+        isYouTube: true
+      },
+      {
+        id: 1017,
+        title: "Lofi Geek - Programming Beats",
+        description: "Perfect background music for coding and programming",
+        url: "https://www.youtube.com/watch?v=bmVKaAV_7-A",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D5A6BD",
+        isYouTube: true
+      },
+      {
+        id: 1018,
+        title: "Peaceful Piano - Lofi Study",
+        description: "Gentle piano melodies mixed with lofi beats",
+        url: "https://www.youtube.com/watch?v=EcEMX-63PKY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F8D7DA",
+        isYouTube: true
+      },
+      {
+        id: 1019,
+        title: "Lofi Sleep - Night Study",
+        description: "Soft lofi beats perfect for late-night study sessions",
+        url: "https://www.youtube.com/watch?v=rR4n-0KYeKQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D1ECF1",
+        isYouTube: true
+      },
+      {
+        id: 1020,
+        title: "Coffee Shop Ambience - Lofi",
+        description: "Recreate the perfect coffee shop study atmosphere",
+        url: "https://www.youtube.com/watch?v=h2zkV-l_TbY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FADBD8",
+        isYouTube: true
+      },
+      {
+        id: 1021,
+        title: "Lofi Anime - Study Beats",
+        description: "Anime-inspired lofi perfect for manga reading and study",
+        url: "https://www.youtube.com/watch?v=kgx4WGK0oNU",
+        icon: <Music className="w-5 h-5" />,
+        color: "#E8DAEF",
+        isYouTube: true
+      },
+      {
+        id: 1022,
+        title: "Synthwave Lofi - Retro Study",
+        description: "80s-inspired synthwave lofi for a retro study vibe",
+        url: "https://www.youtube.com/watch?v=4xDzrJKXOOY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FCF3CF",
+        isYouTube: true
+      },
+      {
+        id: 1023,
+        title: "Nature Sounds + Lofi",
+        description: "Lofi beats combined with relaxing nature sounds",
+        url: "https://www.youtube.com/watch?v=5qap5aO4i9A",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D5F4E6",
+        isYouTube: true
+      },
+      {
+        id: 1024,
+        title: "Midnight Lofi - Deep Focus",
+        description: "Dark and atmospheric lofi for intense study sessions",
+        url: "https://www.youtube.com/watch?v=DgzSR4WaEpE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#D6EAF8",
+        isYouTube: true
+      },
+      {
+        id: 1025,
+        title: "Lofi Guitar - Acoustic Study",
+        description: "Gentle acoustic guitar melodies with lofi production",
+        url: "https://www.youtube.com/watch?v=DMuAr_VtHdw",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FDEBD0",
+        isYouTube: true
+      },
+      {
+        id: 1026,
+        title: "Study Sanctuary - Lofi Mix",
+        description: "Create your perfect study sanctuary with these beats",
+        url: "https://www.youtube.com/watch?v=lHvptBJnOgI",
+        icon: <Music className="w-5 h-5" />,
+        color: "#EBDEF0",
+        isYouTube: true
+      },
+      {
+        id: 1027,
+        title: "Lofi Jazz - Smooth Study",
+        description: "Smooth jazz elements blended with lofi aesthetics",
+        url: "https://www.youtube.com/watch?v=Ak6rkjkANaY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FEF9E7",
+        isYouTube: true
+      },
+      {
+        id: 1028,
+        title: "Vintage Lofi - Classic Study",
+        description: "Classic vinyl-inspired lofi with warm, nostalgic tones",
+        url: "https://www.youtube.com/watch?v=1K4Ym5Ib-jE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#E8F8F5",
+        isYouTube: true
+      },
+      {
+        id: 1029,
+        title: "Lofi Beats to Study/Relax",
+        description: "The perfect balance of energy and calm for productive study",
+        url: "https://www.youtube.com/watch?v=5yx6BWlEVcY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FDF2E9",
+        isYouTube: true
+      },
+      {
+        id: 1030,
+        title: "Chill Lofi Hip Hop Mix",
+        description: "Extended mix of the chillest lofi tracks for long study sessions",
+        url: "https://www.youtube.com/watch?v=7NOSDKb0HlU",
+        icon: <Music className="w-5 h-5" />,
+        color: "#EAF2F8",
+        isYouTube: true
+      },
+      {
+        id: 1031,
+        title: "Lofi Study Beats - Focus Flow",
+        description: "Designed to help you enter and maintain a flow state",
+        url: "https://www.youtube.com/watch?v=rUxyKA_-grg",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F4F6F6",
+        isYouTube: true
+      },
+      {
+        id: 1032,
+        title: "Dreamy Lofi - Concentration",
+        description: "Ethereal and dreamy beats for deep concentration",
+        url: "https://www.youtube.com/watch?v=36YnV9STBqc",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FDEDEC",
+        isYouTube: true
+      },
+      {
+        id: 1033,
+        title: "Lofi Chill Hop - Study Session",
+        description: "Perfect blend of chill and hip hop for active studying",
+        url: "https://www.youtube.com/watch?v=MCkPAa8f5a0",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F8F9FA",
+        isYouTube: true
+      },
+      {
+        id: 1034,
+        title: "Ambient Lofi - Background Study",
+        description: "Subtle ambient textures perfect for background listening",
+        url: "https://www.youtube.com/watch?v=2_5EJPh3MdE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#E9ECEF",
+        isYouTube: true
+      },
+      {
+        id: 1035,
+        title: "Lofi Vibes - Productive Study",
+        description: "Uplifting lofi vibes to boost productivity and motivation",
+        url: "https://www.youtube.com/watch?v=bebuiaSKtU4",
+        icon: <Music className="w-5 h-5" />,
+        color: "#DEE2E6",
+        isYouTube: true
+      },
+      {
+        id: 1036,
+        title: "Chill Study Music - Lofi Mix",
+        description: "Carefully curated mix for optimal study performance",
+        url: "https://www.youtube.com/watch?v=lP26UCnoH9s",
+        icon: <Music className="w-5 h-5" />,
+        color: "#CED4DA",
+        isYouTube: true
+      },
+      {
+        id: 1037,
+        title: "Lofi Hip Hop - Study Grind",
+        description: "Motivational lofi beats for those intense study grinds",
+        url: "https://www.youtube.com/watch?v=bmVKaAV_7-A",
+        icon: <Music className="w-5 h-5" />,
+        color: "#ADB5BD",
+        isYouTube: true
+      },
+      {
+        id: 1038,
+        title: "Peaceful Lofi - Calm Study",
+        description: "Ultra-peaceful beats for stress-free studying",
+        url: "https://www.youtube.com/watch?v=EcEMX-63PKY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#6C757D",
+        isYouTube: true
+      },
+      {
+        id: 1039,
+        title: "Lofi Beats - Night Owl Study",
+        description: "Perfect for late-night study sessions and all-nighters",
+        url: "https://www.youtube.com/watch?v=rR4n-0KYeKQ",
+        icon: <Music className="w-5 h-5" />,
+        color: "#495057",
+        isYouTube: true
+      },
+      {
+        id: 1040,
+        title: "Study Lofi - Academic Focus",
+        description: "Scientifically optimized lofi for academic performance",
+        url: "https://www.youtube.com/watch?v=h2zkV-l_TbY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#343A40",
+        isYouTube: true
+      },
+      {
+        id: 1041,
+        title: "Lofi Chill - Reading Music",
+        description: "Perfect accompaniment for reading and literature study",
+        url: "https://www.youtube.com/watch?v=kgx4WGK0oNU",
+        icon: <Music className="w-5 h-5" />,
+        color: "#212529",
+        isYouTube: true
+      },
+      {
+        id: 1042,
+        title: "Atmospheric Lofi - Deep Work",
+        description: "Atmospheric soundscapes for deep work and concentration",
+        url: "https://www.youtube.com/watch?v=4xDzrJKXOOY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FF6B6B",
+        isYouTube: true
+      },
+      {
+        id: 1043,
+        title: "Lofi Study Playlist - Extended",
+        description: "Extended playlist for marathon study sessions",
+        url: "https://www.youtube.com/watch?v=5qap5aO4i9A",
+        icon: <Music className="w-5 h-5" />,
+        color: "#4ECDC4",
+        isYouTube: true
+      },
+      {
+        id: 1044,
+        title: "Chill Lofi - Homework Helper",
+        description: "Your reliable homework companion with soothing beats",
+        url: "https://www.youtube.com/watch?v=DgzSR4WaEpE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#45B7D1",
+        isYouTube: true
+      },
+      {
+        id: 1045,
+        title: "Lofi Focus - Exam Preparation",
+        description: "Specially designed for exam preparation and review sessions",
+        url: "https://www.youtube.com/watch?v=DMuAr_VtHdw",
+        icon: <Music className="w-5 h-5" />,
+        color: "#96CEB4",
+        isYouTube: true
+      },
+      {
+        id: 1046,
+        title: "Study Beats - Lofi Collection",
+        description: "Comprehensive collection of the best study-focused lofi",
+        url: "https://www.youtube.com/watch?v=lHvptBJnOgI",
+        icon: <Music className="w-5 h-5" />,
+        color: "#FFEAA7",
+        isYouTube: true
+      },
+      {
+        id: 1047,
+        title: "Lofi Hip Hop - Brain Food",
+        description: "Nutritious beats for your brain during study sessions",
+        url: "https://www.youtube.com/watch?v=Ak6rkjkANaY",
+        icon: <Music className="w-5 h-5" />,
+        color: "#DDA0DD",
+        isYouTube: true
+      },
+      {
+        id: 1048,
+        title: "Chill Study Vibes - Lofi Mix",
+        description: "The ultimate chill vibes for productive study time",
+        url: "https://www.youtube.com/watch?v=1K4Ym5Ib-jE",
+        icon: <Music className="w-5 h-5" />,
+        color: "#98D8C8",
+        isYouTube: true
+      },
+      {
+        id: 1049,
+        title: "Lofi Beats - Study Zone",
+        description: "Enter the study zone with these perfectly crafted beats",
+        url: "https://www.youtube.com/watch?v=jfKfPfyJRdk",
+        icon: <Music className="w-5 h-5" />,
+        color: "#F7DC6F",
+        isYouTube: true
+      },
+      {
+        id: 1050,
+        title: "Ultimate Lofi Study Mix",
+        description: "The ultimate compilation of lofi tracks for serious students",
+        url: "https://www.youtube.com/watch?v=DWcJFNfaw9c",
+        icon: <Music className="w-5 h-5" />,
+        color: "#AED6F1",
+        isYouTube: true
+      }
     ]
   };
 
@@ -1108,6 +1562,20 @@ const StudentsHubPage: React.FC = () => {
       return;
     }
 
+    // Handle YouTube videos - open in full screen
+    if (resource.isYouTube) {
+      const videoId = extractYouTubeVideoId(resource.url);
+      if (videoId) {
+        // Open YouTube video in full screen mode
+        const fullScreenUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1&modestbranding=1&rel=0&showinfo=0`;
+        window.open(fullScreenUrl, '_blank', 'noopener,noreferrer');
+      } else {
+        // Fallback to regular YouTube URL
+        window.open(resource.url, '_blank', 'noopener,noreferrer');
+      }
+      return;
+    }
+
     // Handle resources that should open in new tab
     if (resource.openInNewTab) {
       window.open(resource.url, '_blank', 'noopener,noreferrer');
@@ -1131,6 +1599,22 @@ const StudentsHubPage: React.FC = () => {
       setShowAlternatives(false);
       setSelectedResource(resource);
     }
+  };
+
+  // Helper function to extract YouTube video ID from URL
+  const extractYouTubeVideoId = (url: string): string | null => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  // Helper function to get YouTube thumbnail URL
+  const getYouTubeThumbnail = (url: string): string => {
+    const videoId = extractYouTubeVideoId(url);
+    if (videoId) {
+      return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+    }
+    return '/api/placeholder/400/225'; // Fallback placeholder
   };
 
   const handleBack = () => {
@@ -2029,16 +2513,40 @@ const StudentsHubPage: React.FC = () => {
                         onClick={() => handleResourceClick(resource)}
                         className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                       >
-                        {/* Background Gradient */}
-                        <div
-                          className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
-                          style={{
-                            background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
-                          }}
-                        />
+                        {/* YouTube Thumbnail Background for YouTube videos */}
+                        {resource.isYouTube && (
+                          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                            <img
+                              src={getYouTubeThumbnail(resource.url)}
+                              alt={resource.title}
+                              className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                              onError={(e) => {
+                                // Fallback to default gradient if thumbnail fails to load
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
+                          </div>
+                        )}
+
+                        {/* Background Gradient for non-YouTube resources */}
+                        {!resource.isYouTube && (
+                          <div
+                            className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                            style={{
+                              background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
+                            }}
+                          />
+                        )}
 
                         {/* Status Indicators */}
-                        <div className="absolute top-3 right-3 flex gap-1">
+                        <div className="absolute top-3 right-3 flex gap-1 z-10">
+                          {resource.isYouTube && (
+                            <div className="w-6 h-6 bg-red-600/90 rounded-full flex items-center justify-center">
+                              <Play size={12} className="text-white ml-0.5" />
+                            </div>
+                          )}
                           {resource.embedStrategy === 'smart' && (
                             <div className="w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
                               <AlertCircle size={12} className="text-white" />
@@ -2052,17 +2560,19 @@ const StudentsHubPage: React.FC = () => {
                         </div>
 
                         {/* Icon Container */}
-                        <div className="relative mb-3 flex-shrink-0">
+                        <div className="relative mb-3 flex-shrink-0 z-10">
                           <div
                             className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
-                            style={{ backgroundColor: resource.color }}
+                            style={{ backgroundColor: resource.isYouTube ? '#FF0000' : resource.color }}
                           >
-                            {resource.icon}
+                            {resource.isYouTube ? <Music className="w-6 h-6" /> : resource.icon}
                           </div>
 
                           {/* Resource Type Indicator */}
                           <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
-                            {resource.isInternal ? (
+                            {resource.isYouTube ? (
+                              <Play className="w-2.5 h-2.5 text-red-400" />
+                            ) : resource.isInternal ? (
                               <Smartphone className="w-2.5 h-2.5 text-purple-400" />
                             ) : (
                               <ExternalLink className="w-2.5 h-2.5 text-blue-400" />
@@ -2083,22 +2593,33 @@ const StudentsHubPage: React.FC = () => {
                           </p>
 
                           {/* Action Footer */}
-                          <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                          <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto z-10 relative">
                             <div className="flex items-center gap-1">
-                              {resource.embedStrategy === 'smart' && (
+                              {resource.isYouTube && (
+                                <span className="text-xs text-red-400 font-medium">YouTube</span>
+                              )}
+                              {resource.embedStrategy === 'smart' && !resource.isYouTube && (
                                 <span className="text-xs text-blue-400 font-medium">Smart</span>
                               )}
-                              {resource.openInNewTab && (
+                              {resource.openInNewTab && !resource.isYouTube && (
                                 <span className="text-xs text-green-400 font-medium">External</span>
                               )}
-                              {!resource.embedStrategy && !resource.openInNewTab && (
+                              {!resource.embedStrategy && !resource.openInNewTab && !resource.isYouTube && (
                                 <span className="text-xs text-purple-400 font-medium">
                                   {resource.isInternal ? 'Internal' : 'Website'}
                                 </span>
                               )}
                             </div>
-                            <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
-                              <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                            <div className={`w-5 h-5 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                              resource.isYouTube
+                                ? 'bg-red-500/20 group-hover:bg-red-500/30'
+                                : 'bg-purple-500/20 group-hover:bg-purple-500/30'
+                            }`}>
+                              {resource.isYouTube ? (
+                                <Play size={10} className="text-red-400 group-hover:text-red-300 ml-0.5" />
+                              ) : (
+                                <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                              )}
                             </div>
                           </div>
                         </div>
