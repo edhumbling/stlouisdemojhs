@@ -41,7 +41,17 @@ const STEMPage: React.FC = () => {
         { name: "NOVA", url: "https://www.pbs.org/wgbh/nova/" },
         { name: "Science Buddies", url: "https://www.sciencebuddies.org/" },
         { name: "Exploratorium", url: "https://www.exploratorium.edu/" },
-        { name: "How Stuff Works", url: "https://www.howstuffworks.com/" }
+        { name: "How Stuff Works", url: "https://www.howstuffworks.com/" },
+        { name: "PhET Interactive Simulations", url: "https://phet.colorado.edu/" },
+        { name: "Gizmos by ExploreLearning", url: "https://gizmos.explorelearning.com/" },
+        { name: "BrainPOP Science", url: "https://www.brainpop.com/science/" },
+        { name: "Discovery Education", url: "https://www.discoveryeducation.com/" },
+        { name: "Mystery Science", url: "https://mysteryscience.com/" },
+        { name: "National Geographic Kids", url: "https://kids.nationalgeographic.com/" },
+        { name: "Smithsonian's National Museum of Natural History", url: "https://naturalhistory.si.edu/education/teaching-resources" },
+        { name: "SciShow Kids", url: "https://www.youtube.com/user/scishowkids" },
+        { name: "Crash Course Kids", url: "https://www.youtube.com/user/crashcoursekids" },
+        { name: "Science Max", url: "https://www.youtube.com/channel/UCbprhISv-0ReKPPyhf7-Dtw" }
       ]
     },
     {
@@ -62,7 +72,17 @@ const STEMPage: React.FC = () => {
         { name: "Robot Turtles", url: "https://www.thinkfun.com/products/robot-turtles/" },
         { name: "CoderDojo", url: "https://coderdojo.com/" },
         { name: "Youth Digital Summer Camps", url: "https://www.idtech.com/" },
-        { name: "iD Game Design & Development Academy", url: "https://www.idtech.com/courses/game-design-development" }
+        { name: "iD Game Design & Development Academy", url: "https://www.idtech.com/courses/game-design-development" },
+        { name: "FreeCodeCamp", url: "https://www.freecodecamp.org/" },
+        { name: "Replit", url: "https://replit.com/" },
+        { name: "CodePen", url: "https://codepen.io/" },
+        { name: "CodeMonkey", url: "https://www.codemonkey.com/" },
+        { name: "Girls Who Code", url: "https://girlswhocode.com/" },
+        { name: "Blockly Games", url: "https://blockly.games/" },
+        { name: "MIT App Inventor", url: "https://appinventor.mit.edu/" },
+        { name: "Kodu Game Lab", url: "https://www.kodugamelab.com/" },
+        { name: "Alice Programming", url: "https://www.alice.org/" },
+        { name: "Greenfoot Java IDE", url: "https://www.greenfoot.org/" }
       ]
     },
     {
@@ -80,7 +100,17 @@ const STEMPage: React.FC = () => {
         { name: "Zero Robotics Middle School Summer Program", url: "https://zerorobotics.mit.edu/" },
         { name: "Camp Invention", url: "https://www.invent.org/programs/camp-invention" },
         { name: "Engineering for Kids", url: "https://www.engineeringforkids.com/" },
-        { name: "Engineering Summer Camps", url: "https://www.engineeringedu.com/store/index.php?route=information/information&information_id=8" }
+        { name: "Engineering Summer Camps", url: "https://www.engineeringedu.com/store/index.php?route=information/information&information_id=8" },
+        { name: "VEX Robotics", url: "https://www.vexrobotics.com/" },
+        { name: "VEX IQ", url: "https://www.vexrobotics.com/iq" },
+        { name: "Makeblock mBot", url: "https://www.makeblock.com/pages/mbot-robot-kit" },
+        { name: "NASA Robotics Alliance Project", url: "https://robotics.nasa.gov/" },
+        { name: "FIRST Robotics Competition", url: "https://www.firstinspires.org/robotics/frc" },
+        { name: "FIRST LEGO League", url: "https://www.firstinspires.org/robotics/fll" },
+        { name: "Ozobot STEM Learning", url: "https://ozobot.com/" },
+        { name: "Sphero Educational Robots", url: "https://sphero.com/education" },
+        { name: "TryEngineering", url: "https://tryengineering.org/" },
+        { name: "Engineering Games", url: "https://www.engineeringgames.net/" }
       ]
     },
     {
@@ -98,7 +128,17 @@ const STEMPage: React.FC = () => {
         { name: "Mystery Math Town", url: "https://apps.apple.com/us/app/mystery-math-town/id619404402" },
         { name: "Algebra Touch App", url: "https://apps.apple.com/us/app/algebra-touch/id384354262" },
         { name: "Mathemagics Mental Math Tricks", url: "https://apps.apple.com/us/app/mathemagics-mental-math-tricks/id306586847" },
-        { name: "Camp Euclid: A Mathematics Research Camp", url: "https://euclidlab.org/camp-euclid" }
+        { name: "Camp Euclid: A Mathematics Research Camp", url: "https://euclidlab.org/camp-euclid" },
+        { name: "Prodigy Math Game", url: "https://www.prodigygame.com/" },
+        { name: "IXL Math", url: "https://www.ixl.com/math/" },
+        { name: "Wolfram Alpha", url: "https://www.wolframalpha.com/" },
+        { name: "Desmos Graphing Calculator", url: "https://www.desmos.com/calculator" },
+        { name: "GeoGebra", url: "https://www.geogebra.org/" },
+        { name: "Illustrative Mathematics", url: "https://illustrativemathematics.org/" },
+        { name: "Mathway", url: "https://www.mathway.com/" },
+        { name: "DragonBox (Math Learning Games)", url: "https://dragonbox.com/" },
+        { name: "Mathletics", url: "https://www.mathletics.com/" },
+        { name: "ST Math", url: "https://www.stmath.com/" }
       ]
     },
     {
@@ -121,7 +161,17 @@ const STEMPage: React.FC = () => {
         { name: "Robots for iPad App", url: "https://apps.apple.com/us/app/robots-for-ipad/id566581917" },
         { name: "You Can Do the Rubik's Cube", url: "https://www.youcandothecube.com/" },
         { name: "Kinectic City", url: "https://www.kineticcity.com/" },
-        { name: "Zooniverse", url: "https://www.zooniverse.org/" }
+        { name: "Zooniverse", url: "https://www.zooniverse.org/" },
+        { name: "Kerbal Space Program", url: "https://www.kerbalspaceprogram.com/" },
+        { name: "SpaceChem", url: "https://www.zachtronics.com/spacechem/" },
+        { name: "Human Resource Machine", url: "https://tomorrowcorporation.com/humanresourcemachine" },
+        { name: "Portal Series", url: "https://store.steampowered.com/app/400/Portal/" },
+        { name: "World of Goo", url: "https://worldofgoo.com/" },
+        { name: "Fantastic Contraption", url: "https://fantasticcontraption.com/" },
+        { name: "Bridge Constructor", url: "https://www.bridgeconstructor.com/" },
+        { name: "Simple Machines by Tinybop", url: "https://tinybop.com/apps/simple-machines" },
+        { name: "The Robot Factory by Tinybop", url: "https://tinybop.com/apps/robot-factory" },
+        { name: "SciGirls Games", url: "https://pbskids.org/scigirls/games" }
       ]
     },
     {
@@ -140,7 +190,17 @@ const STEMPage: React.FC = () => {
         { name: "Camp Reach", url: "https://www.wpi.edu/academics/pre-collegiate/summer-programs/camp-reach" },
         { name: "Girls' Adventures in Mathematics, Engineering, and Science (G.A.M.E.S.)", url: "https://games.grainger.illinois.edu/" },
         { name: "Students with Potential and Interest, Considering Engineering (S.P.I.C.E.)", url: "https://eng.umd.edu/k12/spice" },
-        { name: "Physics Wonder Girls at Indiana Wesleyan University", url: "https://www.indwes.edu/undergraduate/division-of-natural-sciences/physics-wonder-girls/" }
+        { name: "Physics Wonder Girls at Indiana Wesleyan University", url: "https://www.indwes.edu/undergraduate/division-of-natural-sciences/physics-wonder-girls/" },
+        { name: "Girls Who Code", url: "https://girlswhocode.com/" },
+        { name: "Black Girls CODE", url: "https://www.blackgirlscode.com/" },
+        { name: "Technovation Girls", url: "https://technovationchallenge.org/" },
+        { name: "Million Women Mentors", url: "https://www.millionwomenmentors.org/" },
+        { name: "AAUW (American Association of University Women)", url: "https://www.aauw.org/" },
+        { name: "National Girls Collaborative Project", url: "https://ngcproject.org/" },
+        { name: "SciGirls", url: "https://pbskids.org/scigirls/" },
+        { name: "Expanding Your Horizons", url: "https://www.expandingyourhorizons.org/" },
+        { name: "Girls Inc.", url: "https://girlsinc.org/" },
+        { name: "STEM Like a Girl", url: "https://stemlikeagirl.org/" }
       ]
     },
     {
@@ -152,7 +212,18 @@ const STEMPage: React.FC = () => {
       resources: [
         { name: "Science and Engineering Apprenticeship Program (SEAP)", url: "https://www.navsea.navy.mil/Home/Warfare-Centers/STEM/SEAP/" },
         { name: "Destination Science Camp", url: "https://destinationscience.org/" },
-        { name: "Science Explorers", url: "https://scienceexplorers.com/" }
+        { name: "Science Explorers", url: "https://scienceexplorers.com/" },
+        { name: "iD Tech Camps", url: "https://www.idtech.com/" },
+        { name: "Digital Media Academy", url: "https://www.digitalmediaacademy.org/" },
+        { name: "National Student Leadership Conference (NSLC)", url: "https://www.nslcleaders.org/" },
+        { name: "Johns Hopkins Center for Talented Youth", url: "https://cty.jhu.edu/" },
+        { name: "Stanford Pre-Collegiate Studies", url: "https://precollegiate.stanford.edu/" },
+        { name: "MIT Beaver Works Summer Institute", url: "https://beaverworks.ll.mit.edu/CMS/bw/bwsi" },
+        { name: "Carnegie Mellon Summer Programs", url: "https://www.cmu.edu/pre-college/" },
+        { name: "NASA USRP Internships", url: "https://intern.nasa.gov/" },
+        { name: "Research Science Institute (RSI)", url: "https://www.cee.org/research-science-institute" },
+        { name: "Governor's School Programs", url: "https://www.nagc.org/resources-publications/resources-parents/summer-residential-programs" },
+        { name: "COSMOS UC Programs", url: "https://cosmos.ucop.edu/" }
       ]
     },
     {
@@ -167,7 +238,17 @@ const STEMPage: React.FC = () => {
         { name: "Hello World! (Computer Programming for Kids and Other Beginners)", url: "https://www.amazon.com/Hello-World-Computer-Programming-Beginners/dp/1617290920/" },
         { name: "Bossy (Online Startups for Kids and Teens)", url: "https://www.amazon.com/Bossy-Online-Startups-Kids-Teens/dp/1974078639/" },
         { name: "Python for Kids (A Playful Introduction to Programming)", url: "https://www.amazon.com/Python-Kids-Playful-Introduction-Programming/dp/1593274076/" },
-        { name: "Head First Software Development", url: "https://www.amazon.com/Head-First-Software-Development-Learners/dp/0596527357/" }
+        { name: "Head First Software Development", url: "https://www.amazon.com/Head-First-Software-Development-Learners/dp/0596527357/" },
+        { name: "Coding Games in Scratch", url: "https://www.amazon.com/Coding-Games-Scratch-Jon-Woodcock/dp/1465477330/" },
+        { name: "DK Workbooks: Computer Coding", url: "https://www.amazon.com/DK-Workbooks-Computer-Coding-Woodcock/dp/1465444998/" },
+        { name: "Girls Who Code: Learn to Code and Change the World", url: "https://www.amazon.com/Girls-Who-Code-Learn-Change/dp/042528753X/" },
+        { name: "The Everything Kids' Money Book", url: "https://www.amazon.com/Everything-Kids-Money-Book-Brette/dp/1440506841/" },
+        { name: "National Geographic Kids Everything Robotics", url: "https://www.amazon.com/National-Geographic-Kids-Everything-Robotics/dp/1426320205/" },
+        { name: "The Magic School Bus: Engineering Lab", url: "https://www.amazon.com/Magic-School-Bus-Engineering-Lab/dp/0545685907/" },
+        { name: "Women in Science: 50 Fearless Pioneers", url: "https://www.amazon.com/Women-Science-Fearless-Pioneers-Changed/dp/1607749769/" },
+        { name: "Hidden Figures Young Readers' Edition", url: "https://www.amazon.com/Hidden-Figures-Young-Readers-Edition/dp/0062662376/" },
+        { name: "The Wild Robot", url: "https://www.amazon.com/Wild-Robot-Peter-Brown/dp/0316382000/" },
+        { name: "Rosie Revere, Engineer", url: "https://www.amazon.com/Rosie-Revere-Engineer-Andrea-Beaty/dp/1419708457/" }
       ]
     },
     {
@@ -180,7 +261,21 @@ const STEMPage: React.FC = () => {
         { name: "Nano Science & Engineering Outreach Education Classroom Program", url: "https://www.nnci.net/education-outreach" },
         { name: "Lynda", url: "https://www.linkedin.com/learning/" },
         { name: "Code School", url: "https://www.pluralsight.com/codeschool" },
-        { name: "Pluralsight", url: "https://www.pluralsight.com/" }
+        { name: "Pluralsight", url: "https://www.pluralsight.com/" },
+        { name: "National Science Teachers Association (NSTA)", url: "https://www.nsta.org/" },
+        { name: "Teach Engineering", url: "https://www.teachengineering.org/" },
+        { name: "NASA Educator Resources", url: "https://www.nasa.gov/audience/foreducators/" },
+        { name: "Smithsonian Education", url: "https://www.smithsonianeducation.org/" },
+        { name: "Common Sense Education", url: "https://www.commonsense.org/education/" },
+        { name: "Edutopia", url: "https://www.edutopia.org/" },
+        { name: "STEM Teaching Tools", url: "https://stemteachingtools.org/" },
+        { name: "Next Generation Science Standards", url: "https://www.nextgenscience.org/" },
+        { name: "Project Learning Tree", url: "https://www.plt.org/" },
+        { name: "National Council of Teachers of Mathematics", url: "https://www.nctm.org/" },
+        { name: "International Society for Technology in Education", url: "https://www.iste.org/" },
+        { name: "Code.org for Educators", url: "https://code.org/educate" },
+        { name: "Google for Education", url: "https://edu.google.com/" },
+        { name: "Microsoft Education", url: "https://education.microsoft.com/" }
       ]
     },
     {
@@ -191,7 +286,19 @@ const STEMPage: React.FC = () => {
       color: "#5856D6",
       resources: [
         { name: "Educate to Innovate", url: "https://obamawhitehouse.archives.gov/issues/education/k-12/educate-innovate" },
-        { name: "Women in STEM", url: "https://www.whitehouse.gov/ostp/women-in-stem/" }
+        { name: "Women in STEM", url: "https://www.whitehouse.gov/ostp/women-in-stem/" },
+        { name: "National Science Foundation (NSF)", url: "https://www.nsf.gov/" },
+        { name: "Department of Education STEM", url: "https://www.ed.gov/stem" },
+        { name: "National Institutes of Health (NIH) Education", url: "https://www.nih.gov/health-information/nih-clinical-research-trials-you" },
+        { name: "NOAA Education Resources", url: "https://www.noaa.gov/education" },
+        { name: "Department of Energy STEM", url: "https://www.energy.gov/science-innovation/science-education" },
+        { name: "USDA STEM Education", url: "https://www.usda.gov/topics/education" },
+        { name: "National Institute of Standards and Technology", url: "https://www.nist.gov/education-outreach" },
+        { name: "Centers for Disease Control and Prevention Education", url: "https://www.cdc.gov/healthyschools/" },
+        { name: "Environmental Protection Agency Education", url: "https://www.epa.gov/education" },
+        { name: "National Park Service Education", url: "https://www.nps.gov/teachers/" },
+        { name: "Library of Congress Education", url: "https://www.loc.gov/education/" },
+        { name: "Federal Resources for Educational Excellence", url: "https://www.ed.gov/free" }
       ]
     }
   ];
