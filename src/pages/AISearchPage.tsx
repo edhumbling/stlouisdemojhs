@@ -41,6 +41,16 @@ const AISearchPage: React.FC = () => {
       glowColor: '#ec4899'
     },
     {
+      id: 'chatlima',
+      name: 'ChatLima',
+      url: 'https://chatlima.com',
+      description: 'Advanced AI chat platform with intelligent conversation capabilities',
+      icon: <Bot className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-lime-500 to-green-600',
+      glowColor: '#22c55e',
+      hasWhiteBackground: true
+    },
+    {
       id: 'turboseek',
       name: 'TurboSeek',
       url: 'https://www.turboseek.io',
