@@ -1,7 +1,41 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Mic, FileText, Calculator, Languages, X, ArrowLeft, Users, DollarSign, Briefcase, Lightbulb, ExternalLink, AlertCircle, RefreshCw, Smartphone, Palette, Code, Zap, Heart, Rocket, Library, Book, Archive, GraduationCap, Bot, MousePointer, Wind, Globe, Settings, Workflow, Clock, Mail, Calendar, FileCheck, Repeat, Target, Cpu, Music, Play } from 'lucide-react';
+import {
+  BookOpen,
+  Mic,
+  FileText,
+  Calculator,
+  Languages,
+  ArrowLeft,
+  Users,
+  DollarSign,
+  Briefcase,
+  Lightbulb,
+  ExternalLink,
+  AlertCircle,
+  Smartphone,
+  Palette,
+  Code,
+  Zap,
+  Heart,
+  Rocket,
+  Library,
+  Book,
+  Archive,
+  GraduationCap,
+  Bot,
+  MousePointer,
+  Wind,
+  Globe,
+  Mail,
+  Calendar,
+  FileCheck,
+  Repeat,
+  Target,
+  Music,
+  Play
+} from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
@@ -25,6 +59,7 @@ interface Resource {
 
 const StudentsHubPage: React.FC = () => {
   const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
+  const [selectedYouTubeVideo, setSelectedYouTubeVideo] = useState<Resource | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [iframeError, setIframeError] = useState(false);
   const [currentUrlIndex, setCurrentUrlIndex] = useState(0);
@@ -1562,17 +1597,10 @@ const StudentsHubPage: React.FC = () => {
       return;
     }
 
-    // Handle YouTube videos - open in full screen
+    // Handle YouTube videos - open in dedicated full-screen page within the website
     if (resource.isYouTube) {
-      const videoId = extractYouTubeVideoId(resource.url);
-      if (videoId) {
-        // Open YouTube video in full screen mode
-        const fullScreenUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1&modestbranding=1&rel=0&showinfo=0`;
-        window.open(fullScreenUrl, '_blank', 'noopener,noreferrer');
-      } else {
-        // Fallback to regular YouTube URL
-        window.open(resource.url, '_blank', 'noopener,noreferrer');
-      }
+      setSelectedYouTubeVideo(resource);
+      setShowHeader(false);
       return;
     }
 
@@ -1625,6 +1653,12 @@ const StudentsHubPage: React.FC = () => {
     setShowAlternatives(false);
     setLoadingProgress(0);
     setSmartLoadingPhase('connecting');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackFromYouTube = () => {
+    setSelectedYouTubeVideo(null);
+    setShowHeader(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -2421,6 +2455,67 @@ const StudentsHubPage: React.FC = () => {
               )}
             </div>
           )}
+        </div>
+      </div>
+    );
+  }
+
+  // If a YouTube video is selected, show the full-screen video view
+  if (selectedYouTubeVideo) {
+    const videoId = extractYouTubeVideoId(selectedYouTubeVideo.url);
+    const embedUrl = videoId
+      ? `https://www.youtube.com/embed/${videoId}?autoplay=1&fs=1&modestbranding=1&rel=0&showinfo=0&controls=1`
+      : selectedYouTubeVideo.url;
+
+    return (
+      <div className="min-h-screen bg-black">
+        {/* Header with Back Button */}
+        <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4 pt-20">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={handleBackFromYouTube}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+
+              <div className="flex-1 min-w-0">
+                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                  {selectedYouTubeVideo.title}
+                </h1>
+                <p className="text-sm text-red-200 truncate">
+                  {selectedYouTubeVideo.description}
+                </p>
+              </div>
+
+              {/* YouTube Logo */}
+              <div className="flex items-center gap-2 text-red-200">
+                <Play className="w-5 h-5" />
+                <span className="text-sm font-medium hidden sm:inline">YouTube</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Full-Screen Video Container */}
+        <div className="h-[calc(100vh-80px)] bg-black flex items-center justify-center">
+          <div className="w-full h-full max-w-none">
+            <iframe
+              src={embedUrl}
+              title={selectedYouTubeVideo.title}
+              className="w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              style={{
+                width: '100%',
+                height: '100%',
+                border: 'none',
+                outline: 'none'
+              }}
+            />
+          </div>
         </div>
       </div>
     );
