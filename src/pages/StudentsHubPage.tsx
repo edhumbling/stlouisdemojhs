@@ -1028,47 +1028,29 @@ const StudentsHubPage: React.FC = () => {
     "🎵 Lofi Playlists for Study/Focused Learning": [
       {
         id: 1001,
-        title: "Study Music - Focus Beats",
-        description: "Relaxing background music for studying and concentration",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        title: "Big Buck Bunny",
+        description: "Open source animated short film for testing",
+        url: "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
         icon: <Music className="w-5 h-5" />,
         color: "#FF6B6B",
         isYouTube: true
       },
       {
         id: 1002,
-        title: "Chill Study Playlist",
-        description: "Peaceful lofi beats for homework and reading",
-        url: "https://www.youtube.com/watch?v=9bZkp7q19f0",
+        title: "Sintel",
+        description: "Open source animated short film",
+        url: "https://www.youtube.com/watch?v=eRsGyueVLvQ",
         icon: <Music className="w-5 h-5" />,
         color: "#4ECDC4",
         isYouTube: true
       },
       {
         id: 1003,
-        title: "Piano Study Music",
-        description: "Gentle piano melodies for deep focus",
-        url: "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
+        title: "Tears of Steel",
+        description: "Open source sci-fi short film",
+        url: "https://www.youtube.com/watch?v=R6MlUcmOul8",
         icon: <Music className="w-5 h-5" />,
         color: "#45B7D1",
-        isYouTube: true
-      },
-      {
-        id: 1004,
-        title: "Coffee Shop Ambience",
-        description: "Cozy coffee shop sounds for studying",
-        url: "https://www.youtube.com/watch?v=hHW1oY26kxQ",
-        icon: <Music className="w-5 h-5" />,
-        color: "#96CEB4",
-        isYouTube: true
-      },
-      {
-        id: 1005,
-        title: "Nature Study Sounds",
-        description: "Peaceful nature sounds for concentration",
-        url: "https://www.youtube.com/watch?v=YQHsXMglC9A",
-        icon: <Music className="w-5 h-5" />,
-        color: "#FFEAA7",
         isYouTube: true
       }
     ]
