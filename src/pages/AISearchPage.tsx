@@ -323,6 +323,156 @@ const AISearchPage: React.FC = () => {
       color: 'from-amber-500 to-yellow-600',
       glowColor: '#f59e0b',
       hasWhiteBackground: true
+    },
+    {
+      id: 'wolframalpha',
+      name: 'WolframAlpha',
+      url: 'https://www.wolframalpha.com/',
+      description: 'Searchable knowledge base for computational queries and mathematical problems',
+      icon: <img src="https://www.wolframalpha.com/favicon.ico" alt="WolframAlpha" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ff6600/ffffff?text=W'; }} />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#ff6600',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'you-search',
+      name: 'You.com',
+      url: 'https://you.com/',
+      description: 'AI search engine with personalized results and privacy focus',
+      icon: <img src="https://you.com/favicon.ico" alt="You.com" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/0066cc/ffffff?text=Y'; }} />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#0066cc',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'phind',
+      name: 'Phind',
+      url: 'https://www.phind.com/',
+      description: 'Llama-powered search engine optimized for developers and technical queries',
+      icon: <img src="https://www.phind.com/favicon.ico" alt="Phind" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=P'; }} />,
+      color: 'from-emerald-600 to-green-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'morphic',
+      name: 'Morphic',
+      url: 'https://www.morphic.sh/',
+      description: 'GPT-4o-mini AI search engine with conversational interface',
+      icon: <img src="https://www.morphic.sh/favicon.ico" alt="Morphic" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=M'; }} />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'komo',
+      name: 'Komo AI',
+      url: 'https://komo.ai/',
+      description: 'AI search engine with instant answers and no sign-up required',
+      icon: <img src="https://komo.ai/favicon.ico" alt="Komo AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=K'; }} />,
+      color: 'from-yellow-500 to-orange-600',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'jina-search',
+      name: 'Jina Search',
+      url: 'https://search.jina.ai/',
+      description: 'AI search engine with neural information retrieval capabilities',
+      icon: <img src="https://jina.ai/favicon.ico" alt="Jina Search" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=J'; }} />,
+      color: 'from-blue-500 to-cyan-600',
+      glowColor: '#3b82f6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'felo',
+      name: 'Felo AI',
+      url: 'https://felo.ai/',
+      description: 'AI search engine with AI agents and multilingual support',
+      icon: <img src="https://felo.ai/favicon.ico" alt="Felo AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ec4899/ffffff?text=F'; }} />,
+      color: 'from-pink-500 to-rose-600',
+      glowColor: '#ec4899',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'searc-ai',
+      name: 'Searc.ai',
+      url: 'https://searc.ai/',
+      description: 'AI-powered search engine with intelligent query understanding',
+      icon: <img src="https://searc.ai/favicon.ico" alt="Searc.ai" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/059669/ffffff?text=S'; }} />,
+      color: 'from-green-600 to-emerald-600',
+      glowColor: '#059669',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'rabbitholes',
+      name: 'RabbitHoles',
+      url: 'https://rabbitholes.dojoma.ai/',
+      description: 'Mind map style AI search with visual knowledge exploration',
+      icon: <img src="https://rabbitholes.dojoma.ai/favicon.ico" alt="RabbitHoles" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/7c3aed/ffffff?text=R'; }} />,
+      color: 'from-violet-600 to-purple-600',
+      glowColor: '#7c3aed',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'hika',
+      name: 'Hika',
+      url: 'https://hika.fyi/',
+      description: 'DeepSeek-R1 powered AI search engine with fast results',
+      icon: <img src="https://hika.fyi/favicon.ico" alt="Hika" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/06b6d4/ffffff?text=H'; }} />,
+      color: 'from-cyan-500 to-teal-600',
+      glowColor: '#06b6d4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'ayesoul',
+      name: 'AyeSoul',
+      url: 'https://ayesoul.com/',
+      description: 'AI search engine with personalized results and no sign-up required',
+      icon: <img src="https://ayesoul.com/favicon.ico" alt="AyeSoul" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=A'; }} />,
+      color: 'from-orange-500 to-red-600',
+      glowColor: '#f97316',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'venice',
+      name: 'Venice AI',
+      url: 'https://venice.ai/',
+      description: 'LLama 3 powered AI search engine with privacy focus',
+      icon: <img src="https://venice.ai/favicon.ico" alt="Venice AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/1e40af/ffffff?text=V'; }} />,
+      color: 'from-blue-700 to-indigo-700',
+      glowColor: '#1e40af',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'uncovr',
+      name: 'Uncovr',
+      url: 'https://uncovr.app/',
+      description: 'GPT-4o-mini and Gemini-2.0-Flash powered AI search engine',
+      icon: <img src="https://uncovr.app/favicon.ico" alt="Uncovr" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/dc2626/ffffff?text=U'; }} />,
+      color: 'from-red-600 to-pink-600',
+      glowColor: '#dc2626',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'exa',
+      name: 'Exa',
+      url: 'https://exa.ai/',
+      description: 'AI search engine for finding high-quality web content',
+      icon: <img src="https://exa.ai/favicon.ico" alt="Exa" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/9333ea/ffffff?text=E'; }} />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#9333ea',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'lepton-search',
+      name: 'Lepton Search',
+      url: 'https://search.lepton.run/',
+      description: 'Open-source AI search engine with fast and accurate results',
+      icon: <img src="https://lepton.ai/favicon.ico" alt="Lepton Search" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/0ea5e9/ffffff?text=L'; }} />,
+      color: 'from-sky-500 to-blue-600',
+      glowColor: '#0ea5e9',
+      hasWhiteBackground: true
     }
   ];
 
@@ -437,7 +587,7 @@ const AISearchPage: React.FC = () => {
     const engineData = aiEngines.find(engine => engine.id === engineId);
 
     // List of engines that are known to block iframe embedding - redirect immediately
-    const blockedEngines = ['grok', 'claude', 'chatgpt', 'mistral', 'gemini', 'perplexity', 'perplexity-labs', 'copilot', 'genspark', 'pi', 'manus', 'huggingface'];
+    const blockedEngines = ['grok', 'claude', 'chatgpt', 'mistral', 'gemini', 'perplexity', 'perplexity-labs', 'copilot', 'genspark', 'pi', 'manus', 'huggingface', 'wolframalpha', 'you-search', 'phind', 'venice', 'exa'];
 
     if (blockedEngines.includes(engineId)) {
       console.log(`${engineData?.name} is known to block iframes, redirecting immediately`);
