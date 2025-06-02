@@ -1221,6 +1221,15 @@ const StudentsHubPage: React.FC = () => {
         icon: <Palette className="w-5 h-5" />,
         color: "#8B5CF6",
         isInternal: true
+      },
+      {
+        id: 68,
+        title: "🗣️ AI Text to Speech",
+        description: "Transform text into natural-sounding speech with advanced AI voice generation tools! 🎙️✨",
+        url: "/ai-text-to-speech-tools",
+        icon: <Mic className="w-5 h-5" />,
+        color: "#F59E0B",
+        isInternal: true
       }
     ],
     "🎵 Lofi Playlists for Study/Focused Learning": [
