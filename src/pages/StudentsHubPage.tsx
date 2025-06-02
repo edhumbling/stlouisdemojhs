@@ -38,6 +38,7 @@ import {
 } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface Resource {
   id: number;
@@ -62,6 +63,9 @@ const StudentsHubPage: React.FC = () => {
   const [selectedYouTubeVideo, setSelectedYouTubeVideo] = useState<Resource | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [iframeError, setIframeError] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [showShimmer, setShowShimmer] = useState(true);
+  const [pageLoading, setPageLoading] = useState(true);
   const [currentUrlIndex, setCurrentUrlIndex] = useState(0);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [showAlternatives, setShowAlternatives] = useState(false);
@@ -70,6 +74,18 @@ const StudentsHubPage: React.FC = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const navigate = useNavigate();
   const { setShowHeader } = useHeader();
+
+  // Handle initial page loading with shimmer effect
+  useEffect(() => {
+    setPageLoading(true);
+
+    // Simulate loading time for initial page load
+    const loadingTimer = setTimeout(() => {
+      setPageLoading(false);
+    }, 1500); // 1.5 second initial loading
+
+    return () => clearTimeout(loadingTimer);
+  }, []);
 
   // Control header visibility based on whether we're viewing an individual resource
   useEffect(() => {
@@ -1601,6 +1617,14 @@ const StudentsHubPage: React.FC = () => {
     if (resource.isYouTube) {
       setSelectedYouTubeVideo(resource);
       setShowHeader(false);
+      setShowShimmer(true);
+      setVideoLoaded(false);
+
+      // Simulate loading time for shimmer effect
+      setTimeout(() => {
+        setShowShimmer(false);
+        setVideoLoaded(true);
+      }, 2000); // 2 second shimmer loading
       return;
     }
 
@@ -1659,6 +1683,8 @@ const StudentsHubPage: React.FC = () => {
   const handleBackFromYouTube = () => {
     setSelectedYouTubeVideo(null);
     setShowHeader(true);
+    setShowShimmer(true);
+    setVideoLoaded(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -2500,14 +2526,38 @@ const StudentsHubPage: React.FC = () => {
         </div>
 
         {/* Full-Screen Video Container */}
-        <div className="h-[calc(100vh-80px)] bg-black flex items-center justify-center">
-          <div className="w-full h-full max-w-none">
+        <div className="h-[calc(100vh-80px)] bg-black flex items-center justify-center relative">
+          {/* Shimmer Loading Effect */}
+          {showShimmer && (
+            <div className="absolute inset-0 z-10">
+              <ShimmerLoader
+                variant="silver"
+                className="w-full h-full"
+                width="w-full"
+                height="h-full"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                <div className="text-center text-white">
+                  <div className="w-16 h-16 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                  <p className="text-lg font-medium">Loading Video...</p>
+                  <p className="text-sm text-gray-300 mt-2">Preparing your lofi experience</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Video Player */}
+          <div className={`w-full h-full max-w-none transition-opacity duration-500 ${showShimmer ? 'opacity-0' : 'opacity-100'}`}>
             <iframe
               src={embedUrl}
               title={selectedYouTubeVideo.title}
               className="w-full h-full border-0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
+              onLoad={() => {
+                setShowShimmer(false);
+                setVideoLoaded(true);
+              }}
               style={{
                 width: '100%',
                 height: '100%',
@@ -2517,6 +2567,68 @@ const StudentsHubPage: React.FC = () => {
             />
           </div>
         </div>
+      </div>
+    );
+  }
+
+  // Show shimmer loading for initial page load
+  if (pageLoading) {
+    return (
+      <div className="min-h-screen bg-black pt-16">
+        {/* Header Shimmer */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <ShimmerLoader variant="silver" width="w-20" height="h-10" className="rounded-lg" />
+              <ShimmerLoader variant="silver" width="w-48" height="h-8" className="rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content Shimmer */}
+        <main className="flex-1 py-6 sm:py-8">
+          <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+            {/* Introduction Shimmer */}
+            <div className="text-center mb-8">
+              <ShimmerLoader variant="silver" width="w-16" height="h-16" className="mx-auto mb-4 rounded-2xl" />
+              <ShimmerLoader variant="silver" width="w-64" height="h-8" className="mx-auto mb-4 rounded-lg" />
+              <ShimmerLoader variant="silver" width="w-96" height="h-6" className="mx-auto mb-2 rounded-lg" />
+              <ShimmerLoader variant="silver" width="w-80" height="h-6" className="mx-auto rounded-lg" />
+            </div>
+
+            {/* Search Bar Shimmer */}
+            <div className="mb-8">
+              <ShimmerLoader variant="silver" width="w-full" height="h-12" className="rounded-xl" />
+            </div>
+
+            {/* Categories Shimmer */}
+            <div className="space-y-8">
+              {[1, 2, 3].map((category) => (
+                <div key={category} className="space-y-4">
+                  {/* Category Header Shimmer */}
+                  <div className="flex items-center gap-3">
+                    <ShimmerLoader variant="silver" width="w-48" height="h-8" className="rounded-lg" />
+                    <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent"></div>
+                    <ShimmerLoader variant="silver" width="w-16" height="h-6" className="rounded-full" />
+                  </div>
+
+                  {/* Category Resources Grid Shimmer */}
+                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+                      <ShimmerLoader
+                        key={item}
+                        variant="silver"
+                        width="w-full"
+                        height="h-[200px]"
+                        className="rounded-2xl"
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </main>
       </div>
     );
   }

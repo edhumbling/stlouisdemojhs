@@ -27,6 +27,26 @@ declare module 'lucide-react' {
   export const Wrench: LucideIcon;
   export const DollarSign: LucideIcon;
   export const Briefcase: LucideIcon;
+  export const Mic: LucideIcon;
+  export const FileText: LucideIcon;
+  export const ExternalLink: LucideIcon;
+  export const AlertCircle: LucideIcon;
+  export const Smartphone: LucideIcon;
+  export const Code: LucideIcon;
+  export const Zap: LucideIcon;
+  export const Rocket: LucideIcon;
+  export const Library: LucideIcon;
+  export const Book: LucideIcon;
+  export const Archive: LucideIcon;
+  export const Bot: LucideIcon;
+  export const MousePointer: LucideIcon;
+  export const Wind: LucideIcon;
+  export const Mail: LucideIcon;
+  export const Calendar: LucideIcon;
+  export const FileCheck: LucideIcon;
+  export const Repeat: LucideIcon;
+  export const Target: LucideIcon;
+  export const Play: LucideIcon;
 
   // Add other icons as needed
   const lucideReact: {
