@@ -1039,6 +1039,159 @@ const StudentsHubPage: React.FC = () => {
         icon: <Code className="w-5 h-5" />,
         color: "#2ECC71",
         openInNewTab: true
+      },
+      {
+        id: 48,
+        title: "v0 by Vercel",
+        description: "AI-powered UI generator that creates React components from text descriptions!",
+        url: "https://v0.dev/",
+        icon: <Zap className="w-5 h-5" />,
+        color: "#000000",
+        openInNewTab: true
+      },
+      {
+        id: 49,
+        title: "Continue",
+        description: "Open-source AI code assistant that works with any IDE and any model!",
+        url: "https://continue.dev/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#6366F1",
+        openInNewTab: true
+      },
+      {
+        id: 50,
+        title: "Supermaven",
+        description: "Ultra-fast AI code completion with 1 million token context window!",
+        url: "https://supermaven.com/",
+        icon: <Zap className="w-5 h-5" />,
+        color: "#FF6B35",
+        openInNewTab: true
+      },
+      {
+        id: 51,
+        title: "Blackbox AI",
+        description: "AI-powered coding assistant with code search and generation capabilities!",
+        url: "https://www.blackbox.ai/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#1A1A1A",
+        openInNewTab: true
+      },
+      {
+        id: 52,
+        title: "CodeGPT",
+        description: "AI coding assistant extension for VS Code with multiple AI models!",
+        url: "https://codegpt.co/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#00D4AA",
+        openInNewTab: true
+      },
+      {
+        id: 53,
+        title: "Pieces",
+        description: "AI-powered developer productivity tool for code snippets and workflow!",
+        url: "https://pieces.app/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#FF4081",
+        openInNewTab: true
+      },
+      {
+        id: 54,
+        title: "Refact",
+        description: "AI coding assistant with code completion, chat, and refactoring tools!",
+        url: "https://refact.ai/",
+        icon: <Zap className="w-5 h-5" />,
+        color: "#7C3AED",
+        openInNewTab: true
+      },
+      {
+        id: 55,
+        title: "Bito AI",
+        description: "AI assistant for developers with code generation and explanation features!",
+        url: "https://bito.ai/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#F59E0B",
+        openInNewTab: true
+      },
+      {
+        id: 56,
+        title: "CodeCompanion",
+        description: "AI-powered coding companion for faster development and debugging!",
+        url: "https://codecompanion.ai/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#10B981",
+        openInNewTab: true
+      },
+      {
+        id: 57,
+        title: "Safurai",
+        description: "AI code assistant that helps with code generation, optimization, and debugging!",
+        url: "https://www.safurai.com/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#3B82F6",
+        openInNewTab: true
+      },
+      {
+        id: 58,
+        title: "Mintlify",
+        description: "AI-powered documentation generator that creates beautiful docs from code!",
+        url: "https://mintlify.com/",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#06B6D4",
+        openInNewTab: true
+      },
+      {
+        id: 59,
+        title: "Stenography",
+        description: "AI-powered code documentation tool that automatically documents your codebase!",
+        url: "https://stenography.dev/",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#8B5CF6",
+        openInNewTab: true
+      },
+      {
+        id: 60,
+        title: "Figstack",
+        description: "AI tool suite for reading, writing, and understanding code in any language!",
+        url: "https://figstack.com/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#EF4444",
+        openInNewTab: true
+      },
+      {
+        id: 61,
+        title: "Explain Code",
+        description: "AI-powered code explanation tool that helps understand complex code snippets!",
+        url: "https://explain.dev/",
+        icon: <Lightbulb className="w-5 h-5" />,
+        color: "#F59E0B",
+        openInNewTab: true
+      },
+      {
+        id: 62,
+        title: "CodeConvert",
+        description: "AI-powered code converter that translates code between programming languages!",
+        url: "https://codeconvert.ai/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#10B981",
+        openInNewTab: true
+      },
+      {
+        id: 63,
+        title: "AI Code Translator",
+        description: "Convert code from one programming language to another using AI!",
+        url: "https://ai-code-translator.vercel.app/",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#6366F1",
+        openInNewTab: true
+      },
+      {
+        id: 64,
+        title: "Programming Helper",
+        description: "AI assistant for programming tasks, code generation, and problem solving!",
+        url: "https://www.programming-helper.com/",
+        icon: <Bot className="w-5 h-5" />,
+        color: "#EC4899",
+        openInNewTab: true
       }
     ],
     "🎵 Lofi Playlists for Study/Focused Learning": [
