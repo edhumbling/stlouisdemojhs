@@ -473,6 +473,236 @@ const AISearchPage: React.FC = () => {
       color: 'from-sky-500 to-blue-600',
       glowColor: '#0ea5e9',
       hasWhiteBackground: true
+    },
+    {
+      id: 'scira',
+      name: 'Scira AI',
+      url: 'https://scira.ai/',
+      description: 'Claude Sonnet 3.7, Grok 3, Mistral Small 3.1 with AI search engine capabilities',
+      icon: <img src="https://scira.ai/favicon.ico" alt="Scira AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=S'; }} />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'lmarena',
+      name: 'LMArena',
+      url: 'https://lmarena.ai/',
+      description: 'Multiple chatbots arena with no sign-up required for model comparison',
+      icon: <img src="https://lmarena.ai/favicon.ico" alt="LMArena" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=LM'; }} />,
+      color: 'from-yellow-500 to-orange-600',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'duckduckgo-ai',
+      name: 'DuckDuckGo AI',
+      url: 'https://duck.ai/',
+      description: 'Multiple chatbots including o3-Mini with privacy-focused approach',
+      icon: <img src="https://duck.ai/favicon.ico" alt="DuckDuckGo AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/de5833/ffffff?text=DD'; }} />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#de5833',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'chatk',
+      name: 'ChatK',
+      url: 'https://chat.oaichat.cc/',
+      description: 'GPT-4o and DeepSeek-R1-32b with multiple chatbot access',
+      icon: <img src="https://chat.oaichat.cc/favicon.ico" alt="ChatK" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=CK'; }} />,
+      color: 'from-emerald-600 to-green-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'ai-assistant-bot',
+      name: 'AI Assistant',
+      url: 'https://aiassistantbot.pages.dev/',
+      description: 'Deepseek-R1, Qwen QwQ-32B and multiple chatbots with no sign-up',
+      icon: <img src="https://aiassistantbot.pages.dev/favicon.ico" alt="AI Assistant" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=AI'; }} />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#3b82f6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'gizai',
+      name: 'GizAI',
+      url: 'https://www.giz.ai/',
+      description: 'Multiple chatbots platform with various AI models and capabilities',
+      icon: <img src="https://www.giz.ai/favicon.ico" alt="GizAI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ec4899/ffffff?text=GZ'; }} />,
+      color: 'from-pink-500 to-rose-600',
+      glowColor: '#ec4899',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'scispace',
+      name: 'SciSpace',
+      url: 'https://scispace.com/',
+      description: 'Research paper chatbot for scientific literature and academic queries',
+      icon: <img src="https://scispace.com/favicon.ico" alt="SciSpace" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/059669/ffffff?text=SS'; }} />,
+      color: 'from-green-600 to-emerald-600',
+      glowColor: '#059669',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'learn-about',
+      name: 'Learn About',
+      url: 'https://learning.google.com/experiments/learn-about',
+      description: 'Google\'s educational search AI for learning and discovery',
+      icon: <img src="https://learning.google.com/favicon.ico" alt="Learn About" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/4285f4/ffffff?text=LA'; }} />,
+      color: 'from-blue-500 to-cyan-600',
+      glowColor: '#4285f4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'helixmind',
+      name: 'HelixMind',
+      url: 'https://helixmind.online/',
+      description: 'Multiple chatbots platform with various AI models and capabilities',
+      icon: <img src="https://helixmind.online/favicon.ico" alt="HelixMind" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/7c3aed/ffffff?text=HM'; }} />,
+      color: 'from-violet-600 to-purple-600',
+      glowColor: '#7c3aed',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'infermatic',
+      name: 'Infermatic',
+      url: 'https://infermatic.ai/',
+      description: 'Multiple chatbots platform with advanced AI inference capabilities',
+      icon: <img src="https://infermatic.ai/favicon.ico" alt="Infermatic" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=IF'; }} />,
+      color: 'from-orange-500 to-red-600',
+      glowColor: '#f97316',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'electron-hub',
+      name: 'Electron Hub',
+      url: 'https://www.electronhub.top/',
+      description: 'Deepseek-R1, o3-Mini-High and multiple chatbots platform',
+      icon: <img src="https://www.electronhub.top/favicon.ico" alt="Electron Hub" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/06b6d4/ffffff?text=EH'; }} />,
+      color: 'from-cyan-500 to-teal-600',
+      glowColor: '#06b6d4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'nvidia-nim',
+      name: 'NVIDIA NIM',
+      url: 'https://build.nvidia.com/',
+      description: 'Deepseek-R1 and multiple chatbots with no sign-up required',
+      icon: <img src="https://build.nvidia.com/favicon.ico" alt="NVIDIA NIM" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/76b900/ffffff?text=NV'; }} />,
+      color: 'from-green-500 to-lime-600',
+      glowColor: '#76b900',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'oichat',
+      name: 'OIChat',
+      url: 'https://oichat.cc/',
+      description: 'Multiple chatbots platform with various AI models and capabilities',
+      icon: <img src="https://oichat.cc/favicon.ico" alt="OIChat" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/1e40af/ffffff?text=OI'; }} />,
+      color: 'from-blue-700 to-indigo-700',
+      glowColor: '#1e40af',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'kimi-chat',
+      name: 'Kimi',
+      url: 'https://kimi.moonshot.cn/',
+      description: 'Moonshot AI chatbot with long context understanding capabilities',
+      icon: <img src="https://kimi.moonshot.cn/favicon.ico" alt="Kimi" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/9333ea/ffffff?text=K'; }} />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#9333ea',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'groq-chat',
+      name: 'Groq',
+      url: 'https://groq.com/',
+      description: 'Ultra-fast AI inference with Llama and Mixtral models',
+      icon: <img src="https://groq.com/favicon.ico" alt="Groq" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=GQ'; }} />,
+      color: 'from-orange-500 to-red-600',
+      glowColor: '#f97316',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'sambanova',
+      name: 'SambaNova',
+      url: 'https://cloud.sambanova.ai/',
+      description: 'High-performance AI platform with advanced language models',
+      icon: <img src="https://cloud.sambanova.ai/favicon.ico" alt="SambaNova" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/dc2626/ffffff?text=SN'; }} />,
+      color: 'from-red-600 to-pink-600',
+      glowColor: '#dc2626',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'lambda-chat',
+      name: 'Lambda Chat',
+      url: 'https://lambda.chat/',
+      description: 'Multiple AI models platform with advanced chatbot capabilities',
+      icon: <img src="https://lambda.chat/favicon.ico" alt="Lambda Chat" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/059669/ffffff?text=LC'; }} />,
+      color: 'from-green-600 to-emerald-600',
+      glowColor: '#059669',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'maisa',
+      name: 'Maisa',
+      url: 'https://maisa.ai/',
+      description: 'AI assistant platform with multiple chatbot models and capabilities',
+      icon: <img src="https://maisa.ai/favicon.ico" alt="Maisa" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=MA'; }} />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'meta-ai',
+      name: 'Meta AI',
+      url: 'https://www.meta.ai/',
+      description: 'Meta\'s AI assistant powered by Llama models with advanced capabilities',
+      icon: <img src="https://www.meta.ai/favicon.ico" alt="Meta AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/1877f2/ffffff?text=M'; }} />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#1877f2',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'baidu-chat',
+      name: 'Baidu Chat',
+      url: 'https://yiyan.baidu.com/',
+      description: 'Baidu\'s ERNIE-powered AI chatbot with Chinese language expertise',
+      icon: <img src="https://yiyan.baidu.com/favicon.ico" alt="Baidu Chat" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/2932e1/ffffff?text=BD'; }} />,
+      color: 'from-blue-700 to-indigo-800',
+      glowColor: '#2932e1',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'minimax-ai',
+      name: 'MiniMax AI',
+      url: 'https://www.minimaxi.com/',
+      description: 'Advanced AI chatbot platform with multimodal capabilities',
+      icon: <img src="https://www.minimaxi.com/favicon.ico" alt="MiniMax AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/06b6d4/ffffff?text=MM'; }} />,
+      color: 'from-cyan-500 to-teal-600',
+      glowColor: '#06b6d4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'reka-ai',
+      name: 'Reka',
+      url: 'https://chat.reka.ai/',
+      description: 'Multimodal AI assistant with advanced reasoning capabilities',
+      icon: <img src="https://chat.reka.ai/favicon.ico" alt="Reka" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=R'; }} />,
+      color: 'from-yellow-500 to-orange-600',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'poe-ai',
+      name: 'Poe',
+      url: 'https://poe.com/',
+      description: 'Quora\'s AI platform with access to multiple chatbots and models',
+      icon: <img src="https://poe.com/favicon.ico" alt="Poe" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/7c3aed/ffffff?text=P'; }} />,
+      color: 'from-violet-600 to-purple-600',
+      glowColor: '#7c3aed',
+      hasWhiteBackground: true
     }
   ];
 
@@ -587,7 +817,7 @@ const AISearchPage: React.FC = () => {
     const engineData = aiEngines.find(engine => engine.id === engineId);
 
     // List of engines that are known to block iframe embedding - redirect immediately
-    const blockedEngines = ['grok', 'claude', 'chatgpt', 'mistral', 'gemini', 'perplexity', 'perplexity-labs', 'copilot', 'genspark', 'pi', 'manus', 'huggingface', 'wolframalpha', 'you-search', 'phind', 'venice', 'exa'];
+    const blockedEngines = ['grok', 'claude', 'chatgpt', 'mistral', 'gemini', 'perplexity', 'perplexity-labs', 'copilot', 'genspark', 'pi', 'manus', 'huggingface', 'wolframalpha', 'you-search', 'phind', 'venice', 'exa', 'meta-ai', 'groq-chat', 'poe-ai', 'kimi-chat', 'baidu-chat'];
 
     if (blockedEngines.includes(engineId)) {
       console.log(`${engineData?.name} is known to block iframes, redirecting immediately`);
