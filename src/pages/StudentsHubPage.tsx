@@ -1492,6 +1492,208 @@ const StudentsHubPage: React.FC = () => {
         color: "#FADBD8",
         isYouTube: true
       }
+    ],
+    "📚 Encyclopedias": [
+      {
+        id: 1051,
+        title: "Wikipedia",
+        description: "Free online encyclopedia with millions of articles in multiple languages",
+        url: "https://www.wikipedia.org/",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#000000",
+        openInNewTab: true
+      },
+      {
+        id: 1052,
+        title: "Britannica",
+        description: "Comprehensive encyclopedia with expert-written articles and educational content",
+        url: "https://www.britannica.com/",
+        icon: <BookOpen className="w-5 h-5" />,
+        color: "#1E3A8A",
+        openInNewTab: true
+      },
+      {
+        id: 1053,
+        title: "Encyclopedia.com",
+        description: "Free online encyclopedia with over 200,000 articles from trusted sources",
+        url: "https://www.encyclopedia.com/",
+        icon: <Archive className="w-5 h-5" />,
+        color: "#059669",
+        openInNewTab: true
+      },
+      {
+        id: 1054,
+        title: "World Book Online",
+        description: "Educational encyclopedia designed for students and researchers",
+        url: "https://www.worldbookonline.com/",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#DC2626",
+        openInNewTab: true
+      },
+      {
+        id: 1055,
+        title: "Scholarpedia",
+        description: "Peer-reviewed open-access encyclopedia written by scholars",
+        url: "http://www.scholarpedia.org/",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#7C3AED",
+        openInNewTab: true
+      },
+      {
+        id: 1056,
+        title: "Stanford Encyclopedia of Philosophy",
+        description: "Comprehensive reference work in philosophy maintained by Stanford University",
+        url: "https://plato.stanford.edu/",
+        icon: <Lightbulb className="w-5 h-5" />,
+        color: "#B91C1C",
+        openInNewTab: true
+      },
+      {
+        id: 1057,
+        title: "Internet Encyclopedia of Philosophy",
+        description: "Peer-reviewed academic resource covering all areas of philosophy",
+        url: "https://iep.utm.edu/",
+        icon: <Lightbulb className="w-5 h-5" />,
+        color: "#1D4ED8",
+        openInNewTab: true
+      },
+      {
+        id: 1058,
+        title: "Citizendium",
+        description: "Expert-guided encyclopedia with real-name contributors",
+        url: "https://citizendium.org/",
+        icon: <Users className="w-5 h-5" />,
+        color: "#059669",
+        openInNewTab: true
+      },
+      {
+        id: 1059,
+        title: "Infoplease",
+        description: "Free online almanac, dictionary, encyclopedia, and homework help",
+        url: "https://www.infoplease.com/",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#EA580C",
+        openInNewTab: true
+      },
+      {
+        id: 1060,
+        title: "Reference.com",
+        description: "Quick answers and reference information on various topics",
+        url: "https://www.reference.com/",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#7C2D12",
+        openInNewTab: true
+      }
+    ],
+    "📖 Dictionaries & Thesaurus": [
+      {
+        id: 1061,
+        title: "Merriam-Webster Dictionary",
+        description: "America's most trusted online dictionary with definitions, pronunciations, and word games",
+        url: "https://www.merriam-webster.com/",
+        icon: <BookOpen className="w-5 h-5" />,
+        color: "#DC2626",
+        openInNewTab: true
+      },
+      {
+        id: 1062,
+        title: "Oxford English Dictionary",
+        description: "The definitive record of the English language with historical word origins",
+        url: "https://www.oed.com/",
+        icon: <Archive className="w-5 h-5" />,
+        color: "#1E40AF",
+        openInNewTab: true
+      },
+      {
+        id: 1063,
+        title: "Cambridge Dictionary",
+        description: "Free English dictionary with definitions, pronunciations, and translations",
+        url: "https://dictionary.cambridge.org/",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#059669",
+        openInNewTab: true
+      },
+      {
+        id: 1064,
+        title: "Dictionary.com",
+        description: "Free online dictionary with definitions, synonyms, and word origins",
+        url: "https://www.dictionary.com/",
+        icon: <BookOpen className="w-5 h-5" />,
+        color: "#7C3AED",
+        openInNewTab: true
+      },
+      {
+        id: 1065,
+        title: "Thesaurus.com",
+        description: "Free online thesaurus with synonyms, antonyms, and related words",
+        url: "https://www.thesaurus.com/",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#EA580C",
+        openInNewTab: true
+      },
+      {
+        id: 1066,
+        title: "WordNet",
+        description: "Lexical database of English developed by Princeton University",
+        url: "http://wordnetweb.princeton.edu/perl/webwn",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#B91C1C",
+        openInNewTab: true
+      },
+      {
+        id: 1067,
+        title: "Wiktionary",
+        description: "Free multilingual dictionary and thesaurus with etymology and pronunciation",
+        url: "https://en.wiktionary.org/",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#000000",
+        openInNewTab: true
+      },
+      {
+        id: 1068,
+        title: "OneLook Dictionary Search",
+        description: "Search multiple dictionaries and find definitions across various sources",
+        url: "https://www.onelook.com/",
+        icon: <Globe className="w-5 h-5" />,
+        color: "#1D4ED8",
+        openInNewTab: true
+      },
+      {
+        id: 1069,
+        title: "Vocabulary.com",
+        description: "Intelligent dictionary that helps you learn words with adaptive questions",
+        url: "https://www.vocabulary.com/",
+        icon: <Target className="w-5 h-5" />,
+        color: "#059669",
+        openInNewTab: true
+      },
+      {
+        id: 1070,
+        title: "Urban Dictionary",
+        description: "Crowdsourced online dictionary for slang words and phrases",
+        url: "https://www.urbandictionary.com/",
+        icon: <Users className="w-5 h-5" />,
+        color: "#7C2D12",
+        openInNewTab: true
+      },
+      {
+        id: 1071,
+        title: "Wordnik",
+        description: "Online dictionary with real-world examples and word relationships",
+        url: "https://www.wordnik.com/",
+        icon: <FileCheck className="w-5 h-5" />,
+        color: "#9333EA",
+        openInNewTab: true
+      },
+      {
+        id: 1072,
+        title: "Power Thesaurus",
+        description: "Crowdsourced thesaurus with synonyms and antonyms voted by users",
+        url: "https://www.powerthesaurus.org/",
+        icon: <Users className="w-5 h-5" />,
+        color: "#F59E0B",
+        openInNewTab: true
+      }
     ]
   };
 
