@@ -789,7 +789,7 @@ const StudentsHubPage: React.FC = () => {
     ],
     "⚙️ Educational Automation Tools": [
       {
-        id: 68,
+        id: 168,
         title: "Anki",
         description: "Intelligent flashcard system with spaced repetition for efficient memorization!",
         url: "https://apps.ankiweb.net/",
@@ -798,7 +798,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 69,
+        id: 169,
         title: "Quizlet",
         description: "Automated study tools with flashcards, games, and practice tests!",
         url: "https://quizlet.com/",
@@ -807,7 +807,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 70,
+        id: 170,
         title: "StudyBlue",
         description: "Digital study tools that automatically organize your notes and create study guides!",
         url: "https://www.studyblue.com/",
@@ -816,7 +816,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 71,
+        id: 171,
         title: "Evernote",
         description: "Smart note-taking app that automatically syncs and organizes your study materials!",
         url: "https://evernote.com/",
@@ -825,7 +825,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 72,
+        id: 172,
         title: "Google Scholar Alerts",
         description: "Automated research alerts that notify you of new academic papers in your field!",
         url: "https://scholar.google.com/scholar_alerts",
@@ -834,7 +834,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 73,
+        id: 173,
         title: "Zotero",
         description: "Research tool that automatically captures and organizes citations and references!",
         url: "https://www.zotero.org/",
@@ -843,7 +843,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 74,
+        id: 174,
         title: "Mendeley",
         description: "Reference manager that automatically organizes research papers and generates bibliographies!",
         url: "https://www.mendeley.com/",
@@ -852,7 +852,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 75,
+        id: 175,
         title: "Coursera Auto-Enroll",
         description: "Automated course enrollment and deadline tracking for online learning!",
         url: "https://www.coursera.org/",
@@ -861,7 +861,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 76,
+        id: 176,
         title: "Khan Academy Progress",
         description: "Automated learning progress tracking and personalized study recommendations!",
         url: "https://www.khanacademy.org/",
@@ -870,7 +870,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 77,
+        id: 177,
         title: "Grammarly for Students",
         description: "AI writing assistant specifically designed for academic writing and essays!",
         url: "https://www.grammarly.com/edu",
@@ -879,7 +879,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 78,
+        id: 178,
         title: "Notion",
         description: "All-in-one workspace for notes, tasks, wikis, and databases - organize your entire academic life!",
         url: "https://www.notion.so/",
@@ -888,7 +888,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 79,
+        id: 179,
         title: "Obsidian",
         description: "Knowledge management app with linked notes - perfect for building your personal knowledge graph!",
         url: "https://obsidian.md/",
@@ -897,7 +897,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 80,
+        id: 180,
         title: "Otter.ai",
         description: "AI-powered meeting transcription and note-taking for lectures and study sessions!",
         url: "https://otter.ai/",
@@ -906,7 +906,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 81,
+        id: 181,
         title: "Loom",
         description: "Screen recording tool for creating educational videos and presentations effortlessly!",
         url: "https://www.loom.com/",
@@ -915,7 +915,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
-        id: 82,
+        id: 182,
         title: "Figma",
         description: "Collaborative design tool perfect for creating presentations, diagrams, and visual projects!",
         url: "https://www.figma.com/",
@@ -3112,7 +3112,11 @@ const StudentsHubPage: React.FC = () => {
                     >
                       <button
                         onClick={() => handleResourceClick(resource)}
-                        className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                        className={`w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
+                          categoryName === '🎨 Generative World'
+                            ? 'shadow-[0_0_40px_rgba(255,255,255,0.4),0_0_80px_rgba(255,255,255,0.3),0_0_120px_rgba(255,255,255,0.2),0_0_160px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6),0_0_120px_rgba(255,255,255,0.4),0_0_180px_rgba(255,255,255,0.3),0_0_240px_rgba(255,255,255,0.2)] animate-pulse border-white/30 hover:border-white/50'
+                            : ''
+                        }`}
                       >
                         {/* YouTube Thumbnail Background for YouTube videos */}
                         {resource.isYouTube && (
