@@ -1,13 +1,24 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Atom, Calculator, Cpu, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen } from 'lucide-react';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 const STEMPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Handle initial page loading with shimmer effect
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1800); // 1.8 second initial loading
+
+    return () => clearTimeout(loadingTimer);
+  }, []);
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
@@ -836,6 +847,59 @@ const STEMPage: React.FC = () => {
               <p className="text-sm text-gray-300">
                 {selectedCategory.resources.length} resources in {selectedCategory.title}
               </p>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  // Show shimmer loading for initial page load
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-black pt-16">
+        {/* Header Shimmer */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <ShimmerLoader variant="silver" width="w-20" height="h-10" className="rounded-lg" />
+              <ShimmerLoader variant="silver" width="w-48" height="h-8" className="rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content Shimmer */}
+        <main className="flex-1 py-6 sm:py-8">
+          <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+            {/* Introduction Shimmer */}
+            <div className="text-center mb-8">
+              <ShimmerLoader variant="silver" width="w-16" height="h-16" className="mx-auto mb-4 rounded-2xl" />
+              <ShimmerLoader variant="silver" width="w-64" height="h-8" className="mx-auto mb-4 rounded-lg" />
+              <ShimmerLoader variant="silver" width="w-96" height="h-6" className="mx-auto mb-2 rounded-lg" />
+              <ShimmerLoader variant="silver" width="w-80" height="h-6" className="mx-auto rounded-lg" />
+            </div>
+
+            {/* Search Bar Shimmer */}
+            <div className="mb-8">
+              <ShimmerLoader variant="silver" width="w-full" height="h-12" className="rounded-xl" />
+            </div>
+
+            {/* Categories Grid Shimmer */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {[1, 2, 3, 4, 5, 6].map((item) => (
+                <ShimmerLoader
+                  key={item}
+                  variant="silver"
+                  width="w-full"
+                  height="h-[300px]"
+                  className="rounded-2xl"
+                />
+              ))}
+            </div>
+
+            {/* Footer Message Shimmer */}
+            <div className="text-center">
+              <ShimmerLoader variant="silver" width="w-80" height="h-6" className="mx-auto rounded-lg" />
             </div>
           </div>
         </main>

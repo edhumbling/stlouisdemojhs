@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import { useSearchState } from '../hooks/useSearchState';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 const AISearchPage: React.FC = () => {
   const navigate = useNavigate();
@@ -14,7 +15,17 @@ const AISearchPage: React.FC = () => {
   const [showAlternatives, setShowAlternatives] = useState(false);
   const [autoRedirectTimer, setAutoRedirectTimer] = useState<number | null>(null);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
+  const [pageLoading, setPageLoading] = useState(true);
   const { setShowHeader } = useHeader();
+
+  // Handle initial page loading with shimmer effect
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => {
+      setPageLoading(false);
+    }, 1600); // 1.6 second initial loading
+
+    return () => clearTimeout(loadingTimer);
+  }, []);
 
   // Search state management
   const { handleExternalLinkClick } = useSearchState('ai-search');
@@ -629,6 +640,59 @@ const AISearchPage: React.FC = () => {
             </div>
           )}
         </div>
+      </div>
+    );
+  }
+
+  // Show shimmer loading for initial page load
+  if (pageLoading) {
+    return (
+      <div className="min-h-screen bg-black pt-16">
+        {/* Header Shimmer */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <ShimmerLoader variant="silver" width="w-20" height="h-10" className="rounded-lg" />
+              <ShimmerLoader variant="silver" width="w-32" height="h-8" className="rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content Shimmer */}
+        <main className="flex-1 py-6 sm:py-8">
+          <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+            {/* Introduction Shimmer */}
+            <div className="text-center mb-8">
+              <ShimmerLoader variant="silver" width="w-16" height="h-16" className="mx-auto mb-4 rounded-2xl" />
+              <ShimmerLoader variant="silver" width="w-64" height="h-8" className="mx-auto mb-4 rounded-lg" />
+              <ShimmerLoader variant="silver" width="w-96" height="h-6" className="mx-auto mb-2 rounded-lg" />
+              <ShimmerLoader variant="silver" width="w-80" height="h-6" className="mx-auto rounded-lg" />
+            </div>
+
+            {/* Search Bar Shimmer */}
+            <div className="mb-8">
+              <ShimmerLoader variant="silver" width="w-full" height="h-12" className="rounded-xl" />
+            </div>
+
+            {/* AI Tools Grid Shimmer */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
+                <ShimmerLoader
+                  key={item}
+                  variant="silver"
+                  width="w-full"
+                  height="h-[200px]"
+                  className="rounded-2xl"
+                />
+              ))}
+            </div>
+
+            {/* Footer Message Shimmer */}
+            <div className="mt-8 sm:mt-12 text-center">
+              <ShimmerLoader variant="silver" width="w-full" height="h-32" className="rounded-2xl" />
+            </div>
+          </div>
+        </main>
       </div>
     );
   }
