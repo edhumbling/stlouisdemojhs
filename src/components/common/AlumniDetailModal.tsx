@@ -102,7 +102,7 @@ const AlumniDetailModal: React.FC<AlumniDetailModalProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-start justify-center z-50 px-4 py-8 sm:py-12 md:py-16"
           onClick={onClose} // Close on overlay click
         >
           <motion.div
