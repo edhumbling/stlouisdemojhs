@@ -143,8 +143,9 @@ const AlumniPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAlumniIndex, setSelectedAlumniIndex] = useState<number | null>(null);
-  const [minYear, setMinYear] = useState<number | string>(1977);
-  const [maxYear, setMaxYear] = useState<number | string>(2030);
+  // const [minYear, setMinYear] = useState<number | string>(1977); // REMOVE
+  // const [maxYear, setMaxYear] = useState<number | string>(2030); // REMOVE
+  const [sliderYear, setSliderYear] = useState<number>(1977);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10; // Or a more complex calculation if based on "visual rows"
   // const [modalYPosition, setModalYPosition] = useState<number | null>(null); // Removed
@@ -207,13 +208,7 @@ const AlumniPage: React.FC = () => {
   // }, []); // Removed availableYears calculation
 
   const filteredAlumni = useMemo(() => {
-    const currentMinYear = parseInt(String(minYear), 10);
-    const currentMaxYear = parseInt(String(maxYear), 10);
-
-    // Use default range if parsing fails or input is empty/invalid
-    const minYearNum = isNaN(currentMinYear) || String(minYear).trim() === '' ? 1977 : currentMinYear;
-    const maxYearNum = isNaN(currentMaxYear) || String(maxYear).trim() === '' ? 2030 : currentMaxYear;
-
+    // sliderYear is already a number due to useState<number>(1977) and parseInt in onChange
     return featuredAlumni.filter(alumni => {
       const searchTermLower = searchTerm.toLowerCase();
       const matchesSearchTerm = searchTermLower === '' ||
@@ -224,14 +219,14 @@ const AlumniPage: React.FC = () => {
       const yearMatch = alumni.class.match(/(\d{4})/);
       const alumniGradYear = yearMatch ? parseInt(yearMatch[0], 10) : null;
 
-      let matchesYearRange = true;
+      let matchesSliderYear = false; // Default to false, must explicitly match
       if (alumniGradYear !== null) {
-        matchesYearRange = alumniGradYear >= minYearNum && alumniGradYear <= maxYearNum;
+        matchesSliderYear = alumniGradYear === sliderYear;
       }
 
-      return matchesSearchTerm && matchesYearRange;
+      return matchesSearchTerm && matchesSliderYear;
     });
-  }, [searchTerm, minYear, maxYear, featuredAlumni]); // featuredAlumni added as dep as it's external to useMemo scope
+  }, [searchTerm, sliderYear, featuredAlumni]);
 
   const paginatedAlumni = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -441,39 +436,26 @@ const AlumniPage: React.FC = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            {/* New Min/Max Year Inputs */}
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-center w-full sm:w-auto">
-              <div className="w-full sm:w-auto">
-                <label htmlFor="minYear" className="text-xs text-gray-400 mb-1 block text-left">Min Year:</label>
-                <input
-                  type="number"
-                  id="minYear"
-                  placeholder="1977"
-                  className="w-full p-2 sm:p-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 text-xs sm:text-sm"
-                  value={minYear}
-                  onChange={(e) => setMinYear(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-                  min="1900"
-                  max="2099"
-                />
-              </div>
-              <div className="w-full sm:w-auto">
-                <label htmlFor="maxYear" className="text-xs text-gray-400 mb-1 block text-left">Max Year:</label>
-                <input
-                  type="number"
-                  id="maxYear"
-                  placeholder="2030"
-                  className="w-full p-2 sm:p-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 text-xs sm:text-sm"
-                  value={maxYear}
-                  onChange={(e) => setMaxYear(e.target.value === '' ? '' : parseInt(e.target.value, 10))}
-                  min="1900"
-                  max="2099"
-                />
-              </div>
+            {/* New Single Year Slider UI */}
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto sm:flex-1">
+              <label htmlFor="yearSlider" className="text-xs text-gray-400 sr-only">Filter by Year:</label>
+              <input
+                type="range"
+                id="yearSlider"
+                min="1977"
+                max="2030"
+                value={sliderYear}
+                onChange={(e) => setSliderYear(parseInt(e.target.value, 10))}
+                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 sm:flex-1"
+              />
+              <span className="text-sm text-blue-400 font-medium w-12 text-center tabular-nums">
+                {sliderYear}
+              </span>
             </div>
           </div>
 
           {/* No Results Message */}
-          {filteredAlumni.length === 0 && (searchTerm.trim() !== '' || String(minYear).trim() !== '' || String(maxYear).trim() !== '') && (
+          {filteredAlumni.length === 0 && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
