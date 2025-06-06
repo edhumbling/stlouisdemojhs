@@ -145,7 +145,7 @@ const AlumniPage: React.FC = () => {
   const [selectedAlumniIndex, setSelectedAlumniIndex] = useState<number | null>(null);
   // const [minYear, setMinYear] = useState<number | string>(1977); // REMOVE
   // const [maxYear, setMaxYear] = useState<number | string>(2030); // REMOVE
-  const [sliderYear, setSliderYear] = useState<number>(1977);
+  const [sliderYear, setSliderYear] = useState<number>(2012);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10; // Or a more complex calculation if based on "visual rows"
   // const [modalYPosition, setModalYPosition] = useState<number | null>(null); // Removed
