@@ -156,6 +156,14 @@ const AlumniPage: React.FC = () => {
       bookUrl: "https://phagesandbiomes.com/en/books"
     },
     {
+      name: "Richard Arthur",
+      class: "Class of 2012",
+      profession: "Travel Expert Consultant",
+      achievement: "Compound Overseer while in School",
+      image: "https://ik.imagekit.io/edhumbling/arthur.png?updatedAt=1749210070295",
+      quote: "Your brand is what other people say about you when you're not in the room.", // Jeff Bezos quote
+    },
+    {
       name: "Patricia Amankwaah",
       class: "Class of 2012",
       profession: "Registered Nurse",
