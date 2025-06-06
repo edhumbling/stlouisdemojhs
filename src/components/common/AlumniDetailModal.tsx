@@ -81,8 +81,9 @@ interface AlumniDetailModalProps {
   onNext: () => void;
   onPrevious: () => void;
   hasNext: boolean;
+  hasNext: boolean;
   hasPrevious: boolean;
-  clickYPosition?: number | null;
+  // clickYPosition?: number | null; // Removed
 }
 
 const AlumniDetailModal: React.FC<AlumniDetailModalProps> = ({
@@ -93,31 +94,22 @@ const AlumniDetailModal: React.FC<AlumniDetailModalProps> = ({
   onPrevious,
   hasNext,
   hasPrevious,
-  clickYPosition,
+  // clickYPosition, // Removed
 }) => {
   if (!alumnus) return null;
 
-  const MIN_VIEWPORT_TOP_MARGIN = 32; // 32px, (2rem)
-
-  let yPosition = clickYPosition !== null && clickYPosition !== undefined ? clickYPosition : MIN_VIEWPORT_TOP_MARGIN;
-  // Ensure it's not too high
-  yPosition = Math.max(MIN_VIEWPORT_TOP_MARGIN, yPosition);
-
-  // Basic check to prevent modal starting too low if click was very near bottom of viewport
-  // This assumes max-h-[90vh] might be around 90% of window height.
-  // If yPosition would make more than half of a very tall modal initially offscreen, adjust.
-  // This is a rough heuristic. A more precise calculation would need modal's actual height.
-  if (typeof window !== 'undefined') { // Check if window is defined (for SSR or testing environments)
-     yPosition = Math.min(yPosition, window.innerHeight * 0.6); // e.g., don't start modal lower than 60% of viewport height
-  }
-
-
-  const modalStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: `${yPosition}px`,
-    left: '50%',
-    transform: 'translateX(-50%)',
-  };
+  // const MIN_VIEWPORT_TOP_MARGIN = 32; // Removed
+  // let yPosition = clickYPosition !== null && clickYPosition !== undefined ? clickYPosition : MIN_VIEWPORT_TOP_MARGIN; // Removed
+  // yPosition = Math.max(MIN_VIEWPORT_TOP_MARGIN, yPosition); // Removed
+  // if (typeof window !== 'undefined') { // Removed
+  //    yPosition = Math.min(yPosition, window.innerHeight * 0.6); // Removed
+  // } // Removed
+  // const modalStyle: React.CSSProperties = { // Removed
+  //   position: 'fixed', // Removed
+  //   top: `${yPosition}px`, // Removed
+  //   left: '50%', // Removed
+  //   transform: 'translateX(-50%)', // Removed
+  // }; // Removed
 
   return (
     <AnimatePresence>
@@ -126,7 +118,7 @@ const AlumniDetailModal: React.FC<AlumniDetailModalProps> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/70 backdrop-blur-md z-50"
+          className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4"
           onClick={onClose} // Close on overlay click
         >
           <motion.div
@@ -134,8 +126,8 @@ const AlumniDetailModal: React.FC<AlumniDetailModalProps> = ({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed glass-card rounded-xl p-4 sm:p-6 shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto border border-white/20 flex flex-col"
-            style={modalStyle}
+            className="glass-card rounded-xl p-4 sm:p-6 shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto border border-white/20 flex flex-col"
+            // style={modalStyle} // Removed
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
           >
             {/* Close Button */}
