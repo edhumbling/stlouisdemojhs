@@ -438,7 +438,7 @@ const AlumniPage: React.FC = () => {
             />
             {/* New Single Year Slider UI */}
             <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto sm:flex-1">
-              <label htmlFor="yearSlider" className="text-xs text-gray-400 sr-only">Filter by Year:</label>
+              <label htmlFor="yearSlider" className="text-xs text-gray-400 whitespace-nowrap">Slide to Select year:</label>
               <input
                 type="range"
                 id="yearSlider"
@@ -446,7 +446,7 @@ const AlumniPage: React.FC = () => {
                 max="2030"
                 value={sliderYear}
                 onChange={(e) => setSliderYear(parseInt(e.target.value, 10))}
-                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 sm:flex-1"
+                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 sm:flex-1 mx-2"
               />
               <span className="text-sm text-blue-400 font-medium w-12 text-center tabular-nums">
                 {sliderYear}
