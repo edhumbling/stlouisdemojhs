@@ -144,6 +144,7 @@ const AlumniPage: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAlumniIndex, setSelectedAlumniIndex] = useState<number | null>(null);
+  const [modalYPosition, setModalYPosition] = useState<number | null>(null);
 
   const alumniStats = [
     { icon: <GraduationCap className="w-8 h-8" />, number: "30,000+", label: "Graduates", color: "from-blue-500 to-cyan-500" },
@@ -434,7 +435,9 @@ const AlumniPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="glass-card rounded-lg p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 h-full flex items-center justify-center text-center cursor-pointer hover:border-blue-500"
-                onClick={() => {
+                onClick={(event: React.MouseEvent<HTMLDivElement>) => {
+                  const rect = event.currentTarget.getBoundingClientRect();
+                  setModalYPosition(rect.top);
                   setSelectedAlumniIndex(index);
                   setIsModalOpen(true);
                 }}
@@ -643,6 +646,7 @@ const AlumniPage: React.FC = () => {
         onPrevious={handlePreviousAlumni}
         hasNext={filteredAlumni.length > 1}
         hasPrevious={filteredAlumni.length > 1}
+        clickYPosition={modalYPosition} // Add this line
       />
     </div>
   );
