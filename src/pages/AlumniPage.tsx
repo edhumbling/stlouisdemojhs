@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Users, GraduationCap, Heart, Award } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -126,6 +126,8 @@ const OptimizedImage: React.FC<{
 
 const AlumniPage: React.FC = () => {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
 
   const alumniStats = [
     { icon: <GraduationCap className="w-8 h-8" />, number: "30,000+", label: "Graduates", color: "from-blue-500 to-cyan-500" },
@@ -173,6 +175,33 @@ const AlumniPage: React.FC = () => {
       quote: "The values of compassion and service I learned here guide my nursing practice every day."
     }
   ];
+
+  const availableYears = useMemo(() => {
+    const years = new Set<string>();
+    featuredAlumni.forEach(alumni => {
+      const yearMatch = alumni.class.match(/(\d{4})/); // Extracts year like "2012" from "Class of 2012"
+      if (yearMatch) {
+        years.add(yearMatch[0]);
+      }
+    });
+    return Array.from(years).sort((a, b) => b.localeCompare(a)); // Sort descending
+  }, []); // featuredAlumni is constant, so empty dependency array is okay.
+
+  const filteredAlumni = useMemo(() => {
+    return featuredAlumni.filter(alumni => {
+      const searchTermLower = searchTerm.toLowerCase();
+      const matchesSearchTerm = searchTermLower === '' ||
+        alumni.name.toLowerCase().includes(searchTermLower) ||
+        alumni.profession.toLowerCase().includes(searchTermLower) ||
+        alumni.achievement.toLowerCase().includes(searchTermLower);
+
+      const yearMatch = alumni.class.match(/(\d{4})/);
+      const alumniYear = yearMatch ? yearMatch[0] : '';
+      const matchesYear = selectedYear === '' || alumniYear === selectedYear;
+
+      return matchesSearchTerm && matchesYear;
+    });
+  }, [searchTerm, selectedYear]); // Re-filter when searchTerm or selectedYear changes
 
   const alumniEvents = [
     {
@@ -334,8 +363,40 @@ const AlumniPage: React.FC = () => {
             </p>
           </motion.div>
 
+          {/* Search and Filter Controls */}
+          <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row gap-3 items-center">
+            <input
+              type="text"
+              placeholder="Search Alumni (Name, Profession, etc.)"
+              className="w-full sm:flex-1 p-2 sm:p-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 text-xs sm:text-sm"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <select
+              className="w-full sm:w-auto p-2 sm:p-2.5 rounded-lg bg-white/10 border border-white/20 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 text-xs sm:text-sm"
+              value={selectedYear}
+              onChange={(e) => setSelectedYear(e.target.value)}
+            >
+              <option value="">All Years</option>
+              {availableYears.map(year => (
+                <option key={year} value={year}>{year}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* No Results Message */}
+          {filteredAlumni.length === 0 && (searchTerm || selectedYear) && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center text-gray-400 my-6 sm:my-8"
+            >
+              No alumni found matching your criteria.
+            </motion.div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-7xl mx-auto">
-            {featuredAlumni.map((alumni, index) => (
+            {filteredAlumni.map((alumni, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
