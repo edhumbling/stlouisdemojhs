@@ -162,6 +162,7 @@ const AlumniPage: React.FC = () => {
       achievement: "Compound Overseer while in School",
       image: "https://ik.imagekit.io/edhumbling/arthur.png?updatedAt=1749210070295",
       quote: "Your brand is what other people say about you when you're not in the room.", // Jeff Bezos quote
+      facebook: "https://www.facebook.com/share/12K96PfPxXf/"
     },
     {
       name: "Patricia Amankwaah",
@@ -381,6 +382,17 @@ const AlumniPage: React.FC = () => {
                         >
                           <span className="mr-1">📚</span>
                           Author
+                        </a>
+                      )}
+                      {alumni.facebook && (
+                        <a
+                          href={alumni.facebook}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium rounded transition-all duration-200"
+                        >
+                          <span className="mr-1">🌐</span>
+                          Facebook
                         </a>
                       )}
                     </div>
