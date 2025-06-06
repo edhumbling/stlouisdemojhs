@@ -3,6 +3,20 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Users, GraduationCap, Heart, Award } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+import AlumniDetailModal from '../components/common/AlumniDetailModal';
+
+// Define Alumni type matching the one in AlumniDetailModal
+interface Alumni {
+  name: string;
+  class: string;
+  profession: string;
+  achievement: string;
+  image: string;
+  quote: string;
+  linkedin?: string;
+  bookUrl?: string;
+  facebook?: string;
+}
 
 // Apple-style Stopwatch Timer Component
 const AppleTimer: React.FC<{ targetDate: string; eventName: string }> = ({ targetDate, eventName }) => {
@@ -128,6 +142,8 @@ const AlumniPage: React.FC = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedAlumniIndex, setSelectedAlumniIndex] = useState<number | null>(null);
 
   const alumniStats = [
     { icon: <GraduationCap className="w-8 h-8" />, number: "30,000+", label: "Graduates", color: "from-blue-500 to-cyan-500" },
@@ -136,7 +152,7 @@ const AlumniPage: React.FC = () => {
     { icon: <Award className="w-8 h-8" />, number: "100+", label: "Success Stories", color: "from-orange-500 to-red-500" }
   ];
 
-  const featuredAlumni = [
+  const featuredAlumni: Alumni[] = [
     {
       name: "Emmanuel H. Dwamena",
       class: "Class of 2012",
@@ -202,6 +218,20 @@ const AlumniPage: React.FC = () => {
       return matchesSearchTerm && matchesYear;
     });
   }, [searchTerm, selectedYear]); // Re-filter when searchTerm or selectedYear changes
+
+  const handleNextAlumni = () => {
+    if (selectedAlumniIndex !== null && filteredAlumni.length > 0) {
+      const nextIndex = (selectedAlumniIndex + 1) % filteredAlumni.length;
+      setSelectedAlumniIndex(nextIndex);
+    }
+  };
+
+  const handlePreviousAlumni = () => {
+    if (selectedAlumniIndex !== null && filteredAlumni.length > 0) {
+      const prevIndex = (selectedAlumniIndex - 1 + filteredAlumni.length) % filteredAlumni.length;
+      setSelectedAlumniIndex(prevIndex);
+    }
+  };
 
   const alumniEvents = [
     {
@@ -286,7 +316,7 @@ const AlumniPage: React.FC = () => {
                 href="#stories"
                 className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm text-white text-xs sm:text-sm font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200"
               >
-                Success Stories
+                Check Alumni Database
               </a>
             </div>
           </motion.div>
@@ -395,70 +425,24 @@ const AlumniPage: React.FC = () => {
             </motion.div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-7xl mx-auto">
             {filteredAlumni.map((alumni, index) => (
               <motion.div
-                key={index}
+                key={alumni.name} // Assuming name is unique
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card rounded-lg p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-200 border border-white/20 h-full flex flex-col"
-                whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="glass-card rounded-lg p-3 sm:p-4 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20 h-full flex items-center justify-center text-center cursor-pointer hover:border-blue-500"
+                onClick={() => {
+                  setSelectedAlumniIndex(index);
+                  setIsModalOpen(true);
+                }}
+                whileHover={{ y: -2, scale: 1.03, transition: { duration: 0.2 } }}
               >
-                <div className="flex flex-col items-center text-center gap-2 sm:gap-3 flex-1">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden flex-shrink-0">
-                    <OptimizedImage
-                      src={alumni.image}
-                      alt={alumni.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 flex flex-col">
-                    <h3 className="text-sm sm:text-base font-bold text-white mb-1">{alumni.name}</h3>
-                    <p className="text-blue-400 font-medium mb-1 text-xs sm:text-sm">{alumni.class}</p>
-                    <p className="text-gray-300 font-medium mb-1 text-xs">{alumni.profession}</p>
-                    <p className="text-gray-400 text-xs mb-2 flex-1 line-clamp-2">{alumni.achievement}</p>
-                    <blockquote className="text-gray-300 text-xs italic border-l-2 border-blue-500 pl-2 mb-3 text-left line-clamp-3">
-                      "{alumni.quote}"
-                    </blockquote>
-                    <div className="flex flex-col gap-1.5 mt-auto">
-                      {alumni.linkedin && (
-                        <a
-                          href={alumni.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center px-2 py-1 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded transition-all duration-200"
-                        >
-                          <span className="mr-1">💼</span>
-                          LinkedIn
-                        </a>
-                      )}
-                      {alumni.bookUrl && (
-                        <a
-                          href={alumni.bookUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center px-2 py-1 bg-orange-600 hover:bg-orange-700 text-white text-xs font-medium rounded transition-all duration-200"
-                        >
-                          <span className="mr-1">📚</span>
-                          Author
-                        </a>
-                      )}
-                      {alumni.facebook && (
-                        <a
-                          href={alumni.facebook}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white text-xs font-medium rounded transition-all duration-200"
-                        >
-                          <span className="mr-1">🌐</span>
-                          Facebook
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-sm sm:text-base font-semibold text-white">
+                  {alumni.name}
+                </h3>
               </motion.div>
             ))}
           </div>
@@ -650,6 +634,16 @@ const AlumniPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
+      <AlumniDetailModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        alumnus={selectedAlumniIndex !== null ? filteredAlumni[selectedAlumniIndex] : null}
+        onNext={handleNextAlumni}
+        onPrevious={handlePreviousAlumni}
+        hasNext={filteredAlumni.length > 1}
+        hasPrevious={filteredAlumni.length > 1}
+      />
     </div>
   );
 };
