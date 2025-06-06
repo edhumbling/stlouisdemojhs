@@ -162,7 +162,7 @@ const AlumniPage: React.FC = () => {
       class: "Class of 2012",
       profession: "Travel Expert Consultant",
       achievement: "Compound Overseer while in School",
-      image: "https://ik.imagekit.io/edhumbling/arthur.png?updatedAt=1749210070295",
+      image: "https://ik.imagekit.io/edhumbling/WhatsApp%20Image%202025-06-06%20at%2011.24.11_78d69af3.png",
       quote: "Your brand is what other people say about you when you're not in the room.", // Jeff Bezos quote
       facebook: "https://www.facebook.com/share/12K96PfPxXf/"
     },
@@ -356,7 +356,7 @@ const AlumniPage: React.FC = () => {
             className="max-w-4xl mx-auto text-center mb-6 sm:mb-8"
           >
             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
-              Success Stories
+              Alumni Database
             </h2>
             <p className="text-sm sm:text-base text-gray-200 max-w-3xl mx-auto">
               Meet some of our distinguished alumni who are making a difference in their communities and professions.
