@@ -36,8 +36,8 @@ const AskLouisPage: React.FC = () => {
           </button>
         </div>
       </div>
-      <div style={{flex:1,position:'relative',width:'100vw',height:'calc(100vh - 56px)'}}>
-        <div style={{position:'absolute',left:'50%',bottom:88,transform:'translateX(-50%)',zIndex:9999,pointerEvents:'auto',minWidth:340}}>
+      <div style={{flex:1,display:'flex',flexDirection:'column',justifyContent:'flex-end',alignItems:'center',width:'100vw',height:'calc(100vh - 56px)',paddingBottom:48}}>
+        <div style={{width:'100%',display:'flex',justifyContent:'center',pointerEvents:'auto',minWidth:340}}>
           {/* ElevenLabs widget element */}
           <elevenlabs-convai agent-id="fAiPNUtMGChNGFI7nFy4"></elevenlabs-convai>
         </div>
