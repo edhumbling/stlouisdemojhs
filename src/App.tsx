@@ -38,6 +38,8 @@ import CareerReelResourcesPage from './pages/CareerReelResourcesPage';
 import MoneySmartLinksPage from './pages/MoneySmartLinksPage';
 import NotFoundPage from './pages/NotFoundPage';
 import PayPalDonatePage from './pages/PayPalDonatePage';
+import DonateUSBankPage from './pages/DonateUSBankPage';
+import DonateUKBankPage from './pages/DonateUKBankPage';
 
 
 
@@ -137,6 +139,8 @@ const App: React.FC = () => {
           <Route path="media" element={<MediaPage />} />
           <Route path="donate" element={<DonationPage />} />
           <Route path="donate-paypal" element={<PayPalDonatePage />} />
+          <Route path="donate-us-bank" element={<DonateUSBankPage />} />
+          <Route path="donate-uk-bank" element={<DonateUKBankPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
