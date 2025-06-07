@@ -8,6 +8,7 @@ const DonateUSBankPage: React.FC = () => {
 
   const usBankDetails = {
     accountName: 'Emmanuel Dwamena',
+    bankName: 'Lead Bank',
     accountNumber: '210611883812',
     wireRouting: '101019644',
     achRouting: '101019644',
