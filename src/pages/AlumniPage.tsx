@@ -520,48 +520,81 @@ const AlumniPage: React.FC = () => {
                 Page {currentPage} of {totalPages > 0 ? totalPages : 1}
               </span>
               <button
-                onClick={handleNextPage}
-                disabled={currentPage === totalPages || totalPages === 0}
-                className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-semibold rounded-lg border border-white/20 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
                 Next
               </button>
             </div>
           )}
 
-          {/* Add Your Story Section */}
+          {/* Update Your Profile Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 sm:mt-8 max-w-4xl mx-auto"
+            className="mt-8 sm:mt-10 max-w-4xl mx-auto"
           >
-            <div className="glass-card rounded-lg p-3 sm:p-4 shadow-lg border border-green-400/30 bg-green-500/10">
+            <div className="glass-card rounded-xl p-4 sm:p-6 shadow-xl border border-blue-400/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
               <div className="text-center">
-                <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-lg">✨</span>
+                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-6 h-6 text-blue-300" />
                 </div>
-                <h3 className="text-sm sm:text-base font-bold text-white mb-2">
-                  Add Your Success Story
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
+                  Update Your Alumni Profile
                 </h3>
-                <p className="text-gray-300 text-xs sm:text-sm mb-3 leading-relaxed">
-                  Share your achievements and inspire others. Contact Emmanuel via WhatsApp:
-                  <span className="font-bold text-green-400 ml-1">0208705290</span>
+                <p className="text-gray-200 text-sm sm:text-base mb-4 leading-relaxed max-w-2xl mx-auto">
+                  Join our growing network of {alumniStats[2].number} alumni. Keep your profile updated to connect with former classmates and expand your professional network.
                 </p>
-                <a
-                  href="https://wa.me/233208705290?text=Hello%20Emmanuel,%20I%20would%20like%20to%20share%20my%20alumni%20success%20story%20for%20the%20St.%20Louis%20Demo%20JHS%20website."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded transition-all duration-200"
-                >
-                  <svg className="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                  </svg>
-                  Share Story
-                </a>
-                <p className="text-gray-400 text-xs mt-2">
-                  Goal: 100s of success stories!
+                
+                {/* Benefits */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                  {[
+                    { icon: '🤝', title: 'Network', desc: 'Connect with classmates' },
+                    { icon: '💼', title: 'Opportunities', desc: 'Discover career opportunities' },
+                    { icon: '🌐', title: 'Stay Updated', desc: 'Get alumni news & events' }
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-white/5 p-3 rounded-lg border border-white/10">
+                      <div className="text-2xl mb-1">{item.icon}</div>
+                      <div className="font-semibold text-blue-200">{item.title}</div>
+                      <div className="text-xs text-gray-300">{item.desc}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Testimonials */}
+                <div className="bg-black/30 rounded-lg p-4 mb-6 border border-white/10">
+                  <div className="text-sm text-gray-300 italic mb-2">
+                    "Updating my profile helped me reconnect with my old classmates and opened doors to new opportunities!"
+                  </div>
+                  <div className="text-xs text-right text-blue-200">- Michael B., Class of 2012</div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <a
+                    href="https://wa.me/233208705290?text=Hello,%20I'd%20like%20to%20update%20my%20alumni%20profile%20for%20St.%20Louis%20Demo%20JHS."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 text-sm sm:text-base"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654"/>
+                    </svg>
+                    Update via WhatsApp
+                  </a>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = 'mailto:alumni@stlouisdemojhs.edu?subject=Update%20My%20Alumni%20Profile';
+                    }}
+                    className="inline-flex items-center justify-center px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 transition-all duration-200 text-sm sm:text-base"
+                  >
+                    ✉️ Email Us
+                  </a>
+                </div>
+                
+                <p className="text-gray-400 text-xs mt-4">
+                  <span className="text-blue-300 font-medium">{alumniStats[3].number} Alumni</span> have already updated their profiles. Join them today!
                 </p>
               </div>
             </div>
