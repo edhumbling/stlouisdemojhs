@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import { Bank } from 'lucide-react'; // Using named import for better TypeScript support
+import { ArrowLeft, DollarSign } from 'lucide-react';
 
 const DonateUKBankPage: React.FC = () => {
   const navigate = useNavigate();
@@ -43,7 +42,7 @@ const DonateUKBankPage: React.FC = () => {
           {/* Card Header */}
           <div className="bg-purple-600 px-6 py-4">
             <div className="flex items-center">
-              <Bank className="text-white mr-3" size={24} />
+              <DollarSign className="text-white mr-3" size={24} />
               <h2 className="text-xl font-bold text-white">Bank Account Details</h2>
             </div>
           </div>
