@@ -25,14 +25,19 @@ const AskLouisPage: React.FC = () => {
 
   return (
     <div style={{width:'100vw',height:'100vh',overflow:'hidden',background:'#fff',display:'flex',flexDirection:'column'}}>
-      <div style={{height:56,display:'flex',alignItems:'center',padding:'0 16px',background:'linear-gradient(90deg,#39e17a 60%,#ffe600 100%)',boxShadow:'0 2px 8px rgba(0,0,0,0.04)',zIndex:2}}>
-        <button onClick={()=>navigate(-1)} style={{background:'none',border:'none',display:'flex',alignItems:'center',cursor:'pointer',padding:0}}>
-          <ArrowLeft size={28} style={{marginRight:8}} />
-          <span style={{fontWeight:700,fontSize:18}}>Back</span>
-        </button>
+      <div className="w-full bg-gradient-to-r from-green-400 via-green-300 to-yellow-300 shadow-md z-20">
+        <div className="container mx-auto px-4 py-3 flex items-center">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/80 hover:bg-white text-green-900 font-semibold text-base shadow transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-green-400"
+          >
+            <ArrowLeft size={22} className="text-green-700" />
+            <span>Back</span>
+          </button>
+        </div>
       </div>
       <div style={{flex:1,position:'relative',width:'100vw',height:'calc(100vh - 56px)',overflow:'hidden'}}>
-        <div style={{position:'absolute',left:'50%',bottom:32,transform:'translateX(-50%)',zIndex:10}}>
+        <div style={{position:'absolute',left:'50%',bottom:88,transform:'translateX(-50%)',zIndex:10}}>
           {/* ElevenLabs widget element */}
           <elevenlabs-convai agent-id="fAiPNUtMGChNGFI7nFy4"></elevenlabs-convai>
         </div>
