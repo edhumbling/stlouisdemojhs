@@ -321,7 +321,6 @@ const AlumniPage: React.FC = () => {
         {/* Dark Aero Glass Overlay */}
         <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-black/50 to-green-900/40"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)]"></div>
         <div className="w-full px-3 sm:px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -341,20 +340,20 @@ const AlumniPage: React.FC = () => {
             <div className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-center">
               <a
                 href="#join"
-                className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-blue-600 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-gray-50"
+                className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-800 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-blue-700"
               >
                 <Heart className="w-3 h-3 mr-1.5" />
                 Join Network
               </a>
               <a
                 href="#stories"
-                className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm text-white text-xs sm:text-sm font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200"
+                className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-800 text-white text-xs sm:text-sm font-semibold rounded-lg border border-gray-700 hover:bg-gray-700 transition-all duration-200"
               >
                 Check Alumni Database
               </a>
               <Link
                 to="/sponsorship"
-                className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm text-white text-xs sm:text-sm font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200"
+                className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-green-800 text-white text-xs sm:text-sm font-semibold rounded-lg border border-green-700 hover:bg-green-700 transition-all duration-200"
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'instant' });
                 }}
