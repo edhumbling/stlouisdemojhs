@@ -24,7 +24,7 @@ const AskLouisPage: React.FC = () => {
   }, []);
 
   return (
-    <div style={{width:'100vw',height:'100vh',overflow:'hidden',background:'#fff',display:'flex',flexDirection:'column'}}>
+    <div style={{width:'100vw',height:'100vh',background:'#fff',display:'flex',flexDirection:'column',minHeight:'100vh'}}>
       <div className="w-full bg-gradient-to-r from-green-400 via-green-300 to-yellow-300 shadow-md z-20">
         <div className="container mx-auto px-4 py-3 flex items-center">
           <button
@@ -36,8 +36,8 @@ const AskLouisPage: React.FC = () => {
           </button>
         </div>
       </div>
-      <div style={{flex:1,position:'relative',width:'100vw',height:'calc(100vh - 56px)',overflow:'hidden'}}>
-        <div style={{position:'absolute',left:'50%',bottom:88,transform:'translateX(-50%)',zIndex:10}}>
+      <div style={{flex:1,position:'relative',width:'100vw',height:'calc(100vh - 56px)'}}>
+        <div style={{position:'absolute',left:'50%',bottom:88,transform:'translateX(-50%)',zIndex:9999,pointerEvents:'auto',minWidth:340}}>
           {/* ElevenLabs widget element */}
           <elevenlabs-convai agent-id="fAiPNUtMGChNGFI7nFy4"></elevenlabs-convai>
         </div>
