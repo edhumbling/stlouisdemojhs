@@ -37,6 +37,7 @@ import DreamHiveResourcesPage from './pages/DreamHiveResourcesPage';
 import CareerReelResourcesPage from './pages/CareerReelResourcesPage';
 import MoneySmartLinksPage from './pages/MoneySmartLinksPage';
 import NotFoundPage from './pages/NotFoundPage';
+import PayPalDonatePage from './pages/PayPalDonatePage';
 
 
 
@@ -135,6 +136,7 @@ const App: React.FC = () => {
           <Route path="sponsorship" element={<SponsorshipPage />} /> {/* New Route */}
           <Route path="media" element={<MediaPage />} />
           <Route path="donate" element={<DonationPage />} />
+          <Route path="donate-paypal" element={<PayPalDonatePage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />

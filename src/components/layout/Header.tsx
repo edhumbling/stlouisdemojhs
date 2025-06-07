@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks, schoolDropdownItems, contactDropdownItems } from '../../data';
 import DonateButton from '../common/DonateButton';
 
+
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSchoolDropdownOpen, setIsSchoolDropdownOpen] = useState(false);

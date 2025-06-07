@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, GraduationCap, Users, Laptop, ArrowLeft, CreditCard, Smartphone, Globe, Star, Award, BookOpen } from 'lucide-react';
+import { Heart, ArrowLeft, Globe, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 
@@ -124,6 +124,20 @@ const DonationPage: React.FC = () => {
             <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               Every donation helps us provide better education for our students
             </p>
+
+            {/* Donation Buttons Container */}
+            <div className="mt-6 mb-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+              {/* PayPal Donation Button */}
+              <Link
+                to="/donate-paypal"
+                onClick={() => triggerHapticFeedback('medium')}
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-black bg-yellow-400 border border-yellow-500 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto"
+              >
+                <Globe size={20} className="mr-2.5" />
+                Donate with PayPal
+              </Link>
+              {/* You can add other primary donation buttons here if needed */}
+            </div>
 
             {/* Physical Assets Notice */}
             <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/30 max-w-3xl mx-auto mb-4 sm:mb-6">
