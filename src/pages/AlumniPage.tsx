@@ -436,18 +436,17 @@ const AlumniPage: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Search and Filter Controls */}
-          <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row gap-3 items-center">
+          {/* Search and Filter Controls - Compact */}
+          <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row gap-2 sm:gap-3 items-center">
             <input
               type="text"
               placeholder="Search Alumni (Name, Profession, etc.)"
-              className="w-full sm:flex-1 p-2 sm:p-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 text-xs sm:text-sm"
+              className="w-full sm:flex-1 p-1.5 sm:p-2 text-xs rounded-md bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            {/* New Single Year Slider UI */}
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto sm:flex-1">
-              <label htmlFor="yearSlider" className="text-xs text-gray-400 whitespace-nowrap">Slide to Select year:</label>
+            <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto">
+              <label htmlFor="yearSlider" className="text-xs text-gray-400 whitespace-nowrap">Year:</label>
               <input
                 type="range"
                 id="yearSlider"
@@ -455,9 +454,9 @@ const AlumniPage: React.FC = () => {
                 max="2030"
                 value={sliderYear}
                 onChange={(e) => setSliderYear(parseInt(e.target.value, 10))}
-                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 sm:flex-1 mx-2"
+                className="w-24 sm:w-32 h-1.5 bg-gray-700 rounded-full appearance-none cursor-pointer accent-blue-500"
               />
-              <span className="text-sm text-blue-400 font-medium w-12 text-center tabular-nums">
+              <span className="text-xs text-blue-400 font-medium w-8 text-center">
                 {sliderYear}
               </span>
             </div>
@@ -529,58 +528,49 @@ const AlumniPage: React.FC = () => {
             </div>
           )}
 
-          {/* Update Your Profile Section */}
+          {/* Update Your Profile Section - Compact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 sm:mt-10 max-w-4xl mx-auto"
+            className="mt-6 sm:mt-8 max-w-3xl mx-auto"
           >
-            <div className="glass-card rounded-xl p-4 sm:p-6 shadow-xl border border-blue-400/30 bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
+            <div className="glass-card rounded-lg p-4 sm:p-5 shadow-lg border border-blue-400/20 bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
               <div className="text-center">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-6 h-6 text-blue-300" />
+                <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Users className="w-5 h-5 text-blue-300" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
+                <h3 className="text-base sm:text-lg font-bold text-white mb-2">
                   Update Your Alumni Profile
                 </h3>
-                <p className="text-gray-200 text-sm sm:text-base mb-4 leading-relaxed max-w-2xl mx-auto">
-                  Join our growing network of {alumniStats[2].number} alumni. Keep your profile updated to connect with former classmates and expand your professional network.
+                <p className="text-gray-200 text-xs sm:text-sm mb-3 leading-relaxed max-w-2xl mx-auto">
+                  Join {alumniStats[2].number} alumni. Keep your profile updated to connect and grow your network.
                 </p>
                 
-                {/* Benefits */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                {/* Benefits - Horizontal */}
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
                   {[
-                    { icon: '🤝', title: 'Network', desc: 'Connect with classmates' },
-                    { icon: '💼', title: 'Opportunities', desc: 'Discover career opportunities' },
-                    { icon: '🌐', title: 'Stay Updated', desc: 'Get alumni news & events' }
+                    { icon: '🤝', title: 'Network' },
+                    { icon: '💼', title: 'Opportunities' },
+                    { icon: '🌐', title: 'Stay Updated' }
                   ].map((item, idx) => (
-                    <div key={idx} className="bg-white/5 p-3 rounded-lg border border-white/10">
-                      <div className="text-2xl mb-1">{item.icon}</div>
-                      <div className="font-semibold text-blue-200">{item.title}</div>
-                      <div className="text-xs text-gray-300">{item.desc}</div>
+                    <div key={idx} className="bg-white/5 px-2.5 py-1.5 rounded-md border border-white/10 text-center">
+                      <span className="text-lg mr-1">{item.icon}</span>
+                      <span className="text-xs text-blue-100">{item.title}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* Testimonials */}
-                <div className="bg-black/30 rounded-lg p-4 mb-6 border border-white/10">
-                  <div className="text-sm text-gray-300 italic mb-2">
-                    "Updating my profile helped me reconnect with my old classmates and opened doors to new opportunities!"
-                  </div>
-                  <div className="text-xs text-right text-blue-200">- Michael B., Class of 2012</div>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                {/* CTA Buttons - Stacked on mobile */}
+                <div className="flex flex-col sm:flex-row gap-2 justify-center">
                   <a
                     href="https://wa.me/233208705290?text=Hello,%20I'd%20like%20to%20update%20my%20alumni%20profile%20for%20St.%20Louis%20Demo%20JHS."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-200 text-sm sm:text-base"
+                    className="inline-flex items-center justify-center px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition-all duration-200"
                   >
-                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654"/>
                     </svg>
                     Update via WhatsApp
@@ -591,14 +581,14 @@ const AlumniPage: React.FC = () => {
                       e.preventDefault();
                       window.location.href = 'mailto:alumni@stlouisdemojhs.edu?subject=Update%20My%20Alumni%20Profile';
                     }}
-                    className="inline-flex items-center justify-center px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 transition-all duration-200 text-sm sm:text-base"
+                    className="inline-flex items-center justify-center px-4 py-1.5 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-md border border-white/20 transition-all duration-200"
                   >
-                    ✉️ Email Us
+                    <span className="mr-1.5">✉️</span> Email Us
                   </a>
                 </div>
                 
-                <p className="text-gray-400 text-xs mt-4">
-                  <span className="text-blue-300 font-medium">{alumniStats[3].number} Alumni</span> have already updated their profiles. Join them today!
+                <p className="text-gray-400 text-xs mt-3">
+                  <span className="text-blue-300 font-medium">{alumniStats[3].number} Alumni</span> have updated their profiles
                 </p>
               </div>
             </div>
