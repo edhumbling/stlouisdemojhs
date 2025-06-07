@@ -436,17 +436,18 @@ const AlumniPage: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Search and Filter Controls - Compact */}
-          <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row gap-2 sm:gap-3 items-center">
+          {/* Search and Filter Controls */}
+          <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row gap-3 items-center">
             <input
               type="text"
               placeholder="Search Alumni (Name, Profession, etc.)"
-              className="w-full sm:flex-1 p-1.5 sm:p-2 text-xs rounded-md bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200"
+              className="w-full sm:flex-1 p-2 sm:p-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 text-xs sm:text-sm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto">
-              <label htmlFor="yearSlider" className="text-xs text-gray-400 whitespace-nowrap">Year:</label>
+            {/* New Single Year Slider UI */}
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto sm:flex-1">
+              <label htmlFor="yearSlider" className="text-xs text-gray-400 whitespace-nowrap">Slide to Select year:</label>
               <input
                 type="range"
                 id="yearSlider"
@@ -454,9 +455,9 @@ const AlumniPage: React.FC = () => {
                 max="2030"
                 value={sliderYear}
                 onChange={(e) => setSliderYear(parseInt(e.target.value, 10))}
-                className="w-24 sm:w-32 h-1.5 bg-gray-700 rounded-full appearance-none cursor-pointer accent-blue-500"
+                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 sm:flex-1 mx-2"
               />
-              <span className="text-xs text-blue-400 font-medium w-8 text-center">
+              <span className="text-sm text-blue-400 font-medium w-12 text-center tabular-nums">
                 {sliderYear}
               </span>
             </div>
