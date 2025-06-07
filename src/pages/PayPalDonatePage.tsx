@@ -43,35 +43,10 @@ const PayPalDonatePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col">
-      {/* Header */}
-      <header className="w-full bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center">
-            <button
-              onClick={() => navigate(-1)}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <ArrowLeft size={20} />
-              Back
-            </button>
-            <div className="ml-4 flex items-center">
-              <img 
-                src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" 
-                alt="PayPal" 
-                className="h-8 w-auto mr-3"
-              />
-              <h1 className="text-xl font-semibold text-gray-800">Donate with PayPal</h1>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Main Content */}
       <main className="flex-grow w-full flex items-center justify-center p-4">
         <div className="w-full max-w-md">
-          {/* Card */}
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            {/* Card Header */}
             <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-8 text-center">
               <CreditCard className="mx-auto text-white mb-4" size={40} />
               <h2 className="text-2xl font-bold text-white mb-2">Make a Donation</h2>
@@ -80,9 +55,7 @@ const PayPalDonatePage: React.FC = () => {
               </p>
             </div>
             
-            {/* Card Body */}
             <div className="p-8">
-              {/* PayPal Button Container */}
               <div id="paypal-container" className="flex justify-center mb-6">
                 {isLoading && (
                   <div className="flex flex-col items-center">
@@ -92,7 +65,6 @@ const PayPalDonatePage: React.FC = () => {
                 )}
               </div>
 
-              {/* Features */}
               <div className="space-y-6">
                 <div className="bg-blue-50 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-blue-800 mb-3">Why Donate?</h3>
@@ -127,7 +99,6 @@ const PayPalDonatePage: React.FC = () => {
             </div>
           </div>
 
-          {/* Additional Info */}
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-500">
               Need help? Contact us at <a href="mailto:support@stlouisdemojhs.com" className="text-blue-600 hover:underline">support@stlouisdemojhs.com</a>
@@ -135,6 +106,13 @@ const PayPalDonatePage: React.FC = () => {
           </div>
         </div>
       </main>
+
+      <div className="fixed bottom-0 left-0 right-0 bg-green-600 text-white text-center py-3 px-4 text-sm font-medium z-50">
+        <div className="flex items-center justify-center gap-2">
+          <Heart className="text-white" size={16} />
+          <span>100% of your donation goes directly to St. Louis Demo JHS</span>
+        </div>
+      </div>
     </div>
   );
 };

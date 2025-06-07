@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Banknote, Shield, Copy, Check } from 'lucide-react';
+import { ArrowLeft, Banknote, Shield, Copy, Check, Heart } from 'lucide-react';
 
 const DonateUSBankPage: React.FC = () => {
   const navigate = useNavigate();
@@ -110,6 +110,13 @@ const DonateUSBankPage: React.FC = () => {
           </div>
         </div>
       </main>
+      
+      <div className="fixed bottom-0 left-0 right-0 bg-green-600 text-white text-center py-3 px-4 text-sm font-medium z-50">
+        <div className="flex items-center justify-center gap-2">
+          <Heart className="text-white" size={16} />
+          <span>100% of your donation goes directly to St. Louis Demo JHS</span>
+        </div>
+      </div>
     </div>
   );
 };
