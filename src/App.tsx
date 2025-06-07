@@ -20,6 +20,7 @@ import ApplyNowPage from './pages/ApplyNowPage';
 import ScheduleVisitPage from './pages/ScheduleVisitPage';
 import PartnerPage from './pages/PartnerPage';
 import AlumniPage from './pages/AlumniPage';
+import SponsorshipPage from './pages/SponsorshipPage'; // Import SponsorshipPage
 import MediaPage from './pages/MediaPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
@@ -130,6 +131,7 @@ const App: React.FC = () => {
           <Route path="schedule-visit" element={<ScheduleVisitPage />} />
           <Route path="partner" element={<PartnerPage />} />
           <Route path="alumni" element={<AlumniPage />} />
+          <Route path="sponsorship" element={<SponsorshipPage />} /> {/* New Route */}
           <Route path="media" element={<MediaPage />} />
           <Route path="donate" element={<DonationPage />} />
 
