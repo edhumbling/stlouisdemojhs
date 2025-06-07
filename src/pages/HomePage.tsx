@@ -28,9 +28,13 @@ const HomePage: React.FC = () => {
     return (
       <div className="min-h-screen bg-black">
         {/* Hero Section Shimmer */}
-        <div className="relative h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        <div className="relative h-screen" style={{
+          backgroundImage: 'url(https://www.cursor.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgradient-hero-prerender.3af0e196.webp&w=1536&q=75)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}>
           <div className="absolute inset-0">
-            <ShimmerLoader variant="silver" width="w-full" height="h-full" className="rounded-none" />
+            <ShimmerLoader variant="silver" width="w-full" height="h-full" className="rounded-none opacity-50" />
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center max-w-4xl px-6">
