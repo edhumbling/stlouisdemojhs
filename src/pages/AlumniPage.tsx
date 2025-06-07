@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, GraduationCap, Heart, Award } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { ArrowLeft, Users, GraduationCap, Heart, Award, Handshake } from 'lucide-react'; // Added Handshake
+import { useNavigate, Link } from 'react-router-dom'; // Added Link
 import SectionDivider from '../components/common/SectionDivider';
 import AlumniDetailModal from '../components/common/AlumniDetailModal';
 
@@ -338,7 +338,7 @@ const AlumniPage: React.FC = () => {
             <p className="text-sm sm:text-base md:text-lg text-gray-100 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               Celebrating 47+ years of excellence and the remarkable achievements of our 30,000+ graduates
             </p>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+            <div className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-center">
               <a
                 href="#join"
                 className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-blue-600 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-200 hover:bg-gray-50"
@@ -352,6 +352,16 @@ const AlumniPage: React.FC = () => {
               >
                 Check Alumni Database
               </a>
+              <Link
+                to="/sponsorship"
+                className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm text-white text-xs sm:text-sm font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-200"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                }}
+              >
+                <Handshake size={14} className="mr-1.5" />
+                Become a Sponsor
+              </Link>
             </div>
           </motion.div>
         </div>

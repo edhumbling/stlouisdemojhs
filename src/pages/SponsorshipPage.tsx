@@ -23,8 +23,21 @@ const currentSponsors: Sponsor[] = [
     image: 'https://ik.imagekit.io/edhumbling/WhatsApp%20Image%202025-06-06%20at%2011.24.11_78d69af3.png',
     level: 'Gold',
     description: 'Travel Expert Consultant' // Sourced from his alumni profession
+  },
+  {
+    id: 'emmanuel-dwamena',
+    name: 'Emmanuel H. Dwamena',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/1718218562009.jpeg?updatedAt=1748301421227',
+    level: 'Platinum',
+    description: 'Founder of AIDEL | Author'
+  },
+  {
+    id: 'michael-duah',
+    name: 'Michael Boateng Duah, MS, MLS(ASCPi)CM',
+    image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/1741280603621.jpeg?updatedAt=1748301421485',
+    level: 'Diamond',
+    description: 'Clinical Laboratory Scientist | Technologist | Author'
   }
-  // More sponsors can be added here later
 ];
 
 // Placeholder for OptimizedImage and ShimmerLoader if needed for sponsor images
