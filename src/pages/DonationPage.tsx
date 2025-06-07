@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, ArrowLeft, Globe, BookOpen, Banknotes } from 'lucide-react';
+import { Heart, ArrowLeft, Globe, BookOpen, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 
@@ -143,7 +143,7 @@ const DonationPage: React.FC = () => {
                 onClick={() => triggerHapticFeedback('medium')}
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-white bg-blue-600 border border-blue-700 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto"
               >
-                <Banknotes size={20} className="mr-2.5" />
+                <DollarSign size={20} className="mr-2.5" />
                 US Bank Transfer
               </Link>
 
@@ -153,7 +153,7 @@ const DonationPage: React.FC = () => {
                 onClick={() => triggerHapticFeedback('medium')}
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-white bg-purple-600 border border-purple-700 rounded-lg hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto"
               >
-                <Banknotes size={20} className="mr-2.5" />
+                <DollarSign size={20} className="mr-2.5" />
                 UK Bank Transfer
               </Link>
             </div>
