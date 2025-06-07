@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-const AskLouisButton: React.FC = () => {
+// (file removed, component no longer needed)
   const navigate = useNavigate();
   return (
     <button

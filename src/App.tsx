@@ -37,7 +37,7 @@ import DreamHiveResourcesPage from './pages/DreamHiveResourcesPage';
 import CareerReelResourcesPage from './pages/CareerReelResourcesPage';
 import MoneySmartLinksPage from './pages/MoneySmartLinksPage';
 import NotFoundPage from './pages/NotFoundPage';
-import AskLouisPage from './pages/AskLouisPage';
+
 
 
 // Scroll Position Manager Component
@@ -155,7 +155,6 @@ const App: React.FC = () => {
         </Route>
 
         {/* Global catch-all route for direct access to non-existent routes */}
-        <Route path="ask-louis" element={<AskLouisPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
-const AskLouisPage: React.FC = () => {
+// (file removed, page no longer needed)
   const navigate = useNavigate();
 
   useEffect(() => {

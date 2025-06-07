@@ -3,7 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
-import AskLouisButton from '../common/AskLouisButton';
+
 import { useHeader } from '../../contexts/HeaderContext';
 
 const Layout: React.FC = () => {
@@ -114,7 +114,7 @@ const Layout: React.FC = () => {
 
       {/* Global Scroll Button - Always visible like taskbar time */}
       <ScrollButton />
-      <AskLouisButton />
+
     </div>
   );
 };
