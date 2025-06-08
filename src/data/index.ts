@@ -6,7 +6,6 @@ export const navLinks: NavLink[] = [
   { label: 'Students Hub', path: '/learnhub' },
   { label: 'AI Search', path: '/ai-search' },
   { label: 'Gallery', path: '/gallery' },
-  { label: 'Results & Placement', path: '/results-placement' },
 ];
 
 // School dropdown menu items
@@ -498,4 +497,12 @@ export const testimonials: Testimonial[] = [
     role: "Community Partner",
     image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   }
+];
+
+export const navigationItems = [
+  { label: 'Home', path: '/' },
+  { label: 'Students Hub', path: '/students-hub' },
+  { label: 'SHS Database', path: '/shs-database' },
+  { label: 'Schedule Visit', path: '/schedule-visit' },
+  { label: 'Contact', path: '/contact' }
 ];
