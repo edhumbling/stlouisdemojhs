@@ -161,12 +161,24 @@ const DonationPage: React.FC = () => {
               </Link>
             </div>
 
-            {/* Payment Option Placeholders */}
-            <div className="flex justify-center gap-4 mb-8">
-              <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-4 sm:h-8 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-              <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-4 sm:h-8 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-              <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-4 sm:h-8 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+            {/* Payment Option Marquee */}
+            <div className="relative w-full overflow-x-hidden mb-8">
+              <div className="flex items-center gap-8 animate-marquee whitespace-nowrap" style={{ animation: 'marquee 12s linear infinite' }}>
+                <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+                <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+                <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+                {/* Repeat for infinite effect */}
+                <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+                <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+                <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+              </div>
             </div>
+            <style>{`
+              @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+            `}</style>
 
             {/* Physical Assets Notice */}
             <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/30 max-w-3xl mx-auto mb-4 sm:mb-6">
