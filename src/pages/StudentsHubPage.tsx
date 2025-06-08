@@ -34,7 +34,8 @@ import {
   Repeat,
   Target,
   Music,
-  Play
+  Play,
+  X
 } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
@@ -77,7 +78,7 @@ const StudentsHubPage: React.FC = () => {
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const navigate = useNavigate();
-  const { setShowHeader } = useHeader();
+  const { setShowHeader, setShowFooter } = useHeader();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -91,21 +92,24 @@ const StudentsHubPage: React.FC = () => {
     return () => clearTimeout(loadingTimer);
   }, []);
 
-  // Control header visibility based on whether we're viewing an individual resource
+  // Control header and footer visibility based on whether we're viewing an individual resource
   useEffect(() => {
     if (selectedResource) {
-      // Hide header when viewing individual resource
+      // Hide header and footer when viewing individual resource
       setShowHeader(false);
+      setShowFooter(false);
     } else {
-      // Show header when viewing main grid
+      // Show header and footer when viewing main grid
       setShowHeader(true);
+      setShowFooter(true);
     }
 
-    // Cleanup: ensure header is shown when component unmounts
+    // Cleanup: ensure header and footer are shown when component unmounts
     return () => {
       setShowHeader(true);
+      setShowFooter(true);
     };
-  }, [selectedResource, setShowHeader]);
+  }, [selectedResource, setShowHeader, setShowFooter]);
 
   const handleMainBack = () => {
     navigate(-1); // Go back to previous page
@@ -2066,6 +2070,7 @@ const StudentsHubPage: React.FC = () => {
       setCurrentUrlIndex(0);
       setShowAlternatives(false);
       setSelectedResource(resource);
+      setShowFooter(false); // Hide footer for embedded resources
     } else {
       // Regular iframe loading for all other resources
       setIsLoading(true);
@@ -2073,6 +2078,7 @@ const StudentsHubPage: React.FC = () => {
       setCurrentUrlIndex(0);
       setShowAlternatives(false);
       setSelectedResource(resource);
+      setShowFooter(false); // Hide footer for embedded resources
     }
   };
 
