@@ -1,110 +1,90 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import * as cheerio from 'cheerio';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 
-interface School {
-  id: number;
-  name: string;
-  location: string;
-  image: string;
-}
+const PDF_LINKS = [
+  {
+    title: 'Category A SHS School Selection List PDF',
+    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-A-SHS-School-Selection-List-2023-2024.pdf',
+  },
+  {
+    title: 'Category B SHS School Selection List PDF',
+    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-B-SHS-School-Selection-List-2023-2024.pdf',
+  },
+  {
+    title: 'Category C SHS School Selection List PDF',
+    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-C-SHS-School-Selection-List-2023-2024.pdf',
+  },
+  {
+    title: 'Category D SHS School Selection List PDF',
+    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-D-SHS-School-Selection-List-2023-2024.pdf',
+  },
+  {
+    title: 'Special Boarding SHS School Selection List PDF',
+    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Special-Boarding-SHS-School-Selection-List-2023-2024.pdf',
+  },
+  {
+    title: 'Download SHS CSSPS School Selection Form',
+    url: 'https://golearnershub.com/wp-content/uploads/2023/08/SHS-CSSPS-School-Selection-Form-2023-2024.pdf',
+  },
+];
 
 const SHSDatabasePage: React.FC = () => {
-  const [schools, setSchools] = useState<School[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('all');
-
-  useEffect(() => {
-    const fetchSchools = async () => {
-      try {
-        const response = await axios.get('https://schoolsingh.com/schools/senior-high-schools');
-        const $ = cheerio.load(response.data);
-        const schoolsData: School[] = [];
-
-        // Example scraping logic (adjust selectors based on actual HTML structure)
-        $('.school-card').each((index, element) => {
-          const name = $(element).find('.school-name').text().trim();
-          const location = $(element).find('.school-location').text().trim();
-          const image = $(element).find('.school-image').attr('src') || 'https://example.com/placeholder.jpg';
-
-          schoolsData.push({
-            id: index + 1,
-            name,
-            location,
-            image,
-          });
-        });
-
-        setSchools(schoolsData);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to fetch schools data. Please try again later.');
-        setLoading(false);
-      }
-    };
-
-    fetchSchools();
-  }, []);
-
-  const filteredSchools = schools.filter(school => 
-    school.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-    (filter === 'all' || school.location === filter)
-  );
+  const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
-      {/* Header */}
-      <header className="w-full py-6 px-4 sm:px-8 bg-green-600 text-white text-center shadow-lg mb-8">
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight drop-shadow-lg">Ghana Senior High Schools Database</h1>
-        <p className="mt-2 text-lg sm:text-xl font-medium text-green-100/90 drop-shadow">Explore all SHS in Ghana with details, images, and more. Data sourced from schoolsingh.com</p>
-      </header>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 px-0 sm:px-0">
+      {/* Back Button */}
+      <div className="flex items-center gap-3 px-4 py-6">
+        <button
+          onClick={() => navigate(-1)}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-green-600/90 hover:bg-green-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 text-base"
+        >
+          <ArrowLeft size={20} />
+          <span>Back</span>
+        </button>
+        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-green-700 ml-2">Ghana SHS School Selection PDFs</h1>
+      </div>
 
-      {/* Search and Filter */}
-      <section className="w-full px-4 sm:px-8 mb-8">
-        <div className="flex flex-col sm:flex-row gap-4">
-          <input
-            type="text"
-            placeholder="Search schools..."
-            className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <select
-            className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-          >
-            <option value="all">All Regions</option>
-            <option value="Region 1">Region 1</option>
-            <option value="Region 2">Region 2</option>
-            <option value="Region 3">Region 3</option>
-          </select>
-        </div>
-      </section>
-
-      {/* SHS Content Grid */}
-      <section className="w-full px-2 sm:px-6 pb-12">
-        {loading ? (
-          <div className="text-center text-gray-500 mt-10 text-lg font-medium">Loading Senior High Schools data...</div>
-        ) : error ? (
-          <div className="text-center text-red-500 mt-10 text-lg font-medium">{error}</div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredSchools.map(school => (
-              <div key={school.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <img src={school.image} alt={school.name} className="w-full h-40 object-cover" />
-                <div className="p-4">
-                  <h3 className="text-xl font-bold text-gray-800">{school.name}</h3>
-                  <p className="text-gray-600">{school.location}</p>
-                  <button className="mt-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-300">View Details</button>
-                </div>
-              </div>
-            ))}
+      {/* PDF Cards */}
+      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 pb-12">
+        {PDF_LINKS.map((pdf) => (
+          <div key={pdf.title} className="bg-white/90 rounded-xl shadow-lg p-6 flex flex-col items-center justify-between">
+            <h2 className="text-lg font-bold text-green-800 mb-3 text-center">{pdf.title}</h2>
+            <button
+              className="mt-2 px-5 py-2 bg-green-500 text-white rounded-lg font-semibold shadow hover:bg-green-600 transition-all duration-200"
+              onClick={() => setSelectedPdf(pdf.url)}
+            >
+              View PDF
+            </button>
           </div>
-        )}
-      </section>
+        ))}
+      </div>
+
+      {/* PDF Viewer Modal */}
+      {selectedPdf && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="bg-white rounded-xl shadow-2xl w-[95vw] h-[90vh] max-w-4xl max-h-[90vh] flex flex-col">
+            <div className="flex items-center justify-between p-2 border-b border-gray-200 bg-green-50 rounded-t-xl">
+              <span className="font-bold text-green-700 text-base">PDF Viewer</span>
+              <button
+                className="text-green-700 hover:text-green-900 px-3 py-1 rounded"
+                onClick={() => setSelectedPdf(null)}
+              >
+                Close
+              </button>
+            </div>
+            <iframe
+              src={`https://docs.google.com/gview?url=${encodeURIComponent(selectedPdf)}&embedded=true`}
+              title="PDF Viewer"
+              className="flex-1 w-full h-full rounded-b-xl"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
