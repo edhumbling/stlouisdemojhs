@@ -2044,6 +2044,7 @@ const StudentsHubPage: React.FC = () => {
     if (resource.isYouTube) {
       setSelectedYouTubeVideo(resource);
       setShowHeader(false);
+      setShowFooter(false);
       setShowShimmer(true);
       setVideoLoaded(false);
 
@@ -2063,22 +2064,15 @@ const StudentsHubPage: React.FC = () => {
 
     if (resource.isInternal) {
       navigate(resource.url);
-    } else if (resource.embedStrategy === 'smart') {
-      // Use smart loading strategy for Financial Literacy and Business Skills Chat
-      setIsLoading(true);
-      setIframeError(false);
-      setCurrentUrlIndex(0);
-      setShowAlternatives(false);
-      setSelectedResource(resource);
-      setShowFooter(false); // Hide footer for embedded resources
     } else {
-      // Regular iframe loading for all other resources
+      // Handle all embedded resources (iframe, smart, or regular website embedding)
       setIsLoading(true);
       setIframeError(false);
       setCurrentUrlIndex(0);
       setShowAlternatives(false);
       setSelectedResource(resource);
-      setShowFooter(false); // Hide footer for embedded resources
+      setShowHeader(false);
+      setShowFooter(false);
     }
   };
 
@@ -2106,6 +2100,8 @@ const StudentsHubPage: React.FC = () => {
     setShowAlternatives(false);
     setLoadingProgress(0);
     setSmartLoadingPhase('connecting');
+    setShowHeader(true);
+    setShowFooter(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

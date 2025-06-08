@@ -8,7 +8,7 @@ import { useHeader } from '../../contexts/HeaderContext';
 
 const Layout: React.FC = () => {
   const location = useLocation();
-  const { showHeader } = useHeader();
+  const { showHeader, showFooter } = useHeader();
 
   // Pages that should not show the footer
   const noFooterPages = [
@@ -26,14 +26,14 @@ const Layout: React.FC = () => {
     '/money-smart-links',
     '/donate',
     '/donate-paypal',
-    '/donate-us-bank',
     '/donate-uk-bank',
+    '/donate-us-bank',
     '/news-events',
     '/shs-database',
     '/results-placement',
     ...((location.pathname.startsWith('/shs-database/pdf/')) ? [location.pathname] : []),
   ];
-  const shouldShowFooter = !noFooterPages.includes(location.pathname);
+  const shouldShowFooter = !noFooterPages.includes(location.pathname) && showFooter;
 
   // Homepage should not have top padding (content can go under header)
   const isHomePage = location.pathname === '/';
