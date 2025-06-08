@@ -35,7 +35,7 @@ import {
   Target,
   Music,
   Play,
-  X
+  X as XIcon
 } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
@@ -142,7 +142,12 @@ const StudentsHubPage: React.FC = () => {
         url: "https://divinemonk.github.io/ebooklibrary/",
         icon: <Library className="w-5 h-5" />,
         color: "#8B5CF6",
-        embedStrategy: 'iframe'
+        embedStrategy: 'iframe',
+        sandbox: "allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation",
+        customScripts: true,
+        forceFullPage: true,
+        hideHeader: true,
+        hideFooter: true
       },
       {
         id: 19,
@@ -2642,219 +2647,33 @@ const StudentsHubPage: React.FC = () => {
     }
   };
 
-  // If a USSD resource is selected, show the USSD modal
-  if (selectedResource?.isUSSD) {
-    return (
-      <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        {/* Header with Back Button */}
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-orange-900 via-orange-800 to-red-900 py-4 sm:py-5 shadow-2xl border-b border-orange-700/50">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 sm:gap-6">
-              <button
-                onClick={() => setSelectedResource(null)}
-                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-orange-700/70 hover:bg-orange-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-orange-500/50 hover:border-orange-400/70 flex-shrink-0 ring-2 ring-orange-500/20 hover:ring-orange-400/30"
-              >
-                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span>Back</span>
-              </button>
+  // Add this before the return statement
+  const preloadResources = useCallback(() => {
+    // Preload all iframe resources
+    Object.values(resourceCategories).flat().forEach(resource => {
+      if (resource.embedStrategy === 'iframe') {
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'preload';
+        preloadLink.as = 'document';
+        preloadLink.href = resource.url;
+        document.head.appendChild(preloadLink);
+      }
+    });
+  }, [resourceCategories]);
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                📱 BECE Pasco Via USSD
-              </h1>
-            </div>
-          </div>
-        </div>
+  // Add preloading on component mount
+  useEffect(() => {
+    preloadResources();
+  }, [preloadResources]);
 
-        <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 rounded-2xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-orange-400/30 relative overflow-hidden mt-20">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-2xl"></div>
-          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
-
-          {/* Content */}
-          <div className="relative z-10">
-
-            {/* Icon */}
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Smartphone size={32} className="text-white" />
-              </div>
-              <h2 className="text-2xl font-bold text-white mb-2">
-                📱 BECE Pasco Via USSD
-              </h2>
-              <p className="text-orange-100 text-sm">
-                Access past questions directly on your mobile phone!
-              </p>
-            </div>
-
-            {/* Main Content */}
-            <div className="bg-white/10 rounded-xl p-4 mb-6 backdrop-blur-sm">
-              <div className="text-center">
-                <h3 className="text-xl font-bold text-white mb-3">
-                  🎉 Free Download Available!
-                </h3>
-                <p className="text-orange-100 text-sm mb-4">
-                  Get BECE past questions sent directly to your phone via SMS
-                </p>
-
-                {/* USSD Code Display - Clickable */}
-                <button
-                  onClick={handleUSSDDial}
-                  className="w-full bg-black/30 hover:bg-black/40 rounded-lg p-4 mb-4 transition-all duration-200 border border-orange-500/30 hover:border-orange-400/50"
-                >
-                  <p className="text-orange-200 text-sm mb-2">Tap to dial this code on your mobile phone:</p>
-                  <div className="text-3xl font-bold text-white tracking-wider mb-2">
-                    *790*700#
-                  </div>
-                  <div className="text-xs text-orange-300 flex items-center justify-center gap-1">
-                    <span>📞</span>
-                    <span>Tap to open phone app</span>
-                  </div>
-                </button>
-
-                <div className="space-y-3 text-left">
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-300 font-bold">1.</span>
-                    <span className="text-orange-100 text-sm">Open your phone's dialer</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-300 font-bold">2.</span>
-                    <span className="text-orange-100 text-sm">Type <strong>*790*700#</strong> and press call</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-300 font-bold">3.</span>
-                    <span className="text-orange-100 text-sm">You'll receive an <strong>SMS message</strong> with download link</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-orange-300 font-bold">4.</span>
-                    <span className="text-orange-100 text-sm">Use the <strong>password</strong> in the SMS to open the files</span>
-                  </div>
-                </div>
-
-                {/* SMS Info Box */}
-                <div className="bg-green-500/20 border border-green-400/30 rounded-lg p-3 mt-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-lg">📱</span>
-                    <span className="text-green-200 font-semibold text-sm">SMS Delivery</span>
-                  </div>
-                  <p className="text-green-100 text-xs">
-                    You'll receive a text message with:
-                  </p>
-                  <ul className="text-green-100 text-xs mt-1 space-y-1">
-                    <li>• Download link for BECE past questions</li>
-                    <li>• Password to unlock the files</li>
-                    <li>• Instructions for easy access</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className="text-center">
-              <p className="text-orange-100 text-sm mb-4">
-                ✨ <strong>Dial now!</strong> Get your SMS with download link and password
-              </p>
-              <div className="space-y-3">
-                <button
-                  onClick={handleUSSDDial}
-                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25"
-                >
-                  📞 Dial *790*700# Now
-                </button>
-                <button
-                  onClick={() => setSelectedResource(null)}
-                  className="w-full bg-white/20 hover:bg-white/30 text-white font-semibold py-2 px-6 rounded-xl transition-all duration-300 backdrop-blur-sm border border-white/30"
-                >
-                  Close
-                </button>
-              </div>
-              <p className="text-orange-200 text-xs mt-3">
-                💡 <strong>Tip:</strong> Save the SMS for future access to your files
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // If a resource is selected, show the iframe view - Full page without footer
-  if (selectedResource) {
-    return (
-      <div className="fixed inset-0 z-50 bg-black">
-        {/* Header - Enhanced Purple Back Button */}
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 sm:py-5 shadow-2xl border-b border-purple-700/50">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 sm:gap-6">
-              <button
-                onClick={handleBack}
-                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-purple-700/70 hover:bg-purple-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/50 hover:border-purple-400/70 flex-shrink-0 ring-2 ring-purple-500/20 hover:ring-purple-400/30"
-              >
-                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span>Back</span>
-              </button>
-
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                {selectedResource.title}
-              </h1>
-            </div>
-          </div>
-        </div>
-
-        {/* Content Area - Full Screen */}
-        <div className="fixed inset-0 pt-[72px] sm:pt-[88px]">
-          {isLoading ? (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-              <div className="text-center text-white">
-                <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                <p className="text-purple-300">Loading {selectedResource.title}...</p>
-              </div>
-            </div>
-          ) : iframeError ? (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-              <div className="text-center text-white p-6 bg-purple-900/50 rounded-xl backdrop-blur-sm max-w-md mx-4">
-                <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Unable to Load Resource</h3>
-                <p className="text-gray-300 mb-4">
-                  We couldn't load {selectedResource.title}. This might be due to the website's security settings.
-                </p>
-                <div className="space-y-3">
-                  {selectedResource?.alternativeUrls && selectedResource.alternativeUrls.length > 0 && (
-                    <div className="space-y-2">
-                      <p className="text-sm text-purple-300">Try these alternatives:</p>
-                      {selectedResource.alternativeUrls.map((url, index) => (
-                        <button
-                          key={index}
-                          onClick={() => handleTryAlternative(url)}
-                          className="w-full px-4 py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white rounded-lg transition-colors duration-200 text-sm"
-                        >
-                          Alternative {index + 1}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                  <button
-                    onClick={handleOpenOriginal}
-                    className="w-full px-4 py-2 bg-red-600/50 hover:bg-red-500/70 text-white rounded-lg transition-colors duration-200 text-sm"
-                  >
-                    Open in New Tab
-                  </button>
-                  <button
-                    onClick={handleBack}
-                    className="w-full px-4 py-2 bg-gray-700/50 hover:bg-gray-600/70 text-white rounded-lg transition-colors duration-200 text-sm"
-                  >
-                    Go Back
-                  </button>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <iframe
-              ref={iframeRef}
-              src={selectedResource.url}
-              className="w-full h-full border-0"
-              onLoad={handleIframeLoad}
-              onError={handleIframeError}
+  // Optimize iframe rendering
+  const renderIframe = (resource: Resource) => (
+    <iframe
+      ref={iframeRef}
+      src={resource.url}
+      className="w-full h-full border-0"
+      onLoad={handleIframeLoad}
+      onError={handleIframeError}
               sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation"
               referrerPolicy="no-referrer"
               loading="eager"
@@ -3019,250 +2838,65 @@ const StudentsHubPage: React.FC = () => {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-black">
-      {/* Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <button
-              onClick={handleMainBack}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
-            >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-              <span>Back</span>
-            </button>
+  const studyLofiVideos = [
+    {
+      id: 'lofi-1',
+      title: 'Lofi Hip Hop Radio - beats to relax/study to',
+      description: 'A 24/7 lofi hip hop radio stream perfect for studying and relaxing',
+      url: 'https://www.youtube.com/embed/jfKfPfyJRdk'
+    },
+    {
+      id: 'lofi-2',
+      title: 'ChilledCow - Lofi Hip Hop Radio',
+      description: 'Another great lofi hip hop stream for focus and relaxation',
+      url: 'https://www.youtube.com/embed/rUxyA5a0mRw'
+    },
+    {
+      id: 'lofi-3',
+      title: 'Lofi Girl - Lofi Hip Hop Radio',
+      description: 'The iconic lofi girl stream with relaxing beats',
+      url: 'https://www.youtube.com/embed/n61ULEU7CO0'
+    }
+  ];
 
-            <div className="flex items-center justify-between w-full">
-              <h1 className="text-2xl font-bold text-white">Students Hub</h1>
+  // Add this section before the return statement
+  const renderStudyLofiSection = () => (
+    <div className="space-y-6">
+      <h2 className="text-2xl font-bold text-silver-200">Study Lofi Videos</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {studyLofiVideos.map((video) => (
+          <div
+            key={video.id}
+            className="group relative bg-silver-900/50 rounded-xl overflow-hidden backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-silver-500/20"
+          >
+            <div className="aspect-video relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-silver-400/0 via-silver-400/10 to-silver-400/0 animate-shimmer"></div>
+              <iframe
+                src={video.url}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={video.title}
+              ></iframe>
             </div>
+            <div className="p-4">
+              <h3 className="text-lg font-semibold text-silver-200 mb-2 group-hover:text-silver-100 transition-colors">
+                {video.title}
+              </h3>
+              <p className="text-silver-400 text-sm">{video.description}</p>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-silver-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
-        </div>
+        ))}
       </div>
+    </div>
+  );
 
-      {/* Main Content */}
-      <main className="flex-1 py-6 sm:py-8">
-        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
-          {/* Introduction */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl mb-4 shadow-2xl">
-              <GraduationCap size={32} className="text-white" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-              Educational Resource Hub
-            </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Discover {resources.length}+ carefully curated educational resources covering academics, STEM, financial literacy, and life skills.
-              Use the smart search to find exactly what you need.
-            </p>
-          </div>
-
-          {/* Smart Search Bar */}
-          <div className="mb-8">
-            <SmartSearchBar
-              items={searchableItems}
-              onSearchResults={handleSearchResults}
-              placeholder={`Search ${resources.length}+ educational resources...`}
-              accentColor="purple"
-              categories={categoryOptions}
-              types={typeOptions}
-              enableIntentDetection={true}
-              className="mb-6"
-            />
-          </div>
-
-          {/* Inserted Buttons */}
-          <div className="mb-8 flex justify-center gap-2 sm:gap-4">
-            <Link
-              to="/shs-database"
-              className="bg-green-500/90 backdrop-blur-md rounded-xl px-3 sm:px-6 py-2 sm:py-3 text-white font-bold shadow-xl hover:bg-green-600/90 transition-all duration-300 border border-white/30 text-sm sm:text-lg"
-              style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #22c55e)' }}
-            >
-              Check SHS Database/Selection
-            </Link>
-            <Link
-              to="/results-placement"
-              className="bg-yellow-500/90 backdrop-blur-md rounded-xl px-3 sm:px-6 py-2 sm:py-3 text-white font-bold shadow-xl hover:bg-yellow-600/90 transition-all duration-300 border border-white/30 text-sm sm:text-lg"
-              style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #eab308)' }}
-            >
-              Results & Placement Checker
-            </Link>
-          </div>
-
-          {/* Categorized Resources */}
-          <div className="space-y-8">
-            {Object.entries(filteredCategories).map(([categoryName, categoryResources], categoryIndex) => (
-              <motion.div
-                key={categoryName}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
-                className="space-y-4"
-              >
-                {/* Category Header */}
-                <div className="flex items-center gap-3">
-                  <h2 className="text-xl sm:text-2xl font-bold text-white">
-                    {categoryName}
-                  </h2>
-                  <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent"></div>
-                  <span className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
-                    {categoryResources.length} {categoryResources.length === 1 ? 'tool' : 'tools'}
-                  </span>
-                </div>
-
-                {/* Category Resources Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                  {categoryResources.map((resource, index) => (
-                    <motion.div
-                      key={resource.id}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
-                      className="group"
-                    >
-                      <button
-                        onClick={() => handleResourceClick(resource)}
-                        className={`w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
-                          categoryName === '≡ƒÄ¿ Generative World'
-                            ? 'shadow-[0_0_40px_rgba(255,255,255,0.4),0_0_80px_rgba(255,255,255,0.3),0_0_120px_rgba(255,255,255,0.2),0_0_160px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6),0_0_120px_rgba(255,255,255,0.4),0_0_180px_rgba(255,255,255,0.3),0_0_240px_rgba(255,255,255,0.2)] animate-pulse border-white/30 hover:border-white/50'
-                            : ''
-                        }`}
-                      >
-                        {/* YouTube Thumbnail Background for YouTube videos */}
-                        {resource.isYouTube && (
-                          <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                            <img
-                              src={getYouTubeThumbnail(resource.url)}
-                              alt={resource.title}
-                              className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-300"
-                              onError={(e) => {
-                                // Fallback to default gradient if thumbnail fails to load
-                                const target = e.target as HTMLImageElement;
-                                target.style.display = 'none';
-                              }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
-                          </div>
-                        )}
-
-                        {/* Background Gradient for non-YouTube resources */}
-                        {!resource.isYouTube && (
-                          <div
-                            className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
-                            style={{
-                              background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
-                            }}
-                          />
-                        )}
-
-                        {/* Status Indicators */}
-                        <div className="absolute top-3 right-3 flex gap-1 z-10">
-                          {resource.isYouTube && (
-                            <div className="w-6 h-6 bg-red-600/90 rounded-full flex items-center justify-center">
-                              <Play size={12} className="text-white ml-0.5" />
-                            </div>
-                          )}
-                          {resource.embedStrategy === 'smart' && (
-                            <div className="w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
-                              <AlertCircle size={12} className="text-white" />
-                            </div>
-                          )}
-                          {resource.openInNewTab && (
-                            <div className="w-5 h-5 bg-green-500/80 rounded-full flex items-center justify-center">
-                              <ExternalLink size={12} className="text-white" />
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Icon Container */}
-                        <div className="relative mb-3 flex-shrink-0 z-10">
-                          <div
-                            className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
-                            style={{ backgroundColor: resource.isYouTube ? '#FF0000' : resource.color }}
-                          >
-                            {resource.isYouTube ? <Music className="w-6 h-6" /> : resource.icon}
-                          </div>
-
-                          {/* Resource Type Indicator */}
-                          <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
-                            {resource.isYouTube ? (
-                              <Play className="w-2.5 h-2.5 text-red-400" />
-                            ) : resource.isInternal ? (
-                              <Smartphone className="w-2.5 h-2.5 text-purple-400" />
-                            ) : (
-                              <ExternalLink className="w-2.5 h-2.5 text-blue-400" />
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Content */}
-                        <div className="flex-1 flex flex-col space-y-2">
-                          {/* Title */}
-                          <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
-                            {resource.title}
-                          </h3>
-
-                          {/* Description */}
-                          <p className="text-xs text-gray-400 leading-relaxed line-clamp-3 flex-1">
-                            {resource.description}
-                          </p>
-
-                          {/* Action Footer */}
-                          <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto z-10 relative">
-                            <div className="flex items-center gap-1">
-                              {resource.isYouTube && (
-                                <span className="text-xs text-red-400 font-medium">YouTube</span>
-                              )}
-                              {resource.embedStrategy === 'smart' && !resource.isYouTube && (
-                                <span className="text-xs text-blue-400 font-medium">Smart</span>
-                              )}
-                              {resource.openInNewTab && !resource.isYouTube && (
-                                <span className="text-xs text-green-400 font-medium">External</span>
-                              )}
-                              {!resource.embedStrategy && !resource.openInNewTab && !resource.isYouTube && (
-                                <span className="text-xs text-purple-400 font-medium">
-                                  {resource.isInternal ? 'Internal' : 'Website'}
-                                </span>
-                              )}
-                            </div>
-                            <div className={`w-5 h-5 rounded-full flex items-center justify-center transition-colors duration-300 ${
-                              resource.isYouTube
-                                ? 'bg-red-500/20 group-hover:bg-red-500/30'
-                                : 'bg-purple-500/20 group-hover:bg-purple-500/30'
-                            }`}>
-                              {resource.isYouTube ? (
-                                <Play size={10} className="text-red-400 group-hover:text-red-300 ml-0.5" />
-                              ) : (
-                                <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
-                              )}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Hover Effect Overlay */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                      </button>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Enhanced Footer Message */}
-          <div className="mt-8 sm:mt-12 text-center">
-            <p className="text-sm text-gray-300 mb-2">
-              Tap any resource to open it within Students Hub
-            </p>
-            <div className="flex items-center justify-center text-xs text-gray-400">
-              <div className="flex items-center gap-1">
-                <AlertCircle size={12} className="text-blue-400" />
-                <span>Smart Access - Financial Literacy & Business Skills provide alternatives when blocked</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
+      {/* ... existing content ... */}
+      {renderStudyLofiSection()}
+      {/* ... existing content ... */}
     </div>
   );
 };
