@@ -84,7 +84,19 @@ const SHSPdfViewerPage: React.FC = () => {
       {/* PDF Viewer Full Screen */}
       <div className="flex-1 w-full max-w-6xl mx-auto py-4 px-2 sm:px-6 flex flex-col">
         <div className="flex-1 min-h-[80vh] rounded-xl overflow-hidden bg-white shadow-lg">
-          <Viewer fileUrl={pdf.url} plugins={[defaultLayoutPluginInstance]} />
+          <Viewer 
+            fileUrl={pdf.url} 
+            plugins={[defaultLayoutPluginInstance]} 
+            renderError={(
+              error
+            ) => (
+              <div className="flex flex-col items-center justify-center h-full p-8 text-center">
+                <div className="text-red-600 font-bold text-lg mb-2">Failed to load PDF</div>
+                <div className="text-gray-700 mb-4">{error?.message || 'The PDF could not be displayed. This may be due to network issues or file restrictions.'}</div>
+                <a href={pdf.url} download className="inline-block px-4 py-2 bg-green-600 text-white rounded-lg font-semibold shadow hover:bg-green-700 transition-all duration-200">Download PDF</a>
+              </div>
+            )}
+          />
         </div>
       </div>
     </div>
