@@ -192,11 +192,17 @@ const DonationPage: React.FC = () => {
                   <Heart className="w-5 h-5" />
                   Partner With Us
                 </a>
-                <div className="w-full flex justify-center sm:justify-between items-center mt-4 gap-4">
-                  <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
-                  <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
-                  <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
-                  <span className="h-7 sm:h-14 w-7 sm:w-14 flex items-center justify-center rounded-full bg-yellow-400/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
+                <div className="w-full flex justify-center items-center mt-4 gap-4">
+                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-blue-600/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
+                    💻
+                  </span>
+                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-green-600/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
+                    👨‍🏫
+                  </span>
+                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-pink-600/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
+                    🏫
+                  </span>
+                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-yellow-400/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
                     🧑‍🎓
                   </span>
                 </div>
