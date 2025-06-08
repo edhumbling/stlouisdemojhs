@@ -663,10 +663,10 @@ const Header: React.FC = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.2 }}
+              transition={{ duration: 0.15, delay: 0.1 }}
               className="flex justify-center"
             >
-              <DonateButton variant="footer" />
+              <DonateButton variant="footer" onClick={() => setIsMenuOpen(false)} />
             </motion.div>
           </div>
         </motion.nav>

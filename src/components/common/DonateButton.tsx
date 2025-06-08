@@ -6,15 +6,18 @@ import { Link, useNavigate } from 'react-router-dom';
 interface DonateButtonProps {
   variant?: 'header' | 'footer' | 'standalone';
   className?: string;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 const DonateButton: React.FC<DonateButtonProps> = ({
   variant = 'standalone',
-  className = ''
+  className = '',
+  onClick
 }) => {
   const navigate = useNavigate();
 
   const handleClick = (e: React.MouseEvent) => {
+    if (onClick) onClick(e);
     if (variant === 'footer') {
       e.preventDefault();
       // Scroll to top first
