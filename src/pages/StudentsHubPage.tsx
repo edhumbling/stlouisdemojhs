@@ -56,6 +56,10 @@ interface Resource {
   isUSSD?: boolean;
   openInNewTab?: boolean;
   isYouTube?: boolean;
+  forceFullPage?: boolean;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
+  sandbox?: string;
 }
 
 const StudentsHubPage: React.FC = () => {
@@ -1886,6 +1890,31 @@ const StudentsHubPage: React.FC = () => {
         color: "#F59E0B",
         openInNewTab: true
       }
+    ],
+    "👥 Staff Resources": [
+      {
+        id: 1,
+        title: "E-PaySlip Portal",
+        description: "Access your electronic payslips and salary information securely",
+        url: "https://www.gogpayslip.com/index.php?action=login",
+        icon: <FileText className="w-5 h-5" />,
+        color: "#1E40AF", // Deep Blue
+        embedStrategy: 'iframe',
+        customScripts: true,
+        forceFullPage: true,
+        hideHeader: true,
+        hideFooter: true,
+        sandbox: "allow-same-origin allow-scripts allow-popups allow-forms"
+      },
+      {
+        id: 2,
+        title: "Staff Handbook",
+        description: "Comprehensive guide to school policies and procedures",
+        url: "/staff-handbook",
+        icon: <BookOpen className="w-5 h-5" />,
+        color: "#7C3AED",
+        isInternal: true
+      },
     ]
   };
 
@@ -2756,124 +2785,31 @@ const StudentsHubPage: React.FC = () => {
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                 {selectedResource.title}
               </h1>
-
-              {/* Quick access button for smart resources */}
-              {selectedResource.embedStrategy === 'smart' && (
-                <button
-                  onClick={handleOpenOriginal}
-                  className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
-                >
-                  <ExternalLink size={14} />
-                  <span className="hidden sm:inline">Open Original</span>
-                </button>
-              )}
             </div>
           </div>
         </div>
 
         {/* Content Area - Full Screen */}
-        <div className="absolute inset-0 pt-20 sm:pt-24">
-          {!iframeError && selectedResource.embedStrategy !== 'smart' ? (
-            <>
-              <iframe
-                ref={iframeRef}
-                src={selectedResource.url}
-                className="w-full h-full border-0"
-                title={selectedResource.title}
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads allow-modals"
-                onLoad={handleIframeLoad}
-                onError={handleIframeError}
-              />
-
-              {/* Regular Loading Overlay */}
-              {isLoading && (
-                <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-20">
-                  <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-gray-600 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-white font-medium">Loading {selectedResource.title}...</p>
-                    <p className="text-gray-300 text-sm mt-1">Please wait while we load the resource</p>
-                  </div>
-                </div>
-              )}
-            </>
-          ) : (
-            /* Smart Loading or Error State */
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
-              {isLoading ? (
-                /* Smart Loading Animation */
-                <div className="text-center max-w-md">
-                  <div className="relative mb-8">
-                    <div className="w-20 h-20 border-4 border-gray-600 border-t-blue-500 rounded-full animate-spin mx-auto"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-12 h-12 bg-blue-500/20 rounded-full animate-pulse"></div>
-                    </div>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {smartLoadingPhase === 'connecting' && 'Connecting to External Resource...'}
-                    {smartLoadingPhase === 'loading' && 'Loading Content...'}
-                    {smartLoadingPhase === 'error' && 'Connection Restricted'}
-                  </h3>
-
-                  <p className="text-gray-300 mb-4">
-                    {smartLoadingPhase === 'connecting' && 'Establishing secure connection'}
-                    {smartLoadingPhase === 'loading' && 'Fetching educational content'}
-                    {smartLoadingPhase === 'error' && 'This resource blocks iframe embedding'}
-                  </p>
-
-                  {/* Progress Bar */}
-                  <div className="w-full bg-gray-700 rounded-full h-2 mb-4">
-                    <div
-                      className="bg-blue-500 h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${loadingProgress}%` }}
-                    ></div>
-                  </div>
-
-                  <p className="text-sm text-gray-400">{loadingProgress}% complete</p>
-                </div>
-              ) : (
-                /* Alternative Resources Display */
-                <div className="text-center max-w-4xl">
-                  <div className="mb-8">
-                    <AlertCircle className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold text-white mb-2">Resource Access Alternative</h3>
-                    <p className="text-gray-300 mb-6">
-                      {selectedResource.title} cannot be embedded directly. Choose from these excellent alternatives:
-                    </p>
-                  </div>
-
-                  {/* Alternative Resources Grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                    {/* Original Resource */}
-                    <button
-                      onClick={handleOpenOriginal}
-                      className="p-6 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105"
-                    >
-                      <ExternalLink className="w-8 h-8 mx-auto mb-3" />
-                      <h4 className="font-semibold mb-2">Original Resource</h4>
-                      <p className="text-sm opacity-90">Open {selectedResource.title} in new tab</p>
-                    </button>
-
-                    {/* Alternative Resources */}
-                    {selectedResource.alternativeUrls?.slice(0, 5).map((url, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleTryAlternative(url)}
-                        className="p-6 bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105"
-                      >
-                        <BookOpen className="w-8 h-8 mx-auto mb-3" />
-                        <h4 className="font-semibold mb-2">Alternative {index + 1}</h4>
-                        <p className="text-sm opacity-90">Similar learning resource</p>
-                      </button>
-                    ))}
-                  </div>
-
-                  <p className="text-sm text-gray-400">
-                    All resources open in new tabs for the best learning experience
-                  </p>
-                </div>
-              )}
+        <div className="fixed inset-0 pt-[72px] sm:pt-[88px]">
+          {isLoading ? (
+            <div className="h-full flex items-center justify-center">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div>
+                <p className="text-purple-300">Loading {selectedResource.title}...</p>
+              </div>
             </div>
+          ) : (
+            <iframe
+              ref={iframeRef}
+              src={selectedResource.url}
+              className="w-full h-full border-0"
+              onLoad={handleIframeLoad}
+              onError={handleIframeError}
+              sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+              referrerPolicy="no-referrer"
+              loading="eager"
+              title={selectedResource.title}
+            />
           )}
         </div>
       </div>
@@ -3085,6 +3021,13 @@ const StudentsHubPage: React.FC = () => {
               style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #22c55e)' }}
             >
               Check SHS Database/Selection
+            </Link>
+            <Link
+              to="/results-placement"
+              className="bg-yellow-500/90 backdrop-blur-md rounded-xl px-3 sm:px-6 py-2 sm:py-3 text-white font-bold shadow-xl hover:bg-yellow-600/90 transition-all duration-300 border border-white/30 text-sm sm:text-lg"
+              style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #eab308)' }}
+            >
+              Results & Placement Checker
             </Link>
           </div>
 
