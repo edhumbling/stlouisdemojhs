@@ -1,102 +1,91 @@
-import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import { Viewer } from '@react-pdf-viewer/core';
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { PDF_LINKS } from '../data/shsData';
 
-const PDF_LINKS = [
-  {
-    id: 'a',
-    title: 'Category A SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-A-SHS-School-Selection-List-2023-2024.pdf',
-  },
-  {
-    id: 'b',
-    title: 'Category B SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-B-SHS-School-Selection-List-2023-2024.pdf',
-  },
-  {
-    id: 'c',
-    title: 'Category C SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-C-SHS-School-Selection-List-2023-2024.pdf',
-  },
-  {
-    id: 'd',
-    title: 'Category D SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-D-SHS-School-Selection-List-2023-2024.pdf',
-  },
-  {
-    id: 'special',
-    title: 'Special Boarding SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Special-Boarding-SHS-School-Selection-List-2023-2024.pdf',
-  },
-  {
-    id: 'cssps',
-    title: 'Download SHS CSSPS School Selection Form',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/SHS-CSSPS-School-Selection-Form-2023-2024.pdf',
-  },
-];
+interface PdfLink {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+}
 
 const SHSPdfViewerPage: React.FC = () => {
+  const { pdfId } = useParams<{ pdfId: string }>();
   const navigate = useNavigate();
-  const { pdfId } = useParams();
-  const pdf = PDF_LINKS.find((p) => p.id === pdfId);
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+
+  // Find the PDF data
+  const pdf = PDF_LINKS.find((p: PdfLink) => p.id === pdfId);
+
+  useEffect(() => {
+    if (pdf) {
+      // Load DearFlip CSS
+      const cssLink = document.createElement('link');
+      cssLink.href = 'https://cdn.jsdelivr.net/npm/dearflip-js-flipbook@1.0.0/dist/dflip.min.css';
+      cssLink.rel = 'stylesheet';
+      document.head.appendChild(cssLink);
+
+      // Load DearFlip JS
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/dearflip-js-flipbook@1.0.0/dist/dflip.min.js';
+      script.async = true;
+      document.body.appendChild(script);
+
+      return () => {
+        document.head.removeChild(cssLink);
+        document.body.removeChild(script);
+      };
+    }
+  }, [pdf]);
 
   if (!pdf) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100">
-        <div className="mb-6">
+      <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+        <div className="max-w-4xl mx-auto py-8 px-4">
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-green-700/80 hover:bg-green-800 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 text-base"
+            className="flex items-center text-green-700 hover:text-green-900 mb-6"
           >
-            <ArrowLeft size={20} />
-            <span>Back</span>
+            <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back
           </button>
+          <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg">
+            <h2 className="text-xl font-semibold text-red-700">PDF Not Found</h2>
+            <p className="text-red-600 mt-2">The requested PDF could not be found.</p>
+          </div>
         </div>
-        <div className="text-2xl font-bold text-green-800">PDF Not Found</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-green-50 via-white to-green-100">
-      {/* Native Back Button and Title Section - Green Aero */}
-      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4 pt-20">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <button
-              onClick={() => navigate(-1)}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
-            >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-              <span>Back</span>
-            </button>
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white truncate">
-              {pdf.title}
-            </h1>
-          </div>
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+      <div className="max-w-6xl mx-auto py-8 px-4">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center text-green-700 hover:text-green-900 mb-6"
+        >
+          <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back
+        </button>
+
+        {/* PDF Title */}
+        <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+          <h1 className="text-2xl font-bold text-green-800 mb-2">{pdf.title}</h1>
+          <p className="text-gray-600">{pdf.description}</p>
         </div>
-      </div>
-      {/* PDF Viewer Full Screen */}
-      <div className="flex-1 w-full max-w-6xl mx-auto py-4 px-2 sm:px-6 flex flex-col">
-        <div className="flex-1 min-h-[80vh] rounded-xl overflow-hidden bg-white shadow-lg">
-          <Viewer 
-            fileUrl={pdf.url} 
-            plugins={[defaultLayoutPluginInstance]} 
-            renderError={(
-              error
-            ) => (
-              <div className="flex flex-col items-center justify-center h-full p-8 text-center">
-                <div className="text-red-600 font-bold text-lg mb-2">Failed to load PDF</div>
-                <div className="text-gray-700 mb-4">{error?.message || 'The PDF could not be displayed. This may be due to network issues or file restrictions.'}</div>
-                <a href={pdf.url} download className="inline-block px-4 py-2 bg-green-600 text-white rounded-lg font-semibold shadow hover:bg-green-700 transition-all duration-200">Download PDF</a>
-              </div>
-            )}
-          />
+
+        {/* DearFlip PDF Viewer */}
+        <div className="bg-white rounded-xl shadow-lg p-6">
+          <div 
+            className="_df_book" 
+            id="flipbook" 
+            data-source={pdf.url}
+          ></div>
         </div>
       </div>
     </div>
