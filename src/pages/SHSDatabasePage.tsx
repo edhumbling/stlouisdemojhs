@@ -50,6 +50,10 @@ const PDF_LINKS = [
 const SHSDatabasePage: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleBack = () => {
+    navigate('/students-hub'); // Always navigate to Students Hub instead of using history
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 px-0 sm:px-0">
       {/* Native Back Button and Title Section - Green Aero */}
@@ -57,7 +61,7 @@ const SHSDatabasePage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
-              onClick={() => navigate(-1)}
+              onClick={() => navigate('/students-hub')}
               className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
             >
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />

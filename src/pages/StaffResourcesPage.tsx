@@ -1,10 +1,28 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, FileBarChart, Brain, Eye, GraduationCap, ScanText, Search, PenTool, Zap } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, DollarSign } from 'lucide-react';
+import { FileBarChart, Brain, Eye, GraduationCap, ScanText, Search, PenTool, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
+import getSymbolFromCurrency from 'currency-symbol-map';
+
+interface Resource {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  url: string;
+  icon: any;
+  color: string;
+  openInNewTab?: boolean;
+  customTitle?: () => React.ReactNode;
+}
+
+interface ResourceCategories {
+  [key: string]: Resource[];
+}
 
 const StaffResourcesPage: React.FC = () => {
   const navigate = useNavigate();
@@ -144,7 +162,7 @@ const StaffResourcesPage: React.FC = () => {
 
   // 🎯 CATEGORIZED STAFF RESOURCES 🎯
   // Organized by professional areas for better navigation and discovery
-  const resourceCategories = {
+  const resourceCategories: ResourceCategories = {
     "📚 Curriculum & Assessment": [
       {
         id: 'nacca-ccp',
@@ -238,6 +256,22 @@ const StaffResourcesPage: React.FC = () => {
     ],
     "⚡ Productivity Tools": [
       {
+        id: 'e-payslip',
+        title: 'E-PaySlip Portal',
+        subtitle: 'Salary Information',
+        description: 'Access your electronic payslips and salary information securely',
+        url: 'https://www.gogpayslip.com/index.php?action=login',
+        icon: DollarSign,
+        color: 'from-green-500 to-green-600',
+        openInNewTab: true,
+        customTitle: () => (
+          <div className="flex items-center gap-1">
+            <span className="text-lg">₵</span>
+            <span>E-PaySlip Portal</span>
+          </div>
+        )
+      },
+      {
         id: 'paper-to-text-notes',
         title: 'Paper to Text Notes',
         subtitle: 'OCR Document Scanner',
@@ -261,9 +295,8 @@ const StaffResourcesPage: React.FC = () => {
       category: Object.keys(resourceCategories).find(categoryName =>
         resourceCategories[categoryName].some(r => r.id === resource.id)
       ) || 'Other',
-      type: (resource as any).openInNewTab ? 'external' : 'internal',
-      url: resource.url,
-      ...resource
+      type: resource.openInNewTab ? 'external' : 'internal',
+      url: resource.url
     }));
   }, [resources]);
 
@@ -551,14 +584,17 @@ const StaffResourcesPage: React.FC = () => {
                           {/* Content */}
                           <div className="flex-1 flex flex-col space-y-2">
                             {/* Title */}
-                            <h3 className="text-sm font-bold text-white leading-tight group-hover:text-blue-300 transition-colors duration-300 line-clamp-2">
-                              {resource.title}
-                            </h3>
-
-                            {/* Subtitle */}
-                            <p className="text-xs text-blue-400 font-medium line-clamp-1">
-                              {resource.subtitle}
-                            </p>
+                            <div className="flex items-center gap-3">
+                              <div className={`p-2 rounded-lg bg-gradient-to-br ${resource.color} shadow-lg`}>
+                                <resource.icon className="w-5 h-5 text-white" />
+                              </div>
+                              <div>
+                                <h3 className="font-semibold text-gray-900">
+                                  {resource.customTitle ? resource.customTitle() : resource.title}
+                                </h3>
+                                <p className="text-sm text-gray-600">{resource.subtitle}</p>
+                              </div>
+                            </div>
 
                             {/* Description */}
                             <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
@@ -600,6 +636,27 @@ const StaffResourcesPage: React.FC = () => {
                 <span>Educational resources for teaching excellence</span>
               </div>
             </div>
+          </div>
+
+          <div className="mb-8 flex justify-center gap-2 sm:gap-4">
+            <button
+              onClick={() => handleResourceClick({
+                id: 1,
+                title: "E-PaySlip Portal",
+                description: "Access your electronic payslips and salary information securely",
+                url: "https://www.gogpayslip.com/index.php?action=login",
+                icon: <DollarSign className="w-5 h-5" />,
+                color: "#16a34a",
+                embedStrategy: 'iframe',
+                customScripts: true,
+                forceFullPage: true
+              })}
+              className="bg-green-600/90 backdrop-blur-md rounded-xl px-3 sm:px-6 py-2 sm:py-3 text-white font-bold shadow-xl hover:bg-green-700/90 transition-all duration-300 border border-white/30 text-sm sm:text-lg flex items-center gap-2"
+              style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #16a34a)' }}
+            >
+              <span className="text-lg">₵</span>
+              Access E-PaySlip
+            </button>
           </div>
         </div>
       </main>

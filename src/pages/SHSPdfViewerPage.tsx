@@ -94,12 +94,12 @@ const SHSPdfViewerPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-white mb-4">PDF Not Found</h1>
-            <button
+        <button
               onClick={handleBack}
               className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-            >
+        >
               Back to Database
-            </button>
+        </button>
           </div>
         </div>
       </div>
@@ -113,14 +113,14 @@ const SHSPdfViewerPage: React.FC = () => {
         <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4 sm:py-5 shadow-2xl border-b border-green-700/50">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
-              <button
+        <button
                 onClick={handleBack}
                 className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-green-700/70 hover:bg-green-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/50 hover:border-green-400/70 flex-shrink-0"
-              >
+        >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
                 <span className="hidden sm:inline">Back to Database</span>
                 <span className="sm:hidden">Back</span>
-              </button>
+        </button>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                 {pdfLink.title}
@@ -137,7 +137,7 @@ const SHSPdfViewerPage: React.FC = () => {
                 <span className="hidden sm:inline">Download</span>
               </a>
             </div>
-          </div>
+      </div>
         </div>
       )}
 
@@ -234,7 +234,7 @@ const SHSPdfViewerPage: React.FC = () => {
         {isMobile ? (
           /* Google Docs Viewer for Mobile PDFs */
           <div className="w-full h-full bg-white">
-            <iframe
+      <iframe
               ref={iframeRef}
               src={getGooglePdfViewerUrl(pdfLink.url)}
               className="w-full h-full border-0"
