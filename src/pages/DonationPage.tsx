@@ -161,6 +161,13 @@ const DonationPage: React.FC = () => {
               </Link>
             </div>
 
+            {/* Payment Option Placeholders */}
+            <div className="flex justify-center gap-4 mb-8">
+              <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-8 w-auto rounded shadow-sm" />
+              <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-8 w-auto rounded shadow-sm" />
+              <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-8 w-auto rounded shadow-sm" />
+            </div>
+
             {/* Physical Assets Notice */}
             <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/30 max-w-3xl mx-auto mb-4 sm:mb-6">
               <div className="flex items-center justify-center mb-3">
