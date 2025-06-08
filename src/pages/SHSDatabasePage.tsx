@@ -89,11 +89,11 @@ const SHSDatabasePage: React.FC = () => {
       </div>
 
       {/* PDF Cards */}
-      <div className="w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 pb-12">
+      <div className="w-full max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 px-4 pb-12">
         {PDF_LINKS.map((pdf) => (
           <div
             key={pdf.id}
-            className="group relative bg-white/90 rounded-xl shadow-lg p-6 flex flex-col items-center justify-between hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+            className="group relative bg-white/90 rounded-xl shadow-lg p-4 sm:p-6 flex flex-col items-center justify-between hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
             style={{
               border: `1px solid ${pdf.color}20`,
               background: `linear-gradient(135deg, ${pdf.color}10, white)`
@@ -101,18 +101,18 @@ const SHSDatabasePage: React.FC = () => {
           >
             {/* Icon */}
             <div
-              className="w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-white"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 sm:mb-4 flex items-center justify-center text-white"
               style={{ backgroundColor: pdf.color }}
             >
               {pdf.icon}
             </div>
 
             {/* Title */}
-            <h2 className="text-lg font-bold text-gray-800 mb-3 text-center">{pdf.title}</h2>
+            <h2 className="text-sm sm:text-lg font-bold text-gray-800 mb-2 sm:mb-3 text-center">{pdf.title}</h2>
 
             {/* View Button */}
             <button
-              className="mt-2 px-5 py-2 text-white rounded-lg font-semibold shadow hover:shadow-lg transition-all duration-200"
+              className="mt-2 px-3 sm:px-5 py-1.5 sm:py-2 text-white rounded-lg font-semibold shadow hover:shadow-lg transition-all duration-200 text-sm sm:text-base"
               style={{ backgroundColor: pdf.color }}
               onClick={() => navigate(`/shs-database/pdf/${pdf.id}`)}
             >
