@@ -28,7 +28,9 @@ const Layout: React.FC = () => {
     '/donate-paypal',
     '/donate-us-bank',
     '/donate-uk-bank',
-    '/news-events'
+    '/news-events',
+    '/shs-database',
+    ...((location.pathname.startsWith('/shs-database/pdf/')) ? [location.pathname] : []),
   ];
   const shouldShowFooter = !noFooterPages.includes(location.pathname);
 
