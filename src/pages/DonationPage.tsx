@@ -125,6 +125,11 @@ const DonationPage: React.FC = () => {
               Every donation helps us provide better education for our students
             </p>
 
+            {/* Payment Options Message */}
+            <div className="text-center text-white font-semibold text-base sm:text-lg mb-2 drop-shadow-lg">
+              You can pay with any of the following options:
+            </div>
+
             {/* Donation Buttons Container */}
             <div className="mt-8 mb-10 flex flex-wrap justify-center gap-3 sm:gap-4 px-2">
               {/* PayPal Donation Button */}
@@ -161,61 +166,32 @@ const DonationPage: React.FC = () => {
               </Link>
             </div>
 
-            {/* Payment Option Icons - Static, edge-to-edge on mobile */}
-            <div className="w-full flex justify-between items-center mb-8 px-2">
-              <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-7 sm:h-14 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-              <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-7 sm:h-14 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-              <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-7 sm:h-14 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+            {/* Payment Option Icons - Centered and Glowing on Mobile */}
+            <div className="w-full flex justify-center sm:justify-between items-center mb-8 px-2 gap-4">
+              <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
+              <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
+              <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
             </div>
 
-            {/* Physical Donations Welcome - Modern Glassmorphism */}
-            <div className="max-w-3xl mx-auto mb-6">
-              <div className="bg-white/20 backdrop-blur-lg rounded-2xl border border-white/30 shadow-xl p-6 sm:p-8 text-center">
-                <div className="flex items-center justify-center mb-4 gap-2">
-                  <BookOpen className="w-7 h-7 text-white drop-shadow" />
-                  <h3 className="text-lg sm:text-2xl font-extrabold text-white drop-shadow">Physical Donations Welcome!</h3>
+            {/* Physical Donations Welcome - Compact, Apple-like, Cute */}
+            <div className="max-w-md mx-auto mb-6">
+              <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/40 shadow-2xl p-4 sm:p-6 text-center flex flex-col items-center gap-2">
+                <div className="flex items-center justify-center mb-2 gap-2">
+                  <BookOpen className="w-6 h-6 text-white drop-shadow" />
+                  <h3 className="text-base sm:text-lg font-extrabold text-white drop-shadow">Physical Donations Welcome!</h3>
                 </div>
-                <p className="text-white/90 text-sm sm:text-base mb-5 font-medium drop-shadow">
+                <p className="text-white/90 text-xs sm:text-sm mb-3 font-medium drop-shadow">
                   We also warmly receive gifts in the form of physical assets such as books, computers, furniture, and any other educational materials. Your contributions are received gladly and cheerfully with gratitude!
                 </p>
                 <a
                   href="/partner"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/30 hover:bg-white/50 text-white font-bold rounded-xl shadow-lg border border-white/40 transition-all text-base"
+                  className="inline-flex items-center gap-2 px-5 py-2 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg border border-white/40 transition-all text-base mt-2"
+                  style={{ boxShadow: '0 0 16px 4px #fff, 0 2px 8px 0 #22c55e80' }}
                 >
                   <Heart className="w-5 h-5" />
                   Partner With Us
                 </a>
-                <div className="mt-7 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {/* Technology */}
-                  <div className="flex flex-col items-center">
-                    <span className="bg-blue-600/80 rounded-full p-3 mb-2 shadow-lg">
-                      💻
-                    </span>
-                    <span className="text-white font-semibold text-xs sm:text-sm">Technology</span>
-                  </div>
-                  {/* Teachers */}
-                  <div className="flex flex-col items-center">
-                    <span className="bg-green-600/80 rounded-full p-3 mb-2 shadow-lg">
-                      👨‍🏫
-                    </span>
-                    <span className="text-white font-semibold text-xs sm:text-sm">Teachers</span>
-                  </div>
-                  {/* Infrastructure */}
-                  <div className="flex flex-col items-center">
-                    <span className="bg-pink-600/80 rounded-full p-3 mb-2 shadow-lg">
-                      🏫
-                    </span>
-                    <span className="text-white font-semibold text-xs sm:text-sm">Infrastructure</span>
-                  </div>
-                  {/* Students */}
-                  <div className="flex flex-col items-center">
-                    <span className="bg-yellow-500/80 rounded-full p-3 mb-2 shadow-lg">
-                      🧑‍🎓
-                    </span>
-                    <span className="text-white font-semibold text-xs sm:text-sm">Students</span>
-                  </div>
-                </div>
               </div>
             </div>
 
