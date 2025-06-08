@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 
@@ -103,36 +103,31 @@ const ResultsPlacementPage: React.FC = () => {
       {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 md:gap-6 p-2 sm:p-4">
         {/* Buy Checker PIN Card */}
-        <div className="bg-blue-500/10 backdrop-blur-md rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-blue-500/20 relative group"
-             style={{ filter: 'drop-shadow(0 0 8px rgba(59, 130, 246, 0.2))' }}>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-          <div className="p-3 sm:p-4 md:p-6 relative">
-            <h2 className="text-base sm:text-lg md:text-xl font-semibold text-blue-300 mb-2 sm:mb-4">Buy Checker PIN</h2>
-            <p className="text-sm sm:text-base text-blue-100/80 mb-3 sm:mb-4 md:mb-6">
-              Purchase your WAEC Result Checker PIN through Mobile Money.
-            </p>
-            <div className="space-y-2 sm:space-y-3 md:space-y-4">
-              <h3 className="text-sm sm:text-base font-medium text-blue-300">How to Buy:</h3>
-              <ol className="list-decimal list-inside space-y-1.5 sm:space-y-2 text-sm sm:text-base text-blue-100/80">
-                <li>Click "Buy PIN" to visit Vatebra</li>
-                <li>Select your mobile money provider</li>
-                <li>Enter your mobile money number</li>
-                <li>Confirm payment details</li>
-                <li>Complete payment via USSD</li>
-                <li>Receive PIN via SMS</li>
-              </ol>
+        <div className="bg-blue-500/90 backdrop-blur-md rounded-xl p-3 sm:p-4 md:p-6 flex flex-col h-full">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white">
+              <DollarSign className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <a
-              href="https://vatebra.com/waec-result-checker-pin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 sm:mt-4 md:mt-6 w-full bg-blue-500/90 hover:bg-blue-600/90 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl border border-white/30 text-sm sm:text-base relative overflow-hidden group block text-center"
-              style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #3b82f6)' }}
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-              <span className="relative">Buy PIN</span>
-            </a>
+            <h2 className="text-lg sm:text-xl font-bold text-white">Buy Checker PIN</h2>
           </div>
+          <p className="text-blue-100 text-sm sm:text-base mb-4 flex-grow">
+            Purchase your WAEC Result Checker PIN through Vatebra's mobile money service. Follow these steps:
+          </p>
+          <ol className="text-blue-100 text-sm sm:text-base mb-4 list-decimal pl-5 space-y-1">
+            <li>Click the button below</li>
+            <li>Select your mobile money provider</li>
+            <li>Enter your phone number</li>
+            <li>Complete the payment</li>
+            <li>Receive your PIN via SMS</li>
+          </ol>
+          <a
+            href="https://waecghmomo.vatebra.com/services/purchase/RCK"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm sm:text-base text-center"
+          >
+            Buy PIN Now
+          </a>
         </div>
 
         {/* BECE Results Checker Card */}
