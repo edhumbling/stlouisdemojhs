@@ -208,24 +208,6 @@ const DonationPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Quick Fund Usage - Compact */}
-            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20 max-w-2xl mx-auto">
-              <div className="grid grid-cols-3 gap-3 sm:gap-4 text-center">
-                <div>
-                  <div className="text-lg sm:text-xl mb-1">💻</div>
-                  <p className="text-xs sm:text-sm text-white font-medium">Technology</p>
-                </div>
-                <div>
-                  <div className="text-lg sm:text-xl mb-1">👨‍🏫</div>
-                  <p className="text-xs sm:text-sm text-white font-medium">Teachers</p>
-                </div>
-                <div>
-                  <div className="text-lg sm:text-xl mb-1">🏫</div>
-                  <p className="text-xs sm:text-sm text-white font-medium">Infrastructure</p>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
