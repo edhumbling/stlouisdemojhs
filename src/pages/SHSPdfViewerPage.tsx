@@ -43,13 +43,9 @@ const SHSPdfViewerPage: React.FC = () => {
 
   // Control header visibility
   useEffect(() => {
-    if (isMobile) {
-      setShowHeader(false);
-    }
-    return () => {
-      setShowHeader(true);
-    };
-  }, [isMobile, setShowHeader]);
+    setShowHeader(false);
+    return () => setShowHeader(true);
+  }, [setShowHeader]);
 
   // Handle PDF loading
   useEffect(() => {

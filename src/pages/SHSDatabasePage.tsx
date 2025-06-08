@@ -41,7 +41,7 @@ const PDF_LINKS = [
   {
     id: 'cssps',
     title: 'Download SHS CSSPS School Selection Form',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/SHS-CSSPS-School-Selection-Form-2023-2024.pdf',
+    url: 'https://drive.google.com/file/d/1sIP0gii3xFqtvpP87kMgxojlZrEqhNhe/view?pli=1',
     color: '#EF4444', // Red
     icon: <FileText className="w-6 h-6" />
   },
@@ -64,15 +64,15 @@ const SHSDatabasePage: React.FC = () => {
               <span>Back</span>
             </button>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              Visit SHS Database and Selection Guide
+              SHS Database and Selection Guide
             </h1>
           </div>
         </div>
       </div>
 
       {/* School Selection Guideline Section */}
-      <div className="w-full max-w-5xl mx-auto px-4 py-8">
-        <h2 className="text-xl sm:text-2xl font-bold text-green-800 mb-2">School Selection Guideline for BECE Students (2024)</h2>
+      <div className="container mx-auto px-4 py-6 sm:py-8">
+        <h2 className="text-xl sm:text-2xl font-bold text-green-800 mb-2">School Selection Guideline for BECE Students</h2>
         <ul className="list-disc pl-6 text-green-900 space-y-2 text-base sm:text-lg">
           <li><b>You can select up to 11 schools in total:</b> 6 schools during the main selection, and up to 5 more during the self-placement phase if you are not placed initially.</li>
           <li>For the main selection: Choose <b>5 schools</b> in order of preference from Categories A, B, and C (only 1 from A, up to 2 from B, all 5 can be from C).</li>
