@@ -163,7 +163,7 @@ const DonationPage: React.FC = () => {
 
             {/* Payment Option Marquee */}
             <div className="relative w-full overflow-x-hidden mb-8">
-              <div className="flex items-center gap-8 animate-marquee whitespace-nowrap" style={{ animation: 'marquee 300s linear infinite' }}>
+              <div className="flex items-center gap-8 whitespace-nowrap" style={{ animation: 'marquee 300s linear infinite' }}>
                 <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
                 <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
                 <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
