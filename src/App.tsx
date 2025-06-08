@@ -40,6 +40,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import PayPalDonatePage from './pages/PayPalDonatePage';
 import DonateUSBankPage from './pages/DonateUSBankPage';
 import DonateUKBankPage from './pages/DonateUKBankPage';
+import SHSDatabasePage from './pages/SHSDatabasePage';
 
 
 
@@ -141,6 +142,7 @@ const App: React.FC = () => {
           <Route path="donate-paypal" element={<PayPalDonatePage />} />
           <Route path="donate-us-bank" element={<DonateUSBankPage />} />
           <Route path="donate-uk-bank" element={<DonateUKBankPage />} />
+          <Route path="shs-database" element={<SHSDatabasePage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
