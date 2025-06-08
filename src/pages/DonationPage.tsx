@@ -161,43 +161,62 @@ const DonationPage: React.FC = () => {
               </Link>
             </div>
 
-            {/* Payment Option Marquee */}
-            <div className="relative w-full overflow-x-hidden mb-8">
-              <div className="flex items-center gap-8 whitespace-nowrap" style={{ animation: 'marquee 300s linear infinite' }}>
-                <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-                <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-                <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-                {/* Repeat for infinite effect */}
-                <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-                <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-                <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-10 sm:h-16 w-auto rounded shadow-sm mx-2" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
-              </div>
+            {/* Payment Option Icons - Static, edge-to-edge on mobile */}
+            <div className="w-full flex justify-between items-center mb-8 px-2">
+              <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-7 sm:h-14 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+              <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-7 sm:h-14 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+              <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-7 sm:h-14 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
             </div>
-            <style>{`
-              @keyframes marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-              }
-            `}</style>
 
-            {/* Physical Assets Notice */}
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/30 max-w-3xl mx-auto mb-4 sm:mb-6">
-              <div className="flex items-center justify-center mb-3">
-                <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-white mr-2" />
-                <h3 className="text-sm sm:text-base font-bold text-white">Physical Donations Welcome!</h3>
+            {/* Physical Donations Welcome - Modern Glassmorphism */}
+            <div className="max-w-3xl mx-auto mb-6">
+              <div className="bg-white/20 backdrop-blur-lg rounded-2xl border border-white/30 shadow-xl p-6 sm:p-8 text-center">
+                <div className="flex items-center justify-center mb-4 gap-2">
+                  <BookOpen className="w-7 h-7 text-white drop-shadow" />
+                  <h3 className="text-lg sm:text-2xl font-extrabold text-white drop-shadow">Physical Donations Welcome!</h3>
+                </div>
+                <p className="text-white/90 text-sm sm:text-base mb-5 font-medium drop-shadow">
+                  We also warmly receive gifts in the form of physical assets such as books, computers, furniture, and any other educational materials. Your contributions are received gladly and cheerfully with gratitude!
+                </p>
+                <a
+                  href="/partner"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/30 hover:bg-white/50 text-white font-bold rounded-xl shadow-lg border border-white/40 transition-all text-base"
+                >
+                  <Heart className="w-5 h-5" />
+                  Partner With Us
+                </a>
+                <div className="mt-7 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {/* Technology */}
+                  <div className="flex flex-col items-center">
+                    <span className="bg-blue-600/80 rounded-full p-3 mb-2 shadow-lg">
+                      💻
+                    </span>
+                    <span className="text-white font-semibold text-xs sm:text-sm">Technology</span>
+                  </div>
+                  {/* Teachers */}
+                  <div className="flex flex-col items-center">
+                    <span className="bg-green-600/80 rounded-full p-3 mb-2 shadow-lg">
+                      👨‍🏫
+                    </span>
+                    <span className="text-white font-semibold text-xs sm:text-sm">Teachers</span>
+                  </div>
+                  {/* Infrastructure */}
+                  <div className="flex flex-col items-center">
+                    <span className="bg-pink-600/80 rounded-full p-3 mb-2 shadow-lg">
+                      🏫
+                    </span>
+                    <span className="text-white font-semibold text-xs sm:text-sm">Infrastructure</span>
+                  </div>
+                  {/* Students */}
+                  <div className="flex flex-col items-center">
+                    <span className="bg-yellow-500/80 rounded-full p-3 mb-2 shadow-lg">
+                      🧑‍🎓
+                    </span>
+                    <span className="text-white font-semibold text-xs sm:text-sm">Students</span>
+                  </div>
+                </div>
               </div>
-              <p className="text-xs sm:text-sm text-white/90 mb-3 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                We also warmly receive gifts in the form of physical assets such as books, computers, furniture,
-                and any other educational materials. Your contributions are received gladly and cheerfully with gratitude!
-              </p>
-              <a
-                href="/partner"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-4 py-2 bg-white/30 hover:bg-white/40 text-white font-semibold rounded-lg transition-all duration-300 text-xs sm:text-sm border border-white/40"
-              >
-                <Heart className="w-4 h-4 mr-2" />
-                Partner With Us
-              </a>
             </div>
 
             {/* Quick Fund Usage - Compact */}
