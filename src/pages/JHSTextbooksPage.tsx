@@ -266,14 +266,14 @@ const JHSTextbooksPage: React.FC = () => {
   // Loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
         <ShimmerLoader variant="hero" className="w-full h-full" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       {/* Header */}
       <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

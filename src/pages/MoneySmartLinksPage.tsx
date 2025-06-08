@@ -4801,7 +4801,7 @@ const MoneySmartLinksPage: React.FC = () => {
   // Loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
         <ShimmerLoader variant="hero" className="w-full h-full" />
       </div>
     );
@@ -4865,7 +4865,7 @@ const MoneySmartLinksPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       {/* Header */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

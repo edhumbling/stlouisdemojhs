@@ -794,7 +794,7 @@ const STEMPage: React.FC = () => {
   // If a category is selected, show the dedicated category page
   if (selectedCategory) {
     return (
-      <div className="min-h-screen bg-black pt-16">
+      <div className="min-h-screen bg-black">
         {/* Back Button and Title Section */}
         <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
@@ -857,7 +857,7 @@ const STEMPage: React.FC = () => {
   // Show shimmer loading for initial page load
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black pt-16">
+      <div className="min-h-screen bg-black">
         {/* Header Shimmer */}
         <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
@@ -908,7 +908,7 @@ const STEMPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black pt-16">
+    <div className="min-h-screen bg-black">
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
