@@ -125,15 +125,6 @@ const Layout: React.FC = () => {
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {showHeader && <Header />}
       <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
-        {/* Add note about funds going directly to school on donation pages */}
-        {(location.pathname === '/donate' || 
-          location.pathname === '/donate-paypal' || 
-          location.pathname === '/donate-us-bank' || 
-          location.pathname === '/donate-uk-bank') && (
-          <div className="bg-green-50 border-b border-green-100 text-center py-2 px-4 text-sm text-green-800">
-            💝 100% of your donation goes directly to St. Louis Demo JHS
-          </div>
-        )}
         <Outlet />
       </main>
       {shouldShowFooter && <Footer />}
