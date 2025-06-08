@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { PDF_LINKS } from '../data/shsData';
 
@@ -15,27 +15,6 @@ const SHSPdfViewerPage: React.FC = () => {
 
   // Find the PDF data
   const pdf = PDF_LINKS.find((p: PdfLink) => p.id === pdfId);
-
-  useEffect(() => {
-    if (pdf) {
-      // Load DearFlip CSS
-      const cssLink = document.createElement('link');
-      cssLink.href = 'https://cdn.jsdelivr.net/npm/dearflip-js-flipbook@1.0.0/dist/dflip.min.css';
-      cssLink.rel = 'stylesheet';
-      document.head.appendChild(cssLink);
-
-      // Load DearFlip JS
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/dearflip-js-flipbook@1.0.0/dist/dflip.min.js';
-      script.async = true;
-      document.body.appendChild(script);
-
-      return () => {
-        document.head.removeChild(cssLink);
-        document.body.removeChild(script);
-      };
-    }
-  }, [pdf]);
 
   if (!pdf) {
     return (
@@ -79,13 +58,13 @@ const SHSPdfViewerPage: React.FC = () => {
           <p className="text-gray-600">{pdf.description}</p>
         </div>
 
-        {/* DearFlip PDF Viewer */}
+        {/* PDF Viewer */}
         <div className="bg-white rounded-xl shadow-lg p-6">
-          <div 
-            className="_df_book" 
-            id="flipbook" 
-            data-source={pdf.url}
-          ></div>
+          <iframe
+            src={`${pdf.url}#toolbar=0`}
+            className="w-full h-[800px] rounded-lg"
+            title={pdf.title}
+          />
         </div>
       </div>
     </div>
