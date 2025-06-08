@@ -1,37 +1,49 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, FileText } from 'lucide-react';
 
 const PDF_LINKS = [
   {
     id: 'a',
     title: 'Category A SHS School Selection List PDF',
     url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-A-SHS-School-Selection-List-2023-2024.pdf',
+    color: '#3B82F6', // Blue
+    icon: <FileText className="w-6 h-6" />
   },
   {
     id: 'b',
     title: 'Category B SHS School Selection List PDF',
     url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-B-SHS-School-Selection-List-2023-2024.pdf',
+    color: '#10B981', // Green
+    icon: <FileText className="w-6 h-6" />
   },
   {
     id: 'c',
     title: 'Category C SHS School Selection List PDF',
     url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-C-SHS-School-Selection-List-2023-2024.pdf',
+    color: '#F59E0B', // Amber
+    icon: <FileText className="w-6 h-6" />
   },
   {
     id: 'd',
     title: 'Category D SHS School Selection List PDF',
     url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-D-SHS-School-Selection-List-2023-2024.pdf',
+    color: '#8B5CF6', // Purple
+    icon: <FileText className="w-6 h-6" />
   },
   {
     id: 'special',
     title: 'Special Boarding SHS School Selection List PDF',
     url: 'https://golearnershub.com/wp-content/uploads/2023/08/Special-Boarding-SHS-School-Selection-List-2023-2024.pdf',
+    color: '#EC4899', // Pink
+    icon: <FileText className="w-6 h-6" />
   },
   {
     id: 'cssps',
     title: 'Download SHS CSSPS School Selection Form',
     url: 'https://golearnershub.com/wp-content/uploads/2023/08/SHS-CSSPS-School-Selection-Form-2023-2024.pdf',
+    color: '#EF4444', // Red
+    icon: <FileText className="w-6 h-6" />
   },
 ];
 
@@ -52,14 +64,14 @@ const SHSDatabasePage: React.FC = () => {
               <span>Back</span>
             </button>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              Ghana SHS School Selection PDFs
+              Visit SHS Database and Selection Guide
             </h1>
           </div>
         </div>
       </div>
 
       {/* School Selection Guideline Section */}
-      <div className="max-w-4xl mx-auto bg-green-100/80 border-l-4 border-green-500 rounded-xl shadow p-6 mb-8 mt-6">
+      <div className="w-full max-w-5xl mx-auto px-4 py-8">
         <h2 className="text-xl sm:text-2xl font-bold text-green-800 mb-2">School Selection Guideline for BECE Students (2024)</h2>
         <ul className="list-disc pl-6 text-green-900 space-y-2 text-base sm:text-lg">
           <li><b>You can select up to 11 schools in total:</b> 6 schools during the main selection, and up to 5 more during the self-placement phase if you are not placed initially.</li>
@@ -70,7 +82,6 @@ const SHSDatabasePage: React.FC = () => {
           <li>Discuss your choices with parents, teachers, and guidance counselors. Consider your strengths, interests, and location.</li>
           <li>Check the <b>cut-off points</b> and requirements for your preferred schools and programmes.</li>
           <li>Use the official <b>CSSPS School Selection Form</b> and double-check all entries before submission.</li>
-          <li>For the latest updates, always refer to the <a href="https://golearnershub.com/lists-of-shs-in-ghana-with-their-categories-2023-2024-2024-2026/" target="_blank" rel="noopener noreferrer" className="text-green-700 underline hover:text-green-900">official school lists and guidelines</a>.</li>
         </ul>
         <div className="mt-4 text-green-800 text-base sm:text-lg">
           <b>Tip:</b> Choose schools and programmes that match your interests and strengths, not just popularity. Consider proximity, facilities, and your future goals.
@@ -80,10 +91,29 @@ const SHSDatabasePage: React.FC = () => {
       {/* PDF Cards */}
       <div className="w-full max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 pb-12">
         {PDF_LINKS.map((pdf) => (
-          <div key={pdf.id} className="bg-white/90 rounded-xl shadow-lg p-6 flex flex-col items-center justify-between">
-            <h2 className="text-lg font-bold text-green-800 mb-3 text-center">{pdf.title}</h2>
+          <div
+            key={pdf.id}
+            className="group relative bg-white/90 rounded-xl shadow-lg p-6 flex flex-col items-center justify-between hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+            style={{
+              border: `1px solid ${pdf.color}20`,
+              background: `linear-gradient(135deg, ${pdf.color}10, white)`
+            }}
+          >
+            {/* Icon */}
+            <div
+              className="w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-white"
+              style={{ backgroundColor: pdf.color }}
+            >
+              {pdf.icon}
+            </div>
+
+            {/* Title */}
+            <h2 className="text-lg font-bold text-gray-800 mb-3 text-center">{pdf.title}</h2>
+
+            {/* View Button */}
             <button
-              className="mt-2 px-5 py-2 bg-green-500 text-white rounded-lg font-semibold shadow hover:bg-green-600 transition-all duration-200"
+              className="mt-2 px-5 py-2 text-white rounded-lg font-semibold shadow hover:shadow-lg transition-all duration-200"
+              style={{ backgroundColor: pdf.color }}
               onClick={() => navigate(`/shs-database/pdf/${pdf.id}`)}
             >
               View PDF
