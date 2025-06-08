@@ -6,7 +6,7 @@ import { useHeader } from '../contexts/HeaderContext';
 const ResultsPlacementPage = () => {
   const navigate = useNavigate();
   const { setShowHeader } = useHeader();
-  const [activeViewer, setActiveViewer] = useState<'results' | 'placement' | null>(null);
+  const [activeViewer, setActiveViewer] = useState<'pin' | 'results' | 'placement' | null>(null);
 
   useEffect(() => {
     setShowHeader(true);
@@ -123,16 +123,14 @@ const ResultsPlacementPage = () => {
                   <li>Receive PIN via SMS</li>
                 </ol>
               </div>
-              <a
-                href="https://waecghmomo.vatebra.com/services/purchase/RCK"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 sm:mt-4 md:mt-6 w-full bg-blue-500/90 hover:bg-blue-600/90 text-white font-bold py-1.5 sm:py-2 md:py-3 px-2 sm:px-4 md:px-6 rounded-lg sm:rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl border border-white/30 text-[10px] sm:text-sm md:text-base relative overflow-hidden group inline-block text-center"
+              <button
+                onClick={() => setActiveViewer('pin')}
+                className="mt-2 sm:mt-4 md:mt-6 w-full bg-blue-500/90 hover:bg-blue-600/90 text-white font-bold py-1.5 sm:py-2 md:py-3 px-2 sm:px-4 md:px-6 rounded-lg sm:rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl border border-white/30 text-[10px] sm:text-sm md:text-base relative overflow-hidden group"
                 style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #3b82f6)' }}
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                 <span className="relative">Buy PIN</span>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -219,7 +217,13 @@ const ResultsPlacementPage = () => {
 
           {/* Viewer Content */}
           <div className="flex-1 relative">
-            {activeViewer === 'results' ? (
+            {activeViewer === 'pin' ? (
+              <iframe
+                src="https://waecghmomo.vatebra.com/services/purchase/RCK"
+                className="w-full h-full border-0"
+                title="Buy WAEC Result Checker PIN"
+              />
+            ) : activeViewer === 'results' ? (
               <iframe
                 src="https://ghana.waecdirect.org"
                 className="w-full h-full border-0"
