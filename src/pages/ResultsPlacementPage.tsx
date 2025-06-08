@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 
-const ResultsPlacementPage = () => {
+const ResultsPlacementPage: React.FC = () => {
   const navigate = useNavigate();
   const { setShowHeader } = useHeader();
   const [activeViewer, setActiveViewer] = useState<'pin' | 'results' | 'placement' | null>(null);
@@ -83,14 +83,21 @@ const ResultsPlacementPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
       {/* Back Button Bar */}
-      <div className="bg-gradient-to-r from-purple-900/90 to-blue-900/90 backdrop-blur-md border-b border-white/10 p-2 sm:p-4">
-        <button
-          onClick={handleBack}
-          className="flex items-center text-white hover:text-yellow-300 transition-colors duration-200"
-        >
-          <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
-          <span className="text-sm sm:text-base">Back to Students Hub</span>
-        </button>
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Results & Placement Checker
+            </h1>
+          </div>
+        </div>
       </div>
 
       {/* Cards Grid */}
@@ -115,14 +122,16 @@ const ResultsPlacementPage = () => {
                 <li>Receive PIN via SMS</li>
               </ol>
             </div>
-            <button
-              onClick={() => setActiveViewer('pin')}
-              className="mt-3 sm:mt-4 md:mt-6 w-full bg-blue-500/90 hover:bg-blue-600/90 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl border border-white/30 text-sm sm:text-base relative overflow-hidden group"
+            <a
+              href="https://vatebra.com/waec-result-checker-pin"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 sm:mt-4 md:mt-6 w-full bg-blue-500/90 hover:bg-blue-600/90 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl border border-white/30 text-sm sm:text-base relative overflow-hidden group block text-center"
               style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #3b82f6)' }}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
               <span className="relative">Buy PIN</span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -192,64 +201,32 @@ const ResultsPlacementPage = () => {
         </div>
       </div>
 
-      {/* Viewer Section */}
-      {activeViewer && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex flex-col">
-          {/* Back Button Bar */}
-          <div className="bg-gradient-to-r from-purple-900/90 to-blue-900/90 backdrop-blur-md border-b border-white/10 p-2 sm:p-4">
-            <button
-              onClick={handleBack}
-              className="flex items-center text-white hover:text-yellow-300 transition-colors duration-200"
-            >
-              <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
-              <span className="text-sm sm:text-base">Back to Checkers</span>
-            </button>
-          </div>
-
-          {/* Viewer Content */}
-          <div className="flex-1 relative">
-            {activeViewer === 'pin' ? (
-              <div className="fixed inset-0 bg-black z-50">
-                <div className="bg-gradient-to-r from-purple-900/90 to-blue-900/90 backdrop-blur-md border-b border-white/10 p-2 sm:p-4">
-                  <button
-                    onClick={handleBack}
-                    className="flex items-center text-white hover:text-yellow-300 transition-colors duration-200"
-                  >
-                    <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
-                    <span className="text-sm sm:text-base">Back to Checkers</span>
-                  </button>
-                </div>
-                <iframe
-                  src="https://vatebra.com/waec-result-checker-pin"
-                  className="w-full h-[calc(100vh-4rem)]"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                  referrerPolicy="no-referrer"
-                  loading="eager"
-                  title="Buy WAEC Result Checker PIN"
-                  onError={(e) => {
-                    const iframe = e.target as HTMLIFrameElement;
-                    iframe.src = 'https://vatebra.com/waec-result-checker-pin';
-                  }}
-                />
-              </div>
-            ) : activeViewer === 'results' ? (
-              <iframe
-                src="https://ghana.waecdirect.org"
-                className="w-full h-full border-0"
-                title="BECE Results Checker"
-              />
-            ) : (
-              <iframe
-                src="https://cssps.gov.gh"
-                className="w-full h-full border-0"
-                title="SHS Placement Checker"
-              />
-            )}
-          </div>
-        </div>
-      )}
+      {/* Viewers */}
+      <div className="flex-1 relative">
+        {activeViewer === 'results' ? (
+          <iframe
+            src="https://ghana.waecdirect.org/"
+            className="w-full h-[calc(100vh-4rem)]"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+            referrerPolicy="no-referrer"
+            loading="eager"
+            title="Check BECE Results"
+          />
+        ) : activeViewer === 'placement' ? (
+          <iframe
+            src="https://cssps.gov.gh/"
+            className="w-full h-[calc(100vh-4rem)]"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+            referrerPolicy="no-referrer"
+            loading="eager"
+            title="Check SHS Placement"
+          />
+        ) : null}
+      </div>
     </div>
   );
 };
