@@ -179,19 +179,19 @@ const DonationPage: React.FC = () => {
                 <div className="flex items-center justify-center mb-2 gap-2">
                   <BookOpen className="w-6 h-6 text-white drop-shadow" />
                   <h3 className="text-base sm:text-lg font-extrabold text-white drop-shadow">Physical Donations Welcome!</h3>
-                </div>
+              </div>
                 <p className="text-white/90 text-xs sm:text-sm mb-3 font-medium drop-shadow">
                   We also warmly receive gifts in the form of physical assets such as books, computers, furniture, and any other educational materials. Your contributions are received gladly and cheerfully with gratitude!
-                </p>
-                <a
-                  href="/partner"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+              </p>
+              <a
+                href="/partner"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                   className="inline-flex items-center gap-2 px-5 py-2 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg border border-white/40 transition-all text-base mt-2"
                   style={{ boxShadow: '0 0 16px 4px #fff, 0 2px 8px 0 #22c55e80' }}
-                >
+              >
                   <Heart className="w-5 h-5" />
-                  Partner With Us
-                </a>
+                Partner With Us
+              </a>
                 <div className="w-full flex justify-center items-center mt-4 gap-4">
                   <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-blue-600/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
                     💻
