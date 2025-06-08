@@ -113,7 +113,7 @@ const StudentsHubPage: React.FC = () => {
 
   // 📚 CATEGORIZED STUDENTS HUB RESOURCES 📚
   // Organized by learning areas for better navigation and discovery
-  const resourceCategories = {
+  const resourceCategories: { [category: string]: Resource[] } = {
     "📚 Academic Resources": [
       {
         id: 1,
@@ -3002,7 +3002,7 @@ const StudentsHubPage: React.FC = () => {
           </div>
 
           {/* Smart Search Bar */}
-          <div className="mb-4">
+          <div className="mb-8">
             <SmartSearchBar
               items={searchableItems}
               onSearchResults={handleSearchResults}
@@ -3014,6 +3014,8 @@ const StudentsHubPage: React.FC = () => {
               className="mb-6"
             />
           </div>
+
+          {/* Inserted Buttons */}
           <div className="mb-8 flex justify-center gap-2 sm:gap-4">
             <Link
               to="/shs-database"
@@ -3030,8 +3032,178 @@ const StudentsHubPage: React.FC = () => {
               Results & Placement Checker
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {/* Add your existing code here */}
+
+          {/* Categorized Resources */}
+          <div className="space-y-8">
+            {Object.entries(filteredCategories).map(([categoryName, categoryResources], categoryIndex) => (
+              <motion.div
+                key={categoryName}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
+                className="space-y-4"
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-3">
+                  <h2 className="text-xl sm:text-2xl font-bold text-white">
+                    {categoryName}
+                  </h2>
+                  <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent"></div>
+                  <span className="text-sm text-gray-400 bg-gray-800/50 px-3 py-1 rounded-full">
+                    {categoryResources.length} {categoryResources.length === 1 ? 'tool' : 'tools'}
+                  </span>
+                </div>
+
+                {/* Category Resources Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                  {categoryResources.map((resource, index) => (
+                    <motion.div
+                      key={resource.id}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                      className="group"
+                    >
+                      <button
+                        onClick={() => handleResourceClick(resource)}
+                        className={`w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
+                          categoryName === '≡ƒÄ¿ Generative World'
+                            ? 'shadow-[0_0_40px_rgba(255,255,255,0.4),0_0_80px_rgba(255,255,255,0.3),0_0_120px_rgba(255,255,255,0.2),0_0_160px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6),0_0_120px_rgba(255,255,255,0.4),0_0_180px_rgba(255,255,255,0.3),0_0_240px_rgba(255,255,255,0.2)] animate-pulse border-white/30 hover:border-white/50'
+                            : ''
+                        }`}
+                      >
+                        {/* YouTube Thumbnail Background for YouTube videos */}
+                        {resource.isYouTube && (
+                          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                            <img
+                              src={getYouTubeThumbnail(resource.url)}
+                              alt={resource.title}
+                              className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                              onError={(e) => {
+                                // Fallback to default gradient if thumbnail fails to load
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
+                          </div>
+                        )}
+
+                        {/* Background Gradient for non-YouTube resources */}
+                        {!resource.isYouTube && (
+                          <div
+                            className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                            style={{
+                              background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
+                            }}
+                          />
+                        )}
+
+                        {/* Status Indicators */}
+                        <div className="absolute top-3 right-3 flex gap-1 z-10">
+                          {resource.isYouTube && (
+                            <div className="w-6 h-6 bg-red-600/90 rounded-full flex items-center justify-center">
+                              <Play size={12} className="text-white ml-0.5" />
+                            </div>
+                          )}
+                          {resource.embedStrategy === 'smart' && (
+                            <div className="w-5 h-5 bg-blue-500/80 rounded-full flex items-center justify-center">
+                              <AlertCircle size={12} className="text-white" />
+                            </div>
+                          )}
+                          {resource.openInNewTab && (
+                            <div className="w-5 h-5 bg-green-500/80 rounded-full flex items-center justify-center">
+                              <ExternalLink size={12} className="text-white" />
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Icon Container */}
+                        <div className="relative mb-3 flex-shrink-0 z-10">
+                          <div
+                            className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
+                            style={{ backgroundColor: resource.isYouTube ? '#FF0000' : resource.color }}
+                          >
+                            {resource.isYouTube ? <Music className="w-6 h-6" /> : resource.icon}
+                          </div>
+
+                          {/* Resource Type Indicator */}
+                          <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
+                            {resource.isYouTube ? (
+                              <Play className="w-2.5 h-2.5 text-red-400" />
+                            ) : resource.isInternal ? (
+                              <Smartphone className="w-2.5 h-2.5 text-purple-400" />
+                            ) : (
+                              <ExternalLink className="w-2.5 h-2.5 text-blue-400" />
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-1 flex flex-col space-y-2">
+                          {/* Title */}
+                          <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
+                            {resource.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="text-xs text-gray-400 leading-relaxed line-clamp-3 flex-1">
+                            {resource.description}
+                          </p>
+
+                          {/* Action Footer */}
+                          <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto z-10 relative">
+                            <div className="flex items-center gap-1">
+                              {resource.isYouTube && (
+                                <span className="text-xs text-red-400 font-medium">YouTube</span>
+                              )}
+                              {resource.embedStrategy === 'smart' && !resource.isYouTube && (
+                                <span className="text-xs text-blue-400 font-medium">Smart</span>
+                              )}
+                              {resource.openInNewTab && !resource.isYouTube && (
+                                <span className="text-xs text-green-400 font-medium">External</span>
+                              )}
+                              {!resource.embedStrategy && !resource.openInNewTab && !resource.isYouTube && (
+                                <span className="text-xs text-purple-400 font-medium">
+                                  {resource.isInternal ? 'Internal' : 'Website'}
+                                </span>
+                              )}
+                            </div>
+                            <div className={`w-5 h-5 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                              resource.isYouTube
+                                ? 'bg-red-500/20 group-hover:bg-red-500/30'
+                                : 'bg-purple-500/20 group-hover:bg-purple-500/30'
+                            }`}>
+                              {resource.isYouTube ? (
+                                <Play size={10} className="text-red-400 group-hover:text-red-300 ml-0.5" />
+                              ) : (
+                                <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                              )}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Hover Effect Overlay */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                      </button>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Enhanced Footer Message */}
+          <div className="mt-8 sm:mt-12 text-center">
+            <p className="text-sm text-gray-300 mb-2">
+              Tap any resource to open it within Students Hub
+            </p>
+            <div className="flex items-center justify-center text-xs text-gray-400">
+              <div className="flex items-center gap-1">
+                <AlertCircle size={12} className="text-blue-400" />
+                <span>Smart Access - Financial Literacy & Business Skills provide alternatives when blocked</span>
+              </div>
+            </div>
           </div>
         </div>
       </main>
