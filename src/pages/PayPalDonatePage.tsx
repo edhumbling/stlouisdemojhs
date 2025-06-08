@@ -24,6 +24,23 @@ const PayPalDonatePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col">
+      {/* Top Bar - Back Button and Title */}
+      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={() => navigate(-1)}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+              💝 Donate with PayPal
+            </h1>
+          </div>
+        </div>
+      </div>
       <main className="flex-grow w-full flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -90,7 +107,6 @@ const PayPalDonatePage: React.FC = () => {
           </div>
         </div>
       </main>
-
       <div className="fixed bottom-0 left-0 right-0 bg-green-600 text-white text-center py-3 px-4 text-sm font-medium z-50">
         <div className="flex items-center justify-center gap-2">
           <Heart className="text-white" size={16} />
