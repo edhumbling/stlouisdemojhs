@@ -163,9 +163,9 @@ const DonationPage: React.FC = () => {
 
             {/* Payment Option Placeholders */}
             <div className="flex justify-center gap-4 mb-8">
-              <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-8 w-auto rounded shadow-sm" />
-              <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-8 w-auto rounded shadow-sm" />
-              <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-8 w-auto rounded shadow-sm" />
+              <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-8 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+              <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-8 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
+              <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-8 w-auto rounded shadow-sm" style={{ filter: 'drop-shadow(0 0 8px white)' }} />
             </div>
 
             {/* Physical Assets Notice */}
