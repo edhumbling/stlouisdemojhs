@@ -15,10 +15,11 @@ interface PdfLink {
 const SHSPdfViewerPage: React.FC = () => {
   const { pdfId } = useParams<{ pdfId: string }>();
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isPdfLoaded, setIsPdfLoaded] = useState(false);
   const { setShowHeader } = useHeader();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isPdfLoaded, setIsPdfLoaded] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const objectRef = useRef<HTMLObjectElement>(null);
 
@@ -148,8 +149,76 @@ const SHSPdfViewerPage: React.FC = () => {
       <div className={`w-full h-full ${isMobile ? 'pt-0' : 'pt-20 sm:pt-24'} relative`}>
         {/* Loading State */}
         {isLoading && (
-          <div className="absolute inset-0 z-50 bg-black">
-            <ShimmerLoader variant="silver" className="w-full h-full" />
+          <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex flex-col">
+            {/* Back Button Bar */}
+            <div className="bg-gradient-to-r from-purple-900/90 to-blue-900/90 backdrop-blur-md border-b border-white/10 p-2 sm:p-4">
+              <button
+                onClick={handleBack}
+                className="flex items-center text-white hover:text-yellow-300 transition-colors duration-200"
+              >
+                <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+                <span className="text-sm sm:text-base">Back to Database</span>
+              </button>
+            </div>
+
+            {/* Loading Content */}
+            <div className="flex-1 flex items-center justify-center p-4">
+              <div className="w-full max-w-2xl">
+                <div className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <div className="relative">
+                    <div className="flex items-center space-x-4 mb-6">
+                      <div className="w-12 h-12 rounded-lg bg-white/10 animate-pulse"></div>
+                      <div className="flex-1">
+                        <div className="h-4 bg-white/10 rounded w-3/4 mb-2 animate-pulse"></div>
+                        <div className="h-3 bg-white/10 rounded w-1/2 animate-pulse"></div>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="h-3 bg-white/10 rounded animate-pulse"></div>
+                      <div className="h-3 bg-white/10 rounded animate-pulse"></div>
+                      <div className="h-3 bg-white/10 rounded w-5/6 animate-pulse"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex flex-col">
+            {/* Back Button Bar */}
+            <div className="bg-gradient-to-r from-purple-900/90 to-blue-900/90 backdrop-blur-md border-b border-white/10 p-2 sm:p-4">
+              <button
+                onClick={handleBack}
+                className="flex items-center text-white hover:text-yellow-300 transition-colors duration-200"
+              >
+                <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+                <span className="text-sm sm:text-base">Back to Database</span>
+              </button>
+            </div>
+
+            {/* Error Content */}
+            <div className="flex-1 flex items-center justify-center p-4">
+              <div className="w-full max-w-2xl">
+                <div className="bg-red-500/10 backdrop-blur-md rounded-xl p-6 border border-red-500/20 relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  <div className="relative">
+                    <h2 className="text-xl font-semibold text-red-300 mb-4">Error Loading PDF</h2>
+                    <p className="text-red-100/80 mb-6">{error}</p>
+                    <button
+                      onClick={handleBack}
+                      className="w-full bg-red-500/90 hover:bg-red-600/90 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl border border-white/30 relative overflow-hidden group"
+                    >
+                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                      <span className="relative">Return to Database</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
