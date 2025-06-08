@@ -6,6 +6,7 @@ export const navLinks: NavLink[] = [
   { label: 'Students Hub', path: '/learnhub' },
   { label: 'AI Search', path: '/ai-search' },
   { label: 'Gallery', path: '/gallery' },
+  { label: 'Results & Placement', path: '/results-placement' },
 ];
 
 // School dropdown menu items

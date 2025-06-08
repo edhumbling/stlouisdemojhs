@@ -3078,13 +3078,20 @@ const StudentsHubPage: React.FC = () => {
               className="mb-6"
             />
           </div>
-          <div className="mb-8 flex justify-center">
+          <div className="mb-8 flex justify-center gap-2 sm:gap-4">
             <Link
               to="/shs-database"
-              className="bg-green-500/90 backdrop-blur-md rounded-xl px-6 py-3 text-white font-bold shadow-xl hover:bg-green-600/90 transition-all duration-300 border border-white/30 text-lg"
+              className="bg-green-500/90 backdrop-blur-md rounded-xl px-3 sm:px-6 py-2 sm:py-3 text-white font-bold shadow-xl hover:bg-green-600/90 transition-all duration-300 border border-white/30 text-sm sm:text-lg"
               style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #22c55e)' }}
             >
               Visit SHS Database
+            </Link>
+            <Link
+              to="/results-placement"
+              className="bg-yellow-500/90 backdrop-blur-md rounded-xl px-3 sm:px-6 py-2 sm:py-3 text-white font-bold shadow-xl hover:bg-yellow-600/90 transition-all duration-300 border border-white/30 text-sm sm:text-lg"
+              style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #eab308)' }}
+            >
+              Results & Placement
             </Link>
           </div>
 

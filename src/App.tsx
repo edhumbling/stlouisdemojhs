@@ -42,6 +42,7 @@ import DonateUSBankPage from './pages/DonateUSBankPage';
 import DonateUKBankPage from './pages/DonateUKBankPage';
 import SHSDatabasePage from './pages/SHSDatabasePage';
 import SHSPdfViewerPage from './pages/SHSPdfViewerPage';
+import ResultsPlacementPage from './pages/ResultsPlacementPage';
 
 
 
@@ -145,6 +146,7 @@ const App: React.FC = () => {
           <Route path="donate-uk-bank" element={<DonateUKBankPage />} />
           <Route path="shs-database" element={<SHSDatabasePage />} />
           <Route path="/shs-database/pdf/:pdfId" element={<SHSPdfViewerPage />} />
+          <Route path="/results-placement" element={<ResultsPlacementPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
