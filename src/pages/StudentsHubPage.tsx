@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   BookOpen,
   Mic,
@@ -3041,9 +3041,28 @@ const StudentsHubPage: React.FC = () => {
               <span>Back</span>
             </button>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              Students Hub
-            </h1>
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center space-x-4">
+                <Link
+                  to="/shs-database"
+                  className="bg-green-500/90 backdrop-blur-md rounded-xl px-4 py-2 text-white font-bold shadow-xl hover:bg-green-600/90 transition-all duration-300 border border-white/30"
+                  style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #22c55e)' }}
+                >
+                  Visit SHS Database
+                </Link>
+                <h1 className="text-2xl font-bold text-white">Students Hub</h1>
+              </div>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/30"
+                />
+                <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white">
+                  🔍
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
