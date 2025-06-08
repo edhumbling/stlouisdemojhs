@@ -16,7 +16,7 @@ const ResultsPlacementPage = () => {
     if (activeViewer) {
       setActiveViewer(null);
     } else {
-      navigate(-1);
+      window.history.back();
     }
   };
 
@@ -209,11 +209,31 @@ const ResultsPlacementPage = () => {
           {/* Viewer Content */}
           <div className="flex-1 relative">
             {activeViewer === 'pin' ? (
-              <iframe
-                src="https://waecghmomo.vatebra.com/services/purchase/RCK"
-                className="w-full h-full border-0"
-                title="Buy WAEC Result Checker PIN"
-              />
+              <div className="fixed inset-0 bg-black z-50">
+                <div className="bg-gradient-to-r from-purple-900/90 to-blue-900/90 backdrop-blur-md border-b border-white/10 p-2 sm:p-4">
+                  <button
+                    onClick={handleBack}
+                    className="flex items-center text-white hover:text-yellow-300 transition-colors duration-200"
+                  >
+                    <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+                    <span className="text-sm sm:text-base">Back to Checkers</span>
+                  </button>
+                </div>
+                <iframe
+                  src="https://vatebra.com/waec-result-checker-pin"
+                  className="w-full h-[calc(100vh-4rem)]"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                  referrerPolicy="no-referrer"
+                  loading="eager"
+                  title="Buy WAEC Result Checker PIN"
+                  onError={(e) => {
+                    const iframe = e.target as HTMLIFrameElement;
+                    iframe.src = 'https://vatebra.com/waec-result-checker-pin';
+                  }}
+                />
+              </div>
             ) : activeViewer === 'results' ? (
               <iframe
                 src="https://ghana.waecdirect.org"
