@@ -85,15 +85,15 @@ const PayPalDonatePage: React.FC = () => {
                   <p className="text-sm text-green-700 mt-1">
                     Your payment is processed securely through PayPal. We never store your payment information.
                   </p>
-                </div>
-              </div>
+          </div>
+        </div>
             </div>
           </div>
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-500">
               Need help? Contact us at <a href="mailto:support@stlouisdemojhs.com" className="text-blue-600 hover:underline">support@stlouisdemojhs.com</a>
-            </p>
-          </div>
+          </p>
+        </div>
         </section>
       </main>
       <div className="fixed bottom-0 left-0 right-0 bg-green-600 text-white text-center py-3 px-4 text-sm font-medium z-50">

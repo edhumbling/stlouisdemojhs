@@ -50,7 +50,7 @@ const DonateUKBankPage: React.FC = () => {
             </h1>
           </div>
         </div>
-      </div>
+            </div>
       <main className="flex-grow w-full px-0 sm:px-0 pt-6 pb-24 max-w-3xl mx-auto">
         {/* Bank Details Section */}
         <section className="mb-8 px-4 sm:px-8">
@@ -69,11 +69,11 @@ const DonateUKBankPage: React.FC = () => {
             </button>
           </div>
           <div className="divide-y divide-purple-100">
-            {Object.entries(ukBankDetails).map(([key, value]) => (
+              {Object.entries(ukBankDetails).map(([key, value]) => (
               <div key={key} className="py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 group">
                 <span className="text-xs font-semibold uppercase tracking-wider text-purple-700 sm:w-1/3">{key}</span>
                 <span className="font-mono text-base text-purple-900 break-all sm:w-2/3 flex items-center gap-2">
-                  {value}
+                    {value}
                   <button
                     onClick={() => copyToClipboard(value, key)}
                     className="p-1 rounded hover:bg-purple-100 focus:bg-purple-200 transition-colors text-purple-400 hover:text-purple-700 focus:text-purple-700 group-hover:inline-flex inline-flex sm:opacity-0 sm:group-hover:opacity-100 opacity-100"
@@ -82,11 +82,11 @@ const DonateUKBankPage: React.FC = () => {
                     {copiedField === key ? <Check size={16} className="text-green-600" /> : <Copy size={16} />}
                   </button>
                 </span>
-              </div>
-            ))}
-          </div>
+                </div>
+              ))}
+            </div>
         </section>
-        {/* Important Notes */}
+            {/* Important Notes */}
         <section className="mb-8 px-4 sm:px-8">
           <h3 className="text-lg font-semibold text-purple-800 mb-3 flex items-center gap-2">
             <Shield className="text-purple-500" size={20} />
@@ -96,14 +96,14 @@ const DonateUKBankPage: React.FC = () => {
             <li>• Please use the IBAN for international transfers if possible.</li>
             <li>• Ensure all details are accurate to prevent delays.</li>
             <li>• Transaction times may vary depending on the banks involved.</li>
-          </ul>
+              </ul>
         </section>
-        {/* Call to Action */}
+            {/* Call to Action */}
         <section className="px-4 sm:px-8">
           <div className="bg-green-50 rounded-lg p-4">
             <p className="text-green-800 text-sm">
-              After making your donation, please consider notifying us via email for our records.
-            </p>
+                After making your donation, please consider notifying us via email for our records.
+              </p>
           </div>
         </section>
       </main>
