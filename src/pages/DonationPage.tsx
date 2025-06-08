@@ -173,9 +173,9 @@ const DonationPage: React.FC = () => {
               <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
             </div>
 
-            {/* Physical Donations Welcome - Compact, Apple-like, Cute */}
-            <div className="max-w-md mx-auto mb-6">
-              <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/40 shadow-2xl p-4 sm:p-6 text-center flex flex-col items-center gap-2">
+            {/* Physical Donations Welcome - Yellow Glass, Rectangular, Four Icons */}
+            <div className="max-w-2xl mx-auto mb-6">
+              <div className="bg-yellow-200/40 backdrop-blur-xl rounded-2xl sm:rounded-xl border border-yellow-300/60 shadow-2xl p-4 sm:p-6 text-center flex flex-col items-center gap-2">
                 <div className="flex items-center justify-center mb-2 gap-2">
                   <BookOpen className="w-6 h-6 text-white drop-shadow" />
                   <h3 className="text-base sm:text-lg font-extrabold text-white drop-shadow">Physical Donations Welcome!</h3>
@@ -192,6 +192,14 @@ const DonationPage: React.FC = () => {
                   <Heart className="w-5 h-5" />
                   Partner With Us
                 </a>
+                <div className="w-full flex justify-center sm:justify-between items-center mt-4 gap-4">
+                  <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
+                  <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
+                  <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
+                  <span className="h-7 sm:h-14 w-7 sm:w-14 flex items-center justify-center rounded-full bg-yellow-400/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
+                    🧑‍🎓
+                  </span>
+                </div>
               </div>
             </div>
 
