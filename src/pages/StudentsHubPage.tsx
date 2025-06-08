@@ -2619,11 +2619,21 @@ const StudentsHubPage: React.FC = () => {
   const handleIframeError = () => {
     setIsLoading(false);
     setIframeError(true);
-    setShowAlternatives(true);
+    setSmartLoadingPhase('error');
+
+    // If the resource has alternative URLs, show them
+    if (selectedResource?.alternativeUrls && selectedResource.alternativeUrls.length > 0) {
+      setShowAlternatives(true);
+    }
   };
 
   const handleTryAlternative = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+    if (iframeRef.current) {
+      setIsLoading(true);
+      setIframeError(false);
+      setShowAlternatives(false);
+      iframeRef.current.src = url;
+    }
   };
 
   const handleOpenOriginal = () => {
@@ -2794,23 +2804,67 @@ const StudentsHubPage: React.FC = () => {
         {/* Content Area - Full Screen */}
         <div className="fixed inset-0 pt-[72px] sm:pt-[88px]">
           {isLoading ? (
-            <div className="h-full flex items-center justify-center">
-              <div className="text-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div>
+            <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+              <div className="text-center text-white">
+                <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                 <p className="text-purple-300">Loading {selectedResource.title}...</p>
               </div>
             </div>
+          ) : iframeError ? (
+            <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+              <div className="text-center text-white p-6 bg-purple-900/50 rounded-xl backdrop-blur-sm max-w-md mx-4">
+                <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-2">Unable to Load Resource</h3>
+                <p className="text-gray-300 mb-4">
+                  We couldn't load {selectedResource.title}. This might be due to the website's security settings.
+                </p>
+                <div className="space-y-3">
+                  {selectedResource?.alternativeUrls && selectedResource.alternativeUrls.length > 0 && (
+                    <div className="space-y-2">
+                      <p className="text-sm text-purple-300">Try these alternatives:</p>
+                      {selectedResource.alternativeUrls.map((url, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleTryAlternative(url)}
+                          className="w-full px-4 py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white rounded-lg transition-colors duration-200 text-sm"
+                        >
+                          Alternative {index + 1}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  <button
+                    onClick={handleOpenOriginal}
+                    className="w-full px-4 py-2 bg-red-600/50 hover:bg-red-500/70 text-white rounded-lg transition-colors duration-200 text-sm"
+                  >
+                    Open in New Tab
+                  </button>
+                  <button
+                    onClick={handleBack}
+                    className="w-full px-4 py-2 bg-gray-700/50 hover:bg-gray-600/70 text-white rounded-lg transition-colors duration-200 text-sm"
+                  >
+                    Go Back
+                  </button>
+                </div>
+              </div>
+            </div>
           ) : (
-              <iframe
-                ref={iframeRef}
-                src={selectedResource.url}
-                className="w-full h-full border-0"
-                onLoad={handleIframeLoad}
-                onError={handleIframeError}
-              sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+            <iframe
+              ref={iframeRef}
+              src={selectedResource.url}
+              className="w-full h-full border-0"
+              onLoad={handleIframeLoad}
+              onError={handleIframeError}
+              sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation"
               referrerPolicy="no-referrer"
               loading="eager"
               title={selectedResource.title}
+              style={{
+                width: '100%',
+                height: '100%',
+                border: 'none',
+                outline: 'none'
+              }}
             />
           )}
         </div>
