@@ -123,7 +123,7 @@ driver.get("https://www.tiktok.com/search?q=St.%20Louis%20Demo%20JHS")
 
 ### Environment Variables
 - `TIKTOK_API_KEY` - TikTok Research API key (if using)
-- `RAPIDAPI_KEY` - RapidAPI key (if using third-party)
+- `ALTERNATIVE_API_KEY` - Alternative service API key (if using)
 
 ### Search Terms Customization
 Edit the `search_terms` list in `tiktok_scraper.py`:
