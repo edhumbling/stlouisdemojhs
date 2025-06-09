@@ -73,15 +73,15 @@ api = tiktok_research_api.Client(api_key="your_key")
 videos = api.search_videos(query="St. Louis Demo JHS")
 ```
 
-#### Option 2: Third-Party APIs
+#### Option 2: Alternative Services
 ```python
-# Using RapidAPI TikTok scrapers
+# Using alternative TikTok data services
+# (Implementation will be added based on chosen service)
 import requests
 
-headers = {"X-RapidAPI-Key": "your_key"}
+# Example placeholder for future implementation
 response = requests.get(
-    "https://tiktok-scraper.p.rapidapi.com/search",
-    headers=headers,
+    "https://alternative-service.com/search",
     params={"query": "St. Louis Demo JHS"}
 )
 ```
