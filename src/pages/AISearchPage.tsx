@@ -1102,8 +1102,11 @@ const AISearchPage: React.FC = () => {
 
                     {/* Loading Text */}
                     <p className="text-white font-medium text-lg">Loading {selectedEngineData.name}...</p>
-                    <p className="text-gray-300 text-sm mt-2">Attempting to load within the page</p>
-                    <p className="text-blue-400 text-xs mt-1">Will redirect to browser if needed</p>
+                    <p className="text-gray-300 text-sm mt-2">Checking connection and loading within the page</p>
+                    <p className="text-blue-400 text-xs mt-1">
+                      {loadAttempts > 1 ? `Attempt #${loadAttempts} • ` : ''}
+                      Will provide options if connection fails
+                    </p>
                   </div>
                 </div>
               )}
