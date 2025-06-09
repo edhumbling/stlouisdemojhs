@@ -2951,12 +2951,12 @@ const StudentsHubPage: React.FC = () => {
                   <span className="text-xs text-silver-400 font-semibold">{resources.length} resources</span>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-                  {resources.map(resource => (
+                  {resources.map((resource, index) => (
                     <motion.div
                       key={resource.id}
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
                       className="group"
                     >
                       <button
