@@ -7,7 +7,7 @@ interface ScrollButtonProps {
 }
 
 const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Always visible from start
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
@@ -50,9 +50,8 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
 
     setDynamicPosition(newPosition);
 
-    // Show button when user has scrolled down at least 150px
-    const shouldShow = scrolled > 150;
-    setIsVisible(shouldShow);
+    // Always show button - visible from top to bottom of page
+    setIsVisible(true);
     setScrollProgress(scrollPercentage);
   }, [lastScrollY]);
 
@@ -76,28 +75,14 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
     return () => window.removeEventListener('scroll', throttledHandleScroll);
   }, [handleScroll]);
 
-  // Smart scroll behavior based on position and direction
+  // Smart scroll behavior - always goes to top since button is always visible
   const handleScrollAction = useCallback(() => {
-    if (isNearBottom && scrollDirection === 'up') {
-      // If near bottom and scrolling up, go to top
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    } else if (scrollProgress > 0.8) {
-      // If far down the page, go to top
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    } else {
-      // Default behavior - go to top
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-  }, [isNearBottom, scrollDirection, scrollProgress]);
+    // Always scroll to top with smooth animation
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }, []);
 
   // Handle keyboard navigation
   const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
@@ -137,7 +122,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
                 transition={{ duration: 0.2 }}
                 className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-yellow-900/95 text-yellow-100 text-sm font-medium rounded-xl backdrop-blur-sm border border-yellow-600/50 whitespace-nowrap pointer-events-none shadow-lg"
               >
-                {isNearBottom ? 'Back to top' : 'Scroll to top'}
+                {scrollProgress > 0.1 ? 'Back to top' : 'Scroll to top'}
                 <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-yellow-900/95"></div>
               </motion.div>
             )}
@@ -149,8 +134,8 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
             onKeyDown={handleKeyDown}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            aria-label={isNearBottom ? "Back to top" : "Scroll to top"}
-            title={isNearBottom ? "Back to top" : "Scroll to top"}
+            aria-label={scrollProgress > 0.1 ? "Back to top" : "Scroll to top"}
+            title={scrollProgress > 0.1 ? "Back to top" : "Scroll to top"}
             className={`
               relative rounded-full overflow-hidden
               flex items-center justify-center
