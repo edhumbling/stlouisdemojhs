@@ -39,6 +39,7 @@ import {
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import useEnhancedNavigation from '../hooks/useEnhancedNavigation';
 
 interface Resource {
   id: number;
@@ -80,6 +81,7 @@ const StudentsHubPage: React.FC = () => {
   const { setShowHeader } = useHeader();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [openLofiId, setOpenLofiId] = useState<string | null>(null);
+  const { handleInternalStateChange, savePageState } = useEnhancedNavigation();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -106,10 +108,6 @@ const StudentsHubPage: React.FC = () => {
       setShowHeader(true);
     };
   }, [selectedResource, setShowHeader]);
-
-  const handleMainBack = () => {
-    navigate(-1); // Go back to previous page
-  };
 
   // 📚 CATEGORIZED STUDENTS HUB RESOURCES 📚
   // Organized by learning areas for better navigation and discovery
@@ -2002,9 +2000,10 @@ const StudentsHubPage: React.FC = () => {
 
     // Handle YouTube videos - open in dedicated full-screen page within the website
     if (resource.isYouTube) {
+      // Save current scroll position before opening video
+      savePageState();
       setSelectedYouTubeVideo(resource);
       setShowHeader(false);
-      setShowFooter(false);
       setShowShimmer(true);
       setVideoLoaded(false);
 
@@ -2030,9 +2029,10 @@ const StudentsHubPage: React.FC = () => {
       setIframeError(false);
       setCurrentUrlIndex(0);
       setShowAlternatives(false);
+      // Save current scroll position before opening resource
+      savePageState();
       setSelectedResource(resource);
       setShowHeader(false);
-      setShowFooter(false);
     }
   };
 
@@ -2053,24 +2053,27 @@ const StudentsHubPage: React.FC = () => {
   };
 
   const handleBack = () => {
-    setSelectedResource(null);
-    setIsLoading(false);
-    setIframeError(false);
-    setCurrentUrlIndex(0);
-    setShowAlternatives(false);
-    setLoadingProgress(0);
-    setSmartLoadingPhase('connecting');
-    setShowHeader(true);
-    setShowFooter(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Use enhanced navigation to restore exact scroll position
+    handleInternalStateChange(() => {
+      setSelectedResource(null);
+      setIsLoading(false);
+      setIframeError(false);
+      setCurrentUrlIndex(0);
+      setShowAlternatives(false);
+      setLoadingProgress(0);
+      setSmartLoadingPhase('connecting');
+      setShowHeader(true);
+    });
   };
 
   const handleBackFromYouTube = () => {
-    setSelectedYouTubeVideo(null);
-    setShowHeader(true);
-    setShowShimmer(true);
-    setVideoLoaded(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Use enhanced navigation to restore exact scroll position
+    handleInternalStateChange(() => {
+      setSelectedYouTubeVideo(null);
+      setShowHeader(true);
+      setShowShimmer(true);
+      setVideoLoaded(false);
+    });
   };
 
   const handleUSSDDial = () => {
@@ -2997,7 +3000,10 @@ const StudentsHubPage: React.FC = () => {
                               onError={(e) => {
                                 // Fallback to a gradient background if thumbnail fails
                                 e.currentTarget.style.display = 'none';
-                                e.currentTarget.nextElementSibling.style.display = 'block';
+                                const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                                if (nextElement) {
+                                  nextElement.style.display = 'block';
+                                }
                               }}
                             />
                             {/* Fallback gradient background */}

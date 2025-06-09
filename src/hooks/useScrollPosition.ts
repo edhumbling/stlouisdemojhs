@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface ScrollPositionOptions {
   saveOnScroll?: boolean;
@@ -15,8 +15,9 @@ export const useScrollPosition = (options: ScrollPositionOptions = {}) => {
     restoreOnMount = true,
     debounceMs = 100
   } = options;
-  
+
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Debounce function for scroll events
   const debounce = useCallback((func: Function, wait: number) => {
@@ -36,7 +37,7 @@ export const useScrollPosition = (options: ScrollPositionOptions = {}) => {
   const restoreScrollPosition = useCallback(() => {
     const pathname = location.pathname;
     const savedPosition = sessionStorage.getItem(`scrollPosition_${pathname}`);
-    
+
     if (savedPosition) {
       // Use requestAnimationFrame to ensure DOM is ready
       requestAnimationFrame(() => {
@@ -61,6 +62,23 @@ export const useScrollPosition = (options: ScrollPositionOptions = {}) => {
       behavior
     });
   }, []);
+
+  // Enhanced back navigation that preserves scroll position
+  const navigateBack = useCallback((fallbackPath?: string) => {
+    // Save current scroll position before navigating
+    saveScrollPosition();
+
+    // Try to go back in history
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else if (fallbackPath) {
+      // If no history, navigate to fallback path
+      navigate(fallbackPath);
+    } else {
+      // Default fallback to home
+      navigate('/');
+    }
+  }, [navigate, saveScrollPosition]);
 
   useEffect(() => {
     // Debounced scroll handler
@@ -121,7 +139,8 @@ export const useScrollPosition = (options: ScrollPositionOptions = {}) => {
     saveScrollPosition,
     restoreScrollPosition,
     clearScrollPosition,
-    scrollToPosition
+    scrollToPosition,
+    navigateBack
   };
 };
 

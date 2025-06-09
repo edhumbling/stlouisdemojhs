@@ -1,15 +1,15 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { Atom, Calculator, Cpu, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen } from 'lucide-react';
+import { Calculator, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen, Zap, Cpu } from 'lucide-react';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import useEnhancedNavigation from '../hooks/useEnhancedNavigation';
 
 const STEMPage: React.FC = () => {
-  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { navigateBackWithState, handleInternalStateChange } = useEnhancedNavigation();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -21,13 +21,14 @@ const STEMPage: React.FC = () => {
   }, []);
 
   const handleBack = () => {
-    navigate(-1); // Go back to previous page
+    navigateBackWithState('/'); // Go back to previous page with fallback to home
   };
 
   const handleCategoryBack = () => {
-    setSelectedCategory(null);
-    // Scroll to top when returning to main page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Use enhanced navigation to restore exact scroll position
+    handleInternalStateChange(() => {
+      setSelectedCategory(null);
+    });
   };
 
   const handleCategoryClick = (category: any) => {
@@ -42,7 +43,7 @@ const STEMPage: React.FC = () => {
       id: 1,
       title: "Science Websites",
       description: "Interactive science learning platforms",
-      icon: <Atom className="w-5 h-5" />,
+      icon: <Zap className="w-5 h-5" />,
       color: "#007AFF",
       resources: [
         { name: "NASA Kids' Club", url: "https://www.nasa.gov/kidsclub/index.html" },
