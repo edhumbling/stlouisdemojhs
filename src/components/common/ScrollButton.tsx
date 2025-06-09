@@ -7,7 +7,6 @@ interface ScrollButtonProps {
 }
 
 const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
-  const [isVisible, setIsVisible] = useState(true); // Always visible from start
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
@@ -49,9 +48,6 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
     }
 
     setDynamicPosition(newPosition);
-
-    // Always show button - visible from top to bottom of page
-    setIsVisible(true);
     setScrollProgress(scrollPercentage);
   }, [lastScrollY]);
 
@@ -93,25 +89,24 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
   }, [handleScrollAction]);
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          className="fixed z-50"
-          style={{
-            bottom: `${dynamicPosition.bottom}px`,
-            right: `${dynamicPosition.right}px`,
-          }}
-          animate={{
-            bottom: dynamicPosition.bottom,
-            right: dynamicPosition.right,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 30,
-            duration: 0.3
-          }}
-        >
+    <motion.div
+      className="fixed z-50"
+      style={{
+        bottom: `${dynamicPosition.bottom}px`,
+        right: `${dynamicPosition.right}px`,
+      }}
+      animate={{
+        bottom: dynamicPosition.bottom,
+        right: dynamicPosition.right,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+        duration: 0.3
+      }}
+      initial={{ opacity: 1, scale: 1 }}
+    >
           {/* Enhanced Tooltip */}
           <AnimatePresence>
             {isHovered && (
@@ -147,7 +142,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
               focus:outline-none focus:ring-4 focus:ring-yellow-300/50 focus:ring-offset-2 focus:ring-offset-transparent
               transition-all duration-300 ease-out
               cursor-pointer select-none
-              w-14 h-14 sm:w-16 sm:h-16
+              w-12 h-12 sm:w-14 sm:h-14
               group
               ${className}
             `}
@@ -235,7 +230,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
               }}
             >
               <ArrowUp
-                className="w-6 h-6 sm:w-8 sm:h-8 text-gray-800 font-bold drop-shadow-lg"
+                className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800 font-bold drop-shadow-lg"
                 strokeWidth={3}
                 style={{
                   filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
@@ -277,8 +272,6 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
             />
           </motion.button>
         </motion.div>
-      )}
-    </AnimatePresence>
   );
 };
 
