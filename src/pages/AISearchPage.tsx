@@ -16,6 +16,8 @@ const AISearchPage: React.FC = () => {
   const [autoRedirectTimer, setAutoRedirectTimer] = useState<number | null>(null);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const [pageLoading, setPageLoading] = useState(true);
+  const [connectionRefused, setConnectionRefused] = useState(false);
+  const [loadAttempts, setLoadAttempts] = useState(0);
   const { setShowHeader } = useHeader();
 
   // Handle initial page loading with shimmer effect
@@ -763,11 +765,12 @@ const AISearchPage: React.FC = () => {
     };
   }, [selectedEngine, setShowHeader]);
 
-  // Enhanced iframe monitoring with multiple checks
+  // Enhanced iframe monitoring with connection detection
   useEffect(() => {
-    if (selectedEngine && !iframeError) {
+    if (selectedEngine && !iframeError && !connectionRefused) {
       let checkCount = 0;
-      const maxChecks = 4; // Check 4 times over 6 seconds
+      const maxChecks = 5; // Check 5 times over 10 seconds
+      let connectionFailures = 0;
 
       const checkIframeStatus = () => {
         const iframe = document.querySelector('iframe[title="' + selectedEngineData?.name + '"]') as HTMLIFrameElement;
@@ -780,52 +783,98 @@ const AISearchPage: React.FC = () => {
             const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
             const iframeSrc = iframe.src;
 
-            // Check if iframe has loaded content
+            // Check if iframe has loaded content successfully
             if (iframeDoc && iframeDoc.readyState === 'complete') {
-              console.log(`${selectedEngineData?.name} iframe loaded successfully`);
-              handleIframeLoad();
-              return;
+              // Additional check to see if the page actually loaded content
+              const bodyContent = iframeDoc.body?.innerHTML || '';
+              if (bodyContent.length > 100) { // Has substantial content
+                console.log(`${selectedEngineData?.name} iframe loaded successfully with content`);
+                handleIframeLoad();
+                return;
+              }
             }
 
-            // Check if iframe URL is accessible
+            // Check for connection refused indicators
+            if (iframeDoc) {
+              const pageText = iframeDoc.body?.textContent?.toLowerCase() || '';
+              const pageHTML = iframeDoc.body?.innerHTML?.toLowerCase() || '';
+
+              // Look for common connection error messages
+              const connectionErrorIndicators = [
+                'connection refused',
+                'connection timed out',
+                'this site can\'t be reached',
+                'refused to connect',
+                'err_connection_refused',
+                'err_connection_timed_out',
+                'err_network_changed',
+                'unable to connect',
+                'connection failed',
+                'network error'
+              ];
+
+              const hasConnectionError = connectionErrorIndicators.some(indicator =>
+                pageText.includes(indicator) || pageHTML.includes(indicator)
+              );
+
+              if (hasConnectionError) {
+                console.log(`${selectedEngineData?.name} connection refused detected`);
+                setConnectionRefused(true);
+                setIsLoading(false);
+                return;
+              }
+            }
+
+            // Check if iframe URL is accessible and not blank
             if (iframeSrc && iframeSrc !== 'about:blank') {
               // If we've checked multiple times and still loading, it might be working
-              if (checkCount >= 3) {
-                console.log(`${selectedEngineData?.name} appears to be loading, giving more time`);
+              if (checkCount >= 4) {
+                console.log(`${selectedEngineData?.name} appears to be loading slowly, giving more time`);
+                return;
+              }
+            } else {
+              connectionFailures++;
+              if (connectionFailures >= 3) {
+                console.log(`${selectedEngineData?.name} multiple connection failures detected`);
+                setConnectionRefused(true);
+                setIsLoading(false);
                 return;
               }
             }
 
             // Schedule next check
             if (checkCount < maxChecks) {
-              setTimeout(checkIframeStatus, 1500); // Check every 1.5 seconds
+              setTimeout(checkIframeStatus, 2000); // Check every 2 seconds
             }
 
           } catch (e) {
-            // CORS error is expected for many sites, don't immediately fail
-            console.log(`CORS check ${checkCount} for ${selectedEngineData?.name}:`, e instanceof Error ? e.message : 'Unknown error');
+            connectionFailures++;
+            console.log(`Connection check ${checkCount} for ${selectedEngineData?.name}:`, e instanceof Error ? e.message : 'Unknown error');
 
-            // Only trigger error if we've tried multiple times and definitely can't access
-            if (checkCount >= 3) {
-              console.log('Multiple CORS failures, but iframe might still be loading');
+            // If we have multiple connection failures, likely a connection issue
+            if (connectionFailures >= 3) {
+              console.log(`${selectedEngineData?.name} multiple connection failures, treating as connection refused`);
+              setConnectionRefused(true);
+              setIsLoading(false);
+              return;
             }
 
             // Schedule next check
             if (checkCount < maxChecks) {
-              setTimeout(checkIframeStatus, 1500);
+              setTimeout(checkIframeStatus, 2000);
             }
           }
         }
       };
 
-      // Start checking after 2 seconds to give iframe time to start loading
-      const initialTimer = setTimeout(checkIframeStatus, 2000);
+      // Start checking after 3 seconds to give iframe time to start loading
+      const initialTimer = setTimeout(checkIframeStatus, 3000);
 
       return () => {
         clearTimeout(initialTimer);
       };
     }
-  }, [selectedEngine, iframeError, isLoading, selectedEngineData]);
+  }, [selectedEngine, iframeError, isLoading, selectedEngineData, connectionRefused, loadAttempts]);
 
   const handleBack = () => {
     if (selectedEngine) {
@@ -833,6 +882,8 @@ const AISearchPage: React.FC = () => {
       setIsLoading(false);
       setIframeError(false);
       setShowAlternatives(false);
+      setConnectionRefused(false);
+      setLoadAttempts(0);
       // Clear any auto-redirect timer
       if (autoRedirectTimer) {
         clearTimeout(autoRedirectTimer);
@@ -851,6 +902,8 @@ const AISearchPage: React.FC = () => {
     setIsLoading(true);
     setIframeError(false);
     setShowAlternatives(false);
+    setConnectionRefused(false);
+    setLoadAttempts(prev => prev + 1);
     setSelectedEngine(engineId);
 
     const engineData = aiEngines.find(engine => engine.id === engineId);
@@ -955,6 +1008,29 @@ const AISearchPage: React.FC = () => {
     }
   };
 
+  const handleRefresh = () => {
+    if (selectedEngine) {
+      console.log(`Refreshing ${selectedEngineData?.name}`);
+      setIsLoading(true);
+      setIframeError(false);
+      setConnectionRefused(false);
+      setShowAlternatives(false);
+      setLoadAttempts(prev => prev + 1);
+
+      // Clear any existing timer
+      if (autoRedirectTimer) {
+        clearTimeout(autoRedirectTimer);
+        setAutoRedirectTimer(null);
+      }
+
+      // Force iframe reload by changing src
+      const iframe = document.querySelector('iframe[title="' + selectedEngineData?.name + '"]') as HTMLIFrameElement;
+      if (iframe && selectedEngineData) {
+        iframe.src = selectedEngineData.url + (selectedEngineData.url.includes('?') ? '&' : '?') + 'refresh=' + Date.now();
+      }
+    }
+  };
+
   // If an engine is selected, show the full-page iframe view - Like LearnHub
   if (selectedEngine && selectedEngineData) {
     // All AI engines use their original white backgrounds when opened
@@ -1032,6 +1108,65 @@ const AISearchPage: React.FC = () => {
                 </div>
               )}
             </>
+          ) : connectionRefused ? (
+            /* Connection Refused State - Show user options */
+            <div className="w-full h-full bg-gradient-to-br from-red-900/20 via-gray-800 to-gray-900 flex items-center justify-center p-6">
+              <div className="text-center max-w-lg">
+                <div className="mb-8">
+                  <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Globe className="w-10 h-10 text-red-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Connection Issue</h3>
+                  <p className="text-gray-300 mb-4">
+                    {selectedEngineData.name} is having trouble loading within the page.
+                  </p>
+                  <p className="text-yellow-400 mb-6 font-medium">
+                    ⚠️ This could be due to network issues or site restrictions.
+                  </p>
+                </div>
+
+                {/* User Options */}
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Refresh Button */}
+                    <button
+                      onClick={handleRefresh}
+                      className="p-4 bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </svg>
+                      <div className="text-left">
+                        <div className="font-semibold">Try Again</div>
+                        <div className="text-sm opacity-90">Refresh the page</div>
+                      </div>
+                    </button>
+
+                    {/* Open in Browser Button */}
+                    <button
+                      onClick={handleOpenInBrowser}
+                      className="p-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                    >
+                      <Globe className="w-6 h-6" />
+                      <div className="text-left">
+                        <div className="font-semibold">Open Externally</div>
+                        <div className="text-sm opacity-90">New browser tab</div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
+                    <p className="text-sm text-gray-300 mb-2">
+                      <strong>Attempt #{loadAttempts}</strong> - What would you like to do?
+                    </p>
+                    <p className="text-xs text-gray-400">
+                      • <strong>Try Again:</strong> Refresh and attempt to load within the page<br/>
+                      • <strong>Open Externally:</strong> Launch in a new browser tab with full functionality
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           ) : (
             /* Error State - Show alternatives */
             <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
