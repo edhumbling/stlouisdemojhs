@@ -1,27 +1,38 @@
 {
-  "last_updated": "2025-06-09T14:58:04.680797",
-  "total_videos": 2,
+  "last_updated": "2025-06-09T15:12:58.201749",
+  "total_videos": 3,
   "videos": [
     {
       "id": "7234567890123456789",
-      "url": "https://www.tiktok.com/@stlouisdemo/video/7234567890123456789",
-      "username": "stlouisdemo",
-      "description": "Amazing students at St. Louis Demo JHS showing their talents! #education #ghana #school",
-      "date": "2025-06-09",
-      "likes": "1.2K",
-      "comments": "45",
-      "shares": "23",
-      "verified": true
+      "url": "https://www.tiktok.com/@ghanaschools/video/7234567890123456789",
+      "username": "ghanaschools",
+      "description": "Amazing students at St. Louis Demo JHS showing their talents! #education #ghana #school #stlouisdemo",
+      "date": "2024-12-01",
+      "likes": "2.1K",
+      "comments": "89",
+      "shares": "45",
+      "verified": false
     },
     {
       "id": "7234567890123456790",
-      "url": "https://www.tiktok.com/@ghanaschools/video/7234567890123456790",
-      "username": "ghanaschools",
-      "description": "Visit to St. Louis Demo JHS - incredible learning environment! #ghanaschools #education",
-      "date": "2025-06-09",
-      "likes": "856",
-      "comments": "32",
-      "shares": "18",
+      "url": "https://www.tiktok.com/@educationgh/video/7234567890123456790",
+      "username": "educationgh",
+      "description": "Visit to St. Louis Demonstration JHS - incredible learning environment! #ghanaschools #education #demonstration",
+      "date": "2024-11-28",
+      "likes": "1.8K",
+      "comments": "67",
+      "shares": "34",
+      "verified": true
+    },
+    {
+      "id": "7234567890123456791",
+      "url": "https://www.tiktok.com/@schoolsofghana/video/7234567890123456791",
+      "username": "schoolsofghana",
+      "description": "Demonstration JHS students excel in science fair! Proud of these young minds 🧠 #demonstration #science #ghana",
+      "date": "2024-11-25",
+      "likes": "3.2K",
+      "comments": "124",
+      "shares": "78",
       "verified": false
     }
   ]

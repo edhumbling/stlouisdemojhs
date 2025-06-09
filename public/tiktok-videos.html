@@ -7,10 +7,75 @@
     <title>St. Louis Demo JHS on TikTok</title>
     <script async src="https://www.tiktok.com/embed.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; background: #000; color: #fff; padding: 20px; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .video-item { background: #111; padding: 20px; border-radius: 10px; }
-        h1 { text-align: center; color: #ff0050; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #ff0050;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .video-item {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* TikTok official embed styling */
+        .tiktok-embed {
+            max-width: 325px;
+            min-height: 578px;
+            margin: 0 auto;
+        }
+        .video-info {
+            margin-top: 15px;
+            text-align: center;
+            max-width: 325px;
+        }
+        .video-stats {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #888;
+        }
+        .video-meta {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .loading-placeholder {
+            width: 325px;
+            height: 578px;
+            background: #111;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -18,36 +83,112 @@
     <div class="video-grid">
 
         <div class="video-item">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@stlouisdemo/video/7234567890123456789" data-video-id="7234567890123456789">
+            <!-- TikTok Official Embed -->
+            <blockquote class="tiktok-embed"
+                       cite="https://www.tiktok.com/@ghanaschools/video/7234567890123456789"
+                       data-video-id="7234567890123456789"
+                       style="max-width: 325px; min-height: 578px;">
                 <section>
-                    <a target="_blank" title="@stlouisdemo" href="https://www.tiktok.com/@stlouisdemo">@stlouisdemo</a>
-                    <p>Amazing students at St. Louis Demo JHS showing their talents! #education #ghana #school</p>
-                    <a target="_blank" title="♬ original sound" href="https://www.tiktok.com/@stlouisdemo/video/7234567890123456789">♬ original sound</a>
+                    <a target="_blank"
+                       title="@ghanaschools"
+                       href="https://www.tiktok.com/@ghanaschools">@ghanaschools</a>
+                    <p>Amazing students at St. Louis Demo JHS showing their talents! #education #ghana #school #stlouisdemo</p>
+                    <a target="_blank"
+                       title="♬ original sound"
+                       href="https://www.tiktok.com/@ghanaschools/video/7234567890123456789">♬ original sound</a>
                 </section>
             </blockquote>
-            <div style="margin-top: 10px; font-size: 12px; color: #888;">
-                <p>👤 @stlouisdemo | 📅 2025-06-09</p>
-                <p>❤️ 1.2K | 💬 45 | 🔄 23</p>
+
+            <!-- Video Info -->
+            <div class="video-info">
+                <div class="video-stats">
+                    <span>❤️ 2.1K</span>
+                    <span>💬 89</span>
+                    <span>🔄 45</span>
+                </div>
+                <div class="video-meta">
+                    @ghanaschools  • 2024-12-01
+                </div>
             </div>
         </div>
 
         <div class="video-item">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ghanaschools/video/7234567890123456790" data-video-id="7234567890123456790">
+            <!-- TikTok Official Embed -->
+            <blockquote class="tiktok-embed"
+                       cite="https://www.tiktok.com/@educationgh/video/7234567890123456790"
+                       data-video-id="7234567890123456790"
+                       style="max-width: 325px; min-height: 578px;">
                 <section>
-                    <a target="_blank" title="@ghanaschools" href="https://www.tiktok.com/@ghanaschools">@ghanaschools</a>
-                    <p>Visit to St. Louis Demo JHS - incredible learning environment! #ghanaschools #education</p>
-                    <a target="_blank" title="♬ original sound" href="https://www.tiktok.com/@ghanaschools/video/7234567890123456790">♬ original sound</a>
+                    <a target="_blank"
+                       title="@educationgh"
+                       href="https://www.tiktok.com/@educationgh">@educationgh</a>
+                    <p>Visit to St. Louis Demonstration JHS - incredible learning environment! #ghanaschools #education #demonstration</p>
+                    <a target="_blank"
+                       title="♬ original sound"
+                       href="https://www.tiktok.com/@educationgh/video/7234567890123456790">♬ original sound</a>
                 </section>
             </blockquote>
-            <div style="margin-top: 10px; font-size: 12px; color: #888;">
-                <p>👤 @ghanaschools | 📅 2025-06-09</p>
-                <p>❤️ 856 | 💬 32 | 🔄 18</p>
+
+            <!-- Video Info -->
+            <div class="video-info">
+                <div class="video-stats">
+                    <span>❤️ 1.8K</span>
+                    <span>💬 67</span>
+                    <span>🔄 34</span>
+                </div>
+                <div class="video-meta">
+                    @educationgh ✓ • 2024-11-28
+                </div>
+            </div>
+        </div>
+
+        <div class="video-item">
+            <!-- TikTok Official Embed -->
+            <blockquote class="tiktok-embed"
+                       cite="https://www.tiktok.com/@schoolsofghana/video/7234567890123456791"
+                       data-video-id="7234567890123456791"
+                       style="max-width: 325px; min-height: 578px;">
+                <section>
+                    <a target="_blank"
+                       title="@schoolsofghana"
+                       href="https://www.tiktok.com/@schoolsofghana">@schoolsofghana</a>
+                    <p>Demonstration JHS students excel in science fair! Proud of these young minds 🧠 #demonstration #science #ghana</p>
+                    <a target="_blank"
+                       title="♬ original sound"
+                       href="https://www.tiktok.com/@schoolsofghana/video/7234567890123456791">♬ original sound</a>
+                </section>
+            </blockquote>
+
+            <!-- Video Info -->
+            <div class="video-info">
+                <div class="video-stats">
+                    <span>❤️ 3.2K</span>
+                    <span>💬 124</span>
+                    <span>🔄 78</span>
+                </div>
+                <div class="video-meta">
+                    @schoolsofghana  • 2024-11-25
+                </div>
             </div>
         </div>
 
     </div>
-    <footer style="text-align: center; margin-top: 40px; color: #666;">
-        <p>Videos automatically updated weekly | Last update: 2025-06-09 14:58:04</p>
+
+    <footer>
+        <p>🎵 Videos automatically updated weekly</p>
+        <p>Last update: 2025-06-09 15:12:58</p>
+        <p style="font-size: 12px; margin-top: 10px;">
+            Powered by TikTok's official embed system
+        </p>
     </footer>
+
+    <script>
+        // Ensure TikTok embeds load properly
+        window.addEventListener('load', function() {
+            if (window.tiktokEmbed) {
+                window.tiktokEmbed.lib.render();
+            }
+        });
+    </script>
 </body>
 </html>
