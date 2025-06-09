@@ -163,13 +163,13 @@ const DonationPage: React.FC = () => {
               💖 Support Our School with Love
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 max-w-2xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              Every donation helps us provide better education for our students
+            <p className="text-sm sm:text-base text-white/90 mb-3 sm:mb-4 max-w-xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+              Every donation helps provide better education for our students
             </p>
 
             {/* Payment Options Message */}
-            <div className="text-center text-white font-semibold text-base sm:text-lg mb-2 drop-shadow-lg">
-              You can pay with any of the following options:
+            <div className="text-center text-white font-medium text-sm sm:text-base mb-2 drop-shadow-lg">
+              Choose your preferred donation method:
             </div>
 
             {/* Donation Buttons Container */}
@@ -275,8 +275,7 @@ const DonationPage: React.FC = () => {
             </div>
 
             {/* Physical Donations Welcome - Yellow Glass, Rectangular, Four Icons */}
-            <div className="max-w-2xl mx-auto mb-6">
-              <div className="bg-yellow-200/40 backdrop-blur-xl rounded-2xl sm:rounded-xl border border-yellow-300/60 shadow-2xl p-4 sm:p-6 text-center flex flex-col items-center gap-2">
+            <div className="bg-yellow-200/40 backdrop-blur-xl rounded-2xl sm:rounded-xl border border-yellow-300/60 shadow-2xl p-4 sm:p-6 text-center flex flex-col items-center gap-2 mb-6">
                 <div className="flex items-center justify-center mb-2 gap-2">
                   <BookOpen className="w-6 h-6 text-white drop-shadow" />
                   <h3 className="text-base sm:text-lg font-extrabold text-white drop-shadow">Physical Donations Welcome!</h3>
@@ -307,6 +306,17 @@ const DonationPage: React.FC = () => {
                     🧑‍🎓
                   </span>
                 </div>
+            </div>
+
+            {/* MoMo & Credit Card Reminder */}
+            <div className="mt-6 text-center">
+              <div className="bg-blue-500/20 backdrop-blur-sm rounded-xl border border-blue-400/30 p-3 sm:p-4 max-w-lg mx-auto">
+                <p className="text-white text-sm sm:text-base font-medium drop-shadow">
+                  💳 <strong>In Ghana?</strong> Use MoMo or Credit Cards via Paystack below!
+                </p>
+                <p className="text-blue-200 text-xs sm:text-sm mt-1 drop-shadow">
+                  MTN MoMo • Vodafone Cash • AirtelTigo • Visa/Mastercard
+                </p>
               </div>
             </div>
           </motion.div>
