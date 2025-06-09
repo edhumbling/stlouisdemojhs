@@ -77,7 +77,7 @@ const StudentsHubPage: React.FC = () => {
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const navigate = useNavigate();
-  const { setShowHeader, setShowFooter } = useHeader();
+  const { setShowHeader } = useHeader();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -91,24 +91,19 @@ const StudentsHubPage: React.FC = () => {
     return () => clearTimeout(loadingTimer);
   }, []);
 
-  // Control header and footer visibility based on whether we're viewing an individual resource
+  // Control header visibility based on whether we're viewing an individual resource
   useEffect(() => {
     if (selectedResource) {
-      // Hide header and footer when viewing individual resource
       setShowHeader(false);
-      setShowFooter(false);
     } else {
-      // Show header and footer when viewing main grid
       setShowHeader(true);
-      setShowFooter(true);
     }
 
-    // Cleanup: ensure header and footer are shown when component unmounts
+    // Cleanup: ensure header is shown when component unmounts
     return () => {
       setShowHeader(true);
-      setShowFooter(true);
     };
-  }, [selectedResource, setShowHeader, setShowFooter]);
+  }, [selectedResource, setShowHeader]);
 
   const handleMainBack = () => {
     navigate(-1); // Go back to previous page
@@ -2955,30 +2950,48 @@ const StudentsHubPage: React.FC = () => {
                   <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent"></div>
                   <span className="text-xs text-silver-400 font-semibold">{resources.length} resources</span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                   {resources.map(resource => (
                     <motion.div
                       key={resource.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4 }}
-                      className="group relative bg-silver-900/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 cursor-pointer border border-silver-700/30 hover:border-purple-500/40"
-                      onClick={() => handleResourceClick(resource)}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (index * 0.05) }}
+                      className="group"
                     >
-                      <div className="p-4 flex items-start gap-3">
-                        <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-silver-800/80 border border-silver-700/40 shadow-inner">
-                          {resource.icon}
+                      <button
+                        onClick={() => handleResourceClick(resource)}
+                        className={`w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
+                          categoryName === '🎨 Generative World'
+                            ? 'shadow-[0_0_40px_rgba(255,255,255,0.4),0_0_80px_rgba(255,255,255,0.3),0_0_120px_rgba(255,255,255,0.2),0_0_160px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6),0_0_120px_rgba(255,255,255,0.4),0_0_180px_rgba(255,255,255,0.3),0_0_240px_rgba(255,255,255,0.2)] animate-pulse border-white/30 hover:border-white/50'
+                            : ''
+                        }`}
+                      >
+                        {/* YouTube Thumbnail Background for YouTube videos */}
+                        {resource.isYouTube && (
+                          <div className="absolute inset-0 bg-black opacity-50">
+                            <img
+                              src={getYouTubeThumbnail(resource.url)}
+                              alt={resource.title}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        )}
+                        <div className="p-4 flex items-start gap-3">
+                          <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-silver-800/80 border border-silver-700/40 shadow-inner">
+                            {resource.icon}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-base font-semibold text-silver-100 truncate group-hover:text-purple-200 transition-colors">
+                              {resource.title}
+                            </h3>
+                            <p className="text-xs text-silver-400 truncate">
+                              {resource.description}
+                            </p>
+                          </div>
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="text-base font-semibold text-silver-100 truncate group-hover:text-purple-200 transition-colors">
-                            {resource.title}
-                          </h3>
-                          <p className="text-xs text-silver-400 truncate">
-                            {resource.description}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-silver-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-silver-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      </button>
                     </motion.div>
                   ))}
                 </div>
@@ -2987,9 +3000,6 @@ const StudentsHubPage: React.FC = () => {
           </div>
         </div>
       </main>
-
-      {/* Lofi section at the bottom */}
-      {renderStudyLofiSection()}
     </div>
   );
 
