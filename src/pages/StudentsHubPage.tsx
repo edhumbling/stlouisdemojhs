@@ -40,6 +40,7 @@ import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import useEnhancedNavigation from '../hooks/useEnhancedNavigation';
+import SEOHead from '../components/seo/SEOHead';
 
 interface Resource {
   id: number;
@@ -2914,9 +2915,40 @@ const StudentsHubPage: React.FC = () => {
     </div>
   );
 
+  // SEO structured data for Students Hub
+  const studentsHubStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Students Hub - Digital Learning Resources",
+    "description": "Comprehensive digital learning platform with educational resources, STEM tools, study materials, and interactive content for junior high school students.",
+    "url": "https://stlouisdemojhs.com/students-hub",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "St. Louis Demonstration JHS",
+      "url": "https://stlouisdemojhs.com"
+    },
+    "about": {
+      "@type": "EducationalOrganization",
+      "name": "St. Louis Demonstration Junior High School"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student"
+    }
+  };
+
   // Main render function
   const renderMainContent = () => (
-    <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
+    <>
+      <SEOHead
+        title="Students Hub - Digital Learning Resources | St. Louis Demonstration JHS"
+        description="Access comprehensive digital learning resources, STEM tools, study materials, educational videos, and interactive content designed for junior high school students at St. Louis Demonstration JHS."
+        keywords="students hub, digital learning, educational resources, STEM tools, study materials, JHS resources, online learning, educational technology, student portal, learning platform"
+        url="/students-hub"
+        type="website"
+        structuredData={studentsHubStructuredData}
+      />
+      <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
       {/* Main Students Hub Content */}
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
@@ -3134,6 +3166,7 @@ const StudentsHubPage: React.FC = () => {
         </div>
       </main>
     </div>
+    </>
   );
 
   // Conditional rendering based on state

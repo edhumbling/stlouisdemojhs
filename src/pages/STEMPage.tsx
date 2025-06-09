@@ -1,9 +1,10 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen, Zap, Cpu } from 'lucide-react';
+import { Calculator, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen, Zap, Monitor } from 'lucide-react';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import useEnhancedNavigation from '../hooks/useEnhancedNavigation';
+import SEOHead from '../components/seo/SEOHead';
 
 const STEMPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
@@ -110,7 +111,7 @@ const STEMPage: React.FC = () => {
       id: 2,
       title: "Technology & Coding",
       description: "Programming and tech skills",
-      icon: <Cpu className="w-5 h-5" />,
+      icon: <Zap className="w-5 h-5" />,
       color: "#34C759",
       resources: [
         { name: "Scratch", url: "https://scratch.mit.edu/" },
@@ -654,7 +655,7 @@ const STEMPage: React.FC = () => {
       id: 10,
       title: "Government Initiatives",
       description: "Official STEM programs",
-      icon: <Cpu className="w-5 h-5" />,
+      icon: <BookOpen className="w-5 h-5" />,
       color: "#5856D6",
       resources: [
         { name: "Educate to Innovate", url: "https://obamawhitehouse.archives.gov/issues/education/k-12/educate-innovate" },
@@ -908,8 +909,41 @@ const STEMPage: React.FC = () => {
     );
   }
 
+  // SEO structured data for STEM page
+  const stemStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "STEM Education Resources",
+    "description": "Comprehensive STEM education resources including Science, Technology, Engineering, and Mathematics tools and learning materials for junior high school students.",
+    "url": "https://stlouisdemojhs.com/stem",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "St. Louis Demonstration JHS",
+      "url": "https://stlouisdemojhs.com"
+    },
+    "about": {
+      "@type": "EducationalOrganization",
+      "name": "St. Louis Demonstration Junior High School"
+    },
+    "audience": {
+      "@type": "EducationalAudience",
+      "educationalRole": "student"
+    },
+    "educationalLevel": "Junior High School",
+    "teaches": ["Science", "Technology", "Engineering", "Mathematics"]
+  };
+
   return (
-    <div className="min-h-screen bg-black">
+    <>
+      <SEOHead
+        title="STEM Education Resources | St. Louis Demonstration JHS"
+        description="Explore comprehensive STEM education resources including Science, Technology, Engineering, and Mathematics tools, learning materials, and interactive content for junior high school students."
+        keywords="STEM education, science resources, technology learning, engineering tools, mathematics resources, JHS STEM, educational technology, science experiments, coding for kids"
+        url="/stem"
+        type="website"
+        structuredData={stemStructuredData}
+      />
+      <div className="min-h-screen bg-black">
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
@@ -1038,6 +1072,7 @@ const STEMPage: React.FC = () => {
         </div>
       </main>
     </div>
+    </>
   );
 };
 

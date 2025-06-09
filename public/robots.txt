@@ -98,3 +98,10 @@ Crawl-delay: 2
 
 # Host declaration
 Host: stlouisdemojhs.com
+
+# Sitemap location
+Sitemap: https://stlouisdemojhs.com/sitemap.xml
+
+# Additional sitemaps for better indexing
+Sitemap: https://stlouisdemojhs.com/sitemap-news.xml
+Sitemap: https://stlouisdemojhs.com/sitemap-images.xml

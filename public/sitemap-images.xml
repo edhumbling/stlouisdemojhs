@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage with School Logo -->
+  <url>
+    <loc>https://stlouisdemojhs.com/</loc>
+    <image:image>
+      <image:loc>https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs</image:loc>
+      <image:title>St. Louis Demonstration JHS School Logo</image:title>
+      <image:caption>Official logo of St. Louis Demonstration Junior High School</image:caption>
+      <image:geo_location>Accra, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/gallery</loc>
+    <image:image>
+      <image:loc>https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs</image:loc>
+      <image:title>St. Louis Demonstration JHS Photo Gallery</image:title>
+      <image:caption>Photo gallery showcasing school events, facilities, and student activities</image:caption>
+      <image:geo_location>Accra, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/about</loc>
+    <image:image>
+      <image:loc>https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs</image:loc>
+      <image:title>About St. Louis Demonstration JHS</image:title>
+      <image:caption>Learn about our school's mission, vision, and educational excellence</image:caption>
+      <image:geo_location>Accra, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Academics Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/academics</loc>
+    <image:image>
+      <image:loc>https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs</image:loc>
+      <image:title>Academic Programs at St. Louis Demonstration JHS</image:title>
+      <image:caption>Comprehensive academic programs and curriculum offerings</image:caption>
+      <image:geo_location>Accra, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- STEM Education Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/stem</loc>
+    <image:image>
+      <image:loc>https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs</image:loc>
+      <image:title>STEM Education at St. Louis Demonstration JHS</image:title>
+      <image:caption>Science, Technology, Engineering, and Mathematics programs</image:caption>
+      <image:geo_location>Accra, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Students Hub Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/students-hub</loc>
+    <image:image>
+      <image:loc>https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs</image:loc>
+      <image:title>Students Hub - Digital Learning Resources</image:title>
+      <image:caption>Digital learning platform and educational resources for students</image:caption>
+      <image:geo_location>Accra, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

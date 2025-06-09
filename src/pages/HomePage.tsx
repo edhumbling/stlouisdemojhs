@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SEOHead from '../components/seo/SEOHead';
 import Hero from '../components/home/Hero';
 import StatsSection from '../components/home/StatsSection';
 import AboutSection from '../components/home/AboutSection';
@@ -106,8 +107,82 @@ const HomePage: React.FC = () => {
     );
   }
 
+  // Comprehensive structured data for homepage
+  const homepageStructuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://stlouisdemojhs.com/#organization",
+        "name": "St. Louis Demonstration Junior High School",
+        "alternateName": "St. Louis Demonstration JHS",
+        "url": "https://stlouisdemojhs.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+          "width": 200,
+          "height": 200
+        },
+        "image": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+        "description": "St. Louis Demonstration JHS is a premier educational institution in Ghana, offering quality junior high school education with modern facilities, experienced teachers, and comprehensive academic programs.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "Ghana",
+          "addressRegion": "Greater Accra Region"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "admissions",
+            "url": "https://stlouisdemojhs.com/contact"
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "general inquiries",
+            "url": "https://stlouisdemojhs.com/contact"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/stlouisdemojhs",
+          "https://stlouisdemojhs.blogspot.com"
+        ],
+        "educationalCredentialAwarded": "Junior High School Certificate",
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Junior High School Education"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://stlouisdemojhs.com/#website",
+        "url": "https://stlouisdemojhs.com",
+        "name": "St. Louis Demonstration JHS",
+        "description": "Official website of St. Louis Demonstration Junior High School",
+        "publisher": {
+          "@id": "https://stlouisdemojhs.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://stlouisdemojhs.com/ai-search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  };
+
   return (
     <>
+      <SEOHead
+        title="St. Louis Demonstration Junior High School - Excellence in Education | Ghana"
+        description="St. Louis Demonstration JHS is a premier educational institution in Ghana, offering quality junior high school education with modern facilities, experienced teachers, comprehensive academic programs, STEM education, and student resources."
+        keywords="St. Louis Demonstration JHS, junior high school Ghana, quality education Ghana, JHS Ghana, secondary education, academic excellence, STEM education, student resources, Ghana education, best JHS Ghana, junior secondary school, educational institution Ghana"
+        url="https://stlouisdemojhs.com"
+        type="website"
+        structuredData={homepageStructuredData}
+      />
       <Hero />
       <SectionDivider position="bottom" />
 

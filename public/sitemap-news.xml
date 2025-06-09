@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+
+  <!-- News and Events Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/news</loc>
+    <news:news>
+      <news:publication>
+        <news:name>St. Louis Demonstration JHS News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-01-15T10:00:00+00:00</news:publication_date>
+      <news:title>Latest School News and Events - St. Louis Demonstration JHS</news:title>
+      <news:keywords>school news, events, announcements, Ghana education, JHS news</news:keywords>
+    </news:news>
+    <lastmod>2025-01-15T10:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Results and Placement Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/results-placement</loc>
+    <news:news>
+      <news:publication>
+        <news:name>St. Louis Demonstration JHS Academic Results</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-01-15T09:00:00+00:00</news:publication_date>
+      <news:title>Academic Results and SHS Placement Information</news:title>
+      <news:keywords>BECE results, SHS placement, academic performance, Ghana education results</news:keywords>
+    </news:news>
+    <lastmod>2025-01-15T09:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Calendar Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/calendar</loc>
+    <news:news>
+      <news:publication>
+        <news:name>St. Louis Demonstration JHS Events Calendar</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-01-15T08:00:00+00:00</news:publication_date>
+      <news:title>School Events Calendar and Important Dates</news:title>
+      <news:keywords>school calendar, events, important dates, academic calendar, school activities</news:keywords>
+    </news:news>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

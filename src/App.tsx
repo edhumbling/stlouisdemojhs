@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
 import { HeaderProvider } from './contexts/HeaderContext';
 import HomePage from './pages/HomePage';
@@ -104,8 +105,9 @@ const ScrollPositionManager: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <HeaderProvider>
-      <Router>
+    <HelmetProvider>
+      <HeaderProvider>
+        <Router>
         {/* Scroll Position Manager */}
         <ScrollPositionManager />
 
@@ -169,8 +171,9 @@ const App: React.FC = () => {
         {/* Global catch-all route for direct access to non-existent routes */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </Router>
-    </HeaderProvider>
+        </Router>
+      </HeaderProvider>
+    </HelmetProvider>
   );
 };
 
