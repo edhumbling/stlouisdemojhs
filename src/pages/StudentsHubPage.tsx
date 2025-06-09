@@ -2910,13 +2910,39 @@ const StudentsHubPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Search Bar */}
+          {/* Smart Search Bar */}
           <div className="mb-8">
             <SmartSearchBar
               items={searchableItems}
               onSearchResults={handleSearchResults}
-              placeholder="Search resources, tools, or topics..."
+              placeholder={`Search ${resources.length}+ educational resources...`}
+              accentColor="purple"
+              categories={categoryOptions}
+              types={typeOptions}
+              enableIntentDetection={true}
+              className="mb-6"
             />
+            {/* SHS Database and Results Checker Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center items-center">
+              <Link
+                to="/shs-database"
+                className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 shadow-lg hover:shadow-xl hover:from-green-600 hover:to-green-800 transition-all duration-300 text-lg flex items-center justify-center gap-2 relative overflow-hidden group"
+                style={{ filter: 'drop-shadow(0 0 12px #22c55e)' }}
+              >
+                <FileText className="w-6 h-6 mr-2" />
+                SHS Database
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+              </Link>
+              <Link
+                to="/results-placement"
+                className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 shadow-lg hover:shadow-xl hover:from-yellow-600 hover:to-yellow-800 transition-all duration-300 text-lg flex items-center justify-center gap-2 relative overflow-hidden group"
+                style={{ filter: 'drop-shadow(0 0 12px #eab308)' }}
+              >
+                <FileCheck className="w-6 h-6 mr-2" />
+                Results & Placement Checker
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+              </Link>
+            </div>
           </div>
 
           {/* Resource Categories */}
