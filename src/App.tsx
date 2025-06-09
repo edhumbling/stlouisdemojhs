@@ -41,6 +41,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import PayPalDonatePage from './pages/PayPalDonatePage';
 import DonateUSBankPage from './pages/DonateUSBankPage';
 import DonateUKBankPage from './pages/DonateUKBankPage';
+import DonateEuroBankPage from './pages/DonateEuroBankPage';
 import SHSDatabasePage from './pages/SHSDatabasePage';
 import SHSPdfViewerPage from './pages/SHSPdfViewerPage';
 import ResultsPlacementPage from './pages/ResultsPlacementPage';
@@ -147,6 +148,7 @@ const App: React.FC = () => {
           <Route path="donate-paypal" element={<PayPalDonatePage />} />
           <Route path="donate-us-bank" element={<DonateUSBankPage />} />
           <Route path="donate-uk-bank" element={<DonateUKBankPage />} />
+          <Route path="donate-euro-bank" element={<DonateEuroBankPage />} />
           <Route path="shs-database" element={<SHSDatabasePage />} />
           <Route path="/shs-database/pdf/:pdfId" element={<SHSPdfViewerPage />} />
           <Route path="/results-placement" element={<ResultsPlacementPage />} />

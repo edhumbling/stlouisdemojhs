@@ -28,6 +28,7 @@ const Layout: React.FC = () => {
     '/donate-paypal',
     '/donate-uk-bank',
     '/donate-us-bank',
+    '/donate-euro-bank',
     '/news-events',
     '/shs-database',
     '/results-placement',

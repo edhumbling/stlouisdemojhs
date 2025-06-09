@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, ArrowLeft, Globe, BookOpen } from 'lucide-react';
+import { Heart, ArrowLeft, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 
@@ -138,7 +138,11 @@ const DonationPage: React.FC = () => {
                 onClick={() => triggerHapticFeedback('medium')}
                 className="group relative inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base font-medium text-yellow-900 bg-gradient-to-br from-yellow-300 to-yellow-400 border-2 border-yellow-500 rounded-xl hover:from-yellow-200 hover:to-yellow-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transform transition-all duration-200 ease-out shadow-md hover:shadow-yellow-300/40"
               >
-                <Globe size={18} className="mr-2 group-hover:scale-110 transition-transform" />
+                <img
+                  src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"
+                  alt="PayPal Logo"
+                  className="h-4 w-auto mr-2 group-hover:scale-110 transition-transform"
+                />
                 <span>PayPal</span>
                 <div className="absolute -bottom-1.5 -right-1.5 w-2 h-2 bg-yellow-500 rounded-full group-hover:animate-ping"></div>
               </Link>
@@ -163,6 +167,17 @@ const DonationPage: React.FC = () => {
                 <span className="mr-2 text-lg">🇬🇧</span>
                 <span>UK Bank</span>
                 <div className="absolute -bottom-1.5 -right-1.5 w-2 h-2 bg-purple-400 rounded-full group-hover:animate-ping"></div>
+              </Link>
+
+              {/* Euro Bank Donation Button */}
+              <Link
+                to="/donate-euro-bank"
+                onClick={() => triggerHapticFeedback('medium')}
+                className="group relative inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base font-medium text-white bg-gradient-to-br from-green-600 to-green-700 border-2 border-green-700 rounded-xl hover:from-green-500 hover:to-green-600 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transform transition-all duration-200 ease-out shadow-md hover:shadow-green-500/40"
+              >
+                <span className="mr-2 text-lg">🇪🇺</span>
+                <span>Euro Bank</span>
+                <div className="absolute -bottom-1.5 -right-1.5 w-2 h-2 bg-green-400 rounded-full group-hover:animate-ping"></div>
               </Link>
             </div>
 

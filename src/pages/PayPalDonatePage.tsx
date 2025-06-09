@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, CreditCard, Heart, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Heart, ExternalLink } from 'lucide-react';
 
 const PayPalDonatePage: React.FC = () => {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const PayPalDonatePage: React.FC = () => {
       <main className="flex-grow w-full px-0 sm:px-0 pt-6 pb-24 max-w-3xl mx-auto">
         <section className="mb-8 px-4 sm:px-8">
           <h2 className="text-xl sm:text-2xl font-bold text-blue-900 flex items-center gap-2 mb-4">
-            <CreditCard className="text-blue-700" size={28} />
+            <Heart className="text-blue-700" size={28} />
             PayPal Donation
           </h2>
           <div className="space-y-6">
@@ -65,15 +65,43 @@ const PayPalDonatePage: React.FC = () => {
                 </li>
               </ul>
             </div>
+            {/* PayPal Logo */}
+            <div className="w-full">
+              <table border={0} cellPadding="10" cellSpacing="0" className="mx-auto">
+                <tbody>
+                  <tr>
+                    <td className="text-center"></td>
+                  </tr>
+                  <tr>
+                    <td className="text-center">
+                      <a
+                        href="https://www.paypal.com/webapps/mpp/paypal-popup"
+                        title="How PayPal Works"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700');
+                          return false;
+                        }}
+                        className="inline-block"
+                      >
+                        <img
+                          src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"
+                          alt="PayPal Logo"
+                          className="h-8 w-auto border-0"
+                        />
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            {/* PayPal Logo */}
+
+            {/* Donate Button */}
             <button
               onClick={openPayPalPayment}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mt-4"
             >
-              <img 
-                src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" 
-                alt="PayPal" 
-                className="h-6 w-auto"
-              />
               <span>Donate with PayPal</span>
               <ExternalLink size={20} />
             </button>
