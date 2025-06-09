@@ -763,28 +763,67 @@ const AISearchPage: React.FC = () => {
     };
   }, [selectedEngine, setShowHeader]);
 
-  // Enhanced iframe monitoring
+  // Enhanced iframe monitoring with multiple checks
   useEffect(() => {
     if (selectedEngine && !iframeError) {
-      // Additional check for iframe blocking after a delay
-      const checkTimer = setTimeout(() => {
+      let checkCount = 0;
+      const maxChecks = 4; // Check 4 times over 6 seconds
+
+      const checkIframeStatus = () => {
         const iframe = document.querySelector('iframe[title="' + selectedEngineData?.name + '"]') as HTMLIFrameElement;
-        if (iframe && isLoading) {
+
+        if (iframe && isLoading && checkCount < maxChecks) {
+          checkCount++;
+
           try {
-            // Try to access iframe content to detect blocking
+            // Multiple ways to detect if iframe is loading properly
             const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
-            if (!iframeDoc) {
-              console.log('Iframe blocked by CORS policy, triggering redirect');
-              handleIframeError();
+            const iframeSrc = iframe.src;
+
+            // Check if iframe has loaded content
+            if (iframeDoc && iframeDoc.readyState === 'complete') {
+              console.log(`${selectedEngineData?.name} iframe loaded successfully`);
+              handleIframeLoad();
+              return;
             }
+
+            // Check if iframe URL is accessible
+            if (iframeSrc && iframeSrc !== 'about:blank') {
+              // If we've checked multiple times and still loading, it might be working
+              if (checkCount >= 3) {
+                console.log(`${selectedEngineData?.name} appears to be loading, giving more time`);
+                return;
+              }
+            }
+
+            // Schedule next check
+            if (checkCount < maxChecks) {
+              setTimeout(checkIframeStatus, 1500); // Check every 1.5 seconds
+            }
+
           } catch (e) {
-            console.log('Iframe access denied, triggering redirect');
-            handleIframeError();
+            // CORS error is expected for many sites, don't immediately fail
+            console.log(`CORS check ${checkCount} for ${selectedEngineData?.name}:`, e instanceof Error ? e.message : 'Unknown error');
+
+            // Only trigger error if we've tried multiple times and definitely can't access
+            if (checkCount >= 3) {
+              console.log('Multiple CORS failures, but iframe might still be loading');
+            }
+
+            // Schedule next check
+            if (checkCount < maxChecks) {
+              setTimeout(checkIframeStatus, 1500);
+            }
           }
         }
-      }, 2000);
+      };
 
-      return () => clearTimeout(checkTimer);
+      // Start checking after 2 seconds to give iframe time to start loading
+      const initialTimer = setTimeout(checkIframeStatus, 2000);
+
+      return () => {
+        clearTimeout(initialTimer);
+      };
     }
   }, [selectedEngine, iframeError, isLoading, selectedEngineData]);
 
@@ -816,10 +855,11 @@ const AISearchPage: React.FC = () => {
 
     const engineData = aiEngines.find(engine => engine.id === engineId);
 
-    // List of engines that are known to block iframe embedding - redirect immediately
-    const blockedEngines = ['grok', 'claude', 'chatgpt', 'mistral', 'gemini', 'perplexity', 'perplexity-labs', 'copilot', 'genspark', 'pi', 'manus', 'huggingface', 'wolframalpha', 'you-search', 'phind', 'venice', 'exa', 'meta-ai', 'groq-chat', 'poe-ai', 'kimi-chat', 'baidu-chat'];
+    // List of engines that are definitely known to block iframe embedding - redirect immediately
+    // Reduced list to only the most problematic ones
+    const definitelyBlockedEngines = ['grok', 'claude', 'chatgpt', 'mistral', 'gemini', 'copilot', 'meta-ai', 'groq-chat', 'poe-ai', 'baidu-chat'];
 
-    if (blockedEngines.includes(engineId)) {
+    if (definitelyBlockedEngines.includes(engineId)) {
       console.log(`${engineData?.name} is known to block iframes, redirecting immediately`);
       setIsLoading(false);
       setIframeError(true);
@@ -839,10 +879,10 @@ const AISearchPage: React.FC = () => {
       return;
     }
 
-    // For other engines, set up auto-redirect timer - if iframe doesn't load in 2 seconds, auto-redirect
+    // For other engines, give them more time to load - 8 seconds instead of 2
     const timer = setTimeout(() => {
-      if (engineData) {
-        console.log(`Auto-redirecting ${engineData.name} to browser due to loading timeout`);
+      if (engineData && isLoading) {
+        console.log(`Auto-redirecting ${engineData.name} to browser due to loading timeout after 8 seconds`);
         setIsLoading(false);
         setIframeError(true);
 
@@ -855,14 +895,15 @@ const AISearchPage: React.FC = () => {
             setIframeError(false);
             setShowAlternatives(false);
           }, 500);
-        }, 1000);
+        }, 1500);
       }
-    }, 2000);
+    }, 8000); // Increased from 2000 to 8000 (8 seconds)
 
     setAutoRedirectTimer(timer);
   };
 
   const handleIframeLoad = () => {
+    console.log(`${selectedEngineData?.name} iframe loaded successfully`);
     setIsLoading(false);
     setIframeError(false);
     // Clear auto-redirect timer since iframe loaded successfully
@@ -873,31 +914,39 @@ const AISearchPage: React.FC = () => {
   };
 
   const handleIframeError = () => {
-    console.log('Iframe error detected');
-    setIsLoading(false);
-    setIframeError(true);
-    setShowAlternatives(true);
+    console.log('Iframe error detected - this might be normal for some sites');
 
-    // Clear auto-redirect timer
-    if (autoRedirectTimer) {
-      clearTimeout(autoRedirectTimer);
-      setAutoRedirectTimer(null);
-    }
+    // Don't immediately set error state - many sites trigger this but still work
+    // Only set error if we're still loading after the timeout
+    setTimeout(() => {
+      if (isLoading) {
+        console.log('Iframe still loading after error event, treating as actual failure');
+        setIsLoading(false);
+        setIframeError(true);
+        setShowAlternatives(true);
 
-    // Auto-redirect immediately when iframe fails
-    const engineData = aiEngines.find(engine => engine.id === selectedEngine);
-    if (engineData) {
-      console.log(`Auto-redirecting ${engineData.name} to browser due to iframe error`);
-      setTimeout(() => {
-        handleExternalLinkClick(engineData.url);
-        // Go back to main page after opening
-        setTimeout(() => {
-          setSelectedEngine(null);
-          setIframeError(false);
-          setShowAlternatives(false);
-        }, 500);
-      }, 1500); // Wait 1.5 seconds to show the error message
-    }
+        // Clear auto-redirect timer
+        if (autoRedirectTimer) {
+          clearTimeout(autoRedirectTimer);
+          setAutoRedirectTimer(null);
+        }
+
+        // Auto-redirect when iframe definitely fails
+        const engineData = aiEngines.find(engine => engine.id === selectedEngine);
+        if (engineData) {
+          console.log(`Auto-redirecting ${engineData.name} to browser due to confirmed iframe failure`);
+          setTimeout(() => {
+            handleExternalLinkClick(engineData.url);
+            // Go back to main page after opening
+            setTimeout(() => {
+              setSelectedEngine(null);
+              setIframeError(false);
+              setShowAlternatives(false);
+            }, 500);
+          }, 2000); // Wait 2 seconds to show the error message
+        }
+      }
+    }, 3000); // Wait 3 seconds before treating error as real failure
   };
 
   const handleOpenInBrowser = () => {
@@ -977,7 +1026,8 @@ const AISearchPage: React.FC = () => {
 
                     {/* Loading Text */}
                     <p className="text-white font-medium text-lg">Loading {selectedEngineData.name}...</p>
-                    <p className="text-gray-300 text-sm mt-2">Preparing your AI assistant</p>
+                    <p className="text-gray-300 text-sm mt-2">Attempting to load within the page</p>
+                    <p className="text-blue-400 text-xs mt-1">Will redirect to browser if needed</p>
                   </div>
                 </div>
               )}
@@ -1166,11 +1216,11 @@ const AISearchPage: React.FC = () => {
                       style={{ backgroundColor: engine.glowColor }}
                     >
                       {React.isValidElement(engine.icon) && engine.icon.type === 'img' ? (
-                        React.cloneElement(engine.icon, {
+                        React.cloneElement(engine.icon as React.ReactElement<any>, {
                           className: "w-6 h-6"
                         })
                       ) : (
-                        React.cloneElement(engine.icon, {
+                        React.cloneElement(engine.icon as React.ReactElement<any>, {
                           className: "w-6 h-6"
                         })
                       )}
