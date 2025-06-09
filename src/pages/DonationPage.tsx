@@ -268,10 +268,53 @@ const DonationPage: React.FC = () => {
             </div>
 
             {/* Payment Option Icons - Centered and Glowing on Mobile */}
-            <div className="w-full flex justify-center sm:justify-between items-center mb-8 px-2 gap-4">
+            <div className="w-full flex justify-center sm:justify-between items-center mb-6 px-2 gap-4">
               <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
               <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
               <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
+            </div>
+
+            {/* International Transfers Section */}
+            <div className="mb-6 px-2">
+              <div className="bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-green-500/20 backdrop-blur-sm rounded-xl border border-white/20 p-4 sm:p-6 text-center">
+                <h3 className="text-white font-bold text-sm sm:text-lg mb-3 drop-shadow">
+                  🌍 International Transfers
+                </h3>
+
+                {/* International Transfer Image */}
+                <div className="mb-4 flex justify-center">
+                  <img
+                    src="https://ik.imagekit.io/humbling/emma.png"
+                    alt="International Transfer Services"
+                    className="h-16 sm:h-24 md:h-32 w-auto rounded-lg shadow-xl border border-white/30"
+                    style={{ filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.3))' }}
+                  />
+                </div>
+
+                {/* Transfer Services */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 text-white">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/20">
+                    <p className="font-semibold text-xs sm:text-sm">TapTapSend</p>
+                    <p className="text-xs text-white/80">Fast & Secure</p>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/20">
+                    <p className="font-semibold text-xs sm:text-sm">PayAngel</p>
+                    <p className="text-xs text-white/80">Low Fees</p>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/20">
+                    <p className="font-semibold text-xs sm:text-sm">Sendwave</p>
+                    <p className="text-xs text-white/80">Instant</p>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/20">
+                    <p className="font-semibold text-xs sm:text-sm">WorldRemit</p>
+                    <p className="text-xs text-white/80">Global</p>
+                  </div>
+                </div>
+
+                <p className="text-white/90 text-xs sm:text-sm mt-3 drop-shadow">
+                  Send money directly to our accounts using these trusted international transfer services
+                </p>
+              </div>
             </div>
 
             {/* Physical Donations Welcome - Yellow Glass, Rectangular, Four Icons */}
