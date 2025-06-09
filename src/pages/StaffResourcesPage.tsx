@@ -567,41 +567,26 @@ const StaffResourcesPage: React.FC = () => {
                           </div>
 
                           {/* Icon Container */}
-                          <div className="relative mb-3 flex-shrink-0">
-                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 bg-gradient-to-br ${resource.color}`}>
-                              <IconComponent size={20} />
-                            </div>
-
-                            {/* Resource Type Indicator */}
-                            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
-                              {resource.openInNewTab ? (
-                                <ExternalLink className="w-2.5 h-2.5 text-blue-400" />
-                              ) : (
-                                <BookOpen className="w-2.5 h-2.5 text-green-400" />
-                              )}
+                          <div className="relative mb-3 flex-shrink-0 flex justify-center">
+                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 bg-gradient-to-br ${resource.color}`}>
+                              <IconComponent size={32} />
                             </div>
                           </div>
 
                           {/* Content */}
-                          <div className="flex-1 flex flex-col space-y-2">
+                          <div className="flex-1 flex flex-col space-y-1 overflow-hidden">
                             {/* Title */}
-                            <div className="flex items-center gap-3">
-                              <div className={`p-2 rounded-lg bg-gradient-to-br ${resource.color} shadow-lg`}>
-                                <resource.icon className="w-5 h-5 text-white" />
-                              </div>
-                              <div>
-                                <h3 className="font-semibold text-gray-900">
-                                  {resource.customTitle ? resource.customTitle() : resource.title}
-                                </h3>
-                                <p className="text-sm text-gray-600">{resource.subtitle}</p>
-                              </div>
-                            </div>
-
+                            <h3 className="font-semibold text-gray-900 text-base sm:text-lg truncate" title={resource.customTitle ? resource.customTitle() : resource.title}>
+                              {resource.customTitle ? resource.customTitle() : resource.title}
+                            </h3>
+                            {/* Subtitle */}
+                            {resource.subtitle && (
+                              <p className="text-xs text-gray-600 truncate" title={resource.subtitle}>{resource.subtitle}</p>
+                            )}
                             {/* Description */}
-                            <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                            <p className="text-xs text-gray-400 leading-relaxed break-words flex-1">
                               {resource.description}
                             </p>
-
                             {/* Action Footer */}
                             <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
                               <div className="flex items-center gap-1">
