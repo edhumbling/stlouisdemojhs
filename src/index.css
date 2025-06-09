@@ -572,6 +572,113 @@ section, main, div[class*="container"] {
   animation: paypal-glow 2s ease-in-out infinite;
 }
 
+/* Enhanced Donation Button Effects */
+.donation-button {
+  position: relative;
+  background: linear-gradient(135deg, var(--btn-from), var(--btn-via), var(--btn-to));
+  border: 1px solid var(--btn-border);
+  box-shadow:
+    0 4px 15px var(--btn-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.donation-button:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 25px var(--btn-shadow),
+    0 0 20px var(--btn-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.donation-button:active {
+  transform: translateY(-1px);
+}
+
+/* Silver reflection animation */
+@keyframes silver-reflection {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+.silver-reflection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: silver-reflection 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Emoji fallback system */
+.emoji-fallback {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+}
+
+/* Fallback for systems that don't support flag emojis */
+@supports not (font-variation-settings: normal) {
+  .emoji-fallback[data-emoji="🇺🇸"]::before {
+    content: attr(data-fallback);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #059669;
+  }
+
+  .emoji-fallback[data-emoji="🇬🇧"]::before {
+    content: attr(data-fallback);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #7c3aed;
+  }
+
+  .emoji-fallback[data-emoji="🇪🇺"]::before {
+    content: attr(data-fallback);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #059669;
+  }
+
+  .emoji-fallback[data-emoji="🇺🇸"],
+  .emoji-fallback[data-emoji="🇬🇧"],
+  .emoji-fallback[data-emoji="🇪🇺"] {
+    font-size: 0;
+  }
+}
+
+/* Currency symbol styling */
+.currency-symbol {
+  font-size: 1.2em !important;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  transform: scale(1.1);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .donation-button {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .currency-symbol {
+    font-size: 1rem !important;
+  }
+}
+
 /* Extra shiny silver shimmer for gallery images */
 @keyframes silver-shine {
   0% {

@@ -17,6 +17,48 @@ const DonationPage: React.FC = () => {
     }
   };
 
+  // Emoji support detection and fallback
+  useEffect(() => {
+    const detectEmojiSupport = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return false;
+
+      canvas.width = 20;
+      canvas.height = 20;
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'center';
+      ctx.font = '16px Arial';
+
+      // Test with a flag emoji
+      ctx.fillText('🇺🇸', 10, 10);
+      const imageData = ctx.getImageData(0, 0, 20, 20);
+
+      // Check if any pixels are colored (emoji rendered)
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        if (imageData.data[i] !== 0 || imageData.data[i + 1] !== 0 || imageData.data[i + 2] !== 0) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    if (!detectEmojiSupport()) {
+      // Apply fallback styles if emojis aren't supported
+      document.documentElement.style.setProperty('--emoji-fallback', '1');
+
+      // Replace emoji content with currency symbols
+      const emojiElements = document.querySelectorAll('.emoji-fallback');
+      emojiElements.forEach((element) => {
+        const fallback = element.getAttribute('data-fallback');
+        if (fallback) {
+          element.textContent = fallback;
+          element.classList.add('currency-symbol');
+        }
+      });
+    }
+  }, []);
+
   // Smooth scroll enhancement
   useEffect(() => {
     // Enable smooth scrolling for the entire page
@@ -131,53 +173,97 @@ const DonationPage: React.FC = () => {
             </div>
 
             {/* Donation Buttons Container */}
-            <div className="mt-8 mb-10 flex flex-wrap justify-center gap-3 sm:gap-4 px-2">
+            <div className="mt-8 mb-10 flex flex-wrap justify-center gap-2 sm:gap-4 px-2">
               {/* PayPal Donation Button */}
               <Link
                 to="/donate-paypal"
                 onClick={() => triggerHapticFeedback('medium')}
-                className="group relative inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base font-medium text-yellow-900 bg-gradient-to-br from-yellow-300 to-yellow-400 border-2 border-yellow-500 rounded-xl hover:from-yellow-200 hover:to-yellow-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transform transition-all duration-200 ease-out shadow-md hover:shadow-yellow-300/40"
+                className="group relative inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-yellow-900 bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-400 border border-yellow-600 rounded-lg hover:from-yellow-200 hover:via-yellow-100 hover:to-yellow-300 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-yellow-400/60 overflow-hidden"
+                style={{
+                  boxShadow: '0 4px 15px rgba(251, 191, 36, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
+                }}
               >
+                {/* Silver reflection overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+
                 <img
                   src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"
                   alt="PayPal Logo"
-                  className="h-4 w-auto mr-2 group-hover:scale-110 transition-transform"
+                  className="h-3 sm:h-4 w-auto mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10"
                 />
-                <span>PayPal</span>
-                <div className="absolute -bottom-1.5 -right-1.5 w-2 h-2 bg-yellow-500 rounded-full group-hover:animate-ping"></div>
+                <span className="relative z-10">PayPal</span>
+
+                {/* Smart glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
               </Link>
 
               {/* US Bank Donation Button */}
               <Link
                 to="/donate-us-bank"
                 onClick={() => triggerHapticFeedback('medium')}
-                className="group relative inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base font-medium text-white bg-gradient-to-br from-blue-600 to-blue-700 border-2 border-blue-700 rounded-xl hover:from-blue-500 hover:to-blue-600 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transform transition-all duration-200 ease-out shadow-md hover:shadow-blue-500/40"
+                className="group relative inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-white bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 border border-blue-800 rounded-lg hover:from-blue-500 hover:via-blue-400 hover:to-blue-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-blue-500/60 overflow-hidden"
+                style={{
+                  boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
+                }}
               >
-                <span className="mr-2 text-lg">🇺🇸</span>
-                <span>US Bank</span>
-                <div className="absolute -bottom-1.5 -right-1.5 w-2 h-2 bg-blue-400 rounded-full group-hover:animate-ping"></div>
+                {/* Silver reflection overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+
+                <span className="mr-1 sm:mr-2 text-sm sm:text-lg relative z-10">
+                  <span className="inline-block group-hover:scale-110 transition-transform">
+                    <span className="emoji-fallback" data-emoji="🇺🇸" data-fallback="$">🇺🇸</span>
+                  </span>
+                </span>
+                <span className="relative z-10">US Bank</span>
+
+                {/* Smart glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
               </Link>
 
               {/* UK Bank Donation Button */}
               <Link
                 to="/donate-uk-bank"
                 onClick={() => triggerHapticFeedback('medium')}
-                className="group relative inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base font-medium text-white bg-gradient-to-br from-purple-600 to-purple-700 border-2 border-purple-700 rounded-xl hover:from-purple-500 hover:to-purple-600 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transform transition-all duration-200 ease-out shadow-md hover:shadow-purple-500/40"
+                className="group relative inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-white bg-gradient-to-br from-purple-600 via-purple-500 to-purple-700 border border-purple-800 rounded-lg hover:from-purple-500 hover:via-purple-400 hover:to-purple-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-purple-500/60 overflow-hidden"
+                style={{
+                  boxShadow: '0 4px 15px rgba(147, 51, 234, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
+                }}
               >
-                <span className="mr-2 text-lg">🇬🇧</span>
-                <span>UK Bank</span>
-                <div className="absolute -bottom-1.5 -right-1.5 w-2 h-2 bg-purple-400 rounded-full group-hover:animate-ping"></div>
+                {/* Silver reflection overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+
+                <span className="mr-1 sm:mr-2 text-sm sm:text-lg relative z-10">
+                  <span className="inline-block group-hover:scale-110 transition-transform">
+                    <span className="emoji-fallback" data-emoji="🇬🇧" data-fallback="£">🇬🇧</span>
+                  </span>
+                </span>
+                <span className="relative z-10">UK Bank</span>
+
+                {/* Smart glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
               </Link>
 
               {/* Euro Bank Donation Button */}
               <Link
                 to="/donate-euro-bank"
                 onClick={() => triggerHapticFeedback('medium')}
-                className="group relative inline-flex items-center justify-center px-5 py-2.5 text-sm sm:text-base font-medium text-white bg-gradient-to-br from-green-600 to-green-700 border-2 border-green-700 rounded-xl hover:from-green-500 hover:to-green-600 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transform transition-all duration-200 ease-out shadow-md hover:shadow-green-500/40"
+                className="group relative inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-white bg-gradient-to-br from-green-600 via-green-500 to-green-700 border border-green-800 rounded-lg hover:from-green-500 hover:via-green-400 hover:to-green-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-green-500/60 overflow-hidden"
+                style={{
+                  boxShadow: '0 4px 15px rgba(34, 197, 94, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
+                }}
               >
-                <span className="mr-2 text-lg">🇪🇺</span>
-                <span>Euro Bank</span>
-                <div className="absolute -bottom-1.5 -right-1.5 w-2 h-2 bg-green-400 rounded-full group-hover:animate-ping"></div>
+                {/* Silver reflection overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+
+                <span className="mr-1 sm:mr-2 text-sm sm:text-lg relative z-10">
+                  <span className="inline-block group-hover:scale-110 transition-transform">
+                    <span className="emoji-fallback" data-emoji="🇪🇺" data-fallback="€">🇪🇺</span>
+                  </span>
+                </span>
+                <span className="relative z-10">Euro Bank</span>
+
+                {/* Smart glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-green-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
               </Link>
             </div>
 
