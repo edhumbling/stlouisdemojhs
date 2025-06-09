@@ -497,73 +497,10 @@ section, main, div[class*="container"] {
   @apply bg-zinc-800;
 }
 
-/* Lightbox2 Custom Styles */
+/* Gallery Custom Styles */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-/* Override Lightbox2 default styles */
-.lightbox {
-  background: rgba(0, 0, 0, 0.95) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.lb-nav a.lb-prev,
-.lb-nav a.lb-next {
-  background: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 8px !important;
-  transition: all 0.2s ease !important;
-}
-
-.lb-nav a.lb-prev:hover,
-.lb-nav a.lb-next:hover {
-  background: rgba(0, 0, 0, 0.8) !important;
-  transform: scale(1.05);
-}
-
-.lb-close {
-  background: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 8px !important;
-  transition: all 0.2s ease !important;
-}
-
-.lb-close:hover {
-  background: rgba(0, 0, 0, 0.8) !important;
-  transform: scale(1.05);
-}
-
-.lb-details {
-  background: rgba(0, 0, 0, 0.8) !important;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-radius: 12px !important;
-  margin: 0 20px !important;
-  padding: 15px 20px !important;
-  font-family: 'Poppins', sans-serif !important;
-}
-
-.lb-caption {
-  color: #ffffff !important;
-  font-size: 16px !important;
-  font-weight: 500 !important;
-  line-height: 1.4 !important;
-}
-
-.lb-number {
-  color: #cccccc !important;
-  font-size: 14px !important;
-  font-weight: 400 !important;
-}
-
-.lb-image {
-  border-radius: 8px !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
 }
 
 .text-primary-800 {
