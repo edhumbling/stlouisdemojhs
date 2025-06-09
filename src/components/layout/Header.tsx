@@ -113,9 +113,30 @@ const Header: React.FC = () => {
                         ? (isActive ? 'text-yellow-300' : 'text-white')
                         : (isActive ? 'text-accent-300' : 'text-white')
                       }
+                      ${isActive ? 'nav-glass-glow md:text-yellow-300' : ''}
                     `}
                   >
-                    Home
+                    {({ isActive }) => (
+                      <>
+                        {/* Yellow glass glow effect for active tab on desktop only */}
+                        {isActive && (
+                          <span
+                            className="hidden md:block absolute inset-0 rounded-xl pointer-events-none z-0"
+                            style={{
+                              background: 'linear-gradient(120deg, rgba(253, 224, 71, 0.25) 0%, rgba(253, 224, 71, 0.10) 100%)',
+                              boxShadow: '0 0 24px 8px rgba(253, 224, 71, 0.25), 0 2px 8px 0 rgba(253, 224, 71, 0.10)',
+                              filter: 'blur(2px)'
+                            }}
+                          />
+                        )}
+                        <span
+                          className={`relative z-10 ${isActive ? 'md:text-yellow-300' : ''}`}
+                          style={isActive ? { textShadow: '0 0 8px #fde047, 0 0 16px #fde04799' } : {}}
+                        >
+                          Home
+                        </span>
+                      </>
+                    )}
                   </NavLink>
                 </li>
 
@@ -277,30 +298,50 @@ const Header: React.FC = () => {
                           ? (isActive ? 'text-yellow-300' : 'text-white')
                           : (isActive ? 'text-accent-300' : 'text-white')
                         }
+                        ${isActive ? 'nav-glass-glow md:text-yellow-300' : ''}
                       `}
                     >
-                      {link.label}
-                      {/* Red Buzzing Notification Dot for News & Events */}
-                      {link.label === 'News & Events' && (
-                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
-                        </span>
-                      )}
-                      {/* AI Sparkle Indicator for AI Search */}
-                      {link.label === 'AI Search' && (
-                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-purple-600 to-pink-600 shadow-[0_0_10px_rgba(147,51,234,0.8),0_0_20px_rgba(147,51,234,0.6),0_0_30px_rgba(147,51,234,0.4)] animate-pulse"></span>
-                        </span>
-                      )}
-
-                      {/* STEM Indicator */}
-                      {link.label === 'STEM' && (
-                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-green-600 to-blue-600 shadow-[0_0_10px_rgba(34,197,94,0.8),0_0_20px_rgba(34,197,94,0.6),0_0_30px_rgba(34,197,94,0.4)] animate-pulse"></span>
-                        </span>
+                      {({ isActive }) => (
+                        <>
+                          {/* Yellow glass glow effect for active tab on desktop only */}
+                          {isActive && (
+                            <span
+                              className="hidden md:block absolute inset-0 rounded-xl pointer-events-none z-0"
+                              style={{
+                                background: 'linear-gradient(120deg, rgba(253, 224, 71, 0.25) 0%, rgba(253, 224, 71, 0.10) 100%)',
+                                boxShadow: '0 0 24px 8px rgba(253, 224, 71, 0.25), 0 2px 8px 0 rgba(253, 224, 71, 0.10)',
+                                filter: 'blur(2px)'
+                              }}
+                            />
+                          )}
+                          <span
+                            className={`relative z-10 ${isActive ? 'md:text-yellow-300' : ''}`}
+                            style={isActive ? { textShadow: '0 0 8px #fde047, 0 0 16px #fde04799' } : {}}
+                          >
+                            {link.label}
+                          </span>
+                          {/* Red Buzzing Notification Dot for News & Events */}
+                          {link.label === 'News & Events' && (
+                            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
+                            </span>
+                          )}
+                          {/* AI Sparkle Indicator for AI Search */}
+                          {link.label === 'AI Search' && (
+                            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-purple-600 to-pink-600 shadow-[0_0_10px_rgba(147,51,234,0.8),0_0_20px_rgba(147,51,234,0.6),0_0_30px_rgba(147,51,234,0.4)] animate-pulse"></span>
+                            </span>
+                          )}
+                          {/* STEM Indicator */}
+                          {link.label === 'STEM' && (
+                            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-green-600 to-blue-600 shadow-[0_0_10px_rgba(34,197,94,0.8),0_0_20px_rgba(34,197,94,0.6),0_0_30px_rgba(34,197,94,0.4)] animate-pulse"></span>
+                            </span>
+                          )}
+                        </>
                       )}
                     </NavLink>
                   </li>
