@@ -338,44 +338,7 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       }
     ],
-    "🎨 Generative World": [
-      {
-        id: 65,
-        title: "🎵 AI Audio Generation",
-        description: "Explore powerful AI tools for creating music, voices, sound effects, and audio content! 🎶✨",
-        url: "/ai-audio-tools",
-        icon: <Music className="w-5 h-5" />,
-        color: "#FF6B6B",
-        isInternal: true
-      },
-      {
-        id: 66,
-        title: "🎬 AI Video Generation",
-        description: "Discover cutting-edge AI tools for creating stunning videos, animations, and visual content! 🎥🚀",
-        url: "/ai-video-tools",
-        icon: <Play className="w-5 h-5" />,
-        color: "#10B981",
-        isInternal: true
-      },
-      {
-        id: 67,
-        title: "🖼️ AI Image Generation",
-        description: "Access amazing AI tools for creating beautiful images, artwork, and visual designs! 🎨🌟",
-        url: "/ai-image-tools",
-        icon: <Palette className="w-5 h-5" />,
-        color: "#8B5CF6",
-        isInternal: true
-      },
-      {
-        id: 68,
-        title: "🗣️ AI Text to Speech",
-        description: "Transform text into natural-sounding speech with advanced AI voice generation tools! 🎙️✨",
-        url: "/ai-text-to-speech-tools",
-        icon: <Mic className="w-5 h-5" />,
-        color: "#F59E0B",
-        isInternal: true
-      }
-    ],
+
     "🌍 Language & Communication": [
       {
         id: 6,
