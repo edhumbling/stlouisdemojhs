@@ -27,6 +27,8 @@ jobs:
         pip install requests beautifulsoup4 lxml
     
     - name: Run TikTok scraper
+      env:
+        RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
       run: |
         python scripts/tiktok_scraper.py
     
