@@ -2982,65 +2982,143 @@ const StudentsHubPage: React.FC = () => {
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       className="group"
                     >
-                      <button
-                        onClick={() => handleResourceClick(resource)}
-                        className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
-                      >
-                        {/* Background Gradient */}
-                        <div
-                          className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
-                          style={{
-                            background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
-                          }}
-                        />
-                        {/* Status Indicators */}
-                        <div className="absolute top-3 right-3 flex gap-1">
-                          <div className="px-2 py-1 rounded-full text-xs font-bold text-white bg-purple-500/80">
-                            Resource
+                      {/* Render specialized lofi video card if it's a YouTube video */}
+                      {resource.isYouTube ? (
+                        <button
+                          onClick={() => handleResourceClick(resource)}
+                          className="w-full h-[280px] bg-gray-900/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 hover:bg-gray-800/90 active:scale-[0.98] text-left relative group"
+                        >
+                          {/* YouTube Thumbnail Background */}
+                          <div className="relative h-[160px] overflow-hidden">
+                            <img
+                              src={getYouTubeThumbnail(resource.url)}
+                              alt={resource.title}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              onError={(e) => {
+                                // Fallback to a gradient background if thumbnail fails
+                                e.currentTarget.style.display = 'none';
+                                e.currentTarget.nextElementSibling.style.display = 'block';
+                              }}
+                            />
+                            {/* Fallback gradient background */}
+                            <div
+                              className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 hidden"
+                              style={{ display: 'none' }}
+                            />
+
+                            {/* Play Button Overlay */}
+                            <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                                <Play className="w-6 h-6 text-gray-800 ml-1" fill="currentColor" />
+                              </div>
+                            </div>
+
+                            {/* YouTube Badge */}
+                            <div className="absolute top-3 right-3">
+                              <div className="px-2 py-1 rounded-full text-xs font-bold text-white bg-red-600/90 backdrop-blur-sm">
+                                YouTube
+                              </div>
+                            </div>
+
+                            {/* Lofi Badge */}
+                            <div className="absolute top-3 left-3">
+                              <div className="px-2 py-1 rounded-full text-xs font-bold text-white bg-purple-600/90 backdrop-blur-sm flex items-center gap-1">
+                                <Music className="w-3 h-3" />
+                                Lofi
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                        {/* Icon Container */}
-                        <div className="relative mb-3 flex-shrink-0">
+
+                          {/* Content Section */}
+                          <div className="p-4 flex flex-col h-[120px]">
+                            {/* Title */}
+                            <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2 mb-2">
+                              {resource.title}
+                            </h3>
+
+                            {/* Description */}
+                            <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1 mb-2">
+                              {resource.description}
+                            </p>
+
+                            {/* Action Footer */}
+                            <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                              <div className="flex items-center gap-1">
+                                <span className="text-xs text-purple-400 font-medium">
+                                  Study Music
+                                </span>
+                              </div>
+                              <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
+                                <Play size={10} className="text-purple-400 group-hover:text-purple-300" />
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Hover Effect Overlay */}
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                        </button>
+                      ) : (
+                        /* Regular resource card for non-YouTube resources */
+                        <button
+                          onClick={() => handleResourceClick(resource)}
+                          className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                        >
+                          {/* Background Gradient */}
                           <div
-                            className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
-                            style={{ backgroundColor: resource.color }}
-                          >
-                            {resource.icon}
-                          </div>
-                          {/* Resource Type Indicator */}
-                          <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
-                            <ExternalLink className="w-2.5 h-2.5 text-purple-400" />
-                          </div>
-                        </div>
-                        {/* Content */}
-                        <div className="flex-1 flex flex-col space-y-2">
-                          {/* Title */}
-                          <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
-                            {resource.title}
-                          </h3>
-                          {/* Category */}
-                          <p className="text-xs text-purple-400 font-medium line-clamp-1">
-                            {category}
-                          </p>
-                          {/* Description */}
-                          <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
-                            {resource.description}
-                          </p>
-                          {/* Action Footer */}
-                          <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
-                            <div className="flex items-center gap-1">
-                              <span className="text-xs text-purple-400 font-medium">
-                                Resource
-                              </span>
-                            </div>
-                            <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
-                              <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                            className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                            style={{
+                              background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
+                            }}
+                          />
+                          {/* Status Indicators */}
+                          <div className="absolute top-3 right-3 flex gap-1">
+                            <div className="px-2 py-1 rounded-full text-xs font-bold text-white bg-purple-500/80">
+                              Resource
                             </div>
                           </div>
-                        </div>
-                        {/* Hover Effect Overlay */}
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                      </button>
+                          {/* Icon Container */}
+                          <div className="relative mb-3 flex-shrink-0">
+                            <div
+                              className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
+                              style={{ backgroundColor: resource.color }}
+                            >
+                              {resource.icon}
+                            </div>
+                            {/* Resource Type Indicator */}
+                            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
+                              <ExternalLink className="w-2.5 h-2.5 text-purple-400" />
+                            </div>
+                          </div>
+                          {/* Content */}
+                          <div className="flex-1 flex flex-col space-y-2">
+                            {/* Title */}
+                            <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
+                              {resource.title}
+                            </h3>
+                            {/* Category */}
+                            <p className="text-xs text-purple-400 font-medium line-clamp-1">
+                              {category}
+                            </p>
+                            {/* Description */}
+                            <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                              {resource.description}
+                            </p>
+                            {/* Action Footer */}
+                            <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                              <div className="flex items-center gap-1">
+                                <span className="text-xs text-purple-400 font-medium">
+                                  Resource
+                                </span>
+                              </div>
+                              <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
+                                <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                              </div>
+                            </div>
+                          </div>
+                          {/* Hover Effect Overlay */}
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                        </button>
+                      )}
                     </motion.div>
                   ))}
                 </div>
