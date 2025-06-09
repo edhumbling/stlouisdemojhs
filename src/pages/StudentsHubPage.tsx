@@ -1929,15 +1929,11 @@ const StudentsHubPage: React.FC = () => {
   // Convert resources to searchable items
   const searchableItems: SearchableItem[] = useMemo(() => {
     return resources.map(resource => ({
-      id: resource.id,
-      title: resource.title,
-      description: resource.description,
+      ...resource,
       category: Object.keys(resourceCategories).find(categoryName =>
         resourceCategories[categoryName].some(r => r.id === resource.id)
       ) || 'Other',
       type: resource.isInternal ? 'internal' : 'website',
-      url: resource.url,
-      ...resource
     }));
   }, [resources]);
 
@@ -3100,6 +3096,40 @@ const StudentsHubPage: React.FC = () => {
 
   if (selectedYouTubeVideo) {
     return renderYouTubeVideo();
+  }
+
+  // Add this before the main render function
+  if (selectedResource) {
+    return (
+      <div className="min-h-screen bg-black">
+        {/* Header with Back Button */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={handleBack}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+              <div className="flex-1 min-w-0">
+                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                  {selectedResource.title}
+                </h1>
+                <p className="text-sm text-purple-200 truncate">
+                  {selectedResource.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Full-Screen Iframe Container */}
+        <div className="h-[calc(100vh-80px)] bg-black flex items-center justify-center relative">
+          {renderIframe(selectedResource)}
+        </div>
+      </div>
+    );
   }
 
   return renderMainContent();
