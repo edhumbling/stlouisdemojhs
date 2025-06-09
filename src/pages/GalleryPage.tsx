@@ -2,26 +2,18 @@ import React, { useState, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { galleryImages } from '../data';
-import EnhancedModal from '../components/common/EnhancedModal';
-import ShimmerLoader from '../components/common/ShimmerLoader';
+import { getGalleryImagesByCategory, getGalleryCategories } from '../data';
+import OptimizedGallery from '../components/common/OptimizedGallery';
 
 const GalleryPage: React.FC = () => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<string>('All');
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  // Get unique categories
-  const categories = useMemo(() => {
-    const cats = ['All', ...Array.from(new Set(galleryImages.map(img => img.category)))];
-    return cats;
-  }, []);
+  // Get optimized categories (pre-indexed)
+  const categories = useMemo(() => getGalleryCategories(), []);
 
-  // Filter images based on selected category
-  const filteredImages = useMemo(() =>
-    filter === 'All' ? galleryImages : galleryImages.filter(img => img.category === filter),
-    [filter]
-  );
+  // Get filtered images using optimized indexing
+  const filteredImages = useMemo(() => getGalleryImagesByCategory(filter), [filter]);
 
   const handleBack = useCallback(() => {
     navigate(-1);
@@ -29,14 +21,6 @@ const GalleryPage: React.FC = () => {
 
   const handleFilterChange = useCallback((category: string) => {
     setFilter(category);
-  }, []);
-
-  const openModal = useCallback((id: number) => {
-    setSelectedImage(id);
-  }, []);
-
-  const closeModal = useCallback(() => {
-    setSelectedImage(null);
   }, []);
 
   return (
@@ -86,58 +70,16 @@ const GalleryPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Images Grid - Immediate visibility */}
+      {/* Optimized Images Grid - Immediate visibility */}
       <div className="container mx-auto px-2 py-2">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-1 sm:gap-2 md:gap-3"
+          transition={{ duration: 0.2 }}
         >
-          {filteredImages.map((image, index) => (
-            <motion.div
-              key={image.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.02 }}
-              className="relative group cursor-pointer"
-              onClick={() => openModal(image.id)}
-            >
-              <div className="aspect-square relative overflow-hidden bg-gray-800 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-[1.02]">
-                {/* Shiny Silver Shimmer Loading */}
-                <ShimmerLoader variant="silver" className="absolute inset-0 z-10" />
-
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 relative z-20"
-                  loading="lazy"
-                  decoding="async"
-                  onLoad={(e) => {
-                    // Hide shimmer when image loads
-                    const shimmer = e.currentTarget.previousElementSibling;
-                    if (shimmer) {
-                      (shimmer as HTMLElement).style.display = 'none';
-                    }
-                  }}
-                />
-
-                {/* Simple hover overlay - no text */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
-              </div>
-            </motion.div>
-          ))}
+          <OptimizedGallery images={filteredImages} />
         </motion.div>
       </div>
-
-      {/* Enhanced Modal */}
-      <EnhancedModal
-        isOpen={selectedImage !== null}
-        onClose={closeModal}
-        imageSrc={galleryImages.find(img => img.id === selectedImage)?.src || ''}
-        imageAlt={galleryImages.find(img => img.id === selectedImage)?.alt || ''}
-        imageCategory={galleryImages.find(img => img.id === selectedImage)?.category || ''}
-      />
     </div>
   );
 };

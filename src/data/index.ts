@@ -212,7 +212,8 @@ export const programs: Program[] = [
   }
 ];
 
-export const galleryImages: GalleryImage[] = [
+// Raw gallery data
+const rawGalleryImages: GalleryImage[] = [
   // Original Hero Slider Images - The Foundation Collection
   {
     id: 35,
@@ -498,6 +499,68 @@ export const testimonials: Testimonial[] = [
     image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   }
 ];
+
+// Optimized gallery data with indexing for faster performance
+class GalleryDataManager {
+  private images: GalleryImage[];
+  private categoryIndex: Map<string, GalleryImage[]>;
+  private categories: string[];
+
+  constructor(images: GalleryImage[]) {
+    this.images = images;
+    this.categoryIndex = new Map();
+    this.categories = [];
+    this.buildIndexes();
+  }
+
+  private buildIndexes() {
+    const categoryMap = new Map<string, GalleryImage[]>();
+    const categorySet = new Set<string>();
+
+    // Build category index for O(1) filtering
+    for (const image of this.images) {
+      categorySet.add(image.category);
+
+      if (!categoryMap.has(image.category)) {
+        categoryMap.set(image.category, []);
+      }
+      categoryMap.get(image.category)!.push(image);
+    }
+
+    this.categoryIndex = categoryMap;
+    this.categories = ['All', ...Array.from(categorySet).sort()];
+  }
+
+  getAllImages(): GalleryImage[] {
+    return this.images;
+  }
+
+  getImagesByCategory(category: string): GalleryImage[] {
+    if (category === 'All') {
+      return this.images;
+    }
+    return this.categoryIndex.get(category) || [];
+  }
+
+  getCategories(): string[] {
+    return this.categories;
+  }
+
+  // Get images in chunks for progressive loading
+  getImagesChunk(startIndex: number, chunkSize: number = 20): GalleryImage[] {
+    return this.images.slice(startIndex, startIndex + chunkSize);
+  }
+}
+
+// Create optimized gallery manager
+const galleryManager = new GalleryDataManager(rawGalleryImages);
+
+// Export optimized gallery data
+export const galleryImages = galleryManager.getAllImages();
+export const getGalleryImagesByCategory = (category: string) => galleryManager.getImagesByCategory(category);
+export const getGalleryCategories = () => galleryManager.getCategories();
+export const getGalleryImagesChunk = (startIndex: number, chunkSize?: number) =>
+  galleryManager.getImagesChunk(startIndex, chunkSize);
 
 export const navigationItems = [
   { label: 'Home', path: '/' },
