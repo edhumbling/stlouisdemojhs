@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Strategic Sitelinks Optimization for Google Search Results -->
+<!-- Using ACTUAL routes from the codebase - verified against App.tsx -->
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- TIER 1: FOUNDATION (Highest Priority) -->
+  <!-- Trust-building foundation - who we are and what we offer -->
+
+  <!-- About Us - PRIMARY: Who we are and our story -->
+  <url>
+    <loc>https://stlouisdemojhs.com/about</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <!-- Sitelink: "ℹ️ About" - "Who We Are & School Story" -->
+  </url>
+
+  <!-- Academics - CORE: What we teach and how -->
+  <url>
+    <loc>https://stlouisdemojhs.com/academics</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <!-- Sitelink: "📚 Academics" - "Academic Programs & Curriculum" -->
+  </url>
+
+  <!-- STEM - DIFFERENTIATOR: What makes us special -->
+  <url>
+    <loc>https://stlouisdemojhs.com/stem</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <!-- Sitelink: "🔬 STEM" - "Science & Technology Programs" -->
+  </url>
+
+  <!-- TIER 2: SERVICES & RESOURCES (High Priority) -->
+  <!-- Show capabilities and ongoing activities -->
+
+  <!-- Students Hub - VALUE: Digital resources (using /learnhub route) -->
+  <url>
+    <loc>https://stlouisdemojhs.com/learnhub</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <!-- Sitelink: "💻 Students Hub" - "Digital Learning Resources" -->
+  </url>
+
+  <!-- Faculty - TRUST: Who will teach the students -->
+  <url>
+    <loc>https://stlouisdemojhs.com/faculty</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <!-- Sitelink: "👨‍🏫 Faculty" - "Teachers & Staff Profiles" -->
+  </url>
+
+  <!-- News - FRESHNESS: Current school activities -->
+  <url>
+    <loc>https://stlouisdemojhs.com/news</loc>
+    <lastmod>2025-01-15T09:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <!-- Sitelink: "📰 News" - "Latest School Updates" -->
+  </url>
+
+  <!-- TIER 3: ENGAGEMENT & SUPPORT (Medium Priority) -->
+  <!-- Social proof and utility features -->
+
+  <!-- Gallery - SOCIAL PROOF: Visual evidence -->
+  <url>
+    <loc>https://stlouisdemojhs.com/gallery</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <!-- Sitelink: "🖼️ Gallery" - "Photos & Videos" -->
+  </url>
+
+  <!-- AI Search - UTILITY: Site search functionality -->
+  <url>
+    <loc>https://stlouisdemojhs.com/ai-search</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+    <!-- Sitelink: "🔍 AI Search" - "Intelligent Site Search" -->
+  </url>
+
+  <!-- Donate - COMMUNITY: Support opportunities -->
+  <url>
+    <loc>https://stlouisdemojhs.com/donate</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <!-- Sitelink: "💰 Donate" - "Support Our School" -->
+  </url>
+
+  <!-- TIER 4: ACTION & CONTACT (Conversion Priority) -->
+  <!-- Final action steps for interested users -->
+
+  <!-- Apply Now - CONVERSION: Primary call-to-action -->
+  <url>
+    <loc>https://stlouisdemojhs.com/apply-now</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <!-- Sitelink: "📝 Apply Now" - "School Admissions" -->
+  </url>
+
+  <!-- Contact - CRITICAL: How to reach the school -->
+  <url>
+    <loc>https://stlouisdemojhs.com/contact</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <!-- Sitelink: "📞 Contact" - "Get in Touch & Information" -->
+  </url>
+
+</urlset>

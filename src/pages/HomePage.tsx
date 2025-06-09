@@ -107,7 +107,7 @@ const HomePage: React.FC = () => {
     );
   }
 
-  // Comprehensive structured data for homepage
+  // Comprehensive structured data for homepage with sitelinks optimization
   const homepageStructuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -169,6 +169,68 @@ const HomePage: React.FC = () => {
           },
           "query-input": "required name=search_term_string"
         }
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://stlouisdemojhs.com/#navigation",
+        "name": "Main Navigation",
+        "url": "https://stlouisdemojhs.com",
+        "hasPart": [
+          {
+            "@type": "SiteNavigationElement",
+            "name": "About",
+            "description": "Learn about our school",
+            "url": "https://stlouisdemojhs.com/about"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Academics",
+            "description": "Academic programs",
+            "url": "https://stlouisdemojhs.com/academics"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Contact",
+            "description": "Get in touch",
+            "url": "https://stlouisdemojhs.com/contact"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "STEM Education",
+            "description": "Science & Technology",
+            "url": "https://stlouisdemojhs.com/stem"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Students Hub",
+            "description": "Digital resources",
+            "url": "https://stlouisdemojhs.com/learnhub"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Apply Now",
+            "description": "Admissions",
+            "url": "https://stlouisdemojhs.com/apply-now"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "News & Events",
+            "description": "Latest updates",
+            "url": "https://stlouisdemojhs.com/news"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Gallery",
+            "description": "Photos & videos",
+            "url": "https://stlouisdemojhs.com/gallery"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Donate",
+            "description": "Support us",
+            "url": "https://stlouisdemojhs.com/donate"
+          }
+        ]
       }
     ]
   };
