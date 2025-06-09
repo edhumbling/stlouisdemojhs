@@ -78,6 +78,7 @@ const StudentsHubPage: React.FC = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const navigate = useNavigate();
   const { setShowHeader } = useHeader();
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -2961,7 +2962,9 @@ const StudentsHubPage: React.FC = () => {
                     >
                       <button
                         onClick={() => handleResourceClick(resource)}
-                        className="w-full h-[200px] flex flex-col items-center justify-center rounded-2xl p-5 border border-white/60 bg-white/30 backdrop-blur-[18px] shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 text-center relative overflow-hidden"
+                        onMouseEnter={() => setHoveredCard(resource.id)}
+                        onMouseLeave={() => setHoveredCard(null)}
+                        className="w-full h-[200px] flex flex-col items-center justify-center rounded-2xl p-6 border border-white/40 bg-white/20 backdrop-blur-2xl shadow-lg hover:shadow-2xl hover:scale-[1.04] transition-all duration-300 text-center relative overflow-hidden"
                         style={{
                           boxShadow: `0 4px 32px 0 ${resource.color}33, 0 1.5px 8px 0 #0001`,
                         }}
@@ -2972,14 +2975,23 @@ const StudentsHubPage: React.FC = () => {
                           inset: 0,
                           borderRadius: '1rem',
                           pointerEvents: 'none',
-                          boxShadow: `0 0 32px 0 ${resource.color}55`,
+                          boxShadow: `0 0 40px 0 ${resource.color}55`,
                           zIndex: 0,
                           opacity: 0.18
                         }} />
                         {/* Gradient Overlay */}
-                        <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{background: 'linear-gradient(120deg,rgba(255,255,255,0.25) 0%,rgba(255,255,255,0.10) 100%)', zIndex: 1}} />
+                        <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
+                          background: 'linear-gradient(120deg,rgba(255,255,255,0.35) 0%,rgba(255,255,255,0.10) 100%)',
+                          zIndex: 1
+                        }} />
+                        {/* Tooltip */}
+                        {hoveredCard === resource.id && (
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 -translate-y-full bg-white/90 text-gray-800 text-xs font-medium px-3 py-1 rounded-xl shadow border border-gray-200 z-20 pointer-events-none" style={{backdropFilter: 'blur(8px)'}}>
+                            {resource.openInNewTab ? 'External' : 'Internal'}
+                          </div>
+                        )}
                         {/* Icon */}
-                        <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-xl mb-3" style={{background: `${resource.color}22`}}>
+                        <div className="relative z-10 flex items-center justify-center w-14 h-14 rounded-xl mb-3" style={{background: `${resource.color}22`}}>
                           {resource.icon}
                         </div>
                         {/* Title */}
