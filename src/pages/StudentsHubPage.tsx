@@ -2860,30 +2860,36 @@ const StudentsHubPage: React.FC = () => {
   const renderStudyLofiSection = () => (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold text-silver-200">Study Lofi Videos</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {studyLofiVideos.map((video) => (
-          <div
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+        {studyLofiVideos.map((video, index) => (
+          <a
             key={video.id}
-            className="group relative bg-silver-900/50 rounded-xl overflow-hidden backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-silver-500/20"
+            href={video.url.replace('/embed/', '/watch?v=')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative bg-gray-800/50 rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 flex flex-col"
           >
-            <div className="aspect-video relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-silver-400/0 via-silver-400/10 to-silver-400/0 animate-shimmer"></div>
-              <iframe
-                src={video.url}
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title={video.title}
-              ></iframe>
+            {/* YouTube Thumbnail */}
+            <div className="aspect-video w-full relative">
+              <img
+                src={getYouTubeThumbnail(video.url)}
+                alt={video.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                onError={e => { e.currentTarget.src = '/api/placeholder/400/225'; }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded">
+                Preview
+              </div>
             </div>
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-silver-200 mb-2 group-hover:text-silver-100 transition-colors">
+            <div className="p-4 flex-1 flex flex-col">
+              <h3 className="text-base font-semibold text-silver-200 mb-1 group-hover:text-purple-200 transition-colors">
                 {video.title}
               </h3>
-              <p className="text-silver-400 text-sm">{video.description}</p>
+              <p className="text-silver-400 text-xs flex-1">{video.description}</p>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-silver-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
@@ -2951,55 +2957,73 @@ const StudentsHubPage: React.FC = () => {
                   <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent"></div>
                   <span className="text-xs text-silver-400 font-semibold">{resources.length} resources</span>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                   {resources.map((resource, index) => (
                     <motion.div
                       key={resource.id}
-                      initial={{ opacity: 0, scale: 0.95 }}
+                      initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       className="group"
                     >
                       <button
                         onClick={() => handleResourceClick(resource)}
-                        onMouseEnter={() => setHoveredCard(resource.id)}
-                        onMouseLeave={() => setHoveredCard(null)}
-                        className="w-full h-[220px] flex flex-col items-center justify-center rounded-2xl p-6 border border-white/40 bg-white/30 backdrop-blur-2xl shadow-2xl hover:shadow-2xl hover:scale-[1.04] transition-all duration-300 text-center relative overflow-hidden"
-                        style={{
-                          background: `linear-gradient(135deg, ${resource.color}33 0%, #fff8 100%)`,
-                          boxShadow: `0 8px 32px 0 ${resource.color}44, 0 1.5px 8px 0 #0002`,
-                        }}
+                        className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                       >
-                        {/* Anamorphic Gradient Overlay for color depth */}
-                        <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
-                          background: `linear-gradient(120deg, ${resource.color}55 0%, #a1c4fd88 50%, #c2e9fb55 100%)`,
-                          zIndex: 1,
-                          opacity: 0.7,
-                          mixBlendMode: 'color-dodge',
-                        }} />
-                        {/* Glass inner shadow for depth */}
-                        <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
-                          boxShadow: 'inset 0 2px 16px 0 rgba(0,0,0,0.10)',
-                          zIndex: 2
-                        }} />
-                        {/* Tooltip */}
-                        {hoveredCard === resource.id && (
-                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 -translate-y-full bg-white/90 text-gray-800 text-xs font-medium px-3 py-1 rounded-xl shadow border border-gray-200 z-20 pointer-events-none" style={{backdropFilter: 'blur(8px)'}}>
-                            {resource.openInNewTab ? 'External' : 'Internal'}
+                        {/* Background Gradient */}
+                        <div
+                          className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                          style={{
+                            background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
+                          }}
+                        />
+                        {/* Status Indicators */}
+                        <div className="absolute top-3 right-3 flex gap-1">
+                          <div className="px-2 py-1 rounded-full text-xs font-bold text-white bg-purple-500/80">
+                            Resource
                           </div>
-                        )}
-                        {/* Icon */}
-                        <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-xl mb-3 bg-white/80 shadow" style={{fontSize: 36}}>
-                          {resource.icon}
                         </div>
-                        {/* Title */}
-                        <h3 className="relative z-10 text-lg font-bold text-gray-900 mb-1 group-hover:text-black transition-colors" style={{letterSpacing: '-0.01em'}}>
-                          {resource.title}
-                        </h3>
-                        {/* Description */}
-                        <p className="relative z-10 text-sm text-gray-800" style={{maxWidth: '95%'}}>
-                          {resource.description}
-                        </p>
+                        {/* Icon Container */}
+                        <div className="relative mb-3 flex-shrink-0">
+                          <div
+                            className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
+                            style={{ backgroundColor: resource.color }}
+                          >
+                            {resource.icon}
+                          </div>
+                          {/* Resource Type Indicator */}
+                          <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
+                            <ExternalLink className="w-2.5 h-2.5 text-purple-400" />
+                          </div>
+                        </div>
+                        {/* Content */}
+                        <div className="flex-1 flex flex-col space-y-2">
+                          {/* Title */}
+                          <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
+                            {resource.title}
+                          </h3>
+                          {/* Category */}
+                          <p className="text-xs text-purple-400 font-medium line-clamp-1">
+                            {category}
+                          </p>
+                          {/* Description */}
+                          <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                            {resource.description}
+                          </p>
+                          {/* Action Footer */}
+                          <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                            <div className="flex items-center gap-1">
+                              <span className="text-xs text-purple-400 font-medium">
+                                Resource
+                              </span>
+                            </div>
+                            <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
+                              <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                            </div>
+                          </div>
+                        </div>
+                        {/* Hover Effect Overlay */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                       </button>
                     </motion.div>
                   ))}
