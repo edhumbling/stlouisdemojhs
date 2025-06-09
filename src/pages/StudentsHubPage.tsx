@@ -34,8 +34,7 @@ import {
   Repeat,
   Target,
   Music,
-  Play,
-  X as XIcon
+  Play
 } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
@@ -2923,22 +2922,22 @@ const StudentsHubPage: React.FC = () => {
               className="mb-6"
             />
             {/* SHS Database and Results Checker Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center items-center">
+            <div className="flex flex-row gap-2 mt-4 justify-center items-center w-full">
               <Link
                 to="/shs-database"
-                className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 shadow-lg hover:shadow-xl hover:from-green-600 hover:to-green-800 transition-all duration-300 text-lg flex items-center justify-center gap-2 relative overflow-hidden group"
-                style={{ filter: 'drop-shadow(0 0 12px #22c55e)' }}
+                className="flex-1 min-w-0 px-3 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 shadow-md hover:shadow-lg hover:from-green-600 hover:to-green-800 transition-all duration-300 text-sm flex items-center justify-center gap-2 relative overflow-hidden group"
+                style={{ filter: 'drop-shadow(0 0 8px #22c55e)' }}
               >
-                <FileText className="w-6 h-6 mr-2" />
-                SHS Database
+                <FileText className="w-5 h-5 mr-1" />
+                SHS Database/Guide
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
               </Link>
               <Link
                 to="/results-placement"
-                className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 shadow-lg hover:shadow-xl hover:from-yellow-600 hover:to-yellow-800 transition-all duration-300 text-lg flex items-center justify-center gap-2 relative overflow-hidden group"
-                style={{ filter: 'drop-shadow(0 0 12px #eab308)' }}
+                className="flex-1 min-w-0 px-3 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 shadow-md hover:shadow-lg hover:from-yellow-600 hover:to-yellow-800 transition-all duration-300 text-sm flex items-center justify-center gap-2 relative overflow-hidden group"
+                style={{ filter: 'drop-shadow(0 0 8px #eab308)' }}
               >
-                <FileCheck className="w-6 h-6 mr-2" />
+                <FileCheck className="w-5 h-5 mr-1" />
                 Results & Placement Checker
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
               </Link>
