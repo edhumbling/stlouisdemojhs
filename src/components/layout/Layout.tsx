@@ -12,17 +12,17 @@ const Layout: React.FC = () => {
 
   // Pages that should not show the footer
   const noFooterPages = [
-    '/news', 
-    '/calendar', 
-    '/ai-search', 
-    '/schedule-visit', 
-    '/learnhub', 
-    '/advice-speeches', 
-    '/staff-resources', 
-    '/ai-teaching-guide', 
-    '/jhs-textbooks', 
-    '/dream-hive-resources', 
-    '/career-reel-resources', 
+    '/news',
+    '/calendar',
+    '/ai-search',
+    '/schedule-visit',
+    '/learnhub',
+    '/advice-speeches',
+    '/staff-resources',
+    '/ai-teaching-guide',
+    '/jhs-textbooks',
+    '/dream-hive-resources',
+    '/career-reel-resources',
     '/money-smart-links',
     '/donate',
     '/donate-paypal',
@@ -32,6 +32,7 @@ const Layout: React.FC = () => {
     '/shs-database',
     '/results-placement',
     '/students-hub',
+    '/tiktok',
     ...((location.pathname.startsWith('/shs-database/pdf/')) ? [location.pathname] : []),
   ];
   const shouldShowFooter = !noFooterPages.includes(location.pathname) && showFooter;
