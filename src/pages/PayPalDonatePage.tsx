@@ -66,7 +66,7 @@ const PayPalDonatePage: React.FC = () => {
               </ul>
             </div>
             {/* Instructions */}
-            <div className="text-center mb-6">
+            <div className="text-center mb-6 animate-pulse">
               <h3 className="text-lg font-semibold text-blue-800 mb-2">Click the PayPal button below to donate</h3>
               <p className="text-sm text-blue-600">Secure payment processing through PayPal</p>
             </div>
