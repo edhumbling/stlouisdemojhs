@@ -44,6 +44,7 @@ import DonateUKBankPage from './pages/DonateUKBankPage';
 import SHSDatabasePage from './pages/SHSDatabasePage';
 import SHSPdfViewerPage from './pages/SHSPdfViewerPage';
 import ResultsPlacementPage from './pages/ResultsPlacementPage';
+import TikTokPage from './pages/TikTokPage';
 
 
 
@@ -149,6 +150,7 @@ const App: React.FC = () => {
           <Route path="shs-database" element={<SHSDatabasePage />} />
           <Route path="/shs-database/pdf/:pdfId" element={<SHSPdfViewerPage />} />
           <Route path="/results-placement" element={<ResultsPlacementPage />} />
+          <Route path="/tiktok" element={<TikTokPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />

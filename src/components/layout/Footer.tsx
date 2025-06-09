@@ -285,6 +285,15 @@ const Footer: React.FC = () => {
                     Partner With Us
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/tiktok"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    🎵 St. Louis on TikTok
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
