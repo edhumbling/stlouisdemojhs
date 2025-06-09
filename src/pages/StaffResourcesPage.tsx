@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, DollarSign } from 'lucide-react';
-import { FileBarChart, Brain, Eye, GraduationCap, ScanText, Search, PenTool, Zap } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Bot, Globe, DollarSign, GraduationCap, Zap } from 'lucide-react';
+import FileBarChart from 'lucide-react/dist/esm/icons/file-bar-chart';
+import Brain from 'lucide-react/dist/esm/icons/brain';
+import Eye from 'lucide-react/dist/esm/icons/eye';
+import ScanText from 'lucide-react/dist/esm/icons/scan-text';
+import Search from 'lucide-react/dist/esm/icons/search';
+import PenTool from 'lucide-react/dist/esm/icons/pen-tool';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -255,22 +260,6 @@ const StaffResourcesPage: React.FC = () => {
       }
     ],
     "⚡ Productivity Tools": [
-      {
-        id: 'e-payslip',
-        title: 'E-PaySlip Portal',
-        subtitle: 'Salary Information',
-        description: 'Access your electronic payslips and salary information securely',
-        url: 'https://www.gogpayslip.com/index.php?action=login',
-        icon: DollarSign,
-        color: 'from-green-500 to-green-600',
-        openInNewTab: true,
-        customTitle: () => (
-          <div className="flex items-center gap-1">
-            <span className="text-lg">₵</span>
-            <span>E-PaySlip Portal</span>
-          </div>
-        )
-      },
       {
         id: 'paper-to-text-notes',
         title: 'Paper to Text Notes',
@@ -640,17 +629,7 @@ const StaffResourcesPage: React.FC = () => {
 
           <div className="mb-8 flex justify-center gap-2 sm:gap-4">
             <button
-              onClick={() => handleResourceClick({
-                id: 1,
-                title: "E-PaySlip Portal",
-                description: "Access your electronic payslips and salary information securely",
-                url: "https://www.gogpayslip.com/index.php?action=login",
-                icon: <DollarSign className="w-5 h-5" />,
-                color: "#16a34a",
-                embedStrategy: 'iframe',
-                customScripts: true,
-                forceFullPage: true
-              })}
+              onClick={() => window.open('https://www.gogpayslip.com/index.php?action=login', '_blank', 'noopener,noreferrer')}
               className="bg-green-600/90 backdrop-blur-md rounded-xl px-3 sm:px-6 py-2 sm:py-3 text-white font-bold shadow-xl hover:bg-green-700/90 transition-all duration-300 border border-white/30 text-sm sm:text-lg flex items-center gap-2"
               style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #16a34a)' }}
             >
