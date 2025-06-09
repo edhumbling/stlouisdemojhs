@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, X, ChevronLeft, ChevronRight, Grid, Play, Pause, Camera } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { galleryImages } from '../data';
-import EnhancedModal from '../components/common/EnhancedModal';
+import PhotoSwipeGallery from '../components/common/PhotoSwipeGallery';
 
 // Optimized Silver Shimmer Loading Component
 const SilverShimmer: React.FC<{ className?: string; variant?: 'grid' | 'slideshow' | 'thumbnail' }> = ({
@@ -332,7 +332,8 @@ const ThumbnailImage: React.FC<{
 
 const GalleryPage: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [photoSwipeOpen, setPhotoSwipeOpen] = useState(false);
+  const [photoSwipeIndex, setPhotoSwipeIndex] = useState(0);
   const [viewMode, setViewMode] = useState<'grid' | 'slideshow'>('grid');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -365,15 +366,17 @@ const GalleryPage: React.FC = () => {
     }
   }, [viewMode, isPlaying, filteredImages.length]);
 
-  // Optimized modal handlers
-  const openModal = useCallback((id: number) => {
-    setSelectedImage(id);
-    document.body.style.overflow = 'hidden';
-  }, []);
+  // PhotoSwipe handlers
+  const openPhotoSwipe = useCallback((id: number) => {
+    const imageIndex = filteredImages.findIndex(img => img.id === id);
+    if (imageIndex !== -1) {
+      setPhotoSwipeIndex(imageIndex);
+      setPhotoSwipeOpen(true);
+    }
+  }, [filteredImages]);
 
-  const closeModal = useCallback(() => {
-    setSelectedImage(null);
-    document.body.style.overflow = 'auto';
+  const closePhotoSwipe = useCallback(() => {
+    setPhotoSwipeOpen(false);
   }, []);
 
   // Optimized slideshow navigation
@@ -474,7 +477,7 @@ const GalleryPage: React.FC = () => {
                 key={image.id}
                 image={image}
                 index={index}
-                onClick={() => openModal(image.id)}
+                onClick={() => openPhotoSwipe(image.id)}
               />
             ))}
           </motion.div>
@@ -538,13 +541,12 @@ const GalleryPage: React.FC = () => {
         )}
       </div>
 
-      {/* Enhanced Modal with Background Blur and Pinch Zoom */}
-      <EnhancedModal
-        isOpen={selectedImage !== null}
-        onClose={closeModal}
-        imageSrc={galleryImages.find(img => img.id === selectedImage)?.src || ''}
-        imageAlt={galleryImages.find(img => img.id === selectedImage)?.alt || ''}
-        imageCategory={galleryImages.find(img => img.id === selectedImage)?.category || ''}
+      {/* PhotoSwipe Gallery */}
+      <PhotoSwipeGallery
+        images={filteredImages}
+        isOpen={photoSwipeOpen}
+        initialIndex={photoSwipeIndex}
+        onClose={closePhotoSwipe}
       />
     </div>
   );

@@ -497,6 +497,68 @@ section, main, div[class*="container"] {
   @apply bg-zinc-800;
 }
 
+/* PhotoSwipe Custom Styles */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pswp {
+  --pswp-bg: rgba(0, 0, 0, 0.95);
+  --pswp-placeholder-bg: rgba(30, 30, 30, 0.8);
+  --pswp-root-z-index: 100000;
+}
+
+.pswp__bg {
+  background: var(--pswp-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.pswp__ui {
+  --pswp-icon-color: #ffffff;
+  --pswp-icon-color-secondary: #cccccc;
+}
+
+.pswp__button {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.pswp__button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.05);
+}
+
+.pswp__counter {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.pswp__zoom-wrap {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.22, 1);
+}
+
+/* Custom info button styles */
+.pswp__button--custom-info {
+  background: rgba(59, 130, 246, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.pswp__button--custom-info:hover {
+  background: rgba(59, 130, 246, 1);
+}
+
 .text-primary-800 {
   @apply text-white;
 }
