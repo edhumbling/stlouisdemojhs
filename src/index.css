@@ -679,6 +679,42 @@ section, main, div[class*="container"] {
   }
 }
 
+/* Lightning bolt effects for transfer service cards */
+@keyframes lightning-flash {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.transfer-card:hover .lightning-bolt {
+  animation: lightning-flash 0.3s ease-in-out;
+}
+
+/* Sharp silver lightning effect */
+@keyframes silver-lightning {
+  0% {
+    transform: translateX(-100%) skewX(-12deg) scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%) skewX(-12deg) scaleX(1);
+  }
+  100% {
+    transform: translateX(100%) skewX(-12deg) scaleX(0);
+    opacity: 0;
+  }
+}
+
+.silver-lightning {
+  animation: silver-lightning 0.4s ease-out;
+}
+
 /* Extra shiny silver shimmer for gallery images */
 @keyframes silver-shine {
   0% {
