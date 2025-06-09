@@ -185,6 +185,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
             }}
           />
         </motion.button>
+        </div>
       )}
     </AnimatePresence>
   );
