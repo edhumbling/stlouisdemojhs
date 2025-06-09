@@ -37,7 +37,7 @@ const ShimmerLoader: React.FC<ShimmerLoaderProps> = ({
       case 'section':
         return 'min-h-[400px] w-full bg-gradient-to-br from-blue-900/10 via-slate-900/20 to-green-900/10';
       case 'silver':
-        return `${width} ${height} bg-gradient-to-br from-slate-700/80 via-gray-600/90 to-slate-800/80 rounded-xl`;
+        return `${width} ${height} bg-gradient-to-br from-slate-600/90 via-gray-500/95 to-slate-700/90 rounded-xl`;
       case 'thumbnail':
         return `${width} ${height} bg-gradient-to-br from-slate-600/70 via-gray-500/80 to-slate-700/70 rounded-lg`;
       default:
@@ -51,7 +51,7 @@ const ShimmerLoader: React.FC<ShimmerLoaderProps> = ({
       <motion.div
         className={`absolute inset-0 ${
           variant === 'silver' || variant === 'thumbnail'
-            ? 'bg-gradient-to-r from-transparent via-slate-300/40 to-transparent'
+            ? 'bg-gradient-to-r from-transparent via-slate-200/60 to-transparent'
             : 'bg-gradient-to-r from-transparent via-white/10 to-transparent'
         }`}
         variants={shimmerVariants}
@@ -61,30 +61,56 @@ const ShimmerLoader: React.FC<ShimmerLoaderProps> = ({
 
       {/* Strong Silver Overlay for Silver Variant */}
       {(variant === 'silver' || variant === 'thumbnail') && (
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent"
-          variants={{
-            initial: { x: '-100%', opacity: 0.8 },
-            animate: {
-              x: '100%',
-              opacity: [0.8, 1, 0.8],
-              transition: {
-                duration: 1.2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: 0.3
+        <>
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200/50 to-transparent"
+            variants={{
+              initial: { x: '-100%', opacity: 0.8 },
+              animate: {
+                x: '100%',
+                opacity: [0.8, 1, 0.8],
+                transition: {
+                  duration: 1.2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: 0.3
+                }
               }
-            }
-          }}
-          initial="initial"
-          animate="animate"
-        />
+            }}
+            initial="initial"
+            animate="animate"
+          />
+
+          {/* Extra Shiny Wave */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+            variants={{
+              initial: { x: '-100%', opacity: 0.6 },
+              animate: {
+                x: '100%',
+                opacity: [0.6, 1, 0.6],
+                transition: {
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: 0.8
+                }
+              }
+            }}
+            initial="initial"
+            animate="animate"
+          />
+        </>
       )}
       
-      {/* Additional blur lights for beauty */}
+      {/* Additional blur lights for beauty - Enhanced for Silver */}
       <div className="absolute inset-0 opacity-60">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-16 h-16 bg-blue-400/20 rounded-full blur-xl"
+          className={`absolute top-1/4 left-1/4 w-16 h-16 rounded-full blur-xl ${
+            variant === 'silver' || variant === 'thumbnail'
+              ? 'bg-slate-300/30'
+              : 'bg-blue-400/20'
+          }`}
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.6, 0.3]
@@ -96,7 +122,11 @@ const ShimmerLoader: React.FC<ShimmerLoaderProps> = ({
           }}
         />
         <motion.div
-          className="absolute top-3/4 right-1/3 w-12 h-12 bg-green-400/20 rounded-full blur-lg"
+          className={`absolute top-3/4 right-1/3 w-12 h-12 rounded-full blur-lg ${
+            variant === 'silver' || variant === 'thumbnail'
+              ? 'bg-gray-200/25'
+              : 'bg-green-400/20'
+          }`}
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.2, 0.5, 0.2]
@@ -109,7 +139,11 @@ const ShimmerLoader: React.FC<ShimmerLoaderProps> = ({
           }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-8 h-8 bg-cyan-400/20 rounded-full blur-md"
+          className={`absolute top-1/2 left-1/2 w-8 h-8 rounded-full blur-md ${
+            variant === 'silver' || variant === 'thumbnail'
+              ? 'bg-white/20'
+              : 'bg-cyan-400/20'
+          }`}
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.4, 0.7, 0.4]
