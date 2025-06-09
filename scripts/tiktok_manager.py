@@ -161,101 +161,368 @@ class TikTokManager:
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>St. Louis Demo JHS on TikTok</title>
-    <script async src="https://www.tiktok.com/embed.js"></script>
+    <link rel="preconnect" href="https://www.tiktok.com">
+    <link rel="dns-prefetch" href="https://www.tiktok.com">
+    <script>
+        // Preload TikTok embed script for blazing fast loading
+        const script = document.createElement('script');
+        script.src = 'https://www.tiktok.com/embed.js';
+        script.async = true;
+        document.head.appendChild(script);
+    </script>
     <style>
-        body {{
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #000;
-            color: #fff;
-            padding: 20px;
+        * {{
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }}
-        h1 {{
+
+        body {{
+            font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }}
+
+        /* TikTok Official Colors */
+        :root {{
+            --tiktok-red: #FE2C55;
+            --tiktok-blue: #25F4EE;
+            --tiktok-black: #000000;
+            --tiktok-dark-gray: #161823;
+            --tiktok-gray: #2F2F2F;
+            --tiktok-light-gray: #8A8A8A;
+            --tiktok-white: #FFFFFF;
+        }}
+
+        /* Cute Small Header */
+        .header {{
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--tiktok-red), var(--tiktok-blue));
+            padding: 8px 16px;
             text-align: center;
-            color: #ff0050;
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(254, 44, 85, 0.3);
+            backdrop-filter: blur(10px);
         }}
-        .video-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+
+        .header h1 {{
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--tiktok-white);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
         }}
+
+        .header .school-name {{
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 2px;
+        }}
+
+        /* Native TikTok-like Container */
+        .tiktok-container {{
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }}
+
+        .tiktok-container::-webkit-scrollbar {{
+            display: none;
+        }}
+
+        /* Video Items - Native TikTok Style */
         .video-item {{
-            background: transparent;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }}
-        .tiktok-embed {{
-            max-width: 325px;
-            min-height: 578px;
-            margin: 0 auto;
-        }}
-        .video-info {{
-            margin-top: 15px;
-            text-align: center;
-            max-width: 325px;
-        }}
-        .video-stats {{
+            height: calc(100vh - 60px);
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #888;
+            align-items: center;
+            scroll-snap-align: start;
+            position: relative;
+            background: var(--tiktok-black);
         }}
-        footer {{
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #666;
+
+        /* Silver Shimmer Loading Effect */
+        .video-placeholder {{
+            width: 100%;
+            max-width: 325px;
+            height: 578px;
+            background: linear-gradient(
+                90deg,
+                #2a2a2a 25%,
+                #3a3a3a 50%,
+                #2a2a2a 75%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }}
+
+        @keyframes shimmer {{
+            0% {{
+                background-position: -200% 0;
+            }}
+            100% {{
+                background-position: 200% 0;
+            }}
+        }}
+
+        .video-placeholder::before {{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--tiktok-red);
+            border-top: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }}
+
+        @keyframes spin {{
+            0% {{ transform: translate(-50%, -50%) rotate(0deg); }}
+            100% {{ transform: translate(-50%, -50%) rotate(360deg); }}
+        }}
+
+        /* TikTok Embed Styling */
+        .tiktok-embed {{
+            max-width: 325px !important;
+            min-height: 578px !important;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(254, 44, 85, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }}
+
+        .tiktok-embed:hover {{
+            transform: scale(1.02);
+            box-shadow: 0 12px 48px rgba(254, 44, 85, 0.3);
+        }}
+
+        /* Loading States */
+        .video-item.loading .tiktok-embed {{
+            display: none;
+        }}
+
+        .video-item.loaded .video-placeholder {{
+            display: none;
+        }}
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {{
+            .header h1 {{
+                font-size: 1rem;
+            }}
+
+            .header .school-name {{
+                font-size: 0.8rem;
+            }}
+
+            .tiktok-embed {{
+                max-width: 100vw !important;
+                width: 100% !important;
+            }}
+
+            .video-placeholder {{
+                max-width: 100vw;
+                width: 100%;
+            }}
+        }}
+
+        @media (max-width: 480px) {{
+            .header {{
+                padding: 6px 12px;
+            }}
+
+            .tiktok-container {{
+                height: calc(100vh - 50px);
+            }}
+
+            .video-item {{
+                height: calc(100vh - 50px);
+            }}
+        }}
+
+        /* Smooth Scrolling Enhancement */
+        html {{
+            scroll-behavior: smooth;
+        }}
+
+        /* Performance Optimizations */
+        .video-item {{
+            will-change: transform;
+            contain: layout style paint;
+        }}
+
+        /* Loading Animation for Better UX */
+        .fade-in {{
+            animation: fadeIn 0.5s ease-in-out;
+        }}
+
+        @keyframes fadeIn {{
+            from {{ opacity: 0; transform: translateY(20px); }}
+            to {{ opacity: 1; transform: translateY(0); }}
         }}
     </style>
 </head>
 <body>
-    <h1>🎵 St. Louis Demonstration JHS on TikTok</h1>
-    <div class="video-grid">
+    <div class="header">
+        <h1>🎵 TikTok</h1>
+        <div class="school-name">St. Louis Demonstration JHS</div>
+    </div>
+    <div class="tiktok-container">
 """
         
-        for video in self.videos:
+        for i, video in enumerate(self.videos):
             html_content += f"""
-        <div class="video-item">
+        <div class="video-item loading fade-in" id="video-{i}">
+            <!-- Silver Shimmer Loading Placeholder -->
+            <div class="video-placeholder"></div>
+
+            <!-- TikTok Embed -->
             <blockquote class="tiktok-embed"
                        cite="{video['url']}"
                        data-video-id="{video['id']}"
+                       data-unique-id="{video['username']}"
                        style="max-width: 325px; min-height: 578px;">
                 <section>
                     <a target="_blank"
                        title="@{video['username']}"
                        href="{video['url']}">
-                        @{video['username']}
+                        @{video['username']} on TikTok
                     </a>
                 </section>
             </blockquote>
-            <div class="video-info">
-                <div class="video-stats">
-                    <span>👍 {video['likes']}</span>
-                    <span>💬 {video['comments']}</span>
-                    <span>🔄 {video['shares']}</span>
-                </div>
-            </div>
         </div>
 """
         
         html_content += f"""
     </div>
-    <footer>
-        <p>🎓 St. Louis Demonstration JHS</p>
-        <p>📅 Last updated: {datetime.now().strftime("%B %d, %Y")}</p>
-        <p>📹 {len(self.videos)} videos</p>
-    </footer>
+
+    <script>
+        // Enhanced TikTok Loading with Performance Optimizations
+        document.addEventListener('DOMContentLoaded', function() {{
+            // Preload and optimize TikTok embeds
+            const videoItems = document.querySelectorAll('.video-item');
+            let loadedCount = 0;
+
+            // Intersection Observer for lazy loading
+            const observer = new IntersectionObserver((entries) => {{
+                entries.forEach(entry => {{
+                    if (entry.isIntersecting) {{
+                        loadVideo(entry.target);
+                        observer.unobserve(entry.target);
+                    }}
+                }});
+            }}, {{
+                rootMargin: '50px',
+                threshold: 0.1
+            }});
+
+            // Observe all video items
+            videoItems.forEach(item => {{
+                observer.observe(item);
+            }});
+
+            function loadVideo(videoItem) {{
+                const embed = videoItem.querySelector('.tiktok-embed');
+                if (embed) {{
+                    // Add loading class for shimmer effect
+                    videoItem.classList.add('loading');
+
+                    // Simulate network delay then show video
+                    setTimeout(() => {{
+                        videoItem.classList.remove('loading');
+                        videoItem.classList.add('loaded');
+                        loadedCount++;
+
+                        // Trigger TikTok embed refresh
+                        if (window.tiktokEmbed) {{
+                            window.tiktokEmbed.lib.render(embed);
+                        }}
+                    }}, Math.random() * 1000 + 500); // Random delay 0.5-1.5s for realistic loading
+                }}
+            }}
+
+            // Enhanced scroll behavior for native TikTok feel
+            const container = document.querySelector('.tiktok-container');
+            let isScrolling = false;
+
+            container.addEventListener('scroll', () => {{
+                if (!isScrolling) {{
+                    window.requestAnimationFrame(() => {{
+                        // Add any scroll-based animations here
+                        isScrolling = false;
+                    }});
+                    isScrolling = true;
+                }}
+            }});
+
+            // Keyboard navigation (up/down arrows)
+            document.addEventListener('keydown', (e) => {{
+                if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {{
+                    e.preventDefault();
+                    const currentVideo = getCurrentVideo();
+                    const nextVideo = e.key === 'ArrowDown' ?
+                        currentVideo?.nextElementSibling :
+                        currentVideo?.previousElementSibling;
+
+                    if (nextVideo) {{
+                        nextVideo.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+                    }}
+                }}
+            }});
+
+            function getCurrentVideo() {{
+                const videos = Array.from(videoItems);
+                const containerRect = container.getBoundingClientRect();
+
+                return videos.find(video => {{
+                    const rect = video.getBoundingClientRect();
+                    return rect.top >= containerRect.top && rect.top < containerRect.bottom;
+                }});
+            }}
+
+            // Performance: Pause videos not in view
+            const pauseObserver = new IntersectionObserver((entries) => {{
+                entries.forEach(entry => {{
+                    const iframe = entry.target.querySelector('iframe');
+                    if (iframe) {{
+                        if (!entry.isIntersecting) {{
+                            // Video out of view - could pause here if TikTok API allows
+                        }}
+                    }}
+                }});
+            }}, {{ threshold: 0.5 }});
+
+            videoItems.forEach(item => {{
+                pauseObserver.observe(item);
+            }});
+        }});
+
+        // TikTok embed callback for when script loads
+        window.addEventListener('load', () => {{
+            if (window.tiktokEmbed) {{
+                // Force render all embeds
+                document.querySelectorAll('.tiktok-embed').forEach(embed => {{
+                    window.tiktokEmbed.lib.render(embed);
+                }});
+            }}
+        }});
+    </script>
 </body>
 </html>"""
         
