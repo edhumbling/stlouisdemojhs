@@ -63,7 +63,24 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.button
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+          {/* Tooltip */}
+          <AnimatePresence>
+            {isHovered && (
+              <motion.div
+                initial={{ opacity: 0, x: 10, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 10, scale: 0.9 }}
+                transition={{ duration: 0.2 }}
+                className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-2 bg-gray-900/90 text-white text-sm rounded-lg backdrop-blur-sm border border-gray-700/50 whitespace-nowrap pointer-events-none"
+              >
+                Scroll to top
+                <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900/90"></div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <motion.button
           onClick={scrollToTop}
           onKeyDown={handleKeyDown}
           onMouseEnter={() => setIsHovered(true)}
@@ -71,8 +88,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
           aria-label="Scroll to top"
           title="Scroll to top"
           className={`
-            fixed bottom-6 right-6 z-50
-            w-14 h-14 rounded-full
+            relative rounded-full
             flex items-center justify-center
             bg-gradient-to-br from-purple-600/90 to-purple-700/90
             backdrop-blur-md border border-purple-400/30
@@ -82,6 +98,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
             focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-transparent
             transition-all duration-300 ease-out
             cursor-pointer select-none
+            w-12 h-12 sm:w-14 sm:h-14
             ${className}
           `}
           style={{
@@ -102,7 +119,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
             damping: 25
           }}
         >
-          {/* Progress ring indicator */}
+          {/* Progress ring indicator - responsive sizing */}
           <svg
             className="absolute inset-0 w-full h-full -rotate-90"
             viewBox="0 0 56 56"
@@ -111,23 +128,25 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
             <circle
               cx="28"
               cy="28"
-              r="26"
+              r="24"
               fill="none"
               stroke="rgba(255,255,255,0.2)"
-              strokeWidth="2"
+              strokeWidth="1.5"
+              className="sm:stroke-2"
             />
             <motion.circle
               cx="28"
               cy="28"
-              r="26"
+              r="24"
               fill="none"
               stroke="rgba(255,255,255,0.6)"
-              strokeWidth="2"
+              strokeWidth="1.5"
               strokeLinecap="round"
-              strokeDasharray={163.36} // 2 * π * 26
-              initial={{ strokeDashoffset: 163.36 }}
+              strokeDasharray={150.8} // 2 * π * 24
+              className="sm:stroke-2"
+              initial={{ strokeDashoffset: 150.8 }}
               animate={{
-                strokeDashoffset: 163.36 - (scrollProgress * 163.36)
+                strokeDashoffset: 150.8 - (scrollProgress * 150.8)
               }}
               transition={{ duration: 0.1 }}
             />
@@ -139,14 +158,14 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
           {/* Inner glow */}
           <div className="absolute inset-1 rounded-full bg-gradient-to-br from-purple-200/40 to-purple-400/20" />
 
-          {/* Arrow icon */}
+          {/* Arrow icon - responsive sizing */}
           <motion.div
             className="relative z-10"
             animate={isHovered ? { y: -2 } : { y: 0 }}
             transition={{ duration: 0.2 }}
           >
             <ChevronUp
-              className="w-7 h-7 text-white font-bold drop-shadow-sm"
+              className="w-5 h-5 sm:w-7 sm:h-7 text-white font-bold drop-shadow-sm"
               strokeWidth={2.5}
             />
           </motion.div>
