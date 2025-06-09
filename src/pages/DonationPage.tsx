@@ -314,30 +314,26 @@ const DonationPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Small Sharp Transfer Service Cards - Clickable Links */}
-                <div className="grid grid-cols-4 gap-1.5 sm:gap-2 text-white mb-3">
+                {/* Transfer Service Cards - Donation Button Style */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-white mb-4">
                   {/* TapTapSend - Red Valentine */}
                   <a
                     href="https://www.taptapsend.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative bg-gradient-to-br from-red-500/90 to-red-600/90 backdrop-blur-sm rounded-md p-1.5 sm:p-2 border border-red-400/40 overflow-hidden transform hover:scale-110 transition-all duration-200 hover:shadow-lg cursor-pointer"
-                    style={{ boxShadow: '0 4px 12px rgba(239, 68, 68, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}
+                    className="group relative inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-red-600 via-red-500 to-red-700 border border-red-800 rounded-lg hover:from-red-500 hover:via-red-400 hover:to-red-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-red-500/60 overflow-hidden cursor-pointer"
+                    style={{
+                      boxShadow: '0 4px 15px rgba(239, 68, 68, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
+                    }}
                   >
-                    {/* Silver lightning bolt effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-300 ease-out"></div>
-                    <div className="absolute top-0 right-0 w-2 h-2 bg-white/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+                    {/* Silver reflection overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
 
-                    <div className="relative z-10 flex flex-col items-center">
-                      <img src="https://www.taptapsend.com/favicon.ico" alt="TapTapSend" className="h-3 w-3 sm:h-4 sm:w-4 mb-1" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                      <p className="font-bold text-xs leading-tight">TapTap</p>
-                    </div>
+                    <img src="https://www.taptapsend.com/favicon.ico" alt="TapTapSend" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                    <span className="relative z-10 leading-tight">TapTap Send</span>
 
-                    {/* Sharp glow effect */}
-                    <div className="absolute -inset-0.5 bg-red-400 rounded-md blur opacity-0 group-hover:opacity-60 transition-opacity duration-200 -z-10"></div>
-
-                    {/* Lightning bolt indicator */}
-                    <div className="absolute bottom-0 left-0 w-1 h-1 bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    {/* Smart glow effect */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-red-400 to-red-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
                   </a>
 
                   {/* PayAngel - Blue */}
@@ -345,19 +341,17 @@ const DonationPage: React.FC = () => {
                     href="https://www.payangel.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative bg-gradient-to-br from-blue-500/90 to-blue-600/90 backdrop-blur-sm rounded-md p-1.5 sm:p-2 border border-blue-400/40 overflow-hidden transform hover:scale-110 transition-all duration-200 hover:shadow-lg cursor-pointer"
-                    style={{ boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}
+                    className="group relative inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 border border-blue-800 rounded-lg hover:from-blue-500 hover:via-blue-400 hover:to-blue-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-blue-500/60 overflow-hidden cursor-pointer"
+                    style={{
+                      boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
+                    }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-300 ease-out"></div>
-                    <div className="absolute top-0 right-0 w-2 h-2 bg-white/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
 
-                    <div className="relative z-10 flex flex-col items-center">
-                      <img src="https://www.payangel.com/favicon.ico" alt="PayAngel" className="h-3 w-3 sm:h-4 sm:w-4 mb-1" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                      <p className="font-bold text-xs leading-tight">PayAngel</p>
-                    </div>
+                    <img src="https://www.payangel.com/favicon.ico" alt="PayAngel" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                    <span className="relative z-10 leading-tight">PayAngel</span>
 
-                    <div className="absolute -inset-0.5 bg-blue-400 rounded-md blur opacity-0 group-hover:opacity-60 transition-opacity duration-200 -z-10"></div>
-                    <div className="absolute bottom-0 left-0 w-1 h-1 bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
                   </a>
 
                   {/* Sendwave - Green */}
@@ -365,19 +359,17 @@ const DonationPage: React.FC = () => {
                     href="https://www.sendwave.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative bg-gradient-to-br from-green-500/90 to-green-600/90 backdrop-blur-sm rounded-md p-1.5 sm:p-2 border border-green-400/40 overflow-hidden transform hover:scale-110 transition-all duration-200 hover:shadow-lg cursor-pointer"
-                    style={{ boxShadow: '0 4px 12px rgba(34, 197, 94, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}
+                    className="group relative inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-green-600 via-green-500 to-green-700 border border-green-800 rounded-lg hover:from-green-500 hover:via-green-400 hover:to-green-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-green-500/60 overflow-hidden cursor-pointer"
+                    style={{
+                      boxShadow: '0 4px 15px rgba(34, 197, 94, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
+                    }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-300 ease-out"></div>
-                    <div className="absolute top-0 right-0 w-2 h-2 bg-white/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
 
-                    <div className="relative z-10 flex flex-col items-center">
-                      <img src="https://www.sendwave.com/favicon.ico" alt="Sendwave" className="h-3 w-3 sm:h-4 sm:w-4 mb-1" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                      <p className="font-bold text-xs leading-tight">Sendwave</p>
-                    </div>
+                    <img src="https://www.sendwave.com/favicon.ico" alt="Sendwave" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                    <span className="relative z-10 leading-tight">Sendwave</span>
 
-                    <div className="absolute -inset-0.5 bg-green-400 rounded-md blur opacity-0 group-hover:opacity-60 transition-opacity duration-200 -z-10"></div>
-                    <div className="absolute bottom-0 left-0 w-1 h-1 bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-green-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
                   </a>
 
                   {/* WorldRemit - Purple */}
@@ -385,19 +377,17 @@ const DonationPage: React.FC = () => {
                     href="https://www.worldremit.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative bg-gradient-to-br from-purple-500/90 to-purple-600/90 backdrop-blur-sm rounded-md p-1.5 sm:p-2 border border-purple-400/40 overflow-hidden transform hover:scale-110 transition-all duration-200 hover:shadow-lg cursor-pointer"
-                    style={{ boxShadow: '0 4px 12px rgba(147, 51, 234, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}
+                    className="group relative inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-purple-600 via-purple-500 to-purple-700 border border-purple-800 rounded-lg hover:from-purple-500 hover:via-purple-400 hover:to-purple-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-purple-500/60 overflow-hidden cursor-pointer"
+                    style={{
+                      boxShadow: '0 4px 15px rgba(147, 51, 234, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
+                    }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-300 ease-out"></div>
-                    <div className="absolute top-0 right-0 w-2 h-2 bg-white/60 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
 
-                    <div className="relative z-10 flex flex-col items-center">
-                      <img src="https://www.worldremit.com/favicon.ico" alt="WorldRemit" className="h-3 w-3 sm:h-4 sm:w-4 mb-1" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                      <p className="font-bold text-xs leading-tight">WorldRemit</p>
-                    </div>
+                    <img src="https://www.worldremit.com/favicon.ico" alt="WorldRemit" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                    <span className="relative z-10 leading-tight">WorldRemit</span>
 
-                    <div className="absolute -inset-0.5 bg-purple-400 rounded-md blur opacity-0 group-hover:opacity-60 transition-opacity duration-200 -z-10"></div>
-                    <div className="absolute bottom-0 left-0 w-1 h-1 bg-white/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
                   </a>
                 </div>
 
