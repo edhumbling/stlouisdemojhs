@@ -90,7 +90,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
 
   return (
     <motion.div
-      className="fixed z-50"
+      className="fixed z-[9999]"
       style={{
         bottom: `${dynamicPosition.bottom}px`,
         right: `${dynamicPosition.right}px`,
@@ -150,7 +150,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
             }}
-            initial={{ opacity: 0, scale: 0, y: 20, rotate: -180 }}
+            initial={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
             animate={{
               opacity: 1,
               scale: 1,
