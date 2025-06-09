@@ -89,23 +89,14 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
   }, [handleScrollAction]);
 
   return (
-    <motion.div
-      className="fixed z-[9999]"
+    <div
+      className="fixed bottom-6 right-6 z-[9999]"
       style={{
-        bottom: `${dynamicPosition.bottom}px`,
-        right: `${dynamicPosition.right}px`,
+        position: 'fixed',
+        bottom: '24px',
+        right: '24px',
+        zIndex: 9999
       }}
-      animate={{
-        bottom: dynamicPosition.bottom,
-        right: dynamicPosition.right,
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-        duration: 0.3
-      }}
-      initial={{ opacity: 1, scale: 1 }}
     >
           {/* Enhanced Tooltip */}
           <AnimatePresence>
@@ -271,7 +262,7 @@ const ScrollButton: React.FC<ScrollButtonProps> = ({ className = "" }) => {
               }}
             />
           </motion.button>
-        </motion.div>
+        </div>
   );
 };
 
