@@ -2961,11 +2961,11 @@ const StudentsHubPage: React.FC = () => {
                     >
                       <button
                         onClick={() => handleResourceClick(resource)}
-                        className={`w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
-                          categoryName === '🎨 Generative World'
-                            ? 'shadow-[0_0_40px_rgba(255,255,255,0.4),0_0_80px_rgba(255,255,255,0.3),0_0_120px_rgba(255,255,255,0.2),0_0_160px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6),0_0_120px_rgba(255,255,255,0.4),0_0_180px_rgba(255,255,255,0.3),0_0_240px_rgba(255,255,255,0.2)] animate-pulse border-white/30 hover:border-white/50'
-                            : ''
-                        }`}
+                        className={`w-full h-[200px] rounded-2xl p-4 border transition-all duration-300 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col backdrop-blur-md bg-white/10 border-white/20 shadow-xl hover:shadow-2xl`}
+                        style={{
+                          background: `linear-gradient(135deg, ${resource.color}22 0%, #ffffff09 100%)`,
+                          borderColor: `${resource.color}55`,
+                        }}
                       >
                         {/* YouTube Thumbnail Background for YouTube videos */}
                         {resource.isYouTube && (
