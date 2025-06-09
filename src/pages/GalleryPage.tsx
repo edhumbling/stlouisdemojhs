@@ -1,9 +1,15 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, X, ChevronLeft, ChevronRight, Grid, Play, Pause, Camera } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { galleryImages } from '../data';
-import EnhancedModal from '../components/common/EnhancedModal';
+import { usePagination } from '../hooks/useVirtualScroll';
+import { usePerformanceMonitor } from '../hooks/usePerformanceMonitor';
+import OptimizedImage from '../components/common/OptimizedImage';
+import ShimmerLoader from '../components/common/ShimmerLoader';
+
+// Lazy load the modal for better performance
+const EnhancedModal = lazy(() => import('../components/common/EnhancedModal'));
 
 // Optimized Silver Shimmer Loading Component
 const SilverShimmer: React.FC<{ className?: string; variant?: 'grid' | 'slideshow' | 'thumbnail' }> = ({
@@ -151,21 +157,19 @@ const GalleryImage: React.FC<{
         <SilverShimmer variant="grid" className="absolute inset-0 z-10" />
       )}
 
-      {/* Optimized Image with Better Loading */}
-      <img
+      {/* Optimized Image Component */}
+      <OptimizedImage
         src={image.src}
         alt={image.alt}
         className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-105 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
         loading="lazy"
-        decoding="async"
+        quality={75}
+        placeholder="shimmer"
         onLoad={handleLoad}
         onError={handleError}
-        style={{
-          willChange: 'transform',
-          transform: 'translateZ(0)' // Force hardware acceleration
-        }}
+        sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
       />
 
       {/* Error State */}
@@ -338,6 +342,9 @@ const GalleryPage: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [filter, setFilter] = useState<string>('All');
 
+  // Performance monitoring
+  const { getMetrics } = usePerformanceMonitor({ enableLogging: true });
+
   // Optimized navigation handler
   const handleBack = useCallback(() => {
     navigate(-1);
@@ -354,6 +361,20 @@ const GalleryPage: React.FC = () => {
     filter === 'All' ? galleryImages : galleryImages.filter(img => img.category === filter),
     [filter]
   );
+
+  // Pagination for grid view to improve performance
+  const {
+    currentItems: paginatedImages,
+    currentPage,
+    totalPages,
+    hasNextPage,
+    nextPage,
+    isLoading: isPaginationLoading
+  } = usePagination({
+    data: filteredImages,
+    itemsPerPage: 20, // Load 20 images at a time
+    initialPage: 1
+  });
 
   // Optimized auto-play slideshow
   useEffect(() => {
@@ -463,21 +484,43 @@ const GalleryPage: React.FC = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-6">
         {viewMode === 'grid' ? (
-          /* Grid View with Shimmer Loading */
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4"
-          >
-            {filteredImages.map((image, index) => (
-              <GalleryImage
-                key={image.id}
-                image={image}
-                index={index}
-                onClick={() => openModal(image.id)}
-              />
-            ))}
-          </motion.div>
+          /* Grid View with Pagination and Performance Optimization */
+          <div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4"
+            >
+              {paginatedImages.map((image, index) => (
+                <GalleryImage
+                  key={image.id}
+                  image={image}
+                  index={index}
+                  onClick={() => openModal(image.id)}
+                />
+              ))}
+            </motion.div>
+
+            {/* Load More Button */}
+            {hasNextPage && (
+              <div className="flex justify-center mt-8">
+                <button
+                  onClick={nextPage}
+                  disabled={isPaginationLoading}
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white font-medium rounded-lg transition-all duration-200 flex items-center gap-2"
+                >
+                  {isPaginationLoading ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Loading...
+                    </>
+                  ) : (
+                    `Load More (${currentPage}/${totalPages})`
+                  )}
+                </button>
+              </div>
+            )}
+          </div>
         ) : (
           /* Slideshow View */
           <motion.div
@@ -538,14 +581,22 @@ const GalleryPage: React.FC = () => {
         )}
       </div>
 
-      {/* Enhanced Modal with Background Blur and Pinch Zoom */}
-      <EnhancedModal
-        isOpen={selectedImage !== null}
-        onClose={closeModal}
-        imageSrc={galleryImages.find(img => img.id === selectedImage)?.src || ''}
-        imageAlt={galleryImages.find(img => img.id === selectedImage)?.alt || ''}
-        imageCategory={galleryImages.find(img => img.id === selectedImage)?.category || ''}
-      />
+      {/* Enhanced Modal with Lazy Loading */}
+      {selectedImage !== null && (
+        <Suspense fallback={
+          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+            <ShimmerLoader variant="silver" className="w-96 h-64 rounded-lg" />
+          </div>
+        }>
+          <EnhancedModal
+            isOpen={selectedImage !== null}
+            onClose={closeModal}
+            imageSrc={galleryImages.find(img => img.id === selectedImage)?.src || ''}
+            imageAlt={galleryImages.find(img => img.id === selectedImage)?.alt || ''}
+            imageCategory={galleryImages.find(img => img.id === selectedImage)?.category || ''}
+          />
+        </Suspense>
+      )}
     </div>
   );
 };

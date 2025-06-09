@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import {
@@ -39,6 +39,8 @@ import {
 import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import { usePagination } from '../hooks/useVirtualScroll';
+import { debounce } from '../utils/performance';
 
 interface Resource {
   id: number;

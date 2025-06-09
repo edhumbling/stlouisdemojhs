@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ShimmerLoader from '../common/ShimmerLoader';
+import OptimizedImage from '../common/OptimizedImage';
 import AsSeenOn from './AsSeenOn';
 import { galleryImages } from '../../data';
 
@@ -18,7 +19,7 @@ const Hero: React.FC = () => {
   // This keeps the homepage fresh and showcases ALL school photos over time!
   const getDailyHeroImages = () => {
     const totalImages = galleryImages.length;
-    const imagesPerDay = 11;
+    const imagesPerDay = 11; // Keeping original 11 images
     const totalDays = Math.ceil(totalImages / imagesPerDay);
 
     // Calculate days since a reference date (e.g., Jan 1, 2025)
@@ -69,7 +70,7 @@ const Hero: React.FC = () => {
   // Current (26 images): Day 2 = images 12-22
   // Future (50 images): Day 2 = images 12-22, but cycle extends to 5 days
   // Future (100 images): Day 2 = images 12-22, but cycle extends to 10 days
-  const images = getDailyHeroImages();
+  const images = useMemo(() => getDailyHeroImages(), []);
 
   // Handle responsive design
   useEffect(() => {
@@ -220,21 +221,15 @@ const Hero: React.FC = () => {
               }}
             >
               {isLoaded && (
-                <img
+                <OptimizedImage
                   src={image.url}
                   alt={`St. Louis Demonstration Junior High School ${index + 1}`}
                   className="w-full h-full object-cover transition-opacity duration-500"
                   loading={index === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                  fetchPriority={index === 0 ? "high" : "low"}
-                  style={{
-                    transform: 'translateZ(0)',
-                    objectPosition: isMobile ? image.mobilePosition : image.desktopPosition,
-                    objectFit: 'cover',
-                    minHeight: '100%',
-                    minWidth: '100%',
-                    transition: 'opacity 0.5s ease-in-out',
-                  }}
+                  priority={index === 0}
+                  quality={index === 0 ? 90 : 75}
+                  placeholder="none"
+                  sizes="100vw"
                 />
               )}
             </div>

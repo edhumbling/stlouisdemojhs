@@ -1,5 +1,35 @@
 import { NavLink, DropdownItem, Event, NewsItem, StaffMember, Program, GalleryImage, Testimonial } from '../types';
 
+// Lazy loading function for gallery images
+let _galleryImages: GalleryImage[] | null = null;
+
+export const getGalleryImages = (): GalleryImage[] => {
+  if (_galleryImages === null) {
+    _galleryImages = galleryImagesData;
+  }
+  return _galleryImages;
+};
+
+// Export a getter function instead of direct export for lazy loading
+export const galleryImages = new Proxy([] as GalleryImage[], {
+  get(target, prop) {
+    const images = getGalleryImages();
+    return images[prop as keyof GalleryImage[]];
+  },
+  has(target, prop) {
+    const images = getGalleryImages();
+    return prop in images;
+  },
+  ownKeys(target) {
+    const images = getGalleryImages();
+    return Reflect.ownKeys(images);
+  },
+  getOwnPropertyDescriptor(target, prop) {
+    const images = getGalleryImages();
+    return Reflect.getOwnPropertyDescriptor(images, prop);
+  }
+});
+
 export const navLinks: NavLink[] = [
   { label: 'News & Events', path: '/news' },
   { label: 'STEM', path: '/stem' },
@@ -212,7 +242,7 @@ export const programs: Program[] = [
   }
 ];
 
-export const galleryImages: GalleryImage[] = [
+const galleryImagesData: GalleryImage[] = [
   // Original Hero Slider Images - The Foundation Collection
   {
     id: 35,

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import { HeaderProvider } from './contexts/HeaderContext';
+import PerformanceOptimizer from './components/common/PerformanceOptimizer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import AcademicsPage from './pages/AcademicsPage';
@@ -104,10 +105,11 @@ const ScrollPositionManager: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <HeaderProvider>
-      <Router>
-        {/* Scroll Position Manager */}
-        <ScrollPositionManager />
+    <PerformanceOptimizer enableMonitoring={true} preloadResources={true}>
+      <HeaderProvider>
+        <Router>
+          {/* Scroll Position Manager */}
+          <ScrollPositionManager />
 
 
 
@@ -166,11 +168,12 @@ const App: React.FC = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 
-        {/* Global catch-all route for direct access to non-existent routes */}
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Router>
-    </HeaderProvider>
+          {/* Global catch-all route for direct access to non-existent routes */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
+      </HeaderProvider>
+    </PerformanceOptimizer>
   );
 };
 
