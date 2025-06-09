@@ -409,6 +409,26 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-5xl mx-auto">
             {[
               {
+                title: "NAPO donates educational materials to St. Louis College, all basic schools in Manhyia South",
+                source: "TNT Newspaper Ghana",
+                date: "Recent",
+                description: "Manhyia South MP Dr. Matthew Opoku Prempeh donates educational materials to support learning at St. Louis and other basic schools.",
+                url: "https://tntnewspapergh.com/napo-donates-educational-materials-to-st-louis-college-all-basic-schools-in-manhyia-south/",
+                type: "article",
+                preview: "https://tntnewspapergh.com/napo-donates-educational-materials-to-st-louis-college-all-basic-schools-in-manhyia-south/",
+                brandColor: "from-green-500 to-green-600"
+              },
+              {
+                title: "Manhyia South MP donates to St. Louis College, 47 basic schools",
+                source: "Ghana Headlines",
+                date: "January 2024",
+                description: "Educational support initiative by Manhyia South MP benefiting St. Louis College and 47 basic schools in the constituency.",
+                url: "https://news.ghheadlines.com/agency/ghanaian-chronicle/20240122/164446971/manhyia-south-mp-donates-tost-louis-college-47-basic-schools",
+                type: "article",
+                preview: "https://news.ghheadlines.com/agency/ghanaian-chronicle/20240122/164446971/manhyia-south-mp-donates-tost-louis-college-47-basic-schools",
+                brandColor: "from-purple-500 to-purple-600"
+              },
+              {
                 title: "Make classroom lively & pupil-friendly",
                 source: "GhanaWeb",
                 date: "Historical",
