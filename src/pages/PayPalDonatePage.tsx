@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Heart, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Heart } from 'lucide-react';
 
 const PayPalDonatePage: React.FC = () => {
   const navigate = useNavigate();
@@ -65,46 +65,54 @@ const PayPalDonatePage: React.FC = () => {
                 </li>
               </ul>
             </div>
-            {/* PayPal Logo */}
-            <div className="w-full">
-              <table border={0} cellPadding="10" cellSpacing="0" className="mx-auto">
-                <tbody>
-                  <tr>
-                    <td className="text-center"></td>
-                  </tr>
-                  <tr>
-                    <td className="text-center">
-                      <a
-                        href="https://www.paypal.com/webapps/mpp/paypal-popup"
-                        title="How PayPal Works"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          window.open('https://www.paypal.com/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700');
-                          return false;
-                        }}
-                        className="inline-block"
-                      >
-                        <img
-                          src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"
-                          alt="PayPal Logo"
-                          className="h-8 w-auto border-0"
-                        />
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            {/* Instructions */}
+            <div className="text-center mb-6">
+              <h3 className="text-lg font-semibold text-blue-800 mb-2">Click the PayPal button below to donate</h3>
+              <p className="text-sm text-blue-600">Secure payment processing through PayPal</p>
             </div>
-            {/* PayPal Logo */}
 
-            {/* Donate Button */}
-            <button
-              onClick={openPayPalPayment}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mt-4"
-            >
-              <span>Donate with PayPal</span>
-              <ExternalLink size={20} />
-            </button>
+            {/* PayPal Acceptance Mark - Glowing Button */}
+            <div className="w-full flex justify-center mb-6">
+              <div className="relative group">
+                {/* Glow effect */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-xl blur-lg opacity-75 group-hover:opacity-100 animate-pulse paypal-glow"></div>
+
+                {/* PayPal Button */}
+                <div className="relative">
+                  <table border={0} cellPadding="10" cellSpacing="0" className="mx-auto">
+                    <tbody>
+                      <tr>
+                        <td className="text-center"></td>
+                      </tr>
+                      <tr>
+                        <td className="text-center">
+                          <button
+                            onClick={openPayPalPayment}
+                            className="inline-block transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-lg"
+                            title="Donate with PayPal"
+                          >
+                            <img
+                              src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg"
+                              alt="PayPal Acceptance Mark"
+                              className="border-0 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200"
+                            />
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Instructions */}
+            <div className="text-center mb-4">
+              <p className="text-sm text-gray-600 flex items-center justify-center gap-2">
+                <span className="animate-bounce">👆</span>
+                <span className="font-medium">Click the PayPal button above to start your donation</span>
+                <span className="animate-bounce">👆</span>
+              </p>
+            </div>
             <div className="bg-green-50 rounded-lg p-6">
               <div className="flex items-start">
                 <Heart className="text-green-500 mt-1 mr-3" size={20} />
