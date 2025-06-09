@@ -274,97 +274,106 @@ const DonationPage: React.FC = () => {
               <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
             </div>
 
-            {/* International Transfers Section */}
-            <div className="mb-6 px-2">
-              <div className="bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-green-500/20 backdrop-blur-sm rounded-xl border border-white/20 p-4 sm:p-6 text-center">
-                <h3 className="text-white font-bold text-base sm:text-xl mb-4 drop-shadow">
+            {/* International Transfers Section - Mobile Optimized */}
+            <div className="mb-4 px-1 sm:px-2">
+              <div className="bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-green-500/20 backdrop-blur-sm rounded-lg border border-white/20 p-3 sm:p-4 text-center">
+                <h3 className="text-white font-bold text-sm sm:text-lg mb-3 drop-shadow">
                   🌍 International Transfers
                 </h3>
 
-                {/* Prominent International Transfer Image */}
-                <div className="mb-6 flex justify-center">
+                {/* Compact International Transfer Image */}
+                <div className="mb-4 flex justify-center">
                   <div className="relative group">
                     {/* Glow effect behind image */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 animate-pulse"></div>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 rounded-lg blur-lg opacity-50 group-hover:opacity-70 animate-pulse"></div>
 
                     <img
                       src="https://ik.imagekit.io/humbling/emma.png"
                       alt="International Transfer Services"
-                      className="relative h-24 sm:h-32 md:h-40 lg:h-48 w-auto rounded-xl shadow-2xl border-2 border-white/40 transform hover:scale-105 transition-all duration-300"
+                      className="relative h-16 sm:h-20 md:h-24 w-auto rounded-lg shadow-xl border border-white/30 transform hover:scale-105 transition-all duration-300"
                       style={{
-                        filter: 'drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 60px rgba(147, 51, 234, 0.3))',
-                        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4)'
+                        filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.4))',
+                        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
                       }}
                     />
 
                     {/* Silver reflection overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out rounded-xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out rounded-lg"></div>
                   </div>
                 </div>
 
-                {/* Transfer Services with Unique Colors */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-white mb-4">
+                {/* Small Sharp Transfer Service Cards */}
+                <div className="grid grid-cols-4 gap-1.5 sm:gap-2 text-white mb-3">
                   {/* TapTapSend - Red Valentine */}
-                  <div className="group relative bg-gradient-to-br from-red-500/80 via-pink-500/70 to-red-600/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-red-300/30 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
-                       style={{ boxShadow: '0 8px 25px rgba(239, 68, 68, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)' }}>
-                    {/* Silver reflection */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  <div className="group relative bg-gradient-to-br from-red-500/90 to-red-600/90 backdrop-blur-sm rounded-md p-1.5 sm:p-2 border border-red-400/40 overflow-hidden transform hover:scale-110 transition-all duration-200 hover:shadow-lg"
+                       style={{ boxShadow: '0 4px 12px rgba(239, 68, 68, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out"></div>
 
                     <div className="relative z-10 flex flex-col items-center">
-                      <img src="https://www.taptapsend.com/favicon.ico" alt="TapTapSend" className="h-6 w-6 mb-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                      <p className="font-bold text-xs sm:text-sm">TapTapSend</p>
-                      <p className="text-xs text-red-100">Fast & Secure</p>
+                      <img src="https://www.taptapsend.com/favicon.ico" alt="TapTapSend" className="h-3 w-3 sm:h-4 sm:w-4 mb-1" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                      <p className="font-bold text-xs leading-tight">TapTap</p>
                     </div>
 
-                    {/* Glow effect */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-red-400 to-pink-500 rounded-xl blur opacity-0 group-hover:opacity-60 transition-opacity duration-300 -z-10"></div>
+                    <div className="absolute -inset-0.5 bg-red-400 rounded-md blur opacity-0 group-hover:opacity-40 transition-opacity duration-200 -z-10"></div>
                   </div>
 
                   {/* PayAngel - Blue */}
-                  <div className="group relative bg-gradient-to-br from-blue-500/80 via-cyan-500/70 to-blue-600/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-blue-300/30 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
-                       style={{ boxShadow: '0 8px 25px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)' }}>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  <div className="group relative bg-gradient-to-br from-blue-500/90 to-blue-600/90 backdrop-blur-sm rounded-md p-1.5 sm:p-2 border border-blue-400/40 overflow-hidden transform hover:scale-110 transition-all duration-200 hover:shadow-lg"
+                       style={{ boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out"></div>
 
                     <div className="relative z-10 flex flex-col items-center">
-                      <img src="https://www.payangel.com/favicon.ico" alt="PayAngel" className="h-6 w-6 mb-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                      <p className="font-bold text-xs sm:text-sm">PayAngel</p>
-                      <p className="text-xs text-blue-100">Low Fees</p>
+                      <img src="https://www.payangel.com/favicon.ico" alt="PayAngel" className="h-3 w-3 sm:h-4 sm:w-4 mb-1" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                      <p className="font-bold text-xs leading-tight">PayAngel</p>
                     </div>
 
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-xl blur opacity-0 group-hover:opacity-60 transition-opacity duration-300 -z-10"></div>
+                    <div className="absolute -inset-0.5 bg-blue-400 rounded-md blur opacity-0 group-hover:opacity-40 transition-opacity duration-200 -z-10"></div>
                   </div>
 
                   {/* Sendwave - Green */}
-                  <div className="group relative bg-gradient-to-br from-green-500/80 via-emerald-500/70 to-green-600/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-green-300/30 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
-                       style={{ boxShadow: '0 8px 25px rgba(34, 197, 94, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)' }}>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  <div className="group relative bg-gradient-to-br from-green-500/90 to-green-600/90 backdrop-blur-sm rounded-md p-1.5 sm:p-2 border border-green-400/40 overflow-hidden transform hover:scale-110 transition-all duration-200 hover:shadow-lg"
+                       style={{ boxShadow: '0 4px 12px rgba(34, 197, 94, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out"></div>
 
                     <div className="relative z-10 flex flex-col items-center">
-                      <img src="https://www.sendwave.com/favicon.ico" alt="Sendwave" className="h-6 w-6 mb-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                      <p className="font-bold text-xs sm:text-sm">Sendwave</p>
-                      <p className="text-xs text-green-100">Instant</p>
+                      <img src="https://www.sendwave.com/favicon.ico" alt="Sendwave" className="h-3 w-3 sm:h-4 sm:w-4 mb-1" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                      <p className="font-bold text-xs leading-tight">Sendwave</p>
                     </div>
 
-                    <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl blur opacity-0 group-hover:opacity-60 transition-opacity duration-300 -z-10"></div>
+                    <div className="absolute -inset-0.5 bg-green-400 rounded-md blur opacity-0 group-hover:opacity-40 transition-opacity duration-200 -z-10"></div>
                   </div>
 
                   {/* WorldRemit - Purple */}
-                  <div className="group relative bg-gradient-to-br from-purple-500/80 via-violet-500/70 to-purple-600/80 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-purple-300/30 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl"
-                       style={{ boxShadow: '0 8px 25px rgba(147, 51, 234, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)' }}>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+                  <div className="group relative bg-gradient-to-br from-purple-500/90 to-purple-600/90 backdrop-blur-sm rounded-md p-1.5 sm:p-2 border border-purple-400/40 overflow-hidden transform hover:scale-110 transition-all duration-200 hover:shadow-lg"
+                       style={{ boxShadow: '0 4px 12px rgba(147, 51, 234, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)' }}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-out"></div>
 
                     <div className="relative z-10 flex flex-col items-center">
-                      <img src="https://www.worldremit.com/favicon.ico" alt="WorldRemit" className="h-6 w-6 mb-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                      <p className="font-bold text-xs sm:text-sm">WorldRemit</p>
-                      <p className="text-xs text-purple-100">Global</p>
+                      <img src="https://www.worldremit.com/favicon.ico" alt="WorldRemit" className="h-3 w-3 sm:h-4 sm:w-4 mb-1" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                      <p className="font-bold text-xs leading-tight">WorldRemit</p>
                     </div>
 
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-400 to-violet-500 rounded-xl blur opacity-0 group-hover:opacity-60 transition-opacity duration-300 -z-10"></div>
+                    <div className="absolute -inset-0.5 bg-purple-400 rounded-md blur opacity-0 group-hover:opacity-40 transition-opacity duration-200 -z-10"></div>
                   </div>
                 </div>
 
-                <p className="text-white/90 text-sm sm:text-base drop-shadow font-medium">
-                  Send money directly to our accounts using these trusted international transfer services
+                {/* Mobile Money Number - Yellow Glow */}
+                <div className="mb-3">
+                  <div className="relative inline-block">
+                    {/* Yellow glow background */}
+                    <div className="absolute -inset-2 bg-yellow-400 rounded-lg blur-lg opacity-60 animate-pulse"></div>
+
+                    <div className="relative bg-gradient-to-r from-yellow-300 to-yellow-400 text-yellow-900 font-black text-sm sm:text-base px-3 py-2 rounded-lg border border-yellow-500 shadow-lg"
+                         style={{
+                           boxShadow: '0 0 20px rgba(251, 191, 36, 0.6), 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)'
+                         }}>
+                      📱 Send to: <span className="font-black">0208705290</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-white/90 text-xs sm:text-sm drop-shadow font-medium leading-relaxed">
+                  Use these services to send money directly to our Mobile Money account
                 </p>
               </div>
             </div>
