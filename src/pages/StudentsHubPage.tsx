@@ -2961,36 +2961,35 @@ const StudentsHubPage: React.FC = () => {
                     >
                       <button
                         onClick={() => handleResourceClick(resource)}
-                        className={`w-full h-[200px] rounded-2xl p-4 border transition-all duration-300 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col backdrop-blur-md bg-white/10 border-white/20 shadow-xl hover:shadow-2xl`}
+                        className="w-full h-[200px] flex flex-col items-center justify-center rounded-2xl p-5 border border-white/60 bg-white/30 backdrop-blur-[18px] shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 text-center relative overflow-hidden"
                         style={{
-                          background: `linear-gradient(135deg, ${resource.color}22 0%, #ffffff09 100%)`,
-                          borderColor: `${resource.color}55`,
+                          boxShadow: `0 4px 32px 0 ${resource.color}33, 0 1.5px 8px 0 #0001`,
                         }}
                       >
-                        {/* YouTube Thumbnail Background for YouTube videos */}
-                        {resource.isYouTube && (
-                          <div className="absolute inset-0 bg-black opacity-50">
-                            <img
-                              src={getYouTubeThumbnail(resource.url)}
-                              alt={resource.title}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        )}
-                        <div className="p-4 flex items-start gap-3">
-                          <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-silver-800/80 border border-silver-700/40 shadow-inner">
-                            {resource.icon}
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-base font-semibold text-silver-100 truncate group-hover:text-purple-200 transition-colors">
-                              {resource.title}
-                            </h3>
-                            <p className="text-xs text-silver-400 truncate">
-                              {resource.description}
-                            </p>
-                          </div>
+                        {/* Glow Accent */}
+                        <div style={{
+                          position: 'absolute',
+                          inset: 0,
+                          borderRadius: '1rem',
+                          pointerEvents: 'none',
+                          boxShadow: `0 0 32px 0 ${resource.color}55`,
+                          zIndex: 0,
+                          opacity: 0.18
+                        }} />
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{background: 'linear-gradient(120deg,rgba(255,255,255,0.25) 0%,rgba(255,255,255,0.10) 100%)', zIndex: 1}} />
+                        {/* Icon */}
+                        <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-xl mb-3" style={{background: `${resource.color}22`}}>
+                          {resource.icon}
                         </div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-silver-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        {/* Title */}
+                        <h3 className="relative z-10 text-base font-semibold text-gray-900 mb-1 truncate group-hover:text-black transition-colors" style={{letterSpacing: '-0.01em'}}>
+                          {resource.title}
+                        </h3>
+                        {/* Description */}
+                        <p className="relative z-10 text-xs text-gray-600 truncate" style={{maxWidth: '90%'}}>
+                          {resource.description}
+                        </p>
                       </button>
                     </motion.div>
                   ))}
