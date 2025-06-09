@@ -2955,7 +2955,7 @@ const StudentsHubPage: React.FC = () => {
                   {resources.map((resource, index) => (
                     <motion.div
                       key={resource.id}
-                      initial={{ opacity: 0, scale: 0.9 }}
+                      initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       className="group"
@@ -2964,42 +2964,33 @@ const StudentsHubPage: React.FC = () => {
                         onClick={() => handleResourceClick(resource)}
                         onMouseEnter={() => setHoveredCard(resource.id)}
                         onMouseLeave={() => setHoveredCard(null)}
-                        className="w-full h-[200px] flex flex-col items-center justify-center rounded-2xl p-6 border border-white/40 bg-white/20 backdrop-blur-2xl shadow-lg hover:shadow-2xl hover:scale-[1.04] transition-all duration-300 text-center relative overflow-hidden"
+                        className="w-full h-[200px] flex flex-col items-center justify-center rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:scale-[1.05] transition-all duration-300 text-center relative overflow-hidden border-0"
                         style={{
-                          boxShadow: `0 4px 32px 0 ${resource.color}33, 0 1.5px 8px 0 #0001`,
+                          background: `linear-gradient(135deg, ${resource.color} 70%, #fff 100%)`,
+                          boxShadow: `0 6px 24px 0 ${resource.color}55, 0 1.5px 8px 0 #0002`,
                         }}
                       >
-                        {/* Glow Accent */}
-                        <div style={{
-                          position: 'absolute',
-                          inset: 0,
-                          borderRadius: '1rem',
-                          pointerEvents: 'none',
-                          boxShadow: `0 0 40px 0 ${resource.color}55`,
-                          zIndex: 0,
-                          opacity: 0.18
-                        }} />
-                        {/* Gradient Overlay */}
+                        {/* Gradient Overlay for depth */}
                         <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
-                          background: 'linear-gradient(120deg,rgba(255,255,255,0.35) 0%,rgba(255,255,255,0.10) 100%)',
+                          background: 'linear-gradient(120deg,rgba(255,255,255,0.10) 0%,rgba(0,0,0,0.04) 100%)',
                           zIndex: 1
                         }} />
                         {/* Tooltip */}
                         {hoveredCard === resource.id && (
-                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 -translate-y-full bg-white/90 text-gray-800 text-xs font-medium px-3 py-1 rounded-xl shadow border border-gray-200 z-20 pointer-events-none" style={{backdropFilter: 'blur(8px)'}}>
+                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 -translate-y-full bg-white text-gray-800 text-xs font-medium px-3 py-1 rounded-xl shadow border border-gray-200 z-20 pointer-events-none">
                             {resource.openInNewTab ? 'External' : 'Internal'}
                           </div>
                         )}
                         {/* Icon */}
-                        <div className="relative z-10 flex items-center justify-center w-14 h-14 rounded-xl mb-3" style={{background: `${resource.color}22`}}>
+                        <div className="relative z-10 flex items-center justify-center w-14 h-14 rounded-full mb-3 bg-white/90 shadow-md">
                           {resource.icon}
                         </div>
                         {/* Title */}
-                        <h3 className="relative z-10 text-base font-semibold text-gray-900 mb-1 truncate group-hover:text-black transition-colors" style={{letterSpacing: '-0.01em'}}>
+                        <h3 className="relative z-10 text-lg font-bold text-gray-900 mb-1 truncate group-hover:text-black transition-colors" style={{letterSpacing: '-0.01em'}}>
                           {resource.title}
                         </h3>
                         {/* Description */}
-                        <p className="relative z-10 text-xs text-gray-600 truncate" style={{maxWidth: '90%'}}>
+                        <p className="relative z-10 text-xs text-gray-800 truncate" style={{maxWidth: '90%'}}>
                           {resource.description}
                         </p>
                       </button>
