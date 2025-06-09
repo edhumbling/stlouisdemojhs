@@ -527,6 +527,37 @@ section, main, div[class*="container"] {
   100% { transform: rotate(360deg); }
 }
 
+/* Yet Another React Lightbox Custom Styles */
+.yarl__container {
+  background: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.yarl__slide {
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3)) !important;
+}
+
+.yarl__button {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.yarl__button:hover {
+  background: rgba(0, 0, 0, 0.8) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Optimize for 3xl screens */
+@media (min-width: 1600px) {
+  .grid-cols-3xl-10 {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+}
+
 /* Extra shiny silver shimmer for gallery images */
 @keyframes silver-shine {
   0% {

@@ -41,7 +41,7 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
 
   return (
     <>
-      <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-1 sm:gap-2 ${className}`}>
+      <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 3xl:grid-cols-10 gap-1 sm:gap-2 ${className}`}>
         {images.map((image, index) => (
           <motion.div
             key={image.id}
@@ -85,16 +85,30 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
         close={() => setLightboxOpen(false)}
         index={lightboxIndex}
         slides={lightboxSlides}
-        animation={{ fade: 300 }}
-        controller={{ closeOnBackdropClick: true }}
+        animation={{ fade: 200, swipe: 300 }}
+        controller={{
+          closeOnBackdropClick: true,
+          closeOnPullDown: true,
+          closeOnPullUp: true
+        }}
         toolbar={{
-          buttons: [
-            "close"
-          ]
+          buttons: ["close"]
         }}
         render={{
           buttonPrev: () => null,
           buttonNext: () => null,
+        }}
+        on={{
+          view: ({ index }) => {
+            // Preload adjacent images for smoother navigation
+            const preloadIndexes = [index - 1, index + 1].filter(i =>
+              i >= 0 && i < lightboxSlides.length
+            );
+            preloadIndexes.forEach(i => {
+              const img = new Image();
+              img.src = lightboxSlides[i].src;
+            });
+          }
         }}
         styles={{
           container: { 
