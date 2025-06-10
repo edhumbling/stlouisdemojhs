@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, ArrowLeft, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 const DonationPage: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const totalImages = 4; // Background image + 3 payment icons
+
   // Haptic feedback function
   const triggerHapticFeedback = (type: 'light' | 'medium' | 'heavy' = 'light') => {
     if ('vibrate' in navigator) {
@@ -15,6 +20,18 @@ const DonationPage: React.FC = () => {
       };
       navigator.vibrate(patterns[type]);
     }
+  };
+
+  // Image loading handler
+  const handleImageLoad = () => {
+    setImagesLoaded(prev => {
+      const newCount = prev + 1;
+      if (newCount >= totalImages) {
+        // Add a small delay to ensure smooth transition
+        setTimeout(() => setIsLoading(false), 800);
+      }
+      return newCount;
+    });
   };
 
   // Emoji support detection and fallback
@@ -59,17 +76,158 @@ const DonationPage: React.FC = () => {
     }
   }, []);
 
-  // Smooth scroll enhancement
+  // Loading timeout and smooth scroll enhancement
   useEffect(() => {
     // Enable smooth scrolling for the entire page
     document.documentElement.style.scrollBehavior = 'smooth';
 
+    // Fallback timeout to ensure page loads even if images fail
+    const loadingTimeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 second maximum loading time
+
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
+      clearTimeout(loadingTimeout);
     };
   }, []);
+  // Show loading screen while content loads
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 bg-gradient-to-br from-red-900 via-red-800 to-red-900 z-50 flex items-center justify-center">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
+        </div>
+
+        {/* Main Loader */}
+        <div className="relative z-10 text-center">
+          {/* School Logo/Icon */}
+          <div className="mb-8">
+            <motion.div
+              className="w-24 h-24 mx-auto bg-gradient-to-br from-white/20 to-white/10 rounded-full flex items-center justify-center shadow-2xl border border-white/30"
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 5, -5, 0]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            >
+              <Heart className="w-12 h-12 text-white" />
+            </motion.div>
+          </div>
+
+          {/* Silver Shimmer Effect */}
+          <div className="relative mb-6">
+            <div className="w-80 h-3 bg-white/20 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-transparent via-white/60 to-transparent"
+                animate={{
+                  x: ['-100%', '100%']
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Loading Text */}
+          <motion.h2
+            className="text-3xl font-bold text-white mb-2"
+            animate={{
+              opacity: [0.7, 1, 0.7]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+          >
+            💖 St. Louis Demo JHS
+          </motion.h2>
+          <p className="text-white/90 text-xl">Loading donation page...</p>
+          <p className="text-white/70 text-sm mt-2">Preparing secure payment options</p>
+
+          {/* Floating Hearts */}
+          <div className="absolute inset-0 pointer-events-none">
+            <motion.div
+              className="absolute top-1/4 left-1/4 text-red-300 text-3xl"
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            >
+              ❤️
+            </motion.div>
+            <motion.div
+              className="absolute top-1/3 right-1/4 text-pink-300 text-2xl"
+              animate={{
+                y: [0, -15, 0],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 1
+              }}
+            >
+              💕
+            </motion.div>
+            <motion.div
+              className="absolute bottom-1/3 left-1/3 text-red-400 text-xl"
+              animate={{
+                y: [0, -10, 0],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 2
+              }}
+            >
+              💖
+            </motion.div>
+            <motion.div
+              className="absolute bottom-1/4 right-1/3 text-pink-400 text-2xl"
+              animate={{
+                y: [0, -18, 0],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 0.5
+              }}
+            >
+              💗
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50 lg:overflow-hidden">
+    <motion.div
+      className="min-h-screen bg-gray-50 lg:overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
       {/* Back Button and Title Section - Red Love Theme */}
       <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
         <div className="container mx-auto px-4">
@@ -91,13 +249,20 @@ const DonationPage: React.FC = () => {
       </div>
 
       {/* Compact Header Section - Red Love Theme with Gallery Background */}
-      <section className="py-6 sm:py-8 relative overflow-hidden">
+      <motion.section
+        className="py-6 sm:py-8 relative overflow-hidden"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         {/* Gallery Background Image */}
         <div className="absolute inset-0">
           <img
             src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7118.HEIC"
             alt="St. Louis Demo JHS Students"
             className="w-full h-full object-cover"
+            onLoad={handleImageLoad}
+            onError={handleImageLoad}
           />
           {/* Red Love Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-red-600/85 via-pink-600/80 to-red-700/85"></div>
@@ -269,9 +434,30 @@ const DonationPage: React.FC = () => {
 
             {/* Payment Option Icons - Centered and Glowing on Mobile */}
             <div className="w-full flex justify-center sm:justify-between items-center mb-6 px-2 gap-4">
-              <img src="https://schoolerpghana.com/img/gateways/momo.png" alt="Momo" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
-              <img src="https://schoolerpghana.com/img/gateways/tco.png" alt="TCO" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
-              <img src="https://schoolerpghana.com/img/gateways/bankwire.png" alt="Bankwire" className="h-7 sm:h-14 w-auto rounded shadow-lg" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }} />
+              <img
+                src="https://schoolerpghana.com/img/gateways/momo.png"
+                alt="Momo"
+                className="h-7 sm:h-14 w-auto rounded shadow-lg"
+                style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}
+                onLoad={handleImageLoad}
+                onError={handleImageLoad}
+              />
+              <img
+                src="https://schoolerpghana.com/img/gateways/tco.png"
+                alt="TCO"
+                className="h-7 sm:h-14 w-auto rounded shadow-lg"
+                style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}
+                onLoad={handleImageLoad}
+                onError={handleImageLoad}
+              />
+              <img
+                src="https://schoolerpghana.com/img/gateways/bankwire.png"
+                alt="Bankwire"
+                className="h-7 sm:h-14 w-auto rounded shadow-lg"
+                style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}
+                onLoad={handleImageLoad}
+                onError={handleImageLoad}
+              />
             </div>
 
             {/* International Transfers Section - Mobile Optimized */}
@@ -462,12 +648,17 @@ const DonationPage: React.FC = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       <SectionDivider position="bottom" />
 
       {/* Main Content - Full Screen Payment Form */}
-      <section className="py-6 lg:py-0 lg:h-screen cute-font payment-section">
+      <motion.section
+        className="py-6 lg:py-0 lg:h-screen cute-font payment-section"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
         <div className="px-3 lg:px-0 lg:h-full">
           <div className="max-w-sm lg:max-w-none lg:w-full lg:h-full mx-auto lg:mx-0">
 
@@ -581,8 +772,8 @@ const DonationPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 };
 
