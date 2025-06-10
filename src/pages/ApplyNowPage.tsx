@@ -13,14 +13,27 @@ const ApplyNowPage: React.FC = () => {
     navigate(-1); // Go back to previous page
   };
 
-  // Handle loading timeout
+  // Handle loading timeout and dynamic height
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false);
     }, 2000); // 2 second loading time
 
+    // Listen for Tally height changes
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin === 'https://tally.so' && event.data.type === 'tally-height-change') {
+        const iframe = document.querySelector('iframe[src*="tally.so"]') as HTMLIFrameElement;
+        if (iframe && event.data.height) {
+          iframe.style.height = event.data.height + 'px';
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+
     return () => {
       clearTimeout(loadingTimeout);
+      window.removeEventListener('message', handleMessage);
     };
   }, []);
 
@@ -247,12 +260,11 @@ const ApplyNowPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="w-full relative"
-          style={{ minHeight: '100vh' }}
         >
           <iframe
             src="https://tally.so/embed/nrbG22?alignLeft=1&hideTitle=1&dynamicHeight=1"
             width="100%"
-            height="2000"
+            height="600"
             frameBorder="0"
             marginHeight={0}
             marginWidth={0}
@@ -261,7 +273,6 @@ const ApplyNowPage: React.FC = () => {
             style={{
               border: 0,
               width: '100%',
-              minHeight: '100vh',
               display: 'block'
             }}
           />
