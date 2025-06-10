@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Download } from 'lucide-react';
 import ShimmerLoader from '../common/ShimmerLoader';
 import AsSeenOn from './AsSeenOn';
 import { galleryImages } from '../../data';
@@ -10,6 +11,8 @@ const Hero: React.FC = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [loadedImageIndices, setLoadedImageIndices] = useState<number[]>([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [showInstallButton, setShowInstallButton] = useState(false);
 
   // 🎨 FUTURE-PROOF DAILY CYCLING HERO SYSTEM 🎨
   // Every day, the hero section displays a different set of 11 images from the gallery
@@ -71,7 +74,7 @@ const Hero: React.FC = () => {
   // Future (100 images): Day 2 = images 12-22, but cycle extends to 10 days
   const images = getDailyHeroImages();
 
-  // Handle responsive design
+  // Handle responsive design and PWA install
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -80,7 +83,38 @@ const Hero: React.FC = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
-    return () => window.removeEventListener('resize', checkMobile);
+    // PWA Install Event Listeners
+    const handleBeforeInstallPrompt = (e: Event) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later
+      setDeferredPrompt(e);
+      // Show the install button
+      setShowInstallButton(true);
+    };
+
+    const handleAppInstalled = () => {
+      // Hide the install button after successful installation
+      setShowInstallButton(false);
+      setDeferredPrompt(null);
+      console.log('PWA was installed');
+    };
+
+    // Check if app is already installed
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    const isInWebAppiOS = (window.navigator as any).standalone === true;
+    const isInstalled = isStandalone || isInWebAppiOS;
+
+    if (!isInstalled) {
+      window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.addEventListener('appinstalled', handleAppInstalled);
+    }
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
   }, []);
 
   // Add preload link tags to document head for better performance
@@ -189,6 +223,35 @@ const Hero: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [loadedImageIndices]);
+
+  // PWA Install Handler
+  const handleInstallApp = async () => {
+    if (!deferredPrompt) {
+      // Fallback for iOS or browsers that don't support beforeinstallprompt
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        alert('To install this app on your iOS device, tap the Share button and then "Add to Home Screen".');
+      } else {
+        alert('To install this app, look for "Install" or "Add to Home Screen" option in your browser menu.');
+      }
+      return;
+    }
+
+    // Show the install prompt
+    deferredPrompt.prompt();
+
+    // Wait for the user to respond to the prompt
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === 'accepted') {
+      console.log('User accepted the install prompt');
+    } else {
+      console.log('User dismissed the install prompt');
+    }
+
+    // Clear the deferredPrompt
+    setDeferredPrompt(null);
+    setShowInstallButton(false);
+  };
 
   return (
     <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden hero-section">
@@ -324,6 +387,35 @@ const Hero: React.FC = () => {
                 <span className="relative z-10 whitespace-nowrap">Donate</span>
                 <span className="absolute inset-0 bg-red-500 opacity-30 rounded-lg"></span>
               </Link>
+
+              {/* Download App Button - PWA Install */}
+              {showInstallButton && (
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={handleInstallApp}
+                  className="inline-flex items-center justify-center gap-1 px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-yellow-500/20 hover:bg-yellow-500/30 backdrop-blur-sm border border-yellow-400/50 text-yellow-100 font-bold rounded-lg shadow-[0_0_20px_rgba(251,191,36,0.4)] hover:shadow-[0_0_30px_rgba(251,191,36,0.6)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0 group"
+                  style={{
+                    textShadow: '1px 1px 2px rgba(0,0,0,0.8), 0 0 10px rgba(251,191,36,0.5)',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)'
+                  }}
+                >
+                  {/* Glass effect background */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-yellow-300/20 to-yellow-400/10 rounded-lg"></span>
+
+                  {/* Animated glow effect */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+
+                  {/* Pulsing border glow */}
+                  <span className="absolute inset-0 rounded-lg border border-yellow-400/30 animate-pulse"></span>
+
+                  <Download size={12} className="relative z-10 sm:w-3 sm:h-3 md:w-4 md:h-4" />
+                  <span className="relative z-10 whitespace-nowrap">Download App</span>
+                </motion.button>
+              )}
             </div>
           </motion.div>
         </div>
