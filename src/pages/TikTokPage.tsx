@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Play, Heart, MessageCircle, Share, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Play, Heart, MessageSquare, Share2, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const TikTokPage: React.FC = () => {
@@ -26,23 +26,64 @@ const TikTokPage: React.FC = () => {
     tallyScript.async = true;
     document.head.appendChild(tallyScript);
 
-    // Tally configuration
+    // Tally configuration - Fast loading with top positioning
     const tallyConfig = document.createElement('script');
     tallyConfig.innerHTML = `
       window.TallyConfig = {
         "formId": "mR6bJP",
         "popup": {
           "emoji": {
-            "text": "👋",
+            "text": "📹",
             "animation": "flash"
           },
           "doNotShowAfterSubmit": true,
           "overlay": true,
-          "layout": "modal"
+          "layout": "modal",
+          "width": 600,
+          "height": 700,
+          "alignTop": true,
+          "showOnce": false,
+          "hideTitle": false,
+          "autoClose": 0
         }
       };
     `;
     document.head.appendChild(tallyConfig);
+
+    // Preload and optimize popup for fast loading
+    const preloadPopup = () => {
+      // Add CSS for top positioning and fast loading
+      const style = document.createElement('style');
+      style.innerHTML = `
+        .tally-popup-overlay {
+          z-index: 9999 !important;
+        }
+        .tally-popup {
+          top: 20px !important;
+          transform: translateX(-50%) !important;
+          left: 50% !important;
+          margin-top: 0 !important;
+          animation: tallyFadeIn 0.3s ease-out !important;
+        }
+        @keyframes tallyFadeIn {
+          from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+          to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        .tally-popup iframe {
+          border-radius: 12px !important;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+        }
+      `;
+      document.head.appendChild(style);
+    };
+
+    // Wait for Tally to load then preload
+    const checkTally = setInterval(() => {
+      if ((window as any).Tally) {
+        preloadPopup();
+        clearInterval(checkTally);
+      }
+    }, 100);
 
     return () => {
       if (document.body.contains(tiktokScript)) {
@@ -54,6 +95,7 @@ const TikTokPage: React.FC = () => {
       if (document.head.contains(tallyConfig)) {
         document.head.removeChild(tallyConfig);
       }
+      clearInterval(checkTally);
     };
   }, []);
 
@@ -104,29 +146,29 @@ const TikTokPage: React.FC = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80 z-10"></div>
 
-          {/* Background Image 1 */}
+          {/* Background Image 1 - 3D Social Media Icons */}
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
+            className="absolute inset-0 bg-cover bg-center opacity-40"
             style={{
-              backgroundImage: 'url(https://i.pinimg.com/736x/8e/8f/8e/8e8f8e8c8e8f8e8c8e8f8e8c8e8f8e8c.jpg)',
+              backgroundImage: 'url(https://ik.imagekit.io/humbling/3d-rendering-social-media-icon_23-2151413531.avif)',
               transform: 'scale(1.1)'
             }}
           ></div>
 
-          {/* Background Image 2 - Overlay */}
+          {/* Background Image 2 - TikTok 3D Logo Overlay */}
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-overlay"
+            className="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-overlay"
             style={{
-              backgroundImage: 'url(https://i.pinimg.com/736x/ff/69/b4/ff69b4ff69b4ff69b4ff69b4ff69b4ff.jpg)',
+              backgroundImage: 'url(https://ik.imagekit.io/humbling/psd-tiktok-logo-3d-icon-front-view_576588-11.avif)',
               transform: 'scale(1.05) rotate(2deg)'
             }}
           ></div>
 
-          {/* Background Image 3 - Soft Light */}
+          {/* Background Image 3 - Repeated Social Media Pattern */}
           <div
             className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-soft-light"
             style={{
-              backgroundImage: 'url(https://i.pinimg.com/736x/fe/fe/fe/fefefefefefefefefefefefefefefefe.jpg)',
+              backgroundImage: 'url(https://ik.imagekit.io/humbling/3d-rendering-social-media-icon_23-2151413531.avif)',
               transform: 'scale(1.08) rotate(-1deg)'
             }}
           ></div>
@@ -216,6 +258,10 @@ const TikTokPage: React.FC = () => {
               {/* Awesome Submit Button */}
               <motion.button
                 data-tally-open="mR6bJP"
+                onClick={() => {
+                  // Scroll to top for better popup visibility
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
                 className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-pink-500/50 overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -337,11 +383,11 @@ const TikTokPage: React.FC = () => {
                           <span>{video.likes || '0'}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <MessageCircle className="w-3 h-3" />
+                          <MessageSquare className="w-3 h-3" />
                           <span>{video.comments || '0'}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Share className="w-3 h-3" />
+                          <Share2 className="w-3 h-3" />
                           <span>{video.shares || '0'}</span>
                         </div>
                       </div>
