@@ -300,49 +300,50 @@ const TikTokPage: React.FC = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-              {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                {/* Animated Background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
 
-              {/* Multiple Shimmer Effects */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-pink-300/20 to-transparent skew-x-12 translate-x-full group-hover:-translate-x-full transition-transform duration-1200 delay-200"></div>
+                {/* Multiple Shimmer Effects */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-pink-300/20 to-transparent skew-x-12 translate-x-full group-hover:-translate-x-full transition-transform duration-1200 delay-200"></div>
 
-              {/* Pulsing Border */}
-              <div className="absolute inset-0 rounded-3xl border-2 border-pink-400/50 animate-pulse"></div>
+                {/* Pulsing Border */}
+                <div className="absolute inset-0 rounded-3xl border-2 border-pink-400/50 animate-pulse"></div>
 
-              {/* Content */}
-              <motion.div
-                className="relative z-10 flex items-center gap-4"
-                animate={{
-                  textShadow: [
-                    "0 0 10px rgba(255, 20, 147, 0.5)",
-                    "0 0 20px rgba(255, 20, 147, 0.8)",
-                    "0 0 10px rgba(255, 20, 147, 0.5)"
-                  ]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <motion.span
-                  className="text-3xl"
+                {/* Content */}
+                <motion.div
+                  className="relative z-10 flex items-center gap-4"
                   animate={{
-                    rotate: [0, 15, -15, 0],
-                    scale: [1, 1.2, 1]
+                    textShadow: [
+                      "0 0 10px rgba(255, 20, 147, 0.5)",
+                      "0 0 20px rgba(255, 20, 147, 0.8)",
+                      "0 0 10px rgba(255, 20, 147, 0.5)"
+                    ]
                   }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{ duration: 2, repeat: Infinity }}
                 >
-                  📹
-                </motion.span>
-                <span>Submit Your TikTok Video</span>
-                <motion.span
-                  className="text-2xl"
-                  animate={{
-                    opacity: [0.5, 1, 0.5],
-                    scale: [1, 1.3, 1]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  ✨
-                </motion.span>
+                  <motion.span
+                    className="text-3xl"
+                    animate={{
+                      rotate: [0, 15, -15, 0],
+                      scale: [1, 1.2, 1]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    📹
+                  </motion.span>
+                  <span>Submit Your TikTok Video</span>
+                  <motion.span
+                    className="text-2xl"
+                    animate={{
+                      opacity: [0.5, 1, 0.5],
+                      scale: [1, 1.3, 1]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    ✨
+                  </motion.span>
+                </motion.div>
               </motion.div>
             </Link>
 
