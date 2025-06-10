@@ -559,7 +559,13 @@ const DonationPage: React.FC = () => {
               <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
             </div>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            <h1
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4"
+              style={{
+                textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4), 2px 2px 4px rgba(0,0,0,0.8)',
+                filter: 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.7))'
+              }}
+            >
               💖 Support Our School with Love
             </h1>
 
@@ -583,8 +589,7 @@ const DonationPage: React.FC = () => {
                   boxShadow: '0 4px 15px rgba(251, 191, 36, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
                 }}
               >
-                {/* Silver reflection overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+
 
                 <img
                   src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"
@@ -606,9 +611,6 @@ const DonationPage: React.FC = () => {
                   boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
                 }}
               >
-                {/* Silver reflection overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-
                 <span className="mr-1 sm:mr-2 text-sm sm:text-lg relative z-10">
                   <span className="inline-block group-hover:scale-110 transition-transform">
                     <span className="emoji-fallback" data-emoji="🇺🇸" data-fallback="$">🇺🇸</span>
@@ -629,9 +631,6 @@ const DonationPage: React.FC = () => {
                   boxShadow: '0 4px 15px rgba(147, 51, 234, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
                 }}
               >
-                {/* Silver reflection overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-
                 <span className="mr-1 sm:mr-2 text-sm sm:text-lg relative z-10">
                   <span className="inline-block group-hover:scale-110 transition-transform">
                     <span className="emoji-fallback" data-emoji="🇬🇧" data-fallback="£">🇬🇧</span>
@@ -652,9 +651,6 @@ const DonationPage: React.FC = () => {
                   boxShadow: '0 4px 15px rgba(34, 197, 94, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
                 }}
               >
-                {/* Silver reflection overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-
                 <span className="mr-1 sm:mr-2 text-sm sm:text-lg relative z-10">
                   <span className="inline-block group-hover:scale-110 transition-transform">
                     <span className="emoji-fallback" data-emoji="🇪🇺" data-fallback="€">🇪🇺</span>
@@ -797,8 +793,6 @@ const DonationPage: React.FC = () => {
                       boxShadow: '0 4px 15px rgba(147, 51, 234, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-
                     <img src="https://www.worldremit.com/favicon.ico" alt="WorldRemit" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                     <span className="relative z-10 leading-tight">WorldRemit</span>
 
