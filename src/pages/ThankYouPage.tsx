@@ -47,172 +47,194 @@ const ThankYouPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-100">
-      {/* Back Button and Title Section - School Colors */}
-      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
+    <div className="min-h-screen bg-white flex flex-col">
+      {/* Back Button and Title Section - Apple Style */}
+      <div className="bg-white border-b border-gray-200 sticky top-0 z-50 backdrop-blur-xl bg-white/80">
+        <div className="px-4 py-3 sm:py-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
+              className="inline-flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-full transition-all duration-200 text-sm active:scale-95"
             >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-              <span>Back to Home</span>
+              <ArrowLeft size={16} />
+              <span>Home</span>
             </Link>
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+            <h1 className="text-lg sm:text-xl font-semibold text-gray-900">
               Application Submitted
             </h1>
           </div>
         </div>
       </div>
 
-      {/* Main Thank You Content */}
-      <section className="py-8 sm:py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            
-            {/* School Logo */}
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-8"
-            >
-              <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-6 relative">
-                <img
-                  src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748099386709"
-                  alt="St. Louis Demo JHS Logo"
-                  className="w-full h-full object-contain rounded-full shadow-2xl border-4 border-white"
-                />
-                <div className="absolute -top-2 -right-2">
-                  <CheckCircle className="w-8 h-8 text-green-500 bg-white rounded-full" />
-                </div>
+      {/* Main Thank You Content - Edge to Edge */}
+      <div className="flex-1">
+        {/* Hero Section */}
+        <div className="px-4 py-8 sm:py-12 text-center bg-gradient-to-b from-green-50 to-white">
+          {/* School Logo */}
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-6"
+          >
+            <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 relative">
+              <img
+                src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748099386709"
+                alt="St. Louis Demo JHS Logo"
+                className="w-full h-full object-contain rounded-full shadow-lg"
+              />
+              <div className="absolute -top-1 -right-1">
+                <CheckCircle className="w-6 h-6 text-green-500 bg-white rounded-full shadow-sm" />
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Success Message */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-8"
-            >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-800 mb-4">
-                🎉 Thank You!
-              </h1>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700 mb-6">
-                Your Application Has Been Submitted Successfully
-              </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                Welcome to the St. Louis Demonstration Junior High School family! 
-                We have received your application and will review it carefully.
-              </p>
-            </motion.div>
-
-            {/* What Happens Next */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 mb-8 border border-green-100"
-            >
-              <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-6 flex items-center justify-center gap-2">
-                <GraduationCap className="w-6 h-6" />
-                What Happens Next?
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl">📋</span>
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Review Process</h4>
-                  <p className="text-sm text-gray-600">Our admissions team will carefully review your application</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl">📞</span>
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Contact You</h4>
-                  <p className="text-sm text-gray-600">We'll contact you within 3-5 business days</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-2xl">🎓</span>
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Next Steps</h4>
-                  <p className="text-sm text-gray-600">We'll guide you through the enrollment process</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl shadow-xl p-6 sm:p-8 text-white mb-8"
-            >
-              <h3 className="text-xl sm:text-2xl font-bold mb-6 flex items-center justify-center gap-2">
-                <Heart className="w-6 h-6" />
-                Questions? We're Here to Help!
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="flex items-center justify-center gap-3">
-                  <Phone className="w-5 h-5" />
-                  <div>
-                    <p className="font-semibold">Call Us</p>
-                    <p className="text-sm opacity-90">0244758575 • 0244730726</p>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Mail className="w-5 h-5" />
-                  <div>
-                    <p className="font-semibold">Email Us</p>
-                    <p className="text-sm opacity-90">contact@stlouisdemojhs.com</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-              className="flex flex-col sm:flex-row justify-center gap-4"
-            >
-              <Link
-                to="/"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                🏠 Return to Homepage
-              </Link>
-              <Link
-                to="/about"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                📚 Learn More About Us
-              </Link>
-            </motion.div>
-
-            {/* School Pride Message */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.2 }}
-              className="mt-12 p-6 bg-white/50 backdrop-blur-sm rounded-xl border border-white/20"
-            >
-              <p className="text-lg font-semibold text-green-800 mb-2">
-                🎓 St. Louis Demonstration Junior High School
-              </p>
-              <p className="text-gray-600">
-                47+ Years of Excellence • 30,000+ Successful Graduates • 98%+ BECE Success Rate
-              </p>
-            </motion.div>
-
-          </div>
+          {/* Success Message */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-8"
+          >
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+              Thank You! 🎉
+            </h1>
+            <h2 className="text-lg sm:text-xl font-medium text-gray-600 mb-4">
+              Your application has been submitted successfully
+            </h2>
+            <p className="text-base text-gray-500 max-w-md mx-auto leading-relaxed">
+              Welcome to the St. Louis Demo JHS family! We'll review your application carefully.
+            </p>
+          </motion.div>
         </div>
-      </section>
+
+        {/* What Happens Next - Apple Style Cards */}
+        <div className="px-4 py-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-6"
+          >
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
+              What happens next?
+            </h3>
+            <div className="space-y-3">
+              <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">📋</span>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 text-sm">Review Process</h4>
+                    <p className="text-xs text-gray-500">Our team will carefully review your application</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">📞</span>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 text-sm">We'll Contact You</h4>
+                    <p className="text-xs text-gray-500">Expect to hear from us within 3-5 business days</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">🎓</span>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 text-sm">Next Steps</h4>
+                    <p className="text-xs text-gray-500">We'll guide you through the enrollment process</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Contact Information - Apple Style */}
+        <div className="px-4 py-6 bg-gray-50">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-6"
+          >
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
+              Questions? We're here to help
+            </h3>
+            <div className="space-y-3">
+              <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-4 h-4 text-green-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 text-sm">Call Us</h4>
+                    <p className="text-xs text-gray-500">0244758575 • 0244730726</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 text-sm">Email Us</h4>
+                    <p className="text-xs text-gray-500">contact@stlouisdemojhs.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Action Buttons - Apple Style */}
+        <div className="px-4 py-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="space-y-3 mb-8"
+          >
+            <Link
+              to="/"
+              className="block w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-xl text-center transition-colors duration-200 active:scale-95 transform"
+            >
+              Return to Homepage
+            </Link>
+            <Link
+              to="/about"
+              className="block w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium py-3 px-4 rounded-xl text-center transition-colors duration-200 active:scale-95 transform"
+            >
+              Learn More About Us
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* School Pride Message - Footer Style */}
+        <div className="px-4 py-8 bg-gray-50 border-t border-gray-200">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center"
+          >
+            <p className="text-sm font-semibold text-gray-900 mb-1">
+              St. Louis Demonstration Junior High School
+            </p>
+            <p className="text-xs text-gray-500">
+              47+ Years of Excellence • 30,000+ Graduates • 98%+ BECE Success
+            </p>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 };

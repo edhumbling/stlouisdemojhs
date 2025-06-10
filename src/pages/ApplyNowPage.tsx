@@ -161,7 +161,7 @@ const ApplyNowPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-white overflow-hidden">
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4 pt-20">
         <div className="container mx-auto px-4">
@@ -206,8 +206,8 @@ const ApplyNowPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Application Form Section - Full Screen Tally Form */}
-      <section className="bg-white flex-1">
+      {/* Application Form Section - Independent Container */}
+      <section className="bg-white" style={{ height: 'calc(100vh - 140px)' }}>
         <div className="container mx-auto px-4 pb-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -228,22 +228,29 @@ const ApplyNowPage: React.FC = () => {
                 <span className="text-yellow-600 text-lg">⚠️</span>
                 <h3 className="text-sm font-bold text-yellow-800">Important Notice</h3>
               </div>
-              <p className="text-xs text-yellow-700 leading-relaxed">
+              <p className="text-xs text-yellow-700 leading-relaxed mb-2">
                 <strong>Application forms are only available during application seasons.</strong>
                 If the form appears closed or unavailable, it means the school year application period has not opened yet.
                 Please check back during our official application periods or contact us for more information.
+              </p>
+              <p className="text-xs text-yellow-700 leading-relaxed">
+                <strong>Prevent duplicate submissions:</strong> Each applicant can only submit once.
+                Our system uses your email/phone to detect duplicates.
               </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Full Screen Tally Form */}
+        {/* Full Screen Tally Form - Independent Scrolling */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="w-full relative flex-1"
-          style={{ minHeight: 'calc(100vh - 200px)' }}
+          className="w-full relative"
+          style={{
+            height: 'calc(100vh - 140px)', // Fixed height based on header
+            overflow: 'hidden'
+          }}
         >
           <iframe
             src="https://tally.so/embed/nrbG22?alignLeft=1&hideTitle=1&dynamicHeight=1"
@@ -256,10 +263,10 @@ const ApplyNowPage: React.FC = () => {
             onLoad={handleFormLoad}
             style={{
               border: 0,
-              minHeight: 'calc(100vh - 200px)',
               width: '100%',
               height: '100%',
-              display: 'block'
+              display: 'block',
+              overflow: 'auto'
             }}
           />
 
