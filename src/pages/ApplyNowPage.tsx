@@ -161,7 +161,7 @@ const ApplyNowPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-white">
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4 pt-20">
         <div className="container mx-auto px-4">
@@ -206,8 +206,8 @@ const ApplyNowPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Application Form Section - Independent Container */}
-      <section className="bg-white" style={{ height: 'calc(100vh - 140px)' }}>
+      {/* Application Form Section - Natural Scrolling */}
+      <section className="bg-white">
         <div className="container mx-auto px-4 pb-2">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -241,21 +241,18 @@ const ApplyNowPage: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Full Screen Tally Form - Independent Scrolling */}
+        {/* Tally Form - Natural Page Scrolling */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="w-full relative"
-          style={{
-            height: 'calc(100vh - 140px)', // Fixed height based on header
-            overflow: 'hidden'
-          }}
+          style={{ minHeight: '100vh' }}
         >
           <iframe
             src="https://tally.so/embed/nrbG22?alignLeft=1&hideTitle=1&dynamicHeight=1"
             width="100%"
-            height="100%"
+            height="2000"
             frameBorder="0"
             marginHeight={0}
             marginWidth={0}
@@ -264,9 +261,8 @@ const ApplyNowPage: React.FC = () => {
             style={{
               border: 0,
               width: '100%',
-              height: '100%',
-              display: 'block',
-              overflow: 'auto'
+              minHeight: '100vh',
+              display: 'block'
             }}
           />
 
