@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Play, Heart, MessageSquare, Share2, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Play, Heart, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const TikTokPage: React.FC = () => {
@@ -36,7 +36,7 @@ const TikTokPage: React.FC = () => {
             "text": "📹",
             "animation": "flash"
           },
-          "doNotShowAfterSubmit": true,
+          "doNotShowAfterSubmit": false,
           "overlay": true,
           "layout": "modal",
           "width": 600,
@@ -44,7 +44,8 @@ const TikTokPage: React.FC = () => {
           "alignTop": true,
           "showOnce": false,
           "hideTitle": false,
-          "autoClose": 0
+          "autoClose": 0,
+          "autoShow": true
         }
       };
     `;
@@ -57,30 +58,88 @@ const TikTokPage: React.FC = () => {
       style.innerHTML = `
         .tally-popup-overlay {
           z-index: 9999 !important;
+          backdrop-filter: blur(8px) !important;
         }
         .tally-popup {
-          top: 20px !important;
+          top: 60px !important;
           transform: translateX(-50%) !important;
           left: 50% !important;
           margin-top: 0 !important;
-          animation: tallyFadeIn 0.3s ease-out !important;
+          animation: tallySlideIn 0.4s ease-out !important;
+          max-height: calc(100vh - 80px) !important;
         }
-        @keyframes tallyFadeIn {
-          from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-          to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        @keyframes tallySlideIn {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-30px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0) scale(1);
+          }
         }
         .tally-popup iframe {
-          border-radius: 12px !important;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+          border-radius: 16px !important;
+          box-shadow: 0 25px 50px rgba(0,0,0,0.4) !important;
+          border: 2px solid rgba(255,255,255,0.1) !important;
+        }
+
+        /* Loading indicator */
+        .tally-loading-indicator {
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: linear-gradient(135deg, #ff0050, #8b5cf6);
+          color: white;
+          padding: 12px 24px;
+          border-radius: 25px;
+          font-size: 14px;
+          font-weight: bold;
+          z-index: 10000;
+          animation: pulse 2s infinite;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+          50% { opacity: 0.8; transform: translateX(-50%) scale(1.05); }
         }
       `;
       document.head.appendChild(style);
     };
 
-    // Wait for Tally to load then preload
+    // Wait for Tally to load then preload and auto-show popup
     const checkTally = setInterval(() => {
       if ((window as any).Tally) {
         preloadPopup();
+
+        // Auto-show popup on page load at first section
+        setTimeout(() => {
+          // Ensure we're at the top of the page
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+          // Show loading indicator
+          const loadingIndicator = document.createElement('div');
+          loadingIndicator.className = 'tally-loading-indicator';
+          loadingIndicator.textContent = '📹 Loading Video Submission Form...';
+          document.body.appendChild(loadingIndicator);
+
+          // Show the popup after a brief delay
+          setTimeout(() => {
+            if ((window as any).Tally && (window as any).Tally.openPopup) {
+              (window as any).Tally.openPopup('mR6bJP');
+
+              // Remove loading indicator after popup appears
+              setTimeout(() => {
+                if (document.body.contains(loadingIndicator)) {
+                  document.body.removeChild(loadingIndicator);
+                }
+              }, 800);
+            }
+          }, 800); // 800ms delay to ensure smooth scroll completes
+        }, 800); // 800ms after page load
+
         clearInterval(checkTally);
       }
     }, 100);
@@ -383,11 +442,11 @@ const TikTokPage: React.FC = () => {
                           <span>{video.likes || '0'}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <MessageSquare className="w-3 h-3" />
+                          <span className="text-xs">💬</span>
                           <span>{video.comments || '0'}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Share2 className="w-3 h-3" />
+                          <span className="text-xs">🔄</span>
                           <span>{video.shares || '0'}</span>
                         </div>
                       </div>
