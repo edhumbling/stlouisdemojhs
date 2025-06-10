@@ -69,7 +69,7 @@ const TikTokSubmissionPage: React.FC = () => {
       </div>
 
       {/* Tally Form - Natural Scrolling */}
-      <div className="min-h-screen">
+      <div className="min-h-screen relative">
         <iframe
           data-tally-src="https://tally.so/r/mR6bJP"
           width="100%"
@@ -78,6 +78,7 @@ const TikTokSubmissionPage: React.FC = () => {
           marginHeight={0}
           marginWidth={0}
           title="Submit Tiktok Videos of St. Louis Demo. JHS"
+          onLoad={() => setFormLoaded(true)}
           style={{
             border: 0,
             width: '100%',
@@ -85,6 +86,17 @@ const TikTokSubmissionPage: React.FC = () => {
             display: 'block'
           }}
         />
+
+        {/* Loading overlay */}
+        {!formLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-900 via-purple-900 to-black flex items-center justify-center z-10">
+            <div className="text-center">
+              <div className="w-16 h-16 border-4 border-pink-500/30 border-t-pink-500 rounded-full animate-spin mx-auto mb-4"></div>
+              <h3 className="text-xl font-bold text-white mb-2">📹 Loading Submission Form</h3>
+              <p className="text-gray-300">Preparing your TikTok video submission form...</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
