@@ -1,14 +1,175 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, GraduationCap, Users, BookOpen, Award } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 const ApplyNowPage: React.FC = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+  const [formLoaded, setFormLoaded] = useState(false);
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
   };
+
+  // Load Tally script and handle loading
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://tally.so/widgets/embed.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    // Set loading timeout
+    const loadingTimeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); // 2.5 second loading time
+
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+      clearTimeout(loadingTimeout);
+    };
+  }, []);
+
+  // Handle form load
+  const handleFormLoad = () => {
+    setFormLoaded(true);
+    setTimeout(() => setIsLoading(false), 500); // Small delay for smooth transition
+  };
+
+  // Show loading screen while form loads
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 bg-gradient-to-br from-green-900 via-green-800 to-green-900 z-50 flex items-center justify-center">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
+        </div>
+
+        {/* Main Loader */}
+        <div className="relative z-10 text-center">
+          {/* School Logo/Icon */}
+          <div className="mb-8">
+            <motion.div
+              className="w-24 h-24 mx-auto bg-gradient-to-br from-white/20 to-white/10 rounded-full flex items-center justify-center shadow-2xl border border-white/30"
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 5, -5, 0]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            >
+              <GraduationCap className="w-12 h-12 text-white" />
+            </motion.div>
+          </div>
+
+          {/* Silver Shimmer Effect */}
+          <div className="relative mb-6">
+            <div className="w-80 h-3 bg-white/20 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-transparent via-white/60 to-transparent"
+                animate={{
+                  x: ['-100%', '100%']
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Loading Text */}
+          <motion.h2
+            className="text-3xl font-bold text-white mb-2"
+            animate={{
+              opacity: [0.7, 1, 0.7]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+          >
+            🎓 St. Louis Demo JHS
+          </motion.h2>
+          <p className="text-white/90 text-xl">Loading application form...</p>
+          <p className="text-white/70 text-sm mt-2">Preparing your admission portal</p>
+
+          {/* Floating Icons */}
+          <div className="absolute inset-0 pointer-events-none">
+            <motion.div
+              className="absolute top-1/4 left-1/4 text-green-300 text-3xl"
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            >
+              📝
+            </motion.div>
+            <motion.div
+              className="absolute top-1/3 right-1/4 text-blue-300 text-2xl"
+              animate={{
+                y: [0, -15, 0],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 1
+              }}
+            >
+              🎓
+            </motion.div>
+            <motion.div
+              className="absolute bottom-1/3 left-1/3 text-yellow-300 text-xl"
+              animate={{
+                y: [0, -10, 0],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 2
+              }}
+            >
+              📚
+            </motion.div>
+            <motion.div
+              className="absolute bottom-1/4 right-1/3 text-purple-300 text-2xl"
+              animate={{
+                y: [0, -18, 0],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 0.5
+              }}
+            >
+              🏫
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -96,111 +257,61 @@ const ApplyNowPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Application Form Section - Mobile-Friendly */}
-      <section className="py-8 sm:py-12 md:py-16 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Application Form Section - Full Screen Tally Form */}
+      <section className="bg-white">
+        <div className="container mx-auto px-4 pb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center mb-8 sm:mb-12"
+            className="text-center mb-8"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 sm:mb-6">
-              Start Your Application
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Complete Your Application
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Begin your journey with us. Application form coming soon!
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              Fill out the form below to begin your journey with St. Louis Demo JHS
             </p>
           </motion.div>
-
-          {/* Application Placeholder - Mobile-Friendly */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 md:p-12 rounded-2xl text-center mb-8 sm:mb-12 border border-gray-200 shadow-lg"
-          >
-            <div className="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-6">📝</div>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">Application Form Coming Soon!</h3>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
-              We're preparing a comprehensive application system. Contact us directly for admission inquiries.
-            </p>
-
-            {/* Contact Cards - Mobile-Friendly Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
-              <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200">
-                <div className="text-xl sm:text-2xl mb-2">📱</div>
-                <div className="text-gray-800 font-medium text-sm sm:text-base">0244758575</div>
-              </div>
-              <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200">
-                <div className="text-xl sm:text-2xl mb-2">📱</div>
-                <div className="text-gray-800 font-medium text-sm sm:text-base">0244730726</div>
-              </div>
-              <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200">
-                <div className="text-xl sm:text-2xl mb-2">✉️</div>
-                <div className="text-gray-800 font-medium text-xs sm:text-sm">contact@stlouisdemojhs.com</div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Information Section - Mobile-Friendly */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="max-w-2xl mx-auto"
-          >
-            <div className="bg-blue-50 border border-blue-200 p-6 sm:p-8 rounded-2xl text-center">
-              <h4 className="text-blue-700 font-semibold mb-4 sm:mb-6 text-lg sm:text-xl">📋 Required Documents</h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-gray-700">
-                <div className="text-left">
-                  <div className="mb-2 text-sm sm:text-base">• Birth Certificate</div>
-                  <div className="text-sm sm:text-base">• Previous School Records</div>
-                </div>
-                <div className="text-left">
-                  <div className="mb-2 text-sm sm:text-base">• Passport Photos</div>
-                  <div className="text-sm sm:text-base">• Parent/Guardian ID</div>
-                </div>
-              </div>
-              <p className="text-gray-600 text-xs sm:text-sm mt-4 sm:mt-6 italic">
-                All application details and deadlines will be provided in the application form
-              </p>
-            </div>
-          </motion.div>
         </div>
+
+        {/* Full Screen Tally Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="w-full"
+          style={{ height: '100vh', minHeight: '600px' }}
+        >
+          <iframe
+            data-tally-src="https://tally.so/r/nrbG22?transparentBackground=1"
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            title="Application Form * St. Louis Demo. J.H.S"
+            onLoad={handleFormLoad}
+            style={{
+              border: 0,
+              position: 'relative',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0
+            }}
+          />
+
+          {/* Loading overlay for form */}
+          {!formLoaded && (
+            <div className="absolute inset-0 bg-white flex items-center justify-center">
+              <ShimmerLoader variant="silver" width="w-full" height="h-full" />
+            </div>
+          )}
+        </motion.div>
       </section>
 
-      {/* Call to Action - Mobile-Friendly */}
-      <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-green-50 to-blue-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 sm:mb-8">
-              Ready to Join Our School Family?
-            </h3>
-            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-2xl mx-auto">
-              <Link
-                to="/schedule-visit"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
-              >
-                📅 Schedule a Visit First
-              </Link>
-              <Link
-                to="/contact"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
-              >
-                💬 Contact Admissions
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+
     </div>
   );
 };
