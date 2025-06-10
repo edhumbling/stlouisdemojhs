@@ -253,7 +253,7 @@ const DonationPage: React.FC = () => {
             💖 St. Louis Demo JHS
           </motion.h2>
           <p className="text-white/90 text-lg">Loading donation portal...</p>
-          <p className="text-silver/80 text-sm mt-1">Blazingly fast • No glitches</p>
+          <p className="text-silver/80 text-sm mt-1">Supporting education • Changing lives</p>
 
           {/* Fast Floating Hearts */}
           <div className="absolute inset-0 pointer-events-none">
@@ -721,8 +721,7 @@ const DonationPage: React.FC = () => {
                       }}
                     />
 
-                    {/* Enhanced silver reflection overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-800 ease-out rounded-xl"></div>
+
 
                     {/* Floating sparkle effects */}
                     <div className="absolute -top-2 -right-2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping" style={{ animationDelay: '0.2s' }}></div>
@@ -747,8 +746,7 @@ const DonationPage: React.FC = () => {
                       boxShadow: '0 4px 15px rgba(239, 68, 68, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
                     }}
                   >
-                    {/* Silver reflection overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+
 
                     <img src="https://www.taptapsend.com/favicon.ico" alt="TapTapSend" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                     <span className="relative z-10 leading-tight">TapTap Send</span>
@@ -767,8 +765,6 @@ const DonationPage: React.FC = () => {
                       boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-
                     <img src="https://www.payangel.com/favicon.ico" alt="PayAngel" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                     <span className="relative z-10 leading-tight">PayAngel</span>
 
@@ -785,8 +781,6 @@ const DonationPage: React.FC = () => {
                       boxShadow: '0 4px 15px rgba(34, 197, 94, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-
                     <img src="https://www.sendwave.com/favicon.ico" alt="Sendwave" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                     <span className="relative z-10 leading-tight">Sendwave</span>
 
