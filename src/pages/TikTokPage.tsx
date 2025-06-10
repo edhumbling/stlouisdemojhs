@@ -12,15 +12,27 @@ const TikTokPage: React.FC = () => {
     navigate(-1);
   };
 
-  // Load TikTok embed script
+  // Load TikTok embed script and Tally popup script
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://www.tiktok.com/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
+    // TikTok embed script
+    const tiktokScript = document.createElement('script');
+    tiktokScript.src = 'https://www.tiktok.com/embed.js';
+    tiktokScript.async = true;
+    document.body.appendChild(tiktokScript);
+
+    // Tally popup script
+    const tallyScript = document.createElement('script');
+    tallyScript.src = 'https://tally.so/widgets/embed.js';
+    tallyScript.async = true;
+    document.head.appendChild(tallyScript);
 
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(tiktokScript)) {
+        document.body.removeChild(tiktokScript);
+      }
+      if (document.head.contains(tallyScript)) {
+        document.head.removeChild(tallyScript);
+      }
     };
   }, []);
 
@@ -97,6 +109,67 @@ const TikTokPage: React.FC = () => {
               </div>
               <div className="bg-blue-600/20 text-blue-200 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/30">
                 🏆 Achievements
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Video Submission Section */}
+      <section className="py-8 sm:py-12 bg-gradient-to-r from-purple-900/30 via-pink-900/30 to-purple-900/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <div className="bg-gradient-to-br from-pink-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl border border-pink-500/30 p-6 sm:p-8">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
+                  <span className="text-2xl">📹</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  Submit Your Video
+                </h3>
+              </div>
+
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Have a TikTok video featuring St. Louis Demonstration JHS? Submit it through our form
+                and we'll consider featuring it on our website! Share your school moments with our community.
+              </p>
+
+              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+                <button
+                  data-tally-open="mR6bJP"
+                  data-tally-emoji-text="📹"
+                  data-tally-emoji-animation="wave"
+                  className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-pink-500/50"
+                >
+                  <span className="text-xl">📹</span>
+                  <span>Submit Video via Form</span>
+                </button>
+
+                <a
+                  href="#tally-open=mR6bJP&tally-emoji-text=📹&tally-emoji-animation=wave"
+                  className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-purple-500/50"
+                >
+                  <span className="text-xl">🔗</span>
+                  <span>Alternative Link</span>
+                </a>
+              </div>
+
+              <div className="text-sm text-gray-400 space-y-2">
+                <p>💡 <strong>Tip:</strong> Make sure your video mentions "St. Louis Demo JHS" or uses our hashtags</p>
+                <div className="flex flex-wrap justify-center gap-2 mt-3">
+                  <span className="bg-pink-600/20 text-pink-200 px-3 py-1 rounded-full text-xs">
+                    #StLouisDemoJHS
+                  </span>
+                  <span className="bg-purple-600/20 text-purple-200 px-3 py-1 rounded-full text-xs">
+                    #DemonstrationJHS
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -226,8 +299,9 @@ const TikTokPage: React.FC = () => {
               Share Your St. Louis Moments
             </h3>
             <p className="text-gray-300 mb-6">
-              Tag us in your TikTok videos using <strong>#StLouisDemoJHS</strong> or mention 
+              Tag us in your TikTok videos using <strong>#StLouisDemoJHS</strong> or mention
               <strong> "St. Louis Demo JHS"</strong> to be featured on our website!
+              You can also submit your videos directly through our form above.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <span className="bg-pink-600/30 text-pink-200 px-4 py-2 rounded-full text-sm font-medium">
