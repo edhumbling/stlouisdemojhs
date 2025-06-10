@@ -47,7 +47,76 @@ const TikTokPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black overflow-auto">
+    <>
+      {/* Silver Shimmer CSS Animations */}
+      <style jsx>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%) skewX(-12deg); }
+          100% { transform: translateX(200%) skewX(-12deg); }
+        }
+
+        @keyframes shimmer-reverse {
+          0% { transform: translateX(200%) skewX(12deg); }
+          100% { transform: translateX(-100%) skewX(12deg); }
+        }
+
+        .animate-shimmer {
+          animation: shimmer 2s infinite linear;
+        }
+
+        .animate-shimmer-reverse {
+          animation: shimmer-reverse 2.5s infinite linear;
+          animation-delay: 0.5s;
+        }
+
+        /* Silver color definitions */
+        .bg-silver {
+          background-color: #c0c0c0;
+        }
+
+        .bg-silver\\/10 {
+          background-color: rgba(192, 192, 192, 0.1);
+        }
+
+        .bg-silver\\/20 {
+          background-color: rgba(192, 192, 192, 0.2);
+        }
+
+        .bg-silver\\/30 {
+          background-color: rgba(192, 192, 192, 0.3);
+        }
+
+        .bg-silver\\/50 {
+          background-color: rgba(192, 192, 192, 0.5);
+        }
+
+        .from-silver {
+          --tw-gradient-from: #c0c0c0;
+          --tw-gradient-to: rgba(192, 192, 192, 0);
+          --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+        }
+
+        .via-silver\\/20 {
+          --tw-gradient-to: rgba(192, 192, 192, 0);
+          --tw-gradient-stops: var(--tw-gradient-from), rgba(192, 192, 192, 0.2), var(--tw-gradient-to);
+        }
+
+        .via-silver\\/30 {
+          --tw-gradient-to: rgba(192, 192, 192, 0);
+          --tw-gradient-stops: var(--tw-gradient-from), rgba(192, 192, 192, 0.3), var(--tw-gradient-to);
+        }
+
+        .via-silver\\/50 {
+          --tw-gradient-to: rgba(192, 192, 192, 0);
+          --tw-gradient-stops: var(--tw-gradient-from), rgba(192, 192, 192, 0.5), var(--tw-gradient-to);
+        }
+
+        .to-silver {
+          --tw-gradient-to: #c0c0c0;
+        }
+      `}</style>
+
+      <div className="min-h-screen bg-black overflow-auto">
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-pink-900 via-purple-800 to-pink-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
@@ -146,8 +215,46 @@ const TikTokPage: React.FC = () => {
         <div className="container mx-auto px-4">
           {loading ? (
             <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500"></div>
-              <p className="text-gray-300 mt-4">Loading TikTok videos...</p>
+              {/* Silver Shimmer Loading Effects */}
+              <div className="max-w-4xl mx-auto space-y-6">
+                {/* Main Loading Spinner with Silver Glow */}
+                <div className="relative">
+                  <div className="inline-block animate-spin rounded-full h-16 w-16 border-4 border-transparent bg-gradient-to-r from-silver via-white to-silver bg-clip-border">
+                    <div className="absolute inset-2 bg-black rounded-full"></div>
+                  </div>
+                  <div className="absolute inset-0 animate-ping rounded-full h-16 w-16 bg-silver/20 mx-auto"></div>
+                </div>
+
+                {/* Silver Shimmer Video Placeholders */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                  {[1, 2, 3, 4, 5, 6].map((index) => (
+                    <div key={index} className="relative bg-gray-800 rounded-xl overflow-hidden h-96">
+                      {/* Silver Shimmer Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-silver/30 to-transparent -skew-x-12 animate-shimmer"></div>
+                      <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-transparent skew-x-12 animate-shimmer-reverse"></div>
+
+                      {/* Placeholder Content */}
+                      <div className="p-4 h-full flex flex-col justify-between">
+                        <div className="space-y-3">
+                          <div className="h-4 bg-gray-700 rounded animate-pulse"></div>
+                          <div className="h-3 bg-gray-700 rounded w-3/4 animate-pulse"></div>
+                        </div>
+                        <div className="flex items-center justify-center flex-1">
+                          <Play className="w-12 h-12 text-gray-600" />
+                        </div>
+                        <div className="space-y-2">
+                          <div className="h-3 bg-gray-700 rounded w-1/2 animate-pulse"></div>
+                          <div className="h-3 bg-gray-700 rounded w-1/3 animate-pulse"></div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-gray-300 mt-6 text-lg font-medium">
+                  ✨ Loading TikTok videos with silver shimmer...
+                </p>
+              </div>
             </div>
           ) : videos.length > 0 ? (
             <>
@@ -174,8 +281,11 @@ const TikTokPage: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300"
+                    className="bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300 relative group"
                   >
+                    {/* Silver Reflection Effect on Hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-silver/10 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/5 to-transparent skew-x-12 translate-x-full group-hover:-translate-x-full transition-transform duration-1200 delay-200 pointer-events-none"></div>
                     {/* TikTok Embed */}
                     <div className="aspect-[9/16] bg-black rounded-t-2xl overflow-hidden">
                       <blockquote 
@@ -183,10 +293,21 @@ const TikTokPage: React.FC = () => {
                         cite={video.url}
                         data-video-id={video.id}
                       >
-                        <section className="w-full h-full flex items-center justify-center bg-gray-800">
-                          <div className="text-center text-gray-400">
-                            <Play className="w-12 h-12 mx-auto mb-2" />
-                            <p className="text-sm">Loading TikTok video...</p>
+                        <section className="w-full h-full flex items-center justify-center bg-gray-800 relative overflow-hidden">
+                          {/* Silver Shimmer Loading Effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-silver/20 to-transparent -skew-x-12 animate-shimmer"></div>
+                          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/15 to-transparent skew-x-12 animate-shimmer-reverse"></div>
+
+                          {/* Loading Content with Silver Glow */}
+                          <div className="text-center text-gray-400 relative z-10">
+                            <div className="relative">
+                              <Play className="w-12 h-12 mx-auto mb-2 drop-shadow-lg" />
+                              <div className="absolute inset-0 w-12 h-12 mx-auto mb-2 bg-silver/10 rounded-full animate-ping"></div>
+                            </div>
+                            <p className="text-sm font-medium">
+                              ✨ Loading TikTok video...
+                            </p>
+                            <div className="mt-2 h-1 w-16 mx-auto bg-gradient-to-r from-transparent via-silver/50 to-transparent rounded animate-pulse"></div>
                           </div>
                         </section>
                       </blockquote>
@@ -234,16 +355,21 @@ const TikTokPage: React.FC = () => {
             </>
           ) : (
             <div className="text-center py-12">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Play className="w-8 h-8 text-white" />
+              <div className="relative w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 overflow-hidden group">
+                {/* Silver Shimmer Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-silver/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                <Play className="w-8 h-8 text-white relative z-10" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">No Videos Found Yet</h3>
               <p className="text-gray-300 mb-6 max-w-md mx-auto">
-                We're currently searching for TikTok videos featuring St. Louis Demonstration JHS. 
+                We're currently searching for TikTok videos featuring St. Louis Demonstration JHS.
                 Check back soon for the latest content!
               </p>
-              <div className="text-sm text-gray-400">
-                Videos are automatically updated weekly
+              <div className="text-sm text-gray-400 relative">
+                <span className="relative">
+                  Videos are automatically updated weekly
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-silver/20 to-transparent animate-shimmer"></div>
+                </span>
               </div>
             </div>
           )}
@@ -383,7 +509,8 @@ const TikTokPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 
