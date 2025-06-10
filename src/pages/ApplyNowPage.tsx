@@ -13,28 +13,14 @@ const ApplyNowPage: React.FC = () => {
     navigate(-1); // Go back to previous page
   };
 
-  // Load Tally script and handle loading
+  // Handle loading timeout
   useEffect(() => {
-    // Tally embed script - inline version
-    const tallyScript = `
-      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-    `;
-
-    const script = document.createElement('script');
-    script.innerHTML = tallyScript;
-    document.body.appendChild(script);
-
     // Set loading timeout
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false);
-    }, 2500); // 2.5 second loading time
+    }, 2000); // 2 second loading time
 
     return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
       clearTimeout(loadingTimeout);
     };
   }, []);
@@ -288,10 +274,9 @@ const ApplyNowPage: React.FC = () => {
           style={{ minHeight: '100vh' }}
         >
           <iframe
-            data-tally-src="https://tally.so/embed/nrbG22?alignLeft=1&hideTitle=1&dynamicHeight=1"
-            loading="lazy"
+            src="https://tally.so/embed/nrbG22?alignLeft=1&hideTitle=1&dynamicHeight=1"
             width="100%"
-            height="200"
+            height="100%"
             frameBorder="0"
             marginHeight={0}
             marginWidth={0}
@@ -300,14 +285,18 @@ const ApplyNowPage: React.FC = () => {
             style={{
               border: 0,
               minHeight: '100vh',
-              width: '100%'
+              width: '100%',
+              height: '100vh'
             }}
           />
 
           {/* Loading overlay for form */}
           {!formLoaded && (
-            <div className="absolute inset-0 bg-white flex items-center justify-center">
-              <ShimmerLoader variant="silver" width="w-full" height="h-full" />
+            <div className="absolute inset-0 bg-white flex items-center justify-center z-10">
+              <div className="text-center">
+                <ShimmerLoader variant="silver" width="w-80" height="h-4" className="mb-4" />
+                <p className="text-gray-600">Loading application form...</p>
+              </div>
             </div>
           )}
         </motion.div>
