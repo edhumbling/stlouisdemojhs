@@ -47,6 +47,7 @@ import SHSDatabasePage from './pages/SHSDatabasePage';
 import SHSPdfViewerPage from './pages/SHSPdfViewerPage';
 import ResultsPlacementPage from './pages/ResultsPlacementPage';
 import TikTokPage from './pages/TikTokPage';
+import TikTokSubmissionPage from './pages/TikTokSubmissionPage';
 
 
 
@@ -155,6 +156,7 @@ const App: React.FC = () => {
           <Route path="/shs-database/pdf/:pdfId" element={<SHSPdfViewerPage />} />
           <Route path="/results-placement" element={<ResultsPlacementPage />} />
           <Route path="/tiktok" element={<TikTokPage />} />
+          <Route path="/tiktok-submit" element={<TikTokSubmissionPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />

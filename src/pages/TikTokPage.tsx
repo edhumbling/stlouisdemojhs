@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Heart, ExternalLink } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const TikTokPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,167 +12,17 @@ const TikTokPage: React.FC = () => {
     navigate(-1);
   };
 
-  // Load TikTok embed script and Tally popup script with config
+  // Load TikTok embed script
   useEffect(() => {
-    // TikTok embed script
-    const tiktokScript = document.createElement('script');
-    tiktokScript.src = 'https://www.tiktok.com/embed.js';
-    tiktokScript.async = true;
-    document.body.appendChild(tiktokScript);
-
-    // Tally popup script
-    const tallyScript = document.createElement('script');
-    tallyScript.src = 'https://tally.so/widgets/embed.js';
-    tallyScript.async = true;
-    document.head.appendChild(tallyScript);
-
-    // Tally configuration - Fast loading with top positioning
-    const tallyConfig = document.createElement('script');
-    tallyConfig.innerHTML = `
-      window.TallyConfig = {
-        "formId": "mR6bJP",
-        "popup": {
-          "emoji": {
-            "text": "📹",
-            "animation": "flash"
-          },
-          "doNotShowAfterSubmit": false,
-          "overlay": true,
-          "layout": "modal",
-          "width": 600,
-          "height": 700,
-          "alignTop": true,
-          "showOnce": false,
-          "hideTitle": false,
-          "autoClose": 0,
-          "autoShow": true
-        }
-      };
-    `;
-    document.head.appendChild(tallyConfig);
-
-    // Preload and optimize popup for fast loading
-    const preloadPopup = () => {
-      // Add CSS for top positioning and fast loading
-      const style = document.createElement('style');
-      style.innerHTML = `
-        .tally-popup-overlay {
-          z-index: 9999 !important;
-          backdrop-filter: blur(8px) !important;
-        }
-        .tally-popup {
-          top: 60px !important;
-          transform: translateX(-50%) !important;
-          left: 50% !important;
-          margin-top: 0 !important;
-          animation: tallySlideIn 0.4s ease-out !important;
-          max-height: calc(100vh - 80px) !important;
-        }
-
-        /* Footer popup positioning */
-        .tally-popup.footer-popup {
-          top: auto !important;
-          bottom: 20px !important;
-          animation: tallySlideUp 0.4s ease-out !important;
-        }
-        @keyframes tallySlideIn {
-          from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(-30px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0) scale(1);
-          }
-        }
-
-        @keyframes tallySlideUp {
-          from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(30px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0) scale(1);
-          }
-        }
-        .tally-popup iframe {
-          border-radius: 16px !important;
-          box-shadow: 0 25px 50px rgba(0,0,0,0.4) !important;
-          border: 2px solid rgba(255,255,255,0.1) !important;
-        }
-
-        /* Loading indicator */
-        .tally-loading-indicator {
-          position: fixed;
-          top: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: linear-gradient(135deg, #ff0050, #8b5cf6);
-          color: white;
-          padding: 12px 24px;
-          border-radius: 25px;
-          font-size: 14px;
-          font-weight: bold;
-          z-index: 10000;
-          animation: pulse 2s infinite;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        @keyframes pulse {
-          0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
-          50% { opacity: 0.8; transform: translateX(-50%) scale(1.05); }
-        }
-      `;
-      document.head.appendChild(style);
-    };
-
-    // Wait for Tally to load then preload and auto-show popup
-    const checkTally = setInterval(() => {
-      if ((window as any).Tally) {
-        preloadPopup();
-
-        // Auto-show popup on page load at first section
-        setTimeout(() => {
-          // Ensure we're at the top of the page
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-
-          // Show loading indicator
-          const loadingIndicator = document.createElement('div');
-          loadingIndicator.className = 'tally-loading-indicator';
-          loadingIndicator.textContent = '📹 Loading Video Submission Form...';
-          document.body.appendChild(loadingIndicator);
-
-          // Show the popup after a brief delay
-          setTimeout(() => {
-            if ((window as any).Tally && (window as any).Tally.openPopup) {
-              (window as any).Tally.openPopup('mR6bJP');
-
-              // Remove loading indicator after popup appears
-              setTimeout(() => {
-                if (document.body.contains(loadingIndicator)) {
-                  document.body.removeChild(loadingIndicator);
-                }
-              }, 800);
-            }
-          }, 800); // 800ms delay to ensure smooth scroll completes
-        }, 800); // 800ms after page load
-
-        clearInterval(checkTally);
-      }
-    }, 100);
+    const script = document.createElement('script');
+    script.src = 'https://www.tiktok.com/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
 
     return () => {
-      if (document.body.contains(tiktokScript)) {
-        document.body.removeChild(tiktokScript);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
       }
-      if (document.head.contains(tallyScript)) {
-        document.head.removeChild(tallyScript);
-      }
-      if (document.head.contains(tallyConfig)) {
-        document.head.removeChild(tallyConfig);
-      }
-      clearInterval(checkTally);
     };
   }, []);
 
@@ -441,26 +291,15 @@ const TikTokPage: React.FC = () => {
             className="text-center"
           >
             {/* Distinguished Submit Button */}
-            <motion.button
-              data-tally-open="mR6bJP"
-              onClick={() => {
-                // Custom popup positioning for footer
-                setTimeout(() => {
-                  const popup = document.querySelector('.tally-popup') as HTMLElement;
-                  if (popup) {
-                    popup.style.bottom = '20px';
-                    popup.style.top = 'auto';
-                    popup.style.transform = 'translateX(-50%)';
-                  }
-                }, 100);
-              }}
-              className="group relative inline-flex items-center justify-center gap-4 px-12 py-6 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white font-bold text-xl rounded-3xl shadow-2xl hover:shadow-pink-500/25 transition-all duration-500 transform hover:scale-110 border-2 border-pink-500/50 overflow-hidden"
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0 0 40px rgba(255, 20, 147, 0.6)"
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <Link to="/tiktok-submit">
+              <motion.div
+                className="group relative inline-flex items-center justify-center gap-4 px-12 py-6 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white font-bold text-xl rounded-3xl shadow-2xl hover:shadow-pink-500/25 transition-all duration-500 transform hover:scale-110 border-2 border-pink-500/50 overflow-hidden cursor-pointer"
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow: "0 0 40px rgba(255, 20, 147, 0.6)"
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
               {/* Animated Background */}
               <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
 
@@ -505,7 +344,7 @@ const TikTokPage: React.FC = () => {
                   ✨
                 </motion.span>
               </motion.div>
-            </motion.button>
+            </Link>
 
             {/* Footer Description */}
             <motion.p
@@ -516,7 +355,7 @@ const TikTokPage: React.FC = () => {
             >
               Share your St. Louis Demo JHS moments with our community!
               <br />
-              <span className="text-pink-300 font-semibold">Click above to submit your video</span>
+              <span className="text-pink-300 font-semibold">Click above to open our full-screen submission form</span>
             </motion.p>
 
             {/* Floating Hashtags */}
