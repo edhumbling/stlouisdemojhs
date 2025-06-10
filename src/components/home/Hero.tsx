@@ -224,34 +224,67 @@ const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, [loadedImageIndices]);
 
-  // PWA Install Handler
+  // PWA Install Handler with Enhanced UX
   const handleInstallApp = async () => {
     if (!deferredPrompt) {
-      // Fallback for iOS or browsers that don't support beforeinstallprompt
+      // Enhanced fallback for iOS with better instructions
       if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        alert('To install this app on your iOS device, tap the Share button and then "Add to Home Screen".');
+        const message = `📱 Install St. Louis Demo. J.H.S App on iOS:\n\n1. Tap the Share button (📤) at the bottom\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add" to install the app\n\n✨ Get instant access with the school logo on your home screen!`;
+        alert(message);
       } else {
-        alert('To install this app, look for "Install" or "Add to Home Screen" option in your browser menu.');
+        const message = `📱 Install St. Louis Demo. J.H.S App:\n\n• Look for "Install" or "Add to Home Screen" in your browser menu\n• Or check the address bar for an install icon\n\n✨ Get the full app experience with offline access!`;
+        alert(message);
       }
       return;
     }
 
-    // Show the install prompt
-    deferredPrompt.prompt();
+    try {
+      // Show the install prompt
+      deferredPrompt.prompt();
 
-    // Wait for the user to respond to the prompt
-    const { outcome } = await deferredPrompt.userChoice;
+      // Wait for the user to respond to the prompt
+      const { outcome } = await deferredPrompt.userChoice;
 
-    if (outcome === 'accepted') {
-      console.log('User accepted the install prompt');
-    } else {
-      console.log('User dismissed the install prompt');
+      if (outcome === 'accepted') {
+        console.log('✅ User accepted the install prompt');
+
+        // Show success notification
+        if ('Notification' in window && Notification.permission === 'granted') {
+          new Notification('🎉 St. Louis Demo. J.H.S App Installing!', {
+            body: 'The app is being added to your device. You\'ll see the school logo on your home screen shortly.',
+            icon: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs',
+            badge: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs',
+            tag: 'pwa-install',
+            requireInteraction: false
+          });
+        }
+
+        // Show in-page success message
+        setTimeout(() => {
+          alert('🎉 App installed successfully! Look for the St. Louis Demo. J.H.S icon with the school logo on your home screen.');
+        }, 1000);
+
+      } else {
+        console.log('❌ User dismissed the install prompt');
+      }
+
+    } catch (error) {
+      console.error('Error during installation:', error);
+    } finally {
+      // Clear the deferredPrompt
+      setDeferredPrompt(null);
+      setShowInstallButton(false);
     }
-
-    // Clear the deferredPrompt
-    setDeferredPrompt(null);
-    setShowInstallButton(false);
   };
+
+  // Request notification permission for better UX
+  useEffect(() => {
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission().then(permission => {
+        console.log('Notification permission:', permission);
+      });
+    }
+  }, []);
 
   return (
     <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden hero-section">
@@ -388,32 +421,42 @@ const Hero: React.FC = () => {
                 <span className="absolute inset-0 bg-red-500 opacity-30 rounded-lg"></span>
               </Link>
 
-              {/* Download App Button - PWA Install */}
+              {/* Download App Button - PWA Install with School Logo */}
               {showInstallButton && (
                 <motion.button
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, y: 20 }}
+                  transition={{ duration: 0.5, type: "spring", bounce: 0.3 }}
                   onClick={handleInstallApp}
-                  className="inline-flex items-center justify-center gap-1 px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-yellow-500/20 hover:bg-yellow-500/30 backdrop-blur-sm border border-yellow-400/50 text-yellow-100 font-bold rounded-lg shadow-[0_0_20px_rgba(251,191,36,0.4)] hover:shadow-[0_0_30px_rgba(251,191,36,0.6)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0 group"
+                  className="inline-flex items-center justify-center gap-1.5 px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-yellow-500/25 hover:bg-yellow-500/35 backdrop-blur-xl border-2 border-yellow-400/60 text-yellow-50 font-bold rounded-xl shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:shadow-[0_0_35px_rgba(251,191,36,0.7)] transition-all duration-500 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0 group"
                   style={{
-                    textShadow: '1px 1px 2px rgba(0,0,0,0.8), 0 0 10px rgba(251,191,36,0.5)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)'
+                    textShadow: '1px 1px 3px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.6)',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)'
                   }}
                 >
-                  {/* Glass effect background */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-yellow-300/20 to-yellow-400/10 rounded-lg"></span>
+                  {/* Enhanced glass effect background */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-yellow-400/15 via-yellow-300/25 to-yellow-400/15 rounded-xl"></span>
 
-                  {/* Animated glow effect */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                  {/* Multiple animated glow effects */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1200"></span>
+                  <span className="absolute inset-0 bg-gradient-to-l from-transparent via-white/20 to-transparent skew-x-12 translate-x-full group-hover:-translate-x-full transition-transform duration-1000 delay-200"></span>
 
                   {/* Pulsing border glow */}
-                  <span className="absolute inset-0 rounded-lg border border-yellow-400/30 animate-pulse"></span>
+                  <span className="absolute inset-0 rounded-xl border-2 border-yellow-400/40 animate-pulse"></span>
 
-                  <Download size={12} className="relative z-10 sm:w-3 sm:h-3 md:w-4 md:h-4" />
+                  {/* School Logo */}
+                  <img
+                    src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
+                    alt="St. Louis Demo. J.H.S Logo"
+                    className="relative z-10 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 rounded-sm shadow-lg"
+                  />
+
                   <span className="relative z-10 whitespace-nowrap">Download App</span>
+
+                  {/* Download icon */}
+                  <Download size={10} className="relative z-10 sm:w-3 sm:h-3 md:w-4 md:h-4 animate-bounce" />
                 </motion.button>
               )}
             </div>
