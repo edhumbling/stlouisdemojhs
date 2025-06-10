@@ -18,6 +18,7 @@ import StudentsHubPage from './pages/StudentsHubPage';
 import AdviceSpeechesPage from './pages/AdviceSpeechesPage';
 import GalleryPage from './pages/GalleryPage';
 import ApplyNowPage from './pages/ApplyNowPage';
+import ThankYouPage from './pages/ThankYouPage';
 import ScheduleVisitPage from './pages/ScheduleVisitPage';
 import PartnerPage from './pages/PartnerPage';
 import AlumniPage from './pages/AlumniPage';
@@ -139,6 +140,7 @@ const App: React.FC = () => {
           <Route path="advice-speeches" element={<AdviceSpeechesPage />} />
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="apply-now" element={<ApplyNowPage />} />
+          <Route path="thank-you" element={<ThankYouPage />} />
           <Route path="schedule-visit" element={<ScheduleVisitPage />} />
           <Route path="partner" element={<PartnerPage />} />
           <Route path="alumni" element={<AlumniPage />} />

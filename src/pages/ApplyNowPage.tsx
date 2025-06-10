@@ -219,9 +219,22 @@ const ApplyNowPage: React.FC = () => {
             <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
               Application Form
             </h2>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 mb-3">
               Fill out the form below to apply
             </p>
+
+            {/* Important Notice */}
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-yellow-600 text-lg">⚠️</span>
+                <h3 className="text-sm font-bold text-yellow-800">Important Notice</h3>
+              </div>
+              <p className="text-xs text-yellow-700 leading-relaxed">
+                <strong>Application forms are only available during application seasons.</strong>
+                If the form appears closed or unavailable, it means the school year application period has not opened yet.
+                Please check back during our official application periods or contact us for more information.
+              </p>
+            </div>
           </motion.div>
         </div>
 

@@ -30,6 +30,7 @@ const Layout: React.FC = () => {
     '/donate-us-bank',
     '/donate-euro-bank',
     '/apply-now',
+    '/thank-you',
     '/news-events',
     '/shs-database',
     '/results-placement',
