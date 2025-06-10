@@ -76,7 +76,7 @@ const DonationPage: React.FC = () => {
     }
   }, []);
 
-  // Loading timeout and smooth scroll enhancement
+  // Loading timeout, smooth scroll enhancement, and dynamic height
   useEffect(() => {
     // Enable smooth scrolling for the entire page
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -86,9 +86,22 @@ const DonationPage: React.FC = () => {
       setIsLoading(false);
     }, 3000); // 3 second maximum loading time
 
+    // Listen for Paystack height changes (if supported)
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin === 'https://paystack.shop' && event.data.type === 'paystack-height-change') {
+        const iframe = document.querySelector('iframe[src*="paystack.shop"]') as HTMLIFrameElement;
+        if (iframe && event.data.height) {
+          iframe.style.height = event.data.height + 'px';
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
       clearTimeout(loadingTimeout);
+      window.removeEventListener('message', handleMessage);
     };
   }, []);
   // Show loading screen while content loads
@@ -772,59 +785,28 @@ const DonationPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
-      {/* Main Content - Full Screen Payment Form */}
-      <section className="py-6 lg:py-0 lg:h-screen cute-font payment-section">
-        <div className="px-3 lg:px-0 lg:h-full">
-          <div className="max-w-sm lg:max-w-none lg:w-full lg:h-full mx-auto lg:mx-0">
+      {/* Main Content - Natural Scrolling Payment Form */}
+      <section className="py-6 cute-font payment-section">
+        <div className="px-3 lg:px-4">
+          <div className="max-w-sm lg:max-w-none lg:w-full mx-auto lg:mx-0">
 
-            {/* Payment Form - Full Screen */}
-            <div className="w-full lg:w-full lg:h-full">
-              <div className="lg:w-full lg:h-full">
+            {/* Payment Form - Natural Scrolling */}
+            <div className="w-full">
+              <div className="w-full">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="bg-white sharp-container shadow-md lg:shadow-none lg:w-full lg:h-full overflow-hidden"
+                  className="bg-white sharp-container shadow-md lg:shadow-lg overflow-hidden"
                 >
 
-                  {/* Payment Form Container - Full Viewport */}
-                  <div
-                    className="relative w-full h-full"
-                    style={{
-                      height: '500px'
-                    }}
-                  >
-                    <style>
-                      {`
-                        @media (min-width: 1024px) {
-                          .payment-container {
-                            height: 100vh !important;
-                            width: 100vw !important;
-                            position: fixed !important;
-                            top: 0 !important;
-                            left: 0 !important;
-                            z-index: 50 !important;
-                          }
-                          .payment-section {
-                            height: 100vh !important;
-                            position: relative !important;
-                            z-index: 40 !important;
-                          }
-                          .payment-wrapper {
-                            height: 100vh !important;
-                            width: 100vw !important;
-                          }
-                          .payment-section .payment-container iframe {
-                            height: 100vh !important;
-                            width: 100vw !important;
-                          }
-                        }
-                      `}
-                    </style>
-                    <div className="payment-container payment-wrapper w-full h-full">
+                  {/* Payment Form Container - Natural Scrolling */}
+                  <div className="relative w-full">
+                    <div className="payment-container w-full">
                       <iframe
                         src="https://paystack.shop/pay/stlouisjhsdonations"
-                        className="w-full h-full border-0"
+                        className="w-full border-0"
+                        height="600"
                         title="St. Louis Demonstration JHS Donation Form"
                         allow="payment *"
                         sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-popups-to-escape-sandbox"
@@ -835,6 +817,11 @@ const DonationPage: React.FC = () => {
                             loadingOverlay.style.display = 'none';
                           }
                           triggerHapticFeedback('medium');
+                        }}
+                        style={{
+                          border: 0,
+                          width: '100%',
+                          display: 'block'
                         }}
                       />
                     </div>
