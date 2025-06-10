@@ -12,7 +12,7 @@ const TikTokPage: React.FC = () => {
     navigate(-1);
   };
 
-  // Load TikTok embed script and Tally popup script
+  // Load TikTok embed script and Tally popup script with config
   useEffect(() => {
     // TikTok embed script
     const tiktokScript = document.createElement('script');
@@ -26,12 +26,33 @@ const TikTokPage: React.FC = () => {
     tallyScript.async = true;
     document.head.appendChild(tallyScript);
 
+    // Tally configuration
+    const tallyConfig = document.createElement('script');
+    tallyConfig.innerHTML = `
+      window.TallyConfig = {
+        "formId": "mR6bJP",
+        "popup": {
+          "emoji": {
+            "text": "👋",
+            "animation": "flash"
+          },
+          "doNotShowAfterSubmit": true,
+          "overlay": true,
+          "layout": "modal"
+        }
+      };
+    `;
+    document.head.appendChild(tallyConfig);
+
     return () => {
       if (document.body.contains(tiktokScript)) {
         document.body.removeChild(tiktokScript);
       }
       if (document.head.contains(tallyScript)) {
         document.head.removeChild(tallyScript);
+      }
+      if (document.head.contains(tallyConfig)) {
+        document.head.removeChild(tallyConfig);
       }
     };
   }, []);
@@ -77,37 +98,71 @@ const TikTokPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="py-8 sm:py-12 bg-gradient-to-br from-purple-900 via-pink-900 to-black">
-        <div className="container mx-auto px-4">
+      {/* Compact Hero Section with TikTok Backgrounds */}
+      <section className="py-4 sm:py-6 relative overflow-hidden">
+        {/* Multiple TikTok Background Images */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80 z-10"></div>
+
+          {/* Background Image 1 */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-30"
+            style={{
+              backgroundImage: 'url(https://i.pinimg.com/736x/8e/8f/8e/8e8f8e8c8e8f8e8c8e8f8e8c8e8f8e8c.jpg)',
+              transform: 'scale(1.1)'
+            }}
+          ></div>
+
+          {/* Background Image 2 - Overlay */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-overlay"
+            style={{
+              backgroundImage: 'url(https://i.pinimg.com/736x/ff/69/b4/ff69b4ff69b4ff69b4ff69b4ff69b4ff.jpg)',
+              transform: 'scale(1.05) rotate(2deg)'
+            }}
+          ></div>
+
+          {/* Background Image 3 - Soft Light */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-soft-light"
+            style={{
+              backgroundImage: 'url(https://i.pinimg.com/736x/fe/fe/fe/fefefefefefefefefefefefefefefefe.jpg)',
+              transform: 'scale(1.08) rotate(-1deg)'
+            }}
+          ></div>
+
+          {/* Animated Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-600/30 via-purple-600/20 to-blue-600/30 animate-pulse z-5"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
+            className="text-center max-w-3xl mx-auto"
           >
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
-                <Play className="w-6 h-6 text-white" />
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
+                <Play className="w-4 h-4 text-white" />
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                 Our TikTok Community
               </h2>
             </div>
-            
-            <p className="text-base sm:text-lg text-gray-300 mb-8 leading-relaxed">
-              Follow our journey on TikTok! See the latest videos featuring St. Louis Demonstration JHS - 
-              from student activities and achievements to school events and community moments.
+
+            <p className="text-sm sm:text-base text-gray-200 mb-4 leading-relaxed">
+              Latest videos featuring St. Louis Demo JHS
             </p>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="bg-pink-600/20 text-pink-200 px-4 py-2 rounded-full text-sm font-medium border border-pink-500/30">
+            <div className="flex flex-wrap justify-center gap-2">
+              <div className="bg-pink-600/30 text-pink-200 px-3 py-1 rounded-full text-xs font-medium border border-pink-500/40 backdrop-blur-sm">
                 📱 Student Life
               </div>
-              <div className="bg-purple-600/20 text-purple-200 px-4 py-2 rounded-full text-sm font-medium border border-purple-500/30">
+              <div className="bg-purple-600/30 text-purple-200 px-3 py-1 rounded-full text-xs font-medium border border-purple-500/40 backdrop-blur-sm">
                 🎓 School Events
               </div>
-              <div className="bg-blue-600/20 text-blue-200 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/30">
+              <div className="bg-blue-600/30 text-blue-200 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/40 backdrop-blur-sm">
                 🏆 Achievements
               </div>
             </div>
@@ -115,60 +170,98 @@ const TikTokPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Video Submission Section */}
-      <section className="py-8 sm:py-12 bg-gradient-to-r from-purple-900/30 via-pink-900/30 to-purple-900/30">
-        <div className="container mx-auto px-4">
+      {/* Awesome Video Submission Section */}
+      <section className="py-6 sm:py-8 relative overflow-hidden">
+        {/* Dynamic Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-900/40 via-purple-900/30 to-blue-900/40"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,20,147,0.3),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(138,43,226,0.3),transparent_50%)]"></div>
+
+          {/* Animated Particles */}
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-pink-400 rounded-full animate-ping opacity-60"></div>
+            <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-pulse opacity-80"></div>
+            <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce opacity-70"></div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-2xl mx-auto"
           >
-            <div className="bg-gradient-to-br from-pink-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl border border-pink-500/30 p-6 sm:p-8">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">📹</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  Submit Your Video
+            <div className="bg-gradient-to-br from-pink-600/20 to-purple-600/20 backdrop-blur-xl rounded-3xl border border-pink-500/40 p-6 sm:p-8 shadow-2xl">
+              {/* Header */}
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <motion.div
+                  className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span className="text-xl">📹</span>
+                </motion.div>
+                <h3 className="text-lg sm:text-xl font-bold text-white">
+                  Submit Your TikTok Video
                 </h3>
               </div>
 
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Have a TikTok video featuring St. Louis Demonstration JHS? Submit it through our form
-                and we'll consider featuring it on our website! Share your school moments with our community.
+              <p className="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">
+                Got a TikTok featuring our school? Share it with us! We'll feature the best videos on our website.
               </p>
 
-              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
-                <button
-                  data-tally-open="mR6bJP"
-                  data-tally-emoji-text="📹"
-                  data-tally-emoji-animation="wave"
-                  className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-pink-500/50"
-                >
-                  <span className="text-xl">📹</span>
-                  <span>Submit Video via Form</span>
-                </button>
+              {/* Awesome Submit Button */}
+              <motion.button
+                data-tally-open="mR6bJP"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-pink-500/50 overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {/* Button Background Animation */}
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
 
-                <a
-                  href="#tally-open=mR6bJP&tally-emoji-text=📹&tally-emoji-animation=wave"
-                  className="inline-flex items-center justify-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-purple-500/50"
-                >
-                  <span className="text-xl">🔗</span>
-                  <span>Alternative Link</span>
-                </a>
-              </div>
+                {/* Shimmer Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
 
-              <div className="text-sm text-gray-400 space-y-2">
-                <p>💡 <strong>Tip:</strong> Make sure your video mentions "St. Louis Demo JHS" or uses our hashtags</p>
-                <div className="flex flex-wrap justify-center gap-2 mt-3">
-                  <span className="bg-pink-600/20 text-pink-200 px-3 py-1 rounded-full text-xs">
+                <motion.span
+                  className="text-2xl relative z-10"
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  📹
+                </motion.span>
+                <span className="relative z-10 text-lg">Submit Video Now</span>
+              </motion.button>
+
+              {/* Tips Section */}
+              <div className="mt-6 text-sm text-gray-400 space-y-3">
+                <p className="flex items-center justify-center gap-2">
+                  <span className="text-yellow-400">💡</span>
+                  <span>Include <strong className="text-pink-300">"St. Louis Demo JHS"</strong> in your video</span>
+                </p>
+
+                <div className="flex flex-wrap justify-center gap-2">
+                  <motion.span
+                    className="bg-pink-600/30 text-pink-200 px-3 py-1 rounded-full text-xs border border-pink-500/40 backdrop-blur-sm"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     #StLouisDemoJHS
-                  </span>
-                  <span className="bg-purple-600/20 text-purple-200 px-3 py-1 rounded-full text-xs">
+                  </motion.span>
+                  <motion.span
+                    className="bg-purple-600/30 text-purple-200 px-3 py-1 rounded-full text-xs border border-purple-500/40 backdrop-blur-sm"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     #DemonstrationJHS
-                  </span>
+                  </motion.span>
+                  <motion.span
+                    className="bg-blue-600/30 text-blue-200 px-3 py-1 rounded-full text-xs border border-blue-500/40 backdrop-blur-sm"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    #SchoolLife
+                  </motion.span>
                 </div>
               </div>
             </div>
