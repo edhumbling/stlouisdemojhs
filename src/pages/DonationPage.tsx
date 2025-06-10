@@ -446,14 +446,17 @@ const DonationPage: React.FC = () => {
                 </div>
             </div>
 
-            {/* MoMo & Credit Card Reminder */}
+            {/* Payment Options Reminder */}
             <div className="mt-6 text-center">
               <div className="bg-blue-500/20 backdrop-blur-sm rounded-xl border border-blue-400/30 p-3 sm:p-4 max-w-lg mx-auto">
                 <p className="text-white text-sm sm:text-base font-medium drop-shadow">
-                  💳 <strong>In Ghana?</strong> Use MoMo or Credit Cards via Paystack below!
+                  💳 <strong>In Ghana?</strong> Use MoMo, Credit Cards, or Bank Transfer via Paystack below!
                 </p>
                 <p className="text-blue-200 text-xs sm:text-sm mt-1 drop-shadow">
-                  MTN MoMo • Vodafone Cash • AirtelTigo • Visa/Mastercard
+                  MTN MoMo • Vodafone Cash • AirtelTigo • Visa/Mastercard • Bank Transfer
+                </p>
+                <p className="text-green-200 text-xs mt-2 drop-shadow">
+                  🏦 Bank transfer option available in the payment form below
                 </p>
               </div>
             </div>
