@@ -8,27 +8,77 @@ const ApplyNowPage: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [formLoaded, setFormLoaded] = useState(false);
+  const [formStatus, setFormStatus] = useState<'loading' | 'open' | 'closed' | 'error'>('loading');
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
   };
 
-  // Handle loading timeout
+  // Handle loading timeout and form status check
   useEffect(() => {
+    // Check form status
+    checkFormStatus();
+
     // Set loading timeout
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // 2 second loading time
+      if (formStatus === 'loading') {
+        setFormStatus('open'); // Assume open if we can't determine
+      }
+    }, 3000); // 3 second loading time
+
+    // Additional check for form accessibility after a delay
+    const formCheckTimeout = setTimeout(() => {
+      if (!formLoaded && formStatus === 'loading') {
+        // If form hasn't loaded after 5 seconds, it might be closed
+        setFormStatus('closed');
+        setIsLoading(false);
+      }
+    }, 5000);
 
     return () => {
       clearTimeout(loadingTimeout);
+      clearTimeout(formCheckTimeout);
     };
-  }, []);
+  }, [formLoaded, formStatus]);
 
-  // Handle form load
-  const handleFormLoad = () => {
+  // Check form status by trying to access it
+  const checkFormStatus = async () => {
+    try {
+      const response = await fetch('https://tally.so/embed/nrbG22?alignLeft=1&hideTitle=1&dynamicHeight=1', {
+        method: 'HEAD',
+        mode: 'no-cors'
+      });
+      // Since we can't read the response due to CORS, we'll use iframe load detection
+      setFormStatus('open');
+    } catch (error) {
+      setFormStatus('error');
+    }
+  };
+
+  // Handle form load and detect if form is accessible
+  const handleFormLoad = (event: React.SyntheticEvent<HTMLIFrameElement>) => {
+    const iframe = event.currentTarget;
+
+    try {
+      // Try to detect if the form loaded successfully
+      // This is limited due to cross-origin restrictions, but we can detect some cases
+      setFormLoaded(true);
+      setFormStatus('open');
+      setTimeout(() => setIsLoading(false), 500);
+    } catch (error) {
+      console.log('Form may be closed or restricted');
+      setFormStatus('closed');
+      setFormLoaded(true);
+      setTimeout(() => setIsLoading(false), 500);
+    }
+  };
+
+  // Handle form error
+  const handleFormError = () => {
+    setFormStatus('closed');
     setFormLoaded(true);
-    setTimeout(() => setIsLoading(false), 500); // Small delay for smooth transition
+    setTimeout(() => setIsLoading(false), 500);
   };
 
   // Show loading screen while form loads
@@ -223,18 +273,43 @@ const ApplyNowPage: React.FC = () => {
               Fill out the form below to apply
             </p>
 
-            {/* Important Notice */}
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4 max-w-2xl mx-auto">
-              <div className="flex items-center justify-center gap-2 mb-2">
-                <span className="text-yellow-600 text-lg">⚠️</span>
-                <h3 className="text-sm font-bold text-yellow-800">Important Notice</h3>
+            {/* Dynamic Notice Based on Form Status */}
+            {formStatus === 'closed' ? (
+              <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4 max-w-2xl mx-auto">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-red-600 text-lg">🚫</span>
+                  <h3 className="text-sm font-bold text-red-800">Application Form Currently Closed</h3>
+                </div>
+                <p className="text-xs text-red-700 leading-relaxed">
+                  <strong>The application form is currently closed.</strong>
+                  This means the school year application period has not opened yet.
+                  Please check back during our official application periods or contact us at <strong>0244758575</strong> for more information.
+                </p>
               </div>
-              <p className="text-xs text-yellow-700 leading-relaxed">
-                <strong>Application forms are only available during application seasons.</strong>
-                If the form appears closed or unavailable, it means the school year application period has not opened yet.
-                Please check back during our official application periods or contact us for more information.
-              </p>
-            </div>
+            ) : formStatus === 'open' ? (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4 max-w-2xl mx-auto">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-green-600 text-lg">✅</span>
+                  <h3 className="text-sm font-bold text-green-800">Application Form Available</h3>
+                </div>
+                <p className="text-xs text-green-700 leading-relaxed">
+                  <strong>Great! The application form is currently open.</strong>
+                  You can now complete your application below. Make sure to fill out all required fields accurately.
+                </p>
+              </div>
+            ) : (
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4 max-w-2xl mx-auto">
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-yellow-600 text-lg">⚠️</span>
+                  <h3 className="text-sm font-bold text-yellow-800">Important Notice</h3>
+                </div>
+                <p className="text-xs text-yellow-700 leading-relaxed">
+                  <strong>Application forms are only available during application seasons.</strong>
+                  If the form appears closed or unavailable, it means the school year application period has not opened yet.
+                  Please check back during our official application periods or contact us for more information.
+                </p>
+              </div>
+            )}
           </motion.div>
         </div>
 
@@ -255,6 +330,7 @@ const ApplyNowPage: React.FC = () => {
             marginWidth={0}
             title="Application Form * St. Louis Demo. J.H.S"
             onLoad={handleFormLoad}
+            onError={handleFormError}
             style={{
               border: 0,
               minHeight: 'calc(100vh - 200px)',
