@@ -68,10 +68,28 @@ const TikTokPage: React.FC = () => {
           animation: tallySlideIn 0.4s ease-out !important;
           max-height: calc(100vh - 80px) !important;
         }
+
+        /* Footer popup positioning */
+        .tally-popup.footer-popup {
+          top: auto !important;
+          bottom: 20px !important;
+          animation: tallySlideUp 0.4s ease-out !important;
+        }
         @keyframes tallySlideIn {
           from {
             opacity: 0;
             transform: translateX(-50%) translateY(-30px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0) scale(1);
+          }
+        }
+
+        @keyframes tallySlideUp {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(30px) scale(0.95);
           }
           to {
             opacity: 1;
@@ -271,104 +289,7 @@ const TikTokPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Awesome Video Submission Section */}
-      <section className="py-6 sm:py-8 relative overflow-hidden">
-        {/* Dynamic Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-900/40 via-purple-900/30 to-blue-900/40"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,20,147,0.3),transparent_50%)]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(138,43,226,0.3),transparent_50%)]"></div>
 
-          {/* Animated Particles */}
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-pink-400 rounded-full animate-ping opacity-60"></div>
-            <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-pulse opacity-80"></div>
-            <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce opacity-70"></div>
-          </div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-2xl mx-auto"
-          >
-            <div className="bg-gradient-to-br from-pink-600/20 to-purple-600/20 backdrop-blur-xl rounded-3xl border border-pink-500/40 p-6 sm:p-8 shadow-2xl">
-              {/* Header */}
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <motion.div
-                  className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <span className="text-xl">📹</span>
-                </motion.div>
-                <h3 className="text-lg sm:text-xl font-bold text-white">
-                  Submit Your TikTok Video
-                </h3>
-              </div>
-
-              <p className="text-gray-300 mb-6 text-sm sm:text-base leading-relaxed">
-                Got a TikTok featuring our school? Share it with us! We'll feature the best videos on our website.
-              </p>
-
-              {/* Awesome Submit Button */}
-              <motion.button
-                data-tally-open="mR6bJP"
-                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-pink-500/50 overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {/* Button Background Animation */}
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-
-                {/* Shimmer Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-
-                <motion.span
-                  className="text-2xl relative z-10"
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  📹
-                </motion.span>
-                <span className="relative z-10 text-lg">Submit Video Now</span>
-              </motion.button>
-
-              {/* Tips Section */}
-              <div className="mt-6 text-sm text-gray-400 space-y-3">
-                <p className="flex items-center justify-center gap-2">
-                  <span className="text-yellow-400">💡</span>
-                  <span>Include <strong className="text-pink-300">"St. Louis Demo JHS"</strong> in your video</span>
-                </p>
-
-                <div className="flex flex-wrap justify-center gap-2">
-                  <motion.span
-                    className="bg-pink-600/30 text-pink-200 px-3 py-1 rounded-full text-xs border border-pink-500/40 backdrop-blur-sm"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    #StLouisDemoJHS
-                  </motion.span>
-                  <motion.span
-                    className="bg-purple-600/30 text-purple-200 px-3 py-1 rounded-full text-xs border border-purple-500/40 backdrop-blur-sm"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    #DemonstrationJHS
-                  </motion.span>
-                  <motion.span
-                    className="bg-blue-600/30 text-blue-200 px-3 py-1 rounded-full text-xs border border-blue-500/40 backdrop-blur-sm"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    #SchoolLife
-                  </motion.span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Videos Section */}
       <section className="py-8 sm:py-12 bg-gradient-to-br from-black via-purple-900/20 to-black">
@@ -495,7 +416,7 @@ const TikTokPage: React.FC = () => {
             <p className="text-gray-300 mb-6">
               Tag us in your TikTok videos using <strong>#StLouisDemoJHS</strong> or mention
               <strong> "St. Louis Demo JHS"</strong> to be featured on our website!
-              You can also submit your videos directly through our form above.
+              You can also submit your videos directly through our form below.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <span className="bg-pink-600/30 text-pink-200 px-4 py-2 rounded-full text-sm font-medium">
@@ -504,6 +425,120 @@ const TikTokPage: React.FC = () => {
               <span className="bg-purple-600/30 text-purple-200 px-4 py-2 rounded-full text-sm font-medium">
                 #DemonstrationJHS
               </span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Distinguished Footer Submit Video Button */}
+      <section className="py-8 bg-gradient-to-r from-black via-gray-900 to-black border-t border-pink-500/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            {/* Distinguished Submit Button */}
+            <motion.button
+              data-tally-open="mR6bJP"
+              onClick={() => {
+                // Custom popup positioning for footer
+                setTimeout(() => {
+                  const popup = document.querySelector('.tally-popup') as HTMLElement;
+                  if (popup) {
+                    popup.style.bottom = '20px';
+                    popup.style.top = 'auto';
+                    popup.style.transform = 'translateX(-50%)';
+                  }
+                }, 100);
+              }}
+              className="group relative inline-flex items-center justify-center gap-4 px-12 py-6 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 text-white font-bold text-xl rounded-3xl shadow-2xl hover:shadow-pink-500/25 transition-all duration-500 transform hover:scale-110 border-2 border-pink-500/50 overflow-hidden"
+              whileHover={{
+                scale: 1.1,
+                boxShadow: "0 0 40px rgba(255, 20, 147, 0.6)"
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {/* Animated Background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+
+              {/* Multiple Shimmer Effects */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-pink-300/20 to-transparent skew-x-12 translate-x-full group-hover:-translate-x-full transition-transform duration-1200 delay-200"></div>
+
+              {/* Pulsing Border */}
+              <div className="absolute inset-0 rounded-3xl border-2 border-pink-400/50 animate-pulse"></div>
+
+              {/* Content */}
+              <motion.div
+                className="relative z-10 flex items-center gap-4"
+                animate={{
+                  textShadow: [
+                    "0 0 10px rgba(255, 20, 147, 0.5)",
+                    "0 0 20px rgba(255, 20, 147, 0.8)",
+                    "0 0 10px rgba(255, 20, 147, 0.5)"
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <motion.span
+                  className="text-3xl"
+                  animate={{
+                    rotate: [0, 15, -15, 0],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  📹
+                </motion.span>
+                <span>Submit Your TikTok Video</span>
+                <motion.span
+                  className="text-2xl"
+                  animate={{
+                    opacity: [0.5, 1, 0.5],
+                    scale: [1, 1.3, 1]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  ✨
+                </motion.span>
+              </motion.div>
+            </motion.button>
+
+            {/* Footer Description */}
+            <motion.p
+              className="mt-6 text-gray-400 text-sm max-w-md mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              Share your St. Louis Demo JHS moments with our community!
+              <br />
+              <span className="text-pink-300 font-semibold">Click above to submit your video</span>
+            </motion.p>
+
+            {/* Floating Hashtags */}
+            <div className="mt-4 flex flex-wrap justify-center gap-2">
+              <motion.span
+                className="bg-pink-600/20 text-pink-300 px-3 py-1 rounded-full text-xs border border-pink-500/30 backdrop-blur-sm"
+                whileHover={{ scale: 1.1, backgroundColor: "rgba(236, 72, 153, 0.3)" }}
+              >
+                #StLouisDemoJHS
+              </motion.span>
+              <motion.span
+                className="bg-purple-600/20 text-purple-300 px-3 py-1 rounded-full text-xs border border-purple-500/30 backdrop-blur-sm"
+                whileHover={{ scale: 1.1, backgroundColor: "rgba(147, 51, 234, 0.3)" }}
+              >
+                #TikTokSubmission
+              </motion.span>
+              <motion.span
+                className="bg-blue-600/20 text-blue-300 px-3 py-1 rounded-full text-xs border border-blue-500/30 backdrop-blur-sm"
+                whileHover={{ scale: 1.1, backgroundColor: "rgba(37, 99, 235, 0.3)" }}
+              >
+                #SchoolLife
+              </motion.span>
             </div>
           </motion.div>
         </div>
