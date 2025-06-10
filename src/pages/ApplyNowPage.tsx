@@ -15,10 +15,14 @@ const ApplyNowPage: React.FC = () => {
 
   // Load Tally script and handle loading
   useEffect(() => {
+    // Tally embed script - inline version
+    const tallyScript = `
+      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+    `;
+
     const script = document.createElement('script');
-    script.src = 'https://tally.so/widgets/embed.js';
-    script.async = true;
-    document.head.appendChild(script);
+    script.innerHTML = tallyScript;
+    document.body.appendChild(script);
 
     // Set loading timeout
     const loadingTimeout = setTimeout(() => {
@@ -29,7 +33,7 @@ const ApplyNowPage: React.FC = () => {
       // Cleanup script on unmount
       const existingScript = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
       if (existingScript) {
-        document.head.removeChild(existingScript);
+        document.body.removeChild(existingScript);
       }
       clearTimeout(loadingTimeout);
     };
@@ -280,13 +284,14 @@ const ApplyNowPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="w-full"
-          style={{ height: '100vh', minHeight: '600px' }}
+          className="w-full relative"
+          style={{ minHeight: '100vh' }}
         >
           <iframe
-            data-tally-src="https://tally.so/r/nrbG22?transparentBackground=1"
+            data-tally-src="https://tally.so/embed/nrbG22?alignLeft=1&hideTitle=1&dynamicHeight=1"
+            loading="lazy"
             width="100%"
-            height="100%"
+            height="200"
             frameBorder="0"
             marginHeight={0}
             marginWidth={0}
@@ -294,11 +299,8 @@ const ApplyNowPage: React.FC = () => {
             onLoad={handleFormLoad}
             style={{
               border: 0,
-              position: 'relative',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0
+              minHeight: '100vh',
+              width: '100%'
             }}
           />
 
