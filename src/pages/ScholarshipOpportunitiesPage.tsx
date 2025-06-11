@@ -1331,6 +1331,449 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-orange-600 to-red-600',
       glowColor: '#f97316'
+    },
+
+    // Venture Capital Firms (Indigo Category)
+    {
+      id: 'sequoia-capital',
+      name: 'Sequoia Capital',
+      url: 'https://www.sequoiacap.com',
+      description: 'One of the most prestigious VC firms globally. $55.7B AUM. Famous investments include Apple, Google, Instagram, LinkedIn, PayPal, WhatsApp, and Zoom.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'andreessen-horowitz',
+      name: 'Andreessen Horowitz (a16z)',
+      url: 'https://a16z.com',
+      description: 'Leading Silicon Valley VC firm. $52.3B AUM. Major investments in Facebook, Groupon, Twitter, Zynga, and crypto/web3 companies.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'tiger-global-management',
+      name: 'Tiger Global Management',
+      url: 'https://www.tigerglobal.com',
+      description: 'World\'s largest VC firm by AUM. $58.5B assets. Most prolific US venture capital fund with investments in Briq, Wiz, and Scribe.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'accel',
+      name: 'Accel',
+      url: 'https://www.accel.com',
+      description: 'Global VC firm with $19.1B AUM. Offices in California, Europe, and China. Notable investments include Etsy, Rovio, Braintree, and Atlassian.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'new-enterprise-associates',
+      name: 'New Enterprise Associates (NEA)',
+      url: 'https://www.nea.com',
+      description: 'Nearly 50-year-old VC firm with $25.9B AUM. Based in Maryland with Silicon Valley presence. Investments include Patreon, Plaid, Upstart.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'lightspeed-venture-partners',
+      name: 'Lightspeed Venture Partners',
+      url: 'https://lsvp.com',
+      description: '$25B AUM. Multi-stage investments in enterprise, consumer, and health. Notable investments include Grubhub, Flixster, Cameo, and Giphy.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'bessemer-venture-partners',
+      name: 'Bessemer Venture Partners',
+      url: 'https://www.bvp.com',
+      description: 'One of the oldest VC firms in the US. $19.7B AUM. Global offices. Successful investments include LinkedIn, Shopify, Twitch, Pinterest, DocuSign.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'kleiner-perkins',
+      name: 'Kleiner Perkins',
+      url: 'https://www.kleinerperkins.com',
+      description: 'Legendary Silicon Valley VC firm. Early investors in Amazon, Google, Genentech. Focus on technology and life sciences investments.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'benchmark',
+      name: 'Benchmark',
+      url: 'https://www.benchmark.com',
+      description: 'Elite Silicon Valley VC firm known for early-stage investments. Portfolio includes Uber, Twitter, Instagram, Snapchat, and WeWork.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'greylock-partners',
+      name: 'Greylock Partners',
+      url: 'https://greylock.com',
+      description: 'Premier early-stage VC firm. Investments include LinkedIn, Facebook, Airbnb, Dropbox, and Discord. Focus on consumer and enterprise technology.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'general-catalyst',
+      name: 'General Catalyst',
+      url: 'https://www.generalcatalyst.com',
+      description: 'Global VC firm with offices in Boston, NYC, and Silicon Valley. Investments include Stripe, Snapchat, Airbnb, and HubSpot.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'first-round-capital',
+      name: 'First Round Capital',
+      url: 'https://firstround.com',
+      description: 'Early-stage VC firm focused on seed and Series A investments. Portfolio includes Uber, Square, Warby Parker, and Notion.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'union-square-ventures',
+      name: 'Union Square Ventures',
+      url: 'https://www.usv.com',
+      description: 'NYC-based VC firm focused on network-based businesses. Early investors in Twitter, Tumblr, Foursquare, Coinbase, and Etsy.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'founders-fund',
+      name: 'Founders Fund',
+      url: 'https://foundersfund.com',
+      description: 'Peter Thiel\'s VC firm focused on breakthrough technologies. Investments include Facebook, SpaceX, Palantir, Stripe, and Airbnb.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'ggv-capital',
+      name: 'GGV Capital',
+      url: 'https://www.ggvc.com',
+      description: 'Multi-stage VC firm with US-China focus. Investments include Alibaba, Airbnb, Slack, Square, and TikTok/ByteDance.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'insight-partners',
+      name: 'Insight Partners',
+      url: 'https://www.insightpartners.com',
+      description: 'Global software investor with $90B+ AUM. Growth equity and venture investments in ScaleAI, Shopify, Twitter, and Delivery Hero.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'index-ventures',
+      name: 'Index Ventures',
+      url: 'https://www.indexventures.com',
+      description: 'European VC firm with San Francisco office. $13B AUM. Investments include Betfair, MySQL, Facebook, and Zendesk.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'khosla-ventures',
+      name: 'Khosla Ventures',
+      url: 'https://www.khoslaventures.com',
+      description: '$15B AUM. Founded by Vinod Khosla. Investments in technology and cleantech including Stripe, Instacart, DoorDash, and Square.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'battery-ventures',
+      name: 'Battery Ventures',
+      url: 'https://www.battery.com',
+      description: 'Boston-based VC firm with $16.8B AUM. 40+ years experience. Investments include Coinbase, Databricks, Glassdoor, and Groupon.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'spark-capital',
+      name: 'Spark Capital',
+      url: 'https://www.sparkcapital.com',
+      description: 'Early-stage VC firm with offices in Boston and San Francisco. Portfolio includes Twitter, Tumblr, Foursquare, and Discord.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'ycombinator',
+      name: 'Y Combinator',
+      url: 'https://www.ycombinator.com',
+      description: 'World\'s most successful startup accelerator and seed fund. $500K investments. Alumni include Airbnb, Stripe, Dropbox, and Reddit.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'techstars',
+      name: 'Techstars',
+      url: 'https://www.techstars.com',
+      description: 'Global startup accelerator with $120K funding. Extensive mentor network and investor access. Programs worldwide.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'matrix-partners',
+      name: 'Matrix Partners',
+      url: 'https://matrix.vc',
+      description: 'Early-stage VC firm with US and India presence. Investments include Apple, Oculus, Zendesk, and HubSpot.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'menlo-ventures',
+      name: 'Menlo Ventures',
+      url: 'https://menlovc.com',
+      description: 'Silicon Valley VC firm focused on early-stage technology companies. Investments include Uber, Warby Parker, and Roku.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'nea-venture-capital',
+      name: 'NEA (New Enterprise Associates)',
+      url: 'https://www.nea.com',
+      description: 'One of the largest and most active VCs globally. $25B+ AUM. Investments across all stages from seed to growth.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'redpoint-ventures',
+      name: 'Redpoint Ventures',
+      url: 'https://www.redpoint.com',
+      description: 'Early-stage VC firm focused on seed and Series A investments. Portfolio includes Stripe, Twilio, and HomeAway.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'initialized-capital',
+      name: 'Initialized Capital',
+      url: 'https://initialized.com',
+      description: 'Early-stage VC firm co-founded by Alexis Ohanian (Reddit). Focus on seed investments in technology startups.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'lux-capital',
+      name: 'Lux Capital',
+      url: 'https://www.luxcapital.com',
+      description: 'NYC-based VC firm focused on emerging science and technology. Investments in SpaceX, Planet Labs, and Recursion Pharmaceuticals.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'cowboy-ventures',
+      name: 'Cowboy Ventures',
+      url: 'https://cowboy.vc',
+      description: 'Seed-stage VC firm led by Aileen Lee. Focus on mobile, marketplaces, and data-driven businesses.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'nfx',
+      name: 'NFX',
+      url: 'https://www.nfx.com',
+      description: 'Pre-seed and seed VC firm focused on network effect businesses. Founded by serial entrepreneurs.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'emergence-capital',
+      name: 'Emergence Capital',
+      url: 'https://www.emcap.com',
+      description: 'Early-stage VC firm focused on enterprise SaaS. First investor in Salesforce, also invested in Zoom and Box.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'social-capital',
+      name: 'Social Capital',
+      url: 'https://www.socialcapital.com',
+      description: 'Technology-focused VC firm founded by Chamath Palihapitiya. Investments in Facebook, Slack, and Box.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'dcm-ventures',
+      name: 'DCM Ventures',
+      url: 'https://dcm.com',
+      description: 'Global VC firm with US-Asia focus. Investments include Tesla, Twitter, SoundHound, and Mapbox.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'canaan-partners',
+      name: 'Canaan Partners',
+      url: 'https://www.canaan.com',
+      description: 'Early-stage VC firm with focus on technology and healthcare. Investments include Lending Club and Instacart.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'dragoneer-investment-group',
+      name: 'Dragoneer Investment Group',
+      url: 'https://dragoneer.com',
+      description: 'Growth-stage VC firm with $21.7B AUM. Focus on software, fintech, and e-commerce. Founded by Marc Stad.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'technology-crossover-ventures',
+      name: 'Technology Crossover Ventures (TCV)',
+      url: 'https://www.tcv.com',
+      description: '$19.9B AUM. Growth capital for public and private companies. Investments include Netflix, LinkedIn, Airbnb, and Spotify.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'legend-capital',
+      name: 'Legend Capital',
+      url: 'https://www.legendcapital.com.cn/aboutus_en/index.aspx?nodeid=30',
+      description: 'Prominent Asian VC firm based in Beijing. $48.1B AUM. Focus on healthcare, medical, and biotechnology investments.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'orbimed',
+      name: 'OrbiMed',
+      url: 'https://www.orbimed.com',
+      description: 'Healthcare-focused VC firm with $18.3B AUM. Specializes in biopharmaceuticals, medical devices, and healthcare IT.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'deerfield-management',
+      name: 'Deerfield Management',
+      url: 'https://deerfield.com',
+      description: 'Healthcare investment firm with $15.1B AUM. Focus on biopharmaceuticals, medical devices, and digital health.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'thrive-capital',
+      name: 'Thrive Capital',
+      url: 'https://thrivecap.com',
+      description: 'Growth-stage VC firm founded by Josh Kushner. Investments include Instagram, Stripe, GitHub, and Oscar Health.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'coatue-management',
+      name: 'Coatue Management',
+      url: 'https://coatue.com',
+      description: 'Technology-focused investment firm with public and private investments. Portfolio includes ByteDance, DoorDash, and Snowflake.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'ribbit-capital',
+      name: 'Ribbit Capital',
+      url: 'https://ribbitcap.com',
+      description: 'Fintech-focused VC firm. Investments include Coinbase, Robinhood, Credit Karma, and Affirm.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'ggv-capital-global',
+      name: 'GGV Capital',
+      url: 'https://www.ggvc.com',
+      description: 'Global VC firm bridging US and Asia. Investments include Alibaba, Xiaomi, Wish, and HashiCorp.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'iconiq-capital',
+      name: 'ICONIQ Capital',
+      url: 'https://www.iconiqcapital.com',
+      description: 'Growth equity firm serving ultra-high-net-worth families. Investments include Facebook, Twitter, and Flipkart.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'dst-global',
+      name: 'DST Global',
+      url: 'https://www.dstglobal.com',
+      description: 'Global technology investor. Investments include Facebook, Twitter, Spotify, Airbnb, and WhatsApp.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'general-atlantic',
+      name: 'General Atlantic',
+      url: 'https://www.generalatlantic.com',
+      description: 'Global growth equity firm with $84B AUM. Investments include Airbnb, Uber, Snapchat, and ByteDance.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'silver-lake',
+      name: 'Silver Lake',
+      url: 'https://www.silverlake.com',
+      description: 'Technology-focused private equity firm with $88B AUM. Investments include Airbnb, Twitter, and Dell Technologies.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'tpg-capital',
+      name: 'TPG Capital',
+      url: 'https://www.tpg.com',
+      description: 'Global private equity firm with growth investments. $120B+ AUM. Investments include Uber, Airbnb, and Spotify.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
+    },
+    {
+      id: 'kkr',
+      name: 'KKR & Co',
+      url: 'https://www.kkr.com',
+      description: 'Global investment firm with $504B AUM. Growth equity investments in technology, healthcare, and financial services.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-indigo-600 to-purple-600',
+      glowColor: '#6366f1'
     }
   ];
 
@@ -1343,7 +1786,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       'Fellowship Programs': [] as ScholarshipItem[],
       'Foreign Incubators & Accelerators': [] as ScholarshipItem[],
       'Grants & Microgrants': [] as ScholarshipItem[],
-      'Startup Hubs & Incubators': [] as ScholarshipItem[]
+      'Startup Hubs & Incubators': [] as ScholarshipItem[],
+      'Venture Capital Firms': [] as ScholarshipItem[]
     };
 
     scholarshipOpportunities.forEach(scholarship => {
@@ -1408,6 +1852,25 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           name.includes('knight-hennessy') || (name.includes('mastercard foundation') && !name.includes('knust')) ||
           name.includes('ecobank foundation')) {
         categories['International Scholarships'].push(scholarship);
+      }
+      // Venture Capital Firms
+      else if (name.includes('sequoia') || name.includes('andreessen') || name.includes('tiger global') ||
+          name.includes('accel') || name.includes('nea') || name.includes('lightspeed') ||
+          name.includes('bessemer') || name.includes('kleiner perkins') || name.includes('benchmark') ||
+          name.includes('greylock') || name.includes('general catalyst') || name.includes('first round') ||
+          name.includes('union square ventures') || name.includes('founders fund') || name.includes('ggv capital') ||
+          name.includes('insight partners') || name.includes('index ventures') || name.includes('khosla ventures') ||
+          name.includes('battery ventures') || name.includes('spark capital') || name.includes('matrix partners') ||
+          name.includes('menlo ventures') || name.includes('redpoint') || name.includes('initialized') ||
+          name.includes('lux capital') || name.includes('cowboy ventures') || name.includes('nfx') ||
+          name.includes('emergence capital') || name.includes('social capital') || name.includes('dcm ventures') ||
+          name.includes('canaan partners') || name.includes('dragoneer') || name.includes('tcv') ||
+          name.includes('legend capital') || name.includes('orbimed') || name.includes('deerfield') ||
+          name.includes('thrive capital') || name.includes('coatue') || name.includes('ribbit capital') ||
+          name.includes('iconiq capital') || name.includes('dst global') || name.includes('general atlantic') ||
+          name.includes('silver lake') || name.includes('tpg capital') || name.includes('kkr') ||
+          description.includes('venture capital') || description.includes('vc firm') || description.includes('aum')) {
+        categories['Venture Capital Firms'].push(scholarship);
       }
       // Local Scholarships (default for all others)
       else {
@@ -1615,6 +2078,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                     categoryName === 'Foreign Incubators & Accelerators' ? 'text-teal-400' :
                     categoryName === 'Grants & Microgrants' ? 'text-rose-400' :
                     categoryName === 'Startup Hubs & Incubators' ? 'text-orange-400' :
+                    categoryName === 'Venture Capital Firms' ? 'text-indigo-400' :
                     'text-gray-400'
                   }`}>
                     {categoryName}
@@ -1627,8 +2091,39 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                     categoryName === 'Foreign Incubators & Accelerators' ? 'bg-teal-500' :
                     categoryName === 'Grants & Microgrants' ? 'bg-rose-500' :
                     categoryName === 'Startup Hubs & Incubators' ? 'bg-orange-500' :
+                    categoryName === 'Venture Capital Firms' ? 'bg-indigo-500' :
                     'bg-gray-500'
                   }`} />
+
+                  {/* Category Explanation */}
+                  <div className="mt-4 mb-6 text-center">
+                    <p className="text-gray-300 text-sm sm:text-base max-w-4xl mx-auto leading-relaxed">
+                      {categoryName === 'SAT Test Prep Opportunities' &&
+                        'Comprehensive SAT preparation resources, test centers, and educational support services to help students excel in standardized testing and gain admission to top universities.'
+                      }
+                      {categoryName === 'Local Scholarships' &&
+                        'Ghana-specific scholarship opportunities for Ghanaian students, including government programs, local foundations, and institutions based in Ghana offering educational funding.'
+                      }
+                      {categoryName === 'International Scholarships' &&
+                        'Global scholarship programs from universities, governments, and organizations worldwide offering opportunities for Ghanaian students to study abroad with full or partial funding.'
+                      }
+                      {categoryName === 'Fellowship Programs' &&
+                        'Alternative education pathways including entrepreneurship fellowships, leadership programs, and innovative learning opportunities that provide funding, mentorship, and community support outside traditional academic routes.'
+                      }
+                      {categoryName === 'Foreign Incubators & Accelerators' &&
+                        'Global startup accelerators and incubators that provide funding, mentorship, and resources to help entrepreneurs build and scale their businesses internationally.'
+                      }
+                      {categoryName === 'Grants & Microgrants' &&
+                        'Small to medium funding opportunities for projects, research, and innovative ideas, typically ranging from $1,000 to $50,000 without requiring equity or traditional repayment.'
+                      }
+                      {categoryName === 'Startup Hubs & Incubators' &&
+                        'Local and African startup ecosystems, innovation hubs, and business incubators that support entrepreneurs with workspace, mentorship, funding, and networking opportunities.'
+                      }
+                      {categoryName === 'Venture Capital Firms' &&
+                        'Professional investment firms that provide capital to startups and growing companies in exchange for equity, offering funding from seed stage to late-stage growth rounds.'
+                      }
+                    </p>
+                  </div>
                   <p className="text-gray-400 text-sm mt-2">
                     {scholarships.length} {scholarships.length === 1 ? 'opportunity' : 'opportunities'} available
                   </p>
@@ -1661,6 +2156,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                               ? 'bg-rose-900/30 border-rose-600/50 hover:border-rose-500 hover:shadow-rose-500/20 hover:bg-rose-800/40'
                               : categoryName === 'Startup Hubs & Incubators'
                               ? 'bg-orange-900/30 border-orange-600/50 hover:border-orange-500 hover:shadow-orange-500/20 hover:bg-orange-800/40'
+                              : categoryName === 'Venture Capital Firms'
+                              ? 'bg-indigo-900/30 border-indigo-600/50 hover:border-indigo-500 hover:shadow-indigo-500/20 hover:bg-indigo-800/40'
                               : 'bg-gray-900/30 border-gray-600/50 hover:border-gray-500 hover:shadow-gray-500/20 hover:bg-gray-800/40'
                           }`}
                         >
@@ -1693,6 +2190,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                               ? 'bg-rose-600/20 group-hover:bg-rose-500/30'
                               : categoryName === 'Startup Hubs & Incubators'
                               ? 'bg-orange-600/20 group-hover:bg-orange-500/30'
+                              : categoryName === 'Venture Capital Firms'
+                              ? 'bg-indigo-600/20 group-hover:bg-indigo-500/30'
                               : 'bg-gray-600/20 group-hover:bg-gray-500/30'
                           }`}>
                             {scholarship.icon}
@@ -1728,6 +2227,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                                 ? 'bg-rose-600/20 group-hover:bg-rose-500/30'
                                 : categoryName === 'Startup Hubs & Incubators'
                                 ? 'bg-orange-600/20 group-hover:bg-orange-500/30'
+                                : categoryName === 'Venture Capital Firms'
+                                ? 'bg-indigo-600/20 group-hover:bg-indigo-500/30'
                                 : 'bg-gray-600/20 group-hover:bg-gray-500/30'
                             }`}>
                               <ExternalLink size={10} className="text-gray-400 group-hover:text-white" />
