@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, GraduationCap, BookOpen, Globe, DollarSign, Users, Target, Award, Briefcase, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
+import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
 interface ScholarshipItem {
   id: string;
@@ -16,8 +17,7 @@ interface ScholarshipItem {
 
 const ScholarshipOpportunitiesPage: React.FC = () => {
   const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
 
   // External link handler
   const handleExternalLinkClick = (url: string) => {
@@ -73,6 +73,24 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       url: 'https://www.collegeboard.org',
       description: 'Access official SAT practice tests, study materials, and registration information. Essential for students planning to apply to international universities.',
       icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-green-600 to-emerald-600',
+      glowColor: '#10b981'
+    },
+    {
+      id: 'ckodon-foundation',
+      name: 'Ckodon Foundation - Test Preparation',
+      url: 'https://www.ckodon.com/foundation',
+      description: 'Comprehensive test preparation services and educational support for students pursuing academic excellence and international opportunities.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-green-600 to-emerald-600',
+      glowColor: '#10b981'
+    },
+    {
+      id: 'veritas-foundation-counseling',
+      name: 'Veritas Foundation - College Counseling',
+      url: 'https://theveritasfoundation.co',
+      description: 'Professional college counseling services to help students make informed decisions about university choices, application strategies, and scholarship opportunities.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-green-600 to-emerald-600',
       glowColor: '#10b981'
     },
@@ -156,6 +174,15 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       url: 'https://www.cocobod.gh',
       description: 'Educational support for students from cocoa-growing communities and those pursuing agriculture-related studies.',
       icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#3b82f6'
+    },
+    {
+      id: 'dhs-scholarship',
+      name: 'DHS Scholarship Portal',
+      url: 'https://dhscholarship.com',
+      description: 'Comprehensive scholarship database and application portal for Ghanaian students seeking local and international educational funding opportunities.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-blue-600 to-indigo-600',
       glowColor: '#3b82f6'
     },
@@ -367,48 +394,207 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-yellow-600 to-amber-600',
       glowColor: '#f59e0b'
+    },
+
+    // Startup Hubs & Incubators (Orange Category)
+    {
+      id: 'mest-africa',
+      name: 'MEST Africa - Startup Incubator',
+      url: 'https://meltwater.org',
+      description: 'Pan-African training program, seed fund, and incubator for tech entrepreneurs. Offers comprehensive startup support and funding opportunities.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'ispace-foundation',
+      name: 'iSpace Foundation',
+      url: 'https://www.ispacefoundation.com',
+      description: 'Innovation and technology hub offering conducive environment for startup growth with workspace, mentorship, and networking opportunities.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'kumasi-hive',
+      name: 'Kumasi Hive',
+      url: 'https://vc4a.com/kumasi-hive',
+      description: 'Tech innovation hub in Kumasi supporting startups, entrepreneurs, and tech talent development in the Ashanti region.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'impact-hub-accra',
+      name: 'Impact Hub Accra',
+      url: 'https://accra.impacthub.net',
+      description: 'Global network supporting social entrepreneurs and impact startups with workspace, community, and business development programs.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'ghana-innovation-hub',
+      name: 'Ghana Innovation Hub',
+      url: 'https://ghanainnovationhub.com',
+      description: 'Supporting innovation and technology startups across various sectors with incubation, acceleration, and funding support.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'kosmos-innovation-centre',
+      name: 'Kosmos Innovation Centre (KIC)',
+      url: 'https://kicghana.org',
+      description: 'Non-profit organization investing in young entrepreneurs and small businesses, especially in agriculture and energy sectors.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'venture-capital-trust-fund',
+      name: 'Venture Capital Trust Fund (VCTF)',
+      url: 'https://www.vctfund.com.gh',
+      description: 'Government fund supporting SMEs and startups with venture capital funding and business development support.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'ghana-angel-investors',
+      name: 'Ghana Angel Investors Network (GAIN)',
+      url: 'https://abanangels.org/Networks/ghana-angel-investors-network',
+      description: 'Network of angel investors providing early-stage funding and mentorship to promising Ghanaian startups and entrepreneurs.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'founder-institute-accra',
+      name: 'Founder Institute Accra',
+      url: 'https://fi.co/program/accra',
+      description: 'Global pre-seed accelerator helping aspiring entrepreneurs launch meaningful and enduring technology companies.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'innohub-ghana',
+      name: 'InnoHub Ghana',
+      url: 'https://www.f6s.com/innohubghanalimited',
+      description: 'Innovation hub fostering entrepreneurship and technology development with workspace, training, and startup support programs.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
     }
   ];
 
-  // Simplified category logic with three main categories
-  const getCategory = (scholarship: ScholarshipItem): string => {
-    const name = scholarship.name.toLowerCase();
-    const description = scholarship.description.toLowerCase();
+  // Organize scholarships by category
+  const scholarshipCategories = useMemo(() => {
+    const categories = {
+      'SAT Test Prep Opportunities': [] as ScholarshipItem[],
+      'Local Scholarships': [] as ScholarshipItem[],
+      'International Scholarships': [] as ScholarshipItem[],
+      'Startup Hubs & Incubators': [] as ScholarshipItem[]
+    };
 
-    // SAT Test Prep Opportunities
-    if (name.includes('afex') || name.includes('yaf') || name.includes('educationusa') ||
-        name.includes('veritas') || name.includes('college board') ||
-        description.includes('sat') || description.includes('test prep')) {
-      return 'SAT Test Prep Opportunities';
+    scholarshipOpportunities.forEach(scholarship => {
+      const name = scholarship.name.toLowerCase();
+      const description = scholarship.description.toLowerCase();
+
+      // SAT Test Prep Opportunities
+      if (name.includes('afex') || name.includes('yaf') || name.includes('educationusa') ||
+          name.includes('veritas') || name.includes('college board') || name.includes('ckodon') ||
+          name.includes('timeline') || description.includes('sat') || description.includes('test prep')) {
+        categories['SAT Test Prep Opportunities'].push(scholarship);
+      }
+      // Startup Hubs & Incubators
+      else if (name.includes('mest') || name.includes('ispace') || name.includes('kumasi hive') ||
+          name.includes('impact hub') || name.includes('innovation hub') || name.includes('kosmos') ||
+          name.includes('stanbic') || name.includes('angel investors') || name.includes('founder institute') ||
+          name.includes('innohub') || description.includes('startup') || description.includes('incubator') ||
+          description.includes('accelerator') || description.includes('entrepreneur')) {
+        categories['Startup Hubs & Incubators'].push(scholarship);
+      }
+      // International Scholarships
+      else if (name.includes('international') || name.includes('commonwealth') || name.includes('daad') ||
+          name.includes('chevening') || name.includes('fulbright') || name.includes('erasmus') ||
+          name.includes('australia') || name.includes('chinese') || name.includes('japanese') ||
+          name.includes('korean') || name.includes('rotary') || name.includes('mext') ||
+          name.includes('schwarzman') || name.includes('mandela') || name.includes('netherlands') ||
+          name.includes('swedish') || name.includes('turkey') || name.includes('vanier') ||
+          name.includes('eiffel') || name.includes('swiss') || name.includes('gates') ||
+          name.includes('rhodes') || name.includes('humphrey') || name.includes('aga khan')) {
+        categories['International Scholarships'].push(scholarship);
+      }
+      // Local Scholarships (default for all others)
+      else {
+        categories['Local Scholarships'].push(scholarship);
+      }
+    });
+
+    return categories;
+  }, []);
+
+  // Convert scholarships to searchable items
+  const searchableItems: SearchableItem[] = useMemo(() => {
+    return scholarshipOpportunities.map(scholarship => ({
+      id: scholarship.id,
+      title: scholarship.name,
+      description: scholarship.description,
+      url: scholarship.url,
+      category: Object.keys(scholarshipCategories).find(categoryName =>
+        scholarshipCategories[categoryName as keyof typeof scholarshipCategories].some(s => s.id === scholarship.id)
+      ) || 'Other',
+      type: 'website',
+      icon: scholarship.icon,
+      color: scholarship.color,
+      glowColor: scholarship.glowColor
+    }));
+  }, [scholarshipCategories]);
+
+  // Filter options for search
+  const categoryOptions: FilterOption[] = useMemo(() => {
+    return Object.keys(scholarshipCategories).map(categoryName => ({
+      value: categoryName,
+      label: categoryName,
+      count: scholarshipCategories[categoryName as keyof typeof scholarshipCategories].length
+    }));
+  }, [scholarshipCategories]);
+
+  const typeOptions: FilterOption[] = [
+    { value: 'website', label: 'External Links', count: scholarshipOpportunities.length }
+  ];
+
+  // Handle search results
+  const handleSearchResults = useCallback((results: SearchableItem[]) => {
+    setSearchResults(results);
+  }, []);
+
+  // Get filtered categories based on search results
+  const filteredCategories = useMemo(() => {
+    if (searchResults.length === 0) {
+      return scholarshipCategories;
     }
 
-    // International Scholarships
-    if (name.includes('international') || name.includes('commonwealth') || name.includes('daad') ||
-        name.includes('chevening') || name.includes('fulbright') || name.includes('erasmus') ||
-        name.includes('australia') || name.includes('chinese') || name.includes('japanese') ||
-        name.includes('korean') || name.includes('rotary') || name.includes('mext')) {
-      return 'International Scholarships';
-    }
+    // Group search results by category
+    const filtered: Record<string, ScholarshipItem[]> = {};
 
-    // Local Scholarships (default for all others)
-    return 'Local Scholarships';
-  };
+    searchResults.forEach(item => {
+      const categoryName = item.category;
+      if (!filtered[categoryName]) {
+        filtered[categoryName] = [];
+      }
 
-  const filteredScholarships = scholarshipOpportunities.filter(scholarship => {
-    // Apply category filter
-    if (selectedCategory && getCategory(scholarship) !== selectedCategory) {
-      return false;
-    }
+      // Find the original scholarship
+      const originalScholarship = scholarshipOpportunities.find(s => s.id === item.id);
+      if (originalScholarship) {
+        filtered[categoryName].push(originalScholarship);
+      }
+    });
 
-    // Apply search term
-    if (searchTerm.trim()) {
-      const searchLower = searchTerm.toLowerCase();
-      return scholarship.name.toLowerCase().includes(searchLower) ||
-             scholarship.description.toLowerCase().includes(searchLower);
-    }
-
-    return true;
-  });
+    return filtered;
+  }, [searchResults, scholarshipCategories]);
 
   const handleScholarshipClick = (scholarshipId: string) => {
     const scholarship = scholarshipOpportunities.find(s => s.id === scholarshipId);
@@ -416,14 +602,6 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       handleExternalLinkClick(scholarship.url);
     }
   };
-
-  // Three main categories with unique solid colors
-  const categories = [
-    { value: '', label: 'All Categories', color: 'bg-gray-700' },
-    { value: 'SAT Test Prep Opportunities', label: 'SAT Test Prep', color: 'bg-green-600' },
-    { value: 'Local Scholarships', label: 'Local Scholarships', color: 'bg-blue-600' },
-    { value: 'International Scholarships', label: 'International Scholarships', color: 'bg-yellow-600' }
-  ];
 
   return (
     <div className="min-h-screen bg-black">
@@ -462,41 +640,275 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
 
-          {/* Search Bar - First Priority */}
-          <div className="mb-8 space-y-4">
-            <div className="relative max-w-3xl mx-auto">
-              <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                <Target className="w-5 h-5 text-gray-400" />
+          {/* Educational Information Section */}
+          <div className="mb-12 space-y-6">
+            {/* SAT Explanation */}
+            <div className="bg-gradient-to-r from-green-900/50 via-emerald-900/50 to-green-900/50 rounded-2xl p-6 border border-green-500/30">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white mb-3">What is the SAT?</h3>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                    The SAT (Scholastic Assessment Test) is a standardized test widely used for college admissions in the United States and internationally.
+                    It measures literacy, numeracy, and writing skills that are needed for academic success in college. The SAT is scored on a scale of 400-1600,
+                    with separate scores for Evidence-Based Reading and Writing (200-800) and Math (200-800).
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <h4 className="font-semibold text-green-400 mb-2">Why Take the SAT?</h4>
+                      <ul className="text-gray-400 space-y-1">
+                        <li>• Required for most U.S. university applications</li>
+                        <li>• Essential for international scholarship eligibility</li>
+                        <li>• Demonstrates academic readiness for college</li>
+                        <li>• Opens doors to top global universities</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-green-400 mb-2">When to Start Preparing?</h4>
+                      <ul className="text-gray-400 space-y-1">
+                        <li>• Begin in SHS 1 or 2 for best results</li>
+                        <li>• Take practice tests regularly</li>
+                        <li>• Join SAT prep classes early</li>
+                        <li>• Plan to take the test multiple times</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <input
-                type="text"
-                placeholder="Search scholarship opportunities..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-white/5 border border-gray-600/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-200 backdrop-blur-sm hover:bg-white/10"
-              />
+            </div>
+
+            {/* SHS Programs Explanation */}
+            <div className="bg-gradient-to-r from-blue-900/50 via-indigo-900/50 to-blue-900/50 rounded-2xl p-6 border border-blue-500/30">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <GraduationCap className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white mb-3">Senior High School (SHS) Programs in Ghana</h3>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                    Ghana's Senior High School system offers diverse academic programs designed to prepare students for university education and career paths.
+                    Each program focuses on specific subject areas that align with future academic and professional goals.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                    <div className="bg-blue-800/30 rounded-lg p-4">
+                      <h4 className="font-semibold text-blue-400 mb-2">Science Program</h4>
+                      <p className="text-gray-400 text-xs mb-2">Core subjects: Mathematics, Physics, Chemistry, Biology, English</p>
+                      <p className="text-gray-300 text-xs">Leads to: Medicine, Engineering, Pure Sciences, Technology careers</p>
+                    </div>
+                    <div className="bg-blue-800/30 rounded-lg p-4">
+                      <h4 className="font-semibold text-blue-400 mb-2">Business Program</h4>
+                      <p className="text-gray-400 text-xs mb-2">Core subjects: Mathematics, Economics, Accounting, Business Management</p>
+                      <p className="text-gray-300 text-xs">Leads to: Business Administration, Finance, Economics, Entrepreneurship</p>
+                    </div>
+                    <div className="bg-blue-800/30 rounded-lg p-4">
+                      <h4 className="font-semibold text-blue-400 mb-2">General Arts</h4>
+                      <p className="text-gray-400 text-xs mb-2">Core subjects: English, Literature, History, Geography, Government</p>
+                      <p className="text-gray-300 text-xs">Leads to: Law, Teaching, Social Sciences, Humanities, Media</p>
+                    </div>
+                    <div className="bg-blue-800/30 rounded-lg p-4">
+                      <h4 className="font-semibold text-blue-400 mb-2">Visual Arts</h4>
+                      <p className="text-gray-400 text-xs mb-2">Core subjects: General Knowledge in Art, Picture Making, Graphic Design</p>
+                      <p className="text-gray-300 text-xs">Leads to: Fine Arts, Graphic Design, Architecture, Creative Industries</p>
+                    </div>
+                    <div className="bg-blue-800/30 rounded-lg p-4">
+                      <h4 className="font-semibold text-blue-400 mb-2">Home Economics</h4>
+                      <p className="text-gray-400 text-xs mb-2">Core subjects: Food and Nutrition, Clothing and Textiles, Management</p>
+                      <p className="text-gray-300 text-xs">Leads to: Nutrition, Food Science, Hospitality, Family Studies</p>
+                    </div>
+                    <div className="bg-blue-800/30 rounded-lg p-4">
+                      <h4 className="font-semibold text-blue-400 mb-2">Agricultural Science</h4>
+                      <p className="text-gray-400 text-xs mb-2">Core subjects: Animal Husbandry, Crop Husbandry, Agricultural Economics</p>
+                      <p className="text-gray-300 text-xs">Leads to: Agriculture, Veterinary Science, Agribusiness, Food Technology</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* TVET Programs Explanation */}
+            <div className="bg-gradient-to-r from-purple-900/50 via-violet-900/50 to-purple-900/50 rounded-2xl p-6 border border-purple-500/30">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Briefcase className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white mb-3">Technical and Vocational Education and Training (TVET)</h3>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                    TVET provides practical skills training and technical education that directly prepares students for the workforce.
+                    These programs focus on hands-on learning and industry-relevant skills, offering an alternative pathway to traditional academic education.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-purple-400 mb-3">Popular TVET Programs</h4>
+                      <div className="grid grid-cols-1 gap-2 text-sm">
+                        <div className="bg-purple-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-purple-300 mb-1">Information Technology</h5>
+                          <p className="text-gray-400 text-xs">Computer repair, networking, software development, cybersecurity</p>
+                        </div>
+                        <div className="bg-purple-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-purple-300 mb-1">Automotive Technology</h5>
+                          <p className="text-gray-400 text-xs">Vehicle maintenance, auto mechanics, automotive electronics</p>
+                        </div>
+                        <div className="bg-purple-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-purple-300 mb-1">Construction & Building</h5>
+                          <p className="text-gray-400 text-xs">Masonry, carpentry, plumbing, electrical installation</p>
+                        </div>
+                        <div className="bg-purple-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-purple-300 mb-1">Hospitality & Tourism</h5>
+                          <p className="text-gray-400 text-xs">Hotel management, catering, tour guiding, event planning</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-purple-400 mb-3">Benefits of TVET Education</h4>
+                      <ul className="text-gray-400 space-y-2 text-sm mb-4">
+                        <li>• Direct entry into skilled employment</li>
+                        <li>• Shorter training duration (6 months - 3 years)</li>
+                        <li>• High demand for technical skills in job market</li>
+                        <li>• Entrepreneurship opportunities</li>
+                        <li>• Pathway to technical universities</li>
+                        <li>• Industry-recognized certifications</li>
+                      </ul>
+                      <div className="bg-purple-800/30 rounded-lg p-4">
+                        <h5 className="font-medium text-purple-300 mb-2">TVET Institutions</h5>
+                        <p className="text-gray-400 text-xs mb-3">
+                          Explore official TVET programs and institutions in Ghana
+                        </p>
+                        <div className="space-y-2">
+                          <a
+                            href="https://gtvets.gov.gh"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-3 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs font-medium rounded-lg transition-colors duration-300 w-full justify-center"
+                          >
+                            <Globe className="w-4 h-4" />
+                            Official TVET Ghana
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                          <a
+                            href="https://actt.edu.gh"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-3 py-2 bg-purple-500 hover:bg-purple-600 text-white text-xs font-medium rounded-lg transition-colors duration-300 w-full justify-center"
+                          >
+                            <Briefcase className="w-4 h-4" />
+                            African Centre for Technical Training
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        </div>
+                        <p className="text-gray-500 text-xs mt-2">
+                          ACTT: High-quality technical training for employment and entrepreneurship
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Entrepreneurship & Startup Opportunities */}
+            <div className="bg-gradient-to-r from-orange-900/50 via-red-900/50 to-orange-900/50 rounded-2xl p-6 border border-orange-500/30">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Briefcase className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white mb-3">Entrepreneurship & Startup Opportunities</h3>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                    Students can also create their own path through entrepreneurship and startups. Ghana has a vibrant startup ecosystem with numerous
+                    innovation hubs, incubators, and accelerators that support young entrepreneurs in turning their ideas into successful businesses.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-orange-400 mb-3">Why Consider Entrepreneurship?</h4>
+                      <ul className="text-gray-400 space-y-2 text-sm mb-4">
+                        <li>• Create your own job and employ others</li>
+                        <li>• Solve real problems in your community</li>
+                        <li>• Build wealth and financial independence</li>
+                        <li>• Flexible work schedule and lifestyle</li>
+                        <li>• Make a positive impact on society</li>
+                        <li>• Learn diverse business skills</li>
+                      </ul>
+                      <h4 className="font-semibold text-orange-400 mb-3">When to Start?</h4>
+                      <ul className="text-gray-400 space-y-2 text-sm">
+                        <li>• Start small businesses while in SHS</li>
+                        <li>• Join entrepreneurship clubs and competitions</li>
+                        <li>• Learn from successful entrepreneurs</li>
+                        <li>• Develop business and financial literacy</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-orange-400 mb-3">Ghana's Top Startup Hubs & Incubators</h4>
+                      <div className="grid grid-cols-1 gap-2 text-sm">
+                        <div className="bg-orange-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-orange-300 mb-1">MEST Africa</h5>
+                          <p className="text-gray-400 text-xs">Pan-African training program, seed fund, and incubator for tech entrepreneurs</p>
+                        </div>
+                        <div className="bg-orange-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-orange-300 mb-1">iSpace Foundation</h5>
+                          <p className="text-gray-400 text-xs">Innovation hub offering workspace, mentorship, and startup support</p>
+                        </div>
+                        <div className="bg-orange-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-orange-300 mb-1">Kumasi Hive</h5>
+                          <p className="text-gray-400 text-xs">Tech innovation hub in Kumasi supporting startups and entrepreneurs</p>
+                        </div>
+                        <div className="bg-orange-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-orange-300 mb-1">Impact Hub Accra</h5>
+                          <p className="text-gray-400 text-xs">Global network supporting social entrepreneurs and impact startups</p>
+                        </div>
+                        <div className="bg-orange-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-orange-300 mb-1">Ghana Innovation Hub</h5>
+                          <p className="text-gray-400 text-xs">Supporting innovation and technology startups across various sectors</p>
+                        </div>
+                        <div className="bg-orange-800/30 rounded-lg p-3">
+                          <h5 className="font-medium text-orange-300 mb-1">Kosmos Innovation Centre</h5>
+                          <p className="text-gray-400 text-xs">Accelerating startups in energy, agriculture, and technology sectors</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-6 bg-orange-800/30 rounded-lg p-4">
+                    <h5 className="font-medium text-orange-300 mb-2">Start Your Entrepreneurial Journey</h5>
+                    <p className="text-gray-400 text-xs mb-3">
+                      Remember: Every successful entrepreneur started with an idea. Whether you pursue traditional education or not,
+                      entrepreneurship can be your path to success. Many successful business owners never completed university but
+                      built thriving companies through determination, learning, and hard work.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-2 py-1 bg-orange-600/20 text-orange-300 text-xs rounded-full">
+                        Start Small
+                      </span>
+                      <span className="px-2 py-1 bg-orange-600/20 text-orange-300 text-xs rounded-full">
+                        Learn Continuously
+                      </span>
+                      <span className="px-2 py-1 bg-orange-600/20 text-orange-300 text-xs rounded-full">
+                        Network Actively
+                      </span>
+                      <span className="px-2 py-1 bg-orange-600/20 text-orange-300 text-xs rounded-full">
+                        Solve Problems
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Category Filters - Horizontally Aligned on Mobile */}
+          {/* Smart Search Bar */}
           <div className="mb-8">
-            <div className="flex justify-center">
-              <div className="flex flex-row gap-2 sm:gap-3 overflow-x-auto pb-2 w-full max-w-4xl">
-                {categories.map(category => (
-                  <button
-                    key={category.value}
-                    onClick={() => setSelectedCategory(category.value)}
-                    className={`px-3 py-2 sm:px-4 sm:py-2 rounded-xl font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 text-sm sm:text-base ${
-                      selectedCategory === category.value
-                        ? `${category.color} text-white shadow-lg hover:opacity-90`
-                        : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
-                    }`}
-                  >
-                    {category.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <SmartSearchBar
+              items={searchableItems}
+              onSearchResults={handleSearchResults}
+              placeholder={`Search ${scholarshipOpportunities.length}+ scholarship opportunities...`}
+              accentColor="purple"
+              categories={categoryOptions}
+              types={typeOptions}
+              enableIntentDetection={true}
+              className="mb-6"
+              pageKey="scholarship-opportunities"
+            />
           </div>
 
           {/* Educational Pathway Guide - Like BECE Placement Checker */}
@@ -538,94 +950,136 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           {/* Results Summary */}
           <div className="mb-6">
             <p className="text-gray-400 text-sm">
-              {(filteredScholarships?.length || 0) === (scholarshipOpportunities?.length || 0)
-                ? `Showing all ${scholarshipOpportunities?.length || 0} scholarship opportunities`
-                : `Showing ${filteredScholarships?.length || 0} of ${scholarshipOpportunities?.length || 0} scholarship opportunities`
+              {searchResults.length === 0
+                ? `Showing all ${scholarshipOpportunities.length} scholarship opportunities`
+                : `Showing ${searchResults.length} of ${scholarshipOpportunities.length} scholarship opportunities`
               }
-              {searchTerm && ` for "${searchTerm}"`}
             </p>
           </div>
 
-          {/* Scholarship Opportunities Grid - Exact AI Search Page Layout */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-            {(filteredScholarships || []).map((scholarship, index) => (
-              <motion.div
-                key={scholarship.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="group"
-              >
-                <button
-                  onClick={() => handleScholarshipClick(scholarship.id)}
-                  className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
-                >
-                  {/* Background Gradient */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${scholarship.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300 rounded-2xl`}
-                  />
+          {/* Scholarship Categories with Grouped Display */}
+          <div className="space-y-12">
+            {Object.entries(filteredCategories).map(([categoryName, scholarships]) => (
+              <div key={categoryName} className="space-y-6">
+                {/* Category Title */}
+                <div className="text-center">
+                  <h2 className={`text-2xl sm:text-3xl font-bold mb-2 ${
+                    categoryName === 'SAT Test Prep Opportunities' ? 'text-green-400' :
+                    categoryName === 'Local Scholarships' ? 'text-blue-400' :
+                    categoryName === 'Startup Hubs & Incubators' ? 'text-orange-400' :
+                    'text-yellow-400'
+                  }`}>
+                    {categoryName}
+                  </h2>
+                  <div className={`w-24 h-1 mx-auto rounded-full ${
+                    categoryName === 'SAT Test Prep Opportunities' ? 'bg-green-500' :
+                    categoryName === 'Local Scholarships' ? 'bg-blue-500' :
+                    categoryName === 'Startup Hubs & Incubators' ? 'bg-orange-500' :
+                    'bg-yellow-500'
+                  }`} />
+                  <p className="text-gray-400 text-sm mt-2">
+                    {scholarships.length} {scholarships.length === 1 ? 'opportunity' : 'opportunities'} available
+                  </p>
+                </div>
 
-                  {/* Glow Effect */}
-                  <div
-                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-                    style={{
-                      background: `radial-gradient(circle at center, ${scholarship.glowColor}20 0%, transparent 70%)`
-                    }}
-                  />
+                {/* Scholarship Cards Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                    {scholarships.map((scholarship, index) => (
+                      <motion.div
+                        key={scholarship.id}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="group"
+                      >
+                        <button
+                          onClick={() => handleScholarshipClick(scholarship.id)}
+                          className={`w-full h-[200px] backdrop-blur-sm rounded-2xl p-4 border-2 transition-all duration-300 hover:shadow-xl active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
+                            categoryName === 'SAT Test Prep Opportunities'
+                              ? 'bg-green-900/30 border-green-600/50 hover:border-green-500 hover:shadow-green-500/20 hover:bg-green-800/40'
+                              : categoryName === 'Local Scholarships'
+                              ? 'bg-blue-900/30 border-blue-600/50 hover:border-blue-500 hover:shadow-blue-500/20 hover:bg-blue-800/40'
+                              : categoryName === 'Startup Hubs & Incubators'
+                              ? 'bg-orange-900/30 border-orange-600/50 hover:border-orange-500 hover:shadow-orange-500/20 hover:bg-orange-800/40'
+                              : 'bg-yellow-900/30 border-yellow-600/50 hover:border-yellow-500 hover:shadow-yellow-500/20 hover:bg-yellow-800/40'
+                          }`}
+                        >
+                          {/* Background Gradient */}
+                          <div
+                            className={`absolute inset-0 bg-gradient-to-br ${scholarship.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300 rounded-2xl`}
+                          />
 
-                  {/* Icon */}
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm mb-3 group-hover:bg-white/20 transition-colors duration-300">
-                    {scholarship.icon}
+                          {/* Glow Effect */}
+                          <div
+                            className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+                            style={{
+                              background: `radial-gradient(circle at center, ${scholarship.glowColor}30 0%, transparent 70%)`
+                            }}
+                          />
+
+                          {/* Icon */}
+                          <div className={`flex items-center justify-center w-12 h-12 rounded-xl mb-3 group-hover:scale-110 transition-all duration-300 ${
+                            categoryName === 'SAT Test Prep Opportunities'
+                              ? 'bg-green-600/20 group-hover:bg-green-500/30'
+                              : categoryName === 'Local Scholarships'
+                              ? 'bg-blue-600/20 group-hover:bg-blue-500/30'
+                              : categoryName === 'Startup Hubs & Incubators'
+                              ? 'bg-orange-600/20 group-hover:bg-orange-500/30'
+                              : 'bg-yellow-600/20 group-hover:bg-yellow-500/30'
+                          }`}>
+                            {scholarship.icon}
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex-1 flex flex-col">
+                            <h3 className="text-sm font-bold text-white mb-2 line-clamp-2 group-hover:text-white/90 transition-colors duration-300">
+                              {scholarship.name}
+                            </h3>
+                            <p className="text-xs text-gray-300 line-clamp-3 flex-1 leading-relaxed">
+                              {scholarship.description}
+                            </p>
+                          </div>
+
+                          {/* Footer */}
+                          <div className="flex items-center justify-between pt-3 mt-auto border-t border-gray-600/30">
+                            <span className="text-xs text-gray-400 font-medium">
+                              Visit Website
+                            </span>
+                            <div className={`w-5 h-5 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300 ${
+                              categoryName === 'SAT Test Prep Opportunities'
+                                ? 'bg-green-600/20 group-hover:bg-green-500/30'
+                                : categoryName === 'Local Scholarships'
+                                ? 'bg-blue-600/20 group-hover:bg-blue-500/30'
+                                : categoryName === 'Startup Hubs & Incubators'
+                                ? 'bg-orange-600/20 group-hover:bg-orange-500/30'
+                                : 'bg-yellow-600/20 group-hover:bg-yellow-500/30'
+                            }`}>
+                              <ExternalLink size={10} className="text-gray-400 group-hover:text-white" />
+                            </div>
+                          </div>
+
+                          {/* Hover overlay */}
+                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                        </button>
+                      </motion.div>
+                    ))}
                   </div>
-
-                  {/* Content */}
-                  <div className="flex-1 flex flex-col">
-                    <h3 className="text-sm font-bold text-white mb-2 line-clamp-2 group-hover:text-white/90 transition-colors duration-300">
-                      {scholarship.name}
-                    </h3>
-                    <p className="text-xs text-gray-300 line-clamp-3 flex-1 leading-relaxed">
-                      {scholarship.description}
-                    </p>
-                  </div>
-
-                  {/* Footer */}
-                  <div className="flex items-center justify-between pt-3 mt-auto border-t border-gray-600/30">
-                    <span className="text-xs text-gray-400 font-medium">
-                      Visit Website
-                    </span>
-                    <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
-                      <ExternalLink size={10} className="text-gray-400 group-hover:text-white" />
-                    </div>
-                  </div>
-
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                </button>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* No results message */}
-          {(!filteredScholarships || filteredScholarships.length === 0) && (
-            <div className="text-center py-12">
-              <div className="w-20 h-20 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="w-10 h-10 text-gray-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">No scholarships found</h3>
-              <p className="text-gray-400 mb-4">
-                Try adjusting your search terms or filters to find what you're looking for.
-              </p>
-              <button
-                onClick={() => {
-                  setSearchTerm('');
-                  setSelectedCategory('');
-                }}
-                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors duration-300"
-              >
-                Clear Search
-              </button>
+                </div>
+              ))}
             </div>
-          )}
+
+            {/* No results message */}
+            {Object.keys(filteredCategories).length === 0 && (
+              <div className="text-center py-12">
+                <div className="w-20 h-20 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <BookOpen className="w-10 h-10 text-gray-400" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">No scholarships found</h3>
+                <p className="text-gray-400 mb-4">
+                  Try adjusting your search terms or filters to find what you're looking for.
+                </p>
+              </div>
+            )}
         </div>
       </main>
     </div>

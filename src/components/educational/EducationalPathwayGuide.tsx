@@ -312,6 +312,119 @@ const EducationalPathwayGuide: React.FC = () => {
           cost: 'High'
         }
       ]
+    },
+    {
+      id: 'entrepreneurship-pathway',
+      title: 'Entrepreneurship & Business Creation',
+      description: 'Start your own business and become a job creator',
+      icon: <Briefcase className="w-8 h-8" />,
+      color: 'from-orange-600 to-red-600',
+      options: [
+        {
+          id: 'early-entrepreneurship',
+          title: 'Start While in School',
+          description: 'Begin entrepreneurial journey during SHS or immediately after',
+          requirements: [
+            'Identify a problem to solve',
+            'Basic business knowledge',
+            'Small starting capital or skills',
+            'Willingness to learn and adapt'
+          ],
+          outcomes: [
+            'Early business experience',
+            'Financial independence potential',
+            'Job creation for others',
+            'Real-world business skills'
+          ],
+          nextSteps: [
+            'Join startup hubs and incubators',
+            'Attend entrepreneurship workshops',
+            'Find mentors and advisors',
+            'Start with small pilot projects'
+          ],
+          difficulty: 'Medium',
+          timeframe: '1-2 years to start',
+          cost: 'Low'
+        },
+        {
+          id: 'tech-entrepreneurship',
+          title: 'Technology Startups',
+          description: 'Create technology-based solutions and digital businesses',
+          requirements: [
+            'Basic tech skills or tech co-founder',
+            'Understanding of digital markets',
+            'Problem-solving mindset',
+            'Access to startup ecosystem'
+          ],
+          outcomes: [
+            'Scalable business potential',
+            'Access to venture capital',
+            'Global market opportunities',
+            'High growth potential'
+          ],
+          nextSteps: [
+            'Learn basic coding or digital skills',
+            'Join tech hubs like MEST, iSpace',
+            'Participate in hackathons',
+            'Build minimum viable product (MVP)'
+          ],
+          difficulty: 'Hard',
+          timeframe: '2-3 years to scale',
+          cost: 'Medium'
+        },
+        {
+          id: 'social-entrepreneurship',
+          title: 'Social Impact Business',
+          description: 'Create businesses that solve social problems while generating profit',
+          requirements: [
+            'Passion for social change',
+            'Understanding of community needs',
+            'Basic business planning skills',
+            'Networking and partnership abilities'
+          ],
+          outcomes: [
+            'Positive community impact',
+            'Sustainable income generation',
+            'Recognition and awards',
+            'Access to impact funding'
+          ],
+          nextSteps: [
+            'Join Impact Hub Accra',
+            'Research social problems in your area',
+            'Connect with NGOs and community leaders',
+            'Apply for social enterprise competitions'
+          ],
+          difficulty: 'Medium',
+          timeframe: '1-3 years',
+          cost: 'Low'
+        },
+        {
+          id: 'traditional-business',
+          title: 'Traditional Business Ventures',
+          description: 'Start conventional businesses in trade, services, or manufacturing',
+          requirements: [
+            'Market research skills',
+            'Basic capital or access to funding',
+            'Understanding of local market',
+            'Business registration knowledge'
+          ],
+          outcomes: [
+            'Steady income potential',
+            'Local market expertise',
+            'Employment creation',
+            'Community economic development'
+          ],
+          nextSteps: [
+            'Conduct market research',
+            'Develop business plan',
+            'Register business with Registrar General',
+            'Seek funding from banks or microfinance'
+          ],
+          difficulty: 'Easy',
+          timeframe: '6 months to 1 year',
+          cost: 'Medium'
+        }
+      ]
     }
   ];
 
