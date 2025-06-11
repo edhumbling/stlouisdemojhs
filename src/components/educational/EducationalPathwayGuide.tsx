@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, GraduationCap, Globe, Briefcase, BookOpen, Target, Users, Award, CheckCircle, Heart, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ArrowRight, GraduationCap, Globe, Briefcase, BookOpen, Target, Users, Award, CheckCircle, Heart, ExternalLink, Shield, Palette, Leaf, Monitor, Wrench, DollarSign, TrendingUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../seo/SEOHead';
 
@@ -362,6 +362,206 @@ const EducationalPathwayGuide: React.FC = () => {
           difficulty: 'Hard',
           timeframe: '3-4 years',
           cost: 'High'
+        },
+        {
+          id: 'professional-institutes',
+          title: 'Professional Institutes',
+          description: 'Specialized institutions for professional careers and certifications',
+          requirements: [
+            'Good academic background',
+            'Interest in specific profession',
+            'Meet institute requirements',
+            'Professional commitment'
+          ],
+          outcomes: [
+            'Professional certification',
+            'Industry recognition',
+            'Career advancement',
+            'Specialized expertise'
+          ],
+          nextSteps: [
+            'Research professional bodies (ICAG, GIB, GIM)',
+            'Understand certification requirements',
+            'Plan study timeline and costs'
+          ],
+          difficulty: 'Medium',
+          timeframe: '1-3 years',
+          cost: 'Medium'
+        },
+        {
+          id: 'tvet-schools',
+          title: 'TVET & Vocational Schools',
+          description: 'Technical and vocational education for hands-on skills',
+          requirements: [
+            'Basic education completion',
+            'Interest in technical skills',
+            'Practical aptitude',
+            'Career focus'
+          ],
+          outcomes: [
+            'Marketable technical skills',
+            'Quick employment opportunities',
+            'Entrepreneurship potential',
+            'Industry-relevant training'
+          ],
+          nextSteps: [
+            'Explore NVTI and technical institutes',
+            'Choose specific trade or skill',
+            'Apply for training programs'
+          ],
+          difficulty: 'Easy',
+          timeframe: '6 months - 2 years',
+          cost: 'Low'
+        },
+        {
+          id: 'military-academies',
+          title: 'Military & Security Academies',
+          description: 'Defense and security training institutions',
+          requirements: [
+            'Physical fitness',
+            'Good character',
+            'Educational qualifications',
+            'Commitment to service'
+          ],
+          outcomes: [
+            'Military/security career',
+            'Leadership training',
+            'Disciplined lifestyle',
+            'National service'
+          ],
+          nextSteps: [
+            'Research Ghana Armed Forces requirements',
+            'Consider Police Academy programs',
+            'Prepare for entrance examinations'
+          ],
+          difficulty: 'Hard',
+          timeframe: '2-4 years',
+          cost: 'Low'
+        },
+        {
+          id: 'religious-seminaries',
+          title: 'Religious Seminaries',
+          description: 'Theological and religious education institutions',
+          requirements: [
+            'Religious calling',
+            'Good academic record',
+            'Character references',
+            'Denominational requirements'
+          ],
+          outcomes: [
+            'Religious leadership',
+            'Community service',
+            'Spiritual development',
+            'Educational opportunities'
+          ],
+          nextSteps: [
+            'Contact denominational leaders',
+            'Research seminary programs',
+            'Prepare application materials'
+          ],
+          difficulty: 'Medium',
+          timeframe: '3-4 years',
+          cost: 'Low'
+        },
+        {
+          id: 'art-creative-schools',
+          title: 'Art & Creative Schools',
+          description: 'Creative arts, design, and media training',
+          requirements: [
+            'Creative talent',
+            'Portfolio development',
+            'Artistic passion',
+            'Technical aptitude'
+          ],
+          outcomes: [
+            'Creative career opportunities',
+            'Artistic skill development',
+            'Industry connections',
+            'Cultural contribution'
+          ],
+          nextSteps: [
+            'Build creative portfolio',
+            'Research NAFTI and art schools',
+            'Develop technical skills'
+          ],
+          difficulty: 'Medium',
+          timeframe: '1-4 years',
+          cost: 'Medium'
+        },
+        {
+          id: 'agricultural-colleges',
+          title: 'Agricultural Colleges',
+          description: 'Farming and agricultural training institutions',
+          requirements: [
+            'Interest in agriculture',
+            'Science background',
+            'Practical orientation',
+            'Environmental awareness'
+          ],
+          outcomes: [
+            'Agricultural expertise',
+            'Food security contribution',
+            'Rural development',
+            'Sustainable farming'
+          ],
+          nextSteps: [
+            'Explore KNUST Agriculture programs',
+            'Research agricultural research institutes',
+            'Consider agribusiness opportunities'
+          ],
+          difficulty: 'Medium',
+          timeframe: '2-4 years',
+          cost: 'Medium'
+        },
+        {
+          id: 'business-schools',
+          title: 'Business Schools',
+          description: 'Management education and executive development',
+          requirements: [
+            'Business aptitude',
+            'Leadership potential',
+            'Academic qualifications',
+            'Professional goals'
+          ],
+          outcomes: [
+            'Management skills',
+            'Business network',
+            'Career advancement',
+            'Entrepreneurship preparation'
+          ],
+          nextSteps: [
+            'Research MBA programs (UGBS, GIMPA)',
+            'Gain work experience',
+            'Prepare for entrance exams'
+          ],
+          difficulty: 'Hard',
+          timeframe: '1-3 years',
+          cost: 'High'
+        },
+        {
+          id: 'online-universities',
+          title: 'Online Universities',
+          description: 'Accredited distance learning and virtual education',
+          requirements: [
+            'Self-discipline',
+            'Technology access',
+            'Time management',
+            'Academic qualifications'
+          ],
+          outcomes: [
+            'Flexible learning',
+            'Work-study balance',
+            'Global access',
+            'Cost-effective education'
+          ],
+          nextSteps: [
+            'Research accredited online programs',
+            'Ensure technology requirements',
+            'Plan study schedule'
+          ],
+          difficulty: 'Medium',
+          timeframe: '2-4 years',
+          cost: 'Medium'
         }
       ]
     },
@@ -695,8 +895,13 @@ const EducationalPathwayGuide: React.FC = () => {
                   </motion.div>
                 )}
 
-                {/* Glowing Buttons for Health, Teacher Training, and Local Universities */}
-                {(option.id === 'health-training-institutions' || option.id === 'teacher-training-institutions' || option.id === 'local-universities') && (
+                {/* Glowing Buttons for All Institution Categories */}
+                {(option.id === 'health-training-institutions' || option.id === 'teacher-training-institutions' ||
+                  option.id === 'local-universities' || option.id === 'professional-institutes' ||
+                  option.id === 'tvet-schools' || option.id === 'military-academies' ||
+                  option.id === 'religious-seminaries' || option.id === 'art-creative-schools' ||
+                  option.id === 'agricultural-colleges' || option.id === 'business-schools' ||
+                  option.id === 'online-universities') && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -706,36 +911,108 @@ const EducationalPathwayGuide: React.FC = () => {
                       onClick={() => navigate(
                         option.id === 'health-training-institutions' ? '/nursing-institutions' :
                         option.id === 'teacher-training-institutions' ? '/teacher-training' :
-                        '/local-universities'
+                        option.id === 'local-universities' ? '/local-universities' :
+                        option.id === 'professional-institutes' ? '/professional-institutes' :
+                        option.id === 'tvet-schools' ? '/tvet-schools' :
+                        option.id === 'military-academies' ? '/military-academies' :
+                        option.id === 'religious-seminaries' ? '/religious-seminaries' :
+                        option.id === 'art-creative-schools' ? '/art-creative-schools' :
+                        option.id === 'agricultural-colleges' ? '/agricultural-colleges' :
+                        option.id === 'business-schools' ? '/business-schools' :
+                        '/online-universities'
                       )}
                       className={`w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl font-semibold transition-all duration-300 text-white shadow-lg hover:shadow-xl transform hover:scale-105 ${
                         option.id === 'health-training-institutions'
                           ? 'bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 shadow-red-500/30 hover:shadow-red-500/50'
                           : option.id === 'teacher-training-institutions'
                           ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-blue-500/30 hover:shadow-blue-500/50'
-                          : 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-green-500/30 hover:shadow-green-500/50'
+                          : option.id === 'local-universities'
+                          ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-green-500/30 hover:shadow-green-500/50'
+                          : option.id === 'professional-institutes'
+                          ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-purple-500/30 hover:shadow-purple-500/50'
+                          : option.id === 'tvet-schools'
+                          ? 'bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 shadow-orange-500/30 hover:shadow-orange-500/50'
+                          : option.id === 'military-academies'
+                          ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-green-500/30 hover:shadow-green-500/50'
+                          : option.id === 'religious-seminaries'
+                          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-indigo-500/30 hover:shadow-indigo-500/50'
+                          : option.id === 'art-creative-schools'
+                          ? 'bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 shadow-pink-500/30 hover:shadow-pink-500/50'
+                          : option.id === 'agricultural-colleges'
+                          ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-green-500/30 hover:shadow-green-500/50'
+                          : option.id === 'business-schools'
+                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-blue-500/30 hover:shadow-blue-500/50'
+                          : 'bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 shadow-cyan-500/30 hover:shadow-cyan-500/50'
                       }`}
                       style={{
                         boxShadow: option.id === 'health-training-institutions'
                           ? '0 0 20px rgba(239, 68, 68, 0.4), 0 0 40px rgba(239, 68, 68, 0.2)'
                           : option.id === 'teacher-training-institutions'
                           ? '0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2)'
-                          : '0 0 20px rgba(34, 197, 94, 0.4), 0 0 40px rgba(34, 197, 94, 0.2)'
+                          : option.id === 'local-universities'
+                          ? '0 0 20px rgba(34, 197, 94, 0.4), 0 0 40px rgba(34, 197, 94, 0.2)'
+                          : option.id === 'professional-institutes'
+                          ? '0 0 20px rgba(147, 51, 234, 0.4), 0 0 40px rgba(147, 51, 234, 0.2)'
+                          : option.id === 'tvet-schools'
+                          ? '0 0 20px rgba(234, 88, 12, 0.4), 0 0 40px rgba(234, 88, 12, 0.2)'
+                          : option.id === 'military-academies'
+                          ? '0 0 20px rgba(34, 197, 94, 0.4), 0 0 40px rgba(34, 197, 94, 0.2)'
+                          : option.id === 'religious-seminaries'
+                          ? '0 0 20px rgba(99, 102, 241, 0.4), 0 0 40px rgba(99, 102, 241, 0.2)'
+                          : option.id === 'art-creative-schools'
+                          ? '0 0 20px rgba(236, 72, 153, 0.4), 0 0 40px rgba(236, 72, 153, 0.2)'
+                          : option.id === 'agricultural-colleges'
+                          ? '0 0 20px rgba(34, 197, 94, 0.4), 0 0 40px rgba(34, 197, 94, 0.2)'
+                          : option.id === 'business-schools'
+                          ? '0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2)'
+                          : '0 0 20px rgba(8, 145, 178, 0.4), 0 0 40px rgba(8, 145, 178, 0.2)'
                       }}
                     >
                       {option.id === 'health-training-institutions' ? (
                         <Heart className="w-5 h-5" />
                       ) : option.id === 'teacher-training-institutions' ? (
                         <BookOpen className="w-5 h-5" />
-                      ) : (
+                      ) : option.id === 'local-universities' ? (
                         <GraduationCap className="w-5 h-5" />
+                      ) : option.id === 'professional-institutes' ? (
+                        <DollarSign className="w-5 h-5" />
+                      ) : option.id === 'tvet-schools' ? (
+                        <Wrench className="w-5 h-5" />
+                      ) : option.id === 'military-academies' ? (
+                        <Shield className="w-5 h-5" />
+                      ) : option.id === 'religious-seminaries' ? (
+                        <BookOpen className="w-5 h-5" />
+                      ) : option.id === 'art-creative-schools' ? (
+                        <Palette className="w-5 h-5" />
+                      ) : option.id === 'agricultural-colleges' ? (
+                        <Leaf className="w-5 h-5" />
+                      ) : option.id === 'business-schools' ? (
+                        <TrendingUp className="w-5 h-5" />
+                      ) : (
+                        <Monitor className="w-5 h-5" />
                       )}
                       <span>
                         {option.id === 'health-training-institutions'
                           ? 'View All Health Training Institutions'
                           : option.id === 'teacher-training-institutions'
                           ? 'View All Teacher Training Institutions'
-                          : 'View All Local Universities'
+                          : option.id === 'local-universities'
+                          ? 'View All Local Universities'
+                          : option.id === 'professional-institutes'
+                          ? 'View All Professional Institutes'
+                          : option.id === 'tvet-schools'
+                          ? 'View All TVET Schools'
+                          : option.id === 'military-academies'
+                          ? 'View All Military Academies'
+                          : option.id === 'religious-seminaries'
+                          ? 'View All Religious Seminaries'
+                          : option.id === 'art-creative-schools'
+                          ? 'View All Art & Creative Schools'
+                          : option.id === 'agricultural-colleges'
+                          ? 'View All Agricultural Colleges'
+                          : option.id === 'business-schools'
+                          ? 'View All Business Schools'
+                          : 'View All Online Universities'
                         }
                       </span>
                       <ExternalLink className="w-4 h-4" />

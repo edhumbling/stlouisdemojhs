@@ -54,6 +54,14 @@ import EducationalGuidePage from './pages/EducationalGuidePage';
 import NursingInstitutionsPage from './pages/NursingInstitutionsPage';
 import TeacherTrainingPage from './pages/TeacherTrainingPage';
 import LocalUniversitiesPage from './pages/LocalUniversitiesPage';
+import ProfessionalInstitutesPage from './pages/ProfessionalInstitutesPage';
+import TVETSchoolsPage from './pages/TVETSchoolsPage';
+import MilitaryAcademiesPage from './pages/MilitaryAcademiesPage';
+import ReligiousSeminariesPage from './pages/ReligiousSeminariesPage';
+import ArtCreativeSchoolsPage from './pages/ArtCreativeSchoolsPage';
+import AgriculturalCollegesPage from './pages/AgriculturalCollegesPage';
+import BusinessSchoolsPage from './pages/BusinessSchoolsPage';
+import OnlineUniversitiesPage from './pages/OnlineUniversitiesPage';
 
 // Scroll Position Manager Component
 const ScrollPositionManager: React.FC = () => {
@@ -165,6 +173,14 @@ const App: React.FC = () => {
           <Route path="/nursing-institutions" element={<NursingInstitutionsPage />} />
           <Route path="/teacher-training" element={<TeacherTrainingPage />} />
           <Route path="/local-universities" element={<LocalUniversitiesPage />} />
+          <Route path="/professional-institutes" element={<ProfessionalInstitutesPage />} />
+          <Route path="/tvet-schools" element={<TVETSchoolsPage />} />
+          <Route path="/military-academies" element={<MilitaryAcademiesPage />} />
+          <Route path="/religious-seminaries" element={<ReligiousSeminariesPage />} />
+          <Route path="/art-creative-schools" element={<ArtCreativeSchoolsPage />} />
+          <Route path="/agricultural-colleges" element={<AgriculturalCollegesPage />} />
+          <Route path="/business-schools" element={<BusinessSchoolsPage />} />
+          <Route path="/online-universities" element={<OnlineUniversitiesPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
