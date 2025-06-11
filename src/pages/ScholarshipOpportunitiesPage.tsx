@@ -24,9 +24,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         color: "#4CAF50",
         items: [
           {
-            name: "CKodo Foundation",
-            description: "Offers comprehensive SAT preparation programs and college application guidance",
-            website: "https://ckodofoundation.org"
+            name: "AFEX Hub",
+            description: "Professional SAT preparation and college application support with proven track record",
+            website: "http://www.afextestprep.com"
           },
           {
             name: "YAfGhana",
@@ -39,9 +39,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             website: "https://gh.usembassy.gov/education-culture/educationusa/"
           },
           {
-            name: "Veritas Prep",
+            name: "Veritas Foundation",
             description: "Professional SAT preparation and college counseling services",
-            website: "https://www.veritasprep.com"
+            website: "https://theveritasfoundation.co"
           },
           {
             name: "College Board Ghana",
@@ -110,6 +110,11 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             name: "Ghana Cocoa Board (COCOBOD) Scholarships",
             description: "Scholarships for children of cocoa farmers",
             website: "https://cocobod.gh"
+          },
+          {
+            name: "DreamHive Scholarship Ghana",
+            description: "Merit-based scholarships and educational support for Ghanaian students",
+            website: "https://dreamhive.org"
           }
         ]
       },
