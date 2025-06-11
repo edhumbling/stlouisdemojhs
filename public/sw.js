@@ -1,4 +1,4 @@
-const CACHE_NAME = 'st-louis-demo-jhs-v3';
+const CACHE_NAME = 'st-louis-demo-jhs-v4';
 const urlsToCache = [
   '/',
   '/manifest.json',
@@ -79,9 +79,114 @@ self.addEventListener('activate', (event) => {
           url: '/'
         }
       });
+
+      // Initialize daily student notifications
+      scheduleStudentNotifications();
     })
   );
 });
+
+// Schedule daily notifications for students
+function scheduleStudentNotifications() {
+  console.log('📅 Setting up daily student notifications...');
+
+  // Clear any existing alarms first
+  if ('serviceWorker' in navigator && 'setInterval' in self) {
+    // Schedule homework reminder for 7:00 PM Ghana time daily
+    scheduleNotification('homework-reminder', {
+      hour: 19, // 7 PM
+      minute: 0,
+      title: '📚 Homework Reminder!',
+      body: 'Hey there, brilliant student! 🌟 Don\'t forget to complete any homework assignments you received today. Your future self will thank you! 💪✨',
+      icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+      badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+      tag: 'homework-reminder',
+      requireInteraction: true,
+      actions: [
+        {
+          action: 'open-students-hub',
+          title: '📖 Study Resources',
+          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
+        },
+        {
+          action: 'dismiss',
+          title: '✅ Got it!',
+          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
+        }
+      ],
+      data: { url: '/students-hub' }
+    });
+
+    // Schedule learning encouragement for 7:30 PM Ghana time daily
+    scheduleNotification('learning-encouragement', {
+      hour: 19, // 7 PM
+      minute: 30, // 30 minutes
+      title: '🚀 Time to Level Up Your Learning!',
+      body: 'Ready to explore amazing educational resources? 🎯 Visit our Students Hub for interactive tools, study materials, and fun learning content! 📱💡',
+      icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+      badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+      tag: 'learning-encouragement',
+      requireInteraction: true,
+      actions: [
+        {
+          action: 'open-students-hub',
+          title: '🎓 Explore Resources',
+          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
+        },
+        {
+          action: 'open-ai-search',
+          title: '🤖 AI Study Help',
+          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
+        }
+      ],
+      data: { url: '/students-hub' }
+    });
+  }
+}
+
+function scheduleNotification(id, options) {
+  const now = new Date();
+  const ghanaTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Accra"}));
+
+  // Calculate next occurrence of the specified time
+  const nextNotification = new Date(ghanaTime);
+  nextNotification.setHours(options.hour, options.minute, 0, 0);
+
+  // If the time has already passed today, schedule for tomorrow
+  if (nextNotification <= ghanaTime) {
+    nextNotification.setDate(nextNotification.getDate() + 1);
+  }
+
+  const delay = nextNotification.getTime() - ghanaTime.getTime();
+
+  console.log(`⏰ Scheduling ${id} notification for ${nextNotification.toLocaleString()} Ghana time`);
+
+  // Set initial timeout
+  setTimeout(() => {
+    showStudentNotification(options);
+
+    // Set daily interval (24 hours = 86400000 ms)
+    setInterval(() => {
+      showStudentNotification(options);
+    }, 86400000);
+  }, delay);
+}
+
+function showStudentNotification(options) {
+  if ('serviceWorker' in navigator && 'Notification' in window) {
+    self.registration.showNotification(options.title, {
+      body: options.body,
+      icon: options.icon,
+      badge: options.badge,
+      tag: options.tag,
+      requireInteraction: options.requireInteraction,
+      actions: options.actions,
+      data: options.data,
+      vibrate: [200, 100, 200], // Gentle vibration pattern
+      silent: false
+    });
+  }
+}
 
 // Handle notification clicks
 self.addEventListener('notificationclick', (event) => {
@@ -89,18 +194,56 @@ self.addEventListener('notificationclick', (event) => {
 
   event.notification.close();
 
-  if (event.action === 'open' || event.notification.tag === 'pwa-ready') {
+  // Handle different notification actions
+  if (event.action === 'open-students-hub') {
     event.waitUntil(
       clients.matchAll({ type: 'window' }).then((clientList) => {
-        // If app is already open, focus it
+        // Check if Students Hub is already open
         for (const client of clientList) {
-          if (client.url === '/' && 'focus' in client) {
+          if (client.url.includes('/students-hub') && 'focus' in client) {
             return client.focus();
           }
         }
-        // Otherwise open new window
+        // Otherwise open Students Hub
         if (clients.openWindow) {
-          return clients.openWindow('/');
+          return clients.openWindow('/students-hub');
+        }
+      })
+    );
+  } else if (event.action === 'open-ai-search') {
+    event.waitUntil(
+      clients.matchAll({ type: 'window' }).then((clientList) => {
+        // Check if AI Search is already open
+        for (const client of clientList) {
+          if (client.url.includes('/ai-search') && 'focus' in client) {
+            return client.focus();
+          }
+        }
+        // Otherwise open AI Search
+        if (clients.openWindow) {
+          return clients.openWindow('/ai-search');
+        }
+      })
+    );
+  } else if (event.action === 'dismiss') {
+    // Just close the notification (already handled above)
+    console.log('📝 Student acknowledged the reminder');
+  } else if (event.action === 'open' || event.notification.tag === 'pwa-ready' ||
+             event.notification.tag === 'homework-reminder' ||
+             event.notification.tag === 'learning-encouragement') {
+    // Default action - open the app or specific page
+    const targetUrl = event.notification.data?.url || '/';
+    event.waitUntil(
+      clients.matchAll({ type: 'window' }).then((clientList) => {
+        // If target page is already open, focus it
+        for (const client of clientList) {
+          if (client.url.includes(targetUrl) && 'focus' in client) {
+            return client.focus();
+          }
+        }
+        // Otherwise open target page
+        if (clients.openWindow) {
+          return clients.openWindow(targetUrl);
         }
       })
     );
