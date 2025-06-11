@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, GraduationCap, Globe, Briefcase, BookOpen, Target, Users, Award, CheckCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, GraduationCap, Globe, Briefcase, BookOpen, Target, Users, Award, CheckCircle, Heart, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../seo/SEOHead';
 
@@ -692,6 +692,42 @@ const EducationalPathwayGuide: React.FC = () => {
                         ))}
                       </ul>
                     </div>
+                  </motion.div>
+                )}
+
+                {/* Glowing Buttons for Health and Teacher Training */}
+                {(option.id === 'health-training-institutions' || option.id === 'teacher-training-institutions') && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-4 pt-4 border-t border-white/20"
+                  >
+                    <button
+                      onClick={() => navigate(option.id === 'health-training-institutions' ? '/nursing-institutions' : '/teacher-training')}
+                      className={`w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl font-semibold transition-all duration-300 text-white shadow-lg hover:shadow-xl transform hover:scale-105 ${
+                        option.id === 'health-training-institutions'
+                          ? 'bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 shadow-red-500/30 hover:shadow-red-500/50'
+                          : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-blue-500/30 hover:shadow-blue-500/50'
+                      }`}
+                      style={{
+                        boxShadow: option.id === 'health-training-institutions'
+                          ? '0 0 20px rgba(239, 68, 68, 0.4), 0 0 40px rgba(239, 68, 68, 0.2)'
+                          : '0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2)'
+                      }}
+                    >
+                      {option.id === 'health-training-institutions' ? (
+                        <Heart className="w-5 h-5" />
+                      ) : (
+                        <BookOpen className="w-5 h-5" />
+                      )}
+                      <span>
+                        {option.id === 'health-training-institutions'
+                          ? 'View All Health Training Institutions'
+                          : 'View All Teacher Training Institutions'
+                        }
+                      </span>
+                      <ExternalLink className="w-4 h-4" />
+                    </button>
                   </motion.div>
                 )}
               </motion.div>
