@@ -325,67 +325,76 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     : null;
 
   // Search functionality
-  const searchableItems: SearchableItem[] = useMemo(() =>
-    scholarshipOpportunities.map(scholarship => ({
+  const searchableItems: SearchableItem[] = useMemo(() => {
+    if (!scholarshipOpportunities || !Array.isArray(scholarshipOpportunities)) {
+      return [];
+    }
+
+    return scholarshipOpportunities.map(scholarship => ({
       id: scholarship.id,
-      title: scholarship.name,
-      description: scholarship.description,
-      category: scholarship.name.toLowerCase().includes('international') ||
-                scholarship.name.toLowerCase().includes('commonwealth') ||
-                scholarship.name.toLowerCase().includes('daad') ||
-                scholarship.name.toLowerCase().includes('chevening') ||
-                scholarship.name.toLowerCase().includes('fulbright') ||
-                scholarship.name.toLowerCase().includes('erasmus') ||
-                scholarship.name.toLowerCase().includes('australia') ||
-                scholarship.name.toLowerCase().includes('chinese') ||
-                scholarship.name.toLowerCase().includes('japanese') ||
-                scholarship.name.toLowerCase().includes('korean') ||
-                scholarship.name.toLowerCase().includes('rotary')
+      title: scholarship.name || '',
+      description: scholarship.description || '',
+      category: (scholarship.name || '').toLowerCase().includes('international') ||
+                (scholarship.name || '').toLowerCase().includes('commonwealth') ||
+                (scholarship.name || '').toLowerCase().includes('daad') ||
+                (scholarship.name || '').toLowerCase().includes('chevening') ||
+                (scholarship.name || '').toLowerCase().includes('fulbright') ||
+                (scholarship.name || '').toLowerCase().includes('erasmus') ||
+                (scholarship.name || '').toLowerCase().includes('australia') ||
+                (scholarship.name || '').toLowerCase().includes('chinese') ||
+                (scholarship.name || '').toLowerCase().includes('japanese') ||
+                (scholarship.name || '').toLowerCase().includes('korean') ||
+                (scholarship.name || '').toLowerCase().includes('rotary')
                 ? 'International'
-                : scholarship.name.toLowerCase().includes('ghana') ||
-                  scholarship.name.toLowerCase().includes('knust') ||
-                  scholarship.name.toLowerCase().includes('ug') ||
-                  scholarship.name.toLowerCase().includes('ashesi') ||
-                  scholarship.name.toLowerCase().includes('getfund') ||
-                  scholarship.name.toLowerCase().includes('gnpc') ||
-                  scholarship.name.toLowerCase().includes('vodafone') ||
-                  scholarship.name.toLowerCase().includes('mtn') ||
-                  scholarship.name.toLowerCase().includes('cocobod') ||
-                  scholarship.name.toLowerCase().includes('dream hive')
+                : (scholarship.name || '').toLowerCase().includes('ghana') ||
+                  (scholarship.name || '').toLowerCase().includes('knust') ||
+                  (scholarship.name || '').toLowerCase().includes('ug') ||
+                  (scholarship.name || '').toLowerCase().includes('ashesi') ||
+                  (scholarship.name || '').toLowerCase().includes('getfund') ||
+                  (scholarship.name || '').toLowerCase().includes('gnpc') ||
+                  (scholarship.name || '').toLowerCase().includes('vodafone') ||
+                  (scholarship.name || '').toLowerCase().includes('mtn') ||
+                  (scholarship.name || '').toLowerCase().includes('cocobod') ||
+                  (scholarship.name || '').toLowerCase().includes('dream hive')
                   ? 'Local'
                   : 'Academic',
-      tags: [scholarship.name, scholarship.description].join(' ').toLowerCase().split(' ')
-    })), [scholarshipOpportunities]);
+      tags: [(scholarship.name || ''), (scholarship.description || '')].join(' ').toLowerCase().split(' ')
+    }));
+  }, [scholarshipOpportunities]);
 
-  const filterOptions: FilterOption[] = [
-    { id: 'all', label: 'All Scholarships', count: scholarshipOpportunities.length },
-    { id: 'Academic', label: 'Academic Resources', count: searchableItems.filter(item => item.category === 'Academic').length },
-    { id: 'Local', label: 'Local Scholarships', count: searchableItems.filter(item => item.category === 'Local').length },
-    { id: 'International', label: 'International', count: searchableItems.filter(item => item.category === 'International').length }
-  ];
+  const filterOptions: FilterOption[] = useMemo(() => [
+    { id: 'all', label: 'All Scholarships', count: scholarshipOpportunities?.length || 0 },
+    { id: 'Academic', label: 'Academic Resources', count: searchableItems?.filter(item => item.category === 'Academic').length || 0 },
+    { id: 'Local', label: 'Local Scholarships', count: searchableItems?.filter(item => item.category === 'Local').length || 0 },
+    { id: 'International', label: 'International', count: searchableItems?.filter(item => item.category === 'International').length || 0 }
+  ], [scholarshipOpportunities, searchableItems]);
 
   const filteredScholarships = useMemo(() => {
+    if (!scholarshipOpportunities || !Array.isArray(scholarshipOpportunities)) {
+      return [];
+    }
+
     let filtered = scholarshipOpportunities;
 
     // Apply category filter
-    if (searchState.selectedFilters.length > 0 && !searchState.selectedFilters.includes('all')) {
+    if (searchState?.selectedFilters?.length > 0 && !searchState.selectedFilters.includes('all')) {
       filtered = filtered.filter(scholarship => {
-        const item = searchableItems.find(item => item.id === scholarship.id);
+        const item = searchableItems?.find(item => item.id === scholarship.id);
         return item && searchState.selectedFilters.includes(item.category);
       });
     }
 
     // Apply search term
-    if (searchState.searchTerm.trim()) {
+    if (searchState?.searchTerm?.trim()) {
       const searchLower = searchState.searchTerm.toLowerCase();
       filtered = filtered.filter(scholarship =>
-        scholarship.name.toLowerCase().includes(searchLower) ||
-        scholarship.description.toLowerCase().includes(searchLower)
+        scholarship?.name?.toLowerCase().includes(searchLower) ||
+        scholarship?.description?.toLowerCase().includes(searchLower)
       );
     }
 
     return filtered;
-  }, [scholarshipOpportunities, searchableItems, searchState.selectedFilters, searchState.searchTerm]);
+  }, [scholarshipOpportunities, searchableItems, searchState?.selectedFilters, searchState?.searchTerm]);
 
   // Enhanced iframe monitoring with connection detection (from AI Search page)
   useEffect(() => {
@@ -711,12 +720,12 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           {/* Search Bar */}
           <div className="mb-8">
             <SmartSearchBar
-              searchableItems={searchableItems}
-              filterOptions={filterOptions}
-              searchState={searchState}
-              onSearchChange={updateSearchTerm}
-              onFiltersChange={updateFilters}
-              onClearSearch={clearSearch}
+              searchableItems={searchableItems || []}
+              filterOptions={filterOptions || []}
+              searchState={searchState || { searchTerm: '', selectedFilters: [] }}
+              onSearchChange={updateSearchTerm || (() => {})}
+              onFiltersChange={updateFilters || (() => {})}
+              onClearSearch={clearSearch || (() => {})}
               placeholder="Search scholarship opportunities..."
               className="w-full"
             />
@@ -725,17 +734,17 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           {/* Results Summary */}
           <div className="mb-6">
             <p className="text-gray-400 text-sm">
-              {filteredScholarships.length === scholarshipOpportunities.length
-                ? `Showing all ${scholarshipOpportunities.length} scholarship opportunities`
-                : `Showing ${filteredScholarships.length} of ${scholarshipOpportunities.length} scholarship opportunities`
+              {(filteredScholarships?.length || 0) === (scholarshipOpportunities?.length || 0)
+                ? `Showing all ${scholarshipOpportunities?.length || 0} scholarship opportunities`
+                : `Showing ${filteredScholarships?.length || 0} of ${scholarshipOpportunities?.length || 0} scholarship opportunities`
               }
-              {searchState.searchTerm && ` for "${searchState.searchTerm}"`}
+              {searchState?.searchTerm && ` for "${searchState.searchTerm}"`}
             </p>
           </div>
 
           {/* Scholarship Opportunities Grid - Exact AI Search Page Layout */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-            {filteredScholarships.map((scholarship, index) => (
+            {(filteredScholarships || []).map((scholarship, index) => (
               <motion.div
                 key={scholarship.id}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -793,7 +802,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           </div>
 
           {/* No results message */}
-          {filteredScholarships.length === 0 && (
+          {(!filteredScholarships || filteredScholarships.length === 0) && (
             <div className="text-center py-12">
               <div className="w-20 h-20 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Search className="w-10 h-10 text-gray-400" />
