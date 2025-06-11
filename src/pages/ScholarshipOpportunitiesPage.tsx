@@ -29,7 +29,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             website: "https://ckodofoundation.org"
           },
           {
-            name: "Ferdinand Quayson Foundation",
+            name: "YAfGhana",
             description: "Provides free SAT training and scholarship opportunities for Ghanaian students",
             website: "https://yafghana.org"
           },
@@ -39,9 +39,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             website: "https://gh.usembassy.gov/education-culture/educationusa/"
           },
           {
-            name: "The Learning Project",
-            description: "Offers SAT preparation courses and college counseling services",
-            website: "https://thelearningprojectgh.com"
+            name: "Veritas Prep",
+            description: "Professional SAT preparation and college counseling services",
+            website: "https://www.veritasprep.com"
           },
           {
             name: "College Board Ghana",
@@ -52,26 +52,6 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             name: "Khan Academy SAT Prep",
             description: "Free official SAT practice tests and personalized study plans",
             website: "https://www.khanacademy.org/sat"
-          },
-          {
-            name: "Youth Bridge Foundation",
-            description: "Provides free SAT preparation and college application support for underprivileged students",
-            website: "https://youthbridgefoundation.org"
-          },
-          {
-            name: "Ghana Education Project",
-            description: "Offers free SAT prep resources and mentorship programs",
-            website: "https://ghanaeducationproject.org"
-          },
-          {
-            name: "DreamOval Foundation",
-            description: "Provides digital SAT preparation resources and tech skills training",
-            website: "https://dreamoval.org"
-          },
-          {
-            name: "Ghana Think Foundation",
-            description: "Offers free SAT prep workshops and college application guidance",
-            website: "https://ghanathink.org"
           }
         ]
       },
@@ -204,70 +184,70 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         type="website"
       />
       
-      {/* Hero Section */}
-      <div className="relative h-[40vh] min-h-[300px] bg-gradient-to-r from-purple-900/90 to-blue-900/90">
-        <div className="absolute inset-0 bg-[url('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7115.HEIC')] bg-cover bg-center opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent"></div>
-        <div className="container mx-auto px-4 h-full flex flex-col justify-center relative z-10">
-          <div className="flex items-center gap-4 mb-6">
+      {/* Back Button and Title Section */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
+        <div className="px-4">
+          <div className="flex items-center gap-4">
             <button
               onClick={() => navigate(-1)}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-white/20"
+              className="inline-flex items-center gap-2 px-3 py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={16} />
               <span>Back</span>
             </button>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-lg font-bold text-white truncate">
+                {scholarshipData.title}
+              </h1>
+              <p className="text-sm text-purple-200 truncate">
+                {scholarshipData.description}
+              </p>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
-            {scholarshipData.title}
-          </h1>
-          <p className="text-xl text-gray-200 max-w-2xl" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
-            {scholarshipData.description}
-          </p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid gap-8">
+      <div className="px-4 py-6">
+        <div className="space-y-6">
           {scholarshipData.sections.map((section, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-xl"
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
             >
-              <div className="flex items-start gap-6 mb-8">
+              <div className="flex items-start gap-4 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-lg"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg"
                   style={{ backgroundColor: section.color }}
                 >
                   {section.icon}
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-4">{section.title}</h2>
-                  <p className="text-gray-300 text-lg leading-relaxed">{section.content}</p>
+                  <h2 className="text-xl font-bold text-white mb-2">{section.title}</h2>
+                  <p className="text-gray-300 text-sm">{section.content}</p>
                 </div>
               </div>
 
               {section.items && (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="space-y-3">
                   {section.items.map((item, itemIndex) => (
                     <motion.div
                       key={itemIndex}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: (index * 0.1) + (itemIndex * 0.05) }}
-                      className="bg-white/5 hover:bg-white/10 rounded-xl p-6 transition-all duration-300 border border-white/10 hover:border-white/20"
+                      className="bg-white/5 hover:bg-white/10 rounded-lg p-4 transition-all duration-300 border border-white/10"
                     >
-                      <h3 className="text-xl font-semibold text-white mb-3">{item.name}</h3>
-                      <p className="text-gray-300 mb-4">{item.description}</p>
+                      <h3 className="text-base font-semibold text-white mb-2">{item.name}</h3>
+                      <p className="text-gray-300 text-sm mb-3">{item.description}</p>
                       <a
                         href={item.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors duration-300"
+                        className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors duration-300 text-sm"
                       >
                         Visit Website
                         <ExternalLink className="w-4 h-4" />
