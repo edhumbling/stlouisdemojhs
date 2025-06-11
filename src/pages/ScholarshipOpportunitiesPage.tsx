@@ -112,9 +112,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             website: "https://cocobod.gh"
           },
           {
-            name: "DreamHive Scholarship",
-            description: "Merit-based scholarships and educational support for Ghanaian students",
-            website: "https://dreamhiveghana.org"
+            name: "Dream Hive Scholarship",
+            description: "A Hive of Dreams, A Buzz of Success",
+            website: "https://dhscholarship.org"
           }
         ]
       },
@@ -191,80 +191,94 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
-        <div className="px-4">
-          <div className="flex items-center gap-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
             <button
-              onClick={() => navigate(-1)}
-              className="inline-flex items-center gap-2 px-3 py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+              onClick={() => navigate('/students-hub')}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-lg font-bold text-white truncate">
-                {scholarshipData.title}
-              </h1>
-              <p className="text-sm text-purple-200 truncate">
-                {scholarshipData.description}
-              </p>
-            </div>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Scholarship Opportunities
+            </h1>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="px-4 py-6">
-        <div className="space-y-6">
+      <main className="flex-1 py-6 sm:py-8">
+        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
           {scholarshipData.sections.map((section, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
-            >
-              <div className="flex items-start gap-4 mb-4">
+            <section key={index} className="mb-8">
+              <div className="flex items-center gap-3 mb-4">
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg"
                   style={{ backgroundColor: section.color }}
                 >
                   {section.icon}
                 </div>
-                <div>
-                  <h2 className="text-xl font-bold text-white mb-2">{section.title}</h2>
-                  <p className="text-gray-300 text-sm">{section.content}</p>
-                </div>
+                <h2 className="text-xl sm:text-2xl font-bold text-white">
+                  {section.title}
+                </h2>
               </div>
-
-              {section.items && (
-                <div className="space-y-3">
-                  {section.items.map((item, itemIndex) => (
-                    <motion.div
-                      key={itemIndex}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: (index * 0.1) + (itemIndex * 0.05) }}
-                      className="bg-white/5 hover:bg-white/10 rounded-lg p-4 transition-all duration-300 border border-white/10"
+              <p className="text-silver-300 mb-6">
+                {section.content}
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {section.items.map((item, itemIndex) => (
+                  <motion.div
+                    key={itemIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: itemIndex * 0.1 }}
+                  >
+                    <a
+                      href={item.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 text-left relative overflow-hidden group flex flex-col"
                     >
-                      <h3 className="text-base font-semibold text-white mb-2">{item.name}</h3>
-                      <p className="text-gray-300 text-sm mb-3">{item.description}</p>
-                      <a
-                        href={item.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors duration-300 text-sm"
-                      >
-                        Visit Website
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </motion.div>
-                  ))}
-                </div>
-              )}
-            </motion.div>
+                      {/* Background Gradient */}
+                      <div
+                        className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                        style={{
+                          background: `linear-gradient(135deg, ${section.color}20 0%, transparent 50%)`
+                        }}
+                      />
+                      {/* Content */}
+                      <div className="flex-1">
+                        {/* Title */}
+                        <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
+                          {item.name}
+                        </h3>
+                        {/* Description */}
+                        <p className="text-xs text-gray-400 leading-relaxed line-clamp-3 flex-1 mt-2">
+                          {item.description}
+                        </p>
+                      </div>
+                      {/* Action Footer */}
+                      <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                        <div className="flex items-center gap-1">
+                          <span className="text-xs text-purple-400 font-medium">
+                            Visit Website
+                          </span>
+                        </div>
+                        <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
+                          <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                        </div>
+                      </div>
+                      {/* Hover Effect Overlay */}
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    </a>
+                  </motion.div>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
-      </div>
+      </main>
     </div>
   );
 };
