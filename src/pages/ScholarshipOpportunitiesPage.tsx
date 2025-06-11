@@ -1333,6 +1333,143 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       glowColor: '#f97316'
     },
 
+    // Foreign Startup Programs & Accelerators
+    {
+      id: 'microsoft-for-startups',
+      name: 'Microsoft for Startups',
+      url: 'https://www.microsoft.com/en-us/startups',
+      description: 'Global startup program offering up to $150,000 in Azure credits, technical support, mentorship, and access to Microsoft\'s partner network.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'google-for-startups',
+      name: 'Google for Startups',
+      url: 'https://startup.google.com',
+      description: 'Google\'s global startup program providing cloud credits, mentorship, technical support, and access to Google\'s network of investors and partners.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'aws-activate',
+      name: 'AWS Activate',
+      url: 'https://aws.amazon.com/activate',
+      description: 'Amazon Web Services startup program offering up to $100,000 in AWS credits, technical support, training, and business development resources.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'nvidia-inception',
+      name: 'NVIDIA Inception',
+      url: 'https://www.nvidia.com/en-us/startups',
+      description: 'Global startup program for AI and data science companies, offering technical support, training, hardware discounts, and go-to-market support.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'facebook-startup-program',
+      name: 'Meta for Startups',
+      url: 'https://developers.facebook.com/startups',
+      description: 'Meta\'s startup program providing advertising credits, technical support, mentorship, and access to Meta\'s developer tools and APIs.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'stripe-startup-program',
+      name: 'Stripe Startup Program',
+      url: 'https://stripe.com/startups',
+      description: 'Payment processing platform offering waived fees, priority support, and access to Stripe\'s partner network for qualifying startups.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'hubspot-for-startups',
+      name: 'HubSpot for Startups',
+      url: 'https://www.hubspot.com/startups',
+      description: 'CRM and marketing platform offering up to 90% discount on HubSpot software, training, and support for early-stage startups.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'salesforce-startup-program',
+      name: 'Salesforce Startup Program',
+      url: 'https://trailhead.salesforce.com/en/trailblazer-community/startups',
+      description: 'CRM platform offering free licenses, training, mentorship, and access to Salesforce\'s ecosystem for qualifying startups.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'github-startup-program',
+      name: 'GitHub for Startups',
+      url: 'https://github.com/enterprise/startups',
+      description: 'Code hosting platform offering free GitHub Enterprise, technical support, and access to developer tools for qualifying startups.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'atlassian-for-startups',
+      name: 'Atlassian for Startups',
+      url: 'https://www.atlassian.com/software/startups',
+      description: 'Software development tools offering free licenses for Jira, Confluence, and other Atlassian products for teams under 10 people.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'digitalocean-hatch',
+      name: 'DigitalOcean Hatch',
+      url: 'https://www.digitalocean.com/hatch',
+      description: 'Cloud infrastructure startup program offering up to $120,000 in credits, technical support, and access to startup resources.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'twilio-startup-program',
+      name: 'Twilio Startup Program',
+      url: 'https://www.twilio.com/startup',
+      description: 'Communication platform offering $500 in Twilio credits, priority support, and access to startup resources for early-stage companies.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'mongodb-startup-program',
+      name: 'MongoDB for Startups',
+      url: 'https://www.mongodb.com/startups',
+      description: 'Database platform offering free MongoDB Atlas credits, technical support, training, and access to MongoDB\'s partner network.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'snowflake-startup-program',
+      name: 'Snowflake for Startups',
+      url: 'https://www.snowflake.com/startups',
+      description: 'Data cloud platform offering up to $100,000 in Snowflake credits, technical support, and access to data analytics resources.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+    {
+      id: 'notion-startup-program',
+      name: 'Notion for Startups',
+      url: 'https://www.notion.so/startups',
+      description: 'Productivity platform offering free Notion Pro plans, templates, and resources for early-stage startups and teams.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#f97316'
+    },
+
     // Venture Capital Firms (Indigo Category)
     {
       id: 'sequoia-capital',
@@ -1829,13 +1966,17 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           (description.includes('grant') && !description.includes('scholarship')) || description.includes('microgrant')) {
         categories['Grants & Microgrants'].push(scholarship);
       }
-      // Startup Hubs & Incubators (Local/African)
+      // Startup Hubs & Incubators (Local/African and Foreign)
       else if (name.includes('mest') || name.includes('ispace') || name.includes('kumasi hive') ||
           name.includes('impact hub') || name.includes('innovation hub') || name.includes('kosmos') ||
           name.includes('stanbic') || name.includes('angel investors') || name.includes('founder institute') ||
-          name.includes('innohub') || (description.includes('startup') || description.includes('incubator') ||
-          description.includes('accelerator') || description.includes('entrepreneur')) &&
-          (name.includes('ghana') || name.includes('africa') || name.includes('accra'))) {
+          name.includes('innohub') || name.includes('microsoft for startups') || name.includes('google for startups') ||
+          name.includes('aws activate') || name.includes('nvidia inception') || name.includes('meta for startups') ||
+          name.includes('stripe startup') || name.includes('hubspot for startups') || name.includes('salesforce startup') ||
+          name.includes('github for startups') || name.includes('atlassian for startups') || name.includes('digitalocean hatch') ||
+          name.includes('twilio startup') || name.includes('mongodb for startups') || name.includes('snowflake for startups') ||
+          name.includes('notion for startups') || (description.includes('startup') || description.includes('incubator') ||
+          description.includes('accelerator') || description.includes('entrepreneur'))) {
         categories['Startup Hubs & Incubators'].push(scholarship);
       }
       // International Scholarships
@@ -1951,7 +2092,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       <SEOHead
-        title="Scholarship Opportunities | St. Louis Demonstration JHS"
+        title="Educational and Global Opportunities | St. Louis Demonstration JHS"
         description="Comprehensive guide to scholarships, SAT preparation, and educational opportunities in Ghana and abroad for students at St. Louis Demonstration JHS."
         keywords="scholarships, SAT preparation, educational opportunities, Ghana scholarships, international scholarships, college preparation"
         url="/scholarship-opportunities"
@@ -1971,7 +2112,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             </button>
             <div className="flex-1 min-w-0">
               <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
-                Scholarship Opportunities
+                Educational and Global Opportunities
               </h1>
               <p className="text-sm text-purple-200 truncate">
                 Explore scholarships, SAT preparation, and educational opportunities
@@ -2117,7 +2258,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                         'Small to medium funding opportunities for projects, research, and innovative ideas, typically ranging from $1,000 to $50,000 without requiring equity or traditional repayment.'
                       }
                       {categoryName === 'Startup Hubs & Incubators' &&
-                        'Local and African startup ecosystems, innovation hubs, and business incubators that support entrepreneurs with workspace, mentorship, funding, and networking opportunities.'
+                        'Local African startup ecosystems and global tech company startup programs offering workspace, mentorship, funding, cloud credits, technical support, and networking opportunities for entrepreneurs.'
                       }
                       {categoryName === 'Venture Capital Firms' &&
                         'Professional investment firms that provide capital to startups and growing companies in exchange for equity, offering funding from seed stage to late-stage growth rounds.'

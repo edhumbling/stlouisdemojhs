@@ -3011,11 +3011,50 @@ const StudentsHubPage: React.FC = () => {
             {Object.entries(filteredCategories).map(([category, resources]) => (
               <section key={category} className="space-y-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <h2 className="text-xl sm:text-2xl font-bold text-silver-200 flex items-center gap-2">
+                  <h2 className={`text-xl sm:text-2xl font-bold flex items-center gap-2 ${
+                    category === '📚 Academic Resources' ? 'text-blue-300' :
+                    category === '🧮 STEM Tools' ? 'text-green-300' :
+                    category === '💰 Scholarship Opportunities' ? 'text-yellow-300' :
+                    category === '🎵 Study Lofi' ? 'text-purple-300' :
+                    category === '🎮 AI Comic Factory' ? 'text-pink-300' :
+                    category === '🎨 Generative World' ? 'text-cyan-300' :
+                    category === '🔧 Automation Tools' ? 'text-orange-300' :
+                    category === '👥 Boys Club' ? 'text-indigo-300' :
+                    category === '👥 Girls Club' ? 'text-rose-300' :
+                    category === '📊 Data & Analytics' ? 'text-teal-300' :
+                    category === '🌍 Global Resources' ? 'text-emerald-300' :
+                    'text-silver-200'
+                  }`}>
                     {category}
                   </h2>
-                  <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent"></div>
-                  <span className="text-xs text-silver-400 font-semibold">{resources.length} resources</span>
+                  <div className={`flex-1 h-px bg-gradient-to-r to-transparent ${
+                    category === '📚 Academic Resources' ? 'from-blue-500/50' :
+                    category === '🧮 STEM Tools' ? 'from-green-500/50' :
+                    category === '💰 Scholarship Opportunities' ? 'from-yellow-500/50' :
+                    category === '🎵 Study Lofi' ? 'from-purple-500/50' :
+                    category === '🎮 AI Comic Factory' ? 'from-pink-500/50' :
+                    category === '🎨 Generative World' ? 'from-cyan-500/50' :
+                    category === '🔧 Automation Tools' ? 'from-orange-500/50' :
+                    category === '👥 Boys Club' ? 'from-indigo-500/50' :
+                    category === '👥 Girls Club' ? 'from-rose-500/50' :
+                    category === '📊 Data & Analytics' ? 'from-teal-500/50' :
+                    category === '🌍 Global Resources' ? 'from-emerald-500/50' :
+                    'from-purple-500/50'
+                  }`}></div>
+                  <span className={`text-xs font-semibold ${
+                    category === '📚 Academic Resources' ? 'text-blue-400' :
+                    category === '🧮 STEM Tools' ? 'text-green-400' :
+                    category === '💰 Scholarship Opportunities' ? 'text-yellow-400' :
+                    category === '🎵 Study Lofi' ? 'text-purple-400' :
+                    category === '🎮 AI Comic Factory' ? 'text-pink-400' :
+                    category === '🎨 Generative World' ? 'text-cyan-400' :
+                    category === '🔧 Automation Tools' ? 'text-orange-400' :
+                    category === '👥 Boys Club' ? 'text-indigo-400' :
+                    category === '👥 Girls Club' ? 'text-rose-400' :
+                    category === '📊 Data & Analytics' ? 'text-teal-400' :
+                    category === '🌍 Global Resources' ? 'text-emerald-400' :
+                    'text-silver-400'
+                  }`}>{resources.length} resources</span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                   {resources.map((resource, index) => (
