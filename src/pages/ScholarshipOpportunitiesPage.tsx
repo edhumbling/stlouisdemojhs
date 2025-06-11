@@ -112,9 +112,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             website: "https://cocobod.gh"
           },
           {
-            name: "DreamHive Scholarship Ghana",
+            name: "DreamHive Scholarship",
             description: "Merit-based scholarships and educational support for Ghanaian students",
-            website: "https://dreamhive.org"
+            website: "https://dreamhiveghana.org"
           }
         ]
       },
