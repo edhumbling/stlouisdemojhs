@@ -371,7 +371,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     );
   }
 
-  // Header management
+  // Header management (fixed to avoid React error #310)
   useEffect(() => {
     if (selectedScholarship) {
       setShowHeader(false);
@@ -381,7 +381,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     return () => {
       setShowHeader(true);
     };
-  }, [selectedScholarship, setShowHeader]);
+  }, [selectedScholarship]); // Removed setShowHeader from dependencies to prevent infinite re-renders
 
   // Get selected scholarship data
   const selectedScholarshipData = selectedScholarship
@@ -430,7 +430,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     { value: 'Academic', label: 'Academic Resources', count: searchableItems?.filter(item => item.category === 'Academic').length || 0 },
     { value: 'Local', label: 'Local Scholarships', count: searchableItems?.filter(item => item.category === 'Local').length || 0 },
     { value: 'International', label: 'International', count: searchableItems?.filter(item => item.category === 'International').length || 0 }
-  ], [scholarshipOpportunities, searchableItems]);
+  ], [searchableItems]); // Simplified dependencies to prevent re-render issues
 
   // Simple search state
   const [searchTerm, setSearchTerm] = useState('');
@@ -463,34 +463,21 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     return filtered;
   }, [scholarshipOpportunities, searchableItems, selectedCategory, searchTerm]);
 
-  // Enhanced iframe monitoring with connection detection (simplified to avoid React error #310)
+  // Simplified iframe monitoring to avoid React error #310
   useEffect(() => {
-    if (selectedScholarship && !iframeError && !connectionRefused && selectedScholarshipData) {
-      let isCancelled = false;
+    if (selectedScholarship && selectedScholarshipData) {
+      console.log(`Scholarship selected: ${selectedScholarshipData.name}`);
 
-      const checkIframeStatus = () => {
-        if (isCancelled) return;
-
-        try {
-          const iframe = document.querySelector(`iframe[title="${selectedScholarshipData.name}"]`) as HTMLIFrameElement;
-
-          if (iframe && isLoading) {
-            // Simple check - if iframe exists and is loading, we'll let the onLoad/onError handlers manage the state
-            console.log(`Monitoring ${selectedScholarshipData.name} iframe status`);
-          }
-        } catch (e) {
-          console.log(`Error checking iframe status for ${selectedScholarshipData.name}:`, e instanceof Error ? e.message : 'Unknown error');
-        }
-      };
-
-      const timer = setTimeout(checkIframeStatus, 1000);
+      // Simple monitoring without complex state dependencies
+      const timer = setTimeout(() => {
+        console.log(`Monitoring ${selectedScholarshipData.name} - letting iframe handlers manage loading state`);
+      }, 1000);
 
       return () => {
-        isCancelled = true;
         clearTimeout(timer);
       };
     }
-  }, [selectedScholarship, isLoading, iframeError, connectionRefused, selectedScholarshipData]);
+  }, [selectedScholarship]); // Minimal dependencies to prevent re-render loops
 
   const handleScholarshipClick = (scholarshipId: string) => {
     // Clear any existing timer first
