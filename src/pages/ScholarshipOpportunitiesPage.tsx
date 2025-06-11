@@ -168,15 +168,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       color: 'from-blue-600 to-indigo-600',
       glowColor: '#3b82f6'
     },
-    {
-      id: 'ecobank-foundation-scholarship',
-      name: 'Ecobank Foundation Scholarship',
-      url: 'https://www.ecobank.com/group/ecobank-foundation',
-      description: 'Pan-African scholarship program supporting exceptional students from across Africa, including Ghana, in various academic disciplines.',
-      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-indigo-600',
-      glowColor: '#3b82f6'
-    },
+
     {
       id: 'myscholarshub',
       name: 'MyScholarsHub Ghana',
@@ -674,6 +666,15 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       color: 'from-yellow-600 to-amber-600',
       glowColor: '#f59e0b'
     },
+    {
+      id: 'ecobank-foundation-scholarship',
+      name: 'Ecobank Foundation Scholarship',
+      url: 'https://www.ecobank.com/group/ecobank-foundation',
+      description: 'Pan-African scholarship program supporting exceptional students from across Africa, including Ghana, in various academic disciplines.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
 
     // Fellowship Programs (Purple Category)
     {
@@ -1032,10 +1033,10 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       glowColor: '#f43f5e'
     },
     {
-      id: 'bagel-fund',
-      name: 'Bagel Fund',
-      url: 'https://www.bagelfund.com',
-      description: 'Microgrants for young entrepreneurs and creators working on innovative projects. Provides small funding amounts to help get ideas off the ground.',
+      id: 'pioneer-grant',
+      name: 'Pioneer Grant',
+      url: 'https://pioneer.app',
+      description: 'Global tournament for ambitious people working on meaningful projects. Provides funding, mentorship, and community for entrepreneurs and creators worldwide.',
       icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-rose-600 to-pink-600',
       glowColor: '#f43f5e'
@@ -1355,13 +1356,13 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         categories['SAT Test Prep Opportunities'].push(scholarship);
       }
       // Fellowship Programs
-      else if (name.includes('thiel fellowship') || name.includes('steve jobs archive') || name.includes('emergent ventures') ||
-          name.includes('zfellows') || name.includes('1517 fund') || name.includes('neo scholars') ||
+      else if (name.includes('thiel fellowship') || name.includes('steve jobs archive') || name.includes('emergent ventures fellowship') ||
+          name.includes('zfellows') || name.includes('1517 fund medici') || name.includes('neo scholars') ||
           name.includes('atlas fellowship') || name.includes('contrary fellowship') || name.includes('kleiner perkins') ||
-          name.includes('reforge') || name.includes('pioneer') || name.includes('on deck') ||
+          name.includes('reforge') || name.includes('pioneer fellowship') || name.includes('on deck') ||
           name.includes('south park commons') || name.includes('interact fellowship') || name.includes('davidson') ||
           name.includes('coca-cola scholars') || name.includes('regeneron') || name.includes('gates millennium') ||
-          name.includes('jack kent cooke') || description.includes('fellowship') && !description.includes('scholarship')) {
+          name.includes('jack kent cooke') || (description.includes('fellowship') && !description.includes('scholarship'))) {
         categories['Fellowship Programs'].push(scholarship);
       }
       // Foreign Incubators & Accelerators
@@ -1376,11 +1377,11 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       }
       // Grants & Microgrants
       else if (name.includes('merge grant') || name.includes('emergent ventures grant') || name.includes('medici grant') ||
-          name.includes('bagel fund') || name.includes('unshackled ventures') || name.includes('fast grants') ||
+          name.includes('pioneer grant') || name.includes('unshackled ventures') || name.includes('fast grants') ||
           name.includes('mozilla grants') || name.includes('protocol labs') || name.includes('ethereum foundation') ||
           name.includes('gitcoin') || name.includes('open philanthropy') || name.includes('effective altruism') ||
-          name.includes('long-term future') || name.includes('survival and flourishing') ||
-          description.includes('grant') || description.includes('microgrant')) {
+          name.includes('long-term future') || name.includes('survival and flourishing') || name.includes('zfellows grant') ||
+          (description.includes('grant') && !description.includes('scholarship')) || description.includes('microgrant')) {
         categories['Grants & Microgrants'].push(scholarship);
       }
       // Startup Hubs & Incubators (Local/African)
@@ -1403,7 +1404,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           name.includes('gates') || name.includes('rhodes') || name.includes('humphrey') ||
           name.includes('aga khan') || name.includes('world bank') || name.includes('japan') ||
           name.includes('larry ellison') || name.includes('marshall') || name.includes('clarendon') ||
-          name.includes('knight-hennessy') || name.includes('mastercard foundation')) {
+          name.includes('knight-hennessy') || name.includes('mastercard foundation') || name.includes('ecobank foundation')) {
         categories['International Scholarships'].push(scholarship);
       }
       // Local Scholarships (default for all others)
