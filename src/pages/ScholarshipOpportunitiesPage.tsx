@@ -133,47 +133,56 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       glowColor: '#3b82f6'
     },
     {
-      id: 'ucc-scholarship',
-      name: 'University of Cape Coast Scholarships',
-      url: 'https://www.ucc.edu.gh',
-      description: 'Merit-based and need-based scholarships for undergraduate and graduate students at one of Ghana\'s leading universities.',
+      id: 'jay-qwayson-foundation',
+      name: 'Jay Qwayson Foundation Scholarship',
+      url: 'https://jayqwaysonfoundation.org',
+      description: 'Educational scholarships for brilliant but needy Ghanaian students pursuing higher education. Focuses on academic excellence and community impact.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#3b82f6'
+    },
+    {
+      id: 'ghana-scholarship-secretariat',
+      name: 'Ghana Scholarship Secretariat',
+      url: 'https://www.scholarships.gov.gh',
+      description: 'Central portal for all government scholarships in Ghana including undergraduate, postgraduate, and professional development opportunities.',
       icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-blue-600 to-indigo-600',
       glowColor: '#3b82f6'
     },
     {
-      id: 'uew-scholarship',
-      name: 'University of Education Winneba Scholarships',
-      url: 'https://www.uew.edu.gh',
-      description: 'Educational scholarships for future teachers and education professionals in Ghana, supporting academic excellence in education.',
-      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-indigo-600',
-      glowColor: '#3b82f6'
-    },
-    {
-      id: 'umat-scholarship',
-      name: 'University of Mines and Technology Scholarships',
-      url: 'https://www.umat.edu.gh',
-      description: 'Specialized scholarships for students pursuing mining, engineering, and technology programs at Ghana\'s premier mining university.',
-      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-indigo-600',
-      glowColor: '#3b82f6'
-    },
-    {
-      id: 'ghana-atomic-energy-scholarship',
-      name: 'Ghana Atomic Energy Commission Scholarships',
-      url: 'https://www.gaecgh.org',
-      description: 'Scholarships for students pursuing nuclear science, engineering, and related fields to support Ghana\'s nuclear energy development.',
+      id: 'mtn-foundation-scholarship',
+      name: 'MTN Foundation Ghana Scholarship',
+      url: 'https://www.mtn.com.gh/about-us/mtn-foundation',
+      description: 'Annual scholarships for brilliant but financially challenged Ghanaian students in science, technology, engineering, and mathematics (STEM) fields.',
       icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-blue-600 to-indigo-600',
       glowColor: '#3b82f6'
     },
     {
-      id: 'cocoa-board-scholarship',
-      name: 'Ghana Cocoa Board Scholarships',
-      url: 'https://www.cocobod.gh',
-      description: 'Educational support for students from cocoa-growing communities and those pursuing agriculture-related studies.',
-      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      id: 'vodafone-ghana-foundation',
+      name: 'Vodafone Ghana Foundation Scholarship',
+      url: 'https://vodafone.com.gh/foundation',
+      description: 'Educational support for underprivileged but academically excellent students, particularly focusing on ICT and business-related programs.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#3b82f6'
+    },
+    {
+      id: 'ecobank-foundation-scholarship',
+      name: 'Ecobank Foundation Scholarship',
+      url: 'https://www.ecobank.com/group/ecobank-foundation',
+      description: 'Pan-African scholarship program supporting exceptional students from across Africa, including Ghana, in various academic disciplines.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#3b82f6'
+    },
+    {
+      id: 'myscholarshub',
+      name: 'MyScholarsHub Ghana',
+      url: 'https://myscholarshub.org',
+      description: 'Comprehensive platform connecting Ghanaian students with local and international scholarship opportunities, educational resources, and career guidance.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-blue-600 to-indigo-600',
       glowColor: '#3b82f6'
     },
@@ -284,6 +293,384 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       url: 'https://www.studyinkorea.go.kr',
       description: 'Full scholarships for international students to study in South Korea including Korean language training and cultural programs.',
       icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'larry-ellison-scholars-oxford',
+      name: 'Larry Ellison Scholars Oxford',
+      url: 'https://www.ox.ac.uk/admissions/graduate/fees-and-funding/fees-funding-and-scholarship-search/scholarships-a-z-listing',
+      description: 'Prestigious scholarship program at Oxford University funded by Larry Ellison, supporting exceptional graduate students in various fields.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'rhodes-scholarship',
+      name: 'Rhodes Scholarship Oxford',
+      url: 'https://www.rhodeshouse.ox.ac.uk',
+      description: 'The world\'s oldest international scholarship programme, enabling outstanding young people from around the world to study at Oxford.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'gates-cambridge-scholarship',
+      name: 'Gates Cambridge Scholarship',
+      url: 'https://www.gatescambridge.org',
+      description: 'Full-cost scholarships for outstanding applicants from outside the UK to pursue a full-time postgraduate degree at Cambridge.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'marshall-scholarship',
+      name: 'Marshall Scholarship',
+      url: 'https://www.marshallscholarship.org',
+      description: 'US-UK educational exchange programme for young Americans to study for a degree in the United Kingdom.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'clarendon-scholarship-oxford',
+      name: 'Clarendon Scholarship Oxford',
+      url: 'https://www.ox.ac.uk/admissions/graduate/fees-and-funding/fees-funding-and-scholarship-search/clarendon-fund',
+      description: 'Oxford University\'s premier graduate scholarship scheme, offering around 140 new scholarships every year.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'knight-hennessy-stanford',
+      name: 'Knight-Hennessy Scholars Stanford',
+      url: 'https://knight-hennessy.stanford.edu',
+      description: 'Stanford University\'s flagship fellowship program designed to prepare global leaders with the skills to address complex challenges.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'mastercard-foundation-scholars',
+      name: 'Mastercard Foundation Scholars Program',
+      url: 'https://mastercardfdn.org/all/scholars',
+      description: 'Comprehensive scholarship and leadership development program for academically talented yet economically disadvantaged young people.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'erasmus-mundus-scholarship',
+      name: 'Erasmus Mundus Joint Master Degrees',
+      url: 'https://ec.europa.eu/programmes/erasmus-plus/opportunities/individuals/students/erasmus-mundus-joint-master-degrees_en',
+      description: 'EU-funded international study programmes offering full scholarships for joint master\'s degrees at multiple European universities.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'swiss-government-excellence',
+      name: 'Swiss Government Excellence Scholarships',
+      url: 'https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html',
+      description: 'Swiss government scholarships for foreign scholars and artists for doctoral and postdoctoral research in Switzerland.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'vanier-canada-graduate',
+      name: 'Vanier Canada Graduate Scholarships',
+      url: 'https://vanier.gc.ca',
+      description: 'Canada\'s premier doctoral scholarship program, attracting and retaining world-class doctoral students.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'swedish-institute-scholarships',
+      name: 'Swedish Institute Scholarships',
+      url: 'https://si.se/en/apply/scholarships',
+      description: 'Scholarships for global professionals to pursue master\'s studies in Sweden with focus on leadership and sustainability.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'netherlands-fellowship',
+      name: 'Netherlands Fellowship Programmes (NFP)',
+      url: 'https://www.nuffic.nl/en/subjects/netherlands-fellowship-programmes',
+      description: 'Dutch government scholarships for professionals from developing countries to pursue master\'s or PhD studies in the Netherlands.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'eiffel-excellence-scholarship',
+      name: 'Eiffel Excellence Scholarship France',
+      url: 'https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence',
+      description: 'French government scholarship program to attract top foreign students to French higher education institutions.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'orange-tulip-scholarship',
+      name: 'Orange Tulip Scholarship Netherlands',
+      url: 'https://www.orangetulipscholarship.nl',
+      description: 'Scholarships for international students to study in the Netherlands, offered by Dutch higher education institutions.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'turkey-scholarships',
+      name: 'Türkiye Scholarships',
+      url: 'https://www.turkiyeburslari.gov.tr',
+      description: 'Turkish government scholarship program offering undergraduate, graduate, and doctoral study opportunities in Turkey.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'hubert-humphrey-fellowship',
+      name: 'Hubert H. Humphrey Fellowship Program',
+      url: 'https://www.humphreyfellowship.org',
+      description: 'US government program providing a year of professional enrichment in the United States for experienced professionals.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'joint-japan-world-bank',
+      name: 'Joint Japan/World Bank Graduate Scholarship',
+      url: 'https://www.worldbank.org/en/programs/scholarships',
+      description: 'Scholarships for students from developing countries to pursue development-related studies at selected universities.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'aga-khan-foundation',
+      name: 'Aga Khan Foundation International Scholarship',
+      url: 'https://www.akdn.org/our-agencies/aga-khan-foundation',
+      description: 'Scholarships for outstanding students from select developing countries who have no other means of financing their studies.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'inlaks-shivdasani-foundation',
+      name: 'Inlaks Shivdasani Foundation Scholarships',
+      url: 'https://www.inlaksfoundation.org',
+      description: 'Scholarships for Indian students to pursue higher education at leading universities in the US, UK, and Europe.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'rotary-peace-fellowship',
+      name: 'Rotary Peace Fellowship',
+      url: 'https://www.rotary.org/en/our-programs/peace-fellowships',
+      description: 'Fellowships for leaders committed to solving conflicts and promoting peace through master\'s degree or certificate programs.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'ford-foundation-fellowship',
+      name: 'Ford Foundation Fellowship Programs',
+      url: 'https://sites.nationalacademies.org/pga/fordfellowships',
+      description: 'Fellowships for individuals who show promise of future achievement and whose studies will contribute to positive social change.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'british-council-scholarships',
+      name: 'British Council Scholarships',
+      url: 'https://www.britishcouncil.org/study-work-abroad/scholarships',
+      description: 'Various scholarship opportunities offered by the British Council for international students to study in the UK.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'lester-b-pearson-scholarship',
+      name: 'Lester B. Pearson International Scholarship',
+      url: 'https://future.utoronto.ca/pearson',
+      description: 'University of Toronto\'s most prestigious scholarship for international students demonstrating exceptional academic achievement and creativity.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'vienna-biocenter-fellowship',
+      name: 'Vienna BioCenter PhD Fellowship',
+      url: 'https://www.viennabiocenter.org/phd',
+      description: 'International PhD program in life sciences offering full funding for doctoral studies in Vienna, Austria.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'emile-boutmy-scholarship',
+      name: 'Émile Boutmy Scholarship Sciences Po',
+      url: 'https://www.sciencespo.fr/students/en/finances/financial-aid/aid-international-students',
+      description: 'Need-based scholarships for international students at Sciences Po Paris, covering tuition and living expenses.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'denmark-government-scholarship',
+      name: 'Danish Government Scholarships',
+      url: 'https://ufm.dk/en/education/higher-education/danish-government-scholarships',
+      description: 'Scholarships for highly qualified students from non-EU/EEA countries to pursue higher education in Denmark.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'belgium-development-cooperation',
+      name: 'Belgian Development Cooperation Scholarships',
+      url: 'https://www.vliruos.be/en/scholarships',
+      description: 'Scholarships for students from developing countries to pursue master\'s and training programs in Belgium.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'finland-cimo-scholarship',
+      name: 'Finland CIMO Scholarships',
+      url: 'https://www.oph.fi/en/development-and-international-cooperation/cimo-scholarships',
+      description: 'Finnish government scholarships for international students and researchers to study or conduct research in Finland.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'norway-quota-scheme',
+      name: 'Norwegian Quota Scheme',
+      url: 'https://www.nokut.no/en/foreign-education/recognition/recognition-of-education-from-abroad/quota-scheme',
+      description: 'Norwegian government scholarship program for students from developing countries to pursue master\'s and PhD studies.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'czech-government-scholarship',
+      name: 'Czech Government Scholarships',
+      url: 'https://www.msmt.cz/areas-of-work/tertiary-education/czech-government-scholarships',
+      description: 'Scholarships offered by the Czech Republic for international students to study at Czech universities.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'hungarian-stipendium-hungaricum',
+      name: 'Stipendium Hungaricum Scholarship',
+      url: 'https://stipendiumhungaricum.hu',
+      description: 'Hungarian government scholarship program offering full scholarships for international students in Hungary.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'polish-national-agency',
+      name: 'Polish National Agency Scholarships',
+      url: 'https://nawa.gov.pl/en/students/foreign-students',
+      description: 'Various scholarship programs offered by Poland for international students at all academic levels.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'slovenia-government-scholarship',
+      name: 'Slovenian Government Scholarships',
+      url: 'https://www.gov.si/en/topics/scholarships-for-foreigners',
+      description: 'Scholarships for international students to study in Slovenia, promoting academic and cultural exchange.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'portugal-camoes-scholarship',
+      name: 'Camões Institute Scholarships Portugal',
+      url: 'https://www.instituto-camoes.pt/en/scholarships',
+      description: 'Portuguese government scholarships for international students to study Portuguese language and culture.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'spanish-government-scholarship',
+      name: 'Spanish Government Scholarships',
+      url: 'https://www.educacionyfp.gob.es/en/estudiantes/universidad/becas-ayudas.html',
+      description: 'Various scholarship programs offered by Spain for international students at Spanish universities.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'italian-government-scholarship',
+      name: 'Italian Government Scholarships',
+      url: 'https://studyinitaly.esteri.it/en/scholarships',
+      description: 'Scholarships offered by the Italian government for international students to study in Italy.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'greek-government-scholarship',
+      name: 'Greek Government Scholarships (IKY)',
+      url: 'https://www.iky.gr/en',
+      description: 'State Scholarships Foundation of Greece offering scholarships for international students and researchers.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'russian-government-scholarship',
+      name: 'Russian Government Scholarships',
+      url: 'https://russia.study/en/scholarships/russian-government-scholarships',
+      description: 'Scholarships provided by the Russian Federation for international students to study at Russian universities.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'new-zealand-development-scholarship',
+      name: 'New Zealand Development Scholarships',
+      url: 'https://www.mfat.govt.nz/en/aid-and-development/scholarships',
+      description: 'New Zealand government scholarships for students from developing countries to study in New Zealand.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'australia-awards-scholarship',
+      name: 'Australia Awards Scholarships',
+      url: 'https://www.australiaawards.gov.au',
+      description: 'Australian government scholarships for students from developing countries to undertake study in Australia.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'singapore-government-scholarship',
+      name: 'Singapore Government Scholarships',
+      url: 'https://www.moe.gov.sg/financial-matters/awards-scholarships',
+      description: 'Various scholarship programs offered by Singapore for international students to study in Singapore.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'brunei-government-scholarship',
+      name: 'Brunei Government Scholarships',
+      url: 'https://www.moe.gov.bn/SitePages/Scholarships.aspx',
+      description: 'Scholarships offered by Brunei Darussalam for international students to pursue higher education.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-yellow-600 to-amber-600',
       glowColor: '#f59e0b'
     },
