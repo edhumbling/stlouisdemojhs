@@ -48,8 +48,7 @@ import SHSPdfViewerPage from './pages/SHSPdfViewerPage';
 import ResultsPlacementPage from './pages/ResultsPlacementPage';
 import TikTokPage from './pages/TikTokPage';
 import TikTokSubmissionPage from './pages/TikTokSubmissionPage';
-
-
+import ScholarshipOpportunitiesPage from './pages/ScholarshipOpportunitiesPage';
 
 // Scroll Position Manager Component
 const ScrollPositionManager: React.FC = () => {
@@ -115,8 +114,6 @@ const App: React.FC = () => {
         {/* Scroll Position Manager */}
         <ScrollPositionManager />
 
-
-
         <Routes>
         {/* Main layout with nested routes */}
         <Route path="/" element={<Layout />}>
@@ -157,6 +154,7 @@ const App: React.FC = () => {
           <Route path="/results-placement" element={<ResultsPlacementPage />} />
           <Route path="/tiktok" element={<TikTokPage />} />
           <Route path="/tiktok-submit" element={<TikTokSubmissionPage />} />
+          <Route path="/scholarship-opportunities" element={<ScholarshipOpportunitiesPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />

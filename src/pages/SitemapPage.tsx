@@ -47,6 +47,7 @@ const SitemapPage: React.FC = () => {
         { name: 'Language & Communication', path: '/language-communication', description: 'English, Twi, and French language programs' },
         { name: 'Creative Arts', path: '/creative-arts', description: 'Music, visual arts, and creative expression' },
         { name: 'Character Education', path: '/character-education', description: 'Values-based education and moral development' },
+        { name: 'Scholarship Opportunities', path: '/scholarship-opportunities', description: 'Comprehensive guide to scholarships and educational opportunities' },
       ]
     },
     {
