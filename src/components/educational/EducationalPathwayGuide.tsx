@@ -737,8 +737,8 @@ const EducationalPathwayGuide: React.FC = () => {
       `}</style>
 
       {/* Header with Back Button */}
-      <div className="bg-gradient-to-r from-emerald-900 via-teal-800 to-emerald-900 py-3 sm:py-4 pt-20">
-        <div className="px-4 sm:px-6">
+      <div className="bg-gradient-to-r from-emerald-900 via-teal-800 to-emerald-900 py-3 sm:py-4">
+        <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleBack}
@@ -747,10 +747,10 @@ const EducationalPathwayGuide: React.FC = () => {
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
-                Educational Pathway Decision Guide
-              </h1>
+
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Educational Pathway Decision Guide
+            </h1>
               <p className="text-sm text-emerald-200 truncate">
                 Your comprehensive guide from JHS to University success
               </p>

@@ -3137,8 +3137,8 @@ const StudentsHubPage: React.FC = () => {
         structuredData={studentsHubStructuredData}
       />
       <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
-        {/* Header with Back Button - Original Design */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
+        {/* Back Button and Title Section - Original Design */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -3148,14 +3148,10 @@ const StudentsHubPage: React.FC = () => {
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
                 <span>Back</span>
               </button>
-              <div className="flex-1 min-w-0">
-                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
-                  Students Hub
-                </h1>
-                <p className="text-sm text-purple-200 truncate">
-                  Digital Learning Resources & Educational Tools
-                </p>
-              </div>
+
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                Students Hub
+              </h1>
             </div>
           </div>
         </div>

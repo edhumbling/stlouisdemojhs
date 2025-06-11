@@ -13,7 +13,7 @@ const FacultyPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       {/* Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 pt-20">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
@@ -23,6 +23,7 @@ const FacultyPage: React.FC = () => {
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
+
 
             <div className="flex-1">
               <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
