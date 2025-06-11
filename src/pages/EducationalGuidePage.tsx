@@ -84,7 +84,7 @@ const EducationalGuidePage: React.FC = () => {
 
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 py-3 sm:py-4 pt-20">
-        <div className="container mx-auto px-4">
+        <div className="px-4 sm:px-6">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleBack}
@@ -106,11 +106,11 @@ const EducationalGuidePage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 py-4 sm:py-6">
-        <div className="container mx-auto px-3 sm:px-4 max-w-4xl">
+      <main className="flex-1">
+        <div className="w-full">
 
           {/* Progress Navigation */}
-          <div className="mb-6">
+          <div className="mb-6 px-4 sm:px-6 py-4 sm:py-6">
             {/* Section Progress Indicators */}
             <div className="flex justify-center mb-4">
               <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto pb-2 px-2">
@@ -186,7 +186,7 @@ const EducationalGuidePage: React.FC = () => {
           </div>
 
           {/* Educational Information Sections */}
-          <div className="space-y-4">
+          <div className="space-y-0">
             {/* SAT Explanation */}
             {currentSection === 1 && (
               <motion.div
@@ -195,7 +195,7 @@ const EducationalGuidePage: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
-                className="bg-gradient-to-r from-green-900/50 via-emerald-900/50 to-green-900/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-green-500/30"
+                className="bg-gradient-to-r from-green-900/50 via-emerald-900/50 to-green-900/50 p-4 sm:p-6 border-y border-green-500/30"
               >
               <div className="flex items-start gap-3 sm:gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
@@ -241,7 +241,7 @@ const EducationalGuidePage: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
-                className="bg-gradient-to-r from-blue-900/50 via-indigo-900/50 to-blue-900/50 rounded-2xl p-6 border border-blue-500/30"
+                className="bg-gradient-to-r from-blue-900/50 via-indigo-900/50 to-blue-900/50 p-6 border-y border-blue-500/30"
               >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -298,7 +298,7 @@ const EducationalGuidePage: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
-                className="bg-gradient-to-r from-purple-900/50 via-violet-900/50 to-purple-900/50 rounded-2xl p-6 border border-purple-500/30"
+                className="bg-gradient-to-r from-purple-900/50 via-violet-900/50 to-purple-900/50 p-6 border-y border-purple-500/30"
               >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -384,7 +384,7 @@ const EducationalGuidePage: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
-                className="bg-gradient-to-r from-orange-900/50 via-red-900/50 to-orange-900/50 rounded-2xl p-6 border border-orange-500/30"
+                className="bg-gradient-to-r from-orange-900/50 via-red-900/50 to-orange-900/50 p-6 border-y border-orange-500/30"
               >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -466,7 +466,7 @@ const EducationalGuidePage: React.FC = () => {
           </div>
 
           {/* Bottom Navigation */}
-          <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-700/50 gap-2">
+          <div className="flex items-center justify-between mt-6 pt-4 px-4 sm:px-6 border-t border-gray-700/50 gap-2">
             <button
               onClick={prevSection}
               disabled={currentSection === 1}

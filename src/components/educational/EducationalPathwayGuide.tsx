@@ -444,6 +444,13 @@ const EducationalPathwayGuide: React.FC = () => {
     }
   };
 
+  const goToStep = (stepIndex: number) => {
+    if (stepIndex >= 0 && stepIndex < pathwaySteps.length) {
+      setCurrentStep(stepIndex);
+      setSelectedPath(null);
+    }
+  };
+
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
       case 'Easy': return 'text-green-400 bg-green-400/20';
@@ -507,18 +514,22 @@ const EducationalPathwayGuide: React.FC = () => {
           </p>
         </div>
 
-        {/* Progress Indicator - Horizontal on all screen sizes */}
+        {/* Progress Indicator - Horizontal on all screen sizes with clickable steps */}
         <div className="flex justify-center mb-8 px-6">
           <div className="flex items-center space-x-2 overflow-x-auto pb-2">
             {pathwaySteps.map((step, index) => (
               <div key={step.id} className="flex items-center flex-shrink-0">
-                <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 shadow-lg transition-all duration-300 ${
-                  index <= currentStep
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 border-purple-500 text-white shadow-purple-500/30'
-                    : 'bg-gray-800 border-gray-600 text-gray-400 shadow-gray-800/30'
-                }`}>
+                <button
+                  onClick={() => goToStep(index)}
+                  className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 ${
+                    index <= currentStep
+                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 border-purple-500 text-white shadow-purple-500/30 hover:from-purple-700 hover:to-blue-700'
+                      : 'bg-gray-800 border-gray-600 text-gray-400 shadow-gray-800/30 hover:bg-gray-700 hover:border-gray-500'
+                  }`}
+                  title={`Go to ${step.title}`}
+                >
                   {index < currentStep ? <CheckCircle className="w-6 h-6" /> : index + 1}
-                </div>
+                </button>
                 {index < pathwaySteps.length - 1 && (
                   <div className={`w-8 h-1 mx-1 rounded-full transition-all duration-300 ${
                     index < currentStep ? 'bg-gradient-to-r from-purple-600 to-blue-600' : 'bg-gray-600'
@@ -624,6 +635,26 @@ const EducationalPathwayGuide: React.FC = () => {
           </div>
         </div>
 
+        {/* Step Selection Buttons - Quick Navigation */}
+        <div className="flex justify-center mb-6 px-6">
+          <div className="flex gap-2 bg-gray-800/50 rounded-xl p-2 backdrop-blur-sm border border-gray-600/50">
+            {pathwaySteps.map((step, index) => (
+              <button
+                key={step.id}
+                onClick={() => goToStep(index)}
+                className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm ${
+                  index === currentStep
+                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/30'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                }`}
+                title={step.title}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Navigation - Mobile Optimized */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 px-6 md:px-0 md:max-w-6xl md:mx-auto">
           <button
@@ -641,11 +672,13 @@ const EducationalPathwayGuide: React.FC = () => {
             </p>
             <div className="flex gap-1 mt-1 justify-center">
               {pathwaySteps.map((_, index) => (
-                <div
+                <button
                   key={index}
-                  className={`w-2 h-2 rounded-full ${
-                    index === currentStep ? 'bg-purple-500' : 'bg-gray-600'
+                  onClick={() => goToStep(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer hover:scale-125 ${
+                    index === currentStep ? 'bg-purple-500' : 'bg-gray-600 hover:bg-gray-500'
                   }`}
+                  title={`Go to step ${index + 1}`}
                 />
               ))}
             </div>
