@@ -15,13 +15,21 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         title: "Why Excel in JHS?",
         content: "Success in Junior High School opens doors to prestigious Senior High Schools, providing access to exclusive clubs, advanced resources, and specialized programs. This foundation is crucial for both academic and technical/vocational paths. By excelling in JHS, you position yourself for better opportunities in SHS, where you can start preparing for international opportunities like SAT classes and university applications.",
         icon: <Target className="w-6 h-6" />,
-        color: "#FF6B35"
+        color: "#FF6B35",
+        gradient: "from-orange-500/20 to-red-500/20",
+        borderColor: "border-orange-500/30",
+        hoverBorderColor: "hover:border-orange-500/50",
+        shadowColor: "shadow-orange-500/10"
       },
       {
         title: "SAT Preparation Resources",
         content: "Several organizations in Ghana offer SAT preparation support. These resources are particularly valuable when you reach SHS, as they help prepare you for international university applications:",
         icon: <BookOpen className="w-6 h-6" />,
         color: "#4CAF50",
+        gradient: "from-green-500/20 to-emerald-500/20",
+        borderColor: "border-green-500/30",
+        hoverBorderColor: "hover:border-green-500/50",
+        shadowColor: "shadow-green-500/10",
         items: [
           {
             name: "AFEX Hub",
@@ -60,6 +68,10 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         content: "Ghanaian universities and organizations offering scholarships for tertiary education:",
         icon: <Award className="w-6 h-6" />,
         color: "#2196F3",
+        gradient: "from-blue-500/20 to-cyan-500/20",
+        borderColor: "border-blue-500/30",
+        hoverBorderColor: "hover:border-blue-500/50",
+        shadowColor: "shadow-blue-500/10",
         items: [
           {
             name: "Ghana Scholarship Secretariat",
@@ -123,6 +135,10 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         content: "Global scholarship programs available to Ghanaian students:",
         icon: <Globe className="w-6 h-6" />,
         color: "#9C27B0",
+        gradient: "from-purple-500/20 to-pink-500/20",
+        borderColor: "border-purple-500/30",
+        hoverBorderColor: "hover:border-purple-500/50",
+        shadowColor: "shadow-purple-500/10",
         items: [
           {
             name: "Commonwealth Scholarships",
@@ -218,8 +234,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             <section key={index} className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <div
-                  className="w-10 h-10 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md bg-white/10 border border-white/20"
-                  style={{ backgroundColor: `${section.color}20` }}
+                  className={`w-10 h-10 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md bg-gradient-to-br ${section.gradient} border ${section.borderColor}`}
                 >
                   {section.icon}
                 </div>
@@ -230,7 +245,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
               <p className="text-silver-300 mb-6">
                 {section.content}
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                 {section.items?.map((item, itemIndex) => (
                   <motion.div
                     key={itemIndex}
@@ -242,7 +257,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                       href={item.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full h-[200px] bg-white/5 backdrop-blur-xl rounded-3xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 hover:bg-white/10 text-left relative overflow-hidden group flex flex-col"
+                      className={`block w-full h-[180px] bg-gradient-to-br ${section.gradient} backdrop-blur-xl rounded-3xl p-3 sm:p-4 border ${section.borderColor} ${section.hoverBorderColor} transition-all duration-300 hover:shadow-2xl ${section.shadowColor} text-left relative overflow-hidden group flex flex-col`}
                     >
                       {/* Background Gradient */}
                       <div
@@ -254,27 +269,27 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                       {/* Content */}
                       <div className="flex-1">
                         {/* Title */}
-                        <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
+                        <h3 className="text-sm font-bold text-white leading-tight group-hover:text-white/90 transition-colors duration-300 line-clamp-2">
                           {item.name}
                         </h3>
                         {/* Description */}
-                        <p className="text-xs text-gray-400 leading-relaxed line-clamp-3 flex-1 mt-2">
+                        <p className="text-xs text-gray-200 leading-relaxed line-clamp-3 flex-1 mt-2">
                           {item.description}
                         </p>
                       </div>
                       {/* Action Footer */}
-                      <div className="flex items-center justify-between pt-2 border-t border-white/10 mt-auto">
+                      <div className={`flex items-center justify-between pt-2 border-t ${section.borderColor} mt-auto`}>
                         <div className="flex items-center gap-1">
-                          <span className="text-xs text-purple-400 font-medium">
+                          <span className="text-xs text-white/80 font-medium">
                             Visit Website
                           </span>
                         </div>
-                        <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
-                          <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                        <div className={`w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300`}>
+                          <ExternalLink size={10} className="text-white/80 group-hover:text-white" />
                         </div>
                       </div>
                       {/* Hover Effect Overlay */}
-                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                      <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
                     </a>
                   </motion.div>
                 ))}
