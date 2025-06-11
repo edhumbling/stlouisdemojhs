@@ -123,6 +123,15 @@ const StudentsHubPage: React.FC = () => {
         color: "#007AFF"
       },
       {
+        id: 200,
+        title: "Scholarship Opportunities",
+        description: "Comprehensive guide to scholarships, SAT preparation, and educational opportunities in Ghana and abroad",
+        url: "/scholarship-opportunities",
+        icon: <GraduationCap className="w-5 h-5" />,
+        color: "#FF6B35",
+        isInternal: true
+      },
+      {
         id: 2,
         title: "Poetry Archive",
         description: "Children's poetry collection",
