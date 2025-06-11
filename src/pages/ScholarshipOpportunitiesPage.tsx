@@ -133,9 +133,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       glowColor: '#3b82f6'
     },
     {
-      id: 'jay-qwayson-foundation',
-      name: 'Jay Qwayson Foundation Scholarship',
-      url: 'https://jayqwaysonfoundation.org',
+      id: 'jeq-foundation',
+      name: 'JEQ Foundation (Jay Watson Foundation)',
+      url: 'https://jeqfoundation.org',
       description: 'Educational scholarships for brilliant but needy Ghanaian students pursuing higher education. Focuses on academic excellence and community impact.',
       icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-blue-600 to-indigo-600',
@@ -184,6 +184,15 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       url: 'https://dhscholarship.org',
       description: 'Comprehensive scholarship database and application portal for Ghanaian students seeking local and international educational funding opportunities.',
       icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#3b82f6'
+    },
+    {
+      id: 'knust-mastercard-foundation',
+      name: 'KNUST Mastercard Foundation Scholars Program',
+      url: 'https://www.knust.edu.gh/admissions/scholarships',
+      description: 'Mastercard Foundation Scholars Program at Kwame Nkrumah University of Science and Technology for academically talented but economically disadvantaged Ghanaian students.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-blue-600 to-indigo-600',
       glowColor: '#3b82f6'
     },
@@ -1396,7 +1405,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           name.includes('gates') || name.includes('rhodes') || name.includes('humphrey') ||
           name.includes('aga khan') || name.includes('world bank') || name.includes('japan') ||
           name.includes('larry ellison') || name.includes('marshall') || name.includes('clarendon') ||
-          name.includes('knight-hennessy') || name.includes('mastercard foundation') || name.includes('ecobank foundation')) {
+          name.includes('knight-hennessy') || (name.includes('mastercard foundation') && !name.includes('knust')) ||
+          name.includes('ecobank foundation')) {
         categories['International Scholarships'].push(scholarship);
       }
       // Local Scholarships (default for all others)
