@@ -3133,6 +3133,28 @@ const StudentsHubPage: React.FC = () => {
         structuredData={studentsHubStructuredData}
       />
       <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
+        {/* Header with Back Button */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={() => navigate('/')}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+              <div className="flex-1 min-w-0">
+                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                  Students Hub
+                </h1>
+                <p className="text-sm text-purple-200 truncate">
+                  Digital Learning Resources & Educational Tools
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       {/* Main Students Hub Content */}
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
@@ -3324,7 +3346,7 @@ const StudentsHubPage: React.FC = () => {
                           onClick={() => handleResourceClick(resource)}
                           className={`w-full h-[200px] backdrop-blur-sm rounded-2xl p-4 border transition-all duration-300 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
                             resource.id === 200
-                              ? 'bg-white/10 border-white/30 hover:border-white/60 hover:shadow-2xl hover:shadow-white/20 hover:bg-white/15'
+                              ? 'bg-red-900/20 border-red-500/40 hover:border-red-400/70 hover:shadow-2xl hover:shadow-red-500/30 hover:bg-red-800/30'
                               : `${getCategoryColors(category).background} ${getCategoryColors(category).border} ${getCategoryColors(category).hoverBorder} hover:shadow-xl ${getCategoryColors(category).shadow} ${getCategoryColors(category).hoverBg}`
                           }`}
                         >
@@ -3342,18 +3364,19 @@ const StudentsHubPage: React.FC = () => {
                             }}
                           />
 
-                          {/* Special Ghana flag glow effect for Educational Pathways card */}
+                          {/* Special reddish buzzing notification glow for Educational Pathways card */}
                           {resource.id === 200 && (
                             <>
-                              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/10 via-yellow-500/10 to-green-500/10 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-red-500/30 via-yellow-500/30 to-green-500/30 opacity-40 group-hover:opacity-60 transition-opacity duration-300 blur-sm -z-10" />
-                              <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-red-400/20 via-yellow-400/20 to-green-400/20 opacity-20 group-hover:opacity-40 transition-opacity duration-500 blur-md -z-20" />
+                              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/15 via-red-400/10 to-red-600/15 opacity-70 group-hover:opacity-90 transition-opacity duration-300 animate-pulse" />
+                              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-red-500/40 via-red-400/30 to-red-600/40 opacity-50 group-hover:opacity-70 transition-opacity duration-300 blur-sm -z-10 animate-pulse" />
+                              <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-red-400/25 via-red-300/20 to-red-500/25 opacity-30 group-hover:opacity-50 transition-opacity duration-500 blur-md -z-20 animate-pulse" />
+                              <div className="absolute -inset-3 rounded-2xl bg-red-500/10 opacity-20 group-hover:opacity-30 transition-opacity duration-700 blur-lg -z-30 animate-pulse" />
                             </>
                           )}
                           {/* Status Indicators */}
                           <div className="absolute top-3 right-3 flex gap-1">
                             <div className={`px-2 py-1 rounded-full text-xs font-bold text-white ${
-                              resource.id === 200 ? 'bg-white/20' : getCategoryColors(category).badge
+                              resource.id === 200 ? 'bg-red-500/80 animate-pulse' : getCategoryColors(category).badge
                             }`}>
                               Resource
                             </div>
@@ -3365,8 +3388,8 @@ const StudentsHubPage: React.FC = () => {
                                 resource.id === 200 ? 'shadow-white/20 group-hover:shadow-white/40' : ''
                               }`}
                               style={{
-                                backgroundColor: resource.id === 200 ? 'rgba(255,255,255,0.2)' : resource.color,
-                                boxShadow: resource.id === 200 ? '0 0 20px rgba(255,255,255,0.3), inset 0 0 20px rgba(255,255,255,0.1)' : undefined
+                                backgroundColor: resource.id === 200 ? 'rgba(239,68,68,0.3)' : resource.color,
+                                boxShadow: resource.id === 200 ? '0 0 20px rgba(239,68,68,0.5), inset 0 0 20px rgba(239,68,68,0.2)' : undefined
                               }}
                             >
                               {resource.icon}
@@ -3374,11 +3397,11 @@ const StudentsHubPage: React.FC = () => {
                             {/* Resource Type Indicator */}
                             <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center border-2 ${
                               resource.id === 200
-                                ? 'bg-white/20 border-white/40'
+                                ? 'bg-red-500/30 border-red-400/60 animate-pulse'
                                 : `bg-gray-800 border-gray-700`
                             }`}>
                               <ExternalLink className={`w-2.5 h-2.5 ${
-                                resource.id === 200 ? 'text-white' : getCategoryColors(category).icon
+                                resource.id === 200 ? 'text-red-200' : getCategoryColors(category).icon
                               }`} />
                             </div>
                           </div>
@@ -3387,7 +3410,7 @@ const StudentsHubPage: React.FC = () => {
                             {/* Title */}
                             <h3 className={`text-sm font-bold leading-tight transition-colors duration-300 line-clamp-2 ${
                               resource.id === 200
-                                ? 'text-white group-hover:text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]'
+                                ? 'text-white group-hover:text-red-100 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]'
                                 : `text-white group-hover:${getCategoryColors(category).text}`
                             }`}>
                               {resource.title}
@@ -3395,7 +3418,7 @@ const StudentsHubPage: React.FC = () => {
                             {/* Category */}
                             <p className={`text-xs font-medium line-clamp-1 ${
                               resource.id === 200
-                                ? 'text-white/80'
+                                ? 'text-red-200'
                                 : getCategoryColors(category).icon
                             }`}>
                               {category}
@@ -3403,7 +3426,7 @@ const StudentsHubPage: React.FC = () => {
                             {/* Description */}
                             <p className={`text-xs leading-relaxed line-clamp-2 flex-1 ${
                               resource.id === 200
-                                ? 'text-white/70'
+                                ? 'text-red-100/80'
                                 : 'text-gray-400'
                             }`}>
                               {resource.description}
@@ -3411,13 +3434,13 @@ const StudentsHubPage: React.FC = () => {
                             {/* Action Footer */}
                             <div className={`flex items-center justify-between pt-2 border-t mt-auto ${
                               resource.id === 200
-                                ? 'border-white/20'
+                                ? 'border-red-400/30'
                                 : 'border-gray-700/30'
                             }`}>
                               <div className="flex items-center gap-1">
                                 <span className={`text-xs font-medium ${
                                   resource.id === 200
-                                    ? 'text-white/80'
+                                    ? 'text-red-200'
                                     : getCategoryColors(category).icon
                                 }`}>
                                   Resource
@@ -3425,12 +3448,12 @@ const StudentsHubPage: React.FC = () => {
                               </div>
                               <div className={`w-5 h-5 rounded-full flex items-center justify-center transition-colors duration-300 ${
                                 resource.id === 200
-                                  ? 'bg-white/20 group-hover:bg-white/30'
+                                  ? 'bg-red-500/30 group-hover:bg-red-500/50 animate-pulse'
                                   : getCategoryColors(category).button
                               }`}>
                                 <ExternalLink size={10} className={`${
                                   resource.id === 200
-                                    ? 'text-white group-hover:text-white'
+                                    ? 'text-red-200 group-hover:text-red-100'
                                     : getCategoryColors(category).buttonText
                                 }`} />
                               </div>
@@ -3439,7 +3462,7 @@ const StudentsHubPage: React.FC = () => {
                           {/* Hover Effect Overlay */}
                           <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
                             resource.id === 200
-                              ? 'bg-gradient-to-br from-white/10 to-transparent'
+                              ? 'bg-gradient-to-br from-red-500/15 to-transparent'
                               : `bg-gradient-to-br ${getCategoryColors(category).gradient} to-transparent`
                           }`} />
                         </button>
