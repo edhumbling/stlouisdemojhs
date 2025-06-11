@@ -178,9 +178,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       glowColor: '#3b82f6'
     },
     {
-      id: 'dhs-scholarship',
-      name: 'DHS Scholarship Portal',
-      url: 'https://dhscholarship.com',
+      id: 'dream-hive-scholarship',
+      name: 'Dream Hive Scholarship',
+      url: 'https://dhscholarship.org',
       description: 'Comprehensive scholarship database and application portal for Ghanaian students seeking local and international educational funding opportunities.',
       icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-blue-600 to-indigo-600',
@@ -522,9 +522,10 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           name.includes('australia') || name.includes('chinese') || name.includes('japanese') ||
           name.includes('korean') || name.includes('rotary') || name.includes('mext') ||
           name.includes('schwarzman') || name.includes('mandela') || name.includes('netherlands') ||
-          name.includes('swedish') || name.includes('turkey') || name.includes('vanier') ||
-          name.includes('eiffel') || name.includes('swiss') || name.includes('gates') ||
-          name.includes('rhodes') || name.includes('humphrey') || name.includes('aga khan')) {
+          name.includes('swedish') || name.includes('turkey') || name.includes('türkiye') ||
+          name.includes('vanier') || name.includes('eiffel') || name.includes('swiss') ||
+          name.includes('gates') || name.includes('rhodes') || name.includes('humphrey') ||
+          name.includes('aga khan') || name.includes('world bank') || name.includes('japan')) {
         categories['International Scholarships'].push(scholarship);
       }
       // Local Scholarships (default for all others)

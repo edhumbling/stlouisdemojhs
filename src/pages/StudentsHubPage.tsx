@@ -124,8 +124,8 @@ const StudentsHubPage: React.FC = () => {
       },
       {
         id: 200,
-        title: "Scholarship Opportunities",
-        description: "Comprehensive guide to scholarships, SAT preparation, and educational opportunities in Ghana and abroad",
+        title: "Educational Pathways & Opportunities",
+        description: "Complete guide to scholarships, SAT prep, TVET programs, startup hubs, and all educational pathways from SHS to career success",
         url: "/scholarship-opportunities",
         icon: <GraduationCap className="w-5 h-5" />,
         color: "#FF6B35",
