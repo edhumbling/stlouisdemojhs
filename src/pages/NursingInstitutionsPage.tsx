@@ -221,6 +221,11 @@ const NursingInstitutionsPage: React.FC = () => {
         type="website"
       />
 
+      {/* Hide footer on this page */}
+      <style>{`
+        footer { display: none !important; }
+      `}</style>
+
       {/* Header */}
       <div className="bg-gradient-to-r from-red-900/50 to-pink-900/50 border-b border-red-800/30">
         <div className="px-4 sm:px-6 py-4 sm:py-6">
@@ -281,72 +286,72 @@ const NursingInstitutionsPage: React.FC = () => {
       {/* Institutions Grid */}
       <div className="px-4 sm:px-6 pb-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {filteredInstitutions.map((institution) => (
               <motion.div
                 key={institution.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={`bg-gradient-to-br ${institution.color} p-6 rounded-xl border border-gray-600/50 hover:border-gray-500/50 transition-all duration-300 shadow-lg hover:shadow-xl group`}
+                className={`bg-gradient-to-br ${institution.color} p-4 sm:p-6 rounded-xl border border-gray-600/50 hover:border-gray-500/50 transition-all duration-300 shadow-lg hover:shadow-xl group`}
                 style={{
                   boxShadow: `0 4px 20px ${institution.glowColor}20, 0 0 0 1px ${institution.glowColor}10`
                 }}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`p-3 rounded-xl bg-white/10 backdrop-blur-sm`}>
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <div className={`p-2 sm:p-3 rounded-xl bg-white/10 backdrop-blur-sm`}>
                     {institution.icon}
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium bg-white/20 text-white`}>
-                    {institution.type}
+                  <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-white/20 text-white`}>
+                    {institution.type.replace(' College', '').replace(' School', '')}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gray-100 transition-colors">
+                <h3 className="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-2 group-hover:text-gray-100 transition-colors line-clamp-2">
                   {institution.name}
                 </h3>
 
-                <div className="flex items-center gap-2 text-white/80 mb-3">
-                  <MapPin className="w-4 h-4" />
-                  <span className="text-sm">{institution.location}, {institution.region}</span>
+                <div className="flex items-center gap-1 sm:gap-2 text-white/80 mb-2 sm:mb-3">
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm truncate">{institution.location}, {institution.region}</span>
                 </div>
 
-                <p className="text-white/70 text-sm mb-4 line-clamp-3">
+                <p className="text-white/70 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3">
                   {institution.description}
                 </p>
 
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <div>
-                    <h4 className="text-sm font-semibold text-white/90 mb-2">Programs Offered:</h4>
+                    <h4 className="text-xs sm:text-sm font-semibold text-white/90 mb-1 sm:mb-2">Programs:</h4>
                     <div className="flex flex-wrap gap-1">
                       {institution.programs.slice(0, 3).map((program, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 bg-white/10 rounded-md text-xs text-white/80"
+                          className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white/10 rounded-md text-xs text-white/80"
                         >
                           {program}
                         </span>
                       ))}
                       {institution.programs.length > 3 && (
-                        <span className="px-2 py-1 bg-white/10 rounded-md text-xs text-white/80">
-                          +{institution.programs.length - 3} more
+                        <span className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-white/10 rounded-md text-xs text-white/80">
+                          +{institution.programs.length - 3}
                         </span>
                       )}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-3 border-t border-white/20">
-                    <div className="flex items-center gap-2 text-white/70">
-                      <Clock className="w-4 h-4" />
+                  <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-white/20">
+                    <div className="flex items-center gap-1 sm:gap-2 text-white/70">
+                      <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span className="text-xs">Est. {institution.established}</span>
                     </div>
                     <a
                       href={institution.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-1.5 bg-white/20 hover:bg-white/30 rounded-lg transition-all duration-300 text-white text-sm font-medium"
+                      className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-white/20 hover:bg-white/30 rounded-lg transition-all duration-300 text-white text-xs sm:text-sm font-medium"
                     >
                       <span>Visit</span>
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                     </a>
                   </div>
                 </div>

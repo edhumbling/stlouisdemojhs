@@ -53,6 +53,7 @@ import EducationalPathwayGuide from './components/educational/EducationalPathway
 import EducationalGuidePage from './pages/EducationalGuidePage';
 import NursingInstitutionsPage from './pages/NursingInstitutionsPage';
 import TeacherTrainingPage from './pages/TeacherTrainingPage';
+import LocalUniversitiesPage from './pages/LocalUniversitiesPage';
 
 // Scroll Position Manager Component
 const ScrollPositionManager: React.FC = () => {
@@ -163,6 +164,7 @@ const App: React.FC = () => {
           <Route path="/educational-guide" element={<EducationalGuidePage />} />
           <Route path="/nursing-institutions" element={<NursingInstitutionsPage />} />
           <Route path="/teacher-training" element={<TeacherTrainingPage />} />
+          <Route path="/local-universities" element={<LocalUniversitiesPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
