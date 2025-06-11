@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, GraduationCap, Globe, BookOpen, Users, Target, Award, Briefcase, ExternalLink } from 'lucide-react';
+import { ArrowLeft, GraduationCap, BookOpen, Globe, DollarSign, Users, Target, Award, Briefcase, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import SEOHead from '../components/seo/SEOHead';
 import { useHeader } from '../contexts/HeaderContext';
 import useEnhancedNavigation from '../hooks/useEnhancedNavigation';
+import SEOHead from '../components/seo/SEOHead';
 
 interface ScholarshipItem {
   name: string;
   description: string;
   website: string;
-  isInternal?: boolean;
   embedStrategy?: 'iframe' | 'external' | 'smart';
   sandbox?: string;
-  customScripts?: boolean;
-  forceFullPage?: boolean;
-  hideHeader?: boolean;
-  hideFooter?: boolean;
 }
 
 interface Section {
@@ -28,7 +23,7 @@ interface Section {
   borderColor: string;
   hoverBorderColor: string;
   shadowColor: string;
-  items?: ScholarshipItem[];
+  items: ScholarshipItem[];
 }
 
 const ScholarshipOpportunitiesPage: React.FC = () => {
@@ -39,254 +34,248 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [iframeError, setIframeError] = useState(false);
 
-  const scholarshipData = {
-    title: "Scholarship Opportunities",
-    description: "Your gateway to educational excellence and future success",
-    sections: [
-      {
-        title: "Why Excel in JHS?",
-        content: "Success in Junior High School opens doors to prestigious Senior High Schools, providing access to exclusive clubs, advanced resources, and specialized programs. This foundation is crucial for both academic and technical/vocational paths. By excelling in JHS, you position yourself for better opportunities in SHS, where you can start preparing for international opportunities like SAT classes and university applications.",
-        icon: <Target className="w-6 h-6" />,
-        color: "#FF6B35",
-        gradient: "from-orange-500/20 to-red-500/20",
-        borderColor: "border-orange-500/30",
-        hoverBorderColor: "hover:border-orange-500/50",
-        shadowColor: "shadow-orange-500/10"
-      },
-      {
-        title: "SAT Preparation Resources",
-        content: "Several organizations in Ghana offer SAT preparation support. These resources are particularly valuable when you reach SHS, as they help prepare you for international university applications:",
-        icon: <BookOpen className="w-6 h-6" />,
-        color: "#4CAF50",
-        gradient: "from-green-500/20 to-emerald-500/20",
-        borderColor: "border-green-500/30",
-        hoverBorderColor: "hover:border-green-500/50",
-        shadowColor: "shadow-green-500/10",
-        items: [
-          {
-            name: "AFEX Hub",
-            description: "Professional SAT preparation and college application support with proven track record",
-            website: "http://www.afextestprep.com",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "YAfGhana",
-            description: "Provides free SAT training and scholarship opportunities for Ghanaian students",
-            website: "https://yafghana.org",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "EducationUSA Ghana",
-            description: "U.S. Department of State's official source for U.S. higher education",
-            website: "https://gh.usembassy.gov/education-culture/educationusa/",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Veritas Foundation",
-            description: "Professional SAT preparation and college counseling services",
-            website: "https://theveritasfoundation.co",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "College Board Ghana",
-            description: "Official SAT testing and preparation resources",
-            website: "https://www.collegeboard.org",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Khan Academy SAT Prep",
-            description: "Free official SAT practice tests and personalized study plans",
-            website: "https://www.khanacademy.org/sat",
-            embedStrategy: 'iframe'
-          }
-        ]
-      },
-      {
-        title: "Local Scholarship Opportunities",
-        content: "Ghanaian universities and organizations offering scholarships for tertiary education:",
-        icon: <Award className="w-6 h-6" />,
-        color: "#2196F3",
-        gradient: "from-blue-500/20 to-cyan-500/20",
-        borderColor: "border-blue-500/30",
-        hoverBorderColor: "hover:border-blue-500/50",
-        shadowColor: "shadow-blue-500/10",
-        items: [
-          {
-            name: "Ghana Scholarship Secretariat",
-            description: "Government scholarships for tertiary education",
-            website: "https://scholarshipgh.com",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Mastercard Foundation Scholars Program",
-            description: "Full scholarships at partner universities in Ghana",
-            website: "https://mastercardfdn.org/scholars",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "KNUST Scholarship Portal",
-            description: "Various scholarships available at Kwame Nkrumah University of Science and Technology",
-            website: "https://apps.knust.edu.gh/admissions",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "University of Ghana Financial Aid",
-            description: "Scholarships and financial support for UG students",
-            website: "https://www.ug.edu.gh/students/financial-aid",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Ashesi University Scholarships",
-            description: "Merit-based and need-based scholarships for undergraduate studies",
-            website: "https://www.ashesi.edu.gh/admissions/scholarships.html",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Ghana Education Trust Fund (GETFund)",
-            description: "Government scholarship fund for tertiary education",
-            website: "https://getfund.gov.gh",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Ghana National Petroleum Corporation (GNPC) Foundation",
-            description: "Scholarships for students in STEM fields",
-            website: "https://gnpcfoundation.org",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Vodafone Ghana Foundation",
-            description: "Scholarships and educational support programs",
-            website: "https://www.vodafone.com.gh/foundation",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "MTN Foundation",
-            description: "Educational scholarships and support initiatives",
-            website: "https://www.mtn.com.gh/mtn-foundation",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Ghana Cocoa Board (COCOBOD) Scholarships",
-            description: "Scholarships for children of cocoa farmers",
-            website: "https://cocobod.gh",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Dream Hive Scholarship",
-            description: "A Hive of Dreams, A Buzz of Success",
-            website: "https://dhscholarship.org",
-            embedStrategy: 'iframe'
-          }
-        ]
-      },
-      {
-        title: "International Opportunities",
-        content: "Global scholarship programs available to Ghanaian students:",
-        icon: <Globe className="w-6 h-6" />,
-        color: "#9C27B0",
-        gradient: "from-purple-500/20 to-pink-500/20",
-        borderColor: "border-purple-500/30",
-        hoverBorderColor: "hover:border-purple-500/50",
-        shadowColor: "shadow-purple-500/10",
-        items: [
-          {
-            name: "Commonwealth Scholarships",
-            description: "UK government scholarships for Commonwealth citizens",
-            website: "https://cscuk.fcdo.gov.uk",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "DAAD Scholarships",
-            description: "German Academic Exchange Service scholarships",
-            website: "https://www.daad.de/en",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Chevening Scholarships",
-            description: "UK government's global scholarship programme",
-            website: "https://www.chevening.org",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Fulbright Program",
-            description: "US government's international educational exchange program",
-            website: "https://gh.usembassy.gov/fulbright",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Erasmus+ Program",
-            description: "EU scholarships for study and training in Europe",
-            website: "https://erasmus-plus.ec.europa.eu",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Australia Awards",
-            description: "Australian government scholarships for international students",
-            website: "https://www.dfat.gov.au/people-to-people/australia-awards",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Chinese Government Scholarships",
-            description: "Full and partial scholarships for study in China",
-            website: "https://www.campuschina.org",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Japanese Government (MEXT) Scholarships",
-            description: "Scholarships for international students in Japan",
-            website: "https://www.studyinjapan.go.jp/en",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Korean Government Scholarship Program",
-            description: "Full scholarships for undergraduate and graduate studies in Korea",
-            website: "https://www.studyinkorea.go.kr",
-            embedStrategy: 'iframe'
-          },
-          {
-            name: "Rotary Foundation Global Grants",
-            description: "International scholarships for graduate-level studies",
-            website: "https://www.rotary.org/en/our-programs/scholarships",
-            embedStrategy: 'iframe'
-          }
-        ]
-      }
-    ]
-  };
+  const scholarshipData: Section[] = [
+    {
+      title: "Academic Success",
+      content: "Resources and tools to help you excel in your studies",
+      icon: <GraduationCap className="w-6 h-6" />,
+      color: "#FF6B35",
+      gradient: "from-orange-500/20 to-orange-600/20",
+      borderColor: "border-orange-500/30",
+      hoverBorderColor: "hover:border-orange-500/50",
+      shadowColor: "hover:shadow-orange-500/20",
+      items: [
+        {
+          name: "Khan Academy",
+          description: "Free online courses and practice exercises",
+          website: "https://www.khanacademy.org",
+          embedStrategy: 'iframe' as const,
+          sandbox: "allow-same-origin allow-scripts allow-popups allow-forms"
+        },
+        {
+          name: "AFEX Hub",
+          description: "Professional SAT preparation and college application support with proven track record",
+          website: "http://www.afextestprep.com",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "YAfGhana",
+          description: "Provides free SAT training and scholarship opportunities for Ghanaian students",
+          website: "https://yafghana.org",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "EducationUSA Ghana",
+          description: "U.S. Department of State's official source for U.S. higher education",
+          website: "https://gh.usembassy.gov/education-culture/educationusa/",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Veritas Foundation",
+          description: "Professional SAT preparation and college counseling services",
+          website: "https://theveritasfoundation.co",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "College Board Ghana",
+          description: "Official SAT testing and preparation resources",
+          website: "https://www.collegeboard.org",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Khan Academy SAT Prep",
+          description: "Free official SAT practice tests and personalized study plans",
+          website: "https://www.khanacademy.org/sat",
+          embedStrategy: 'iframe'
+        }
+      ]
+    },
+    {
+      title: "Local Scholarship Opportunities",
+      content: "Ghanaian universities and organizations offering scholarships for tertiary education:",
+      icon: <Award className="w-6 h-6" />,
+      color: "#2196F3",
+      gradient: "from-blue-500/20 to-cyan-500/20",
+      borderColor: "border-blue-500/30",
+      hoverBorderColor: "hover:border-blue-500/50",
+      shadowColor: "shadow-blue-500/10",
+      items: [
+        {
+          name: "Ghana Scholarship Secretariat",
+          description: "Government scholarships for tertiary education",
+          website: "https://scholarshipgh.com",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Mastercard Foundation Scholars Program",
+          description: "Full scholarships at partner universities in Ghana",
+          website: "https://mastercardfdn.org/scholars",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "KNUST Scholarship Portal",
+          description: "Various scholarships available at Kwame Nkrumah University of Science and Technology",
+          website: "https://apps.knust.edu.gh/admissions",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "University of Ghana Financial Aid",
+          description: "Scholarships and financial support for UG students",
+          website: "https://www.ug.edu.gh/students/financial-aid",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Ashesi University Scholarships",
+          description: "Merit-based and need-based scholarships for undergraduate studies",
+          website: "https://www.ashesi.edu.gh/admissions/scholarships.html",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Ghana Education Trust Fund (GETFund)",
+          description: "Government scholarship fund for tertiary education",
+          website: "https://getfund.gov.gh",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Ghana National Petroleum Corporation (GNPC) Foundation",
+          description: "Scholarships for students in STEM fields",
+          website: "https://gnpcfoundation.org",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Vodafone Ghana Foundation",
+          description: "Scholarships and educational support programs",
+          website: "https://www.vodafone.com.gh/foundation",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "MTN Foundation",
+          description: "Educational scholarships and support initiatives",
+          website: "https://www.mtn.com.gh/mtn-foundation",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Ghana Cocoa Board (COCOBOD) Scholarships",
+          description: "Scholarships for children of cocoa farmers",
+          website: "https://cocobod.gh",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Dream Hive Scholarship",
+          description: "A Hive of Dreams, A Buzz of Success",
+          website: "https://dhscholarship.org",
+          embedStrategy: 'iframe'
+        }
+      ]
+    },
+    {
+      title: "International Opportunities",
+      content: "Global scholarship programs available to Ghanaian students:",
+      icon: <Globe className="w-6 h-6" />,
+      color: "#9C27B0",
+      gradient: "from-purple-500/20 to-pink-500/20",
+      borderColor: "border-purple-500/30",
+      hoverBorderColor: "hover:border-purple-500/50",
+      shadowColor: "shadow-purple-500/10",
+      items: [
+        {
+          name: "Commonwealth Scholarships",
+          description: "UK government scholarships for Commonwealth citizens",
+          website: "https://cscuk.fcdo.gov.uk",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "DAAD Scholarships",
+          description: "German Academic Exchange Service scholarships",
+          website: "https://www.daad.de/en",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Chevening Scholarships",
+          description: "UK government's global scholarship programme",
+          website: "https://www.chevening.org",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Fulbright Program",
+          description: "US government's international educational exchange program",
+          website: "https://gh.usembassy.gov/fulbright",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Erasmus+ Program",
+          description: "EU scholarships for study and training in Europe",
+          website: "https://erasmus-plus.ec.europa.eu",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Australia Awards",
+          description: "Australian government scholarships for international students",
+          website: "https://www.dfat.gov.au/people-to-people/australia-awards",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Chinese Government Scholarships",
+          description: "Full and partial scholarships for study in China",
+          website: "https://www.campuschina.org",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Japanese Government (MEXT) Scholarships",
+          description: "Scholarships for international students in Japan",
+          website: "https://www.studyinjapan.go.jp/en",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Korean Government Scholarship Program",
+          description: "Full scholarships for undergraduate and graduate studies in Korea",
+          website: "https://www.studyinkorea.go.kr",
+          embedStrategy: 'iframe'
+        },
+        {
+          name: "Rotary Foundation Global Grants",
+          description: "International scholarships for graduate-level studies",
+          website: "https://www.rotary.org/en/our-programs/scholarships",
+          embedStrategy: 'iframe'
+        }
+      ]
+    }
+  ];
 
-  // Control header visibility based on whether we're viewing an individual resource
   useEffect(() => {
     if (selectedResource) {
       setShowHeader(false);
     } else {
       setShowHeader(true);
     }
-
-    // Cleanup: ensure header is shown when component unmounts
     return () => {
       setShowHeader(true);
     };
   }, [selectedResource, setShowHeader]);
 
-  const handleResourceClick = (item: ScholarshipItem) => {
-    if (item.isInternal) {
-      navigate(item.website);
+  const handleBack = () => {
+    if (selectedResource) {
+      handleInternalStateChange(() => {
+        setSelectedResource(null);
+        setIsLoading(false);
+        setIframeError(false);
+        setShowHeader(true);
+      });
     } else {
+      navigate('/students-hub');
+    }
+  };
+
+  const handleResourceClick = (item: ScholarshipItem) => {
+    if (item.embedStrategy === 'iframe') {
       setIsLoading(true);
       setIframeError(false);
       savePageState();
       setSelectedResource(item);
       setShowHeader(false);
+    } else {
+      window.open(item.website, '_blank', 'noopener,noreferrer');
     }
-  };
-
-  const handleBack = () => {
-    handleInternalStateChange(() => {
-      setSelectedResource(null);
-      setIsLoading(false);
-      setIframeError(false);
-      setShowHeader(true);
-    });
   };
 
   // If a resource is selected, show the embedded view
@@ -299,7 +288,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             <div className="flex items-center gap-4 sm:gap-6">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-white/10 hover:bg-white/20 text-white font-medium rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-md border border-white/20 flex-shrink-0"
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
                 <span>Back</span>
@@ -336,7 +325,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-silver-900/95 to-silver-800/95">
+    <div className="min-h-screen bg-black">
       <SEOHead
         title="Scholarship Opportunities | St. Louis Demonstration JHS"
         description="Comprehensive guide to scholarships, SAT preparation, and educational opportunities in Ghana and abroad for students at St. Louis Demonstration JHS."
@@ -345,23 +334,24 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         type="website"
       />
       
-      {/* Back Button and Title Section with Liquid Glass Effect */}
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-purple-800/80 to-purple-900/80 backdrop-blur-xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(147,51,234,0.15),transparent_70%)]" />
-        <div className="relative py-3 sm:py-4 pt-20">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 sm:gap-6">
-              <button
-                onClick={() => navigate('/students-hub')}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-white/10 hover:bg-white/20 text-white font-medium rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-md border border-white/20 flex-shrink-0"
-              >
-                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span>Back</span>
-              </button>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+      {/* Header with Back Button */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
                 Scholarship Opportunities
               </h1>
+              <p className="text-sm text-purple-200 truncate">
+                Explore scholarships, SAT preparation, and educational opportunities
+              </p>
             </div>
           </div>
         </div>
@@ -370,7 +360,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       {/* Main Content */}
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
-          {scholarshipData.sections.map((section, index) => (
+          {scholarshipData.map((section, index) => (
             <section key={index} className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <div
