@@ -84,6 +84,181 @@ const StudentsHubPage: React.FC = () => {
   const [openLofiId, setOpenLofiId] = useState<string | null>(null);
   const { handleInternalStateChange, savePageState } = useEnhancedNavigation();
 
+  // Function to get category-specific colors
+  const getCategoryColors = (category: string) => {
+    switch (category) {
+      case '📚 Academic Resources':
+        return {
+          background: 'bg-blue-800/50',
+          border: 'border-blue-600/30',
+          hoverBorder: 'hover:border-blue-500/50',
+          shadow: 'hover:shadow-blue-500/10',
+          hoverBg: 'hover:bg-blue-700/60',
+          gradient: 'from-blue-500/5',
+          badge: 'bg-blue-500/80',
+          text: 'text-blue-300',
+          icon: 'text-blue-400',
+          button: 'bg-blue-500/20 group-hover:bg-blue-500/30',
+          buttonText: 'text-blue-400 group-hover:text-blue-300'
+        };
+      case '🧮 STEM Tools':
+        return {
+          background: 'bg-green-800/50',
+          border: 'border-green-600/30',
+          hoverBorder: 'hover:border-green-500/50',
+          shadow: 'hover:shadow-green-500/10',
+          hoverBg: 'hover:bg-green-700/60',
+          gradient: 'from-green-500/5',
+          badge: 'bg-green-500/80',
+          text: 'text-green-300',
+          icon: 'text-green-400',
+          button: 'bg-green-500/20 group-hover:bg-green-500/30',
+          buttonText: 'text-green-400 group-hover:text-green-300'
+        };
+      case '📝 Exam Preparation':
+        return {
+          background: 'bg-amber-800/50',
+          border: 'border-amber-600/30',
+          hoverBorder: 'hover:border-amber-500/50',
+          shadow: 'hover:shadow-amber-500/10',
+          hoverBg: 'hover:bg-amber-700/60',
+          gradient: 'from-amber-500/5',
+          badge: 'bg-amber-500/80',
+          text: 'text-amber-300',
+          icon: 'text-amber-400',
+          button: 'bg-amber-500/20 group-hover:bg-amber-500/30',
+          buttonText: 'text-amber-400 group-hover:text-amber-300'
+        };
+      case '🌍 Language & Communication':
+        return {
+          background: 'bg-violet-800/50',
+          border: 'border-violet-600/30',
+          hoverBorder: 'hover:border-violet-500/50',
+          shadow: 'hover:shadow-violet-500/10',
+          hoverBg: 'hover:bg-violet-700/60',
+          gradient: 'from-violet-500/5',
+          badge: 'bg-violet-500/80',
+          text: 'text-violet-300',
+          icon: 'text-violet-400',
+          button: 'bg-violet-500/20 group-hover:bg-violet-500/30',
+          buttonText: 'text-violet-400 group-hover:text-violet-300'
+        };
+      case '💰 Financial Literacy':
+        return {
+          background: 'bg-yellow-800/50',
+          border: 'border-yellow-600/30',
+          hoverBorder: 'hover:border-yellow-500/50',
+          shadow: 'hover:shadow-yellow-500/10',
+          hoverBg: 'hover:bg-yellow-700/60',
+          gradient: 'from-yellow-500/5',
+          badge: 'bg-yellow-500/80',
+          text: 'text-yellow-300',
+          icon: 'text-yellow-400',
+          button: 'bg-yellow-500/20 group-hover:bg-yellow-500/30',
+          buttonText: 'text-yellow-400 group-hover:text-yellow-300'
+        };
+      case '💼 Life Skills & Career':
+        return {
+          background: 'bg-pink-800/50',
+          border: 'border-pink-600/30',
+          hoverBorder: 'hover:border-pink-500/50',
+          shadow: 'hover:shadow-pink-500/10',
+          hoverBg: 'hover:bg-pink-700/60',
+          gradient: 'from-pink-500/5',
+          badge: 'bg-pink-500/80',
+          text: 'text-pink-300',
+          icon: 'text-pink-400',
+          button: 'bg-pink-500/20 group-hover:bg-pink-500/30',
+          buttonText: 'text-pink-400 group-hover:text-pink-300'
+        };
+      case '🎨 Creative Tools':
+        return {
+          background: 'bg-cyan-800/50',
+          border: 'border-cyan-600/30',
+          hoverBorder: 'hover:border-cyan-500/50',
+          shadow: 'hover:shadow-cyan-500/10',
+          hoverBg: 'hover:bg-cyan-700/60',
+          gradient: 'from-cyan-500/5',
+          badge: 'bg-cyan-500/80',
+          text: 'text-cyan-300',
+          icon: 'text-cyan-400',
+          button: 'bg-cyan-500/20 group-hover:bg-cyan-500/30',
+          buttonText: 'text-cyan-400 group-hover:text-cyan-300'
+        };
+      case '💻 Coding':
+        return {
+          background: 'bg-orange-800/50',
+          border: 'border-orange-600/30',
+          hoverBorder: 'hover:border-orange-500/50',
+          shadow: 'hover:shadow-orange-500/10',
+          hoverBg: 'hover:bg-orange-700/60',
+          gradient: 'from-orange-500/5',
+          badge: 'bg-orange-500/80',
+          text: 'text-orange-300',
+          icon: 'text-orange-400',
+          button: 'bg-orange-500/20 group-hover:bg-orange-500/30',
+          buttonText: 'text-orange-400 group-hover:text-orange-300'
+        };
+      case '📚 Encyclopedias':
+        return {
+          background: 'bg-indigo-800/50',
+          border: 'border-indigo-600/30',
+          hoverBorder: 'hover:border-indigo-500/50',
+          shadow: 'hover:shadow-indigo-500/10',
+          hoverBg: 'hover:bg-indigo-700/60',
+          gradient: 'from-indigo-500/5',
+          badge: 'bg-indigo-500/80',
+          text: 'text-indigo-300',
+          icon: 'text-indigo-400',
+          button: 'bg-indigo-500/20 group-hover:bg-indigo-500/30',
+          buttonText: 'text-indigo-400 group-hover:text-indigo-300'
+        };
+      case '📖 Dictionaries & Thesaurus':
+        return {
+          background: 'bg-rose-800/50',
+          border: 'border-rose-600/30',
+          hoverBorder: 'hover:border-rose-500/50',
+          shadow: 'hover:shadow-rose-500/10',
+          hoverBg: 'hover:bg-rose-700/60',
+          gradient: 'from-rose-500/5',
+          badge: 'bg-rose-500/80',
+          text: 'text-rose-300',
+          icon: 'text-rose-400',
+          button: 'bg-rose-500/20 group-hover:bg-rose-500/30',
+          buttonText: 'text-rose-400 group-hover:text-rose-300'
+        };
+      case '👥 Staff Resources':
+        return {
+          background: 'bg-teal-800/50',
+          border: 'border-teal-600/30',
+          hoverBorder: 'hover:border-teal-500/50',
+          shadow: 'hover:shadow-teal-500/10',
+          hoverBg: 'hover:bg-teal-700/60',
+          gradient: 'from-teal-500/5',
+          badge: 'bg-teal-500/80',
+          text: 'text-teal-300',
+          icon: 'text-teal-400',
+          button: 'bg-teal-500/20 group-hover:bg-teal-500/30',
+          buttonText: 'text-teal-400 group-hover:text-teal-300'
+        };
+      default:
+        // Default purple theme for Study Lofi and other categories
+        return {
+          background: 'bg-gray-800/50',
+          border: 'border-gray-600/30',
+          hoverBorder: 'hover:border-purple-500/50',
+          shadow: 'hover:shadow-purple-500/10',
+          hoverBg: 'hover:bg-gray-700/60',
+          gradient: 'from-purple-500/5',
+          badge: 'bg-purple-500/80',
+          text: 'text-purple-300',
+          icon: 'text-purple-400',
+          button: 'bg-purple-500/20 group-hover:bg-purple-500/30',
+          buttonText: 'text-purple-400 group-hover:text-purple-300'
+        };
+    }
+  };
+
   // Handle initial page loading with shimmer effect
   useEffect(() => {
     setPageLoading(true);
@@ -3150,7 +3325,7 @@ const StudentsHubPage: React.FC = () => {
                           className={`w-full h-[200px] backdrop-blur-sm rounded-2xl p-4 border transition-all duration-300 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
                             resource.id === 200
                               ? 'bg-white/10 border-white/30 hover:border-white/60 hover:shadow-2xl hover:shadow-white/20 hover:bg-white/15'
-                              : 'bg-gray-800/50 border-gray-600/30 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60'
+                              : `${getCategoryColors(category).background} ${getCategoryColors(category).border} ${getCategoryColors(category).hoverBorder} hover:shadow-xl ${getCategoryColors(category).shadow} ${getCategoryColors(category).hoverBg}`
                           }`}
                         >
                           {/* Background Gradient */}
@@ -3177,7 +3352,9 @@ const StudentsHubPage: React.FC = () => {
                           )}
                           {/* Status Indicators */}
                           <div className="absolute top-3 right-3 flex gap-1">
-                            <div className="px-2 py-1 rounded-full text-xs font-bold text-white bg-purple-500/80">
+                            <div className={`px-2 py-1 rounded-full text-xs font-bold text-white ${
+                              resource.id === 200 ? 'bg-white/20' : getCategoryColors(category).badge
+                            }`}>
                               Resource
                             </div>
                           </div>
@@ -3198,10 +3375,10 @@ const StudentsHubPage: React.FC = () => {
                             <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center border-2 ${
                               resource.id === 200
                                 ? 'bg-white/20 border-white/40'
-                                : 'bg-gray-800 border-gray-700'
+                                : `bg-gray-800 border-gray-700`
                             }`}>
                               <ExternalLink className={`w-2.5 h-2.5 ${
-                                resource.id === 200 ? 'text-white' : 'text-purple-400'
+                                resource.id === 200 ? 'text-white' : getCategoryColors(category).icon
                               }`} />
                             </div>
                           </div>
@@ -3211,7 +3388,7 @@ const StudentsHubPage: React.FC = () => {
                             <h3 className={`text-sm font-bold leading-tight transition-colors duration-300 line-clamp-2 ${
                               resource.id === 200
                                 ? 'text-white group-hover:text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]'
-                                : 'text-white group-hover:text-purple-300'
+                                : `text-white group-hover:${getCategoryColors(category).text}`
                             }`}>
                               {resource.title}
                             </h3>
@@ -3219,7 +3396,7 @@ const StudentsHubPage: React.FC = () => {
                             <p className={`text-xs font-medium line-clamp-1 ${
                               resource.id === 200
                                 ? 'text-white/80'
-                                : 'text-purple-400'
+                                : getCategoryColors(category).icon
                             }`}>
                               {category}
                             </p>
@@ -3241,7 +3418,7 @@ const StudentsHubPage: React.FC = () => {
                                 <span className={`text-xs font-medium ${
                                   resource.id === 200
                                     ? 'text-white/80'
-                                    : 'text-purple-400'
+                                    : getCategoryColors(category).icon
                                 }`}>
                                   Resource
                                 </span>
@@ -3249,12 +3426,12 @@ const StudentsHubPage: React.FC = () => {
                               <div className={`w-5 h-5 rounded-full flex items-center justify-center transition-colors duration-300 ${
                                 resource.id === 200
                                   ? 'bg-white/20 group-hover:bg-white/30'
-                                  : 'bg-purple-500/20 group-hover:bg-purple-500/30'
+                                  : getCategoryColors(category).button
                               }`}>
                                 <ExternalLink size={10} className={`${
                                   resource.id === 200
                                     ? 'text-white group-hover:text-white'
-                                    : 'text-purple-400 group-hover:text-purple-300'
+                                    : getCategoryColors(category).buttonText
                                 }`} />
                               </div>
                             </div>
@@ -3263,7 +3440,7 @@ const StudentsHubPage: React.FC = () => {
                           <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
                             resource.id === 200
                               ? 'bg-gradient-to-br from-white/10 to-transparent'
-                              : 'bg-gradient-to-br from-purple-500/5 to-transparent'
+                              : `bg-gradient-to-br ${getCategoryColors(category).gradient} to-transparent`
                           }`} />
                         </button>
                       )}
