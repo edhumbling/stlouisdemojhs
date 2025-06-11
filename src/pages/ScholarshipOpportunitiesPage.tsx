@@ -1,46 +1,31 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, GraduationCap, BookOpen, Globe, DollarSign, Users, Target, Award, Briefcase, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useHeader } from '../contexts/HeaderContext';
-import useEnhancedNavigation from '../hooks/useEnhancedNavigation';
 import SEOHead from '../components/seo/SEOHead';
-import ShimmerLoader from '../components/common/ShimmerLoader';
-import { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
 interface ScholarshipItem {
   id: string;
   name: string;
   description: string;
   url: string;
-  icon?: React.ReactNode;
-  color?: string;
-  glowColor?: string;
-  hasWhiteBackground?: boolean;
-  embedStrategy?: 'iframe' | 'external' | 'smart';
-  sandbox?: string;
-  alternativeUrls?: string[];
-  proxyUrls?: string[];
+  icon: React.ReactNode;
+  color: string;
+  glowColor: string;
 }
 
 const ScholarshipOpportunitiesPage: React.FC = () => {
   const navigate = useNavigate();
-  const { setShowHeader } = useHeader();
-  const { handleInternalStateChange } = useEnhancedNavigation();
-
-  // AI Search page functionality states
-  const [selectedScholarship, setSelectedScholarship] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [iframeError, setIframeError] = useState(false);
-  const [showAlternatives, setShowAlternatives] = useState(false);
-  const [connectionRefused, setConnectionRefused] = useState(false);
-  const [loadAttempts, setLoadAttempts] = useState(0);
-  const [autoRedirectTimer, setAutoRedirectTimer] = useState<NodeJS.Timeout | null>(null);
-  const [pageLoading, setPageLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   // External link handler
   const handleExternalLinkClick = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleBack = () => {
+    navigate('/students-hub');
   };
 
   // Comprehensive scholarship data with detailed guidance for each educational stage
@@ -323,383 +308,54 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     }
   ];
 
-  // Show shimmer loading for initial page load
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPageLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Show loading state first
-  if (pageLoading) {
-    return (
-      <div className="min-h-screen bg-black">
-        {/* Header Shimmer */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 sm:gap-6">
-              <ShimmerLoader variant="silver" width="w-20" height="h-10" className="rounded-lg" />
-              <ShimmerLoader variant="silver" width="w-48" height="h-8" className="rounded-lg" />
-            </div>
-          </div>
-        </div>
-
-        {/* Main Content Shimmer */}
-        <main className="flex-1 py-6 sm:py-8">
-          <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
-            {/* Search Bar Shimmer */}
-            <div className="mb-8">
-              <ShimmerLoader variant="silver" width="w-full" height="h-12" className="rounded-xl" />
-            </div>
-
-            {/* Grid Shimmer */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
-                <ShimmerLoader
-                  key={item}
-                  variant="silver"
-                  width="w-full"
-                  height="h-[200px]"
-                  className="rounded-2xl"
-                />
-              ))}
-            </div>
-          </div>
-        </main>
-      </div>
-    );
-  }
-
-  // Header management (fixed to avoid React error #310)
-  useEffect(() => {
-    if (selectedScholarship) {
-      setShowHeader(false);
-    } else {
-      setShowHeader(true);
+  // Simple filtering logic without complex state management
+  const getCategory = (scholarship: ScholarshipItem): string => {
+    const name = scholarship.name.toLowerCase();
+    if (name.includes('international') || name.includes('commonwealth') || name.includes('daad') ||
+        name.includes('chevening') || name.includes('fulbright') || name.includes('erasmus') ||
+        name.includes('australia') || name.includes('chinese') || name.includes('japanese') ||
+        name.includes('korean') || name.includes('rotary')) {
+      return 'International';
     }
-    return () => {
-      setShowHeader(true);
-    };
-  }, [selectedScholarship]); // Removed setShowHeader from dependencies to prevent infinite re-renders
-
-  // Get selected scholarship data
-  const selectedScholarshipData = selectedScholarship
-    ? scholarshipOpportunities.find(s => s.id === selectedScholarship)
-    : null;
-
-  // Search functionality
-  const searchableItems: SearchableItem[] = useMemo(() => {
-    if (!scholarshipOpportunities || !Array.isArray(scholarshipOpportunities)) {
-      return [];
+    if (name.includes('ghana') || name.includes('knust') || name.includes('ug') ||
+        name.includes('ashesi') || name.includes('getfund') || name.includes('gnpc') ||
+        name.includes('vodafone') || name.includes('mtn') || name.includes('cocobod') ||
+        name.includes('dream hive')) {
+      return 'Local';
     }
+    return 'Academic';
+  };
 
-    return scholarshipOpportunities.map(scholarship => ({
-      id: scholarship.id,
-      title: scholarship.name || '',
-      description: scholarship.description || '',
-      category: (scholarship.name || '').toLowerCase().includes('international') ||
-                (scholarship.name || '').toLowerCase().includes('commonwealth') ||
-                (scholarship.name || '').toLowerCase().includes('daad') ||
-                (scholarship.name || '').toLowerCase().includes('chevening') ||
-                (scholarship.name || '').toLowerCase().includes('fulbright') ||
-                (scholarship.name || '').toLowerCase().includes('erasmus') ||
-                (scholarship.name || '').toLowerCase().includes('australia') ||
-                (scholarship.name || '').toLowerCase().includes('chinese') ||
-                (scholarship.name || '').toLowerCase().includes('japanese') ||
-                (scholarship.name || '').toLowerCase().includes('korean') ||
-                (scholarship.name || '').toLowerCase().includes('rotary')
-                ? 'International'
-                : (scholarship.name || '').toLowerCase().includes('ghana') ||
-                  (scholarship.name || '').toLowerCase().includes('knust') ||
-                  (scholarship.name || '').toLowerCase().includes('ug') ||
-                  (scholarship.name || '').toLowerCase().includes('ashesi') ||
-                  (scholarship.name || '').toLowerCase().includes('getfund') ||
-                  (scholarship.name || '').toLowerCase().includes('gnpc') ||
-                  (scholarship.name || '').toLowerCase().includes('vodafone') ||
-                  (scholarship.name || '').toLowerCase().includes('mtn') ||
-                  (scholarship.name || '').toLowerCase().includes('cocobod') ||
-                  (scholarship.name || '').toLowerCase().includes('dream hive')
-                  ? 'Local'
-                  : 'Academic',
-      tags: [(scholarship.name || ''), (scholarship.description || '')].join(' ').toLowerCase().split(' ')
-    }));
-  }, [scholarshipOpportunities]);
-
-  const filterOptions: FilterOption[] = useMemo(() => [
-    { value: 'Academic', label: 'Academic Resources', count: searchableItems?.filter(item => item.category === 'Academic').length || 0 },
-    { value: 'Local', label: 'Local Scholarships', count: searchableItems?.filter(item => item.category === 'Local').length || 0 },
-    { value: 'International', label: 'International', count: searchableItems?.filter(item => item.category === 'International').length || 0 }
-  ], [searchableItems]); // Simplified dependencies to prevent re-render issues
-
-  // Simple search state
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-
-  const filteredScholarships = useMemo(() => {
-    if (!scholarshipOpportunities || !Array.isArray(scholarshipOpportunities)) {
-      return [];
-    }
-
-    let filtered = scholarshipOpportunities;
-
+  const filteredScholarships = scholarshipOpportunities.filter(scholarship => {
     // Apply category filter
-    if (selectedCategory) {
-      filtered = filtered.filter(scholarship => {
-        const item = searchableItems?.find(item => item.id === scholarship.id);
-        return item && item.category === selectedCategory;
-      });
+    if (selectedCategory && getCategory(scholarship) !== selectedCategory) {
+      return false;
     }
 
     // Apply search term
-    if (searchTerm?.trim()) {
+    if (searchTerm.trim()) {
       const searchLower = searchTerm.toLowerCase();
-      filtered = filtered.filter(scholarship =>
-        scholarship?.name?.toLowerCase().includes(searchLower) ||
-        scholarship?.description?.toLowerCase().includes(searchLower)
-      );
+      return scholarship.name.toLowerCase().includes(searchLower) ||
+             scholarship.description.toLowerCase().includes(searchLower);
     }
 
-    return filtered;
-  }, [scholarshipOpportunities, searchableItems, selectedCategory, searchTerm]);
-
-  // Simplified iframe monitoring to avoid React error #310
-  useEffect(() => {
-    if (selectedScholarship && selectedScholarshipData) {
-      console.log(`Scholarship selected: ${selectedScholarshipData.name}`);
-
-      // Simple monitoring without complex state dependencies
-      const timer = setTimeout(() => {
-        console.log(`Monitoring ${selectedScholarshipData.name} - letting iframe handlers manage loading state`);
-      }, 1000);
-
-      return () => {
-        clearTimeout(timer);
-      };
-    }
-  }, [selectedScholarship]); // Minimal dependencies to prevent re-render loops
+    return true;
+  });
 
   const handleScholarshipClick = (scholarshipId: string) => {
-    // Clear any existing timer first
-    if (autoRedirectTimer) {
-      clearTimeout(autoRedirectTimer);
-      setAutoRedirectTimer(null);
-    }
-
-    setIsLoading(true);
-    setIframeError(false);
-    setShowAlternatives(false);
-    setConnectionRefused(false);
-    setLoadAttempts(prev => prev + 1);
-    setSelectedScholarship(scholarshipId);
-
-    const scholarshipData = scholarshipOpportunities.find(s => s.id === scholarshipId);
-
-    // Auto-redirect timer for slow loading (simplified)
-    if (scholarshipData) {
-      const timer = setTimeout(() => {
-        console.log(`Auto-redirecting ${scholarshipData.name} to browser due to loading timeout after 8 seconds`);
-        setIsLoading(false);
-        setIframeError(true);
-
-        setTimeout(() => {
-          handleExternalLinkClick(scholarshipData.url);
-          setTimeout(() => {
-            setSelectedScholarship(null);
-            setIframeError(false);
-            setShowAlternatives(false);
-          }, 500);
-        }, 1500);
-      }, 8000);
-
-      setAutoRedirectTimer(timer);
+    const scholarship = scholarshipOpportunities.find(s => s.id === scholarshipId);
+    if (scholarship) {
+      handleExternalLinkClick(scholarship.url);
     }
   };
 
-  const handleIframeLoad = () => {
-    console.log(`${selectedScholarshipData?.name} iframe loaded successfully`);
-    setIsLoading(false);
-    setIframeError(false);
-    if (autoRedirectTimer) {
-      clearTimeout(autoRedirectTimer);
-      setAutoRedirectTimer(null);
-    }
-  };
-
-  const handleIframeError = () => {
-    console.log('Iframe error detected - this might be normal for some sites');
-
-    // Simplified error handling to avoid React issues
-    setIsLoading(false);
-    setIframeError(true);
-    setShowAlternatives(true);
-
-    if (autoRedirectTimer) {
-      clearTimeout(autoRedirectTimer);
-      setAutoRedirectTimer(null);
-    }
-
-    // Auto-redirect after a delay
-    const scholarshipData = scholarshipOpportunities.find(s => s.id === selectedScholarship);
-    if (scholarshipData) {
-      console.log(`Auto-redirecting ${scholarshipData.name} to browser due to iframe failure`);
-      setTimeout(() => {
-        handleExternalLinkClick(scholarshipData.url);
-        setTimeout(() => {
-          setSelectedScholarship(null);
-          setIframeError(false);
-          setShowAlternatives(false);
-        }, 500);
-      }, 2000);
-    }
-  };
-
-  const handleOpenInBrowser = () => {
-    if (selectedScholarshipData) {
-      handleExternalLinkClick(selectedScholarshipData.url);
-    }
-  };
-
-  const handleRefresh = () => {
-    if (selectedScholarship) {
-      console.log(`Refreshing ${selectedScholarshipData?.name}`);
-      setIsLoading(true);
-      setIframeError(false);
-      setConnectionRefused(false);
-      setShowAlternatives(false);
-      setLoadAttempts(prev => prev + 1);
-
-      if (autoRedirectTimer) {
-        clearTimeout(autoRedirectTimer);
-        setAutoRedirectTimer(null);
-      }
-
-      const iframe = document.querySelector('iframe[title="' + selectedScholarshipData?.name + '"]') as HTMLIFrameElement;
-      if (iframe && selectedScholarshipData) {
-        iframe.src = selectedScholarshipData.url + (selectedScholarshipData.url.includes('?') ? '&' : '?') + 'refresh=' + Date.now();
-      }
-    }
-  };
-
-  const handleBack = () => {
-    if (selectedScholarship) {
-      handleInternalStateChange(() => {
-        setSelectedScholarship(null);
-        setIsLoading(false);
-        setIframeError(false);
-        setShowAlternatives(false);
-        setConnectionRefused(false);
-        setShowHeader(true);
-        if (autoRedirectTimer) {
-          clearTimeout(autoRedirectTimer);
-          setAutoRedirectTimer(null);
-        }
-      });
-    } else {
-      navigate('/students-hub');
-    }
-  };
-
-  // If a scholarship is selected, show the embedded view (like AI Search page)
-  if (selectedScholarship && selectedScholarshipData) {
-    return (
-      <div className="min-h-screen bg-black">
-        {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 sm:gap-6">
-              <button
-                onClick={handleBack}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
-              >
-                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span>Back</span>
-              </button>
-
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                {selectedScholarshipData.name}
-              </h1>
-
-              {/* Quick access button */}
-              <button
-                onClick={handleOpenInBrowser}
-                className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
-              >
-                <Globe size={14} />
-                <span className="hidden sm:inline">Open in Browser</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Full viewport iframe */}
-        <div className="w-full h-full pt-20 sm:pt-24 relative">
-          {!iframeError ? (
-            <>
-              <iframe
-                src={selectedScholarshipData.url}
-                className="w-full h-full border-0 relative z-10"
-                title={selectedScholarshipData.name}
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads allow-modals allow-presentation"
-                onLoad={handleIframeLoad}
-                onError={handleIframeError}
-                referrerPolicy="no-referrer-when-downgrade"
-                style={selectedScholarshipData.hasWhiteBackground ? {
-                  filter: 'invert(1) hue-rotate(180deg)',
-                  background: 'white'
-                } : {}}
-              />
-
-              {/* Loading overlay */}
-              {isLoading && (
-                <div className="absolute inset-0 bg-black/90 flex items-center justify-center z-20">
-                  <div className="text-center">
-                    <ShimmerLoader variant="silver" width="w-16" height="h-16" className="rounded-full mx-auto mb-4" />
-                    <p className="text-white text-lg font-medium mb-2">Loading {selectedScholarshipData.name}...</p>
-                    <p className="text-gray-400 text-sm">This may take a few moments</p>
-                  </div>
-                </div>
-              )}
-            </>
-          ) : (
-            /* Error state with alternatives */
-            <div className="w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-8">
-              <div className="max-w-md w-full text-center">
-                <div className="mb-8">
-                  <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <ExternalLink className="w-10 h-10 text-red-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Unable to Load</h3>
-                  <p className="text-gray-400 mb-6">
-                    {selectedScholarshipData.name} cannot be displayed in an embedded frame.
-                    This is normal for many scholarship websites due to security policies.
-                  </p>
-                </div>
-
-                {/* Open in Browser Button */}
-                <div className="space-y-4">
-                  <button
-                    onClick={handleOpenInBrowser}
-                    className="w-full p-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
-                  >
-                    <Globe className="w-6 h-6" />
-                    <div className="text-left">
-                      <div className="font-semibold">Open {selectedScholarshipData.name}</div>
-                      <div className="text-sm opacity-90">Launch in new browser tab</div>
-                    </div>
-                  </button>
-
-                  <p className="text-sm text-gray-400">
-                    This will open {selectedScholarshipData.name} in a new tab where you can use all its features without restrictions.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
+  // Categories for filtering
+  const categories = [
+    { value: '', label: 'All Categories' },
+    { value: 'Academic', label: 'Academic Resources' },
+    { value: 'Local', label: 'Local Scholarships' },
+    { value: 'International', label: 'International Opportunities' }
+  ];
 
   return (
     <div className="min-h-screen bg-black">
@@ -829,9 +485,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                 className="px-4 py-2 bg-gray-800/50 border border-gray-600/30 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50"
               >
                 <option value="">All Categories</option>
-                {filterOptions.map(option => (
-                  <option key={option.value} value={option.value}>
-                    {option.label} ({option.count})
+                {categories.slice(1).map(category => (
+                  <option key={category.value} value={category.value}>
+                    {category.label}
                   </option>
                 ))}
               </select>
