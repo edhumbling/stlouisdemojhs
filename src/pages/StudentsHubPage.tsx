@@ -3128,11 +3128,12 @@ const StudentsHubPage: React.FC = () => {
                             }}
                           />
 
-                          {/* Special glow effect for Educational Pathways card */}
+                          {/* Special Ghana flag glow effect for Educational Pathways card */}
                           {resource.id === 200 && (
                             <>
-                              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
-                              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-white/20 via-white/10 to-white/20 opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-sm -z-10" />
+                              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/10 via-yellow-500/10 to-green-500/10 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-red-500/30 via-yellow-500/30 to-green-500/30 opacity-40 group-hover:opacity-60 transition-opacity duration-300 blur-sm -z-10" />
+                              <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-red-400/20 via-yellow-400/20 to-green-400/20 opacity-20 group-hover:opacity-40 transition-opacity duration-500 blur-md -z-20" />
                             </>
                           )}
                           {/* Status Indicators */}
