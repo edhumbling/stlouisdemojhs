@@ -18,8 +18,8 @@ if ('serviceWorker' in navigator) {
 
               // Show welcome notification about daily reminders
               setTimeout(() => {
-                new Notification('🎓 St. Louis Demo JHS - Study Reminders Enabled!', {
-                  body: '📚 You\'ll receive daily homework reminders at 7:00 PM and learning encouragement at 7:30 PM Ghana time. Stay on top of your studies! 🌟',
+                new Notification('🎓 St. Louis Demo JHS - Daily Study Reminders Enabled!', {
+                  body: '🌅 Morning motivation at 6:00 AM, 📚 homework reminders at 7:00 PM, and 🚀 learning encouragement at 7:30 PM Ghana time. Unique messages every day! 🌟',
                   icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
                   badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
                   tag: 'reminder-setup',
