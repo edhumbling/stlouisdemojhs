@@ -674,6 +674,462 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       color: 'from-yellow-600 to-amber-600',
       glowColor: '#f59e0b'
     },
+
+    // Fellowship Programs (Purple Category)
+    {
+      id: 'thiel-fellowship',
+      name: 'Thiel Fellowship',
+      url: 'https://thielfellowship.org',
+      description: 'Two-year program giving $200,000 to young people (under 23) who want to build new things instead of attending college. Skip traditional education to pursue entrepreneurial ventures with mentorship from successful founders.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'steve-jobs-archive-fellowship',
+      name: 'Steve Jobs Archive Fellowship',
+      url: 'https://stevejobsarchive.com/fellowship',
+      description: 'One-year fellowship for young creators (ages 21-26) working at the intersection of technology and liberal arts. Provides stipend, mentorship, and community for creative and professional development.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'emergent-ventures',
+      name: 'Emergent Ventures Fellowship',
+      url: 'https://www.mercatus.org/emergent-ventures',
+      description: 'Grants of $1,000 to $50,000 for ambitious builders working on innovative projects. Supports entrepreneurs, researchers, and creators pursuing breakthrough ideas across various fields.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'zfellows',
+      name: 'ZFellows',
+      url: 'https://www.zfellows.com',
+      description: '$10,000 fellowship for young founders (ages 18-25) to pursue entrepreneurial ventures. Provides funding, mentorship, and community support for early-stage startup development.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: '1517-fund-medici',
+      name: '1517 Fund Medici Project',
+      url: 'https://www.1517fund.com/medici-project',
+      description: '$1,000 grants for young people working on ambitious projects. Supports students and young entrepreneurs pursuing innovative ideas outside traditional educational paths.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'neo-scholars',
+      name: 'Neo Scholars',
+      url: 'https://neo.com/scholars',
+      description: 'Fellowship program for exceptional young people (ages 13-19) to accelerate their learning and career development. Provides mentorship, funding, and access to Silicon Valley network.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'atlas-fellowship',
+      name: 'Atlas Fellowship',
+      url: 'https://www.atlasfellowship.org',
+      description: 'Summer fellowship for exceptional high school students interested in technology, entrepreneurship, and making a positive impact on the world. Includes mentorship and project funding.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'contrary-fellowship',
+      name: 'Contrary Fellowship',
+      url: 'https://contrarycap.com/fellowship',
+      description: 'Fellowship program for ambitious students and young professionals interested in venture capital, startups, and technology. Provides training, mentorship, and career opportunities.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'kleiner-perkins-fellowship',
+      name: 'Kleiner Perkins Fellowship',
+      url: 'https://www.kleinerperkins.com/kp-fellows',
+      description: 'Engineering and design fellowship program connecting top university students with leading technology companies for internships and career development.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'reforge-fellowship',
+      name: 'Reforge Fellowship',
+      url: 'https://www.reforge.com/fellowship',
+      description: 'Fellowship for experienced professionals in product, growth, and marketing roles. Provides advanced training and networking opportunities in technology companies.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'pioneer-fellowship',
+      name: 'Pioneer Fellowship',
+      url: 'https://pioneer.app',
+      description: 'Global tournament for ambitious people working on meaningful projects. Provides funding, mentorship, and community for entrepreneurs and creators worldwide.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'on-deck-fellowship',
+      name: 'On Deck Fellowship',
+      url: 'https://www.beondeck.com',
+      description: 'Fellowship programs for founders, angels, writers, and other professionals. Provides community, education, and networking opportunities for career advancement.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'south-park-commons',
+      name: 'South Park Commons Fellowship',
+      url: 'https://www.southparkcommons.com',
+      description: 'Residential fellowship for technologists exploring what to work on next. Provides funding, community, and resources for career transitions and new ventures.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'interact-fellowship',
+      name: 'Interact Fellowship',
+      url: 'https://www.interactfellowship.org',
+      description: 'Fellowship for high school students passionate about social impact and entrepreneurship. Provides mentorship, funding, and community for young changemakers.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'davidson-fellowship',
+      name: 'Davidson Fellowship',
+      url: 'https://www.davidsongifted.org/fellowship',
+      description: '$50,000, $25,000, and $10,000 scholarships for students 18 and under who have completed significant work in science, technology, engineering, mathematics, literature, music, or philosophy.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'coca-cola-scholars',
+      name: 'Coca-Cola Scholars Program',
+      url: 'https://www.coca-colascholarsfoundation.org',
+      description: 'Merit-based scholarship program for high school seniors demonstrating leadership, academic excellence, and commitment to community service. Awards $20,000 scholarships.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'regeneron-science-talent',
+      name: 'Regeneron Science Talent Search',
+      url: 'https://www.societyforscience.org/regeneron-sts',
+      description: 'Premier science and math competition for high school seniors. Top 40 finalists receive at least $25,000, with the top winner receiving $250,000.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'gates-millennium-scholars',
+      name: 'Gates Millennium Scholars Program',
+      url: 'https://gmsp.org',
+      description: 'Scholarship program for outstanding minority students with significant financial need. Provides full funding for undergraduate and graduate education.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+    {
+      id: 'jack-kent-cooke',
+      name: 'Jack Kent Cooke Foundation Scholarships',
+      url: 'https://www.jkcf.org',
+      description: 'Scholarships for high-achieving students with financial need. Provides comprehensive support including funding, advising, and networking opportunities.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-purple-600 to-violet-600',
+      glowColor: '#8b5cf6'
+    },
+
+    // Foreign Incubators & Accelerators (Teal Category)
+    {
+      id: 'y-combinator',
+      name: 'Y Combinator',
+      url: 'https://www.ycombinator.com',
+      description: 'World\'s most successful startup accelerator. Provides $500,000 funding, 3-month program, and access to extensive alumni network. Has funded Airbnb, Stripe, Dropbox, and many unicorns.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'techstars',
+      name: 'Techstars',
+      url: 'https://www.techstars.com',
+      description: 'Global startup accelerator with programs worldwide. Provides $120,000 funding, mentorship from successful entrepreneurs, and access to extensive investor network.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'neo-accelerator',
+      name: 'Neo Accelerator',
+      url: 'https://neo.com',
+      description: 'Accelerator focused on young entrepreneurs (ages 13-25). Provides funding, mentorship, and access to Silicon Valley network for exceptional young founders.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'antler',
+      name: 'Antler',
+      url: 'https://www.antler.co',
+      description: 'Global early-stage VC and startup generator. Helps individuals build startups from scratch, providing co-founder matching, funding, and ongoing support.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'entrepreneur-first',
+      name: 'Entrepreneur First',
+      url: 'https://www.joinef.com',
+      description: 'Pre-team, pre-idea accelerator that helps ambitious individuals find co-founders and build startups. Provides funding and support from day zero.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'seedcamp',
+      name: 'Seedcamp',
+      url: 'https://seedcamp.com',
+      description: 'European seed fund and accelerator supporting early-stage startups. Provides funding, mentorship, and access to European startup ecosystem.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'rocket-internet',
+      name: 'Rocket Internet',
+      url: 'https://www.rocket-internet.com',
+      description: 'Global startup incubator and venture builder. Creates and invests in internet companies, providing operational support and scaling expertise.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'station-f',
+      name: 'Station F',
+      url: 'https://stationf.co',
+      description: 'World\'s largest startup campus located in Paris. Hosts multiple accelerator programs and provides workspace, mentorship, and networking opportunities.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'plug-and-play',
+      name: 'Plug and Play',
+      url: 'https://www.plugandplaytechcenter.com',
+      description: 'Global innovation platform connecting startups with corporations. Provides accelerator programs, corporate partnerships, and venture capital.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'founders-factory',
+      name: 'Founders Factory',
+      url: 'https://foundersfactory.com',
+      description: 'London-based accelerator and incubator working with corporate partners. Provides funding, mentorship, and access to enterprise customers.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'mass-challenge',
+      name: 'MassChallenge',
+      url: 'https://masschallenge.org',
+      description: 'Global network of accelerators supporting high-impact startups. Equity-free programs with access to mentors, corporate partners, and funding opportunities.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'startupbootcamp',
+      name: 'Startupbootcamp',
+      url: 'https://www.startupbootcamp.org',
+      description: 'Global family of industry-focused accelerators. Provides sector-specific mentorship, funding, and access to corporate partners across various industries.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'techstars-london',
+      name: 'Techstars London',
+      url: 'https://www.techstars.com/accelerators/london',
+      description: 'London branch of Techstars accelerator focusing on European startups. Provides funding, mentorship, and access to global Techstars network.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'ycombinator-china',
+      name: 'Miracle Plus (YC China)',
+      url: 'https://www.miracleplus.com',
+      description: 'Chinese accelerator inspired by Y Combinator model. Supports early-stage startups in China with funding, mentorship, and market access.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'chinaccelerator',
+      name: 'Chinaccelerator',
+      url: 'https://chinaccelerator.com',
+      description: 'Cross-border accelerator helping startups expand between China and global markets. Provides funding, mentorship, and market entry support.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+    {
+      id: 'alchemist-accelerator',
+      name: 'Alchemist Accelerator',
+      url: 'https://alchemistaccelerator.com',
+      description: 'Enterprise-focused accelerator for B2B startups. Provides funding, mentorship from enterprise executives, and access to corporate customers.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-teal-600 to-cyan-600',
+      glowColor: '#14b8a6'
+    },
+
+    // Grants & Microgrants (Rose Category)
+    {
+      id: 'merge-grant',
+      name: 'Merge Grant',
+      url: 'https://merge.club/program/mergegrant',
+      description: 'Microgrants for ambitious young builders working on innovative projects. Part of Merge Club community connecting microgrant recipients worldwide.',
+      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'emergent-ventures-grant',
+      name: 'Emergent Ventures Grant',
+      url: 'https://www.mercatus.org/emergent-ventures',
+      description: '$1,000 to $50,000 grants for ambitious builders working on breakthrough ideas. Supports entrepreneurs, researchers, and creators across various fields.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: '1517-medici-grant',
+      name: '1517 Fund Medici Grant',
+      url: 'https://www.1517fund.com/medici-project',
+      description: '$1,000 grants for young people working on ambitious projects outside traditional educational paths. Supports student entrepreneurs and innovators.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'zfellows-grant',
+      name: 'ZFellows Grant',
+      url: 'https://www.zfellows.com',
+      description: '$10,000 fellowship grants for young founders (ages 18-25) pursuing entrepreneurial ventures. Includes mentorship and community support.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'bagel-fund',
+      name: 'Bagel Fund',
+      url: 'https://www.bagelfund.com',
+      description: 'Microgrants for young entrepreneurs and creators working on innovative projects. Provides small funding amounts to help get ideas off the ground.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'unshackled-ventures-grant',
+      name: 'Unshackled Ventures Grant',
+      url: 'https://www.unshackledvc.com',
+      description: 'Grants and funding for immigrant entrepreneurs building startups in the US. Provides visa support, funding, and mentorship for international founders.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'fast-grants',
+      name: 'Fast Grants',
+      url: 'https://fastgrants.org',
+      description: 'Rapid funding for COVID-19 related research and projects. Provides quick decision-making and funding for urgent scientific and medical research.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'mozilla-grants',
+      name: 'Mozilla Grants',
+      url: 'https://foundation.mozilla.org/en/what-we-fund',
+      description: 'Grants for projects advancing internet health, digital rights, and open source technology. Supports researchers, activists, and technologists.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'protocol-labs-grants',
+      name: 'Protocol Labs Grants',
+      url: 'https://grants.protocol.ai',
+      description: 'Grants for projects building on decentralized web technologies. Supports research and development in blockchain, IPFS, and related technologies.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'ethereum-foundation-grants',
+      name: 'Ethereum Foundation Grants',
+      url: 'https://ethereum.org/en/community/grants',
+      description: 'Grants for projects building on Ethereum ecosystem. Supports developers, researchers, and community initiatives advancing blockchain technology.',
+      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'gitcoin-grants',
+      name: 'Gitcoin Grants',
+      url: 'https://gitcoin.co/grants',
+      description: 'Quadratic funding for open source projects and public goods. Community-driven funding platform for developers and digital public infrastructure.',
+      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'open-philanthropy-grants',
+      name: 'Open Philanthropy Grants',
+      url: 'https://www.openphilanthropy.org',
+      description: 'Large grants for high-impact projects in global health, AI safety, criminal justice reform, and other cause areas. Supports research and direct work.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'effective-altruism-grants',
+      name: 'EA Infrastructure Fund',
+      url: 'https://funds.effectivealtruism.org',
+      description: 'Grants for projects building effective altruism community infrastructure. Supports organizations, research, and initiatives advancing high-impact causes.',
+      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'long-term-future-fund',
+      name: 'Long-Term Future Fund',
+      url: 'https://funds.effectivealtruism.org/funds/far-future',
+      description: 'Grants for projects reducing existential risks and improving long-term outcomes for humanity. Supports AI safety, biosecurity, and related research.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
+    {
+      id: 'survival-and-flourishing-fund',
+      name: 'Survival and Flourishing Fund',
+      url: 'https://survivalandflourishing.fund',
+      description: 'Grants for research and projects aimed at improving humanity\'s long-term prospects. Focuses on existential risk reduction and technological safety.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-rose-600 to-pink-600',
+      glowColor: '#f43f5e'
+    },
     {
       id: 'netherlands-fellowship',
       name: 'Netherlands Fellowship Programme',
@@ -882,6 +1338,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       'SAT Test Prep Opportunities': [] as ScholarshipItem[],
       'Local Scholarships': [] as ScholarshipItem[],
       'International Scholarships': [] as ScholarshipItem[],
+      'Fellowship Programs': [] as ScholarshipItem[],
+      'Foreign Incubators & Accelerators': [] as ScholarshipItem[],
+      'Grants & Microgrants': [] as ScholarshipItem[],
       'Startup Hubs & Incubators': [] as ScholarshipItem[]
     };
 
@@ -895,12 +1354,42 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           name.includes('timeline') || description.includes('sat') || description.includes('test prep')) {
         categories['SAT Test Prep Opportunities'].push(scholarship);
       }
-      // Startup Hubs & Incubators
+      // Fellowship Programs
+      else if (name.includes('thiel fellowship') || name.includes('steve jobs archive') || name.includes('emergent ventures') ||
+          name.includes('zfellows') || name.includes('1517 fund') || name.includes('neo scholars') ||
+          name.includes('atlas fellowship') || name.includes('contrary fellowship') || name.includes('kleiner perkins') ||
+          name.includes('reforge') || name.includes('pioneer') || name.includes('on deck') ||
+          name.includes('south park commons') || name.includes('interact fellowship') || name.includes('davidson') ||
+          name.includes('coca-cola scholars') || name.includes('regeneron') || name.includes('gates millennium') ||
+          name.includes('jack kent cooke') || description.includes('fellowship') && !description.includes('scholarship')) {
+        categories['Fellowship Programs'].push(scholarship);
+      }
+      // Foreign Incubators & Accelerators
+      else if (name.includes('y combinator') || name.includes('techstars') || name.includes('neo accelerator') ||
+          name.includes('antler') || name.includes('entrepreneur first') || name.includes('seedcamp') ||
+          name.includes('rocket internet') || name.includes('station f') || name.includes('plug and play') ||
+          name.includes('founders factory') || name.includes('masschallenge') || name.includes('startupbootcamp') ||
+          name.includes('miracle plus') || name.includes('chinaccelerator') || name.includes('alchemist') ||
+          (description.includes('accelerator') || description.includes('incubator')) &&
+          !name.includes('ghana') && !name.includes('africa') && !name.includes('accra')) {
+        categories['Foreign Incubators & Accelerators'].push(scholarship);
+      }
+      // Grants & Microgrants
+      else if (name.includes('merge grant') || name.includes('emergent ventures grant') || name.includes('medici grant') ||
+          name.includes('bagel fund') || name.includes('unshackled ventures') || name.includes('fast grants') ||
+          name.includes('mozilla grants') || name.includes('protocol labs') || name.includes('ethereum foundation') ||
+          name.includes('gitcoin') || name.includes('open philanthropy') || name.includes('effective altruism') ||
+          name.includes('long-term future') || name.includes('survival and flourishing') ||
+          description.includes('grant') || description.includes('microgrant')) {
+        categories['Grants & Microgrants'].push(scholarship);
+      }
+      // Startup Hubs & Incubators (Local/African)
       else if (name.includes('mest') || name.includes('ispace') || name.includes('kumasi hive') ||
           name.includes('impact hub') || name.includes('innovation hub') || name.includes('kosmos') ||
           name.includes('stanbic') || name.includes('angel investors') || name.includes('founder institute') ||
-          name.includes('innohub') || description.includes('startup') || description.includes('incubator') ||
-          description.includes('accelerator') || description.includes('entrepreneur')) {
+          name.includes('innohub') || (description.includes('startup') || description.includes('incubator') ||
+          description.includes('accelerator') || description.includes('entrepreneur')) &&
+          (name.includes('ghana') || name.includes('africa') || name.includes('accra'))) {
         categories['Startup Hubs & Incubators'].push(scholarship);
       }
       // International Scholarships
@@ -912,7 +1401,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           name.includes('swedish') || name.includes('turkey') || name.includes('türkiye') ||
           name.includes('vanier') || name.includes('eiffel') || name.includes('swiss') ||
           name.includes('gates') || name.includes('rhodes') || name.includes('humphrey') ||
-          name.includes('aga khan') || name.includes('world bank') || name.includes('japan')) {
+          name.includes('aga khan') || name.includes('world bank') || name.includes('japan') ||
+          name.includes('larry ellison') || name.includes('marshall') || name.includes('clarendon') ||
+          name.includes('knight-hennessy') || name.includes('mastercard foundation')) {
         categories['International Scholarships'].push(scholarship);
       }
       // Local Scholarships (default for all others)
@@ -1116,16 +1607,24 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                   <h2 className={`text-2xl sm:text-3xl font-bold mb-2 ${
                     categoryName === 'SAT Test Prep Opportunities' ? 'text-green-400' :
                     categoryName === 'Local Scholarships' ? 'text-blue-400' :
+                    categoryName === 'International Scholarships' ? 'text-yellow-400' :
+                    categoryName === 'Fellowship Programs' ? 'text-purple-400' :
+                    categoryName === 'Foreign Incubators & Accelerators' ? 'text-teal-400' :
+                    categoryName === 'Grants & Microgrants' ? 'text-rose-400' :
                     categoryName === 'Startup Hubs & Incubators' ? 'text-orange-400' :
-                    'text-yellow-400'
+                    'text-gray-400'
                   }`}>
                     {categoryName}
                   </h2>
                   <div className={`w-24 h-1 mx-auto rounded-full ${
                     categoryName === 'SAT Test Prep Opportunities' ? 'bg-green-500' :
                     categoryName === 'Local Scholarships' ? 'bg-blue-500' :
+                    categoryName === 'International Scholarships' ? 'bg-yellow-500' :
+                    categoryName === 'Fellowship Programs' ? 'bg-purple-500' :
+                    categoryName === 'Foreign Incubators & Accelerators' ? 'bg-teal-500' :
+                    categoryName === 'Grants & Microgrants' ? 'bg-rose-500' :
                     categoryName === 'Startup Hubs & Incubators' ? 'bg-orange-500' :
-                    'bg-yellow-500'
+                    'bg-gray-500'
                   }`} />
                   <p className="text-gray-400 text-sm mt-2">
                     {scholarships.length} {scholarships.length === 1 ? 'opportunity' : 'opportunities'} available
@@ -1149,9 +1648,17 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                               ? 'bg-green-900/30 border-green-600/50 hover:border-green-500 hover:shadow-green-500/20 hover:bg-green-800/40'
                               : categoryName === 'Local Scholarships'
                               ? 'bg-blue-900/30 border-blue-600/50 hover:border-blue-500 hover:shadow-blue-500/20 hover:bg-blue-800/40'
+                              : categoryName === 'International Scholarships'
+                              ? 'bg-yellow-900/30 border-yellow-600/50 hover:border-yellow-500 hover:shadow-yellow-500/20 hover:bg-yellow-800/40'
+                              : categoryName === 'Fellowship Programs'
+                              ? 'bg-purple-900/30 border-purple-600/50 hover:border-purple-500 hover:shadow-purple-500/20 hover:bg-purple-800/40'
+                              : categoryName === 'Foreign Incubators & Accelerators'
+                              ? 'bg-teal-900/30 border-teal-600/50 hover:border-teal-500 hover:shadow-teal-500/20 hover:bg-teal-800/40'
+                              : categoryName === 'Grants & Microgrants'
+                              ? 'bg-rose-900/30 border-rose-600/50 hover:border-rose-500 hover:shadow-rose-500/20 hover:bg-rose-800/40'
                               : categoryName === 'Startup Hubs & Incubators'
                               ? 'bg-orange-900/30 border-orange-600/50 hover:border-orange-500 hover:shadow-orange-500/20 hover:bg-orange-800/40'
-                              : 'bg-yellow-900/30 border-yellow-600/50 hover:border-yellow-500 hover:shadow-yellow-500/20 hover:bg-yellow-800/40'
+                              : 'bg-gray-900/30 border-gray-600/50 hover:border-gray-500 hover:shadow-gray-500/20 hover:bg-gray-800/40'
                           }`}
                         >
                           {/* Background Gradient */}
@@ -1173,9 +1680,17 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                               ? 'bg-green-600/20 group-hover:bg-green-500/30'
                               : categoryName === 'Local Scholarships'
                               ? 'bg-blue-600/20 group-hover:bg-blue-500/30'
+                              : categoryName === 'International Scholarships'
+                              ? 'bg-yellow-600/20 group-hover:bg-yellow-500/30'
+                              : categoryName === 'Fellowship Programs'
+                              ? 'bg-purple-600/20 group-hover:bg-purple-500/30'
+                              : categoryName === 'Foreign Incubators & Accelerators'
+                              ? 'bg-teal-600/20 group-hover:bg-teal-500/30'
+                              : categoryName === 'Grants & Microgrants'
+                              ? 'bg-rose-600/20 group-hover:bg-rose-500/30'
                               : categoryName === 'Startup Hubs & Incubators'
                               ? 'bg-orange-600/20 group-hover:bg-orange-500/30'
-                              : 'bg-yellow-600/20 group-hover:bg-yellow-500/30'
+                              : 'bg-gray-600/20 group-hover:bg-gray-500/30'
                           }`}>
                             {scholarship.icon}
                           </div>
@@ -1200,9 +1715,17 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                                 ? 'bg-green-600/20 group-hover:bg-green-500/30'
                                 : categoryName === 'Local Scholarships'
                                 ? 'bg-blue-600/20 group-hover:bg-blue-500/30'
+                                : categoryName === 'International Scholarships'
+                                ? 'bg-yellow-600/20 group-hover:bg-yellow-500/30'
+                                : categoryName === 'Fellowship Programs'
+                                ? 'bg-purple-600/20 group-hover:bg-purple-500/30'
+                                : categoryName === 'Foreign Incubators & Accelerators'
+                                ? 'bg-teal-600/20 group-hover:bg-teal-500/30'
+                                : categoryName === 'Grants & Microgrants'
+                                ? 'bg-rose-600/20 group-hover:bg-rose-500/30'
                                 : categoryName === 'Startup Hubs & Incubators'
                                 ? 'bg-orange-600/20 group-hover:bg-orange-500/30'
-                                : 'bg-yellow-600/20 group-hover:bg-yellow-500/30'
+                                : 'bg-gray-600/20 group-hover:bg-gray-500/30'
                             }`}>
                               <ExternalLink size={10} className="text-gray-400 group-hover:text-white" />
                             </div>
