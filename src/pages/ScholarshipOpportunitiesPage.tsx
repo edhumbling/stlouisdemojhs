@@ -1295,15 +1295,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       color: 'from-orange-600 to-red-600',
       glowColor: '#f97316'
     },
-    {
-      id: 'venture-capital-trust-fund',
-      name: 'Venture Capital Trust Fund (VCTF)',
-      url: 'https://www.vctfund.com.gh',
-      description: 'Government fund supporting SMEs and startups with venture capital funding and business development support.',
-      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-orange-600 to-red-600',
-      glowColor: '#f97316'
-    },
+
     {
       id: 'ghana-angel-investors',
       name: 'Ghana Angel Investors Network (GAIN)',
