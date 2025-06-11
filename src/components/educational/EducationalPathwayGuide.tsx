@@ -54,7 +54,7 @@ const EducationalPathwayGuide: React.FC = () => {
           ],
           outcomes: [
             'Access to top SHS programs',
-            'Science and business program eligibility',
+            'Eligibility for Science, Business, General Arts, Visual Arts, or Home Economics programs',
             'Scholarship opportunities',
             'Strong foundation for university'
           ],
@@ -102,24 +102,24 @@ const EducationalPathwayGuide: React.FC = () => {
       color: 'from-green-600 to-emerald-600',
       options: [
         {
-          id: 'science-programs',
-          title: 'Science Programs',
-          description: 'Prepare for STEM careers and international opportunities',
+          id: 'science-program',
+          title: 'Science Program',
+          description: 'Focus on STEM subjects for university science programs and careers',
           requirements: [
             'Strong performance in Mathematics',
-            'Excellence in Science subjects',
+            'Excellence in Science subjects (Physics, Chemistry, Biology)',
             'Good English proficiency',
             'Analytical thinking skills'
           ],
           outcomes: [
-            'University science programs',
-            'Engineering opportunities',
-            'Medical school eligibility',
-            'International scholarships'
+            'University science programs (Medicine, Engineering, etc.)',
+            'STEM career opportunities',
+            'International scholarship eligibility',
+            'Research and development careers'
           ],
           nextSteps: [
             'Start SAT preparation in SHS 2',
-            'Join science clubs',
+            'Join science clubs and competitions',
             'Research international universities'
           ],
           difficulty: 'Hard',
@@ -127,24 +127,24 @@ const EducationalPathwayGuide: React.FC = () => {
           cost: 'Medium'
         },
         {
-          id: 'business-programs',
-          title: 'Business Programs',
-          description: 'Develop business acumen and entrepreneurial skills',
+          id: 'business-program',
+          title: 'Business Program',
+          description: 'Develop business skills, economics, and accounting knowledge',
           requirements: [
             'Strong Mathematics skills',
             'Good communication abilities',
-            'Interest in economics',
+            'Interest in economics and accounting',
             'Leadership potential'
           ],
           outcomes: [
             'Business school opportunities',
+            'Accounting and finance careers',
             'Entrepreneurship skills',
-            'Management careers',
-            'International business programs'
+            'Management and commerce programs'
           ],
           nextSteps: [
             'Develop business projects',
-            'Join business clubs',
+            'Join business and economics clubs',
             'Seek internship opportunities'
           ],
           difficulty: 'Medium',
@@ -152,29 +152,79 @@ const EducationalPathwayGuide: React.FC = () => {
           cost: 'Medium'
         },
         {
-          id: 'technical-vocational',
-          title: 'Technical & Vocational Education',
-          description: 'Gain practical skills for immediate employment or further training',
+          id: 'general-arts-program',
+          title: 'General Arts Program',
+          description: 'Focus on literature, social studies, and humanities',
           requirements: [
-            'Hands-on learning preference',
-            'Technical aptitude',
-            'Problem-solving skills',
-            'Practical orientation'
+            'Strong English language skills',
+            'Interest in literature and history',
+            'Good writing and communication abilities',
+            'Critical thinking skills'
           ],
           outcomes: [
-            'Immediate employment opportunities',
-            'Technical certifications',
-            'Entrepreneurship possibilities',
-            'Further technical education'
+            'University arts and humanities programs',
+            'Teaching and education careers',
+            'Law and social sciences opportunities',
+            'Media and communication fields'
           ],
           nextSteps: [
-            'Choose specialized technical field',
-            'Seek apprenticeship opportunities',
-            'Build practical portfolio'
+            'Develop writing and research skills',
+            'Join debate and literary clubs',
+            'Explore humanities university programs'
           ],
           difficulty: 'Medium',
-          timeframe: '2-3 years',
-          cost: 'Low'
+          timeframe: '3 years',
+          cost: 'Medium'
+        },
+        {
+          id: 'visual-arts-program',
+          title: 'Visual Arts Program',
+          description: 'Develop creative and artistic skills in visual arts and design',
+          requirements: [
+            'Creative and artistic abilities',
+            'Interest in visual arts and design',
+            'Good hand-eye coordination',
+            'Patience and attention to detail'
+          ],
+          outcomes: [
+            'Art and design university programs',
+            'Creative industry careers',
+            'Graphic design and multimedia opportunities',
+            'Fine arts and creative entrepreneurship'
+          ],
+          nextSteps: [
+            'Build an art portfolio',
+            'Join art clubs and exhibitions',
+            'Explore creative arts universities'
+          ],
+          difficulty: 'Medium',
+          timeframe: '3 years',
+          cost: 'Medium'
+        },
+        {
+          id: 'home-economics-program',
+          title: 'Home Economics Program',
+          description: 'Focus on nutrition, food science, textiles, and family studies',
+          requirements: [
+            'Interest in nutrition and food science',
+            'Good organizational skills',
+            'Attention to detail and hygiene',
+            'Interest in family and consumer sciences'
+          ],
+          outcomes: [
+            'Nutrition and dietetics programs',
+            'Food science and technology careers',
+            'Hospitality and catering opportunities',
+            'Family and consumer sciences education'
+          ],
+          nextSteps: [
+            'Develop cooking and nutrition knowledge',
+            'Join home economics clubs',
+            'Explore food science university programs'
+          ],
+          difficulty: 'Medium',
+          timeframe: '3 years',
+          cost: 'Medium'
         }
       ]
     },
@@ -319,24 +369,26 @@ const EducationalPathwayGuide: React.FC = () => {
           </p>
         </div>
 
-        {/* Progress Indicator */}
-        <div className="flex items-center justify-center mb-8">
-          {pathwaySteps.map((step, index) => (
-            <div key={step.id} className="flex items-center">
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 ${
-                index <= currentStep 
-                  ? 'bg-purple-600 border-purple-600 text-white' 
-                  : 'bg-gray-800 border-gray-600 text-gray-400'
-              }`}>
-                {index < currentStep ? <CheckCircle className="w-6 h-6" /> : index + 1}
+        {/* Progress Indicator - Mobile Horizontal, Desktop Flowchart */}
+        <div className="flex justify-center mb-8">
+          <div className="flex md:flex-col items-center space-x-2 md:space-x-0 md:space-y-4 overflow-x-auto pb-2 md:pb-0 px-4 md:px-0">
+            {pathwaySteps.map((step, index) => (
+              <div key={step.id} className="flex md:flex-col items-center flex-shrink-0">
+                <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 shadow-lg transition-all duration-300 ${
+                  index <= currentStep
+                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 border-purple-500 text-white shadow-purple-500/30'
+                    : 'bg-gray-800 border-gray-600 text-gray-400 shadow-gray-800/30'
+                }`}>
+                  {index < currentStep ? <CheckCircle className="w-6 h-6" /> : index + 1}
+                </div>
+                {index < pathwaySteps.length - 1 && (
+                  <div className={`w-8 h-1 md:w-1 md:h-8 mx-1 md:mx-0 md:my-2 rounded-full transition-all duration-300 ${
+                    index < currentStep ? 'bg-gradient-to-r from-purple-600 to-blue-600' : 'bg-gray-600'
+                  }`} />
+                )}
               </div>
-              {index < pathwaySteps.length - 1 && (
-                <div className={`w-16 h-1 mx-2 ${
-                  index < currentStep ? 'bg-purple-600' : 'bg-gray-600'
-                }`} />
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Current Step */}
@@ -351,22 +403,22 @@ const EducationalPathwayGuide: React.FC = () => {
             </div>
           </div>
 
-          {/* Options Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {/* Options Grid - Mobile Horizontal, Desktop Grid */}
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 overflow-x-auto pb-4 md:pb-0 px-2 md:px-0">
             {currentStepData.options.map((option) => (
               <motion.div
                 key={option.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={`bg-gray-800/50 rounded-xl p-6 border-2 cursor-pointer transition-all duration-300 ${
-                  selectedPath === option.id 
-                    ? 'border-purple-500 bg-purple-500/10' 
-                    : 'border-gray-600 hover:border-gray-500'
+                className={`min-w-[280px] md:min-w-0 bg-gray-800/50 rounded-xl p-4 md:p-6 border-2 cursor-pointer transition-all duration-300 shadow-lg flex-shrink-0 ${
+                  selectedPath === option.id
+                    ? 'border-purple-500 bg-purple-500/10 shadow-purple-500/20'
+                    : 'border-gray-600 hover:border-gray-500 shadow-gray-800/30'
                 }`}
                 onClick={() => setSelectedPath(selectedPath === option.id ? null : option.id)}
               >
-                <h3 className="text-xl font-bold text-white mb-2">{option.title}</h3>
-                <p className="text-gray-400 mb-4">{option.description}</p>
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2">{option.title}</h3>
+                <p className="text-sm md:text-base text-gray-400 mb-3 md:mb-4">{option.description}</p>
                 
                 <div className="flex gap-2 mb-4">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${getDifficultyColor(option.difficulty)}`}>
@@ -428,29 +480,39 @@ const EducationalPathwayGuide: React.FC = () => {
           </div>
         </div>
 
-        {/* Navigation */}
-        <div className="flex justify-between items-center">
+        {/* Navigation - Mobile Optimized */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
           <button
             onClick={prevStep}
             disabled={currentStep === 0}
-            className="flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-lg transition-colors duration-300"
+            className="w-full md:w-auto flex items-center justify-center gap-2 px-4 md:px-6 py-3 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-xl transition-all duration-300 shadow-lg"
           >
             <ArrowLeft className="w-5 h-5" />
-            Previous
+            <span className="font-medium">Previous</span>
           </button>
 
-          <div className="text-center">
-            <p className="text-gray-400 text-sm">
+          <div className="text-center order-first md:order-none">
+            <p className="text-gray-400 text-sm font-medium">
               Step {currentStep + 1} of {pathwaySteps.length}
             </p>
+            <div className="flex gap-1 mt-1 justify-center">
+              {pathwaySteps.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full ${
+                    index === currentStep ? 'bg-purple-500' : 'bg-gray-600'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
           <button
             onClick={nextStep}
             disabled={currentStep === pathwaySteps.length - 1}
-            className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-lg transition-colors duration-300"
+            className="w-full md:w-auto flex items-center justify-center gap-2 px-4 md:px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-xl transition-all duration-300 shadow-lg"
           >
-            Next
+            <span className="font-medium">Next</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>

@@ -28,37 +28,17 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     navigate('/students-hub');
   };
 
-  // Comprehensive scholarship data organized by categories
+  // Comprehensive scholarship data organized by three main categories
   const scholarshipOpportunities: ScholarshipItem[] = [
-    // JHS Excellence & BECE Preparation
-    {
-      id: 'bece-preparation',
-      name: 'BECE Excellence Hub',
-      url: 'https://www.khanacademy.org/math',
-      description: 'Achieve outstanding BECE results to access the best SHS programs. Strong performance opens doors to science programs, business courses, and technical/vocational opportunities that lead to scholarships.',
-      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-indigo-600',
-      glowColor: '#3b82f6'
-    },
-    {
-      id: 'technical-vocational-guide',
-      name: 'Technical & Vocational Pathways',
-      url: 'https://www.tvet.gov.gh',
-      description: 'Explore technical and vocational education opportunities. These paths offer excellent career prospects, practical skills, and scholarship opportunities in engineering, ICT, agriculture, and trades.',
-      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-orange-600 to-red-600',
-      glowColor: '#ea580c'
-    },
-
-    // SHS SAT Preparation & University Readiness (Khan Academy removed)
+    // SAT Test Prep Opportunities (Green Category)
     {
       id: 'afex-hub-shs',
       name: 'AFEX Hub - SHS SAT Classes',
       url: 'https://www.afextestprep.com',
       description: 'Start SAT preparation in SHS through professional organizations. Early preparation gives you 2-3 years to achieve high scores for international scholarships and top university admissions.',
       icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-orange-600 to-red-600',
-      glowColor: '#ea580c'
+      color: 'from-green-600 to-emerald-600',
+      glowColor: '#10b981'
     },
     {
       id: 'yaf-ghana-shs',
@@ -66,8 +46,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       url: 'https://yafghana.org',
       description: 'Access free SAT training while in SHS. Join their programs early to build strong foundations for university applications and scholarship opportunities.',
       icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-indigo-600',
-      glowColor: '#2563eb'
+      color: 'from-green-600 to-emerald-600',
+      glowColor: '#10b981'
     },
     {
       id: 'education-usa-guidance',
@@ -75,8 +55,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       url: 'https://gh.usembassy.gov/education-culture/educationusa/',
       description: 'Get official guidance on U.S. university applications. Learn about the complete process from SHS through university admission and scholarship applications.',
       icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-cyan-600',
-      glowColor: '#0891b2'
+      color: 'from-green-600 to-emerald-600',
+      glowColor: '#10b981'
     },
     {
       id: 'veritas-foundation-counseling',
@@ -84,8 +64,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       url: 'https://theveritasfoundation.co',
       description: 'Professional college counseling services to help you make informed decisions about university choices, application strategies, and scholarship opportunities.',
       icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-purple-600 to-pink-600',
-      glowColor: '#9333ea'
+      color: 'from-green-600 to-emerald-600',
+      glowColor: '#10b981'
     },
     {
       id: 'college-board-official',
@@ -93,213 +73,97 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       url: 'https://www.collegeboard.org',
       description: 'Access official SAT practice tests, study materials, and registration information. Essential for students planning to apply to international universities.',
       icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-indigo-600 to-purple-600',
-      glowColor: '#4f46e5'
-    },
-
-    // Local Scholarship Opportunities - Comprehensive Guide
-    {
-      id: 'ghana-scholarship-secretariat',
-      name: 'Ghana Scholarship Secretariat',
-      url: 'https://www.scholarshipgh.com',
-      description: 'Government scholarships for tertiary education. Apply early with strong academic records. Covers tuition, accommodation, and living expenses for qualified students pursuing degrees in priority fields.',
-      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-cyan-600',
-      glowColor: '#0891b2'
-    },
-    {
-      id: 'mastercard-foundation-comprehensive',
-      name: 'Mastercard Foundation Scholars Program',
-      url: 'https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program/',
-      description: 'Full scholarships covering tuition, accommodation, meals, books, and leadership development. Targets academically talented students from disadvantaged backgrounds. Includes mentorship and career support.',
-      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-yellow-600 to-orange-600',
-      glowColor: '#d97706'
-    },
-    {
-      id: 'knust-comprehensive-scholarships',
-      name: 'KNUST Scholarships & Programs',
-      url: 'https://apps.knust.edu.gh/admissions',
-      description: 'KNUST offers merit scholarships, need-based aid, and special programs for engineering, science, and technology students. Strong WASSCE results in science subjects increase your chances significantly.',
-      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-green-600 to-teal-600',
-      glowColor: '#059669'
-    },
-    {
-      id: 'ug-comprehensive-aid',
-      name: 'University of Ghana Financial Support',
-      url: 'https://www.ug.edu.gh/financialaid/',
-      description: 'UG provides various financial aid options including academic scholarships, sports scholarships, and need-based grants. Excellent WASSCE grades and extracurricular achievements are key factors.',
-      icon: <DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-emerald-600 to-green-600',
+      color: 'from-green-600 to-emerald-600',
       glowColor: '#10b981'
     },
+
+    // Local Scholarships (Blue Category)
     {
-      id: 'ashesi-comprehensive-scholarships',
-      name: 'Ashesi University Scholarship Programs',
-      url: 'https://ashesi.edu.gh/scholarships/',
-      description: 'Ashesi offers full and partial scholarships based on academic merit, leadership potential, and financial need. Strong performance in mathematics and English is essential for consideration.',
-      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-purple-600 to-indigo-600',
-      glowColor: '#7c3aed'
-    },
-    {
-      id: 'getfund-comprehensive',
-      name: 'Ghana Education Trust Fund (GETFund)',
+      id: 'getfund-scholarship',
+      name: 'GETFUND Scholarship Scheme',
       url: 'https://getfund.gov.gh',
-      description: 'Government scholarships for students with excellent academic records. Covers local and international studies. Priority given to students in science, technology, engineering, and mathematics (STEM) fields.',
-      icon: <Briefcase className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-purple-600',
-      glowColor: '#3b82f6'
-    },
-    {
-      id: 'gnpc-foundation-stem',
-      name: 'GNPC Foundation STEM Scholarships',
-      url: 'https://gnpcfoundation.org',
-      description: 'Specialized scholarships for students pursuing petroleum engineering, geology, chemistry, and related STEM fields. Includes internship opportunities and career mentorship programs.',
-      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-orange-600 to-red-600',
-      glowColor: '#ea580c'
-    },
-    {
-      id: 'vodafone-ghana-ict',
-      name: 'Vodafone Ghana ICT Scholarships',
-      url: 'https://www.vodafone.com.gh/foundation',
-      description: 'Scholarships for students pursuing ICT, telecommunications, and digital technology programs. Includes practical training and potential employment opportunities.',
-      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-red-600 to-pink-600',
-      glowColor: '#dc2626'
-    },
-    {
-      id: 'mtn-foundation-digital',
-      name: 'MTN Foundation Digital Skills',
-      url: 'https://www.mtn.com.gh/mtn-foundation',
-      description: 'Educational support for students in digital technology, computer science, and telecommunications. Combines academic scholarships with practical skills development.',
-      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-yellow-600 to-orange-600',
-      glowColor: '#d97706'
-    },
-    {
-      id: 'cocobod-agricultural',
-      name: 'COCOBOD Agricultural Scholarships',
-      url: 'https://cocobod.gh',
-      description: 'Scholarships for children of cocoa farmers and students pursuing agricultural studies. Covers agribusiness, agricultural engineering, and food science programs.',
+      description: 'Government of Ghana scholarship for brilliant but needy students. Covers tuition, accommodation, and living expenses for local and international studies.',
       icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-amber-600 to-yellow-600',
-      glowColor: '#f59e0b'
-    },
-    {
-      id: 'dream-hive-comprehensive',
-      name: 'Dream Hive Scholarship Program',
-      url: 'https://dhscholarship.org',
-      description: 'Comprehensive support for ambitious students including academic scholarships, mentorship, career guidance, and leadership development. "A Hive of Dreams, A Buzz of Success"',
-      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-pink-600 to-purple-600',
-      glowColor: '#ec4899'
-    },
-    // International Opportunities - Comprehensive University Pathway Guide
-    {
-      id: 'commonwealth-scholarships-comprehensive',
-      name: 'Commonwealth Scholarships (UK)',
-      url: 'https://www.cscuk.fcdo.gov.uk',
-      description: 'Full scholarships for master\'s and PhD studies in the UK. Requires excellent academic record (First Class or Upper Second), leadership experience, and commitment to development. Start preparing applications 18 months in advance.',
-      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-blue-600 to-indigo-600',
       glowColor: '#3b82f6'
     },
     {
-      id: 'daad-scholarships-comprehensive',
-      name: 'DAAD Scholarships (Germany)',
-      url: 'https://www.daad.de/en',
-      description: 'German Academic Exchange Service offers scholarships for undergraduate, master\'s, and PhD programs. Strong emphasis on STEM fields. Requires good German language skills or English proficiency for international programs.',
-      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-red-600 to-orange-600',
-      glowColor: '#dc2626'
-    },
-    {
-      id: 'chevening-scholarships-leadership',
-      name: 'Chevening Scholarships (UK Leadership)',
-      url: 'https://www.chevening.org',
-      description: 'Prestigious UK government scholarships for future leaders. Covers master\'s degree, living expenses, and return flights. Requires 2+ years work experience, leadership potential, and strong academic background.',
-      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-cyan-600',
-      glowColor: '#0891b2'
-    },
-    {
-      id: 'fulbright-program-comprehensive',
-      name: 'Fulbright Program (USA)',
-      url: 'https://gh.usembassy.gov/education-culture/fulbright/',
-      description: 'Prestigious US government exchange program for master\'s and PhD studies. Highly competitive - requires exceptional academic record, research proposal, and demonstrated leadership. Covers full tuition and living expenses.',
-      icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-indigo-600 to-purple-600',
-      glowColor: '#4f46e5'
-    },
-    {
-      id: 'erasmus-plus-comprehensive',
-      name: 'Erasmus+ Program (Europe)',
-      url: 'https://erasmus-plus.ec.europa.eu',
-      description: 'EU scholarships for study and training across Europe. Offers joint master\'s programs, exchange opportunities, and full degree scholarships. Strong focus on innovation, sustainability, and digital skills.',
-      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-purple-600 to-pink-600',
-      glowColor: '#9333ea'
-    },
-    {
-      id: 'australia-awards-comprehensive',
-      name: 'Australia Awards Scholarships',
-      url: 'https://www.dfat.gov.au/people-to-people/australia-awards',
-      description: 'Full scholarships for undergraduate and postgraduate studies in Australia. Covers tuition, living allowance, health insurance, and return airfare. Priority areas include agriculture, education, and governance.',
-      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-green-600 to-emerald-600',
-      glowColor: '#059669'
-    },
-    {
-      id: 'chinese-government-comprehensive',
-      name: 'Chinese Government Scholarships',
-      url: 'https://www.studyinchina.edu.cn',
-      description: 'Full and partial scholarships for all academic levels in China. Strong programs in engineering, medicine, business, and Chinese language studies. Many programs taught in English.',
-      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-red-600 to-yellow-600',
-      glowColor: '#dc2626'
-    },
-    {
-      id: 'mext-scholarships-comprehensive',
-      name: 'MEXT Scholarships (Japan)',
-      url: 'https://www.studyinjapan.go.jp/en',
-      description: 'Japanese Government scholarships covering tuition, living allowance, and airfare. Strong programs in technology, engineering, and research. Basic Japanese language skills recommended but not always required.',
+      id: 'knust-scholarship',
+      name: 'KNUST Merit Scholarship',
+      url: 'https://www.knust.edu.gh',
+      description: 'Kwame Nkrumah University of Science and Technology scholarships for outstanding students in science, technology, and engineering programs.',
       icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-pink-600 to-red-600',
-      glowColor: '#ec4899'
-    },
-    {
-      id: 'korean-government-comprehensive',
-      name: 'Korean Government Scholarship (KGSP)',
-      url: 'https://www.studyinkorea.go.kr',
-      description: 'Full scholarships including Korean language training, tuition, living allowance, and airfare. Excellent programs in technology, business, and Korean studies. One-year Korean language course included.',
-      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-purple-600',
+      color: 'from-blue-600 to-indigo-600',
       glowColor: '#3b82f6'
     },
     {
-      id: 'rotary-global-grants-comprehensive',
-      name: 'Rotary Foundation Global Grants',
-      url: 'https://www.rotary.org/en/our-programs/scholarships',
-      description: 'International scholarships for graduate studies in peace, disease prevention, water sanitation, maternal health, basic education, and economic development. Requires Rotary club sponsorship.',
+      id: 'ug-scholarship',
+      name: 'University of Ghana Scholarships',
+      url: 'https://www.ug.edu.gh',
+      description: 'Various scholarship opportunities at Ghana\'s premier university including academic excellence awards and need-based financial assistance.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#3b82f6'
+    },
+    {
+      id: 'mastercard-foundation',
+      name: 'Mastercard Foundation Scholars Program',
+      url: 'https://mastercardfdn.org',
+      description: 'Comprehensive scholarship program for academically talented yet economically disadvantaged young people from Africa.',
       icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-yellow-600 to-orange-600',
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#3b82f6'
+    },
+
+    // International Scholarships (Yellow Category)
+    {
+      id: 'commonwealth-scholarship',
+      name: 'Commonwealth Scholarships',
+      url: 'https://cscuk.fcdo.gov.uk',
+      description: 'UK government scholarships for students from Commonwealth countries to pursue Master\'s and PhD studies in the United Kingdom.',
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'chevening-scholarship',
+      name: 'Chevening Scholarships',
+      url: 'https://www.chevening.org',
+      description: 'UK government\'s global scholarship programme for emerging leaders to pursue one-year Master\'s degrees in the UK.',
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'fulbright-scholarship',
+      name: 'Fulbright Foreign Student Program',
+      url: 'https://foreign.fulbrightonline.org',
+      description: 'US government scholarship program for international students to pursue Master\'s and PhD degrees in the United States.',
+      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
+      glowColor: '#f59e0b'
+    },
+    {
+      id: 'daad-scholarship',
+      name: 'DAAD Scholarships Germany',
+      url: 'https://www.daad.de',
+      description: 'German Academic Exchange Service scholarships for international students to study in Germany at all academic levels.',
+      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
+      color: 'from-yellow-600 to-amber-600',
       glowColor: '#f59e0b'
     }
   ];
 
-  // Enhanced category logic with proper grouping
+  // Simplified category logic with three main categories
   const getCategory = (scholarship: ScholarshipItem): string => {
     const name = scholarship.name.toLowerCase();
     const description = scholarship.description.toLowerCase();
 
-    // SHS SAT Preparation
+    // SAT Test Prep Opportunities
     if (name.includes('afex') || name.includes('yaf') || name.includes('educationusa') ||
         name.includes('veritas') || name.includes('college board') ||
-        description.includes('sat') || description.includes('shs')) {
-      return 'SHS SAT Preparation';
+        description.includes('sat') || description.includes('test prep')) {
+      return 'SAT Test Prep Opportunities';
     }
 
     // International Scholarships
@@ -310,16 +174,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       return 'International Scholarships';
     }
 
-    // Local Scholarships
-    if (name.includes('ghana') || name.includes('knust') || name.includes('ug') ||
-        name.includes('ashesi') || name.includes('getfund') || name.includes('gnpc') ||
-        name.includes('vodafone') || name.includes('mtn') || name.includes('cocobod') ||
-        name.includes('dream hive') || name.includes('mastercard')) {
-      return 'Local Scholarships';
-    }
-
-    // JHS & BECE Preparation
-    return 'JHS & BECE Preparation';
+    // Local Scholarships (default for all others)
+    return 'Local Scholarships';
   };
 
   const filteredScholarships = scholarshipOpportunities.filter(scholarship => {
@@ -345,13 +201,12 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     }
   };
 
-  // Updated categories for filtering
+  // Three main categories with unique colors
   const categories = [
-    { value: '', label: 'All Categories' },
-    { value: 'JHS & BECE Preparation', label: 'JHS & BECE Preparation' },
-    { value: 'SHS SAT Preparation', label: 'SHS SAT Preparation' },
-    { value: 'Local Scholarships', label: 'Local Scholarships' },
-    { value: 'International Scholarships', label: 'International Scholarships' }
+    { value: '', label: 'All Categories', color: 'bg-gray-600' },
+    { value: 'SAT Test Prep Opportunities', label: 'SAT Test Prep', color: 'bg-green-600' },
+    { value: 'Local Scholarships', label: 'Local Scholarships', color: 'bg-blue-600' },
+    { value: 'International Scholarships', label: 'International Scholarships', color: 'bg-yellow-600' }
   ];
 
   return (
@@ -407,22 +262,24 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Category Filters - Grouped Before Search Results */}
+          {/* Category Filters - Horizontally Aligned on Mobile */}
           <div className="mb-8">
-            <div className="flex flex-wrap justify-center gap-3">
-              {categories.map(category => (
-                <button
-                  key={category.value}
-                  onClick={() => setSelectedCategory(category.value)}
-                  className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
-                    selectedCategory === category.value
-                      ? 'bg-purple-600 text-white shadow-lg'
-                      : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:text-white'
-                  }`}
-                >
-                  {category.label}
-                </button>
-              ))}
+            <div className="flex justify-center">
+              <div className="flex flex-row gap-2 sm:gap-3 overflow-x-auto pb-2 w-full max-w-4xl">
+                {categories.map(category => (
+                  <button
+                    key={category.value}
+                    onClick={() => setSelectedCategory(category.value)}
+                    className={`px-3 py-2 sm:px-4 sm:py-2 rounded-xl font-medium transition-all duration-300 whitespace-nowrap flex-shrink-0 text-sm sm:text-base ${
+                      selectedCategory === category.value
+                        ? `${category.color || 'bg-purple-600'} text-white shadow-lg`
+                        : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:text-white'
+                    }`}
+                  >
+                    {category.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -438,12 +295,12 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                 </div>
                 <p className="text-gray-300 text-sm mb-4">
                   Get comprehensive guidance on your educational journey from JHS excellence to university success.
-                  Make informed decisions about SHS programs, SAT preparation, technical/vocational alternatives,
-                  and scholarship opportunities.
+                  Make informed decisions about SHS programs (Science, Business, General Arts, Visual Arts, Home Economics),
+                  SAT preparation, and scholarship opportunities.
                 </p>
                 <ul className="text-sm text-gray-400 space-y-1">
                   <li>• JHS to SHS transition strategies</li>
-                  <li>• Academic vs. technical/vocational pathways</li>
+                  <li>• SHS program selection: Science, Business, General Arts, Visual Arts, Home Economics</li>
                   <li>• SAT preparation timeline and resources</li>
                   <li>• Local and international scholarship guidance</li>
                   <li>• University application strategies</li>

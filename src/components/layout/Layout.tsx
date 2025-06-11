@@ -38,6 +38,7 @@ const Layout: React.FC = () => {
     '/tiktok',
     '/gallery',
     '/scholarship-opportunities',
+    '/educational-pathway-guide',
     ...((location.pathname.startsWith('/shs-database/pdf/')) ? [location.pathname] : []),
   ];
   const shouldShowFooter = !noFooterPages.includes(location.pathname) && showFooter;
