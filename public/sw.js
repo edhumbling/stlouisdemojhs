@@ -1,8 +1,8 @@
-const CACHE_NAME = 'st-louis-demo-jhs-v2';
+const CACHE_NAME = 'st-louis-demo-jhs-v3';
 const urlsToCache = [
   '/',
   '/manifest.json',
-  'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs',
+  'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Anton&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap'
 ];
 
@@ -64,15 +64,15 @@ self.addEventListener('activate', (event) => {
       // Send notification to user about successful installation
       self.registration.showNotification('🎉 St. Louis Demo. J.H.S App Ready!', {
         body: 'The app is now installed and ready to use. Tap to open the app.',
-        icon: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs',
-        badge: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs',
+        icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+        badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
         tag: 'pwa-ready',
         requireInteraction: true,
         actions: [
           {
             action: 'open',
             title: 'Open App',
-            icon: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs'
+            icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
           }
         ],
         data: {
