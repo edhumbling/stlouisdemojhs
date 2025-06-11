@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Target, GraduationCap, Briefcase, Globe, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Target, GraduationCap, Briefcase, Globe, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
 const EducationalGuidePage: React.FC = () => {
   const navigate = useNavigate();
+  const [currentSection, setCurrentSection] = useState(1);
 
   const handleBack = () => {
     navigate(-1);
@@ -13,6 +14,57 @@ const EducationalGuidePage: React.FC = () => {
 
   const handleExternalLinkClick = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const sections = [
+    {
+      id: 1,
+      title: "What is the SAT?",
+      icon: <Target className="w-6 h-6 text-white" />,
+      color: "from-green-900/50 via-emerald-900/50 to-green-900/50",
+      borderColor: "border-green-500/30",
+      bgColor: "bg-green-600",
+      textColor: "text-green-400"
+    },
+    {
+      id: 2,
+      title: "SHS Programs in Ghana",
+      icon: <GraduationCap className="w-6 h-6 text-white" />,
+      color: "from-blue-900/50 via-indigo-900/50 to-blue-900/50",
+      borderColor: "border-blue-500/30",
+      bgColor: "bg-blue-600",
+      textColor: "text-blue-400"
+    },
+    {
+      id: 3,
+      title: "TVET Education",
+      icon: <Briefcase className="w-6 h-6 text-white" />,
+      color: "from-purple-900/50 via-violet-900/50 to-purple-900/50",
+      borderColor: "border-purple-500/30",
+      bgColor: "bg-purple-600",
+      textColor: "text-purple-400"
+    },
+    {
+      id: 4,
+      title: "Entrepreneurship & Startups",
+      icon: <Briefcase className="w-6 h-6 text-white" />,
+      color: "from-orange-900/50 via-red-900/50 to-orange-900/50",
+      borderColor: "border-orange-500/30",
+      bgColor: "bg-orange-600",
+      textColor: "text-orange-400"
+    }
+  ];
+
+  const nextSection = () => {
+    if (currentSection < sections.length) {
+      setCurrentSection(currentSection + 1);
+    }
+  };
+
+  const prevSection = () => {
+    if (currentSection > 1) {
+      setCurrentSection(currentSection - 1);
+    }
   };
 
   return (
@@ -52,15 +104,92 @@ const EducationalGuidePage: React.FC = () => {
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
 
+          {/* Progress Navigation */}
+          <div className="mb-8">
+            {/* Section Progress Indicators */}
+            <div className="flex justify-center mb-6">
+              <div className="flex items-center space-x-2 overflow-x-auto pb-2">
+                {sections.map((section, index) => (
+                  <div key={section.id} className="flex items-center flex-shrink-0">
+                    <button
+                      onClick={() => setCurrentSection(section.id)}
+                      className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 shadow-lg transition-all duration-300 ${
+                        currentSection === section.id
+                          ? `${section.bgColor} border-white text-white shadow-lg scale-110`
+                          : currentSection > section.id
+                          ? `${section.bgColor} border-gray-400 text-white shadow-md`
+                          : 'bg-gray-800 border-gray-600 text-gray-400 shadow-gray-800/30'
+                      }`}
+                    >
+                      {currentSection > section.id ? (
+                        <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+                          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                      ) : (
+                        <span className="font-bold">{section.id}</span>
+                      )}
+                    </button>
+                    {index < sections.length - 1 && (
+                      <div className={`w-8 h-1 mx-1 rounded-full transition-all duration-300 ${
+                        currentSection > section.id ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gray-600'
+                      }`} />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Section Title and Navigation */}
+            <div className="flex items-center justify-between mb-6">
+              <button
+                onClick={prevSection}
+                disabled={currentSection === 1}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                  currentSection === 1
+                    ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
+                    : 'bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 hover:text-emerald-300'
+                }`}
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Previous
+              </button>
+
+              <div className="text-center">
+                <h2 className="text-xl sm:text-2xl font-bold text-white">
+                  {sections[currentSection - 1]?.title}
+                </h2>
+                <p className="text-gray-400 text-sm">
+                  Section {currentSection} of {sections.length}
+                </p>
+              </div>
+
+              <button
+                onClick={nextSection}
+                disabled={currentSection === sections.length}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                  currentSection === sections.length
+                    ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
+                    : 'bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 hover:text-emerald-300'
+                }`}
+              >
+                Next
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
           {/* Educational Information Sections */}
           <div className="space-y-8">
             {/* SAT Explanation */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-r from-green-900/50 via-emerald-900/50 to-green-900/50 rounded-2xl p-6 border border-green-500/30"
-            >
+            {currentSection === 1 && (
+              <motion.div
+                key="sat-section"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
+                className="bg-gradient-to-r from-green-900/50 via-emerald-900/50 to-green-900/50 rounded-2xl p-6 border border-green-500/30"
+              >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Target className="w-6 h-6 text-white" />
@@ -95,14 +224,18 @@ const EducationalGuidePage: React.FC = () => {
                 </div>
               </div>
             </motion.div>
+            )}
 
             {/* SHS Programs Explanation */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-gradient-to-r from-blue-900/50 via-indigo-900/50 to-blue-900/50 rounded-2xl p-6 border border-blue-500/30"
-            >
+            {currentSection === 2 && (
+              <motion.div
+                key="shs-section"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
+                className="bg-gradient-to-r from-blue-900/50 via-indigo-900/50 to-blue-900/50 rounded-2xl p-6 border border-blue-500/30"
+              >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
                   <GraduationCap className="w-6 h-6 text-white" />
@@ -148,14 +281,18 @@ const EducationalGuidePage: React.FC = () => {
                 </div>
               </div>
             </motion.div>
+            )}
 
             {/* TVET Programs Explanation */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gradient-to-r from-purple-900/50 via-violet-900/50 to-purple-900/50 rounded-2xl p-6 border border-purple-500/30"
-            >
+            {currentSection === 3 && (
+              <motion.div
+                key="tvet-section"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
+                className="bg-gradient-to-r from-purple-900/50 via-violet-900/50 to-purple-900/50 rounded-2xl p-6 border border-purple-500/30"
+              >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Briefcase className="w-6 h-6 text-white" />
@@ -230,14 +367,18 @@ const EducationalGuidePage: React.FC = () => {
                 </div>
               </div>
             </motion.div>
+            )}
 
             {/* Entrepreneurship & Startup Opportunities */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gradient-to-r from-orange-900/50 via-red-900/50 to-orange-900/50 rounded-2xl p-6 border border-orange-500/30"
-            >
+            {currentSection === 4 && (
+              <motion.div
+                key="entrepreneurship-section"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
+                className="bg-gradient-to-r from-orange-900/50 via-red-900/50 to-orange-900/50 rounded-2xl p-6 border border-orange-500/30"
+              >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Briefcase className="w-6 h-6 text-white" />
@@ -314,6 +455,50 @@ const EducationalGuidePage: React.FC = () => {
                 </div>
               </div>
             </motion.div>
+            )}
+          </div>
+
+          {/* Bottom Navigation */}
+          <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-700/50">
+            <button
+              onClick={prevSection}
+              disabled={currentSection === 1}
+              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                currentSection === 1
+                  ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
+                  : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-emerald-500/25'
+              }`}
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Previous Section
+            </button>
+
+            <div className="text-center">
+              <div className="text-sm text-gray-400 mb-1">Progress</div>
+              <div className="flex items-center gap-1">
+                {sections.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index < currentSection ? 'bg-emerald-500' : 'bg-gray-600'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <button
+              onClick={nextSection}
+              disabled={currentSection === sections.length}
+              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                currentSection === sections.length
+                  ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
+                  : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-emerald-500/25'
+              }`}
+            >
+              {currentSection === sections.length ? 'Completed' : 'Next Section'}
+              {currentSection < sections.length && <ChevronRight className="w-4 h-4" />}
+            </button>
           </div>
         </div>
       </main>
