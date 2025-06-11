@@ -286,6 +286,58 @@ const EducationalPathwayGuide: React.FC = () => {
           cost: 'Medium'
         },
         {
+          id: 'health-training-institutions',
+          title: 'Health Training Institutions',
+          description: 'Pursue careers in healthcare through nursing, midwifery, and medical training',
+          requirements: [
+            'Strong WASSCE results in Science subjects',
+            'Good performance in Biology and Chemistry',
+            'Pass entrance examinations',
+            'Meet specific health institution requirements'
+          ],
+          outcomes: [
+            'Direct entry into healthcare careers',
+            'High employment demand in health sector',
+            'Opportunity to serve communities',
+            'Pathway to specialized medical fields'
+          ],
+          nextSteps: [
+            'Apply to University of Ghana Medical School',
+            'Consider KNUST School of Medicine and Dentistry',
+            'Explore nursing colleges (Korle-Bu, KATH, Cape Coast)',
+            'Research University of Health and Allied Sciences (UHAS)'
+          ],
+          difficulty: 'Hard',
+          timeframe: '3-6 years',
+          cost: 'High'
+        },
+        {
+          id: 'teacher-training-institutions',
+          title: 'Teacher Training Institutions',
+          description: 'Become an educator through colleges of education and teacher training programs',
+          requirements: [
+            'Good WASSCE results',
+            'Pass teacher training entrance exams',
+            'Demonstrate passion for education',
+            'Meet specific college requirements'
+          ],
+          outcomes: [
+            'Stable career in education sector',
+            'Opportunity to shape future generations',
+            'Government employment benefits',
+            'Pathway to educational leadership'
+          ],
+          nextSteps: [
+            'Apply to University of Education, Winneba (UEW)',
+            'Consider local Colleges of Education (46 public institutions)',
+            'Explore specialized programs (Early Childhood, Special Education)',
+            'Research teacher training scholarships'
+          ],
+          difficulty: 'Medium',
+          timeframe: '3-4 years',
+          cost: 'Low'
+        },
+        {
           id: 'international-universities',
           title: 'International Universities',
           description: 'Pursue education abroad with scholarships',
