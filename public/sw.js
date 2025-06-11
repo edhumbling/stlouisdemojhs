@@ -1,4 +1,4 @@
-const CACHE_NAME = 'st-louis-demo-jhs-v5';
+const CACHE_NAME = 'st-louis-demo-jhs-v6';
 const urlsToCache = [
   '/',
   '/manifest.json',
@@ -58,33 +58,90 @@ self.addEventListener('activate', (event) => {
       }),
       // Take control of all clients immediately
       self.clients.claim()
-    ]).then(() => {
+    ]).then(async () => {
       console.log('✅ St. Louis Demo. J.H.S PWA activated and ready!');
 
-      // Send notification to user about successful installation
-      self.registration.showNotification('🎉 St. Louis Demo. J.H.S App Ready!', {
-        body: 'The app is now installed and ready to use. Tap to open the app.',
-        icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-        badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-        tag: 'pwa-ready',
-        requireInteraction: true,
-        actions: [
-          {
-            action: 'open',
-            title: 'Open App',
-            icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
+      // Check if this is the first installation
+      const isFirstInstall = await checkFirstInstall();
+
+      if (isFirstInstall) {
+        // Send notification to user about successful installation (only once)
+        self.registration.showNotification('🎉 St. Louis Demo. J.H.S App Ready!', {
+          body: 'The app is now installed and ready to use. Tap to open the app.',
+          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+          badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+          tag: 'pwa-ready',
+          requireInteraction: true,
+          actions: [
+            {
+              action: 'open',
+              title: 'Open App',
+              icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
+            }
+          ],
+          data: {
+            url: '/'
           }
-        ],
-        data: {
-          url: '/'
-        }
-      });
+        });
+
+        // Mark as installed
+        await markAsInstalled();
+      }
 
       // Initialize daily student notifications
-      scheduleStudentNotifications();
+      await initializeNotificationSystem();
     })
   );
 });
+
+// Helper functions for installation tracking
+async function checkFirstInstall() {
+  try {
+    const cache = await caches.open('notification-state');
+    const response = await cache.match('installation-status');
+    return !response; // If no response, it's first install
+  } catch (error) {
+    console.log('Error checking installation status:', error);
+    return true; // Default to first install if error
+  }
+}
+
+async function markAsInstalled() {
+  try {
+    const cache = await caches.open('notification-state');
+    await cache.put('installation-status', new Response('installed'));
+  } catch (error) {
+    console.log('Error marking as installed:', error);
+  }
+}
+
+// Notification state management
+async function getNotificationState() {
+  try {
+    const cache = await caches.open('notification-state');
+    const response = await cache.match('notification-schedule');
+    if (response) {
+      return await response.json();
+    }
+  } catch (error) {
+    console.log('Error getting notification state:', error);
+  }
+  return {
+    lastMorning: null,
+    lastHomework: null,
+    lastLearning: null,
+    missedNotifications: []
+  };
+}
+
+async function saveNotificationState(state) {
+  try {
+    const cache = await caches.open('notification-state');
+    await cache.put('notification-schedule', new Response(JSON.stringify(state)));
+  } catch (error) {
+    console.log('Error saving notification state:', error);
+  }
+}
 
 // Daily messages for each notification type
 const dailyMessages = {
@@ -180,22 +237,110 @@ const dailyMessages = {
   }
 };
 
-// Schedule daily notifications for students
-function scheduleStudentNotifications() {
-  console.log('📅 Setting up daily student notifications...');
+// Initialize notification system
+async function initializeNotificationSystem() {
+  console.log('📅 Initializing notification system...');
 
-  // Clear any existing alarms first
-  if ('serviceWorker' in navigator && 'setInterval' in self) {
-    // Schedule morning encouragement for 6:00 AM Ghana time daily
-    scheduleNotification('morning-encouragement', {
-      hour: 6, // 6 AM
-      minute: 0,
-      type: 'morning',
-      icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-      badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-      tag: 'morning-encouragement',
-      requireInteraction: true,
-      actions: [
+  // Check for missed notifications when coming back online
+  await checkMissedNotifications();
+
+  // Set up periodic check for notifications
+  setInterval(async () => {
+    await checkAndSendNotifications();
+  }, 60000); // Check every minute
+
+  // Initial check
+  await checkAndSendNotifications();
+}
+
+// Check for missed notifications and current ones
+async function checkAndSendNotifications() {
+  const now = new Date();
+  const ghanaTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Accra"}));
+  const currentHour = ghanaTime.getHours();
+  const currentMinute = ghanaTime.getMinutes();
+  const today = ghanaTime.toDateString();
+
+  const state = await getNotificationState();
+
+  // Check for 6:00 AM morning notification
+  if (currentHour === 6 && currentMinute === 0 && state.lastMorning !== today) {
+    await sendNotification('morning', 'morning-encouragement');
+    state.lastMorning = today;
+    await saveNotificationState(state);
+  }
+
+  // Check for 7:00 PM homework notification
+  if (currentHour === 19 && currentMinute === 0 && state.lastHomework !== today) {
+    await sendNotification('homework', 'homework-reminder');
+    state.lastHomework = today;
+    await saveNotificationState(state);
+  }
+
+  // Check for 7:30 PM learning notification
+  if (currentHour === 19 && currentMinute === 30 && state.lastLearning !== today) {
+    await sendNotification('learning', 'learning-encouragement');
+    state.lastLearning = today;
+    await saveNotificationState(state);
+  }
+}
+
+// Check for missed notifications when user comes back online
+async function checkMissedNotifications() {
+  const now = new Date();
+  const ghanaTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Accra"}));
+  const today = ghanaTime.toDateString();
+  const currentHour = ghanaTime.getHours();
+  const currentMinute = ghanaTime.getMinutes();
+  const currentTime = currentHour * 60 + currentMinute;
+
+  const state = await getNotificationState();
+
+  // Check if we missed morning notification (6:00 AM)
+  if (currentTime > 360 && state.lastMorning !== today) { // 360 = 6:00 AM in minutes
+    await sendNotification('morning', 'morning-encouragement', true);
+    state.lastMorning = today;
+  }
+
+  // Check if we missed homework notification (7:00 PM)
+  if (currentTime > 1140 && state.lastHomework !== today) { // 1140 = 7:00 PM in minutes
+    await sendNotification('homework', 'homework-reminder', true);
+    state.lastHomework = today;
+  }
+
+  // Check if we missed learning notification (7:30 PM)
+  if (currentTime > 1170 && state.lastLearning !== today) { // 1170 = 7:30 PM in minutes
+    await sendNotification('learning', 'learning-encouragement', true);
+    state.lastLearning = today;
+  }
+
+  await saveNotificationState(state);
+}
+
+// Send notification with proper message for the day
+async function sendNotification(type, tag, isMissed = false) {
+  try {
+    // Get current day of week (0 = Sunday, 1 = Monday, etc.)
+    const now = new Date();
+    const ghanaTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Accra"}));
+    const dayOfWeek = ghanaTime.getDay();
+
+    // Get the appropriate message for today
+    const todayMessage = dailyMessages[type][dayOfWeek];
+
+    // Modify message if it's a missed notification
+    let title = todayMessage.title;
+    let body = todayMessage.body;
+
+    if (isMissed) {
+      title = `⏰ ${title}`;
+      body = `You missed this earlier! ${body}`;
+    }
+
+    // Define actions based on notification type
+    let actions = [];
+    if (type === 'morning') {
+      actions = [
         {
           action: 'open-students-hub',
           title: '📖 Study Resources',
@@ -206,20 +351,9 @@ function scheduleStudentNotifications() {
           title: '✅ Ready!',
           icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
         }
-      ],
-      data: { url: '/students-hub' }
-    });
-
-    // Schedule homework reminder for 7:00 PM Ghana time daily
-    scheduleNotification('homework-reminder', {
-      hour: 19, // 7 PM
-      minute: 0,
-      type: 'homework',
-      icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-      badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-      tag: 'homework-reminder',
-      requireInteraction: true,
-      actions: [
+      ];
+    } else if (type === 'homework') {
+      actions = [
         {
           action: 'open-students-hub',
           title: '📖 Study Resources',
@@ -230,20 +364,9 @@ function scheduleStudentNotifications() {
           title: '✅ Got it!',
           icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
         }
-      ],
-      data: { url: '/students-hub' }
-    });
-
-    // Schedule learning encouragement for 7:30 PM Ghana time daily
-    scheduleNotification('learning-encouragement', {
-      hour: 19, // 7 PM
-      minute: 30, // 30 minutes
-      type: 'learning',
-      icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-      badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-      tag: 'learning-encouragement',
-      requireInteraction: true,
-      actions: [
+      ];
+    } else if (type === 'learning') {
+      actions = [
         {
           action: 'open-students-hub',
           title: '🎓 Explore Resources',
@@ -254,63 +377,41 @@ function scheduleStudentNotifications() {
           title: '🤖 AI Study Help',
           icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
         }
-      ],
-      data: { url: '/students-hub' }
-    });
-  }
-}
+      ];
+    }
 
-function scheduleNotification(id, options) {
-  const now = new Date();
-  const ghanaTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Accra"}));
-
-  // Calculate next occurrence of the specified time
-  const nextNotification = new Date(ghanaTime);
-  nextNotification.setHours(options.hour, options.minute, 0, 0);
-
-  // If the time has already passed today, schedule for tomorrow
-  if (nextNotification <= ghanaTime) {
-    nextNotification.setDate(nextNotification.getDate() + 1);
-  }
-
-  const delay = nextNotification.getTime() - ghanaTime.getTime();
-
-  console.log(`⏰ Scheduling ${id} notification for ${nextNotification.toLocaleString()} Ghana time`);
-
-  // Set initial timeout
-  setTimeout(() => {
-    showStudentNotification(options);
-
-    // Set daily interval (24 hours = 86400000 ms)
-    setInterval(() => {
-      showStudentNotification(options);
-    }, 86400000);
-  }, delay);
-}
-
-function showStudentNotification(options) {
-  if ('serviceWorker' in navigator && 'Notification' in window) {
-    // Get current day of week (0 = Sunday, 1 = Monday, etc.)
-    const now = new Date();
-    const ghanaTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Accra"}));
-    const dayOfWeek = ghanaTime.getDay();
-
-    // Get the appropriate message for today
-    const todayMessage = dailyMessages[options.type][dayOfWeek];
-
-    self.registration.showNotification(todayMessage.title, {
-      body: todayMessage.body,
-      icon: options.icon,
-      badge: options.badge,
-      tag: options.tag,
-      requireInteraction: options.requireInteraction,
-      actions: options.actions,
-      data: options.data,
+    await self.registration.showNotification(title, {
+      body: body,
+      icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+      badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+      tag: tag,
+      requireInteraction: true,
+      actions: actions,
+      data: { url: '/students-hub' },
       vibrate: [200, 100, 200], // Gentle vibration pattern
-      silent: false
+      silent: false,
+      renotify: true // Allow renotification with same tag
     });
+
+    console.log(`📱 Sent ${type} notification for ${ghanaTime.toDateString()}`);
+  } catch (error) {
+    console.error('Error sending notification:', error);
   }
 }
+
+// Handle when user comes back online
+self.addEventListener('online', async () => {
+  console.log('📶 User came back online, checking for missed notifications...');
+  await checkMissedNotifications();
+});
+
+// Handle service worker message events (for manual checks)
+self.addEventListener('message', async (event) => {
+  if (event.data && event.data.type === 'CHECK_NOTIFICATIONS') {
+    console.log('📱 Manual notification check requested');
+    await checkAndSendNotifications();
+  }
+});
 
 // Handle notification clicks
 self.addEventListener('notificationclick', (event) => {
