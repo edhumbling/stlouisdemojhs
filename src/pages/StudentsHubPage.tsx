@@ -3108,15 +3108,33 @@ const StudentsHubPage: React.FC = () => {
                         /* Regular resource card for non-YouTube resources */
                         <button
                           onClick={() => handleResourceClick(resource)}
-                          className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                          className={`w-full h-[200px] backdrop-blur-sm rounded-2xl p-4 border transition-all duration-300 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
+                            resource.id === 200
+                              ? 'bg-white/10 border-white/30 hover:border-white/60 hover:shadow-2xl hover:shadow-white/20 hover:bg-white/15'
+                              : 'bg-gray-800/50 border-gray-600/30 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60'
+                          }`}
                         >
                           {/* Background Gradient */}
                           <div
-                            className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                            className={`absolute inset-0 transition-opacity duration-300 ${
+                              resource.id === 200
+                                ? 'opacity-10 group-hover:opacity-20'
+                                : 'opacity-5 group-hover:opacity-10'
+                            }`}
                             style={{
-                              background: `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
+                              background: resource.id === 200
+                                ? 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 50%, transparent 100%)'
+                                : `linear-gradient(135deg, ${resource.color}20 0%, transparent 50%)`
                             }}
                           />
+
+                          {/* Special glow effect for Educational Pathways card */}
+                          {resource.id === 200 && (
+                            <>
+                              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+                              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-white/20 via-white/10 to-white/20 opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-sm -z-10" />
+                            </>
+                          )}
                           {/* Status Indicators */}
                           <div className="absolute top-3 right-3 flex gap-1">
                             <div className="px-2 py-1 rounded-full text-xs font-bold text-white bg-purple-500/80">
@@ -3126,44 +3144,87 @@ const StudentsHubPage: React.FC = () => {
                           {/* Icon Container */}
                           <div className="relative mb-3 flex-shrink-0">
                             <div
-                              className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300"
-                              style={{ backgroundColor: resource.color }}
+                              className={`w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 ${
+                                resource.id === 200 ? 'shadow-white/20 group-hover:shadow-white/40' : ''
+                              }`}
+                              style={{
+                                backgroundColor: resource.id === 200 ? 'rgba(255,255,255,0.2)' : resource.color,
+                                boxShadow: resource.id === 200 ? '0 0 20px rgba(255,255,255,0.3), inset 0 0 20px rgba(255,255,255,0.1)' : undefined
+                              }}
                             >
                               {resource.icon}
                             </div>
                             {/* Resource Type Indicator */}
-                            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center border-2 border-gray-700">
-                              <ExternalLink className="w-2.5 h-2.5 text-purple-400" />
+                            <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center border-2 ${
+                              resource.id === 200
+                                ? 'bg-white/20 border-white/40'
+                                : 'bg-gray-800 border-gray-700'
+                            }`}>
+                              <ExternalLink className={`w-2.5 h-2.5 ${
+                                resource.id === 200 ? 'text-white' : 'text-purple-400'
+                              }`} />
                             </div>
                           </div>
                           {/* Content */}
                           <div className="flex-1 flex flex-col space-y-2">
                             {/* Title */}
-                            <h3 className="text-sm font-bold text-white leading-tight group-hover:text-purple-300 transition-colors duration-300 line-clamp-2">
+                            <h3 className={`text-sm font-bold leading-tight transition-colors duration-300 line-clamp-2 ${
+                              resource.id === 200
+                                ? 'text-white group-hover:text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]'
+                                : 'text-white group-hover:text-purple-300'
+                            }`}>
                               {resource.title}
                             </h3>
                             {/* Category */}
-                            <p className="text-xs text-purple-400 font-medium line-clamp-1">
+                            <p className={`text-xs font-medium line-clamp-1 ${
+                              resource.id === 200
+                                ? 'text-white/80'
+                                : 'text-purple-400'
+                            }`}>
                               {category}
                             </p>
                             {/* Description */}
-                            <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 flex-1">
+                            <p className={`text-xs leading-relaxed line-clamp-2 flex-1 ${
+                              resource.id === 200
+                                ? 'text-white/70'
+                                : 'text-gray-400'
+                            }`}>
                               {resource.description}
                             </p>
                             {/* Action Footer */}
-                            <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                            <div className={`flex items-center justify-between pt-2 border-t mt-auto ${
+                              resource.id === 200
+                                ? 'border-white/20'
+                                : 'border-gray-700/30'
+                            }`}>
                               <div className="flex items-center gap-1">
-                                <span className="text-xs text-purple-400 font-medium">
+                                <span className={`text-xs font-medium ${
+                                  resource.id === 200
+                                    ? 'text-white/80'
+                                    : 'text-purple-400'
+                                }`}>
                                   Resource
                                 </span>
                               </div>
-                              <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
-                                <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
+                              <div className={`w-5 h-5 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                                resource.id === 200
+                                  ? 'bg-white/20 group-hover:bg-white/30'
+                                  : 'bg-purple-500/20 group-hover:bg-purple-500/30'
+                              }`}>
+                                <ExternalLink size={10} className={`${
+                                  resource.id === 200
+                                    ? 'text-white group-hover:text-white'
+                                    : 'text-purple-400 group-hover:text-purple-300'
+                                }`} />
                               </div>
                             </div>
                           </div>
                           {/* Hover Effect Overlay */}
-                          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                          <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
+                            resource.id === 200
+                              ? 'bg-gradient-to-br from-white/10 to-transparent'
+                              : 'bg-gradient-to-br from-purple-500/5 to-transparent'
+                          }`} />
                         </button>
                       )}
                     </motion.div>
