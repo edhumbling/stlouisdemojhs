@@ -49,6 +49,7 @@ import ResultsPlacementPage from './pages/ResultsPlacementPage';
 import TikTokPage from './pages/TikTokPage';
 import TikTokSubmissionPage from './pages/TikTokSubmissionPage';
 import ScholarshipOpportunitiesPage from './pages/ScholarshipOpportunitiesPage';
+import EducationalPathwayGuide from './components/educational/EducationalPathwayGuide';
 
 // Scroll Position Manager Component
 const ScrollPositionManager: React.FC = () => {
@@ -155,6 +156,7 @@ const App: React.FC = () => {
           <Route path="/tiktok" element={<TikTokPage />} />
           <Route path="/tiktok-submit" element={<TikTokSubmissionPage />} />
           <Route path="/scholarship-opportunities" element={<ScholarshipOpportunitiesPage />} />
+          <Route path="/educational-pathway-guide" element={<EducationalPathwayGuide />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />

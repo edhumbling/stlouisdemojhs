@@ -28,18 +28,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     navigate('/students-hub');
   };
 
-  // Comprehensive scholarship data with detailed guidance for each educational stage
+  // Comprehensive scholarship data organized by categories
   const scholarshipOpportunities: ScholarshipItem[] = [
-    // JHS Excellence & SHS Preparation Resources
-    {
-      id: 'khan-academy-jhs',
-      name: 'Khan Academy - JHS Excellence',
-      url: 'https://www.khanacademy.org',
-      description: 'Master core subjects with flying colors to secure admission to top SHS. Access advanced learning resources that many schools don\'t provide - giving you the competitive edge for Category A schools.',
-      icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-green-600 to-emerald-600',
-      glowColor: '#10b981'
-    },
+    // JHS Excellence & BECE Preparation
     {
       id: 'bece-preparation',
       name: 'BECE Excellence Hub',
@@ -59,7 +50,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       glowColor: '#ea580c'
     },
 
-    // SHS SAT Preparation & University Readiness
+    // SHS SAT Preparation & University Readiness (Khan Academy removed)
     {
       id: 'afex-hub-shs',
       name: 'AFEX Hub - SHS SAT Classes',
@@ -104,15 +95,6 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       icon: <BookOpen className="w-6 h-6 sm:w-8 sm:h-8" />,
       color: 'from-indigo-600 to-purple-600',
       glowColor: '#4f46e5'
-    },
-    {
-      id: 'decision-making-guide',
-      name: 'Educational Pathway Decision Guide',
-      url: '/educational-pathway-guide',
-      description: 'Interactive decision-making tool to help you choose between local universities, international studies, technical programs, or vocational training based on your goals and circumstances.',
-      icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-emerald-600 to-teal-600',
-      glowColor: '#059669'
     },
 
     // Local Scholarship Opportunities - Comprehensive Guide
@@ -308,22 +290,36 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     }
   ];
 
-  // Simple filtering logic without complex state management
+  // Enhanced category logic with proper grouping
   const getCategory = (scholarship: ScholarshipItem): string => {
     const name = scholarship.name.toLowerCase();
+    const description = scholarship.description.toLowerCase();
+
+    // SHS SAT Preparation
+    if (name.includes('afex') || name.includes('yaf') || name.includes('educationusa') ||
+        name.includes('veritas') || name.includes('college board') ||
+        description.includes('sat') || description.includes('shs')) {
+      return 'SHS SAT Preparation';
+    }
+
+    // International Scholarships
     if (name.includes('international') || name.includes('commonwealth') || name.includes('daad') ||
         name.includes('chevening') || name.includes('fulbright') || name.includes('erasmus') ||
         name.includes('australia') || name.includes('chinese') || name.includes('japanese') ||
-        name.includes('korean') || name.includes('rotary')) {
-      return 'International';
+        name.includes('korean') || name.includes('rotary') || name.includes('mext')) {
+      return 'International Scholarships';
     }
+
+    // Local Scholarships
     if (name.includes('ghana') || name.includes('knust') || name.includes('ug') ||
         name.includes('ashesi') || name.includes('getfund') || name.includes('gnpc') ||
         name.includes('vodafone') || name.includes('mtn') || name.includes('cocobod') ||
-        name.includes('dream hive')) {
-      return 'Local';
+        name.includes('dream hive') || name.includes('mastercard')) {
+      return 'Local Scholarships';
     }
-    return 'Academic';
+
+    // JHS & BECE Preparation
+    return 'JHS & BECE Preparation';
   };
 
   const filteredScholarships = scholarshipOpportunities.filter(scholarship => {
@@ -349,12 +345,13 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     }
   };
 
-  // Categories for filtering
+  // Updated categories for filtering
   const categories = [
     { value: '', label: 'All Categories' },
-    { value: 'Academic', label: 'Academic Resources' },
-    { value: 'Local', label: 'Local Scholarships' },
-    { value: 'International', label: 'International Opportunities' }
+    { value: 'JHS & BECE Preparation', label: 'JHS & BECE Preparation' },
+    { value: 'SHS SAT Preparation', label: 'SHS SAT Preparation' },
+    { value: 'Local Scholarships', label: 'Local Scholarships' },
+    { value: 'International Scholarships', label: 'International Scholarships' }
   ];
 
   return (
@@ -394,75 +391,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       <main className="flex-1 py-6 sm:py-8">
         <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
 
-          {/* Educational Journey Overview */}
-          <div className="mb-12 bg-gradient-to-r from-purple-900/50 via-blue-900/50 to-purple-900/50 rounded-2xl p-8 border border-purple-500/30">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">
-              Your Educational Journey: From JHS Excellence to University Success
-            </h2>
-
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-black/30 rounded-xl p-6 border border-blue-500/30">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                  <BookOpen className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">JHS Excellence Strategy</h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  Excel with flying colors to secure admission to the best SHS programs. Access to top schools provides exposure to advanced clubs, resources, and opportunities not available elsewhere.
-                </p>
-                <ul className="text-sm text-gray-400 space-y-1">
-                  <li>• Academic clubs and competitions</li>
-                  <li>• Advanced laboratory facilities</li>
-                  <li>• International exchange programs</li>
-                  <li>• University preparation resources</li>
-                </ul>
-              </div>
-
-              <div className="bg-black/30 rounded-xl p-6 border border-green-500/30">
-                <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
-                  <GraduationCap className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">SHS Pathway Options</h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  Choose between academic programs for university preparation OR technical/vocational training for immediate career opportunities and entrepreneurship.
-                </p>
-                <ul className="text-sm text-gray-400 space-y-1">
-                  <li>• Science & Business programs</li>
-                  <li>• Technical & Vocational Education</li>
-                  <li>• Early SAT preparation classes</li>
-                  <li>• Career-focused training</li>
-                </ul>
-              </div>
-
-              <div className="bg-black/30 rounded-xl p-6 border border-purple-500/30">
-                <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
-                  <Globe className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">University & Beyond</h3>
-                <p className="text-gray-300 text-sm mb-4">
-                  Leverage your strong foundation for local university success or international scholarship opportunities through organizations like AFEX, YAfGhana, and EducationUSA.
-                </p>
-                <ul className="text-sm text-gray-400 space-y-1">
-                  <li>• Local university scholarships</li>
-                  <li>• International study programs</li>
-                  <li>• Professional development</li>
-                  <li>• Career advancement</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <button
-                onClick={() => handleScholarshipClick('decision-making-guide')}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105"
-              >
-                <Target className="w-6 h-6" />
-                Interactive Decision-Making Guide
-                <ExternalLink className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Search Bar */}
+          {/* Search Bar - First Priority */}
           <div className="mb-8 space-y-4">
             <div className="relative max-w-3xl mx-auto">
               <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
@@ -476,21 +405,60 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                 className="w-full pl-12 pr-4 py-4 bg-white/5 border border-gray-600/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-200 backdrop-blur-sm hover:bg-white/10"
               />
             </div>
+          </div>
 
-            {/* Category Filter */}
-            <div className="flex justify-center">
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2 bg-gray-800/50 border border-gray-600/30 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50"
-              >
-                <option value="">All Categories</option>
-                {categories.slice(1).map(category => (
-                  <option key={category.value} value={category.value}>
-                    {category.label}
-                  </option>
-                ))}
-              </select>
+          {/* Category Filters - Grouped Before Search Results */}
+          <div className="mb-8">
+            <div className="flex flex-wrap justify-center gap-3">
+              {categories.map(category => (
+                <button
+                  key={category.value}
+                  onClick={() => setSelectedCategory(category.value)}
+                  className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+                    selectedCategory === category.value
+                      ? 'bg-purple-600 text-white shadow-lg'
+                      : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:text-white'
+                  }`}
+                >
+                  {category.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Educational Pathway Guide - Like BECE Placement Checker */}
+          <div className="mb-12 bg-gradient-to-r from-emerald-900/50 via-teal-900/50 to-emerald-900/50 rounded-2xl p-6 border border-emerald-500/30">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center">
+                    <Target className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Educational Pathway Decision Guide</h3>
+                </div>
+                <p className="text-gray-300 text-sm mb-4">
+                  Get comprehensive guidance on your educational journey from JHS excellence to university success.
+                  Make informed decisions about SHS programs, SAT preparation, technical/vocational alternatives,
+                  and scholarship opportunities.
+                </p>
+                <ul className="text-sm text-gray-400 space-y-1">
+                  <li>• JHS to SHS transition strategies</li>
+                  <li>• Academic vs. technical/vocational pathways</li>
+                  <li>• SAT preparation timeline and resources</li>
+                  <li>• Local and international scholarship guidance</li>
+                  <li>• University application strategies</li>
+                </ul>
+              </div>
+              <div className="flex-shrink-0">
+                <button
+                  onClick={() => navigate('/educational-pathway-guide')}
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  <Target className="w-5 h-5" />
+                  Start Guide
+                  <ExternalLink className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
 

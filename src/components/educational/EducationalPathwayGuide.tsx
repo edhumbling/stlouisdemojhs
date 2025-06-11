@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, GraduationCap, Globe, Briefcase, BookOpen, Target, Users, Award, CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import SEOHead from '../seo/SEOHead';
 
 interface PathwayStep {
   id: string;
@@ -24,8 +26,13 @@ interface PathwayOption {
 }
 
 const EducationalPathwayGuide: React.FC = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedPath, setSelectedPath] = useState<string | null>(null);
+
+  const handleBack = () => {
+    navigate('/scholarship-opportunities');
+  };
 
   const pathwaySteps: PathwayStep[] = [
     {
@@ -268,15 +275,47 @@ const EducationalPathwayGuide: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black p-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
+    <div className="min-h-screen bg-black">
+      <SEOHead
+        title="Educational Pathway Decision Guide | St. Louis Demonstration JHS"
+        description="Comprehensive guide to help students make informed decisions about their educational journey from JHS excellence to university success, including SAT preparation and scholarship opportunities."
+        keywords="educational pathway, JHS to SHS, SAT preparation, scholarship guide, university preparation, technical education, vocational training"
+        url="/educational-pathway-guide"
+        type="website"
+      />
+
+      {/* Header with Back Button */}
+      <div className="bg-gradient-to-r from-emerald-900 via-teal-800 to-emerald-900 py-3 sm:py-4 pt-20">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-emerald-700/50 hover:bg-emerald-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-emerald-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                Educational Pathway Decision Guide
+              </h1>
+              <p className="text-sm text-emerald-200 truncate">
+                Your comprehensive guide from JHS to University success
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto p-6">
+        {/* Introduction */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Educational Pathway Decision Guide
-          </h1>
-          <p className="text-gray-400 text-lg">
-            Make informed decisions about your educational journey from JHS to University
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Make Informed Educational Decisions
+          </h2>
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+            Navigate your educational journey with confidence. Get step-by-step guidance on excelling in JHS,
+            choosing the right SHS program, preparing for SAT, and accessing scholarship opportunities.
           </p>
         </div>
 
