@@ -463,73 +463,42 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
     return filtered;
   }, [scholarshipOpportunities, searchableItems, selectedCategory, searchTerm]);
 
-  // Enhanced iframe monitoring with connection detection (from AI Search page)
+  // Enhanced iframe monitoring with connection detection (simplified to avoid React error #310)
   useEffect(() => {
-    if (selectedScholarship && !iframeError && !connectionRefused) {
-      let checkCount = 0;
-      const maxChecks = 5;
-      let connectionFailures = 0;
+    if (selectedScholarship && !iframeError && !connectionRefused && selectedScholarshipData) {
+      let isCancelled = false;
 
       const checkIframeStatus = () => {
-        const iframe = document.querySelector('iframe[title="' + selectedScholarshipData?.name + '"]') as HTMLIFrameElement;
+        if (isCancelled) return;
 
-        if (iframe && isLoading && checkCount < maxChecks) {
-          checkCount++;
+        try {
+          const iframe = document.querySelector(`iframe[title="${selectedScholarshipData.name}"]`) as HTMLIFrameElement;
 
-          try {
-            const iframeSrc = iframe.src;
-            const hasConnectionError = iframe.contentDocument === null && iframe.contentWindow === null;
-
-            if (hasConnectionError) {
-              console.log(`${selectedScholarshipData?.name} connection refused detected`);
-              setConnectionRefused(true);
-              setIsLoading(false);
-              return;
-            }
-
-            if (iframeSrc && iframeSrc !== 'about:blank') {
-              if (checkCount >= 4) {
-                console.log(`${selectedScholarshipData?.name} appears to be loading slowly, giving more time`);
-                return;
-              }
-            } else {
-              connectionFailures++;
-              if (connectionFailures >= 3) {
-                console.log(`${selectedScholarshipData?.name} multiple connection failures detected`);
-                setConnectionRefused(true);
-                setIsLoading(false);
-                return;
-              }
-            }
-
-            if (checkCount < maxChecks) {
-              setTimeout(checkIframeStatus, 2000);
-            }
-
-          } catch (e) {
-            connectionFailures++;
-            console.log(`Connection check ${checkCount} for ${selectedScholarshipData?.name}:`, e instanceof Error ? e.message : 'Unknown error');
-
-            if (connectionFailures >= 3) {
-              console.log(`${selectedScholarshipData?.name} multiple connection failures, treating as connection refused`);
-              setConnectionRefused(true);
-              setIsLoading(false);
-              return;
-            }
-
-            if (checkCount < maxChecks) {
-              setTimeout(checkIframeStatus, 2000);
-            }
+          if (iframe && isLoading) {
+            // Simple check - if iframe exists and is loading, we'll let the onLoad/onError handlers manage the state
+            console.log(`Monitoring ${selectedScholarshipData.name} iframe status`);
           }
+        } catch (e) {
+          console.log(`Error checking iframe status for ${selectedScholarshipData.name}:`, e instanceof Error ? e.message : 'Unknown error');
         }
       };
 
       const timer = setTimeout(checkIframeStatus, 1000);
-      return () => clearTimeout(timer);
+
+      return () => {
+        isCancelled = true;
+        clearTimeout(timer);
+      };
     }
-  }, [selectedScholarship, isLoading, iframeError, connectionRefused, selectedScholarshipData?.name]);
+  }, [selectedScholarship, isLoading, iframeError, connectionRefused, selectedScholarshipData]);
 
   const handleScholarshipClick = (scholarshipId: string) => {
+    // Clear any existing timer first
+    if (autoRedirectTimer) {
+      clearTimeout(autoRedirectTimer);
+      setAutoRedirectTimer(null);
+    }
+
     setIsLoading(true);
     setIframeError(false);
     setShowAlternatives(false);
@@ -539,9 +508,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
 
     const scholarshipData = scholarshipOpportunities.find(s => s.id === scholarshipId);
 
-    // Auto-redirect timer for slow loading
-    const timer = setTimeout(() => {
-      if (scholarshipData && isLoading) {
+    // Auto-redirect timer for slow loading (simplified)
+    if (scholarshipData) {
+      const timer = setTimeout(() => {
         console.log(`Auto-redirecting ${scholarshipData.name} to browser due to loading timeout after 8 seconds`);
         setIsLoading(false);
         setIframeError(true);
@@ -554,10 +523,10 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             setShowAlternatives(false);
           }, 500);
         }, 1500);
-      }
-    }, 8000);
+      }, 8000);
 
-    setAutoRedirectTimer(timer);
+      setAutoRedirectTimer(timer);
+    }
   };
 
   const handleIframeLoad = () => {
@@ -573,32 +542,29 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
   const handleIframeError = () => {
     console.log('Iframe error detected - this might be normal for some sites');
 
-    setTimeout(() => {
-      if (isLoading) {
-        console.log('Iframe still loading after error event, treating as actual failure');
-        setIsLoading(false);
-        setIframeError(true);
-        setShowAlternatives(true);
+    // Simplified error handling to avoid React issues
+    setIsLoading(false);
+    setIframeError(true);
+    setShowAlternatives(true);
 
-        if (autoRedirectTimer) {
-          clearTimeout(autoRedirectTimer);
-          setAutoRedirectTimer(null);
-        }
+    if (autoRedirectTimer) {
+      clearTimeout(autoRedirectTimer);
+      setAutoRedirectTimer(null);
+    }
 
-        const scholarshipData = scholarshipOpportunities.find(s => s.id === selectedScholarship);
-        if (scholarshipData) {
-          console.log(`Auto-redirecting ${scholarshipData.name} to browser due to confirmed iframe failure`);
-          setTimeout(() => {
-            handleExternalLinkClick(scholarshipData.url);
-            setTimeout(() => {
-              setSelectedScholarship(null);
-              setIframeError(false);
-              setShowAlternatives(false);
-            }, 500);
-          }, 2000);
-        }
-      }
-    }, 3000);
+    // Auto-redirect after a delay
+    const scholarshipData = scholarshipOpportunities.find(s => s.id === selectedScholarship);
+    if (scholarshipData) {
+      console.log(`Auto-redirecting ${scholarshipData.name} to browser due to iframe failure`);
+      setTimeout(() => {
+        handleExternalLinkClick(scholarshipData.url);
+        setTimeout(() => {
+          setSelectedScholarship(null);
+          setIframeError(false);
+          setShowAlternatives(false);
+        }, 500);
+      }, 2000);
+    }
   };
 
   const handleOpenInBrowser = () => {
