@@ -225,6 +225,31 @@ const EducationalPathwayGuide: React.FC = () => {
           difficulty: 'Medium',
           timeframe: '3 years',
           cost: 'Medium'
+        },
+        {
+          id: 'tvet-program',
+          title: 'TVET Program',
+          description: 'Technical and Vocational Education and Training for practical skills',
+          requirements: [
+            'Interest in hands-on technical work',
+            'Good manual dexterity and problem-solving skills',
+            'Basic mathematics and science understanding',
+            'Willingness to learn practical trades'
+          ],
+          outcomes: [
+            'Direct entry into skilled trades and technical careers',
+            'Entrepreneurship opportunities in technical fields',
+            'Pathway to technical universities and polytechnics',
+            'High demand skills in construction, automotive, ICT, and manufacturing'
+          ],
+          nextSteps: [
+            'Choose specific technical specialization',
+            'Seek apprenticeship opportunities',
+            'Consider technical university pathways'
+          ],
+          difficulty: 'Medium',
+          timeframe: '2-3 years',
+          cost: 'Low'
         }
       ]
     },
@@ -369,11 +394,11 @@ const EducationalPathwayGuide: React.FC = () => {
           </p>
         </div>
 
-        {/* Progress Indicator - Mobile Horizontal, Desktop Flowchart */}
+        {/* Progress Indicator - Horizontal on all screen sizes */}
         <div className="flex justify-center mb-8 px-6">
-          <div className="flex md:flex-col items-center space-x-2 md:space-x-0 md:space-y-4 overflow-x-auto pb-2 md:pb-0">
+          <div className="flex items-center space-x-2 overflow-x-auto pb-2">
             {pathwaySteps.map((step, index) => (
-              <div key={step.id} className="flex md:flex-col items-center flex-shrink-0">
+              <div key={step.id} className="flex items-center flex-shrink-0">
                 <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 shadow-lg transition-all duration-300 ${
                   index <= currentStep
                     ? 'bg-gradient-to-r from-purple-600 to-blue-600 border-purple-500 text-white shadow-purple-500/30'
@@ -382,7 +407,7 @@ const EducationalPathwayGuide: React.FC = () => {
                   {index < currentStep ? <CheckCircle className="w-6 h-6" /> : index + 1}
                 </div>
                 {index < pathwaySteps.length - 1 && (
-                  <div className={`w-8 h-1 md:w-1 md:h-8 mx-1 md:mx-0 md:my-2 rounded-full transition-all duration-300 ${
+                  <div className={`w-8 h-1 mx-1 rounded-full transition-all duration-300 ${
                     index < currentStep ? 'bg-gradient-to-r from-purple-600 to-blue-600' : 'bg-gray-600'
                   }`} />
                 )}
