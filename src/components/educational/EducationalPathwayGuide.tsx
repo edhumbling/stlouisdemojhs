@@ -479,9 +479,14 @@ const EducationalPathwayGuide: React.FC = () => {
         type="website"
       />
 
+      {/* Hide footer on this page */}
+      <style>{`
+        footer { display: none !important; }
+      `}</style>
+
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-emerald-900 via-teal-800 to-emerald-900 py-3 sm:py-4 pt-20">
-        <div className="container mx-auto px-4">
+        <div className="px-4 sm:px-6">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleBack}
@@ -502,63 +507,71 @@ const EducationalPathwayGuide: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-full">
-        {/* Introduction */}
-        <div className="text-center mb-8 px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Make Informed Educational Decisions
-          </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            Navigate your educational journey with confidence. Get step-by-step guidance on excelling in JHS,
-            choosing the right SHS program, preparing for SAT, and accessing scholarship opportunities.
-          </p>
-        </div>
+      {/* Main Content */}
+      <main className="flex-1">
+        <div className="w-full">
+          {/* Progress Navigation */}
+          <div className="mb-6 px-4 sm:px-6 py-4 sm:py-6">
+            {/* Introduction */}
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                Make Informed Educational Decisions
+              </h2>
+              <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+                Navigate your educational journey with confidence. Get step-by-step guidance on excelling in JHS,
+                choosing the right SHS program, preparing for SAT, and accessing scholarship opportunities.
+              </p>
+            </div>
 
-        {/* Progress Indicator - Horizontal on all screen sizes with clickable steps */}
-        <div className="flex justify-center mb-8 px-6">
-          <div className="flex items-center space-x-2 overflow-x-auto pb-2">
-            {pathwaySteps.map((step, index) => (
-              <div key={step.id} className="flex items-center flex-shrink-0">
-                <button
-                  onClick={() => goToStep(index)}
-                  className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 ${
-                    index <= currentStep
-                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 border-purple-500 text-white shadow-purple-500/30 hover:from-purple-700 hover:to-blue-700'
-                      : 'bg-gray-800 border-gray-600 text-gray-400 shadow-gray-800/30 hover:bg-gray-700 hover:border-gray-500'
-                  }`}
-                  title={`Go to ${step.title}`}
-                >
-                  {index < currentStep ? <CheckCircle className="w-6 h-6" /> : index + 1}
-                </button>
-                {index < pathwaySteps.length - 1 && (
-                  <div className={`w-8 h-1 mx-1 rounded-full transition-all duration-300 ${
-                    index < currentStep ? 'bg-gradient-to-r from-purple-600 to-blue-600' : 'bg-gray-600'
-                  }`} />
-                )}
+            {/* Progress Indicator - Horizontal on all screen sizes with clickable steps */}
+            <div className="flex justify-center mb-8">
+              <div className="flex items-center space-x-2 overflow-x-auto pb-2">
+                {pathwaySteps.map((step, index) => (
+                  <div key={step.id} className="flex items-center flex-shrink-0">
+                    <button
+                      onClick={() => goToStep(index)}
+                      className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 ${
+                        index <= currentStep
+                          ? 'bg-gradient-to-r from-purple-600 to-blue-600 border-purple-500 text-white shadow-purple-500/30 hover:from-purple-700 hover:to-blue-700'
+                          : 'bg-gray-800 border-gray-600 text-gray-400 shadow-gray-800/30 hover:bg-gray-700 hover:border-gray-500'
+                      }`}
+                      title={`Go to ${step.title}`}
+                    >
+                      {index < currentStep ? <CheckCircle className="w-6 h-6" /> : index + 1}
+                    </button>
+                    {index < pathwaySteps.length - 1 && (
+                      <div className={`w-8 h-1 mx-1 rounded-full transition-all duration-300 ${
+                        index < currentStep ? 'bg-gradient-to-r from-purple-600 to-blue-600' : 'bg-gray-600'
+                      }`} />
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Current Step */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl mx-6 md:mx-auto md:max-w-6xl p-6 md:p-8 mb-8">
-          <div className="flex items-center gap-4 mb-6">
-            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${currentStepData.color} flex items-center justify-center text-white`}>
-              {currentStepData.icon}
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-white">{currentStepData.title}</h2>
-              <p className="text-gray-400">{currentStepData.description}</p>
             </div>
           </div>
 
-          {/* Options Grid - Mobile Horizontal with Fade Edges, Desktop Grid */}
-          <div className="relative mb-8">
-            {/* Fade edges for mobile horizontal scroll */}
-            <div className="md:hidden absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-gray-900/80 to-transparent z-10 pointer-events-none"></div>
-            <div className="md:hidden absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-gray-900/80 to-transparent z-10 pointer-events-none"></div>
+          {/* Current Step Content - Edge to Edge */}
+          <div className={`p-6 border-y ${currentStepData.color.includes('blue') ? 'border-blue-500/30 bg-gradient-to-r from-blue-900/50 via-indigo-900/50 to-blue-900/50' :
+                          currentStepData.color.includes('green') ? 'border-green-500/30 bg-gradient-to-r from-green-900/50 via-emerald-900/50 to-green-900/50' :
+                          currentStepData.color.includes('purple') ? 'border-purple-500/30 bg-gradient-to-r from-purple-900/50 via-violet-900/50 to-purple-900/50' :
+                          'border-emerald-500/30 bg-gradient-to-r from-emerald-900/50 via-teal-900/50 to-emerald-900/50'}`}>
+            <div className="flex items-center gap-4 mb-6 px-4 sm:px-6">
+              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${currentStepData.color} flex items-center justify-center text-white`}>
+                {currentStepData.icon}
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-white">{currentStepData.title}</h2>
+                <p className="text-gray-400">{currentStepData.description}</p>
+              </div>
+            </div>
 
-            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto pb-4 md:pb-0 px-4 md:px-0 scrollbar-hide">
+            {/* Options Grid - Mobile Horizontal with Fade Edges, Desktop Grid */}
+            <div className="relative mb-8 px-4 sm:px-6">
+              {/* Fade edges for mobile horizontal scroll */}
+              <div className="md:hidden absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-gray-900/80 to-transparent z-10 pointer-events-none"></div>
+              <div className="md:hidden absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-gray-900/80 to-transparent z-10 pointer-events-none"></div>
+
+              <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto pb-4 md:pb-0 px-4 md:px-0 scrollbar-hide">
             {currentStepData.options.map((option) => (
               <motion.div
                 key={option.id}
@@ -630,70 +643,83 @@ const EducationalPathwayGuide: React.FC = () => {
                   </motion.div>
                 )}
               </motion.div>
-            ))}
+              ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Step Selection Buttons - Quick Navigation */}
-        <div className="flex justify-center mb-6 px-6">
-          <div className="flex gap-2 bg-gray-800/50 rounded-xl p-2 backdrop-blur-sm border border-gray-600/50">
-            {pathwaySteps.map((step, index) => (
-              <button
-                key={step.id}
-                onClick={() => goToStep(index)}
-                className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm ${
-                  index === currentStep
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/30'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                }`}
-                title={step.title}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Navigation - Mobile Optimized */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 px-6 md:px-0 md:max-w-6xl md:mx-auto">
-          <button
-            onClick={prevStep}
-            disabled={currentStep === 0}
-            className="w-full md:w-auto flex items-center justify-center gap-2 px-4 md:px-6 py-3 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-xl transition-all duration-300 shadow-lg"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span className="font-medium">Previous</span>
-          </button>
-
-          <div className="text-center order-first md:order-none">
-            <p className="text-gray-400 text-sm font-medium">
-              Step {currentStep + 1} of {pathwaySteps.length}
-            </p>
-            <div className="flex gap-1 mt-1 justify-center">
-              {pathwaySteps.map((_, index) => (
+          {/* Step Selection Buttons - Quick Navigation */}
+          <div className="flex justify-center mb-6 px-4 sm:px-6">
+            <div className="flex gap-2 bg-gray-800/50 rounded-xl p-2 backdrop-blur-sm border border-gray-600/50">
+              {pathwaySteps.map((step, index) => (
                 <button
-                  key={index}
+                  key={step.id}
                   onClick={() => goToStep(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer hover:scale-125 ${
-                    index === currentStep ? 'bg-purple-500' : 'bg-gray-600 hover:bg-gray-500'
+                  className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm ${
+                    index === currentStep
+                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/30'
+                      : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                   }`}
-                  title={`Go to step ${index + 1}`}
-                />
+                  title={step.title}
+                >
+                  {index + 1}
+                </button>
               ))}
             </div>
           </div>
 
-          <button
-            onClick={nextStep}
-            disabled={currentStep === pathwaySteps.length - 1}
-            className="w-full md:w-auto flex items-center justify-center gap-2 px-4 md:px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-xl transition-all duration-300 shadow-lg"
-          >
-            <span className="font-medium">Next</span>
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          {/* Bottom Navigation */}
+          <div className="flex items-center justify-between mt-6 pt-4 px-4 sm:px-6 border-t border-gray-700/50 gap-2">
+            <button
+              onClick={prevStep}
+              disabled={currentStep === 0}
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm ${
+                currentStep === 0
+                  ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
+                  : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-emerald-500/25'
+              }`}
+            >
+              <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Previous Step</span>
+              <span className="sm:hidden">Previous</span>
+            </button>
+
+            <div className="text-center flex-1">
+              <div className="text-xs sm:text-sm text-gray-400 mb-1">Progress</div>
+              <div className="flex items-center justify-center gap-1">
+                {pathwaySteps.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToStep(index)}
+                    className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 cursor-pointer hover:scale-125 ${
+                      index <= currentStep ? 'bg-emerald-500' : 'bg-gray-600 hover:bg-gray-500'
+                    }`}
+                    title={`Go to step ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <button
+              onClick={nextStep}
+              disabled={currentStep === pathwaySteps.length - 1}
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm ${
+                currentStep === pathwaySteps.length - 1
+                  ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
+                  : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-emerald-500/25'
+              }`}
+            >
+              <span className="hidden sm:inline">
+                {currentStep === pathwaySteps.length - 1 ? 'Completed' : 'Next Step'}
+              </span>
+              <span className="sm:hidden">
+                {currentStep === pathwaySteps.length - 1 ? 'Done' : 'Next'}
+              </span>
+              {currentStep < pathwaySteps.length - 1 && <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />}
+            </button>
+          </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };
