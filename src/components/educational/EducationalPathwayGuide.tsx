@@ -357,9 +357,9 @@ const EducationalPathwayGuide: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto p-6">
+      <div className="w-full">
         {/* Introduction */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 px-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Make Informed Educational Decisions
           </h2>
@@ -370,8 +370,8 @@ const EducationalPathwayGuide: React.FC = () => {
         </div>
 
         {/* Progress Indicator - Mobile Horizontal, Desktop Flowchart */}
-        <div className="flex justify-center mb-8">
-          <div className="flex md:flex-col items-center space-x-2 md:space-x-0 md:space-y-4 overflow-x-auto pb-2 md:pb-0 px-4 md:px-0">
+        <div className="flex justify-center mb-8 px-6">
+          <div className="flex md:flex-col items-center space-x-2 md:space-x-0 md:space-y-4 overflow-x-auto pb-2 md:pb-0">
             {pathwaySteps.map((step, index) => (
               <div key={step.id} className="flex md:flex-col items-center flex-shrink-0">
                 <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 shadow-lg transition-all duration-300 ${
@@ -392,7 +392,7 @@ const EducationalPathwayGuide: React.FC = () => {
         </div>
 
         {/* Current Step */}
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 mb-8">
+        <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl mx-6 md:mx-auto md:max-w-6xl p-6 md:p-8 mb-8">
           <div className="flex items-center gap-4 mb-6">
             <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${currentStepData.color} flex items-center justify-center text-white`}>
               {currentStepData.icon}
@@ -403,8 +403,13 @@ const EducationalPathwayGuide: React.FC = () => {
             </div>
           </div>
 
-          {/* Options Grid - Mobile Horizontal, Desktop Grid */}
-          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 overflow-x-auto pb-4 md:pb-0 px-2 md:px-0">
+          {/* Options Grid - Mobile Horizontal with Fade Edges, Desktop Grid */}
+          <div className="relative mb-8">
+            {/* Fade edges for mobile horizontal scroll */}
+            <div className="md:hidden absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-gray-900/80 to-transparent z-10 pointer-events-none"></div>
+            <div className="md:hidden absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-gray-900/80 to-transparent z-10 pointer-events-none"></div>
+
+            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto pb-4 md:pb-0 px-4 md:px-0 scrollbar-hide">
             {currentStepData.options.map((option) => (
               <motion.div
                 key={option.id}
@@ -477,11 +482,12 @@ const EducationalPathwayGuide: React.FC = () => {
                 )}
               </motion.div>
             ))}
+            </div>
           </div>
         </div>
 
         {/* Navigation - Mobile Optimized */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 px-6 md:px-0 md:max-w-6xl md:mx-auto">
           <button
             onClick={prevStep}
             disabled={currentStep === 0}
