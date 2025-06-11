@@ -407,19 +407,19 @@ const LocalUniversitiesPage: React.FC = () => {
         footer { display: none !important; }
       `}</style>
 
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 border-b border-blue-800/30">
-        <div className="px-4 sm:px-6 py-4 sm:py-6">
-          <div className="flex items-center gap-3 sm:gap-4">
+      {/* Header with Back Button */}
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 pt-20">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={() => navigate(-1)}
-              className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/50 rounded-lg transition-all duration-300 text-blue-300 hover:text-blue-200 text-sm sm:text-base"
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
             >
-              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="hidden sm:inline">Back</span>
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
             </button>
-            <div className="flex-1">
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2">
+            <div className="flex-1 min-w-0">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
                 Local Universities in Ghana
               </h1>
               <p className="text-sm text-blue-200 truncate">
