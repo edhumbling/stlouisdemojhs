@@ -180,7 +180,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
+    <div className="min-h-screen bg-gradient-to-b from-silver-900/95 to-silver-800/95">
       <SEOHead
         title="Scholarship Opportunities | St. Louis Demonstration JHS"
         description="Comprehensive guide to scholarships, SAT preparation, and educational opportunities in Ghana and abroad for students at St. Louis Demonstration JHS."
@@ -189,20 +189,24 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         type="website"
       />
       
-      {/* Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <button
-              onClick={() => navigate('/students-hub')}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
-            >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-              <span>Back</span>
-            </button>
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              Scholarship Opportunities
-            </h1>
+      {/* Back Button and Title Section with Liquid Glass Effect */}
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-purple-800/80 to-purple-900/80 backdrop-blur-xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(147,51,234,0.15),transparent_70%)]" />
+        <div className="relative py-3 sm:py-4 pt-20">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={() => navigate('/students-hub')}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-white/10 hover:bg-white/20 text-white font-medium rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-md border border-white/20 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                Scholarship Opportunities
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -214,8 +218,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
             <section key={index} className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg"
-                  style={{ backgroundColor: section.color }}
+                  className="w-10 h-10 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md bg-white/10 border border-white/20"
+                  style={{ backgroundColor: `${section.color}20` }}
                 >
                   {section.icon}
                 </div>
@@ -227,7 +231,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                 {section.content}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {section.items.map((item, itemIndex) => (
+                {section.items?.map((item, itemIndex) => (
                   <motion.div
                     key={itemIndex}
                     initial={{ opacity: 0, y: 20 }}
@@ -238,13 +242,13 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                       href={item.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-gray-700/60 text-left relative overflow-hidden group flex flex-col"
+                      className="block w-full h-[200px] bg-white/5 backdrop-blur-xl rounded-3xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 hover:bg-white/10 text-left relative overflow-hidden group flex flex-col"
                     >
                       {/* Background Gradient */}
                       <div
-                        className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                        className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300"
                         style={{
-                          background: `linear-gradient(135deg, ${section.color}20 0%, transparent 50%)`
+                          background: `linear-gradient(135deg, ${section.color}40 0%, transparent 50%)`
                         }}
                       />
                       {/* Content */}
@@ -259,18 +263,18 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                         </p>
                       </div>
                       {/* Action Footer */}
-                      <div className="flex items-center justify-between pt-2 border-t border-gray-700/30 mt-auto">
+                      <div className="flex items-center justify-between pt-2 border-t border-white/10 mt-auto">
                         <div className="flex items-center gap-1">
                           <span className="text-xs text-purple-400 font-medium">
                             Visit Website
                           </span>
                         </div>
-                        <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300">
+                        <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
                           <ExternalLink size={10} className="text-purple-400 group-hover:text-purple-300" />
                         </div>
                       </div>
                       {/* Hover Effect Overlay */}
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     </a>
                   </motion.div>
                 ))}
