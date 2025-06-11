@@ -77,6 +77,11 @@ const EducationalGuidePage: React.FC = () => {
         type="website"
       />
 
+      {/* Hide footer on this page */}
+      <style>{`
+        footer { display: none !important; }
+      `}</style>
+
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 py-3 sm:py-4 pt-20">
         <div className="container mx-auto px-4">
@@ -101,36 +106,36 @@ const EducationalGuidePage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 py-6 sm:py-8">
-        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+      <main className="flex-1 py-4 sm:py-6">
+        <div className="container mx-auto px-3 sm:px-4 max-w-4xl">
 
           {/* Progress Navigation */}
-          <div className="mb-8">
+          <div className="mb-6">
             {/* Section Progress Indicators */}
-            <div className="flex justify-center mb-6">
-              <div className="flex items-center space-x-2 overflow-x-auto pb-2">
+            <div className="flex justify-center mb-4">
+              <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto pb-2 px-2">
                 {sections.map((section, index) => (
                   <div key={section.id} className="flex items-center flex-shrink-0">
                     <button
                       onClick={() => setCurrentSection(section.id)}
-                      className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 shadow-lg transition-all duration-300 ${
+                      className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center border-2 shadow-md transition-all duration-300 text-xs sm:text-sm ${
                         currentSection === section.id
-                          ? `${section.bgColor} border-white text-white shadow-lg scale-110`
+                          ? `${section.bgColor} border-white text-white shadow-lg scale-105`
                           : currentSection > section.id
                           ? `${section.bgColor} border-gray-400 text-white shadow-md`
                           : 'bg-gray-800 border-gray-600 text-gray-400 shadow-gray-800/30'
                       }`}
                     >
                       {currentSection > section.id ? (
-                        <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center">
-                          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white flex items-center justify-center">
+                          <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-green-500"></div>
                         </div>
                       ) : (
                         <span className="font-bold">{section.id}</span>
                       )}
                     </button>
                     {index < sections.length - 1 && (
-                      <div className={`w-8 h-1 mx-1 rounded-full transition-all duration-300 ${
+                      <div className={`w-4 sm:w-6 h-0.5 sm:h-1 mx-0.5 sm:mx-1 rounded-full transition-all duration-300 ${
                         currentSection > section.id ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gray-600'
                       }`} />
                     )}
@@ -140,46 +145,48 @@ const EducationalGuidePage: React.FC = () => {
             </div>
 
             {/* Section Title and Navigation */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4 gap-2">
               <button
                 onClick={prevSection}
                 disabled={currentSection === 1}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                className={`flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm ${
                   currentSection === 1
                     ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
                     : 'bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 hover:text-emerald-300'
                 }`}
               >
-                <ChevronLeft className="w-4 h-4" />
-                Previous
+                <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Previous</span>
+                <span className="sm:hidden">Prev</span>
               </button>
 
-              <div className="text-center">
-                <h2 className="text-xl sm:text-2xl font-bold text-white">
+              <div className="text-center flex-1 min-w-0">
+                <h2 className="text-sm sm:text-lg md:text-xl font-bold text-white truncate">
                   {sections[currentSection - 1]?.title}
                 </h2>
-                <p className="text-gray-400 text-sm">
-                  Section {currentSection} of {sections.length}
+                <p className="text-gray-400 text-xs sm:text-sm">
+                  {currentSection} of {sections.length}
                 </p>
               </div>
 
               <button
                 onClick={nextSection}
                 disabled={currentSection === sections.length}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                className={`flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm ${
                   currentSection === sections.length
                     ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
                     : 'bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 hover:text-emerald-300'
                 }`}
               >
-                Next
-                <ChevronRight className="w-4 h-4" />
+                <span className="hidden sm:inline">Next</span>
+                <span className="sm:hidden">Next</span>
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
           </div>
 
           {/* Educational Information Sections */}
-          <div className="space-y-8">
+          <div className="space-y-4">
             {/* SAT Explanation */}
             {currentSection === 1 && (
               <motion.div
@@ -188,14 +195,14 @@ const EducationalGuidePage: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4 }}
-                className="bg-gradient-to-r from-green-900/50 via-emerald-900/50 to-green-900/50 rounded-2xl p-6 border border-green-500/30"
+                className="bg-gradient-to-r from-green-900/50 via-emerald-900/50 to-green-900/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-green-500/30"
               >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Target className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Target className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-white mb-3">What is the SAT?</h2>
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">What is the SAT?</h2>
                   <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                     The SAT (Scholastic Assessment Test) is a standardized test widely used for college admissions in the United States and internationally. 
                     It measures literacy, numeracy, and writing skills that are needed for academic success in college. The SAT is scored on a scale of 400-1600, 
@@ -459,27 +466,28 @@ const EducationalGuidePage: React.FC = () => {
           </div>
 
           {/* Bottom Navigation */}
-          <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-700/50">
+          <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-700/50 gap-2">
             <button
               onClick={prevSection}
               disabled={currentSection === 1}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm ${
                 currentSection === 1
                   ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
                   : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-emerald-500/25'
               }`}
             >
-              <ChevronLeft className="w-4 h-4" />
-              Previous Section
+              <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Previous Section</span>
+              <span className="sm:hidden">Previous</span>
             </button>
 
-            <div className="text-center">
-              <div className="text-sm text-gray-400 mb-1">Progress</div>
-              <div className="flex items-center gap-1">
+            <div className="text-center flex-1">
+              <div className="text-xs sm:text-sm text-gray-400 mb-1">Progress</div>
+              <div className="flex items-center justify-center gap-1">
                 {sections.map((_, index) => (
                   <div
                     key={index}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
                       index < currentSection ? 'bg-emerald-500' : 'bg-gray-600'
                     }`}
                   />
@@ -490,14 +498,19 @@ const EducationalGuidePage: React.FC = () => {
             <button
               onClick={nextSection}
               disabled={currentSection === sections.length}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm ${
                 currentSection === sections.length
                   ? 'bg-gray-800/50 text-gray-500 cursor-not-allowed'
                   : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-emerald-500/25'
               }`}
             >
-              {currentSection === sections.length ? 'Completed' : 'Next Section'}
-              {currentSection < sections.length && <ChevronRight className="w-4 h-4" />}
+              <span className="hidden sm:inline">
+                {currentSection === sections.length ? 'Completed' : 'Next Section'}
+              </span>
+              <span className="sm:hidden">
+                {currentSection === sections.length ? 'Done' : 'Next'}
+              </span>
+              {currentSection < sections.length && <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />}
             </button>
           </div>
         </div>
