@@ -57,6 +57,13 @@ export default {
           seaBlue: '#0891b2',
           white: '#ffffff',
         },
+        // Olive green color for Mayamiles AI button
+        olive: {
+          400: '#8B9A46',
+          500: '#6B7C32',
+          600: '#5A6B2A',
+          700: '#4A5A22',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

@@ -97,7 +97,7 @@ const MayamilesAIPage: React.FC = () => {
               Meet Mayamiles AI - your intelligent voice-powered tutor that helps you master any subject through natural conversation. Just speak your questions and get instant, personalized explanations!
             </motion.p>
 
-            {/* Start Learning Button - Larger with Beautiful Ripple Effects */}
+            {/* Start Learning Button - Clean Olive Green Design */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -108,41 +108,28 @@ const MayamilesAIPage: React.FC = () => {
                 onClick={handleStartLearning}
                 className="group relative inline-flex items-center justify-center w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44"
               >
-                {/* Beautiful ripple glow effects - multiple expanding rings */}
-                <span className="absolute inset-0 rounded-full bg-white/8 animate-ping" style={{ animationDuration: '4s' }}></span>
-                <span className="absolute inset-0 rounded-full bg-white/12 animate-ping" style={{ animationDuration: '3.5s', animationDelay: '0.3s' }}></span>
-                <span className="absolute inset-0 rounded-full bg-white/16 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.6s' }}></span>
-                <span className="absolute inset-0 rounded-full bg-white/20 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.9s' }}></span>
-                <span className="absolute inset-0 rounded-full bg-white/24 animate-ping" style={{ animationDuration: '2s', animationDelay: '1.2s' }}></span>
+                {/* Simple glow effect */}
+                <span className="absolute inset-0 rounded-full bg-white/10 animate-pulse" style={{ animationDuration: '2s' }}></span>
 
-                {/* Outer glow ring */}
-                <span className="absolute inset-2 rounded-full bg-gradient-to-r from-white/10 via-white/20 to-white/10 animate-pulse" style={{ animationDuration: '2.5s' }}></span>
+                {/* Main button container */}
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full">
+                  {/* White outer ring */}
+                  <div className="absolute inset-0 rounded-full border-4 border-white/70 shadow-[0_0_20px_rgba(255,255,255,0.4)]"></div>
 
-                {/* Main button - Larger and more beautiful */}
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full bg-gradient-to-br from-green-600 via-green-700 to-green-800 shadow-[0_0_30px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.6),0_0_80px_rgba(255,255,255,0.3)] transition-all duration-500 group-hover:scale-105 border-4 border-white/40 hover:border-white/60">
+                  {/* Olive green circle - properly sized */}
+                  <div className="absolute inset-3 rounded-full bg-gradient-to-br from-olive-500 via-olive-600 to-olive-700 shadow-[0_0_25px_rgba(107,124,50,0.5)] hover:shadow-[0_0_30px_rgba(107,124,50,0.7)] transition-all duration-300 group-hover:scale-105">
 
-                  {/* Inner rotating glow */}
-                  <span className="absolute inset-3 rounded-full bg-gradient-to-r from-white/20 via-transparent to-white/20 animate-spin" style={{ animationDuration: '6s' }}></span>
+                    {/* Simple inner glow */}
+                    <span className="absolute inset-1 rounded-full bg-gradient-to-br from-white/15 to-transparent"></span>
 
-                  {/* Pulsing inner core */}
-                  <span className="absolute inset-4 rounded-full bg-gradient-to-br from-green-500/30 to-green-600/30 animate-pulse" style={{ animationDuration: '2s' }}></span>
-
-                  {/* Text content - White and Cute */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center">
-                    <span className="text-sm sm:text-base md:text-lg lg:text-xl leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                      Start Learning<br/>with<br/>Mayamiles AI
-                    </span>
+                    {/* Text content - Simplified and properly sized */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center px-2">
+                      <span className="text-xs sm:text-sm md:text-base lg:text-lg leading-tight" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        Start<br/>Mayamiles<br/>AI
+                      </span>
+                    </div>
                   </div>
-
-                  {/* Beautiful sweeping light effect */}
-                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent -rotate-45 translate-x-full group-hover:-translate-x-full transition-transform duration-2000"></span>
-
-                  {/* Additional sparkle effect */}
-                  <span className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-white/20 to-transparent rotate-45 -translate-x-full group-hover:translate-x-full transition-transform duration-1800 delay-200"></span>
                 </div>
-
-                {/* Continuous beautiful beaming effect */}
-                <span className="absolute inset-0 rounded-full animate-pulse bg-gradient-to-r from-white/5 via-white/10 to-white/5" style={{ animationDuration: '1.8s' }}></span>
               </button>
             </motion.div>
 
