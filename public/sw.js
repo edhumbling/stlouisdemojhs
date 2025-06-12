@@ -1,4 +1,4 @@
-const CACHE_NAME = 'st-louis-demo-jhs-v6';
+const CACHE_NAME = 'st-louis-demo-jhs-v7';
 const urlsToCache = [
   '/',
   '/manifest.json',

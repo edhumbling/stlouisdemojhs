@@ -121,6 +121,12 @@ const ScrollPositionManager: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  // Cache busting for fresh deployments
+  React.useEffect(() => {
+    console.log('🚀 St. Louis Demo JHS - Fresh deployment loaded v2024-01-30-001');
+    console.log('✅ MayaMiles AI with SuperChat functionality ready');
+  }, []);
+
   return (
     <HelmetProvider>
       <HeaderProvider>
