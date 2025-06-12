@@ -224,10 +224,6 @@ const TeacherTrainingPage: React.FC = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
               Teacher Training Institutions
             </h1>
-              <p className="text-sm text-blue-200 truncate">
-                Comprehensive directory of teacher education institutions in Ghana
-              </p>
-            </div>
           </div>
         </div>
       </div>
