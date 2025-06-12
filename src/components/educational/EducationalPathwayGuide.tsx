@@ -756,7 +756,6 @@ const EducationalPathwayGuide: React.FC = () => {
                 Smart decisions for your academic journey
               </p>
             </div>
-            </div>
           </div>
         </div>
       </div>
