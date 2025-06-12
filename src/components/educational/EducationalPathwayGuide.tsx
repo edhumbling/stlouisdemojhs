@@ -748,12 +748,14 @@ const EducationalPathwayGuide: React.FC = () => {
               <span>Back</span>
             </button>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              Educational Pathway Decision Guide
-            </h1>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                🎯 Educational Pathway Guide
+              </h1>
               <p className="text-sm text-emerald-200 truncate">
-                Your comprehensive guide from JHS to University success
+                Smart decisions for your academic journey
               </p>
+            </div>
             </div>
           </div>
         </div>
@@ -766,12 +768,13 @@ const EducationalPathwayGuide: React.FC = () => {
           <div className="mb-6 px-4 sm:px-6 py-4 sm:py-6">
             {/* Introduction */}
             <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Make Informed Educational Decisions
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">
+                🚀 Chart Your Path to Success
               </h2>
-              <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-                Navigate your educational journey with confidence. Get step-by-step guidance on excelling in JHS,
-                choosing the right SHS program, preparing for SAT, and accessing scholarship opportunities.
+              <p className="text-gray-400 text-base sm:text-lg max-w-4xl mx-auto leading-relaxed">
+                From JHS excellence to university dreams - discover your perfect educational pathway.
+                Explore traditional academics, technical training, entrepreneurship opportunities, and international scholarships.
+                Make informed decisions with expert guidance on SAT prep, SHS programs, TVET options, and startup ecosystems.
               </p>
             </div>
 

@@ -2142,16 +2142,16 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
               pageKey="scholarship-opportunities"
             />
 
-            {/* Educational Guide Button */}
+            {/* Did you Know? Button */}
             <div className="flex justify-center mt-4">
               <Link
                 to="/educational-guide"
-                className="px-4 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-emerald-500 via-emerald-600 to-emerald-700 shadow-md hover:shadow-lg hover:from-emerald-600 hover:to-emerald-800 transition-all duration-300 text-sm sm:text-base flex items-center justify-center gap-2 relative overflow-hidden group"
-                style={{ filter: 'drop-shadow(0 0 8px #10b981)' }}
+                className="px-4 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 shadow-md hover:shadow-lg hover:from-yellow-600 hover:to-yellow-800 transition-all duration-300 text-sm sm:text-base flex items-center justify-center gap-2 relative overflow-hidden group"
+                style={{ filter: 'drop-shadow(0 0 12px #eab308)' }}
               >
                 <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
-                Complete Educational Guide
-                <span className="text-xs bg-emerald-400/20 px-2 py-1 rounded-full ml-2">
+                Did you Know?
+                <span className="text-xs bg-yellow-400/20 px-2 py-1 rounded-full ml-2">
                   SAT • SHS • TVET • Entrepreneurship
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
