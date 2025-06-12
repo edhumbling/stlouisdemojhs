@@ -182,7 +182,6 @@ const App: React.FC = () => {
           <Route path="/agricultural-colleges" element={<AgriculturalCollegesPage />} />
           <Route path="/business-schools" element={<BusinessSchoolsPage />} />
           <Route path="/online-universities" element={<OnlineUniversitiesPage />} />
-          <Route path="/mayamiles-ai" element={<MayamilesAIPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
@@ -201,6 +200,9 @@ const App: React.FC = () => {
           {/* Catch-all route for paths within the layout */}
           <Route path="*" element={<NotFoundPage />} />
         </Route>
+
+        {/* Standalone pages without Layout (no header/footer) */}
+        <Route path="/mayamiles-ai" element={<MayamilesAIPage />} />
 
         {/* Global catch-all route for direct access to non-existent routes */}
         <Route path="*" element={<NotFoundPage />} />

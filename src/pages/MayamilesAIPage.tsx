@@ -68,7 +68,7 @@ const MayamilesAIPage: React.FC = () => {
             </button>
 
             <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
-              🤖 Learn with Mayamiles AI
+              🤖 Learn with MayaMiles AI
             </h1>
           </div>
         </div>
@@ -127,7 +127,7 @@ const MayamilesAIPage: React.FC = () => {
                     {/* Text content */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center px-2">
                       <span className="text-sm sm:text-base md:text-lg lg:text-xl leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9)' }}>
-                        Start<br/>Mayamiles<br/>AI
+                        Start<br/>MayaMiles<br/>AI
                       </span>
                     </div>
                   </div>

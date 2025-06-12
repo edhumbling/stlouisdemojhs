@@ -484,7 +484,7 @@ const Hero: React.FC = () => {
                 {/* Text content - Updated text */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center px-1">
                   <span className="text-[7px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9)' }}>
-                    Learn with<br/>Mayamiles<br/>AI
+                    Learn with<br/>MayaMiles<br/>AI
                   </span>
                 </div>
               </div>
