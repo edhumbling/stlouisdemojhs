@@ -121,14 +121,7 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const preloadLinks: HTMLLinkElement[] = [];
 
-    // Preload logo first for instant loading screen
-    const logoLink = document.createElement('link');
-    logoLink.rel = 'preload';
-    logoLink.as = 'image';
-    logoLink.href = 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png';
-    logoLink.fetchPriority = 'high';
-    document.head.appendChild(logoLink);
-    preloadLinks.push(logoLink);
+    // Note: Logo preload removed to prevent unused preload warning
 
     images.forEach((image, index) => {
       const link = document.createElement('link');
@@ -463,29 +456,7 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Mayamiles AI Button - Positioned at Right Edge */}
-        <div className="absolute top-1/2 right-4 sm:right-6 md:right-8 lg:right-12 transform -translate-y-1/2 z-20">
-          <Link
-            to="/mayamiles-ai"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-            className="group relative inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold rounded-full shadow-[0_0_25px_rgba(34,197,94,0.6)] hover:shadow-[0_0_35px_rgba(34,197,94,0.8)] transition-all duration-300 text-sm sm:text-base animate-pulse hover:animate-none"
-            style={{
-              textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 10px rgba(34,197,94,0.5)'
-            }}
-          >
-            {/* Beaming glow effect */}
-            <span className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-green-300/30 to-green-400/20 rounded-full"></span>
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/40 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
 
-            {/* Pulsing border glow */}
-            <span className="absolute inset-0 rounded-full border-2 border-green-400/40 animate-pulse"></span>
-
-            {/* Content */}
-            <span className="relative z-10 whitespace-nowrap text-xs sm:text-sm md:text-base">
-              🤖 Learn with Mayamiles AI
-            </span>
-          </Link>
-        </div>
 
         {/* Mayamiles AI Button - Beautiful Double Edge Design */}
         <div className="absolute top-1/2 right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 transform -translate-y-1/2 z-20">

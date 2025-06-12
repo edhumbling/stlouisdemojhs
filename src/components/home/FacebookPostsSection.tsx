@@ -52,19 +52,24 @@ const FacebookPostsSection: React.FC = () => {
 
       // Create ultra-optimized Facebook SDK script
       const script = document.createElement('script');
-      script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0';
+      script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0';
       script.async = true;
       script.defer = false; // Remove defer for faster loading
       script.crossOrigin = 'anonymous';
 
       // Immediate loading handlers
       script.onload = () => {
-        if (window.FB) {
-          window.FB.init({
-            xfbml: true,
-            version: 'v18.0'
-          });
-          setFbLoaded(true);
+        try {
+          if (window.FB) {
+            window.FB.init({
+              xfbml: true,
+              version: 'v19.0'
+            });
+            setFbLoaded(true);
+          }
+        } catch (error) {
+          console.warn('Facebook SDK initialization error:', error);
+          setLoadError(true);
         }
         setIsLoading(false);
       };
