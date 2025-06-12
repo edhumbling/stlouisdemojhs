@@ -470,50 +470,31 @@ const CareerReelResourcesPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
-      {/* Header - Apple Style */}
-      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-6 sm:py-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+      {/* Header with Back Button */}
+      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
-              type="button"
               onClick={handleBack}
-              className="inline-flex items-center gap-2 px-4 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-white/20 flex-shrink-0 hover:scale-105"
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
 
-            <div className="flex-1 text-center">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-                🎯 Career Reel Resources
-              </h1>
-              <p className="text-sm sm:text-base text-red-200">
-                Job hunting tools, tracking sheets, and career development resources
-              </p>
-            </div>
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+              🎯 Career Reel Resources
+            </h1>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 py-8 sm:py-12">
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          {/* Introduction - Apple Style */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-3xl mb-6 shadow-2xl">
-              <Users size={40} className="text-white" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Career Development Tools
-            </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Discover {allResources.length}+ career tools and resources to make your job hunt more manageable.
-            </p>
-          </div>
-
+      <main className="flex-1 py-6 sm:py-8">
+        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
           {/* Smart Search Bar */}
-          <div className="mb-12">
+          <div className="mb-6">
             <SmartSearchBar
               items={searchableItems}
               onSearchResults={handleSearchResults}
@@ -522,35 +503,49 @@ const CareerReelResourcesPage: React.FC = () => {
               categories={categoryOptions}
               types={typeOptions}
               enableIntentDetection={true}
-              className="mb-6"
+              className="mb-4"
+              pageKey="career-reel-resources"
             />
           </div>
 
-          {/* Categorized Resources - Apple Style */}
-          <div className="space-y-12">
+          {/* Introduction - Compact Mobile-Friendly */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl sm:rounded-3xl mb-4 sm:mb-6 shadow-xl">
+              <Users size={32} className="sm:w-10 sm:h-10 text-white" />
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3">
+              Career Development Tools
+            </h2>
+            <p className="text-sm sm:text-base text-gray-300 max-w-xl mx-auto leading-relaxed px-4">
+              Discover {allResources.length}+ career tools and resources to make your job hunt more manageable
+            </p>
+          </div>
+
+          {/* Categorized Resources - Mobile-Optimized */}
+          <div className="space-y-8 sm:space-y-10">
             {Object.entries(filteredCategories).map(([categoryName, categoryResources], categoryIndex) => (
               <motion.div
                 key={categoryName}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: categoryIndex * 0.15 }}
-                className="space-y-6"
+                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                className="space-y-4 sm:space-y-6"
               >
-                {/* Category Header - Apple Style */}
+                {/* Category Header - Compact Mobile */}
                 <div className="text-center">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
                     {categoryName}
                   </h3>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
-                    <FileText size={16} className="text-red-400" />
-                    <span className="text-sm text-gray-300 font-medium">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
+                    <FileText size={14} className="sm:w-4 sm:h-4 text-red-400" />
+                    <span className="text-xs sm:text-sm text-gray-300 font-medium">
                       {categoryResources.length} {categoryResources.length === 1 ? 'resource' : 'resources'}
                     </span>
                   </div>
                 </div>
 
-                {/* Category Resources Grid - Standardized Cards */}
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                {/* Category Resources Grid - Mobile-Optimized */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                   {categoryResources.map((resource, index) => (
                     <motion.div
                       key={resource.id}

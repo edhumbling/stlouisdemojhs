@@ -290,73 +290,67 @@ const DreamHiveResourcesPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
-      {/* Header - Apple Style */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-6 sm:py-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+      {/* Header with Back Button */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
-              type="button"
               onClick={handleBack}
-              className="inline-flex items-center gap-2 px-4 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-white/20 flex-shrink-0 hover:scale-105"
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
 
-            <div className="flex-1 text-center">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-                🎓 Dreamhive Resources
-              </h1>
-              <p className="text-sm sm:text-base text-purple-200">
-                Professional development guides for career and academic success
-              </p>
-            </div>
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+              🎓 Dream Hive Resources
+            </h1>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 py-8 sm:py-12">
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          {/* Introduction - Apple Style */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-3xl mb-6 shadow-2xl">
-              <BookOpen size={40} className="text-white" />
+      <main className="flex-1 py-6 sm:py-8">
+        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+          {/* Introduction - Compact Mobile-Friendly */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl sm:rounded-3xl mb-4 sm:mb-6 shadow-xl">
+              <BookOpen size={32} className="sm:w-10 sm:h-10 text-white" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3">
               Professional Development Resources
             </h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Master essential skills for academic and career success with our comprehensive guides and video tutorials.
+            <p className="text-sm sm:text-base text-gray-300 max-w-xl mx-auto leading-relaxed px-4">
+              Master essential skills for academic and career success with comprehensive guides and tutorials
             </p>
           </div>
 
-          {/* Categorized Resources - Apple Style */}
-          <div className="space-y-12">
+          {/* Categorized Resources - Mobile-Optimized */}
+          <div className="space-y-8 sm:space-y-10">
             {Object.entries(resourceCategories).map(([categoryName, categoryResources], categoryIndex) => (
               <motion.div
                 key={categoryName}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: categoryIndex * 0.15 }}
-                className="space-y-6"
+                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                className="space-y-4 sm:space-y-6"
               >
-                {/* Category Header - Apple Style */}
+                {/* Category Header - Compact Mobile */}
                 <div className="text-center">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2">
                     {categoryName}
                   </h3>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
-                    <FileText size={16} className="text-purple-400" />
-                    <span className="text-sm text-gray-300 font-medium">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
+                    <FileText size={14} className="sm:w-4 sm:h-4 text-purple-400" />
+                    <span className="text-xs sm:text-sm text-gray-300 font-medium">
                       {categoryResources.length} {categoryResources.length === 1 ? 'resource' : 'resources'}
                     </span>
                   </div>
                 </div>
 
-                {/* Category Resources Grid - Small Cute Cards */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                {/* Category Resources Grid - Mobile-Optimized */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
                   {categoryResources.map((resource, index) => (
                     <motion.div
                       key={resource.id}

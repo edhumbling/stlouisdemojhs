@@ -187,15 +187,7 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
       color: 'from-blue-600 to-indigo-600',
       glowColor: '#3b82f6'
     },
-    {
-      id: 'knust-mastercard-foundation',
-      name: 'KNUST Mastercard Foundation Scholars Program',
-      url: 'https://www.knust.edu.gh/admissions/scholarships',
-      description: 'Mastercard Foundation Scholars Program at Kwame Nkrumah University of Science and Technology for academically talented but economically disadvantaged Ghanaian students.',
-      icon: <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />,
-      color: 'from-blue-600 to-indigo-600',
-      glowColor: '#3b82f6'
-    },
+
 
     // International Scholarships (Yellow Category)
     {
@@ -1991,7 +1983,13 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
           name.includes('aga khan') || name.includes('world bank') || name.includes('japan') ||
           name.includes('larry ellison') || name.includes('marshall') || name.includes('clarendon') ||
           name.includes('knight-hennessy') || (name.includes('mastercard foundation') && !name.includes('knust')) ||
-          name.includes('ecobank foundation')) {
+          name.includes('ecobank foundation') || name.includes('inlaks') || name.includes('ford foundation') ||
+          name.includes('british council') || name.includes('lester b. pearson') || name.includes('vienna biocenter') ||
+          name.includes('émile boutmy') || name.includes('danish') || name.includes('belgium') || name.includes('finland') ||
+          name.includes('norway') || name.includes('czech') || name.includes('hungarian') || name.includes('stipendium hungaricum') ||
+          name.includes('polish') || name.includes('slovenia') || name.includes('portugal') || name.includes('camões') ||
+          name.includes('spanish') || name.includes('italian') || name.includes('greek') || name.includes('russian') ||
+          name.includes('new zealand') || name.includes('singapore') || name.includes('brunei')) {
         categories['International Scholarships'].push(scholarship);
       }
       // Venture Capital Firms
