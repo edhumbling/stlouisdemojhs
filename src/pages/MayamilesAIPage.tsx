@@ -1,236 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Mic, Brain, MessageCircle, BookOpen, Calculator, Globe, Zap, RefreshCw } from 'lucide-react';
+import React from 'react';
+import { ArrowLeft, Mic, Brain, MessageCircle, BookOpen, Calculator, Globe, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useHeaderVisibility } from '../contexts/HeaderContext';
 
 const MayamilesAIPage: React.FC = () => {
   const navigate = useNavigate();
-  const [showSuperChat, setShowSuperChat] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [iframeError, setIframeError] = useState(false);
-  const [loadAttempts, setLoadAttempts] = useState(0);
-  const [autoRedirectTimer, setAutoRedirectTimer] = useState<number | null>(null);
-  const { setShowHeader } = useHeaderVisibility();
 
   const handleBack = () => {
-    if (showSuperChat) {
-      setShowSuperChat(false);
-      setIsLoading(false);
-      setIframeError(false);
-      setLoadAttempts(0);
-      // Clear any auto-redirect timer
-      if (autoRedirectTimer) {
-        clearTimeout(autoRedirectTimer);
-        setAutoRedirectTimer(null);
-      }
-    } else {
-      navigate(-1);
-    }
+    navigate(-1);
   };
 
   const handleStartLearning = () => {
     window.open('https://app.sesame.com', '_blank', 'noopener,noreferrer');
   };
 
-  // Hide header when SuperChat is shown, show when hidden - exactly like index.globe
-  useEffect(() => {
-    if (showSuperChat) {
-      setShowHeader(false);
-    } else {
-      setShowHeader(true);
-    }
-
-    return () => {
-      setShowHeader(true);
-    };
-  }, [showSuperChat, setShowHeader]);
-
   const handleSuperChat = () => {
-    setIsLoading(true);
-    setIframeError(false);
-    setLoadAttempts(prev => prev + 1);
-    setShowSuperChat(true);
-
-    // Auto-redirect timer like index.globe - 8 seconds
-    const timer = setTimeout(() => {
-      if (isLoading) {
-        console.log('Auto-redirecting SuperChat to browser due to loading timeout after 8 seconds');
-        setIsLoading(false);
-        setIframeError(true);
-
-        // Show error message briefly then redirect
-        setTimeout(() => {
-          window.open('https://supermemory.chat', '_blank', 'noopener,noreferrer');
-          // Go back to main page after opening
-          setTimeout(() => {
-            setShowSuperChat(false);
-            setIframeError(false);
-          }, 500);
-        }, 1500);
-      }
-    }, 8000); // 8 seconds like index.globe
-
-    setAutoRedirectTimer(timer);
+    // Open SuperChat externally in new tab
+    window.open('https://supermemory.chat', '_blank', 'noopener,noreferrer');
   };
 
-  const handleIframeLoad = () => {
-    console.log('SuperChat iframe loaded successfully');
-    setIsLoading(false);
-    setIframeError(false);
-    // Clear auto-redirect timer since iframe loaded successfully
-    if (autoRedirectTimer) {
-      clearTimeout(autoRedirectTimer);
-      setAutoRedirectTimer(null);
-    }
-  };
 
-  const handleIframeError = () => {
-    console.log('SuperChat iframe error detected - this might be normal for some sites');
-
-    // Don't immediately set error state - many sites trigger this but still work
-    // Only set error if we're still loading after the timeout
-    setTimeout(() => {
-      if (isLoading) {
-        console.log('SuperChat iframe still loading after error event, treating as actual failure');
-        setIsLoading(false);
-        setIframeError(true);
-
-        // Clear auto-redirect timer
-        if (autoRedirectTimer) {
-          clearTimeout(autoRedirectTimer);
-          setAutoRedirectTimer(null);
-        }
-
-        // Auto-redirect when iframe definitely fails
-        console.log('Auto-redirecting SuperChat to browser due to confirmed iframe failure');
-        setTimeout(() => {
-          window.open('https://supermemory.chat', '_blank', 'noopener,noreferrer');
-          // Go back to main page after opening
-          setTimeout(() => {
-            setShowSuperChat(false);
-            setIframeError(false);
-          }, 500);
-        }, 2000); // Wait 2 seconds to show the error message
-      }
-    }, 3000);
-  };
-
-  const handleRefresh = () => {
-    console.log('Refreshing SuperChat');
-    setIsLoading(true);
-    setIframeError(false);
-    setLoadAttempts(prev => prev + 1);
-
-    // Clear any existing timer
-    if (autoRedirectTimer) {
-      clearTimeout(autoRedirectTimer);
-      setAutoRedirectTimer(null);
-    }
-
-    // Force iframe reload by changing src
-    const iframe = document.querySelector('iframe[title="SuperChat"]') as HTMLIFrameElement;
-    if (iframe) {
-      iframe.src = 'https://supermemory.chat' + (iframe.src.includes('?') ? '&' : '?') + 'refresh=' + Date.now();
-    }
-  };
-
-  // Enhanced iframe monitoring with connection detection - exactly like index.globe
-  useEffect(() => {
-    if (showSuperChat && !iframeError) {
-      let checkCount = 0;
-      const maxChecks = 5; // Check 5 times over 10 seconds
-      let connectionFailures = 0;
-
-      const checkIframeStatus = () => {
-        const iframe = document.querySelector('iframe[title="SuperChat"]') as HTMLIFrameElement;
-
-        if (iframe && isLoading && checkCount < maxChecks) {
-          checkCount++;
-
-          try {
-            // Multiple ways to detect if iframe is loading properly
-            const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
-            const iframeSrc = iframe.src;
-
-            // Check if iframe has loaded content successfully
-            if (iframeDoc && iframeDoc.readyState === 'complete') {
-              // Additional check to see if the page actually loaded content
-              const bodyContent = iframeDoc.body?.innerHTML || '';
-              if (bodyContent.length > 100) { // Has substantial content
-                console.log('SuperChat iframe loaded successfully with content');
-                handleIframeLoad();
-                return;
-              }
-            }
-
-            // Check for connection refused indicators
-            if (iframeDoc) {
-              const pageText = iframeDoc.body?.textContent?.toLowerCase() || '';
-              const pageHTML = iframeDoc.body?.innerHTML?.toLowerCase() || '';
-
-              // Look for common connection error messages
-              const connectionErrorIndicators = [
-                'connection refused',
-                'connection timed out',
-                'this site can\'t be reached',
-                'unable to connect',
-                'server not found',
-                'err_connection_refused',
-                'err_connection_timed_out'
-              ];
-
-              if (connectionErrorIndicators.some(indicator =>
-                pageText.includes(indicator) || pageHTML.includes(indicator)
-              )) {
-                console.log('SuperChat connection error detected');
-                setIsLoading(false);
-                setIframeError(true);
-                return;
-              }
-            }
-
-            // Check if iframe URL is accessible and not blank
-            if (iframeSrc && iframeSrc !== 'about:blank') {
-              // If we've checked multiple times and still loading, it might be working
-              if (checkCount >= 4) {
-                console.log('SuperChat appears to be loading slowly, giving more time');
-                return;
-              }
-            }
-
-            // Schedule next check
-            if (checkCount < maxChecks) {
-              setTimeout(checkIframeStatus, 2000); // Check every 2 seconds
-            }
-
-          } catch (e) {
-            connectionFailures++;
-            console.log(`SuperChat connection check ${checkCount}:`, e instanceof Error ? e.message : 'Unknown error');
-
-            if (connectionFailures >= 3) {
-              console.log('Multiple SuperChat connection failures detected');
-              setIsLoading(false);
-              setIframeError(true);
-              return;
-            }
-
-            // Schedule next check
-            if (checkCount < maxChecks) {
-              setTimeout(checkIframeStatus, 2000);
-            }
-          }
-        }
-      };
-
-      // Start checking after 3 seconds to give iframe time to start loading
-      const initialTimer = setTimeout(checkIframeStatus, 3000);
-
-      return () => {
-        clearTimeout(initialTimer);
-      };
-    }
-  }, [showSuperChat, iframeError, isLoading, loadAttempts]);
 
   const features = [
     {
@@ -271,84 +60,7 @@ const MayamilesAIPage: React.FC = () => {
     "Career Technology", "Physical Education", "Life Skills"
   ];
 
-  // If SuperChat is selected, show the full-page iframe view
-  if (showSuperChat) {
-    return (
-      <div className="fixed inset-0 z-50 bg-white">
-        {/* Header with back button and refresh */}
-        <div className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 shadow-lg">
-          <div className="flex items-center justify-between px-4 py-3 sm:py-4">
-            <div className="flex items-center gap-3">
-              <button
-                onClick={handleBack}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-yellow-500/30"
-              >
-                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span>Back</span>
-              </button>
 
-              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-                💬 SuperChat - Text Learning
-              </h1>
-            </div>
-
-            <button
-              onClick={handleRefresh}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-yellow-500/30"
-            >
-              <RefreshCw size={16} className="sm:w-5 sm:h-5" />
-              <span className="hidden sm:inline">Refresh</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Full viewport iframe */}
-        <div className="w-full h-full pt-20 sm:pt-24 relative">
-          {!iframeError ? (
-            <>
-              <iframe
-                src="https://supermemory.chat"
-                className="w-full h-full border-0 relative z-10"
-                title="SuperChat"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads allow-modals allow-presentation"
-                onLoad={handleIframeLoad}
-                onError={handleIframeError}
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-
-              {/* Loading overlay */}
-              {isLoading && (
-                <div className="absolute inset-0 bg-white/90 flex items-center justify-center z-20">
-                  <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-600 mx-auto mb-4"></div>
-                    <p className="text-gray-600 font-medium">Loading SuperChat...</p>
-                    <p className="text-sm text-gray-500 mt-2">Start your conversation with "Super Chat"</p>
-                  </div>
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="flex items-center justify-center h-full bg-gray-50">
-              <div className="text-center p-8">
-                <MessageCircle className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-800 mb-2">SuperChat Loading Issue</h3>
-                <p className="text-gray-600 mb-4">
-                  SuperChat is having trouble loading. Please try refreshing or check your connection.
-                </p>
-                <button
-                  onClick={handleRefresh}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-medium rounded-lg transition-colors duration-200"
-                >
-                  <RefreshCw size={16} />
-                  Try Again
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
