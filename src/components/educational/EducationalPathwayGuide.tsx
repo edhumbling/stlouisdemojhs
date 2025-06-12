@@ -824,7 +824,7 @@ const EducationalPathwayGuide: React.FC = () => {
               <div className="md:hidden absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-gray-900/80 to-transparent z-10 pointer-events-none"></div>
 
               <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto pb-4 md:pb-0 px-4 md:px-0 scrollbar-hide">
-            {currentStepData.options.map((option) => (
+                {currentStepData.options.map((option) => (
               <motion.div
                 key={option.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -1020,7 +1020,7 @@ const EducationalPathwayGuide: React.FC = () => {
                   </motion.div>
                 )}
               </motion.div>
-              ))}
+                ))}
               </div>
             </div>
           </div>
