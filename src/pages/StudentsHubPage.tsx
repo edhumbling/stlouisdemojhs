@@ -2191,12 +2191,6 @@ const StudentsHubPage: React.FC = () => {
       setShowHeader(false);
       setShowShimmer(true);
       setVideoLoaded(false);
-
-      // Simulate loading time for shimmer effect
-      setTimeout(() => {
-        setShowShimmer(false);
-        setVideoLoaded(true);
-      }, 2000); // 2 second shimmer loading
       return;
     }
 
@@ -2850,7 +2844,7 @@ const StudentsHubPage: React.FC = () => {
     return (
       <div className="min-h-screen bg-black">
         {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4 pt-20">
+        <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -2909,8 +2903,11 @@ const StudentsHubPage: React.FC = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               onLoad={() => {
-                setShowShimmer(false);
-                setVideoLoaded(true);
+                // Add delay to ensure shimmer completes before showing video
+                setTimeout(() => {
+                  setShowShimmer(false);
+                  setVideoLoaded(true);
+                }, 2000); // 2 second delay for smooth transition
               }}
               style={{
                 width: '100%',
