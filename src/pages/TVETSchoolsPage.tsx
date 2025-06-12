@@ -236,10 +236,6 @@ const TVETSchoolsPage: React.FC = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
               TVET & Vocational Schools
             </h1>
-              <p className="text-sm text-orange-200 truncate">
-                Technical and vocational institutions for hands-on skills training
-              </p>
-            </div>
           </div>
         </div>
       </div>
