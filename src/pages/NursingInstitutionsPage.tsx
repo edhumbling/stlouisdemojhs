@@ -241,10 +241,6 @@ const NursingInstitutionsPage: React.FC = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
               Nursing & Health Training Institutions
             </h1>
-              <p className="text-sm text-red-200 truncate">
-                Comprehensive directory of healthcare education institutions in Ghana
-              </p>
-            </div>
           </div>
         </div>
       </div>
