@@ -27,3 +27,6 @@ export const useHeader = () => {
   }
   return context;
 };
+
+// Alias for useHeader to match the import in MayamilesAIPage
+export const useHeaderVisibility = useHeader;
