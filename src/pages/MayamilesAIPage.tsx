@@ -1,17 +1,59 @@
-import React from 'react';
-import { ArrowLeft, Mic, Brain, MessageCircle, BookOpen, Calculator, Globe, Zap } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowLeft, Mic, Brain, MessageCircle, BookOpen, Calculator, Globe, Zap, RefreshCw } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const MayamilesAIPage: React.FC = () => {
   const navigate = useNavigate();
+  const [showSuperChat, setShowSuperChat] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [iframeError, setIframeError] = useState(false);
 
   const handleBack = () => {
-    navigate(-1);
+    if (showSuperChat) {
+      setShowSuperChat(false);
+      setIsLoading(false);
+      setIframeError(false);
+    } else {
+      navigate(-1);
+    }
   };
 
   const handleStartLearning = () => {
     window.open('https://app.sesame.com', '_blank', 'noopener,noreferrer');
+  };
+
+  const handleSuperChat = () => {
+    setIsLoading(true);
+    setIframeError(false);
+    setShowSuperChat(true);
+  };
+
+  const handleIframeLoad = () => {
+    console.log('SuperChat iframe loaded successfully');
+    setIsLoading(false);
+    setIframeError(false);
+  };
+
+  const handleIframeError = () => {
+    console.log('SuperChat iframe error detected');
+    setTimeout(() => {
+      if (isLoading) {
+        setIsLoading(false);
+        setIframeError(true);
+      }
+    }, 3000);
+  };
+
+  const handleRefresh = () => {
+    setIsLoading(true);
+    setIframeError(false);
+
+    // Force iframe reload
+    const iframe = document.querySelector('iframe[title="SuperChat"]') as HTMLIFrameElement;
+    if (iframe) {
+      iframe.src = 'https://supermemory.chat' + '?refresh=' + Date.now();
+    }
   };
 
   const features = [
@@ -52,6 +94,85 @@ const MayamilesAIPage: React.FC = () => {
     "Information Communication Technology (ICT)", "Religious & Moral Education (RME)", "Creative Arts",
     "Career Technology", "Physical Education", "Life Skills"
   ];
+
+  // If SuperChat is selected, show the full-page iframe view
+  if (showSuperChat) {
+    return (
+      <div className="fixed inset-0 z-50 bg-white">
+        {/* Header with back button and refresh */}
+        <div className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-600 shadow-lg">
+          <div className="flex items-center justify-between px-4 py-3 sm:py-4">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleBack}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-yellow-500/30"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+                💬 SuperChat - Text Learning
+              </h1>
+            </div>
+
+            <button
+              onClick={handleRefresh}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-yellow-500/30"
+            >
+              <RefreshCw size={16} className="sm:w-5 sm:h-5" />
+              <span className="hidden sm:inline">Refresh</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Full viewport iframe */}
+        <div className="w-full h-full pt-20 sm:pt-24 relative">
+          {!iframeError ? (
+            <>
+              <iframe
+                src="https://supermemory.chat"
+                className="w-full h-full border-0 relative z-10"
+                title="SuperChat"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-downloads allow-modals allow-presentation"
+                onLoad={handleIframeLoad}
+                onError={handleIframeError}
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+
+              {/* Loading overlay */}
+              {isLoading && (
+                <div className="absolute inset-0 bg-white/90 flex items-center justify-center z-20">
+                  <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-600 mx-auto mb-4"></div>
+                    <p className="text-gray-600 font-medium">Loading SuperChat...</p>
+                    <p className="text-sm text-gray-500 mt-2">Start your conversation with "Super Chat"</p>
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="flex items-center justify-center h-full bg-gray-50">
+              <div className="text-center p-8">
+                <MessageCircle className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-800 mb-2">SuperChat Loading Issue</h3>
+                <p className="text-gray-600 mb-4">
+                  SuperChat is having trouble loading. Please try refreshing or check your connection.
+                </p>
+                <button
+                  onClick={handleRefresh}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-medium rounded-lg transition-colors duration-200"
+                >
+                  <RefreshCw size={16} />
+                  Try Again
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
@@ -94,7 +215,7 @@ const MayamilesAIPage: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto mb-6"
             >
-              Choose <strong className="text-pink-400">Maya</strong> (lady voice) or <strong className="text-blue-400">Miles</strong> (guy voice) for personalized learning conversations.
+              Choose <strong className="text-pink-400">Maya</strong> (lady voice) or <strong className="text-blue-400">Miles</strong> (guy voice) for voice learning, or use <strong className="text-yellow-400">SuperChat</strong> for text-based conversations.
             </motion.p>
 
             {/* Start Learning Button - Larger and Enhanced */}
@@ -135,18 +256,59 @@ const MayamilesAIPage: React.FC = () => {
               </button>
             </motion.div>
 
+            {/* SuperChat Button - Yellow Glowing Design */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="inline-flex items-center justify-center mb-8"
+            >
+              <button
+                onClick={handleSuperChat}
+                className="group relative inline-flex items-center justify-center w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44"
+              >
+                {/* Enhanced yellow glow effects */}
+                <span className="absolute inset-0 rounded-full bg-yellow-400/20 animate-pulse" style={{ animationDuration: '2s' }}></span>
+                <span className="absolute inset-0 rounded-full bg-yellow-500/15 animate-ping" style={{ animationDuration: '3s' }}></span>
+                <span className="absolute inset-0 rounded-full bg-yellow-300/10 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}></span>
+
+                {/* Main button container */}
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full">
+                  {/* White outer ring with yellow glow */}
+                  <div className="absolute inset-0 rounded-full border-4 border-white/80 shadow-[0_0_30px_rgba(255,255,255,0.6),0_0_60px_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(255,255,255,0.8),0_0_80px_rgba(255,255,255,0.4)]"></div>
+
+                  {/* Yellow circle with enhanced glow */}
+                  <div className="absolute inset-3 rounded-full bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 shadow-[0_0_35px_rgba(234,179,8,0.7),0_0_70px_rgba(234,179,8,0.4)] hover:shadow-[0_0_45px_rgba(234,179,8,0.9),0_0_90px_rgba(234,179,8,0.5)] transition-all duration-300 group-hover:scale-105">
+
+                    {/* Enhanced inner glow */}
+                    <span className="absolute inset-1 rounded-full bg-gradient-to-br from-white/25 via-white/15 to-transparent animate-pulse" style={{ animationDuration: '1.5s' }}></span>
+
+                    {/* Text content */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center px-2">
+                      <span className="text-sm sm:text-base md:text-lg lg:text-xl leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9)' }}>
+                        SuperChat
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </motion.div>
+
             {/* Usage Information */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gradient-to-r from-green-900/30 to-olive-800/30 rounded-lg p-4 border border-olive-500/20 max-w-xl mx-auto"
+              className="bg-gradient-to-r from-green-900/30 to-olive-800/30 rounded-lg p-4 border border-olive-500/20 max-w-2xl mx-auto"
             >
               <p className="text-sm text-gray-300 mb-2">
-                🎯 <strong className="text-green-400">5min free</strong> • <strong className="text-olive-400">30min</strong> with login
+                🎯 <strong className="text-green-400">Voice AI:</strong> 5min free • 30min with login
+              </p>
+              <p className="text-sm text-gray-300 mb-2">
+                💬 <strong className="text-yellow-400">SuperChat:</strong> Begin with "Super Chat" for text learning
               </p>
               <p className="text-xs text-gray-400">
-                💡 Enable "Allow All the Time" for audio permissions
+                💡 Voice: Enable "Allow All the Time" for audio • Text: Type freely for help & explanations
               </p>
             </motion.div>
           </div>
@@ -202,27 +364,67 @@ const MayamilesAIPage: React.FC = () => {
             <h3 className="text-lg sm:text-xl font-bold text-white text-center mb-6">
               Quick Start Guide
             </h3>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-olive-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-lg font-bold text-white">1</span>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Voice Learning */}
+              <div className="bg-gradient-to-br from-olive-800/30 to-olive-700/30 rounded-lg p-4 border border-olive-500/20">
+                <h4 className="text-sm font-bold text-olive-300 mb-3 text-center">🎤 Voice Learning</h4>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-olive-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-xs font-bold text-white">1</span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-300">Choose Maya or Miles companion</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-olive-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-xs font-bold text-white">2</span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-300">Enable "Allow All the Time" for audio</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-olive-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-xs font-bold text-white">3</span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-300">Speak your questions naturally</p>
+                    </div>
+                  </div>
                 </div>
-                <h4 className="text-sm font-bold text-white mb-2">Choose Companion</h4>
-                <p className="text-xs text-gray-300">Select Maya or Miles for personalized learning</p>
               </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-olive-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-lg font-bold text-white">2</span>
+
+              {/* Text Learning */}
+              <div className="bg-gradient-to-br from-yellow-800/30 to-yellow-700/30 rounded-lg p-4 border border-yellow-500/20">
+                <h4 className="text-sm font-bold text-yellow-300 mb-3 text-center">💬 Text Learning</h4>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-xs font-bold text-white">1</span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-300">Click the yellow SuperChat button</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-xs font-bold text-white">2</span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-300">Begin conversation with "Super Chat"</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-xs font-bold text-white">3</span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-300">Chat, learn, get help & explanations</p>
+                    </div>
+                  </div>
                 </div>
-                <h4 className="text-sm font-bold text-white mb-2">Enable Audio</h4>
-                <p className="text-xs text-gray-300">Click "Allow All the Time" for audio permissions</p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-olive-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-lg font-bold text-white">3</span>
-                </div>
-                <h4 className="text-sm font-bold text-white mb-2">Start Learning</h4>
-                <p className="text-xs text-gray-300">Ask questions. Login for longer sessions</p>
               </div>
             </div>
           </motion.div>
