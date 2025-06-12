@@ -487,45 +487,57 @@ const Hero: React.FC = () => {
           </Link>
         </div>
 
-        {/* Mayamiles AI Button - Round Beaming Button with Waves */}
-        <div className="absolute top-1/2 right-4 sm:right-6 md:right-8 lg:right-12 transform -translate-y-1/2 z-20">
+        {/* Mayamiles AI Button - Beautiful Double Edge Design */}
+        <div className="absolute top-1/2 right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 transform -translate-y-1/2 z-20">
           <Link
             to="/mayamiles-ai"
             onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-            className="group relative inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+            className="group relative inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36"
           >
-            {/* Outer beaming waves - multiple layers */}
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-green-800 to-green-900 opacity-20 animate-ping" style={{ animationDuration: '3s' }}></span>
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-green-700 to-green-800 opacity-30 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}></span>
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-green-600 to-green-700 opacity-40 animate-ping" style={{ animationDuration: '2s', animationDelay: '1s' }}></span>
+            {/* Beautiful ripple waves - white and green mix */}
+            <span className="absolute inset-0 rounded-full bg-white/8 animate-ping" style={{ animationDuration: '4s' }}></span>
+            <span className="absolute inset-0 rounded-full bg-green-400/10 animate-ping" style={{ animationDuration: '3.5s', animationDelay: '0.3s' }}></span>
+            <span className="absolute inset-0 rounded-full bg-white/12 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.6s' }}></span>
+            <span className="absolute inset-0 rounded-full bg-green-300/15 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.9s' }}></span>
+            <span className="absolute inset-0 rounded-full bg-white/16 animate-ping" style={{ animationDuration: '2s', animationDelay: '1.2s' }}></span>
 
-            {/* Yellow glow waves */}
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/30 to-yellow-500/30 opacity-60 animate-ping" style={{ animationDuration: '2.8s', animationDelay: '0.3s' }}></span>
-            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-300/20 to-yellow-400/20 opacity-80 animate-ping" style={{ animationDuration: '3.2s', animationDelay: '0.8s' }}></span>
+            {/* Outer glow ring - green and white mix */}
+            <span className="absolute inset-1 rounded-full bg-gradient-to-r from-green-400/20 via-white/15 to-green-400/20 animate-pulse" style={{ animationDuration: '2.5s' }}></span>
 
-            {/* Main button with intense glow */}
-            <div className="relative w-12 h-12 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full bg-gradient-to-br from-green-600 via-green-700 to-green-800 shadow-[0_0_30px_rgba(34,197,94,0.8),0_0_60px_rgba(34,197,94,0.6),0_0_90px_rgba(251,191,36,0.4)] hover:shadow-[0_0_40px_rgba(34,197,94,1),0_0_80px_rgba(34,197,94,0.8),0_0_120px_rgba(251,191,36,0.6)] transition-all duration-500 group-hover:scale-110 border-4 border-green-400/50 hover:border-yellow-400/70">
+            {/* Double edge design */}
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full">
+              {/* Outer border - White */}
+              <div className="absolute inset-0 rounded-full border-4 border-white/60 shadow-[0_0_20px_rgba(255,255,255,0.4)]"></div>
 
-              {/* Inner rotating glow */}
-              <span className="absolute inset-2 rounded-full bg-gradient-to-r from-yellow-400/40 via-transparent to-yellow-400/40 animate-spin" style={{ animationDuration: '4s' }}></span>
+              {/* Inner border - Green */}
+              <div className="absolute inset-2 rounded-full border-3 border-green-400/70 shadow-[0_0_15px_rgba(34,197,94,0.3)]"></div>
 
-              {/* Pulsing core */}
-              <span className="absolute inset-3 rounded-full bg-gradient-to-br from-green-400 to-green-600 animate-pulse opacity-80"></span>
+              {/* Main button - Deep Green with beautiful gradients */}
+              <div className="absolute inset-4 rounded-full bg-gradient-to-br from-green-600 via-green-700 to-green-800 shadow-[0_0_25px_rgba(255,255,255,0.3),0_0_50px_rgba(34,197,94,0.2)] hover:shadow-[0_0_35px_rgba(255,255,255,0.5),0_0_70px_rgba(34,197,94,0.3)] transition-all duration-500 group-hover:scale-105">
 
-              {/* Text content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center">
-                <span className="text-lg sm:text-xl md:text-2xl mb-0.5">🤖</span>
-                <span className="text-[8px] sm:text-[10px] md:text-xs leading-tight" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  Learn<br/>Mayamiles
-                </span>
+                {/* Inner rotating glow - green and white mix */}
+                <span className="absolute inset-1 rounded-full bg-gradient-to-r from-green-400/30 via-white/20 to-green-400/30 animate-spin" style={{ animationDuration: '6s' }}></span>
+
+                {/* Pulsing inner core */}
+                <span className="absolute inset-2 rounded-full bg-gradient-to-br from-green-500/20 via-white/10 to-green-600/20 animate-pulse" style={{ animationDuration: '2s' }}></span>
+
+                {/* Text content - White and Cute */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center">
+                  <span className="text-[7px] sm:text-[9px] md:text-[11px] lg:text-xs xl:text-sm leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9)' }}>
+                    Learn with<br/>Mayamiles<br/>AI
+                  </span>
+                </div>
+
+                {/* Beautiful sweeping light effect - white */}
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent -rotate-45 translate-x-full group-hover:-translate-x-full transition-transform duration-2000"></span>
+
+                {/* Additional sparkle effect - green */}
+                <span className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-green-400/25 to-transparent rotate-45 -translate-x-full group-hover:translate-x-full transition-transform duration-1800 delay-200"></span>
               </div>
-
-              {/* Sweeping light effect */}
-              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-yellow-300/60 to-transparent -rotate-45 translate-x-full group-hover:-translate-x-full transition-transform duration-1500"></span>
             </div>
 
-            {/* Continuous beaming effect */}
-            <span className="absolute inset-0 rounded-full animate-pulse bg-gradient-to-r from-green-500/20 to-yellow-400/20" style={{ animationDuration: '1.5s' }}></span>
+            {/* Continuous beautiful beaming effect */}
+            <span className="absolute inset-0 rounded-full animate-pulse bg-gradient-to-r from-white/5 via-green-400/8 to-white/5" style={{ animationDuration: '1.8s' }}></span>
           </Link>
         </div>
       </div>

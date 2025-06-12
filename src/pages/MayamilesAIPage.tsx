@@ -48,8 +48,9 @@ const MayamilesAIPage: React.FC = () => {
   ];
 
   const subjects = [
-    "Mathematics", "Physics", "Chemistry", "Biology", "English", "History", 
-    "Geography", "Economics", "Literature", "Computer Science", "Art", "Music"
+    "Mathematics", "English Language", "Integrated Science", "Social Studies", "Ghanaian Language", "French",
+    "Information Communication Technology (ICT)", "Religious & Moral Education (RME)", "Creative Arts",
+    "Career Technology", "Physical Education", "Life Skills"
   ];
 
   return (
@@ -74,94 +75,97 @@ const MayamilesAIPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 py-6 sm:py-8">
-        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
-          {/* Hero Section */}
-          <div className="text-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full mb-6 shadow-2xl"
-            >
-              <Brain size={40} className="sm:w-12 sm:h-12 text-white" />
-            </motion.div>
-            
+      <main className="flex-1 py-4 sm:py-6">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+          {/* Hero Section - Compact and Cute */}
+          <div className="text-center mb-8">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
+              transition={{ duration: 0.6 }}
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4"
             >
               Your AI Learning Companion
             </motion.h2>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto mb-8"
             >
               Meet Mayamiles AI - your intelligent voice-powered tutor that helps you master any subject through natural conversation. Just speak your questions and get instant, personalized explanations!
             </motion.p>
 
-            {/* Start Learning Button */}
-            <motion.button
+            {/* Start Learning Button - Larger with Beautiful Ripple Effects */}
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              onClick={handleStartLearning}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold rounded-full shadow-[0_0_30px_rgba(34,197,94,0.6)] hover:shadow-[0_0_40px_rgba(34,197,94,0.8)] transition-all duration-300 text-lg relative overflow-hidden group animate-pulse"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center justify-center mb-6"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-green-300/30 to-green-400/20 rounded-full"></span>
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/40 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-              
-              <Zap className="w-6 h-6 relative z-10" />
-              <span className="relative z-10">Start Learning Now</span>
-              <Mic className="w-6 h-6 relative z-10 animate-bounce" />
-            </motion.button>
+              <button
+                onClick={handleStartLearning}
+                className="group relative inline-flex items-center justify-center w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44"
+              >
+                {/* Beautiful ripple glow effects - multiple expanding rings */}
+                <span className="absolute inset-0 rounded-full bg-white/8 animate-ping" style={{ animationDuration: '4s' }}></span>
+                <span className="absolute inset-0 rounded-full bg-white/12 animate-ping" style={{ animationDuration: '3.5s', animationDelay: '0.3s' }}></span>
+                <span className="absolute inset-0 rounded-full bg-white/16 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.6s' }}></span>
+                <span className="absolute inset-0 rounded-full bg-white/20 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.9s' }}></span>
+                <span className="absolute inset-0 rounded-full bg-white/24 animate-ping" style={{ animationDuration: '2s', animationDelay: '1.2s' }}></span>
 
-            <p className="text-sm text-gray-400 mt-4">
+                {/* Outer glow ring */}
+                <span className="absolute inset-2 rounded-full bg-gradient-to-r from-white/10 via-white/20 to-white/10 animate-pulse" style={{ animationDuration: '2.5s' }}></span>
+
+                {/* Main button - Larger and more beautiful */}
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full bg-gradient-to-br from-green-600 via-green-700 to-green-800 shadow-[0_0_30px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.6),0_0_80px_rgba(255,255,255,0.3)] transition-all duration-500 group-hover:scale-105 border-4 border-white/40 hover:border-white/60">
+
+                  {/* Inner rotating glow */}
+                  <span className="absolute inset-3 rounded-full bg-gradient-to-r from-white/20 via-transparent to-white/20 animate-spin" style={{ animationDuration: '6s' }}></span>
+
+                  {/* Pulsing inner core */}
+                  <span className="absolute inset-4 rounded-full bg-gradient-to-br from-green-500/30 to-green-600/30 animate-pulse" style={{ animationDuration: '2s' }}></span>
+
+                  {/* Text content - White and Cute */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center">
+                    <span className="text-sm sm:text-base md:text-lg lg:text-xl leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                      Start Learning<br/>with<br/>Mayamiles AI
+                    </span>
+                  </div>
+
+                  {/* Beautiful sweeping light effect */}
+                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent -rotate-45 translate-x-full group-hover:-translate-x-full transition-transform duration-2000"></span>
+
+                  {/* Additional sparkle effect */}
+                  <span className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-white/20 to-transparent rotate-45 -translate-x-full group-hover:translate-x-full transition-transform duration-1800 delay-200"></span>
+                </div>
+
+                {/* Continuous beautiful beaming effect */}
+                <span className="absolute inset-0 rounded-full animate-pulse bg-gradient-to-r from-white/5 via-white/10 to-white/5" style={{ animationDuration: '1.8s' }}></span>
+              </button>
+            </motion.div>
+
+            <p className="text-sm text-gray-400">
               🎯 <strong>5 minutes free</strong> as Guest • <strong>30 minutes</strong> with account
             </p>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:bg-gray-700/50 transition-all duration-300 hover:scale-105"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-green-500/20 rounded-lg text-green-400">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-white">{feature.title}</h3>
-                </div>
-                <p className="text-gray-300">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Subjects Section */}
+          {/* Key Features - Compact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mb-8"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">
-              Ask About Any Subject
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              Voice-Powered Learning for All Subjects
             </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {subjects.map((subject, index) => (
+            <div className="flex flex-wrap justify-center gap-2 mb-6">
+              {subjects.slice(0, 8).map((subject, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-green-500/20 text-green-300 rounded-full border border-green-500/30 text-sm font-medium"
+                  className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full border border-green-500/30 text-xs font-medium"
                 >
                   {subject}
                 </span>
@@ -169,37 +173,37 @@ const MayamilesAIPage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* How It Works */}
+          {/* How It Works - Simplified */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            className="bg-gradient-to-r from-green-900/30 to-green-800/30 rounded-2xl p-8 border border-green-500/20"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-gradient-to-r from-green-900/30 to-green-800/30 rounded-xl p-6 border border-green-500/20"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8">
+            <h3 className="text-lg sm:text-xl font-bold text-white text-center mb-6">
               How It Works
             </h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">1</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+              <div>
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Mic className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="text-xl font-bold text-white mb-2">Speak Your Question</h4>
-                <p className="text-gray-300">Use your voice to ask any academic question naturally</p>
+                <h4 className="text-sm font-bold text-white mb-1">Speak</h4>
+                <p className="text-xs text-gray-300">Ask any question with your voice</p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">2</span>
+              <div>
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Brain className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="text-xl font-bold text-white mb-2">AI Understands</h4>
-                <p className="text-gray-300">Mayamiles processes your question and context</p>
+                <h4 className="text-sm font-bold text-white mb-1">AI Processes</h4>
+                <p className="text-xs text-gray-300">Mayamiles understands your question</p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">3</span>
+              <div>
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <MessageCircle className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="text-xl font-bold text-white mb-2">Get Explanations</h4>
-                <p className="text-gray-300">Receive clear, personalized answers and explanations</p>
+                <h4 className="text-sm font-bold text-white mb-1">Learn</h4>
+                <p className="text-xs text-gray-300">Get clear, personalized explanations</p>
               </div>
             </div>
           </motion.div>
