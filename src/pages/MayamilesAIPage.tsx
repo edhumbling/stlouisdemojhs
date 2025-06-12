@@ -48,7 +48,7 @@ const MayamilesAIPage: React.FC = () => {
   ];
 
   const subjects = [
-    "Mathematics", "English Language", "Integrated Science", "Social Studies", "Ghanaian Language", "French",
+    "Mathematics", "English Language", "Integrated Science", "Social Studies", "French",
     "Information Communication Technology (ICT)", "Religious & Moral Education (RME)", "Creative Arts",
     "Career Technology", "Physical Education", "Life Skills"
   ];
@@ -77,24 +77,24 @@ const MayamilesAIPage: React.FC = () => {
       {/* Main Content */}
       <main className="flex-1 py-4 sm:py-6">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-          {/* Hero Section - Enhanced Design */}
-          <div className="text-center mb-12">
+          {/* Hero Section - Compact Design */}
+          <div className="text-center mb-8">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4"
             >
-              Meet Your AI Learning Companions
+              AI Learning Companions
             </motion.h2>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8"
+              className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto mb-6"
             >
-              Choose between <strong className="text-pink-400">Maya</strong> (amazing lady voice) and <strong className="text-blue-400">Miles</strong> (amazing guy voice) for personalized, fun conversations about any subject!
+              Choose <strong className="text-pink-400">Maya</strong> (lady voice) or <strong className="text-blue-400">Miles</strong> (guy voice) for personalized learning conversations.
             </motion.p>
 
             {/* Start Learning Button - Larger and Enhanced */}
@@ -140,13 +140,13 @@ const MayamilesAIPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gradient-to-r from-green-900/30 to-olive-800/30 rounded-xl p-6 border border-olive-500/20 max-w-2xl mx-auto"
+              className="bg-gradient-to-r from-green-900/30 to-olive-800/30 rounded-lg p-4 border border-olive-500/20 max-w-xl mx-auto"
             >
-              <p className="text-gray-300 mb-4">
-                🎯 <strong className="text-green-400">5 minutes free</strong> as Guest • <strong className="text-olive-400">30 minutes</strong> with Google/Apple login
+              <p className="text-sm text-gray-300 mb-2">
+                🎯 <strong className="text-green-400">5min free</strong> • <strong className="text-olive-400">30min</strong> with login
               </p>
-              <p className="text-sm text-gray-400">
-                💡 <strong>Tip:</strong> Enable "Allow All the Time" for audio permissions to have consistent daily conversations!
+              <p className="text-xs text-gray-400">
+                💡 Enable "Allow All the Time" for audio permissions
               </p>
             </motion.div>
           </div>
@@ -156,37 +156,37 @@ const MayamilesAIPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-12"
+            className="mb-8"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8">
-              Choose Your AI Learning Companion
+            <h3 className="text-lg sm:text-xl font-bold text-white text-center mb-6">
+              Choose Your Companion
             </h3>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {/* Maya */}
-              <div className="bg-gradient-to-br from-pink-900/30 to-pink-800/30 rounded-xl p-6 border border-pink-500/20 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">👩‍🏫</span>
+              <div className="bg-gradient-to-br from-pink-900/30 to-pink-800/30 rounded-lg p-4 border border-pink-500/20 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-2xl">👩‍🏫</span>
                 </div>
-                <h4 className="text-xl font-bold text-pink-400 mb-3">Maya</h4>
-                <p className="text-gray-300 mb-4">Amazing lady voice with a warm, encouraging personality. Perfect for detailed explanations and patient guidance through complex topics.</p>
-                <div className="flex flex-wrap justify-center gap-2">
-                  <span className="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">Warm & Encouraging</span>
-                  <span className="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">Detail-Oriented</span>
-                  <span className="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">Patient</span>
+                <h4 className="text-lg font-bold text-pink-400 mb-2">Maya</h4>
+                <p className="text-sm text-gray-300 mb-3">Warm lady voice. Patient guidance and detailed explanations.</p>
+                <div className="flex flex-wrap justify-center gap-1">
+                  <span className="px-2 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">Warm</span>
+                  <span className="px-2 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">Patient</span>
+                  <span className="px-2 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">Detailed</span>
                 </div>
               </div>
 
               {/* Miles */}
-              <div className="bg-gradient-to-br from-blue-900/30 to-blue-800/30 rounded-xl p-6 border border-blue-500/20 text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">👨‍🏫</span>
+              <div className="bg-gradient-to-br from-blue-900/30 to-blue-800/30 rounded-lg p-4 border border-blue-500/20 text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-2xl">👨‍🏫</span>
                 </div>
-                <h4 className="text-xl font-bold text-blue-400 mb-3">Miles</h4>
-                <p className="text-gray-300 mb-4">Amazing guy voice with an energetic, fun personality. Great for making learning exciting and breaking down complex concepts simply.</p>
-                <div className="flex flex-wrap justify-center gap-2">
-                  <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Energetic & Fun</span>
-                  <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Simplified Learning</span>
-                  <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Motivating</span>
+                <h4 className="text-lg font-bold text-blue-400 mb-2">Miles</h4>
+                <p className="text-sm text-gray-300 mb-3">Energetic guy voice. Fun learning and simplified concepts.</p>
+                <div className="flex flex-wrap justify-center gap-1">
+                  <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Energetic</span>
+                  <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Fun</span>
+                  <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Simple</span>
                 </div>
               </div>
             </div>
@@ -197,32 +197,32 @@ const MayamilesAIPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="bg-gradient-to-r from-olive-900/30 to-olive-800/30 rounded-xl p-8 border border-olive-500/20 mb-12"
+            className="bg-gradient-to-r from-olive-900/30 to-olive-800/30 rounded-lg p-6 border border-olive-500/20 mb-8"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-white text-center mb-8">
-              How to Get Started
+            <h3 className="text-lg sm:text-xl font-bold text-white text-center mb-6">
+              Quick Start Guide
             </h3>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-4">
               <div className="text-center">
-                <div className="w-16 h-16 bg-olive-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">1</span>
+                <div className="w-12 h-12 bg-olive-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-lg font-bold text-white">1</span>
                 </div>
-                <h4 className="text-lg font-bold text-white mb-3">Choose Your Companion</h4>
-                <p className="text-gray-300">Select Maya or Miles based on your learning preference. Both are fun and highly personalized!</p>
+                <h4 className="text-sm font-bold text-white mb-2">Choose Companion</h4>
+                <p className="text-xs text-gray-300">Select Maya or Miles for personalized learning</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-olive-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">2</span>
+                <div className="w-12 h-12 bg-olive-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-lg font-bold text-white">2</span>
                 </div>
-                <h4 className="text-lg font-bold text-white mb-3">Enable Audio Permissions</h4>
-                <p className="text-gray-300">When prompted, click "Allow All the Time" for consistent daily conversations without interruptions.</p>
+                <h4 className="text-sm font-bold text-white mb-2">Enable Audio</h4>
+                <p className="text-xs text-gray-300">Click "Allow All the Time" for audio permissions</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-olive-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">3</span>
+                <div className="w-12 h-12 bg-olive-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-lg font-bold text-white">3</span>
                 </div>
-                <h4 className="text-lg font-bold text-white mb-3">Start Learning!</h4>
-                <p className="text-gray-300">Ask questions about any subject. For longer sessions, login with Google or Apple account.</p>
+                <h4 className="text-sm font-bold text-white mb-2">Start Learning</h4>
+                <p className="text-xs text-gray-300">Ask questions. Login for longer sessions</p>
               </div>
             </div>
           </motion.div>
@@ -232,21 +232,33 @@ const MayamilesAIPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-center"
+            className="text-center mb-8"
           >
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
-              Available Subjects for Voice Learning
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-4">
+              Available Subjects
             </h3>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-2">
               {subjects.map((subject, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 bg-olive-500/20 text-olive-300 rounded-full border border-olive-500/30 text-sm font-medium hover:bg-olive-500/30 transition-colors duration-200"
+                  className="px-3 py-1 bg-olive-500/20 text-olive-300 rounded-full border border-olive-500/30 text-xs font-medium hover:bg-olive-500/30 transition-colors duration-200"
                 >
                   {subject}
                 </span>
               ))}
             </div>
+          </motion.div>
+
+          {/* Sesame AI Attribution */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="text-center py-6 border-t border-gray-700/50"
+          >
+            <p className="text-xs text-gray-500">
+              MayaMiles AI is powered by <strong className="text-gray-400">Sesame AI Inc</strong>
+            </p>
           </motion.div>
         </div>
       </main>

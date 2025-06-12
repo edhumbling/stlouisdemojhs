@@ -61,35 +61,8 @@ self.addEventListener('activate', (event) => {
     ]).then(async () => {
       console.log('✅ St. Louis Demo. J.H.S PWA activated and ready!');
 
-      // Check if this is the first installation
-      const isFirstInstall = await checkFirstInstall();
-
-      if (isFirstInstall) {
-        // Send notification to user about successful installation (only once)
-        self.registration.showNotification('🎉 St. Louis Demo. J.H.S App Ready!', {
-          body: 'The app is now installed and ready to use. Tap to open the app.',
-          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-          badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-          tag: 'pwa-ready',
-          requireInteraction: true,
-          actions: [
-            {
-              action: 'open',
-              title: 'Open App',
-              icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
-            }
-          ],
-          data: {
-            url: '/'
-          }
-        });
-
-        // Mark as installed
-        await markAsInstalled();
-      }
-
-      // Initialize daily student notifications
-      await initializeNotificationSystem();
+      // Notifications disabled for better user experience
+      console.log('✅ St. Louis Demo. J.H.S PWA ready - notifications disabled');
     })
   );
 });
@@ -237,179 +210,35 @@ const dailyMessages = {
   }
 };
 
-// Initialize notification system
+// Notification system disabled
 async function initializeNotificationSystem() {
-  console.log('📅 Initializing notification system...');
-
-  // Check for missed notifications when coming back online
-  await checkMissedNotifications();
-
-  // Set up periodic check for notifications
-  setInterval(async () => {
-    await checkAndSendNotifications();
-  }, 60000); // Check every minute
-
-  // Initial check
-  await checkAndSendNotifications();
+  console.log('📅 Notification system disabled for better user experience');
 }
 
-// Check for missed notifications and current ones
+// Notifications disabled
 async function checkAndSendNotifications() {
-  const now = new Date();
-  const ghanaTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Accra"}));
-  const currentHour = ghanaTime.getHours();
-  const currentMinute = ghanaTime.getMinutes();
-  const today = ghanaTime.toDateString();
-
-  const state = await getNotificationState();
-
-  // Check for 6:00 AM morning notification
-  if (currentHour === 6 && currentMinute === 0 && state.lastMorning !== today) {
-    await sendNotification('morning', 'morning-encouragement');
-    state.lastMorning = today;
-    await saveNotificationState(state);
-  }
-
-  // Check for 7:00 PM homework notification
-  if (currentHour === 19 && currentMinute === 0 && state.lastHomework !== today) {
-    await sendNotification('homework', 'homework-reminder');
-    state.lastHomework = today;
-    await saveNotificationState(state);
-  }
-
-  // Check for 7:30 PM learning notification
-  if (currentHour === 19 && currentMinute === 30 && state.lastLearning !== today) {
-    await sendNotification('learning', 'learning-encouragement');
-    state.lastLearning = today;
-    await saveNotificationState(state);
-  }
+  // No notifications sent
 }
 
-// Check for missed notifications when user comes back online
+// Missed notifications disabled
 async function checkMissedNotifications() {
-  const now = new Date();
-  const ghanaTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Accra"}));
-  const today = ghanaTime.toDateString();
-  const currentHour = ghanaTime.getHours();
-  const currentMinute = ghanaTime.getMinutes();
-  const currentTime = currentHour * 60 + currentMinute;
-
-  const state = await getNotificationState();
-
-  // Check if we missed morning notification (6:00 AM)
-  if (currentTime > 360 && state.lastMorning !== today) { // 360 = 6:00 AM in minutes
-    await sendNotification('morning', 'morning-encouragement', true);
-    state.lastMorning = today;
-  }
-
-  // Check if we missed homework notification (7:00 PM)
-  if (currentTime > 1140 && state.lastHomework !== today) { // 1140 = 7:00 PM in minutes
-    await sendNotification('homework', 'homework-reminder', true);
-    state.lastHomework = today;
-  }
-
-  // Check if we missed learning notification (7:30 PM)
-  if (currentTime > 1170 && state.lastLearning !== today) { // 1170 = 7:30 PM in minutes
-    await sendNotification('learning', 'learning-encouragement', true);
-    state.lastLearning = today;
-  }
-
-  await saveNotificationState(state);
+  // No missed notifications checked
 }
 
-// Send notification with proper message for the day
+// Notifications disabled
 async function sendNotification(type, tag, isMissed = false) {
-  try {
-    // Get current day of week (0 = Sunday, 1 = Monday, etc.)
-    const now = new Date();
-    const ghanaTime = new Date(now.toLocaleString("en-US", {timeZone: "Africa/Accra"}));
-    const dayOfWeek = ghanaTime.getDay();
-
-    // Get the appropriate message for today
-    const todayMessage = dailyMessages[type][dayOfWeek];
-
-    // Modify message if it's a missed notification
-    let title = todayMessage.title;
-    let body = todayMessage.body;
-
-    if (isMissed) {
-      title = `⏰ ${title}`;
-      body = `You missed this earlier! ${body}`;
-    }
-
-    // Define actions based on notification type
-    let actions = [];
-    if (type === 'morning') {
-      actions = [
-        {
-          action: 'open-students-hub',
-          title: '📖 Study Resources',
-          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
-        },
-        {
-          action: 'dismiss',
-          title: '✅ Ready!',
-          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
-        }
-      ];
-    } else if (type === 'homework') {
-      actions = [
-        {
-          action: 'open-students-hub',
-          title: '📖 Study Resources',
-          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
-        },
-        {
-          action: 'dismiss',
-          title: '✅ Got it!',
-          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
-        }
-      ];
-    } else if (type === 'learning') {
-      actions = [
-        {
-          action: 'open-students-hub',
-          title: '🎓 Explore Resources',
-          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
-        },
-        {
-          action: 'open-ai-search',
-          title: '🤖 AI Study Help',
-          icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297'
-        }
-      ];
-    }
-
-    await self.registration.showNotification(title, {
-      body: body,
-      icon: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-      badge: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
-      tag: tag,
-      requireInteraction: true,
-      actions: actions,
-      data: { url: '/students-hub' },
-      vibrate: [200, 100, 200], // Gentle vibration pattern
-      silent: false,
-      renotify: true // Allow renotification with same tag
-    });
-
-    console.log(`📱 Sent ${type} notification for ${ghanaTime.toDateString()}`);
-  } catch (error) {
-    console.error('Error sending notification:', error);
-  }
+  // No notifications sent - disabled for better user experience
 }
 
-// Handle when user comes back online
+// Online event handler - notifications disabled
 self.addEventListener('online', async () => {
-  console.log('📶 User came back online, checking for missed notifications...');
-  await checkMissedNotifications();
+  console.log('📶 User came back online - notifications disabled');
 });
 
-// Handle service worker message events (for manual checks)
+// Message handler - notifications disabled
 self.addEventListener('message', async (event) => {
   if (event.data && event.data.type === 'CHECK_NOTIFICATIONS') {
-    console.log('📱 Manual notification check requested');
-    await checkAndSendNotifications();
+    console.log('📱 Notification check requested - notifications disabled');
   }
 });
 
