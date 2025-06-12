@@ -462,6 +462,72 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Mayamiles AI Button - Positioned at Right Edge */}
+        <div className="absolute top-1/2 right-4 sm:right-6 md:right-8 lg:right-12 transform -translate-y-1/2 z-20">
+          <Link
+            to="/mayamiles-ai"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+            className="group relative inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold rounded-full shadow-[0_0_25px_rgba(34,197,94,0.6)] hover:shadow-[0_0_35px_rgba(34,197,94,0.8)] transition-all duration-300 text-sm sm:text-base animate-pulse hover:animate-none"
+            style={{
+              textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 10px rgba(34,197,94,0.5)'
+            }}
+          >
+            {/* Beaming glow effect */}
+            <span className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-green-300/30 to-green-400/20 rounded-full"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/40 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+
+            {/* Pulsing border glow */}
+            <span className="absolute inset-0 rounded-full border-2 border-green-400/40 animate-pulse"></span>
+
+            {/* Content */}
+            <span className="relative z-10 whitespace-nowrap text-xs sm:text-sm md:text-base">
+              🤖 Learn with Mayamiles AI
+            </span>
+          </Link>
+        </div>
+
+        {/* Mayamiles AI Button - Round Beaming Button with Waves */}
+        <div className="absolute top-1/2 right-4 sm:right-6 md:right-8 lg:right-12 transform -translate-y-1/2 z-20">
+          <Link
+            to="/mayamiles-ai"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+            className="group relative inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+          >
+            {/* Outer beaming waves - multiple layers */}
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-green-800 to-green-900 opacity-20 animate-ping" style={{ animationDuration: '3s' }}></span>
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-green-700 to-green-800 opacity-30 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}></span>
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-green-600 to-green-700 opacity-40 animate-ping" style={{ animationDuration: '2s', animationDelay: '1s' }}></span>
+
+            {/* Yellow glow waves */}
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/30 to-yellow-500/30 opacity-60 animate-ping" style={{ animationDuration: '2.8s', animationDelay: '0.3s' }}></span>
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-300/20 to-yellow-400/20 opacity-80 animate-ping" style={{ animationDuration: '3.2s', animationDelay: '0.8s' }}></span>
+
+            {/* Main button with intense glow */}
+            <div className="relative w-12 h-12 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full bg-gradient-to-br from-green-600 via-green-700 to-green-800 shadow-[0_0_30px_rgba(34,197,94,0.8),0_0_60px_rgba(34,197,94,0.6),0_0_90px_rgba(251,191,36,0.4)] hover:shadow-[0_0_40px_rgba(34,197,94,1),0_0_80px_rgba(34,197,94,0.8),0_0_120px_rgba(251,191,36,0.6)] transition-all duration-500 group-hover:scale-110 border-4 border-green-400/50 hover:border-yellow-400/70">
+
+              {/* Inner rotating glow */}
+              <span className="absolute inset-2 rounded-full bg-gradient-to-r from-yellow-400/40 via-transparent to-yellow-400/40 animate-spin" style={{ animationDuration: '4s' }}></span>
+
+              {/* Pulsing core */}
+              <span className="absolute inset-3 rounded-full bg-gradient-to-br from-green-400 to-green-600 animate-pulse opacity-80"></span>
+
+              {/* Text content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center">
+                <span className="text-lg sm:text-xl md:text-2xl mb-0.5">🤖</span>
+                <span className="text-[8px] sm:text-[10px] md:text-xs leading-tight" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  Learn<br/>Mayamiles
+                </span>
+              </div>
+
+              {/* Sweeping light effect */}
+              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-yellow-300/60 to-transparent -rotate-45 translate-x-full group-hover:-translate-x-full transition-transform duration-1500"></span>
+            </div>
+
+            {/* Continuous beaming effect */}
+            <span className="absolute inset-0 rounded-full animate-pulse bg-gradient-to-r from-green-500/20 to-yellow-400/20" style={{ animationDuration: '1.5s' }}></span>
+          </Link>
+        </div>
       </div>
 
       {/* As Seen On Section - Mobile: above dots, Desktop: at dots line level */}

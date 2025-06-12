@@ -62,6 +62,7 @@ import ArtCreativeSchoolsPage from './pages/ArtCreativeSchoolsPage';
 import AgriculturalCollegesPage from './pages/AgriculturalCollegesPage';
 import BusinessSchoolsPage from './pages/BusinessSchoolsPage';
 import OnlineUniversitiesPage from './pages/OnlineUniversitiesPage';
+import MayamilesAIPage from './pages/MayamilesAIPage';
 
 // Scroll Position Manager Component
 const ScrollPositionManager: React.FC = () => {
@@ -181,6 +182,7 @@ const App: React.FC = () => {
           <Route path="/agricultural-colleges" element={<AgriculturalCollegesPage />} />
           <Route path="/business-schools" element={<BusinessSchoolsPage />} />
           <Route path="/online-universities" element={<OnlineUniversitiesPage />} />
+          <Route path="/mayamiles-ai" element={<MayamilesAIPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
