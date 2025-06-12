@@ -296,15 +296,23 @@ const AlumniPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Native Back Button - Apple Design */}
-      <div className="fixed top-4 left-4 z-50">
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-black/20 backdrop-blur-md rounded-full border border-white/20 text-white hover:bg-black/30 transition-all duration-200 shadow-lg"
-          style={{ backdropFilter: 'blur(20px)' }}
-        >
-          <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" />
-        </button>
+      {/* Back Button and Title Section */}
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={() => navigate(-1)}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Alumni
+            </h1>
+          </div>
+        </div>
       </div>
 
       {/* Hero Section with School Background - Mobile-Friendly Dark Aero */}

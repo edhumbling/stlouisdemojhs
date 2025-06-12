@@ -10,7 +10,7 @@ const CalendarPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black pt-16">
+    <div className="min-h-screen bg-black">
       {/* Back Button and Title Section - Below Header */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

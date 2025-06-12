@@ -230,7 +230,7 @@ const OnlineUniversitiesPage: React.FC = () => {
       `}</style>
 
       {/* Header with Back Button */}
-      <div className="bg-gradient-to-r from-cyan-900 via-cyan-800 to-cyan-900 py-3 sm:py-4 pt-20">
+      <div className="bg-gradient-to-r from-cyan-900 via-cyan-800 to-cyan-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button

@@ -408,7 +408,7 @@ const LocalUniversitiesPage: React.FC = () => {
       `}</style>
 
       {/* Header with Back Button */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 pt-20">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
@@ -418,14 +418,10 @@ const LocalUniversitiesPage: React.FC = () => {
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
-                Local Universities in Ghana
-              </h1>
-              <p className="text-sm text-blue-200 truncate">
-                Complete directory of public and private universities across Ghana
-              </p>
-            </div>
+
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Local Universities in Ghana
+            </h1>
           </div>
         </div>
       </div>

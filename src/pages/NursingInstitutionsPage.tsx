@@ -227,7 +227,7 @@ const NursingInstitutionsPage: React.FC = () => {
       `}</style>
 
       {/* Header with Back Button */}
-      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4 pt-20">
+      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
@@ -237,10 +237,10 @@ const NursingInstitutionsPage: React.FC = () => {
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
-                Nursing & Health Training Institutions
-              </h1>
+
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Nursing & Health Training Institutions
+            </h1>
               <p className="text-sm text-red-200 truncate">
                 Comprehensive directory of healthcare education institutions in Ghana
               </p>
