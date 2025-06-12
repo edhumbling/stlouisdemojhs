@@ -8,6 +8,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ['framer-motion', 'react', 'react-dom', 'react-router-dom', 'lucide-react']
   },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
+  },
   build: {
     rollupOptions: {
       output: {

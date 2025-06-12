@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const loadingTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // 2 second initial loading
+    }, 500); // Reduced to 0.5 seconds for faster loading
 
     return () => clearTimeout(loadingTimer);
   }, []);
