@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
 import { HeaderProvider } from './contexts/HeaderContext';
+import { BetaAccessProvider } from './contexts/BetaAccessContext';
+import BetaGate from './components/beta/BetaGate';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import AcademicsPage from './pages/AcademicsPage';
@@ -130,12 +132,14 @@ const App: React.FC = () => {
 
   return (
     <HelmetProvider>
-      <HeaderProvider>
-        <Router>
-        {/* Scroll Position Manager */}
-        <ScrollPositionManager />
+      <BetaAccessProvider>
+        <BetaGate>
+          <HeaderProvider>
+            <Router>
+            {/* Scroll Position Manager */}
+            <ScrollPositionManager />
 
-        <Routes>
+            <Routes>
         {/* Main layout with nested routes */}
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -216,9 +220,11 @@ const App: React.FC = () => {
 
         {/* Global catch-all route for direct access to non-existent routes */}
         <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-        </Router>
-      </HeaderProvider>
+            </Routes>
+            </Router>
+          </HeaderProvider>
+        </BetaGate>
+      </BetaAccessProvider>
     </HelmetProvider>
   );
 };
