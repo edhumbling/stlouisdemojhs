@@ -360,7 +360,7 @@ const StaffResourcesPage: React.FC = () => {
     // Full-screen embedded view - No header, no footer
     return (
       <div className="fixed inset-0 z-50 bg-white">
-        {/* Back Button and Title Section */}
+        {/* Header with Back Button */}
         <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
@@ -372,7 +372,7 @@ const StaffResourcesPage: React.FC = () => {
                 <span>Back</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
                 {resources.find(r => r.id === selectedResource)?.title}
               </h1>
             </div>

@@ -4812,7 +4812,7 @@ const MoneySmartLinksPage: React.FC = () => {
   if (selectedVideo) {
     return (
       <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
-        {/* Back Button and Title Section */}
+        {/* Header with Back Button */}
         <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
@@ -4824,7 +4824,7 @@ const MoneySmartLinksPage: React.FC = () => {
                 <span>Back</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
                 {selectedVideo.title}
               </h1>
             </div>
@@ -4863,7 +4863,7 @@ const MoneySmartLinksPage: React.FC = () => {
         pageType="students-hub"
         useGalleryImages={true}
       />
-      {/* Back Button and Title Section */}
+      {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
@@ -4875,7 +4875,7 @@ const MoneySmartLinksPage: React.FC = () => {
               <span>Back</span>
             </button>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
               💰 Money Smart Links
             </h1>
           </div>

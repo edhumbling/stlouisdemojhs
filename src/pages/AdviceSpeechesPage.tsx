@@ -39,7 +39,7 @@ const AdviceSpeechesPage: React.FC = () => {
           pageType="students-hub"
           useGalleryImages={true}
         />
-        {/* Back Button and Title Section */}
+        {/* Header with Back Button */}
         <div className="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
@@ -51,7 +51,7 @@ const AdviceSpeechesPage: React.FC = () => {
                 <span>Back</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
                 {selectedSpeech.speaker}
               </h1>
             </div>

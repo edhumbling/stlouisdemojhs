@@ -167,7 +167,7 @@ const JHSTextbooksPage: React.FC = () => {
   if (selectedPdf) {
     return (
       <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
-        {/* Back Button and Title Section */}
+        {/* Header with Back Button */}
         <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
@@ -179,7 +179,7 @@ const JHSTextbooksPage: React.FC = () => {
                 <span>Back</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
                 JHS Textbook Viewer
               </h1>
             </div>
@@ -271,7 +271,7 @@ const JHSTextbooksPage: React.FC = () => {
         pageType="students-hub"
         useGalleryImages={true}
       />
-      {/* Back Button and Title Section */}
+      {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
@@ -283,7 +283,7 @@ const JHSTextbooksPage: React.FC = () => {
               <span>Back</span>
             </button>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
               JHS Textbooks
             </h1>
           </div>
