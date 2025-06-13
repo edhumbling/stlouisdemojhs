@@ -13,7 +13,7 @@ const STEMEducationPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4 pt-20">
+      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
@@ -23,8 +23,9 @@ const STEMEducationPage: React.FC = () => {
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              STEM Education Excellence
+
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+              🚀 STEM Education Excellence
             </h1>
           </div>
         </div>
@@ -119,13 +120,41 @@ const STEMEducationPage: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-dark p-6 rounded-xl text-center border border-white/20"
+                className="group relative"
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${component.color} rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-lg`}>
-                  {component.icon}
+                {/* Liquid Glass Apple-style Card */}
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:border-white/30">
+                  {/* Animated gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  {/* Glass reflection effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50"></div>
+
+                  {/* Content */}
+                  <div className="relative z-10 p-6 text-center">
+                    {/* Icon with enhanced glow */}
+                    <div className={`w-16 h-16 bg-gradient-to-br ${component.color} rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-2xl group-hover:shadow-3xl transition-all duration-500 group-hover:scale-110`}>
+                      <div className="relative">
+                        {component.icon}
+                        {/* Icon glow effect */}
+                        <div className="absolute inset-0 bg-white/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                    </div>
+
+                    {/* Title with enhanced styling */}
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors duration-300">
+                      {component.title}
+                    </h3>
+
+                    {/* Description with better readability */}
+                    <p className="text-gray-300 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                      {component.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom highlight */}
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{component.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">{component.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -135,8 +164,16 @@ const STEMEducationPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="glass-dark p-8 rounded-2xl mb-12"
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl mb-12"
           >
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-blue-500/20 to-purple-500/20 opacity-70"></div>
+
+            {/* Glass reflection */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50"></div>
+
+            {/* Content */}
+            <div className="relative z-10 p-8">
             <h2 className="text-3xl font-bold text-white mb-6 text-center">STEM in Ghana's Context</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
@@ -189,31 +226,76 @@ const STEMEducationPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="glass-card p-8 rounded-2xl mb-12"
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl mb-12"
           >
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-pink-500/20 opacity-70"></div>
+
+            {/* Glass reflection */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50"></div>
+
+            {/* Content */}
+            <div className="relative z-10 p-8">
             <h2 className="text-3xl font-bold text-white mb-6 text-center">Our STEM Methodology</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white mx-auto mb-4">
-                  <Zap className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-blue-300 mb-3">Hands-On Learning</h3>
-                <p className="text-gray-300 text-sm">Laboratory experiments, practical projects, and real-world problem solving</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-cyan-500 rounded-full flex items-center justify-center text-white mx-auto mb-4">
-                  <Lightbulb className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-green-300 mb-3">Innovation Focus</h3>
-                <p className="text-gray-300 text-sm">Encouraging creativity, critical thinking, and entrepreneurial mindset</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white mx-auto mb-4">
-                  <Cpu className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-semibold text-purple-300 mb-3">Technology Integration</h3>
-                <p className="text-gray-300 text-sm">Modern tools, software, and digital platforms for enhanced learning</p>
-              </div>
+              {[
+                {
+                  icon: <Zap className="w-8 h-8" />,
+                  title: "Hands-On Learning",
+                  description: "Laboratory experiments, practical projects, and real-world problem solving",
+                  gradient: "from-blue-500 to-purple-500",
+                  textColor: "text-blue-300"
+                },
+                {
+                  icon: <Lightbulb className="w-8 h-8" />,
+                  title: "Innovation Focus",
+                  description: "Encouraging creativity, critical thinking, and entrepreneurial mindset",
+                  gradient: "from-green-500 to-cyan-500",
+                  textColor: "text-green-300"
+                },
+                {
+                  icon: <Cpu className="w-8 h-8" />,
+                  title: "Technology Integration",
+                  description: "Modern tools, software, and digital platforms for enhanced learning",
+                  gradient: "from-purple-500 to-pink-500",
+                  textColor: "text-purple-300"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group text-center"
+                >
+                  {/* Cute liquid glass card */}
+                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 p-6">
+                    {/* Animated background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    {/* Icon with enhanced styling */}
+                    <div className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-110`}>
+                      <div className="relative">
+                        {item.icon}
+                        <div className="absolute inset-0 bg-white/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className={`text-xl font-semibold ${item.textColor} mb-3 group-hover:text-white transition-colors duration-300`}>
+                      {item.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">
+                      {item.description}
+                    </p>
+
+                    {/* Bottom highlight */}
+                    <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
@@ -222,21 +304,52 @@ const STEMEducationPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="glass-dark p-8 rounded-2xl"
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-2xl"
           >
-            <h2 className="text-3xl font-bold text-white mb-6 text-center">Our STEM Impact</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { number: "95%", label: "BECE Science Pass Rate" },
-                { number: "40+", label: "Science Fair Awards" },
-                { number: "200+", label: "STEM Graduates Annually" },
-                { number: "15+", label: "University STEM Programs" }
-              ].map((stat, index) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-3xl font-bold text-yellow-400 mb-2">{stat.number}</div>
-                  <div className="text-gray-300 text-sm">{stat.label}</div>
-                </div>
-              ))}
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 via-orange-500/20 to-red-500/20 opacity-70"></div>
+
+            {/* Glass reflection */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-50"></div>
+
+            {/* Content */}
+            <div className="relative z-10 p-8">
+              <h2 className="text-3xl font-bold text-white mb-6 text-center">Our STEM Impact</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { number: "95%", label: "BECE Science Pass Rate", gradient: "from-green-400 to-emerald-500" },
+                  { number: "40+", label: "Science Fair Awards", gradient: "from-blue-400 to-cyan-500" },
+                  { number: "200+", label: "STEM Graduates Annually", gradient: "from-purple-400 to-violet-500" },
+                  { number: "15+", label: "University STEM Programs", gradient: "from-orange-400 to-red-500" }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="group text-center"
+                  >
+                    {/* Cute stat card */}
+                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 p-6">
+                      {/* Animated background */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+
+                      {/* Number with enhanced styling */}
+                      <div className={`text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}>
+                        {stat.number}
+                      </div>
+
+                      {/* Label */}
+                      <div className="text-gray-300 text-sm group-hover:text-white transition-colors duration-300">
+                        {stat.label}
+                      </div>
+
+                      {/* Bottom highlight */}
+                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
