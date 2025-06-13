@@ -16,6 +16,16 @@ const DonateMonthly100Page: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Monthly Support ₵100 - Gold | St. Louis Demonstration JHS"
+        description="Join our Gold monthly support program with ₵100 monthly donations. Help us provide consistent support for our students' education and school development."
+        keywords="monthly donation, Gold supporter, ₵100 monthly support, recurring donation, school funding, educational support"
+        url="/donate-monthly-100"
+        type="website"
+        pageType="donation"
+        useGalleryImages={true}
+      />
+
       {isLoading && (
         <div className="fixed inset-0 bg-gradient-to-br from-yellow-700 via-yellow-600 to-yellow-700 z-50 flex items-center justify-center">
           <div className="relative z-10 flex flex-col items-center">
@@ -31,22 +41,18 @@ const DonateMonthly100Page: React.FC = () => {
       )}
 
       <div className="min-h-screen bg-black">
-      <SEOHead
-        title="Monthly Support ₵100 - Gold | St. Louis Demonstration JHS"
-        description="Join our Gold monthly support program with ₵100 monthly donations. Help us provide consistent support for our students' education and school development."
-        keywords="monthly donation, Gold supporter, ₵100 monthly support, recurring donation, school funding, educational support"
-        url="/donate-monthly-100"
-        type="website"
-        pageType="donation"
-        useGalleryImages={true}
-      />
 
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-yellow-700 via-yellow-600 to-yellow-700 py-2 sm:py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
-              onClick={() => navigate('/donate')}
+              onClick={() => navigate('/donate', {
+                state: {
+                  scrollToSection: 'monthly-support',
+                  returnFromCardContent: true
+                }
+              })}
               className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-yellow-600/50 hover:bg-yellow-500/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-yellow-400/30 flex-shrink-0"
             >
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />

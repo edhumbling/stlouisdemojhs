@@ -30,7 +30,6 @@ const DonateMonthly200Page: React.FC = () => {
         </div>
       )}
 
-      <div className="min-h-screen bg-black">
       <SEOHead
         title="Monthly Support ₵200 - Diamond | St. Louis Demonstration JHS"
         description="Join our Diamond monthly support program with ₵200 monthly donations. Help us provide consistent support for our students' education and school development."
@@ -41,12 +40,19 @@ const DonateMonthly200Page: React.FC = () => {
         useGalleryImages={true}
       />
 
+      <div className="min-h-screen bg-black">
+
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700 py-2 sm:py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
-              onClick={() => navigate('/donate')}
+              onClick={() => navigate('/donate', {
+                state: {
+                  scrollToSection: 'monthly-support',
+                  returnFromCardContent: true
+                }
+              })}
               className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-600/50 hover:bg-blue-500/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-400/30 flex-shrink-0"
             >
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />

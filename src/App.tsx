@@ -183,14 +183,7 @@ const App: React.FC = () => {
           <Route path="donate-uk-bank" element={<DonateUKBankPage />} />
           <Route path="donate-euro-bank" element={<DonateEuroBankPage />} />
 
-          {/* Monthly Donation Pages */}
-          <Route path="donate-monthly-10" element={<DonateMonthly10Page />} />
-          <Route path="donate-monthly-30" element={<DonateMonthly30Page />} />
-          <Route path="donate-monthly-50" element={<DonateMonthly50Page />} />
-          <Route path="donate-monthly-100" element={<DonateMonthly100Page />} />
-          <Route path="donate-monthly-200" element={<DonateMonthly200Page />} />
-          <Route path="donate-monthly-500" element={<DonateMonthly500Page />} />
-          <Route path="donate-monthly-1000" element={<DonateMonthly1000Page />} />
+
           <Route path="shs-database" element={<SHSDatabasePage />} />
           <Route path="/shs-database/pdf/:pdfId" element={<SHSPdfViewerPage />} />
           <Route path="/results-placement" element={<ResultsPlacementPage />} />
@@ -234,6 +227,15 @@ const App: React.FC = () => {
 
         {/* Standalone pages without Layout (no header/footer) */}
         <Route path="/mayamiles-ai" element={<MayamilesAIPage />} />
+
+        {/* Monthly Donation Pages - No Header/Footer */}
+        <Route path="/donate-monthly-10" element={<DonateMonthly10Page />} />
+        <Route path="/donate-monthly-30" element={<DonateMonthly30Page />} />
+        <Route path="/donate-monthly-50" element={<DonateMonthly50Page />} />
+        <Route path="/donate-monthly-100" element={<DonateMonthly100Page />} />
+        <Route path="/donate-monthly-200" element={<DonateMonthly200Page />} />
+        <Route path="/donate-monthly-500" element={<DonateMonthly500Page />} />
+        <Route path="/donate-monthly-1000" element={<DonateMonthly1000Page />} />
 
         {/* Global catch-all route for direct access to non-existent routes */}
         <Route path="*" element={<NotFoundPage />} />
