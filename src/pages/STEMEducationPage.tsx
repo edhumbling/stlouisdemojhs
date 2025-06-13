@@ -219,6 +219,7 @@ const STEMEducationPage: React.FC = () => {
                 </ul>
               </div>
             </div>
+            </div>
           </motion.div>
 
           {/* Our STEM Approach */}
@@ -296,6 +297,7 @@ const STEMEducationPage: React.FC = () => {
                   </div>
                 </motion.div>
               ))}
+            </div>
             </div>
           </motion.div>
 
