@@ -67,6 +67,13 @@ import BusinessSchoolsPage from './pages/BusinessSchoolsPage';
 import OnlineUniversitiesPage from './pages/OnlineUniversitiesPage';
 import MayamilesAIPage from './pages/MayamilesAIPage';
 import SocialPreviewPage from './pages/SocialPreviewPage';
+import DonateMonthly10Page from './pages/DonateMonthly10Page';
+import DonateMonthly30Page from './pages/DonateMonthly30Page';
+import DonateMonthly50Page from './pages/DonateMonthly50Page';
+import DonateMonthly100Page from './pages/DonateMonthly100Page';
+import DonateMonthly200Page from './pages/DonateMonthly200Page';
+import DonateMonthly500Page from './pages/DonateMonthly500Page';
+import DonateMonthly1000Page from './pages/DonateMonthly1000Page';
 
 // Scroll Position Manager Component
 const ScrollPositionManager: React.FC = () => {
@@ -175,6 +182,15 @@ const App: React.FC = () => {
           <Route path="donate-us-bank" element={<DonateUSBankPage />} />
           <Route path="donate-uk-bank" element={<DonateUKBankPage />} />
           <Route path="donate-euro-bank" element={<DonateEuroBankPage />} />
+
+          {/* Monthly Donation Pages */}
+          <Route path="donate-monthly-10" element={<DonateMonthly10Page />} />
+          <Route path="donate-monthly-30" element={<DonateMonthly30Page />} />
+          <Route path="donate-monthly-50" element={<DonateMonthly50Page />} />
+          <Route path="donate-monthly-100" element={<DonateMonthly100Page />} />
+          <Route path="donate-monthly-200" element={<DonateMonthly200Page />} />
+          <Route path="donate-monthly-500" element={<DonateMonthly500Page />} />
+          <Route path="donate-monthly-1000" element={<DonateMonthly1000Page />} />
           <Route path="shs-database" element={<SHSDatabasePage />} />
           <Route path="/shs-database/pdf/:pdfId" element={<SHSPdfViewerPage />} />
           <Route path="/results-placement" element={<ResultsPlacementPage />} />

@@ -1,0 +1,64 @@
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import SEOHead from '../components/seo/SEOHead';
+
+const DonateMonthly500Page: React.FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-black">
+      <SEOHead
+        title="Monthly Support ₵500 - Platinum | St. Louis Demonstration JHS"
+        description="Join our Platinum monthly support program with ₵500 monthly donations. Help us provide consistent support for our students' education and school development."
+        keywords="monthly donation, Platinum supporter, ₵500 monthly support, recurring donation, school funding, educational support"
+        url="/donate-monthly-500"
+        type="website"
+        pageType="donation"
+        useGalleryImages={true}
+      />
+
+      {/* Header with Back Button */}
+      <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 py-2 sm:py-3">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={() => navigate('/donate')}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-600/50 hover:bg-purple-500/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-400/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+              ₵500 Monthly - Platinum
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      {/* Full Screen Embedded Payment Form */}
+      <div className="w-full" style={{ height: 'calc(100vh - 60px)' }}>
+        <iframe
+          src="https://paystack.shop/pay/stlouis500"
+          className="w-full h-full border-0"
+          title="Monthly Support ₵500 - Platinum"
+          allow="payment *"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-popups-to-escape-sandbox"
+          loading="lazy"
+          style={{
+            border: 0,
+            width: '100%',
+            height: '100%',
+            display: 'block'
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default DonateMonthly500Page;

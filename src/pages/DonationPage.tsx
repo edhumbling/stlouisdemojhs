@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, ArrowLeft, BookOpen } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import SEOHead from '../components/seo/SEOHead';
@@ -787,6 +787,49 @@ const DonationPage: React.FC = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="bg-white sharp-container shadow-md lg:shadow-lg overflow-hidden"
                 >
+
+                  {/* Monthly Support Section */}
+                  <div className="mb-8">
+                    <div className="text-center mb-6">
+                      <h3 className="text-xl font-bold text-white mb-2">💎 Monthly Support Levels</h3>
+                      <p className="text-gray-300 text-sm">Join our community of monthly supporters and help us grow consistently</p>
+                    </div>
+
+                    {/* Support Level Buttons - Small Glass Black Buttons */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+                      {[
+                        { amount: 10, level: 'Stone Alumni', route: '/donate-monthly-10' },
+                        { amount: 30, level: 'Bronze', route: '/donate-monthly-30' },
+                        { amount: 50, level: 'Silver', route: '/donate-monthly-50' },
+                        { amount: 100, level: 'Gold', route: '/donate-monthly-100' },
+                        { amount: 200, level: 'Diamond', route: '/donate-monthly-200' },
+                        { amount: 500, level: 'Platinum', route: '/donate-monthly-500' },
+                        { amount: 1000, level: 'Vibranium Edge', route: '/donate-monthly-1000' }
+                      ].map((tier) => (
+                        <Link
+                          key={tier.amount}
+                          to={tier.route}
+                          className="bg-black/60 backdrop-blur-sm border border-gray-600/50 hover:border-gray-400/70 p-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block"
+                        >
+                          <div className="text-white font-bold text-sm mb-1">₵{tier.amount}</div>
+                          <div className="text-white/80 text-xs font-medium">{tier.level}</div>
+                          <div className="text-white/60 text-xs mt-1">monthly</div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    <div className="text-center text-gray-400 text-xs mb-6">
+                      <p>✨ Monthly recurring payments • Secure via Paystack • Cancel anytime</p>
+                    </div>
+                  </div>
+
+                  {/* One-Time Payment Section */}
+                  <div className="mb-6">
+                    <div className="text-center mb-4">
+                      <h3 className="text-lg font-bold text-white mb-2">💝 One-Time Donation</h3>
+                      <p className="text-gray-300 text-sm">Make a single contribution of any amount</p>
+                    </div>
+                  </div>
 
                   {/* Payment Form Container - Natural Scrolling */}
                   <div className="relative w-full">
