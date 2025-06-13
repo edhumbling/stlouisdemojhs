@@ -222,6 +222,8 @@ const OnlineUniversitiesPage: React.FC = () => {
         keywords="online universities Ghana, distance learning Ghana, virtual education, online degrees, UG distance learning, KNUST online"
         url="/online-universities"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

@@ -400,6 +400,8 @@ const LocalUniversitiesPage: React.FC = () => {
         keywords="universities Ghana, public universities Ghana, private universities Ghana, University of Ghana, KNUST, UCC, Ashesi University, higher education Ghana"
         url="/local-universities"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

@@ -188,6 +188,8 @@ const AgriculturalCollegesPage: React.FC = () => {
         keywords="agricultural colleges Ghana, KNUST agriculture, farming education, agricultural research, crop science, animal science"
         url="/agricultural-colleges"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

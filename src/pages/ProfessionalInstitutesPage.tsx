@@ -218,6 +218,8 @@ const ProfessionalInstitutesPage: React.FC = () => {
         keywords="professional institutes Ghana, ICAG, Ghana Institute of Bankers, professional certification, accounting qualification, banking diploma"
         url="/professional-institutes"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

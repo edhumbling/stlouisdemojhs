@@ -75,6 +75,8 @@ const EducationalGuidePage: React.FC = () => {
         keywords="SAT guide, SHS programs Ghana, TVET education, entrepreneurship Ghana, educational pathways"
         url="/educational-guide"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

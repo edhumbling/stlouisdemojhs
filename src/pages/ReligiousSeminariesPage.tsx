@@ -243,6 +243,8 @@ const ReligiousSeminariesPage: React.FC = () => {
         keywords="religious seminaries Ghana, theological colleges Ghana, Trinity Seminary, Islamic University College, Christian education, theology programs"
         url="/religious-seminaries"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

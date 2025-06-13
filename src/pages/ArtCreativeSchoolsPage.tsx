@@ -235,6 +235,8 @@ const ArtCreativeSchoolsPage: React.FC = () => {
         keywords="art schools Ghana, NAFTI, creative arts education, film school Ghana, music academy, design college, fashion design"
         url="/art-creative-schools"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

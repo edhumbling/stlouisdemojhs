@@ -202,6 +202,8 @@ const TeacherTrainingPage: React.FC = () => {
         keywords="teacher training Ghana, colleges of education Ghana, UEW, education universities, teacher education programs, teaching careers Ghana"
         url="/teacher-training"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

@@ -214,6 +214,8 @@ const TVETSchoolsPage: React.FC = () => {
         keywords="TVET Ghana, vocational schools Ghana, technical training, skills development, NVTI, automotive training, welding institute"
         url="/tvet-schools"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

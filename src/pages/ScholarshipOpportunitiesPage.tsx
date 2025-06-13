@@ -2095,6 +2095,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         keywords="scholarships, SAT preparation, educational opportunities, Ghana scholarships, international scholarships, college preparation"
         url="/scholarship-opportunities"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Header with Back Button */}

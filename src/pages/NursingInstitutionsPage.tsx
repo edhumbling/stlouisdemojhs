@@ -219,6 +219,8 @@ const NursingInstitutionsPage: React.FC = () => {
         keywords="nursing colleges Ghana, medical schools Ghana, health training institutions, UGMS, KNUST medicine, UHAS, Korle-Bu nursing, healthcare education"
         url="/nursing-institutions"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

@@ -942,6 +942,8 @@ const STEMPage: React.FC = () => {
         url="/stem"
         type="website"
         structuredData={stemStructuredData}
+        pageType="stem"
+        useGalleryImages={true}
       />
       <div className="min-h-screen bg-black">
       {/* Back Button and Title Section */}

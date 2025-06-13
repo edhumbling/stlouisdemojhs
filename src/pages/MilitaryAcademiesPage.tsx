@@ -231,6 +231,8 @@ const MilitaryAcademiesPage: React.FC = () => {
         keywords="military academy Ghana, Ghana Police Academy, Ghana Armed Forces, security training, KAIPTC, defense college"
         url="/military-academies"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}

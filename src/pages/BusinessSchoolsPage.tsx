@@ -188,6 +188,8 @@ const BusinessSchoolsPage: React.FC = () => {
         keywords="business schools Ghana, MBA programs Ghana, UGBS, GIMPA, executive education, management training"
         url="/business-schools"
         type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
       />
 
       {/* Hide footer on this page */}
