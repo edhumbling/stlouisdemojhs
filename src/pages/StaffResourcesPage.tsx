@@ -38,6 +38,7 @@ const StaffResourcesPage: React.FC = () => {
   const [showAlternatives, setShowAlternatives] = useState(false);
   const [autoRedirectTimer, setAutoRedirectTimer] = useState<number | null>(null);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
+  const [currentSection, setCurrentSection] = useState<string | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { setShowHeader } = useHeader();
 
@@ -71,10 +72,31 @@ const StaffResourcesPage: React.FC = () => {
       clearTimeout(autoRedirectTimer);
       setAutoRedirectTimer(null);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // After state reset, scroll to the section if we have one stored
+    if (currentSection) {
+      setTimeout(() => {
+        const sectionElement = document.querySelector(`[data-section-title="${currentSection}"]`);
+        if (sectionElement) {
+          sectionElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+        // Clear the stored section after navigation
+        setCurrentSection(null);
+      }, 200); // Small delay to ensure DOM is ready
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
-  const openResource = (resourceId: string) => {
+  const openResource = (resourceId: string, section?: string) => {
+    // Store the current section for back navigation
+    if (section) {
+      setCurrentSection(section);
+    }
+
     // Handle internal routes
     if (resourceId === 'leveraging-ai-teaching') {
       navigate('/ai-teaching-guide');
@@ -531,6 +553,7 @@ const StaffResourcesPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: categoryIndex * 0.1 }}
                 className="space-y-4"
+                data-section-title={categoryName}
               >
                 {/* Category Header */}
                 <div className="flex items-center gap-3">
@@ -556,7 +579,7 @@ const StaffResourcesPage: React.FC = () => {
                         className="group"
                       >
                         <button
-                          onClick={() => openResource(resource.id)}
+                          onClick={() => openResource(resource.id, categoryName)}
                           className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                         >
                           {/* Background Gradient */}

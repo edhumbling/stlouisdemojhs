@@ -82,6 +82,7 @@ const StudentsHubPage: React.FC = () => {
   const { setShowHeader } = useHeader();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [openLofiId, setOpenLofiId] = useState<string | null>(null);
+  const [currentSection, setCurrentSection] = useState<string | null>(null);
   const { handleInternalStateChange, savePageState } = useEnhancedNavigation();
 
   // Function to get category-specific colors
@@ -2176,7 +2177,12 @@ const StudentsHubPage: React.FC = () => {
     }
   }, [isLoading, selectedResource]);
 
-  const handleResourceClick = (resource: Resource) => {
+  const handleResourceClick = (resource: Resource, category?: string) => {
+    // Store the current section for back navigation
+    if (category) {
+      setCurrentSection(category);
+    }
+
     // Handle USSD cards with special modal
     if (resource.isUSSD) {
       setSelectedResource(resource);
@@ -2243,6 +2249,24 @@ const StudentsHubPage: React.FC = () => {
       setSmartLoadingPhase('connecting');
       setShowHeader(true);
     });
+
+    // After state reset, scroll to the section if we have one stored
+    if (currentSection) {
+      setTimeout(() => {
+        const sectionId = currentSection === '💰 Financial Literacy' ? 'financial-literacy-section' : undefined;
+        if (sectionId) {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+        // Clear the stored section after navigation
+        setCurrentSection(null);
+      }, 200); // Small delay to ensure DOM is ready
+    }
   };
 
   const handleMainBack = () => {
@@ -2257,6 +2281,24 @@ const StudentsHubPage: React.FC = () => {
       setShowShimmer(true);
       setVideoLoaded(false);
     });
+
+    // After state reset, scroll to the section if we have one stored
+    if (currentSection) {
+      setTimeout(() => {
+        const sectionId = currentSection === '💰 Financial Literacy' ? 'financial-literacy-section' : undefined;
+        if (sectionId) {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+        // Clear the stored section after navigation
+        setCurrentSection(null);
+      }, 200); // Small delay to ensure DOM is ready
+    }
   };
 
   const handleUSSDDial = () => {
@@ -3289,7 +3331,7 @@ const StudentsHubPage: React.FC = () => {
                       {/* Render specialized lofi video card if it's a YouTube video */}
                       {resource.isYouTube ? (
                         <button
-                          onClick={() => handleResourceClick(resource)}
+                          onClick={() => handleResourceClick(resource, category)}
                           className="w-full h-[280px] bg-gray-900/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-600/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 hover:bg-gray-800/90 active:scale-[0.98] text-left relative group"
                         >
                           {/* YouTube Thumbnail Background */}
@@ -3367,7 +3409,7 @@ const StudentsHubPage: React.FC = () => {
                       ) : (
                         /* Regular resource card for non-YouTube resources */
                         <button
-                          onClick={() => handleResourceClick(resource)}
+                          onClick={() => handleResourceClick(resource, category)}
                           className={`w-full h-[200px] backdrop-blur-sm rounded-2xl p-4 border transition-all duration-300 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col ${
                             resource.id === 200
                               ? 'bg-red-900/20 border-red-500/40 hover:border-red-400/70 hover:shadow-2xl hover:shadow-red-500/30 hover:bg-red-800/30'
@@ -3412,6 +3454,18 @@ const StudentsHubPage: React.FC = () => {
                               <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-white/20 via-white/15 to-white/20 opacity-25 group-hover:opacity-40 transition-opacity duration-500 blur-md -z-20" />
                               <div className="absolute -inset-3 rounded-2xl bg-white/10 opacity-15 group-hover:opacity-25 transition-opacity duration-700 blur-lg -z-30" />
                             </>
+                          )}
+
+                          {/* Strong shimmer silver loading for Financial Literacy section cards */}
+                          {category === '💰 Financial Literacy' && (
+                            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                              <ShimmerLoader
+                                variant="silver"
+                                className="w-full h-full opacity-20 group-hover:opacity-30 transition-opacity duration-300"
+                                width="w-full"
+                                height="h-full"
+                              />
+                            </div>
                           )}
                           {/* Status Indicators */}
                           <div className="absolute top-3 right-3 flex gap-1">
@@ -3571,7 +3625,7 @@ const StudentsHubPage: React.FC = () => {
     return (
       <div className="min-h-screen bg-black">
         {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 pt-20">
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button

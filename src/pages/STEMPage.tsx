@@ -10,6 +10,7 @@ const STEMPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentCategoryTitle, setCurrentCategoryTitle] = useState<string | null>(null);
   const { navigateBackWithState, handleInternalStateChange } = useEnhancedNavigation();
 
   // Handle initial page loading with shimmer effect
@@ -30,9 +31,26 @@ const STEMPage: React.FC = () => {
     handleInternalStateChange(() => {
       setSelectedCategory(null);
     });
+
+    // After state reset, scroll to the category section if we have one stored
+    if (currentCategoryTitle) {
+      setTimeout(() => {
+        const categoryElement = document.querySelector(`[data-category-title="${currentCategoryTitle}"]`);
+        if (categoryElement) {
+          categoryElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+        // Clear the stored category after navigation
+        setCurrentCategoryTitle(null);
+      }, 200); // Small delay to ensure DOM is ready
+    }
   };
 
   const handleCategoryClick = (category: any) => {
+    // Store the current category for back navigation
+    setCurrentCategoryTitle(category.title);
     setSelectedCategory(category);
     // Scroll to top instantly when viewing category
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -1008,6 +1026,7 @@ const STEMPage: React.FC = () => {
                 <div
                   className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 cursor-pointer"
                   onClick={() => handleCategoryClick(category)}
+                  data-category-title={category.title}
                 >
                   {/* Icon */}
                   <div
