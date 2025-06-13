@@ -40,7 +40,7 @@ const AdviceSpeechesPage: React.FC = () => {
           useGalleryImages={true}
         />
         {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 pt-20 pb-3 sm:pb-4">
+        <div className="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 pt-20 pb-2 sm:pb-3">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button

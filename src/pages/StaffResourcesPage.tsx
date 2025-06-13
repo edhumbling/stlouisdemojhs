@@ -361,7 +361,7 @@ const StaffResourcesPage: React.FC = () => {
     return (
       <div className="fixed inset-0 z-50 bg-white">
         {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 pt-20 pb-3 sm:pb-4">
+        <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 pt-20 pb-2 sm:pb-3">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button

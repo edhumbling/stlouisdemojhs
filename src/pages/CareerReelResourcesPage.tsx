@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, FileText, Download, ExternalLink, Play, Users, Target, Briefcase, Edit3, Link2 } from 'lucide-react';
+import { ArrowLeft, FileText, ExternalLink, Play, Users, Target, Briefcase, Pen, Globe } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -161,7 +161,7 @@ const CareerReelResourcesPage: React.FC = () => {
         type: 'tool' as const,
         url: 'https://app.flowcv.com/cover-letter/',
         category: 'Writing Tools',
-        icon: <PenTool className="w-6 h-6" />,
+        icon: <FileText className="w-6 h-6" />,
         color: '#10B981'
       },
       {
@@ -171,7 +171,7 @@ const CareerReelResourcesPage: React.FC = () => {
         type: 'video' as const,
         url: 'https://youtu.be/oAckpNuJDds?si=R0aKrkvbUcPaxhM-',
         category: 'Video Tutorial',
-        icon: <Video className="w-6 h-6" />,
+        icon: <Play className="w-6 h-6" />,
         color: '#EF4444'
       },
       {
@@ -233,7 +233,7 @@ const CareerReelResourcesPage: React.FC = () => {
         type: 'tool' as const,
         url: 'https://app.flowcv.com/website/',
         category: 'Portfolio',
-        icon: <Link className="w-6 h-6" />,
+        icon: <ExternalLink className="w-6 h-6" />,
         color: '#F59E0B'
       }
     ]
@@ -342,21 +342,19 @@ const CareerReelResourcesPage: React.FC = () => {
   if (selectedResource) {
     return (
       <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
-        {/* Header */}
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-4 sm:py-5 shadow-2xl border-b border-red-700/50">
+        {/* Header with Back Button */}
+        <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 pt-20 pb-2 sm:pb-3">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
-                type="button"
                 onClick={handleResourceBack}
-                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-red-700/70 hover:bg-red-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-red-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/50 hover:border-red-400/70 flex-shrink-0"
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span className="hidden sm:inline">Back to Resources</span>
-                <span className="sm:hidden">Back</span>
+                <span>Back</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
                 {selectedResource.title}
               </h1>
 
@@ -367,10 +365,8 @@ const CareerReelResourcesPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
               >
-                {selectedResource.type === 'pdf' ? <Download size={14} /> : <ExternalLink size={14} />}
-                <span className="hidden sm:inline">
-                  {selectedResource.type === 'pdf' ? 'Download' : 'Open Original'}
-                </span>
+                <ExternalLink size={14} />
+                <span className="hidden sm:inline">Open Original</span>
               </a>
             </div>
           </div>
@@ -487,7 +483,7 @@ const CareerReelResourcesPage: React.FC = () => {
         useGalleryImages={true}
       />
       {/* Header with Back Button */}
-      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4">
+      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
@@ -514,7 +510,7 @@ const CareerReelResourcesPage: React.FC = () => {
               items={searchableItems}
               onSearchResults={handleSearchResults}
               placeholder={`Search ${allResources.length}+ career resources...`}
-              accentColor="red"
+              accentColor="purple"
               categories={categoryOptions}
               types={typeOptions}
               enableIntentDetection={true}
@@ -606,7 +602,7 @@ const CareerReelResourcesPage: React.FC = () => {
                             {resource.type === 'pdf' ? (
                               <FileText className="w-2.5 h-2.5 text-red-400" />
                             ) : resource.type === 'video' ? (
-                              <Video className="w-2.5 h-2.5 text-red-400" />
+                              <Play className="w-2.5 h-2.5 text-red-400" />
                             ) : (
                               <ExternalLink className="w-2.5 h-2.5 text-green-400" />
                             )}

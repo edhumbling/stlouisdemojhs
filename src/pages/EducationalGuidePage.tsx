@@ -85,7 +85,7 @@ const EducationalGuidePage: React.FC = () => {
       `}</style>
 
       {/* Header with Back Button */}
-      <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 py-3 sm:py-4">
+      <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 py-2 sm:py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
