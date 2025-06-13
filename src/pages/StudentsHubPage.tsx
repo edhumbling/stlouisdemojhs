@@ -2253,15 +2253,13 @@ const StudentsHubPage: React.FC = () => {
     // After state reset, scroll to the section if we have one stored
     if (currentSection) {
       setTimeout(() => {
-        const sectionId = currentSection === '💰 Financial Literacy' ? 'financial-literacy-section' : undefined;
-        if (sectionId) {
-          const section = document.getElementById(sectionId);
-          if (section) {
-            section.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
+        // Find the section element by data attribute for any category
+        const sectionElement = document.querySelector(`[data-category-section="${currentSection}"]`);
+        if (sectionElement) {
+          sectionElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
         // Clear the stored section after navigation
         setCurrentSection(null);
@@ -3319,6 +3317,7 @@ const StudentsHubPage: React.FC = () => {
               <section
                 key={category}
                 className="space-y-6"
+                data-category-section={category}
                 id={category === '💰 Financial Literacy' ? 'financial-literacy-section' : undefined}
               >
                 <div className="flex items-center gap-3 mb-2">

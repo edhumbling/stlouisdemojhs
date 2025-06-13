@@ -360,7 +360,7 @@ const StaffResourcesPage: React.FC = () => {
     // Full-screen embedded view - No header, no footer
     return (
       <div className="fixed inset-0 z-50 bg-white">
-        {/* Back Button and Title Section - Exact Students Hub Structure */}
+        {/* Back Button and Title Section */}
         <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
