@@ -210,7 +210,7 @@ const TVETSchoolsPage: React.FC = () => {
     <div className="min-h-screen bg-black">
       <SEOHead
         title="TVET & Vocational Schools in Ghana | St. Louis Demonstration JHS"
-        description="Comprehensive directory of Technical and Vocational Education and Training (TVET) institutions in Ghana. Find hands-on skills training programs."
+        description="Master practical skills with our comprehensive directory of Technical and Vocational Education and Training (TVET) institutions in Ghana. Discover hands-on training programs in automotive, welding, carpentry, fashion design, and other technical fields that lead to immediate employment opportunities."
         keywords="TVET Ghana, vocational schools Ghana, technical training, skills development, NVTI, automotive training, welding institute"
         url="/tvet-schools"
         type="website"

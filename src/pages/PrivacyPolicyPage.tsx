@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Shield, Eye, Lock, Users, FileText, Globe } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const PrivacyPolicyPage: React.FC = () => {
   const navigate = useNavigate();
@@ -65,6 +66,15 @@ const PrivacyPolicyPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black">
+      <SEOHead
+        title="Privacy Policy | St. Louis Demonstration JHS"
+        description="Learn about our privacy practices and data protection policies at St. Louis Demonstration JHS. We are committed to protecting your personal information and ensuring secure interactions with our website and services."
+        keywords="privacy policy, data protection, personal information, website privacy, school privacy, data security, information protection"
+        url="/privacy-policy"
+        type="website"
+        pageType="legal"
+        useGalleryImages={true}
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-4 pt-20 border-b border-blue-700/30">
         <div className="container mx-auto px-4">
@@ -109,8 +119,8 @@ const PrivacyPolicyPage: React.FC = () => {
           </p>
           <div className="mt-4 p-4 bg-blue-900/30 border border-blue-700/50 rounded-lg">
             <p className="text-blue-200 text-sm">
-              <strong>Last Updated:</strong> June 2025 |
-              <strong> Effective Date:</strong> June 1, 2025
+              <strong>Last Updated:</strong> June {new Date().getFullYear()} |
+              <strong> Effective Date:</strong> June 1, {new Date().getFullYear()}
             </p>
           </div>
         </motion.div>
@@ -163,7 +173,7 @@ const PrivacyPolicyPage: React.FC = () => {
               <h4 className="font-semibold text-white mb-2">School Administration</h4>
               <p className="text-gray-300 text-sm">
                 St. Louis Demonstration Junior High School<br />
-                Kumasi, Ghana<br />
+                Suame Mbrom, Ashanti Region, Ghana<br />
                 Email: info@stlouisdemojhs.com
               </p>
             </div>

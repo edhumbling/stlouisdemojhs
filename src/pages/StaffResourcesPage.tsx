@@ -12,6 +12,7 @@ import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import getSymbolFromCurrency from 'currency-symbol-map';
+import SEOHead from '../components/seo/SEOHead';
 
 interface Resource {
   id: string;
@@ -446,6 +447,15 @@ const StaffResourcesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="Staff Resources | St. Louis Demonstration JHS"
+        description="Access comprehensive teaching resources, curriculum guides, AI-powered tools, and professional development materials for educators at St. Louis Demonstration JHS. Enhance your teaching with modern educational technology."
+        keywords="staff resources, teaching materials, curriculum guides, AI teaching tools, professional development, educational resources, teacher tools, Ghana education"
+        url="/staff-resources"
+        type="website"
+        pageType="staff-resources"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

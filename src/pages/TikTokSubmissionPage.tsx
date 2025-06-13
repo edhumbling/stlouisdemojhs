@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import SEOHead from '../components/seo/SEOHead';
 
 const TikTokSubmissionPage: React.FC = () => {
   const navigate = useNavigate();
@@ -54,6 +55,15 @@ const TikTokSubmissionPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-900 via-purple-900 to-black">
+      <SEOHead
+        title="Submit TikTok Video | St. Louis Demonstration JHS"
+        description="Submit your TikTok videos featuring St. Louis Demonstration JHS! Share your school moments, events, and experiences with our community through our easy submission form."
+        keywords="submit TikTok video, TikTok submission form, share school videos, St. Louis Demo JHS TikTok, student videos, school content submission"
+        url="/tiktok-submit"
+        type="website"
+        pageType="media"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-pink-900 via-purple-800 to-pink-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

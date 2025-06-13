@@ -6,6 +6,7 @@ import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import { useSearchState } from '../hooks/useSearchState';
+import SEOHead from '../components/seo/SEOHead';
 
 interface FinancialResource {
   id: string;
@@ -4866,6 +4867,15 @@ const MoneySmartLinksPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+      <SEOHead
+        title="Money Smart Links | St. Louis Demonstration JHS"
+        description="Access 2000+ comprehensive financial education resources and tools. Learn budgeting, investing, retirement planning, and money management through carefully curated websites, videos, and interactive tools."
+        keywords="financial education resources, money management tools, budgeting guides, investing education, retirement planning, financial literacy, personal finance resources"
+        url="/money-smart-links"
+        type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

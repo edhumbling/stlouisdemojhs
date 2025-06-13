@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import SEOHead from '../components/seo/SEOHead';
 
 const AITeachingGuidePage: React.FC = () => {
   const navigate = useNavigate();
@@ -53,6 +54,15 @@ const AITeachingGuidePage: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 bg-white">
+      <SEOHead
+        title="AI Teaching Guide | St. Louis Demonstration JHS"
+        description="Comprehensive guide for leveraging AI in teaching at St. Louis Demonstration JHS. Learn how to integrate artificial intelligence tools and technologies to enhance classroom instruction and student learning outcomes."
+        keywords="AI teaching guide, artificial intelligence education, AI in classroom, teaching with AI, educational technology, AI tools for teachers, modern teaching methods"
+        url="/ai-teaching-guide"
+        type="website"
+        pageType="staff-resources"
+        useGalleryImages={true}
+      />
       {/* Header - Enhanced Emerald Back Button (Original Design) */}
       <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 py-4 sm:py-5 shadow-2xl border-b border-emerald-700/50">
         <div className="container mx-auto px-4">

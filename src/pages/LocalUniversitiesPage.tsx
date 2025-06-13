@@ -396,7 +396,7 @@ const LocalUniversitiesPage: React.FC = () => {
     <div className="min-h-screen bg-black">
       <SEOHead
         title="Local Universities in Ghana | St. Louis Demonstration JHS"
-        description="Comprehensive directory of public and private universities in Ghana. Find accredited programs, admission requirements, and contact information for all Ghanaian universities."
+        description="Explore Ghana's premier universities with our comprehensive directory of public and private institutions. Discover accredited degree programs, admission requirements, tuition fees, and contact information for all major Ghanaian universities including University of Ghana, KNUST, UCC, and Ashesi University."
         keywords="universities Ghana, public universities Ghana, private universities Ghana, University of Ghana, KNUST, UCC, Ashesi University, higher education Ghana"
         url="/local-universities"
         type="website"

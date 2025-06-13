@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Home, ArrowLeft } from 'lucide-react';
+import SEOHead from '../components/seo/SEOHead';
 
 const NotFoundPage: React.FC = () => {
   const navigate = useNavigate();
@@ -17,6 +18,15 @@ const NotFoundPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-blue-700 to-green-700 text-white p-4">
+      <SEOHead
+        title="Page Not Found | St. Louis Demonstration JHS"
+        description="The page you're looking for doesn't exist. Return to St. Louis Demonstration JHS homepage to explore our academic programs, student resources, and school information."
+        keywords="404 error, page not found, St. Louis Demonstration JHS, school website, navigation error"
+        url="/404"
+        type="website"
+        pageType="about"
+        useGalleryImages={true}
+      />
       <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

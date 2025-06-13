@@ -215,7 +215,7 @@ const NursingInstitutionsPage: React.FC = () => {
     <div className="min-h-screen bg-black">
       <SEOHead
         title="Nursing & Health Training Institutions in Ghana | St. Louis Demonstration JHS"
-        description="Comprehensive directory of nursing colleges, medical schools, and health training institutions in Ghana. Find accredited programs, admission requirements, and contact information."
+        description="Pursue a rewarding healthcare career with our comprehensive directory of nursing colleges, medical schools, and health training institutions in Ghana. Find accredited programs at UGMS, KNUST Medicine, UHAS, Korle-Bu Nursing College, and other premier healthcare education institutions."
         keywords="nursing colleges Ghana, medical schools Ghana, health training institutions, UGMS, KNUST medicine, UHAS, Korle-Bu nursing, healthcare education"
         url="/nursing-institutions"
         type="website"

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { History, Award, Target, BookOpen, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+import SEOHead from '../components/seo/SEOHead';
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -98,6 +99,15 @@ const AboutPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="About Us | St. Louis Demonstration JHS"
+        description="Learn about St. Louis Demonstration Junior High School - our rich history since 1977, educational mission, core values, and unwavering commitment to providing quality junior high school education that shapes future leaders in Ghana."
+        keywords="about St. Louis Demonstration JHS, school history, mission vision values, educational philosophy, Ghana JHS, school leadership, academic excellence"
+        url="/about"
+        type="website"
+        pageType="about"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

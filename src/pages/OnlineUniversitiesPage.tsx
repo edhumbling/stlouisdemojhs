@@ -218,7 +218,7 @@ const OnlineUniversitiesPage: React.FC = () => {
     <div className="min-h-screen bg-black">
       <SEOHead
         title="Online Universities & Distance Learning in Ghana | St. Louis Demonstration JHS"
-        description="Comprehensive directory of online universities, distance learning programs, and virtual education institutions in Ghana. Find accredited online degree programs."
+        description="Discover flexible learning opportunities with our comprehensive directory of online universities and distance learning programs in Ghana. Find accredited virtual degree programs, e-learning platforms, and remote education options that fit your schedule and career goals."
         keywords="online universities Ghana, distance learning Ghana, virtual education, online degrees, UG distance learning, KNUST online"
         url="/online-universities"
         type="website"

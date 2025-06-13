@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MessageCircle, Globe, BookOpen, Users, Mic, PenTool } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const LanguageCommunicationPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,15 @@ const LanguageCommunicationPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Language & Communication | St. Louis Demonstration JHS"
+        description="Master multilingual communication at St. Louis Demonstration JHS. Our comprehensive language programs include English, Asante Twi, and French, preparing students for global citizenship and cultural preservation."
+        keywords="language communication, English Twi French, multilingual education, Ghana languages, cultural preservation, communication skills, language arts"
+        url="/language-communication"
+        type="website"
+        pageType="academics"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

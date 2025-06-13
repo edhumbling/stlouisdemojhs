@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Heart, Users, Star, BookOpen, Award, Globe } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const CharacterEducationPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,15 @@ const CharacterEducationPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Character & Values Education | St. Louis Demonstration JHS"
+        description="Building moral foundations and ethical leadership at St. Louis Demonstration JHS. Our character education program integrates traditional Ghanaian values with modern citizenship skills, fostering integrity, respect, and service."
+        keywords="character education, moral values, ethics, integrity, Ghanaian values, Sankofa, Ubuntu, cultural heritage, leadership development, citizenship"
+        url="/character-education"
+        type="website"
+        pageType="academics"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

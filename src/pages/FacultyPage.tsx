@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Quote, Star, Heart, Award, Users, BookOpen, Target } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const FacultyPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,15 @@ const FacultyPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="Faculty & Administration | St. Louis Demonstration JHS"
+        description="Meet the dedicated faculty and administration team at St. Louis Demonstration JHS. Learn about our experienced educators, school leadership, and the passionate professionals committed to student success and educational excellence."
+        keywords="faculty, administration, teachers, headmistress, school staff, educational leadership, professional educators, Ghana JHS teachers"
+        url="/faculty"
+        type="website"
+        pageType="faculty"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

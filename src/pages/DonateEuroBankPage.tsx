@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Banknote, Shield, Copy, Check, Heart } from 'lucide-react';
+import SEOHead from '../components/seo/SEOHead';
 
 const DonateEuroBankPage: React.FC = () => {
   const navigate = useNavigate();
@@ -34,6 +35,15 @@ const DonateEuroBankPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col">
+      <SEOHead
+        title="Donate via Euro Bank | St. Louis Demonstration JHS"
+        description="Support St. Louis Demonstration JHS through Euro bank transfer. Get complete bank details including IBAN, SWIFT code, and account information for secure international donations from Europe."
+        keywords="Euro bank donation, IBAN transfer, SWIFT code, European bank transfer, international donation, school funding Europe, Ghana school donation"
+        url="/donate-euro-bank"
+        type="website"
+        pageType="donation"
+        useGalleryImages={true}
+      />
       {/* Top Bar - Back Button and Title */}
       <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
         <div className="container mx-auto px-4">

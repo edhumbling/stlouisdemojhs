@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Heart, ExternalLink } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const TikTokPage: React.FC = () => {
   const navigate = useNavigate();
@@ -79,6 +80,15 @@ const TikTokPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black overflow-auto">
+      <SEOHead
+        title="St. Louis on TikTok | St. Louis Demonstration JHS"
+        description="Watch the latest TikTok videos featuring St. Louis Demonstration JHS! Discover student life, school events, achievements, and fun moments from our vibrant school community on TikTok."
+        keywords="TikTok videos, St. Louis Demo JHS TikTok, school TikTok, student life videos, Ghana school TikTok, school events TikTok, educational content"
+        url="/tiktok"
+        type="website"
+        pageType="media"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-pink-900 via-purple-800 to-pink-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

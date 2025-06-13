@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -134,6 +135,15 @@ const ScheduleVisitPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="Schedule Campus Visit | St. Louis Demonstration JHS"
+        description="Schedule a personalized campus tour of St. Louis Demonstration JHS. Experience our facilities, meet our faculty, and discover why we're Ghana's premier junior high school. Book your visit today."
+        keywords="campus visit, school tour, schedule visit, campus tour booking, St. Louis Demonstration JHS visit, school facilities tour"
+        url="/schedule-visit"
+        type="website"
+        pageType="contact"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

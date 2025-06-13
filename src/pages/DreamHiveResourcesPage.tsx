@@ -4,6 +4,7 @@ import { ArrowLeft, FileText, Video, Download, ExternalLink, Play, BookOpen, Mai
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import SEOHead from '../components/seo/SEOHead';
 
 interface Resource {
   id: string;
@@ -291,6 +292,15 @@ const DreamHiveResourcesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+      <SEOHead
+        title="Dream Hive Resources | St. Louis Demonstration JHS"
+        description="Access professional development resources from Dream Hive Scholarship. Master resume writing, essay crafting, email communication, and essential skills for academic and career success."
+        keywords="Dream Hive resources, professional development, resume writing, essay writing, email communication, career skills, academic success, scholarship resources"
+        url="/dream-hive-resources"
+        type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
+      />
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

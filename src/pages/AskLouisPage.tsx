@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import SEOHead from '../components/seo/SEOHead';
 
-// (file removed, page no longer needed)
+const AskLouisPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,6 +26,15 @@ import { ArrowLeft } from 'lucide-react';
 
   return (
     <div style={{width:'100vw',height:'100vh',background:'#fff',display:'flex',flexDirection:'column',minHeight:'100vh'}}>
+      <SEOHead
+        title="Ask Louis AI Assistant | St. Louis Demonstration JHS"
+        description="Chat with Louis, our AI assistant at St. Louis Demonstration JHS. Get instant answers about school information, admissions, academics, and student services through our intelligent voice assistant."
+        keywords="AI assistant, Louis AI, school chatbot, voice assistant, student support, school information, AI help"
+        url="/ask-louis"
+        type="website"
+        pageType="ai-search"
+        useGalleryImages={true}
+      />
       <div className="w-full bg-gradient-to-r from-green-400 via-green-300 to-yellow-300 shadow-md z-20">
         <div className="container mx-auto px-4 py-3 flex items-center">
           <button

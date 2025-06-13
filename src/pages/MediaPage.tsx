@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Camera, Newspaper, Video, Download, ExternalLink, Calendar, Award } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+import SEOHead from '../components/seo/SEOHead';
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -132,6 +133,15 @@ const MediaPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Media & Press | St. Louis Demonstration JHS"
+        description="Access media resources, press releases, and news coverage about St. Louis Demonstration JHS. Download high-quality assets, read latest announcements, and connect with our media relations team."
+        keywords="media kit, press releases, news coverage, school media, press contacts, media resources, school announcements, Ghana JHS news"
+        url="/media"
+        type="website"
+        pageType="media"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

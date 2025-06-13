@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, Calculator, Microscope, Globe, Users, Languages, Palette, Computer, Wrench, Music } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const CoreAcademicPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,15 @@ const CoreAcademicPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Core Academic Subjects | St. Louis Demonstration JHS"
+        description="Explore our comprehensive BECE curriculum at St. Louis Demonstration JHS. We offer 11 core academic subjects including English, Mathematics, Science, Social Studies, and more with 98%+ BECE pass rate."
+        keywords="core academic subjects, BECE curriculum, English Mathematics Science, Social Studies, Ghana JHS subjects, academic excellence, BECE preparation"
+        url="/core-academic"
+        type="website"
+        pageType="academics"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

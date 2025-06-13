@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Palette, Music, Camera, Mic, Users, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const CreativeArtsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,15 @@ const CreativeArtsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Creative Arts & Culture | St. Louis Demonstration JHS"
+        description="Celebrate Ghana's rich cultural heritage through our comprehensive creative arts program at St. Louis Demonstration JHS. Explore music, dance, visual arts, drama, and traditional Ghanaian cultural expressions."
+        keywords="creative arts, Ghana culture, traditional music dance, visual arts, drama theatre, cultural heritage, Kente Adinkra, school choir, choreography"
+        url="/creative-arts"
+        type="website"
+        pageType="academics"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

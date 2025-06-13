@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Users, Star } from 'lucide-react'; // Example icons, can adjust
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider'; // Common component
+import SEOHead from '../components/seo/SEOHead';
 
 // Define Sponsor type
 interface Sponsor {
@@ -87,6 +88,15 @@ const SponsorshipPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOHead
+        title="Our Sponsors | St. Louis Demonstration JHS"
+        description="Meet our valued sponsors who support St. Louis Demonstration JHS. We are grateful for the generous support from our Gold, Diamond, and Platinum sponsors who help us achieve our educational mission."
+        keywords="sponsors, sponsorship, support, partnerships, Gold Diamond Platinum sponsors, school supporters, educational funding"
+        url="/sponsorship"
+        type="website"
+        pageType="about"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

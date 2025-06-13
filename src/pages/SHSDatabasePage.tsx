@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, FileText } from 'lucide-react';
+import SEOHead from '../components/seo/SEOHead';
 
 const PDF_LINKS = [
   {
@@ -56,6 +57,15 @@ const SHSDatabasePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 px-0 sm:px-0">
+      <SEOHead
+        title="SHS Database & Selection Guide | St. Louis Demonstration JHS"
+        description="Complete SHS school selection guide and database for BECE students. Access Category A, B, C, D school lists, CSSPS forms, and expert guidance for choosing the right senior high school in Ghana."
+        keywords="SHS database, school selection guide, BECE placement, CSSPS form, Ghana SHS schools, Category A B C D schools, senior high school selection"
+        url="/shs-database"
+        type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
+      />
       {/* Native Back Button and Title Section - Green Aero */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

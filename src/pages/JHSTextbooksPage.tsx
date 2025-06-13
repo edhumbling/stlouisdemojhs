@@ -4,6 +4,7 @@ import { ArrowLeft, BookOpen, Calculator, Beaker, Globe, Monitor, FileText, Down
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import SEOHead from '../components/seo/SEOHead';
 
 interface TextbookResource {
   id: string;
@@ -274,6 +275,15 @@ const JHSTextbooksPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+      <SEOHead
+        title="JHS Textbooks | St. Louis Demonstration JHS"
+        description="Access free Junior High School textbooks for all subjects at St. Louis Demonstration JHS. Download PDF textbooks for Mathematics, Science, Social Studies, ICT, and Computing to support your studies."
+        keywords="JHS textbooks, free textbooks Ghana, mathematics science textbooks, social studies ICT textbooks, PDF textbooks download, Ghana education resources"
+        url="/jhs-textbooks"
+        type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle, Heart, GraduationCap, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const ThankYouPage: React.FC = () => {
   // Confetti effect on page load
@@ -48,6 +49,15 @@ const ThankYouPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-100">
+      <SEOHead
+        title="Thank You - Application Submitted | St. Louis Demonstration JHS"
+        description="Thank you for submitting your application to St. Louis Demonstration JHS! Your application has been received and will be reviewed by our admissions team. We'll contact you within 3-5 business days."
+        keywords="application submitted, thank you, admission confirmation, St. Louis Demonstration JHS application, enrollment process"
+        url="/thank-you"
+        type="website"
+        pageType="admissions"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section - School Colors */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

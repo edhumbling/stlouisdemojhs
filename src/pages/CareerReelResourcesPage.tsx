@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, FileText, Video, Download, ExternalLink, Play, BookOpen, Users, Target, Briefcase, PenTool, Link } from 'lucide-react';
+import { ArrowLeft, FileText, Download, ExternalLink, Play, Users, Target, Briefcase, Edit3, Link2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
+import SEOHead from '../components/seo/SEOHead';
 
 interface Resource {
   id: string;
@@ -471,6 +472,15 @@ const CareerReelResourcesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+      <SEOHead
+        title="Career Reel Resources | St. Louis Demonstration JHS"
+        description="Access comprehensive career development resources from The Career Reel. Find job tracking tools, resume builders, cover letter creators, and professional development guides to advance your career."
+        keywords="career resources, job tracking tools, resume builder, cover letter creator, career development, job search tools, professional development, career guidance"
+        url="/career-reel-resources"
+        type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
+      />
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

@@ -198,7 +198,7 @@ const TeacherTrainingPage: React.FC = () => {
     <div className="min-h-screen bg-black">
       <SEOHead
         title="Teacher Training Institutions in Ghana | St. Louis Demonstration JHS"
-        description="Comprehensive directory of teacher training colleges and education universities in Ghana. Find accredited programs, admission requirements, and contact information."
+        description="Shape the future of education with our comprehensive directory of teacher training colleges and education universities in Ghana. Discover accredited teaching programs at UEW, Colleges of Education, and other institutions that prepare dedicated educators for Ghana's schools."
         keywords="teacher training Ghana, colleges of education Ghana, UEW, education universities, teacher education programs, teaching careers Ghana"
         url="/teacher-training"
         type="website"

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Banknote, Shield, Copy, Check, Heart } from 'lucide-react';
+import SEOHead from '../components/seo/SEOHead';
 
 const DonateUSBankPage: React.FC = () => {
   const navigate = useNavigate();
@@ -34,6 +35,15 @@ const DonateUSBankPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col">
+      <SEOHead
+        title="Donate via US Bank | St. Louis Demonstration JHS"
+        description="Support St. Louis Demonstration JHS through US bank transfer. Get complete bank details including routing numbers, account number, and wire transfer information for secure donations from the United States."
+        keywords="US bank donation, routing number, wire transfer, ACH transfer, American bank donation, school funding USA, Ghana school donation"
+        url="/donate-us-bank"
+        type="website"
+        pageType="donation"
+        useGalleryImages={true}
+      />
       {/* Top Bar - Back Button and Title */}
       <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
         <div className="container mx-auto px-4">

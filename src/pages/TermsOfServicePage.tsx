@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Scale, FileText, Users, AlertTriangle, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const TermsOfServicePage: React.FC = () => {
   const navigate = useNavigate();
@@ -65,6 +66,15 @@ const TermsOfServicePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black">
+      <SEOHead
+        title="Terms of Service | St. Louis Demonstration JHS"
+        description="Read our terms of service and conditions for using St. Louis Demonstration JHS website and educational services. Understand your rights and responsibilities when accessing our school resources and information."
+        keywords="terms of service, terms and conditions, website terms, educational services terms, school policies, user agreement, legal terms"
+        url="/terms-of-service"
+        type="website"
+        pageType="legal"
+        useGalleryImages={true}
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 pt-20 border-b border-purple-700/30">
         <div className="container mx-auto px-4">
@@ -108,8 +118,8 @@ const TermsOfServicePage: React.FC = () => {
           </p>
           <div className="mt-4 p-4 bg-purple-900/30 border border-purple-700/50 rounded-lg">
             <p className="text-purple-200 text-sm">
-              <strong>Last Updated:</strong> June 2025 |
-              <strong> Effective Date:</strong> June 1, 2025
+              <strong>Last Updated:</strong> June {new Date().getFullYear()} |
+              <strong> Effective Date:</strong> June 1, {new Date().getFullYear()}
             </p>
           </div>
         </motion.div>

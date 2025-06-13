@@ -937,7 +937,7 @@ const STEMPage: React.FC = () => {
     <>
       <SEOHead
         title="STEM Education Resources | St. Louis Demonstration JHS"
-        description="Explore comprehensive STEM education resources including Science, Technology, Engineering, and Mathematics tools, learning materials, and interactive content for junior high school students."
+        description="Ignite your passion for Science, Technology, Engineering, and Mathematics at St. Louis Demonstration JHS. Explore hands-on experiments, coding tutorials, engineering challenges, and mathematical problem-solving tools designed to inspire the next generation of innovators."
         keywords="STEM education, science resources, technology learning, engineering tools, mathematics resources, JHS STEM, educational technology, science experiments, coding for kids"
         url="/stem"
         type="website"

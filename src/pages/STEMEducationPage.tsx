@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Microscope, Calculator, Cpu, Lightbulb, Atom, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const STEMEducationPage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,15 @@ const STEMEducationPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="STEM Education Excellence | St. Louis Demonstration JHS"
+        description="Discover our comprehensive STEM education program at St. Louis Demonstration JHS. We prepare Ghana's next generation of scientists, engineers, and innovators through hands-on learning and modern technology integration."
+        keywords="STEM education, science technology engineering mathematics, Ghana STEM, innovation, laboratory experiments, programming, engineering design, scientific research"
+        url="/stem-education"
+        type="website"
+        pageType="stem"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

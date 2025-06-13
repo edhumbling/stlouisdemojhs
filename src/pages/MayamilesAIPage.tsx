@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowLeft, Mic, Brain, MessageCircle, BookOpen, Calculator, Globe, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import SEOHead from '../components/seo/SEOHead';
 
 const MayamilesAIPage: React.FC = () => {
   const navigate = useNavigate();
@@ -64,6 +65,15 @@ const MayamilesAIPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+      <SEOHead
+        title="MayaMiles AI Learning | St. Louis Demonstration JHS"
+        description="Experience personalized AI learning with MayaMiles - choose Maya (lady voice) or Miles (guy voice) for voice-powered education, or use SuperChat for text-based learning. Available 24/7 for all subjects."
+        keywords="MayaMiles AI, AI learning, voice learning, personalized education, AI tutor, Maya Miles, SuperChat, educational AI, student learning assistant"
+        url="/mayamiles-ai"
+        type="website"
+        pageType="ai-search"
+        useGalleryImages={true}
+      />
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

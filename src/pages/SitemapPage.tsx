@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Map, Home, Users, BookOpen, Phone, Search, Camera, Newspaper, Heart, Calendar, FileText } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
+import SEOHead from '../components/seo/SEOHead';
 
 const SitemapPage: React.FC = () => {
   const navigate = useNavigate();
@@ -77,6 +78,15 @@ const SitemapPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-black">
+      <SEOHead
+        title="Sitemap | St. Louis Demonstration JHS"
+        description="Complete website sitemap for St. Louis Demonstration JHS. Navigate through all our pages including academics, admissions, student resources, news, gallery, and contact information."
+        keywords="sitemap, website navigation, school pages, site structure, St. Louis Demonstration JHS navigation, website map"
+        url="/sitemap"
+        type="website"
+        pageType="about"
+        useGalleryImages={true}
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4 pt-20 border-b border-green-700/30">
         <div className="container mx-auto px-4">

@@ -4,6 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { getGalleryImagesByCategory, getGalleryCategories } from '../data';
 import OptimizedGallery from '../components/common/OptimizedGallery';
+import SEOHead from '../components/seo/SEOHead';
 
 const GalleryPage: React.FC = () => {
   const navigate = useNavigate();
@@ -25,6 +26,15 @@ const GalleryPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="School Life Gallery | St. Louis Demonstration JHS"
+        description="Explore the vibrant life at St. Louis Demonstration JHS through our comprehensive photo gallery. Witness our students' academic achievements, campus events, modern facilities, and the dynamic learning environment that makes our school special."
+        keywords="St. Louis Demonstration JHS gallery, school photos, campus life, student activities, academic achievements, school events, facilities, Ghana JHS"
+        url="/gallery"
+        type="website"
+        pageType="gallery"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

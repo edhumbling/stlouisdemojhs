@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, ArrowLeft, Send, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+import SEOHead from '../components/seo/SEOHead';
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -157,6 +158,15 @@ St. Louis Demonstration J.H.S Website System
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="Contact Us | St. Louis Demonstration JHS"
+        description="Connect with St. Louis Demonstration JHS - Ghana's leading junior high school. Find our location, contact information, admission details, and schedule a visit to experience our exceptional educational environment firsthand."
+        keywords="contact St. Louis Demonstration JHS, school contact information, admission inquiry, visit campus, phone email address, Kumasi Ghana school"
+        url="/contact"
+        type="website"
+        pageType="contact"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section - Dark Aero */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 relative">
         {/* Dark Aero Glass Overlay */}

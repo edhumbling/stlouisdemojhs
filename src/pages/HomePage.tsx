@@ -239,7 +239,7 @@ const HomePage: React.FC = () => {
     <>
       <SEOHead
         title="St. Louis Demonstration Junior High School - Excellence in Education | Ghana"
-        description="St. Louis Demonstration JHS is a premier educational institution in Ghana, offering quality junior high school education with modern facilities, experienced teachers, comprehensive academic programs, STEM education, and student resources."
+        description="Welcome to St. Louis Demonstration JHS, Ghana's premier junior high school. We provide exceptional education with modern facilities, experienced teachers, and comprehensive academic programs that prepare students for success in senior high school and beyond."
         keywords="St. Louis Demonstration JHS, junior high school Ghana, quality education Ghana, JHS Ghana, secondary education, academic excellence, STEM education, student resources, Ghana education, best JHS Ghana, junior secondary school, educational institution Ghana"
         url="https://stlouisdemojhs.com"
         type="website"

@@ -20,7 +20,7 @@ interface SEOHeadProps {
   alternateLanguages?: Array<{ hreflang: string; href: string }>;
   structuredData?: object;
   // New props for dynamic social media images
-  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'contact' | 'about';
+  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'contact' | 'about' | 'academics' | 'admissions' | 'faculty' | 'alumni' | 'media' | 'donation' | 'legal';
   useGalleryImages?: boolean;
   socialImagePreferences?: {
     facebook?: string;
@@ -29,6 +29,31 @@ interface SEOHeadProps {
     whatsapp?: string;
   };
 }
+
+// Generate unique descriptions based on page type
+const getPageDescription = (pageType: string, customDescription?: string): string => {
+  if (customDescription) return customDescription;
+
+  const descriptions: Record<string, string> = {
+    home: "Welcome to St. Louis Demonstration JHS, Ghana's premier junior high school. We provide exceptional education with modern facilities, experienced teachers, and comprehensive academic programs that prepare students for success in senior high school and beyond.",
+    'students-hub': "Discover your ultimate learning companion at St. Louis Demonstration JHS Students Hub. Access curated educational resources, STEM tools, study guides, scholarship opportunities, and interactive learning materials designed specifically for junior high school success.",
+    stem: "Ignite your passion for Science, Technology, Engineering, and Mathematics at St. Louis Demonstration JHS. Explore hands-on experiments, coding tutorials, engineering challenges, and mathematical problem-solving tools designed to inspire the next generation of innovators.",
+    gallery: "Explore the vibrant life at St. Louis Demonstration JHS through our comprehensive photo gallery. Witness our students' academic achievements, campus events, modern facilities, and the dynamic learning environment that makes our school special.",
+    news: "Stay updated with the latest news, events, and achievements from St. Louis Demonstration JHS. Discover upcoming activities, academic milestones, student accomplishments, and important announcements from our school community.",
+    'ai-search': "Experience the future of learning with our AI-powered educational search platform. Find personalized study materials, academic resources, and learning tools tailored specifically for St. Louis Demonstration JHS students.",
+    contact: "Connect with St. Louis Demonstration JHS - Ghana's leading junior high school. Find our location, contact information, admission details, and schedule a visit to experience our exceptional educational environment firsthand.",
+    about: "Learn about St. Louis Demonstration JHS - our rich history, educational mission, core values, and unwavering commitment to providing quality junior high school education that shapes future leaders in Ghana.",
+    academics: "Discover our comprehensive academic programs at St. Louis Demonstration JHS. From core subjects to specialized courses, we offer rigorous curriculum designed to challenge and inspire students while building strong foundations for future success.",
+    admissions: "Join the St. Louis Demonstration JHS family! Learn about our admission process, requirements, application deadlines, and discover how to become part of Ghana's most prestigious junior high school community.",
+    faculty: "Meet our exceptional faculty at St. Louis Demonstration JHS. Our dedicated teachers and staff bring years of experience, passion for education, and commitment to nurturing every student's potential for academic and personal growth.",
+    alumni: "Celebrate the achievements of St. Louis Demonstration JHS alumni. Discover success stories, career paths, and the lasting impact of our education on graduates who are making a difference in Ghana and around the world.",
+    media: "Explore multimedia content from St. Louis Demonstration JHS. Watch videos, view photos, and experience the dynamic learning environment that makes our school a leader in junior high school education in Ghana.",
+    donation: "Support excellence in education at St. Louis Demonstration JHS. Your generous donations help us maintain high standards, improve facilities, and provide opportunities for all students to achieve their full potential.",
+    legal: "Important legal information and policies for St. Louis Demonstration JHS. Review our terms of service, privacy policy, and other legal documents that govern our educational services and website usage."
+  };
+
+  return descriptions[pageType] || descriptions.home;
+};
 
 // Dynamic image selection based on page type and social network
 const getOptimalSocialImage = (
@@ -47,16 +72,19 @@ const getOptimalSocialImage = (
     return customImage;
   }
 
-  // Default fallback image
-  const defaultImage = "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs";
+  // School logo for homepage (high-quality version)
+  const schoolLogo = "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs";
+
+  // Default fallback image (school logo)
+  const defaultImage = schoolLogo;
 
   // Page-specific image selection from gallery
   const imageSelections: Record<string, Record<string, string>> = {
     home: {
-      facebook: galleryImages.find(img => img.category === 'Original Hero Collection')?.src || defaultImage,
-      twitter: galleryImages.find(img => img.category === 'Campus Life')?.src || defaultImage,
-      linkedin: galleryImages.find(img => img.category === 'Academic Life')?.src || defaultImage,
-      whatsapp: galleryImages.find(img => img.category === 'Original Hero Collection')?.src || defaultImage,
+      facebook: schoolLogo, // Always use school logo for homepage
+      twitter: schoolLogo,
+      linkedin: schoolLogo,
+      whatsapp: schoolLogo,
     },
     'students-hub': {
       facebook: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('group'))?.src || defaultImage,
@@ -99,6 +127,48 @@ const getOptimalSocialImage = (
       twitter: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('community'))?.src || defaultImage,
       linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('environment'))?.src || defaultImage,
       whatsapp: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('student'))?.src || defaultImage,
+    },
+    academics: {
+      facebook: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('classroom'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('learning'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('instruction'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Academic Life')?.src || defaultImage,
+    },
+    admissions: {
+      facebook: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('facilities'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('environment'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Original Hero Collection')?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Campus Life')?.src || defaultImage,
+    },
+    faculty: {
+      facebook: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('instruction'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('teaching'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('guidance'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Academic Life')?.src || defaultImage,
+    },
+    alumni: {
+      facebook: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('achievement'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('celebration'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('success'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'School Events')?.src || defaultImage,
+    },
+    media: {
+      facebook: galleryImages[0]?.src || defaultImage,
+      twitter: galleryImages[2]?.src || defaultImage,
+      linkedin: galleryImages[4]?.src || defaultImage,
+      whatsapp: galleryImages[6]?.src || defaultImage,
+    },
+    donation: {
+      facebook: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('facilities'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('opportunities'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Original Hero Collection')?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Campus Life')?.src || defaultImage,
+    },
+    legal: {
+      facebook: schoolLogo,
+      twitter: schoolLogo,
+      linkedin: schoolLogo,
+      whatsapp: schoolLogo,
     }
   };
 
@@ -107,7 +177,7 @@ const getOptimalSocialImage = (
 
 const SEOHead: React.FC<SEOHeadProps> = ({
   title = "St. Louis Demonstration Junior High School - Excellence in Education",
-  description = "St. Louis Demonstration JHS is a premier educational institution in Ghana, offering quality junior high school education with modern facilities, experienced teachers, and comprehensive academic programs.",
+  description,
   keywords = "St. Louis Demonstration JHS, junior high school Ghana, quality education Ghana, JHS Ghana, secondary education, academic excellence, STEM education, student resources, Ghana education",
   image = "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
   url = "https://stlouisdemojhs.com",
@@ -130,6 +200,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
   const canonicalUrl = canonical || fullUrl;
 
+  // Generate dynamic description based on page type
+  const finalDescription = getPageDescription(pageType, description);
+
   // Default structured data for the school
   const defaultStructuredData = {
     "@context": "https://schema.org",
@@ -139,11 +212,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     "url": baseUrl,
     "logo": image,
     "image": image,
-    "description": description,
+    "description": finalDescription,
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "Ghana",
-      "addressRegion": "Greater Accra Region"
+      "addressRegion": "Ashanti Region",
+      "addressLocality": "Suame Mbrom"
     },
     "contactPoint": {
       "@type": "ContactPoint",
@@ -169,11 +243,16 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   const linkedinImage = useGalleryImages ? getOptimalSocialImage(pageType, 'linkedin', image, socialImagePreferences) : image;
   const whatsappImage = useGalleryImages ? getOptimalSocialImage(pageType, 'whatsapp', image, socialImagePreferences) : image;
 
+  // Generate current date for publish time
+  const currentDate = new Date().toISOString();
+  const finalPublishedTime = publishedTime || currentDate;
+  const finalModifiedTime = modifiedTime || currentDate;
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
       <title>{title}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={finalDescription} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
       
@@ -194,14 +273,20 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Open Graph Meta Tags - Facebook & LinkedIn optimized */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={facebookImage} />
+      <meta property="og:image:secure_url" content={facebookImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={title} />
+      <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:site_name" content="St. Louis Demonstration JHS" />
       <meta property="og:locale" content="en_US" />
+      <meta property="og:updated_time" content={finalModifiedTime} />
+
+      {/* Standard image meta tag for broader compatibility */}
+      <meta name="image" property="og:image" content={facebookImage} />
 
       {/* Additional Open Graph images for different networks */}
       <meta property="og:image" content={linkedinImage} />
@@ -211,8 +296,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {type === 'article' && (
         <>
           {author && <meta property="article:author" content={author} />}
-          {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-          {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+          <meta property="article:published_time" content={finalPublishedTime} />
+          <meta property="article:modified_time" content={finalModifiedTime} />
           {section && <meta property="article:section" content={section} />}
           {tags.map((tag, index) => (
             <meta key={index} property="article:tag" content={tag} />
@@ -223,7 +308,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Twitter Card Meta Tags - Twitter optimized */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={twitterImage} />
       <meta name="twitter:image:alt" content={title} />
       <meta name="twitter:site" content="@stlouisdemojhs" />
@@ -259,10 +344,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="referrer" content="strict-origin-when-cross-origin" />
       
       {/* Geo Tags for Local SEO */}
-      <meta name="geo.region" content="GH" />
+      <meta name="geo.region" content="GH-AH" />
       <meta name="geo.country" content="Ghana" />
-      <meta name="geo.placename" content="Accra" />
-      <meta name="ICBM" content="5.6037,-0.1870" />
+      <meta name="geo.placename" content="Suame Mbrom, Ashanti Region" />
+      <meta name="ICBM" content="6.6885,-1.6244" />
       
       {/* Educational Institution Specific Meta */}
       <meta name="education.level" content="Junior High School" />

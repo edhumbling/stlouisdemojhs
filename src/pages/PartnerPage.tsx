@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Heart, BookOpen, Monitor, Armchair, Users, Mail, Phone, MapPin, Handshake } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
+import SEOHead from '../components/seo/SEOHead';
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -107,6 +108,15 @@ const PartnerPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Partner With Us | St. Louis Demonstration JHS"
+        description="Join us in transforming education at St. Louis Demonstration JHS through meaningful partnerships. Contribute educational resources, technology, furniture, or professional services to support our students' success."
+        keywords="partnership, educational partnership, school collaboration, donate resources, support education, Ghana school partnership, educational sponsorship"
+        url="/partner"
+        type="website"
+        pageType="contact"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

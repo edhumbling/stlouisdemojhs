@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
+import SEOHead from '../components/seo/SEOHead';
 
 const ResultsPlacementPage: React.FC = () => {
   const navigate = useNavigate();
@@ -82,6 +83,15 @@ const ResultsPlacementPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black">
+      <SEOHead
+        title="BECE Results & SHS Placement Checker | St. Louis Demonstration JHS"
+        description="Check your BECE results and SHS placement online. Access official WAEC results checker and CSSPS placement portal. Buy checker PIN through mobile money and get your results instantly."
+        keywords="BECE results checker, SHS placement checker, WAEC results, CSSPS placement, Ghana education results, BECE PIN, school placement"
+        url="/results-placement"
+        type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
+      />
       {/* Back Button Bar */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

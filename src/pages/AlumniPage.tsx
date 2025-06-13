@@ -4,6 +4,7 @@ import { ArrowLeft, Users, GraduationCap, Heart, Award, Handshake } from 'lucide
 import { useNavigate, Link } from 'react-router-dom'; // Added Link
 import SectionDivider from '../components/common/SectionDivider';
 import AlumniDetailModal from '../components/common/AlumniDetailModal';
+import SEOHead from '../components/seo/SEOHead';
 
 // Define Alumni type matching the one in AlumniDetailModal
 interface Alumni {
@@ -296,6 +297,15 @@ const AlumniPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="Alumni Network | St. Louis Demonstration JHS"
+        description="Connect with the distinguished alumni network of St. Louis Demonstration JHS. Discover success stories from our 30,000+ graduates who are making a difference across various professions and industries worldwide."
+        keywords="alumni network, graduates, success stories, professional network, St. Louis Demo JHS alumni, career achievements, alumni database"
+        url="/alumni"
+        type="website"
+        pageType="alumni"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

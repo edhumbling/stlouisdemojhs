@@ -71,7 +71,7 @@ const EducationalGuidePage: React.FC = () => {
     <div className="min-h-screen bg-black">
       <SEOHead
         title="Educational Guide | St. Louis Demonstration JHS"
-        description="Comprehensive guide to SAT, SHS programs, TVET, and entrepreneurship opportunities in Ghana. Make informed educational decisions."
+        description="Navigate your educational future with our comprehensive guide to SAT preparation, SHS programs, TVET institutions, and entrepreneurship opportunities in Ghana. Make informed decisions about your academic pathway with expert guidance from St. Louis Demonstration JHS."
         keywords="SAT guide, SHS programs Ghana, TVET education, entrepreneurship Ghana, educational pathways"
         url="/educational-guide"
         type="website"

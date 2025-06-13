@@ -4,6 +4,7 @@ import { Heart, ArrowLeft, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import SEOHead from '../components/seo/SEOHead';
 
 const DonationPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -328,6 +329,15 @@ const DonationPage: React.FC = () => {
 
   return (
     <>
+      <SEOHead
+        title="Support Our Mission | St. Louis Demonstration JHS"
+        description="Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students. Every contribution makes a difference in shaping young minds."
+        keywords="donate, support education, school donation, Ghana education support, educational funding, school development, student support, charitable giving"
+        url="/donate"
+        type="website"
+        pageType="donation"
+        useGalleryImages={true}
+      />
       {/* Silver Shimmer Loading Screen */}
       {isLoading && (
         <div className="fixed inset-0 bg-gradient-to-br from-red-900 via-red-800 to-red-900 z-50 flex items-center justify-center">

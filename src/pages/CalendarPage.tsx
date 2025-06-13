@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import SEOHead from '../components/seo/SEOHead';
 
 const CalendarPage: React.FC = () => {
   const navigate = useNavigate();
@@ -11,6 +12,15 @@ const CalendarPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="School Events Calendar | St. Louis Demonstration JHS"
+        description="Stay up-to-date with all school events, academic calendar, holidays, and important dates at St. Louis Demonstration JHS. View our comprehensive calendar of activities, examinations, and special events."
+        keywords="school calendar, events, academic calendar, school holidays, examination dates, school activities, important dates, Ghana JHS calendar"
+        url="/calendar"
+        type="website"
+        pageType="calendar"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section - Below Header */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

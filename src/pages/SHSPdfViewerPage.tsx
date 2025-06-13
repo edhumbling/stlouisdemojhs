@@ -4,6 +4,7 @@ import { PDF_LINKS } from '../data/shsData';
 import { ArrowLeft, FileText } from 'lucide-react';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import { useHeader } from '../contexts/HeaderContext';
+import SEOHead from '../components/seo/SEOHead';
 
 interface PdfLink {
   id: string;
@@ -91,6 +92,15 @@ const SHSPdfViewerPage: React.FC = () => {
   if (!pdfLink) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-16">
+        <SEOHead
+          title="PDF Not Found | St. Louis Demonstration JHS"
+          description="The requested PDF document could not be found. Return to our SHS database to access available school selection guides and resources."
+          keywords="PDF not found, SHS database, school selection guides"
+          url="/shs-database/pdf/not-found"
+          type="website"
+          pageType="students-hub"
+          useGalleryImages={true}
+        />
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-white mb-4">PDF Not Found</h1>
@@ -108,6 +118,15 @@ const SHSPdfViewerPage: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-[9999] bg-black">
+      <SEOHead
+        title={`${pdfLink.title} | St. Louis Demonstration JHS`}
+        description={`View ${pdfLink.title} - Essential SHS school selection guide for BECE students. Access comprehensive information about Ghana's senior high schools and make informed decisions about your educational future.`}
+        keywords={`${pdfLink.title}, SHS school selection, BECE placement, Ghana SHS schools, school selection guide, CSSPS`}
+        url={`/shs-database/pdf/${pdfId}`}
+        type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
+      />
       {/* Header - Only show on desktop */}
       {!isMobile && (
         <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4 sm:py-5 shadow-2xl border-b border-green-700/50">

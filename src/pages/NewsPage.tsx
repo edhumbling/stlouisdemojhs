@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Newspaper } from 'lucide-react';
+import SEOHead from '../components/seo/SEOHead';
 
 const NewsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -89,6 +90,15 @@ const NewsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="News & Updates | St. Louis Demonstration JHS"
+        description="Stay informed with the latest news, announcements, and updates from St. Louis Demonstration JHS. Read about school events, achievements, academic milestones, and important information for students and parents."
+        keywords="school news, updates, announcements, events, achievements, academic news, school blog, Ghana JHS news, student achievements"
+        url="/news"
+        type="website"
+        pageType="news"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section - Below Header */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

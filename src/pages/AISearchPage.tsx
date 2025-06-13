@@ -6,6 +6,7 @@ import { useHeader } from '../contexts/HeaderContext';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import { useSearchState } from '../hooks/useSearchState';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import SEOHead from '../components/seo/SEOHead';
 
 const AISearchPage: React.FC = () => {
   const navigate = useNavigate();
@@ -1267,6 +1268,15 @@ const AISearchPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="AI-Powered Learning Search | St. Louis Demonstration JHS"
+        description="Experience the future of learning with our AI-powered educational search platform. Find personalized study materials, academic resources, and learning tools tailored specifically for St. Louis Demonstration JHS students."
+        keywords="AI search, educational AI, learning tools, study materials, academic resources, AI-powered search, educational technology, student resources"
+        url="/ai-search"
+        type="website"
+        pageType="ai-search"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

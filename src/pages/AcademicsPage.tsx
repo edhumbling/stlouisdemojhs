@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 import DonateButton from '../components/common/DonateButton';
 import { getSchoolStats } from '../utils/schoolStats';
+import SEOHead from '../components/seo/SEOHead';
 
 const AcademicsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -109,6 +110,15 @@ const AcademicsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Academic Excellence | St. Louis Demonstration JHS"
+        description="Discover our comprehensive academic programs at St. Louis Demonstration JHS. From core subjects to specialized courses, we offer rigorous curriculum designed to challenge and inspire students while building strong foundations for future success."
+        keywords="academic programs, curriculum, subjects, BECE preparation, core academic, STEM education, creative arts, Ghana JHS academics"
+        url="/academics"
+        type="website"
+        pageType="academics"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4 pt-20">
         <div className="container mx-auto px-4">

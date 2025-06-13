@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, X, Calendar, MapPin, Quote } from 'lucide-react';
 import { commencementSpeeches } from '../data/commencementSpeeches';
+import SEOHead from '../components/seo/SEOHead';
 
 const AdviceSpeechesPage: React.FC = () => {
   const [selectedSpeech, setSelectedSpeech] = useState<any>(null);
@@ -28,6 +29,15 @@ const AdviceSpeechesPage: React.FC = () => {
   if (selectedSpeech) {
     return (
       <div className="min-h-screen bg-black">
+        <SEOHead
+          title={`${selectedSpeech.speaker} Speech | St. Louis Demonstration JHS`}
+          description={`Read the inspiring commencement speech by ${selectedSpeech.speaker} at ${selectedSpeech.university}. Learn from successful leaders and gain valuable life advice for your educational journey.`}
+          keywords={`${selectedSpeech.speaker}, commencement speech, graduation speech, life advice, success advice, inspirational speech, ${selectedSpeech.university}`}
+          url="/advice-speeches"
+          type="website"
+          pageType="students-hub"
+          useGalleryImages={true}
+        />
         {/* Header */}
         <div className="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 py-3 sm:py-4 pt-20">
           <div className="container mx-auto px-4">
@@ -115,6 +125,15 @@ const AdviceSpeechesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-black">
+      <SEOHead
+        title="Advice from Successful People | St. Louis Demonstration JHS"
+        description="Learn from inspiring commencement speeches by successful leaders, entrepreneurs, and innovators. Discover valuable life advice and wisdom to guide your educational and career journey."
+        keywords="advice from successful people, commencement speeches, graduation speeches, life advice, success stories, inspirational speeches, career guidance"
+        url="/advice-speeches"
+        type="website"
+        pageType="students-hub"
+        useGalleryImages={true}
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
