@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
 import { HeaderProvider } from './contexts/HeaderContext';
 import { BetaAccessProvider } from './contexts/BetaAccessContext';
 import BetaGate from './components/beta/BetaGate';
+import './utils/betaUtils'; // Import beta utilities for development
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import AcademicsPage from './pages/AcademicsPage';
