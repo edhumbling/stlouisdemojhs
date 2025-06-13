@@ -3132,6 +3132,8 @@ const StudentsHubPage: React.FC = () => {
         url="/students-hub"
         type="website"
         structuredData={studentsHubStructuredData}
+        pageType="students-hub"
+        useGalleryImages={true}
       />
       <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
         {/* Back Button and Title Section - Original Design */}

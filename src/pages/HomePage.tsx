@@ -244,6 +244,8 @@ const HomePage: React.FC = () => {
         url="https://stlouisdemojhs.com"
         type="website"
         structuredData={homepageStructuredData}
+        pageType="home"
+        useGalleryImages={true}
       />
       <Hero />
       <SectionDivider position="bottom" />

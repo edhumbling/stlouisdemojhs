@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { galleryImages } from '../../data';
 
 interface SEOHeadProps {
   title?: string;
@@ -18,7 +19,91 @@ interface SEOHeadProps {
   canonical?: string;
   alternateLanguages?: Array<{ hreflang: string; href: string }>;
   structuredData?: object;
+  // New props for dynamic social media images
+  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'contact' | 'about';
+  useGalleryImages?: boolean;
+  socialImagePreferences?: {
+    facebook?: string;
+    twitter?: string;
+    linkedin?: string;
+    whatsapp?: string;
+  };
 }
+
+// Dynamic image selection based on page type and social network
+const getOptimalSocialImage = (
+  pageType: string = 'home',
+  network: 'facebook' | 'twitter' | 'linkedin' | 'whatsapp' = 'facebook',
+  customImage?: string,
+  preferences?: { facebook?: string; twitter?: string; linkedin?: string; whatsapp?: string }
+): string => {
+  // Use custom preference if provided
+  if (preferences && preferences[network]) {
+    return preferences[network]!;
+  }
+
+  // Use custom image if provided
+  if (customImage) {
+    return customImage;
+  }
+
+  // Default fallback image
+  const defaultImage = "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs";
+
+  // Page-specific image selection from gallery
+  const imageSelections: Record<string, Record<string, string>> = {
+    home: {
+      facebook: galleryImages.find(img => img.category === 'Original Hero Collection')?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Campus Life')?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Academic Life')?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Original Hero Collection')?.src || defaultImage,
+    },
+    'students-hub': {
+      facebook: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('group'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('learning'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('classroom'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Academic Life')?.src || defaultImage,
+    },
+    stem: {
+      facebook: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('practical'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('hands-on'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('creative'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('activities'))?.src || defaultImage,
+    },
+    gallery: {
+      facebook: galleryImages[0]?.src || defaultImage,
+      twitter: galleryImages[1]?.src || defaultImage,
+      linkedin: galleryImages[2]?.src || defaultImage,
+      whatsapp: galleryImages[3]?.src || defaultImage,
+    },
+    news: {
+      facebook: galleryImages.find(img => img.category === 'School Events')?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('activities'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('engagement'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'School Events')?.src || defaultImage,
+    },
+    'ai-search': {
+      facebook: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('discussions'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('presentations'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('collaborative'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('interactive'))?.src || defaultImage,
+    },
+    contact: {
+      facebook: galleryImages.find(img => img.category === 'Campus Life')?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('facilities'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('environment'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Campus Life')?.src || defaultImage,
+    },
+    about: {
+      facebook: galleryImages.find(img => img.category === 'Original Hero Collection')?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('community'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('environment'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('student'))?.src || defaultImage,
+    }
+  };
+
+  return imageSelections[pageType]?.[network] || defaultImage;
+};
 
 const SEOHead: React.FC<SEOHeadProps> = ({
   title = "St. Louis Demonstration Junior High School - Excellence in Education",
@@ -36,7 +121,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   nofollow = false,
   canonical,
   alternateLanguages = [],
-  structuredData
+  structuredData,
+  pageType = 'home',
+  useGalleryImages = true,
+  socialImagePreferences
 }) => {
   const baseUrl = "https://stlouisdemojhs.com";
   const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
@@ -75,6 +163,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
   const finalStructuredData = structuredData || defaultStructuredData;
 
+  // Get optimized images for different social networks
+  const facebookImage = useGalleryImages ? getOptimalSocialImage(pageType, 'facebook', image, socialImagePreferences) : image;
+  const twitterImage = useGalleryImages ? getOptimalSocialImage(pageType, 'twitter', image, socialImagePreferences) : image;
+  const linkedinImage = useGalleryImages ? getOptimalSocialImage(pageType, 'linkedin', image, socialImagePreferences) : image;
+  const whatsappImage = useGalleryImages ? getOptimalSocialImage(pageType, 'whatsapp', image, socialImagePreferences) : image;
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
@@ -97,17 +191,21 @@ const SEOHead: React.FC<SEOHeadProps> = ({
         <link key={index} rel="alternate" hrefLang={lang.hreflang} href={lang.href} />
       ))}
       
-      {/* Open Graph Meta Tags */}
+      {/* Open Graph Meta Tags - Facebook & LinkedIn optimized */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={facebookImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={title} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:site_name" content="St. Louis Demonstration JHS" />
       <meta property="og:locale" content="en_US" />
+
+      {/* Additional Open Graph images for different networks */}
+      <meta property="og:image" content={linkedinImage} />
+      <meta property="og:image" content={whatsappImage} />
       
       {/* Article specific Open Graph tags */}
       {type === 'article' && (
@@ -122,11 +220,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
         </>
       )}
       
-      {/* Twitter Card Meta Tags */}
+      {/* Twitter Card Meta Tags - Twitter optimized */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={twitterImage} />
       <meta name="twitter:image:alt" content={title} />
       <meta name="twitter:site" content="@stlouisdemojhs" />
       <meta name="twitter:creator" content="@stlouisdemojhs" />
