@@ -31,7 +31,12 @@ const EducationalPathwayGuide: React.FC = () => {
   const [selectedPath, setSelectedPath] = useState<string | null>(null);
 
   const handleBack = () => {
-    navigate('/scholarship-opportunities');
+    navigate('/scholarship-opportunities', {
+      state: {
+        scrollToSection: '🎯 Educational Pathways',
+        returnFromCardContent: true
+      }
+    });
   };
 
   const pathwaySteps: PathwayStep[] = [

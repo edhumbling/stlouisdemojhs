@@ -421,7 +421,7 @@ const LocalUniversitiesPage: React.FC = () => {
               <span>Back</span>
             </button>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
               Local Universities in Ghana
             </h1>
           </div>

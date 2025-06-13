@@ -27,7 +27,12 @@ const CareerReelResourcesPage: React.FC = () => {
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {
-    navigate('/students-hub');
+    navigate('/students-hub', {
+      state: {
+        scrollToSection: '🎓 Educational Resources',
+        returnFromCardContent: true
+      }
+    });
   };
 
   const handleResourceBack = () => {

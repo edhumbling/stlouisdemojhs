@@ -3224,7 +3224,7 @@ const StudentsHubPage: React.FC = () => {
         useGalleryImages={true}
       />
       <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
-        {/* Back Button and Title Section - Original Design */}
+        {/* Header with Back Button */}
         <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
@@ -3236,7 +3236,7 @@ const StudentsHubPage: React.FC = () => {
                 <span>Back</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
                 Students Hub
               </h1>
             </div>
