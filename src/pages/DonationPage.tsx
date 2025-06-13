@@ -483,25 +483,10 @@ const DonationPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Compact Header Section - Red Love Theme with Gallery Background */}
-      <motion.section
-        className="py-6 sm:py-8 relative overflow-hidden"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
-      >
-        {/* Gallery Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7118.HEIC"
-            alt="St. Louis Demo JHS Students"
-            className="w-full h-full object-cover"
-            onLoad={handleImageLoad}
-            onError={handleImageLoad}
-          />
-          {/* Red Love Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-red-600/85 via-pink-600/80 to-red-700/85"></div>
-        </div>
+      {/* Optimized Header Section - Red Love Theme */}
+      <section className="py-6 sm:py-8 relative overflow-hidden">
+        {/* Simplified Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-red-600 via-pink-600 to-red-700"></div>
 
         {/* Floating 3D Love Emojis */}
         <div className="absolute inset-0 pointer-events-none">
@@ -559,17 +544,11 @@ const DonationPage: React.FC = () => {
               <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
             </div>
 
-            <h1
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4"
-              style={{
-                textShadow: '0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4), 2px 2px 4px rgba(0,0,0,0.8)',
-                filter: 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.7))'
-              }}
-            >
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
               💖 Support Our School with Love
             </h1>
 
-            <p className="text-sm sm:text-base text-white/90 mb-3 sm:mb-4 max-w-xl mx-auto" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            <p className="text-sm sm:text-base text-white/90 mb-3 sm:mb-4 max-w-xl mx-auto">
               Every donation helps provide better education for our students
             </p>
 
@@ -580,96 +559,57 @@ const DonationPage: React.FC = () => {
 
             {/* Donation Buttons Container */}
             <div className="mt-8 mb-10 flex flex-wrap justify-center gap-2 sm:gap-4 px-2">
-              {/* PayPal Donation Button */}
+              {/* PayPal Donation Button - Optimized */}
               <Link
                 to="/donate-paypal"
                 onClick={() => triggerHapticFeedback('medium')}
-                className="group relative inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-yellow-900 bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-400 border border-yellow-600 rounded-lg hover:from-yellow-200 hover:via-yellow-100 hover:to-yellow-300 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-yellow-400/60 overflow-hidden"
-                style={{
-                  boxShadow: '0 4px 15px rgba(251, 191, 36, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
-                }}
+                className="inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-yellow-900 bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-400 border border-yellow-600 rounded-lg hover:from-yellow-200 hover:via-yellow-100 hover:to-yellow-300 shadow-lg transition-colors duration-200"
               >
-
-
                 <img
                   src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"
                   alt="PayPal Logo"
-                  className="h-3 sm:h-4 w-auto mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10"
+                  className="h-3 sm:h-4 w-auto mr-1 sm:mr-2"
                 />
-                <span className="relative z-10">PayPal</span>
-
-                {/* Smart glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
+                <span>PayPal</span>
               </Link>
 
-              {/* US Bank Donation Button */}
+              {/* US Bank Donation Button - Optimized */}
               <Link
                 to="/donate-us-bank"
                 onClick={() => triggerHapticFeedback('medium')}
-                className="group relative inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-white bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 border border-blue-800 rounded-lg hover:from-blue-500 hover:via-blue-400 hover:to-blue-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-blue-500/60 overflow-hidden"
-                style={{
-                  boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
-                }}
+                className="inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-white bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 border border-blue-800 rounded-lg hover:from-blue-500 hover:via-blue-400 hover:to-blue-600 shadow-lg transition-colors duration-200"
               >
-                <span className="mr-1 sm:mr-2 text-sm sm:text-lg relative z-10">
-                  <span className="inline-block group-hover:scale-110 transition-transform">
-                    <span className="emoji-fallback" data-emoji="🇺🇸" data-fallback="$">🇺🇸</span>
-                  </span>
-                </span>
-                <span className="relative z-10">US Bank</span>
-
-                {/* Smart glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
+                <span className="mr-1 sm:mr-2 text-sm sm:text-lg">🇺🇸</span>
+                <span>US Bank</span>
               </Link>
 
-              {/* UK Bank Donation Button */}
+              {/* UK Bank Donation Button - Optimized */}
               <Link
                 to="/donate-uk-bank"
                 onClick={() => triggerHapticFeedback('medium')}
-                className="group relative inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-white bg-gradient-to-br from-purple-600 via-purple-500 to-purple-700 border border-purple-800 rounded-lg hover:from-purple-500 hover:via-purple-400 hover:to-purple-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-purple-500/60 overflow-hidden"
-                style={{
-                  boxShadow: '0 4px 15px rgba(147, 51, 234, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
-                }}
+                className="inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-white bg-gradient-to-br from-purple-600 via-purple-500 to-purple-700 border border-purple-800 rounded-lg hover:from-purple-500 hover:via-purple-400 hover:to-purple-600 shadow-lg transition-colors duration-200"
               >
-                <span className="mr-1 sm:mr-2 text-sm sm:text-lg relative z-10">
-                  <span className="inline-block group-hover:scale-110 transition-transform">
-                    <span className="emoji-fallback" data-emoji="🇬🇧" data-fallback="£">🇬🇧</span>
-                  </span>
-                </span>
-                <span className="relative z-10">UK Bank</span>
-
-                {/* Smart glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
+                <span className="mr-1 sm:mr-2 text-sm sm:text-lg">🇬🇧</span>
+                <span>UK Bank</span>
               </Link>
 
-              {/* Euro Bank Donation Button */}
+              {/* Euro Bank Donation Button - Optimized */}
               <Link
                 to="/donate-euro-bank"
                 onClick={() => triggerHapticFeedback('medium')}
-                className="group relative inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-white bg-gradient-to-br from-green-600 via-green-500 to-green-700 border border-green-800 rounded-lg hover:from-green-500 hover:via-green-400 hover:to-green-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-green-500/60 overflow-hidden"
-                style={{
-                  boxShadow: '0 4px 15px rgba(34, 197, 94, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
-                }}
+                className="inline-flex items-center justify-center px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-base font-bold text-white bg-gradient-to-br from-green-600 via-green-500 to-green-700 border border-green-800 rounded-lg hover:from-green-500 hover:via-green-400 hover:to-green-600 shadow-lg transition-colors duration-200"
               >
-                <span className="mr-1 sm:mr-2 text-sm sm:text-lg relative z-10">
-                  <span className="inline-block group-hover:scale-110 transition-transform">
-                    <span className="emoji-fallback" data-emoji="🇪🇺" data-fallback="€">🇪🇺</span>
-                  </span>
-                </span>
-                <span className="relative z-10">Euro Bank</span>
-
-                {/* Smart glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-green-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
+                <span className="mr-1 sm:mr-2 text-sm sm:text-lg">🇪🇺</span>
+                <span>Euro Bank</span>
               </Link>
             </div>
 
-            {/* Payment Option Icons - Centered and Glowing on Mobile */}
+            {/* Payment Option Icons - Optimized */}
             <div className="w-full flex justify-center sm:justify-between items-center mb-6 px-2 gap-4">
               <img
                 src="https://schoolerpghana.com/img/gateways/momo.png"
                 alt="Momo"
                 className="h-7 sm:h-14 w-auto rounded shadow-lg"
-                style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}
                 onLoad={handleImageLoad}
                 onError={handleImageLoad}
               />
@@ -677,7 +617,6 @@ const DonationPage: React.FC = () => {
                 src="https://schoolerpghana.com/img/gateways/tco.png"
                 alt="TCO"
                 className="h-7 sm:h-14 w-auto rounded shadow-lg"
-                style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}
                 onLoad={handleImageLoad}
                 onError={handleImageLoad}
               />
@@ -685,7 +624,6 @@ const DonationPage: React.FC = () => {
                 src="https://schoolerpghana.com/img/gateways/bankwire.png"
                 alt="Bankwire"
                 className="h-7 sm:h-14 w-auto rounded shadow-lg"
-                style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}
                 onLoad={handleImageLoad}
                 onError={handleImageLoad}
               />
@@ -698,120 +636,66 @@ const DonationPage: React.FC = () => {
                   🌍 International Transfers
                 </h3>
 
-                {/* Prominent International Transfer Image */}
+                {/* International Transfer Image - Optimized */}
                 <div className="mb-5 flex justify-center">
-                  <div className="relative group">
-                    {/* Enhanced multi-layer glow effect */}
-                    <div className="absolute -inset-6 bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 rounded-2xl blur-2xl opacity-70 group-hover:opacity-90 animate-pulse"></div>
-                    <div className="absolute -inset-4 bg-gradient-to-r from-yellow-300 via-pink-400 to-cyan-400 rounded-xl blur-xl opacity-40 group-hover:opacity-60 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                    <div className="absolute -inset-2 bg-white rounded-lg blur-md opacity-30 group-hover:opacity-50 animate-pulse" style={{ animationDelay: '1s' }}></div>
-
-                    {/* Main image with enhanced prominence */}
-                    <img
-                      src="https://ik.imagekit.io/humbling/emma.png"
-                      alt="International Transfer Services"
-                      className="relative h-24 sm:h-32 md:h-40 lg:h-44 w-auto rounded-xl shadow-2xl border-2 border-white/50 transform hover:scale-110 transition-all duration-500 hover:rotate-1"
-                      style={{
-                        filter: 'drop-shadow(0 0 40px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 80px rgba(147, 51, 234, 0.5)) drop-shadow(0 0 120px rgba(59, 130, 246, 0.3))',
-                        boxShadow: '0 25px 50px rgba(0, 0, 0, 0.4), 0 15px 30px rgba(147, 51, 234, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.6), inset 0 -2px 0 rgba(0, 0, 0, 0.2)'
-                      }}
-                    />
-
-
-
-                    {/* Floating sparkle effects */}
-                    <div className="absolute -top-2 -right-2 w-3 h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping" style={{ animationDelay: '0.2s' }}></div>
-                    <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-yellow-300 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping" style={{ animationDelay: '0.4s' }}></div>
-                    <div className="absolute top-1/2 -right-3 w-1.5 h-1.5 bg-blue-300 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping" style={{ animationDelay: '0.6s' }}></div>
-                    <div className="absolute top-1/4 -left-3 w-1 h-1 bg-purple-300 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping" style={{ animationDelay: '0.8s' }}></div>
-
-                    {/* Pulsing border effect */}
-                    <div className="absolute inset-0 rounded-xl border-2 border-white/20 group-hover:border-white/60 transition-all duration-300"></div>
-                  </div>
+                  <img
+                    src="https://ik.imagekit.io/humbling/emma.png"
+                    alt="International Transfer Services"
+                    className="h-24 sm:h-32 md:h-40 lg:h-44 w-auto rounded-xl shadow-lg border-2 border-white/50"
+                  />
                 </div>
 
-                {/* Transfer Service Cards - Donation Button Style */}
+                {/* Transfer Service Cards - Optimized */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-white mb-4">
-                  {/* TapTapSend - Red Valentine */}
+                  {/* TapTapSend - Optimized */}
                   <a
                     href="https://www.taptapsend.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-red-600 via-red-500 to-red-700 border border-red-800 rounded-lg hover:from-red-500 hover:via-red-400 hover:to-red-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-red-500/60 overflow-hidden cursor-pointer"
-                    style={{
-                      boxShadow: '0 4px 15px rgba(239, 68, 68, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
-                    }}
+                    className="inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-red-600 via-red-500 to-red-700 border border-red-800 rounded-lg hover:from-red-500 hover:via-red-400 hover:to-red-600 shadow-lg transition-colors duration-200"
                   >
-
-
-                    <img src="https://www.taptapsend.com/favicon.ico" alt="TapTapSend" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                    <span className="relative z-10 leading-tight">TapTap Send</span>
-
-                    {/* Smart glow effect */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-red-400 to-red-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
+                    <img src="https://www.taptapsend.com/favicon.ico" alt="TapTapSend" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                    <span className="leading-tight">TapTap Send</span>
                   </a>
 
-                  {/* PayAngel - Blue */}
+                  {/* PayAngel - Optimized */}
                   <a
                     href="https://www.payangel.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 border border-blue-800 rounded-lg hover:from-blue-500 hover:via-blue-400 hover:to-blue-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-blue-500/60 overflow-hidden cursor-pointer"
-                    style={{
-                      boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
-                    }}
+                    className="inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 border border-blue-800 rounded-lg hover:from-blue-500 hover:via-blue-400 hover:to-blue-600 shadow-lg transition-colors duration-200"
                   >
-                    <img src="https://www.payangel.com/favicon.ico" alt="PayAngel" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                    <span className="relative z-10 leading-tight">PayAngel</span>
-
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
+                    <img src="https://www.payangel.com/favicon.ico" alt="PayAngel" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                    <span className="leading-tight">PayAngel</span>
                   </a>
 
-                  {/* Sendwave - Green */}
+                  {/* Sendwave - Optimized */}
                   <a
                     href="https://www.sendwave.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-green-600 via-green-500 to-green-700 border border-green-800 rounded-lg hover:from-green-500 hover:via-green-400 hover:to-green-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-green-500/60 overflow-hidden cursor-pointer"
-                    style={{
-                      boxShadow: '0 4px 15px rgba(34, 197, 94, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
-                    }}
+                    className="inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-green-600 via-green-500 to-green-700 border border-green-800 rounded-lg hover:from-green-500 hover:via-green-400 hover:to-green-600 shadow-lg transition-colors duration-200"
                   >
-                    <img src="https://www.sendwave.com/favicon.ico" alt="Sendwave" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                    <span className="relative z-10 leading-tight">Sendwave</span>
-
-                    <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-green-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
+                    <img src="https://www.sendwave.com/favicon.ico" alt="Sendwave" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                    <span className="leading-tight">Sendwave</span>
                   </a>
 
-                  {/* WorldRemit - Purple */}
+                  {/* WorldRemit - Optimized */}
                   <a
                     href="https://www.worldremit.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-purple-600 via-purple-500 to-purple-700 border border-purple-800 rounded-lg hover:from-purple-500 hover:via-purple-400 hover:to-purple-600 hover:shadow-2xl hover:-translate-y-1 active:translate-y-0 transform transition-all duration-300 ease-out shadow-lg hover:shadow-purple-500/60 overflow-hidden cursor-pointer"
-                    style={{
-                      boxShadow: '0 4px 15px rgba(147, 51, 234, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2)'
-                    }}
+                    className="inline-flex items-center justify-center px-2 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-bold text-white bg-gradient-to-br from-purple-600 via-purple-500 to-purple-700 border border-purple-800 rounded-lg hover:from-purple-500 hover:via-purple-400 hover:to-purple-600 shadow-lg transition-colors duration-200"
                   >
-                    <img src="https://www.worldremit.com/favicon.ico" alt="WorldRemit" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform relative z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                    <span className="relative z-10 leading-tight">WorldRemit</span>
-
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
+                    <img src="https://www.worldremit.com/favicon.ico" alt="WorldRemit" className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                    <span className="leading-tight">WorldRemit</span>
                   </a>
                 </div>
 
-                {/* Mobile Money Number - Yellow Glow */}
+                {/* Mobile Money Number - Optimized */}
                 <div className="mb-3">
-                  <div className="relative inline-block">
-                    {/* Yellow glow background */}
-                    <div className="absolute -inset-2 bg-yellow-400 rounded-lg blur-lg opacity-60 animate-pulse"></div>
-
-                    <div className="relative bg-gradient-to-r from-yellow-300 to-yellow-400 text-yellow-900 font-black text-sm sm:text-base px-3 py-2 rounded-lg border border-yellow-500 shadow-lg"
-                         style={{
-                           boxShadow: '0 0 20px rgba(251, 191, 36, 0.6), 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)'
-                         }}>
-                      📱 Send to: <span className="font-black">0208705290</span>
-                    </div>
+                  <div className="bg-gradient-to-r from-yellow-300 to-yellow-400 text-yellow-900 font-black text-sm sm:text-base px-3 py-2 rounded-lg border border-yellow-500 shadow-lg inline-block">
+                    📱 Send to: <span className="font-black">0208705290</span>
                   </div>
                 </div>
 
@@ -833,23 +717,22 @@ const DonationPage: React.FC = () => {
               <a
                 href="/partner"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                  className="inline-flex items-center gap-2 px-5 py-2 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg border border-white/40 transition-all text-base mt-2"
-                  style={{ boxShadow: '0 0 16px 4px #fff, 0 2px 8px 0 #22c55e80' }}
+                className="inline-flex items-center gap-2 px-5 py-2 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg border border-white/40 transition-colors duration-200 text-base mt-2"
               >
                   <Heart className="w-5 h-5" />
                 Partner With Us
               </a>
                 <div className="w-full flex justify-center items-center mt-4 gap-4">
-                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-blue-600/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
+                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-blue-600/80 shadow-lg text-2xl sm:text-4xl">
                     💻
                   </span>
-                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-green-600/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
+                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-green-600/80 shadow-lg text-2xl sm:text-4xl">
                     👨‍🏫
                   </span>
-                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-pink-600/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
+                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-pink-600/80 shadow-lg text-2xl sm:text-4xl">
                     🏫
                   </span>
-                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-yellow-400/80 shadow-lg text-2xl sm:text-4xl" style={{ filter: 'drop-shadow(0 0 16px #fff) drop-shadow(0 0 8px #fff)' }}>
+                  <span className="h-10 w-10 sm:h-14 sm:w-14 flex items-center justify-center rounded-full bg-yellow-400/80 shadow-lg text-2xl sm:text-4xl">
                     🧑‍🎓
                   </span>
                 </div>
