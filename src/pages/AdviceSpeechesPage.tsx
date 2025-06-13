@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, X, Calendar, MapPin, Quote } from 'lucide-react';
 import { commencementSpeeches } from '../data/commencementSpeeches';
 import SEOHead from '../components/seo/SEOHead';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 const AdviceSpeechesPage: React.FC = () => {
   const [selectedSpeech, setSelectedSpeech] = useState<any>(null);
@@ -38,8 +39,8 @@ const AdviceSpeechesPage: React.FC = () => {
           pageType="students-hub"
           useGalleryImages={true}
         />
-        {/* Header */}
-        <div className="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 py-3 sm:py-4 pt-20">
+        {/* Back Button and Title Section - Exact Students Hub Structure */}
+        <div className="bg-gradient-to-r from-orange-900 via-orange-800 to-orange-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -50,14 +51,9 @@ const AdviceSpeechesPage: React.FC = () => {
                 <span>Back</span>
               </button>
 
-              <div className="flex-1 min-w-0">
-                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
-                  {selectedSpeech.speaker}
-                </h1>
-                <p className="text-sm text-orange-200 truncate">
-                  {selectedSpeech.title}
-                </p>
-              </div>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                {selectedSpeech.speaker}
+              </h1>
             </div>
           </div>
         </div>
@@ -175,8 +171,17 @@ const AdviceSpeechesPage: React.FC = () => {
               >
                 <button
                   onClick={() => handleSpeechClick(speech)}
-                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left"
+                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative overflow-hidden group"
                 >
+                  {/* Strong Shimmer Silver Loading Effect */}
+                  <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover:opacity-25 transition-opacity duration-300">
+                    <ShimmerLoader
+                      variant="silver"
+                      className="w-full h-full"
+                      width="w-full"
+                      height="h-full"
+                    />
+                  </div>
                   {/* Speaker Image */}
                   <div className="w-full h-32 sm:h-40 rounded-xl overflow-hidden mb-4">
                     <img

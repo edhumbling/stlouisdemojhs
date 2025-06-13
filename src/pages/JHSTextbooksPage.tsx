@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Calculator, Beaker, Globe, Monitor, FileText, Download } from 'lucide-react';
+import { ArrowLeft, BookOpen, Calculator, TestTube, Globe, Computer } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -149,9 +149,9 @@ const JHSTextbooksPage: React.FC = () => {
 
   const getSubjectIcon = (subject: string) => {
     if (subject.includes('Math')) return Calculator;
-    if (subject.includes('Science')) return Beaker;
+    if (subject.includes('Science')) return TestTube;
     if (subject.includes('Social')) return Globe;
-    if (subject.includes('ICT') || subject.includes('Computing')) return Monitor;
+    if (subject.includes('ICT') || subject.includes('Computing')) return Computer;
     return BookOpen;
   };
 
@@ -167,40 +167,28 @@ const JHSTextbooksPage: React.FC = () => {
   if (selectedPdf) {
     return (
       <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
-        {/* Header */}
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-4 sm:py-5 shadow-2xl border-b border-teal-700/50">
+        {/* Back Button and Title Section - Exact Students Hub Structure */}
+        <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
                 type="button"
                 onClick={handlePdfBack}
-                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-teal-700/70 hover:bg-teal-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-teal-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-teal-500/50 hover:border-teal-400/70 flex-shrink-0"
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-teal-700/50 hover:bg-teal-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-teal-500/30 flex-shrink-0"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span className="hidden sm:inline">Back to Textbooks</span>
-                <span className="sm:hidden">Back</span>
+                <span>Back</span>
               </button>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                 JHS Textbook Viewer
               </h1>
-
-              {/* Download Button */}
-              <a
-                href={selectedPdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
-              >
-                <Download size={14} />
-                <span className="hidden sm:inline">Download</span>
-              </a>
             </div>
           </div>
         </div>
 
         {/* Enhanced PDF Viewer */}
-        <div className="w-full h-full pt-20 sm:pt-24 relative">
+        <div className="w-full h-full relative">
           {isMobile ? (
             /* Google Docs Viewer for Mobile PDFs */
             <div className="w-full h-full bg-white">
@@ -284,7 +272,7 @@ const JHSTextbooksPage: React.FC = () => {
         pageType="students-hub"
         useGalleryImages={true}
       />
-      {/* Header */}
+      {/* Back Button and Title Section - Exact Students Hub Structure */}
       <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
@@ -297,14 +285,9 @@ const JHSTextbooksPage: React.FC = () => {
               <span>Back</span>
             </button>
 
-            <div className="flex-1">
-              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                JHS Textbooks
-              </h1>
-              <p className="text-xs sm:text-sm text-teal-200 mt-1">
-                Free Junior High School textbooks organized by subject
-              </p>
-            </div>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              JHS Textbooks
+            </h1>
           </div>
         </div>
       </div>
@@ -351,8 +334,17 @@ const JHSTextbooksPage: React.FC = () => {
                         <button
                           type="button"
                           onClick={(e) => openPdfViewer(book.pdfUrl, e)}
-                          className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative"
+                          className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative overflow-hidden group"
                         >
+                          {/* Strong Shimmer Silver Loading Effect */}
+                          <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover:opacity-25 transition-opacity duration-300">
+                            <ShimmerLoader
+                              variant="silver"
+                              className="w-full h-full"
+                              width="w-full"
+                              height="h-full"
+                            />
+                          </div>
                           {/* PDF Badge */}
                           <div className="absolute top-2 right-2 w-5 h-5 bg-red-500/80 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">PDF</span>

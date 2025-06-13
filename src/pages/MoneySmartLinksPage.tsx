@@ -4812,40 +4812,28 @@ const MoneySmartLinksPage: React.FC = () => {
   if (selectedVideo) {
     return (
       <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
-        {/* Header */}
-        <div className="fixed top-0 left-0 right-0 z-[10000] bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4 sm:py-5 shadow-2xl border-b border-green-700/50">
+        {/* Back Button and Title Section - Exact Students Hub Structure */}
+        <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
                 type="button"
                 onClick={handleVideoBack}
-                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-green-700/70 hover:bg-green-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/50 hover:border-green-400/70 flex-shrink-0"
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span className="hidden sm:inline">Back to Directory</span>
-                <span className="sm:hidden">Back</span>
+                <span>Back</span>
               </button>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                 {selectedVideo.title}
               </h1>
-
-              {/* External Link Button */}
-              <a
-                href={selectedVideo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
-              >
-                <ExternalLink size={14} />
-                <span className="hidden sm:inline">Open Original</span>
-              </a>
             </div>
           </div>
         </div>
 
         {/* Video Player */}
-        <div className="w-full h-full pt-20 sm:pt-24 relative">
+        <div className="w-full h-full relative">
           <div className="w-full h-full bg-black">
             <iframe
               src={getYouTubeEmbedUrl(selectedVideo.url)}
@@ -4876,7 +4864,7 @@ const MoneySmartLinksPage: React.FC = () => {
         pageType="students-hub"
         useGalleryImages={true}
       />
-      {/* Header */}
+      {/* Back Button and Title Section - Exact Students Hub Structure */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
@@ -4889,14 +4877,9 @@ const MoneySmartLinksPage: React.FC = () => {
               <span>Back</span>
             </button>
 
-            <div className="flex-1">
-              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                💰 Money Smart Links
-              </h1>
-              <p className="text-xs sm:text-sm text-green-200 mt-1">
-                {totalResources}+ comprehensive financial education resources
-              </p>
-            </div>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              💰 Money Smart Links
+            </h1>
           </div>
         </div>
       </div>
@@ -4989,6 +4972,15 @@ const MoneySmartLinksPage: React.FC = () => {
                           onClick={() => openResource(resource)}
                           className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-green-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                         >
+                          {/* Strong Shimmer Silver Loading Effect */}
+                          <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover:opacity-25 transition-opacity duration-300">
+                            <ShimmerLoader
+                              variant="silver"
+                              className="w-full h-full"
+                              width="w-full"
+                              height="h-full"
+                            />
+                          </div>
                           {/* Background Gradient */}
                           <div
                             className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
