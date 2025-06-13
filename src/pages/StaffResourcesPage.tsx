@@ -360,13 +360,13 @@ const StaffResourcesPage: React.FC = () => {
     // Full-screen embedded view - No header, no footer
     return (
       <div className="fixed inset-0 z-50 bg-white">
-        {/* Header - Enhanced Blue Back Button */}
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-4 sm:py-5 shadow-2xl border-b border-blue-700/50">
+        {/* Back Button and Title Section - Exact Students Hub Structure */}
+        <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 pt-20 pb-3 sm:pb-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-2 px-4 py-3 sm:px-5 sm:py-3 bg-blue-700/70 hover:bg-blue-600/80 text-white font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/50 hover:border-blue-400/70 flex-shrink-0 ring-2 ring-blue-500/20 hover:ring-blue-400/30"
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
                 <span>Back</span>
@@ -375,20 +375,12 @@ const StaffResourcesPage: React.FC = () => {
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                 {resources.find(r => r.id === selectedResource)?.title}
               </h1>
-
-              <button
-                onClick={handleOpenInBrowser}
-                className="inline-flex items-center gap-2 px-3 py-2 bg-blue-600/80 hover:bg-blue-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
-              >
-                <Globe size={14} />
-                <span className="hidden sm:inline">Open in Browser</span>
-              </button>
             </div>
           </div>
         </div>
 
         {/* Content Area - Full height iframe */}
-        <div className="w-full h-full pt-20 sm:pt-24 relative">
+        <div className="w-full h-full relative">
           {!iframeError ? (
             <>
               <iframe
@@ -401,26 +393,27 @@ const StaffResourcesPage: React.FC = () => {
                 style={{ background: 'white' }}
               />
 
-              {/* Shimmer Loading Overlay */}
+              {/* Strong Shimmer Silver Loading Overlay */}
               {isLoading && (
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center z-20">
-                  <div className="text-center max-w-md px-6">
-                    {/* Shimmer Logo Placeholder */}
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-xl shimmer-dark"></div>
-
-                    {/* Shimmer Text Lines */}
-                    <div className="space-y-3 mb-6">
-                      <div className="h-6 w-48 mx-auto rounded shimmer-dark"></div>
-                      <div className="h-4 w-64 mx-auto rounded shimmer-dark"></div>
-                      <div className="h-4 w-56 mx-auto rounded shimmer-dark"></div>
+                <div className="absolute inset-0 z-20 bg-black">
+                  <ShimmerLoader
+                    variant="silver"
+                    className="w-full h-full"
+                    width="w-full"
+                    height="h-full"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/60">
+                    <div className="text-center text-white max-w-md px-6">
+                      <div className="w-20 h-20 mx-auto mb-6 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5 flex items-center justify-center backdrop-blur-sm border border-blue-500/30">
+                        <div className="w-12 h-12 border-4 border-blue-400/30 border-t-blue-400 rounded-full animate-spin"></div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-white drop-shadow-lg">Loading Educational Resource</h3>
+                      <p className="text-sm text-gray-300 mb-4">Preparing {resources.find(r => r.id === selectedResource)?.title}...</p>
+                      <div className="flex items-center justify-center gap-2 text-xs text-white/80">
+                        <div className="w-2 h-2 bg-blue-400/60 rounded-full animate-pulse"></div>
+                        <span>Ensuring secure connection</span>
+                      </div>
                     </div>
-
-                    {/* Loading Spinner */}
-                    <div className="w-8 h-8 border-2 border-gray-600 border-t-blue-500 rounded-full animate-spin mx-auto mb-4"></div>
-
-                    {/* Loading Text */}
-                    <p className="text-white font-medium text-lg">Loading {resources.find(r => r.id === selectedResource)?.title}...</p>
-                    <p className="text-gray-300 text-sm mt-2">Preparing your educational resource</p>
                   </div>
                 </div>
               )}
@@ -475,7 +468,7 @@ const StaffResourcesPage: React.FC = () => {
         keywords="staff resources, teaching materials, curriculum guides, AI teaching tools, professional development, educational resources, teacher tools, Ghana education"
         url="/staff-resources"
         type="website"
-        pageType="staff-resources"
+        pageType="about"
         useGalleryImages={true}
       />
       {/* Back Button and Title Section */}
@@ -490,14 +483,9 @@ const StaffResourcesPage: React.FC = () => {
               <span>Back</span>
             </button>
 
-            <div className="flex-1">
-              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                Staff Resources
-              </h1>
-              <p className="text-xs sm:text-sm text-blue-200 mt-1">
-                Access curriculum guides, teaching materials, and educational resources
-              </p>
-            </div>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Staff Resources
+            </h1>
           </div>
         </div>
       </div>

@@ -2849,28 +2849,76 @@ const StudentsHubPage: React.FC = () => {
     preloadResources();
   }, [preloadResources]);
 
-  // Optimize iframe rendering
-  const renderIframe = (resource: Resource) => (
-    selectedResource ? (
-      <iframe
-        ref={iframeRef}
-        src={resource.url}
-        className="w-full h-full border-0"
-        onLoad={handleIframeLoad}
-        onError={handleIframeError}
-        sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation"
-        referrerPolicy="no-referrer"
-        loading="eager"
-        title={selectedResource.title}
-        style={{
-          width: '100%',
-          height: '100%',
-          border: 'none',
-          outline: 'none'
-        }}
-      />
-    ) : null
-  );
+  // Check if current resource is from Financial Literacy section
+  const isFinancialLiteracyResource = (resourceId: number) => {
+    const financialLiteracyResources = resourceCategories['💰 Financial Literacy'] || [];
+    return financialLiteracyResources.some(resource => resource.id === resourceId);
+  };
+
+  // Optimize iframe rendering with enhanced loading for Financial Literacy resources
+  const renderIframe = (resource: Resource) => {
+    if (!selectedResource) return null;
+
+    const isFinancialResource = isFinancialLiteracyResource(resource.id);
+
+    return (
+      <div className="w-full h-full relative">
+        {/* Strong Shimmer Silver Loading for Financial Literacy Resources */}
+        {isLoading && isFinancialResource && (
+          <div className="absolute inset-0 z-20 bg-black">
+            <ShimmerLoader
+              variant="silver"
+              className="w-full h-full"
+              width="w-full"
+              height="h-full"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/60">
+              <div className="text-center text-white max-w-md px-6">
+                <div className="w-20 h-20 mx-auto mb-6 rounded-xl bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center backdrop-blur-sm border border-white/30">
+                  <div className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-white drop-shadow-lg">Loading Financial Resource</h3>
+                <p className="text-sm text-gray-300 mb-4">Preparing your money management tools...</p>
+                <div className="flex items-center justify-center gap-2 text-xs text-white/80">
+                  <div className="w-2 h-2 bg-white/60 rounded-full animate-pulse"></div>
+                  <span>Ensuring secure connection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Regular loading for non-Financial Literacy resources */}
+        {isLoading && !isFinancialResource && (
+          <div className="absolute inset-0 z-20 bg-black flex items-center justify-center">
+            <div className="text-center text-white">
+              <div className="w-16 h-16 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+              <p className="text-lg font-medium">Loading Resource...</p>
+              <p className="text-sm text-gray-300 mt-2">Preparing your content</p>
+            </div>
+          </div>
+        )}
+
+        <iframe
+          ref={iframeRef}
+          src={resource.url}
+          className="w-full h-full border-0"
+          onLoad={handleIframeLoad}
+          onError={handleIframeError}
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-top-navigation"
+          referrerPolicy="no-referrer"
+          loading="eager"
+          title={selectedResource.title}
+          style={{
+            width: '100%',
+            height: '100%',
+            border: 'none',
+            outline: 'none'
+          }}
+        />
+      </div>
+    );
+  };
 
   // Define renderLoadingState and renderYouTubeVideo as empty functions for now to fix linter errors
   const renderLoadingState = () => null;
@@ -3454,18 +3502,6 @@ const StudentsHubPage: React.FC = () => {
                               <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-white/20 via-white/15 to-white/20 opacity-25 group-hover:opacity-40 transition-opacity duration-500 blur-md -z-20" />
                               <div className="absolute -inset-3 rounded-2xl bg-white/10 opacity-15 group-hover:opacity-25 transition-opacity duration-700 blur-lg -z-30" />
                             </>
-                          )}
-
-                          {/* Strong shimmer silver loading for Financial Literacy section cards */}
-                          {category === '💰 Financial Literacy' && (
-                            <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                              <ShimmerLoader
-                                variant="silver"
-                                className="w-full h-full opacity-20 group-hover:opacity-30 transition-opacity duration-300"
-                                width="w-full"
-                                height="h-full"
-                              />
-                            </div>
                           )}
                           {/* Status Indicators */}
                           <div className="absolute top-3 right-3 flex gap-1">

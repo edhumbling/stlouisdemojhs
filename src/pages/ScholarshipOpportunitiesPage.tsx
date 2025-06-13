@@ -4,6 +4,7 @@ import { ArrowLeft, GraduationCap, BookOpen, Globe, DollarSign, Users, Target, A
 import { useNavigate, Link } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface ScholarshipItem {
   id: string;
@@ -2110,14 +2111,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
               <span>Back</span>
             </button>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
-                Educational and Global Opportunities
-              </h1>
-              <p className="text-sm text-purple-200 truncate">
-                Explore scholarships, SAT preparation, and educational opportunities
-              </p>
-            </div>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+              Educational and Global Opportunities
+            </h1>
           </div>
         </div>
       </div>
@@ -2314,6 +2310,16 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
                               background: `radial-gradient(circle at center, ${scholarship.glowColor}30 0%, transparent 70%)`
                             }}
                           />
+
+                          {/* Strong Shimmer Silver Loading Effect */}
+                          <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                            <ShimmerLoader
+                              variant="silver"
+                              className="w-full h-full"
+                              width="w-full"
+                              height="h-full"
+                            />
+                          </div>
 
                           {/* Icon */}
                           <div className={`flex items-center justify-center w-12 h-12 rounded-xl mb-3 group-hover:scale-110 transition-all duration-300 ${

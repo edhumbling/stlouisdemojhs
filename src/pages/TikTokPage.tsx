@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Heart, ExternalLink } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 const TikTokPage: React.FC = () => {
   const navigate = useNavigate();
@@ -219,6 +220,15 @@ const TikTokPage: React.FC = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-pink-500/50 transition-all duration-300 relative group"
                   >
+                    {/* Strong Shimmer Silver Loading Effect */}
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover:opacity-25 transition-opacity duration-300">
+                      <ShimmerLoader
+                        variant="silver"
+                        className="w-full h-full"
+                        width="w-full"
+                        height="h-full"
+                      />
+                    </div>
                     {/* Simple Silver Reflection on Hover */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none"></div>
                     {/* TikTok Embed */}
