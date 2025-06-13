@@ -1,17 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEOHead from '../components/seo/SEOHead';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 const DonateMonthly100Page: React.FC = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="min-h-screen bg-black">
+    <>
+      {isLoading && (
+        <div className="fixed inset-0 bg-gradient-to-br from-yellow-700 via-yellow-600 to-yellow-700 z-50 flex items-center justify-center">
+          <div className="relative z-10 flex flex-col items-center">
+            <div className="w-24 h-24 mb-8">
+              <ShimmerLoader variant="silver" className="w-full h-full rounded-full" width="w-24" height="h-24" />
+            </div>
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-white mb-2">Gold</h2>
+              <p className="text-gray-300 text-sm">Loading your donation experience...</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="min-h-screen bg-black">
       <SEOHead
         title="Monthly Support ₵100 - Gold | St. Louis Demonstration JHS"
         description="Join our Gold monthly support program with ₵100 monthly donations. Help us provide consistent support for our students' education and school development."
@@ -58,6 +77,7 @@ const DonateMonthly100Page: React.FC = () => {
         />
       </div>
     </div>
+    </>
   );
 };
 
