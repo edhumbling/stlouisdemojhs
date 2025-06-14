@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { History, Award, Target, BookOpen, ArrowLeft, X, ExternalLink } from 'lucide-react';
+import React, { useState, useMemo, useCallback } from 'react';
+import { motion } from 'framer-motion';
+import { Award, Target, BookOpen, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 import SEOHead from '../components/seo/SEOHead';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -90,59 +92,44 @@ const OptimizedImage: React.FC<{
   );
 };
 
-// Image Modal Component
-const ImageModal: React.FC<{
-  isOpen: boolean;
-  onClose: () => void;
-  imageSrc: string;
-  imageAlt: string;
-}> = ({ isOpen, onClose, imageSrc, imageAlt }) => {
-  if (!isOpen) return null;
-
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-        onClick={onClose}
-      >
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.8, opacity: 0 }}
-          className="relative max-w-4xl max-h-full"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors duration-200"
-          >
-            <X size={24} />
-          </button>
-          <img
-            src={imageSrc}
-            alt={imageAlt}
-            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-          />
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
-  );
-};
-
 const AboutPage: React.FC = () => {
   const navigate = useNavigate();
-  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
-  const openModal = (src: string, alt: string) => {
-    setModalImage({ src, alt });
-  };
+  // Historical images for lightbox
+  const historicalImages = useMemo(() => [
+    {
+      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637',
+      alt: 'Mad. Millicent Otoo - Former Headmistress',
+      title: 'Mad. Millicent Otoo - Former Headmistress'
+    },
+    {
+      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369',
+      alt: 'Mad. Millicent Otoo - Leadership Excellence',
+      title: 'Mad. Millicent Otoo - Leadership Excellence'
+    },
+    {
+      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433',
+      alt: 'Mad. Millicent Otoo - Educational Vision',
+      title: 'Mad. Millicent Otoo - Educational Vision'
+    },
+    {
+      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599',
+      alt: 'Mad. Millicent Otoo - Parade Cadet Leadership',
+      title: 'Mad. Millicent Otoo - Parade Cadet Leadership'
+    },
+    {
+      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637',
+      alt: 'Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development',
+      title: 'Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development'
+    }
+  ], []);
 
-  const closeModal = () => {
-    setModalImage(null);
-  };
+  const openLightbox = useCallback((index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  }, []);
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
@@ -299,8 +286,11 @@ const AboutPage: React.FC = () => {
                   The 1990s brought significant challenges as Ghana navigated through economic difficulties that affected educational institutions nationwide. Limited resources, infrastructure constraints, and the pressure to maintain academic standards while serving a growing student population tested our resilience. However, these challenges only strengthened our resolve and fostered the development of core values that define us today: perseverance, community spirit, and an unwavering commitment to academic excellence.
                 </p>
 
-                {/* Mad. Millicent Otoo - Extensive Section with Images - Edge to Edge */}
-                <div className="w-full bg-gradient-to-r from-blue-900/30 to-purple-900/30 backdrop-blur-sm border-y border-white/20 py-6 sm:py-8 mb-6 -mx-4 sm:-mx-8 md:-mx-12 px-4 sm:px-8 md:px-12">
+              </div>
+
+              {/* Mad. Millicent Otoo - Extensive Section with Images - Fully Edge to Edge */}
+              <div className="w-screen bg-gradient-to-r from-blue-900/30 to-purple-900/30 backdrop-blur-sm border-y border-white/20 py-6 sm:py-8 mb-6 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+                <div className="max-w-none px-4 sm:px-8 md:px-12">
                   <div className="flex items-center mb-4">
                     <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-3 shadow-lg">
                       <span className="text-white text-lg">👑</span>
@@ -318,14 +308,14 @@ const AboutPage: React.FC = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
-                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637', 'Mad. Millicent Otoo - Former Headmistress')}
+                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
+                      onClick={() => openLightbox(0)}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637&tr=w-400,h-300,q-80"
                         alt="Mad. Millicent Otoo - Former Headmistress"
-                        className="w-full h-32 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
-                        shimmerClassName="w-full h-32 sm:h-40"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        shimmerClassName="w-full h-full"
                       />
                     </motion.div>
                     <motion.div
@@ -333,14 +323,14 @@ const AboutPage: React.FC = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.1 }}
-                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369', 'Mad. Millicent Otoo - Leadership Excellence')}
+                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
+                      onClick={() => openLightbox(1)}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369&tr=w-400,h-300,q-80"
                         alt="Mad. Millicent Otoo - Leadership Excellence"
-                        className="w-full h-32 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
-                        shimmerClassName="w-full h-32 sm:h-40"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        shimmerClassName="w-full h-full"
                       />
                     </motion.div>
 
@@ -350,14 +340,14 @@ const AboutPage: React.FC = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.2 }}
-                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433', 'Mad. Millicent Otoo - Educational Vision')}
+                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
+                      onClick={() => openLightbox(2)}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433&tr=w-400,h-300,q-80"
                         alt="Mad. Millicent Otoo - Educational Vision"
-                        className="w-full h-32 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
-                        shimmerClassName="w-full h-32 sm:h-40"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        shimmerClassName="w-full h-full"
                       />
                     </motion.div>
                     <motion.div
@@ -365,14 +355,14 @@ const AboutPage: React.FC = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.3 }}
-                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599', 'Mad. Millicent Otoo - Parade Cadet Leadership')}
+                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
+                      onClick={() => openLightbox(3)}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599&tr=w-400,h-300,q-80"
                         alt="Mad. Millicent Otoo - Parade Cadet Leadership"
-                        className="w-full h-32 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
-                        shimmerClassName="w-full h-32 sm:h-40"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        shimmerClassName="w-full h-full"
                       />
                     </motion.div>
                   </div>
@@ -398,11 +388,111 @@ const AboutPage: React.FC = () => {
                     <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                       <strong className="text-purple-300">Mad. Millicent Otoo's</strong> legacy lives on in the countless lives she touched, the educational standards she established, and the culture of excellence she fostered. Her contributions to St. Louis Demonstration JHS extend far beyond her years of service, having laid the foundation for the continued success and growth that our school enjoys today. She remains an inspiration to current and future generations of educators, students, and the entire school community.
                     </p>
+
+                    {/* Authentic Historical Journey */}
+                    <div className="mt-8 space-y-6">
+                      <div className="flex items-center mb-6">
+                        <div className="w-8 h-8 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center mr-3 shadow-lg">
+                          <span className="text-white text-lg">📚</span>
+                        </div>
+                        <h4 className="text-lg sm:text-xl font-bold text-yellow-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                          Our Continuing Journey of Excellence
+                        </h4>
+                      </div>
+
+                      {/* Authentic School Development */}
+                      <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 backdrop-blur-sm rounded-lg border border-blue-300/30 p-4 sm:p-5">
+                        <h5 className="text-base sm:text-lg font-bold text-blue-300 mb-3 flex items-center">
+                          <span className="mr-2">🏫</span>
+                          Decades of Educational Excellence
+                        </h5>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Since our establishment in 1977, St. Louis Demonstration JHS has grown from a small educational institution to one of the most respected junior high schools in the Ashanti Region. Our journey has been marked by continuous improvement in academic standards, infrastructure development, and the unwavering commitment of our educational community to provide quality education that shapes future leaders.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Throughout the decades, our school has adapted to changing educational needs while maintaining our core values of academic excellence, moral uprightness, and spiritual grounding. We have witnessed the transformation of education in Ghana and have consistently positioned ourselves at the forefront of educational innovation and best practices.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Our commitment to holistic education has resulted in the development of well-rounded students who excel not only academically but also in character formation, leadership skills, and community service. This comprehensive approach to education has earned us recognition and respect within the educational community and beyond.
+                        </p>
+                      </div>
+
+                      {/* Infrastructure and Facilities Development */}
+                      <div className="bg-gradient-to-r from-green-900/20 to-emerald-900/20 backdrop-blur-sm rounded-lg border border-green-300/30 p-4 sm:p-5">
+                        <h5 className="text-base sm:text-lg font-bold text-green-300 mb-3 flex items-center">
+                          <span className="mr-2">🏗️</span>
+                          Infrastructure Development and Modern Facilities
+                        </h5>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Over the years, significant investments have been made in developing our physical infrastructure to create an environment conducive to learning and personal development. Our modern classrooms, well-equipped laboratories, library facilities, and recreational areas provide students with the resources they need to excel in their academic pursuits.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          The continuous improvement of our facilities reflects our commitment to providing quality education that meets international standards. From basic classroom amenities to advanced technological resources, we strive to ensure that our students have access to the tools and environments that support effective learning and skill development.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Our infrastructure development has been made possible through the generous support of various stakeholders, including government agencies, community partners, alumni, and dedicated individuals who believe in our mission of educational excellence. These contributions have enabled us to create a learning environment that inspires and motivates both students and teachers.
+                        </p>
+                      </div>
+
+                      {/* Academic Excellence and Achievements */}
+                      <div className="bg-gradient-to-r from-purple-900/20 to-indigo-900/20 backdrop-blur-sm rounded-lg border border-purple-300/30 p-4 sm:p-5">
+                        <h5 className="text-base sm:text-lg font-bold text-purple-300 mb-3 flex items-center">
+                          <span className="mr-2">🏆</span>
+                          Academic Excellence and Student Achievements
+                        </h5>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Our commitment to academic excellence has consistently yielded outstanding results in national examinations and various academic competitions. Our students regularly achieve high pass rates in the Basic Education Certificate Examination (BECE), with many gaining admission to prestigious senior high schools across Ghana.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Beyond examination success, our students have distinguished themselves in various academic competitions, science fairs, debate contests, and cultural events at both regional and national levels. These achievements reflect the quality of education we provide and the dedication of our teaching staff to nurturing student talents and abilities.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Our alumni continue to make significant contributions to society in various fields, including education, healthcare, business, technology, and public service. Their success stories serve as inspiration to current students and testament to the quality of education and character formation they received at our institution.
+                        </p>
+                      </div>
+
+                      {/* Community Partnership and Support */}
+                      <div className="bg-gradient-to-r from-teal-900/20 to-cyan-900/20 backdrop-blur-sm rounded-lg border border-teal-300/30 p-4 sm:p-5">
+                        <h5 className="text-base sm:text-lg font-bold text-teal-300 mb-3 flex items-center">
+                          <span className="mr-2">🤝</span>
+                          Community Partnership and Stakeholder Support
+                        </h5>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          The success of St. Louis Demonstration JHS has been greatly enhanced by the strong partnerships we have built with various stakeholders in the community. Our Parent-Teacher Association, alumni network, local businesses, religious organizations, and government agencies have all played crucial roles in supporting our educational mission.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          These partnerships have facilitated resource mobilization, infrastructure development, scholarship programs, and various educational initiatives that have benefited our students and the broader school community. The collaborative approach to education has created a supportive environment where students can thrive and reach their full potential.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          We remain committed to strengthening these partnerships and building new relationships that will continue to enhance the quality of education we provide. Our open-door policy and transparent communication ensure that all stakeholders remain engaged and informed about our progress and future plans.
+                        </p>
+                      </div>
+
+                      {/* Gratitude and Future Vision */}
+                      <div className="bg-gradient-to-r from-amber-900/20 to-orange-900/20 backdrop-blur-sm rounded-lg border border-amber-300/30 p-4 sm:p-5">
+                        <h5 className="text-base sm:text-lg font-bold text-amber-300 mb-3 flex items-center">
+                          <span className="mr-2">🙏</span>
+                          Gratitude and Future Vision
+                        </h5>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          As we reflect on our journey since 1977, we are filled with gratitude for all who have contributed to our success. From our founding leaders to our current administration, from our dedicated teaching staff to our supportive parents and community members, each person has played a vital role in shaping our institution.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          We honor the memory of those who have passed on, celebrate the contributions of those who have retired, and appreciate the ongoing dedication of our current staff and stakeholders. Their collective efforts have created the strong foundation upon which we continue to build our educational excellence.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Looking toward the future, we remain committed to our mission of providing quality education that prepares students for success in an ever-changing world. We will continue to adapt, innovate, and excel while maintaining the core values and traditions that have made St. Louis Demonstration JHS a beacon of educational excellence in Ghana.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Mr. Atta Sarpong - PTA Chairman Section - Edge to Edge */}
-                <div className="w-full bg-gradient-to-r from-green-900/30 to-blue-900/30 backdrop-blur-sm border-y border-white/20 py-6 sm:py-8 mb-6 -mx-4 sm:-mx-8 md:-mx-12 px-4 sm:px-8 md:px-12">
+              </div>
+
+              {/* Mr. Atta Sarpong - PTA Chairman Section - Fully Edge to Edge */}
+              <div className="w-screen bg-gradient-to-r from-green-900/30 to-blue-900/30 backdrop-blur-sm border-y border-white/20 py-6 sm:py-8 mb-6 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+                <div className="max-w-none px-4 sm:px-8 md:px-12">
                   <div className="flex flex-col sm:flex-row items-start gap-4">
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -413,7 +503,7 @@ const AboutPage: React.FC = () => {
                     >
                       <div
                         className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-32 sm:w-40"
-                        onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637', 'Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development')}
+                        onClick={() => openLightbox(4)}
                       >
                         <OptimizedImage
                           src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637&tr=w-300,h-400,q-80"
@@ -1083,12 +1173,37 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Image Modal */}
-      <ImageModal
-        isOpen={modalImage !== null}
-        onClose={closeModal}
-        imageSrc={modalImage?.src || ''}
-        imageAlt={modalImage?.alt || ''}
+      {/* Professional Lightbox for Historical Images */}
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={lightboxIndex}
+        slides={historicalImages}
+        animation={{ fade: 200, swipe: 300 }}
+        controller={{
+          closeOnBackdropClick: true,
+          closeOnPullDown: true,
+          closeOnPullUp: true
+        }}
+        toolbar={{
+          buttons: ["close"]
+        }}
+        styles={{
+          container: {
+            backgroundColor: "rgba(0, 0, 0, 0.95)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)"
+          },
+          slide: {
+            filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))"
+          }
+        }}
+        carousel={{
+          finite: false,
+          preload: 2,
+          spacing: "30%",
+          imageFit: "contain"
+        }}
       />
     </div>
   );
