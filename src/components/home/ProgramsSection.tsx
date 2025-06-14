@@ -25,17 +25,18 @@ const ProgramsSection: React.FC = () => {
           transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="max-w-5xl mx-auto text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6"
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6"
               style={{
                 fontFamily: 'Arial, sans-serif',
                 textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.6)'
               }}>
             Our Academic Curriculum
           </h2>
-          <p className="text-lg text-gray-200 mb-8"
+          <p className="text-sm sm:text-lg text-gray-200 mb-6 sm:mb-8 px-2 sm:px-0"
              style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
-            St. Louis Demonstration Junior High School offers a comprehensive curriculum designed to develop well-rounded students
-            through rigorous academics, technology integration, cultural awareness, and character formation.
+            <span className="hidden sm:inline">St. Louis Demonstration Junior High School offers a comprehensive curriculum designed to develop well-rounded students
+            through rigorous academics, technology integration, cultural awareness, and character formation.</span>
+            <span className="sm:hidden">Comprehensive curriculum developing well-rounded students through academics, tech & character formation 📚✨</span>
           </p>
 
           {/* Magical Subject List - School Colors */}

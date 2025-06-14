@@ -344,24 +344,24 @@ const GrowthChart: React.FC = () => {
           </svg>
         </motion.div>
 
-        {/* Mobile-Optimized Legend */}
+        {/* Mobile-Friendly One Line Legend */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="flex justify-center mt-2 sm:mt-3 md:mt-4 px-2"
         >
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 md:gap-8 bg-gray-800/50 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-6 py-2 sm:py-3 border border-gray-700">
-            <div className="flex items-center gap-2">
-              <div className="w-3 sm:w-4 h-0.5 bg-blue-500"></div>
+          <div className="flex items-center gap-2 sm:gap-6 md:gap-8 bg-gray-800/50 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-6 py-2 sm:py-3 border border-gray-700">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <div className="w-2 sm:w-4 h-0.5 bg-blue-500"></div>
               <span className="text-xs sm:text-sm text-gray-300">Students</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 sm:w-4 h-0.5 bg-green-500"></div>
-              <span className="text-xs sm:text-sm text-gray-300">BECE Rate</span>
+            <div className="flex items-center gap-1 sm:gap-2">
+              <div className="w-2 sm:w-4 h-0.5 bg-green-500"></div>
+              <span className="text-xs sm:text-sm text-gray-300">BECE</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full border-2 border-dashed border-gray-400"></div>
+            <div className="flex items-center gap-1 sm:gap-2">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full border border-dashed border-gray-400"></div>
               <span className="text-xs text-gray-400">Future</span>
             </div>
           </div>
