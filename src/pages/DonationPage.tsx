@@ -876,20 +876,19 @@ const DonationPage: React.FC = () => {
                         ))}
                       </div>
 
-                      {/* Mobile: 5 top, 4 bottom */}
-                      <div className="lg:hidden w-full">
-                        <div className="flex justify-center gap-2 mb-2">
+                      {/* Mobile: 3 rows with 3 buttons each */}
+                      <div className="lg:hidden w-full space-y-2">
+                        {/* Row 1: Stone, Bronze, Silver */}
+                        <div className="flex justify-center gap-2">
                           {[
                             { amount: 10, label: 'Stone', stars: '⭐', route: '/donate-monthly-10' },
                             { amount: 30, label: 'Bronze', stars: '⭐⭐', route: '/donate-monthly-30' },
-                            { amount: 50, label: 'Silver', stars: '⭐⭐⭐', route: '/donate-monthly-50' },
-                            { amount: 100, label: 'Gold', stars: '⭐⭐⭐⭐', route: '/donate-monthly-100' },
-                            { amount: 200, label: 'Diamond', stars: '⭐⭐⭐⭐⭐', route: '/donate-monthly-200' }
+                            { amount: 50, label: 'Silver', stars: '⭐⭐⭐', route: '/donate-monthly-50' }
                           ].map((tier) => (
                             <Link
                               key={tier.amount}
                               to={tier.route}
-                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-2 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[60px]"
+                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px]"
                             >
                               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                               <div className="relative">
@@ -902,9 +901,34 @@ const DonationPage: React.FC = () => {
                             </Link>
                           ))}
                         </div>
+
+                        {/* Row 2: Gold, Diamond, Platinum */}
                         <div className="flex justify-center gap-2">
                           {[
-                            { amount: 500, label: 'Platinum', stars: '⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-500' },
+                            { amount: 100, label: 'Gold', stars: '⭐⭐⭐⭐', route: '/donate-monthly-100' },
+                            { amount: 200, label: 'Diamond', stars: '⭐⭐⭐⭐⭐', route: '/donate-monthly-200' },
+                            { amount: 500, label: 'Platinum', stars: '⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-500' }
+                          ].map((tier) => (
+                            <Link
+                              key={tier.amount}
+                              to={tier.route}
+                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px]"
+                            >
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
+                              <div className="relative">
+                                <div className="text-xs mb-1">{tier.stars}</div>
+                                <div className="text-white font-bold text-xs mb-1">₵{tier.amount}</div>
+                                <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 6px rgba(255, 255, 0, 0.6)' }}>
+                                  {tier.label}
+                                </div>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+
+                        {/* Row 3: Vibranium Edge, Omega Force, Sovereign One */}
+                        <div className="flex justify-center gap-2">
+                          {[
                             { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' },
                             { amount: 3000, label: 'Omega Force', stars: '⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-3000' },
                             { amount: 5000, label: 'Sovereign One', stars: '⭐⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-5000' }
@@ -912,7 +936,7 @@ const DonationPage: React.FC = () => {
                             <Link
                               key={tier.amount}
                               to={tier.route}
-                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-2 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[60px]"
+                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px]"
                             >
                               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                               <div className="relative">
