@@ -867,7 +867,7 @@ const DonationPage: React.FC = () => {
                           { amount: 100, label: 'Gold', stars: '⭐⭐⭐⭐', route: '/donate-monthly-100' },
                           { amount: 200, label: 'Diamond', stars: '⭐⭐⭐⭐⭐', route: '/donate-monthly-200' },
                           { amount: 500, label: 'Platinum', stars: '⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-500' },
-                          { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' },
+                          { amount: 1000, label: 'Vibranium', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' },
                           { amount: 3000, label: 'Omega Force', stars: '⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-3000' },
                           { amount: 5000, label: 'Sovereign One', stars: '⭐⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-5000' }
                         ].map((tier) => (
@@ -968,7 +968,7 @@ const DonationPage: React.FC = () => {
                         {/* Row 3: Vibranium Edge, Omega Force, Sovereign One - Premium Lego Draggable */}
                         <div className="flex justify-center gap-2 relative">
                           {[
-                            { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' },
+                            { amount: 1000, label: 'Vibranium', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' },
                             { amount: 3000, label: 'Omega Force', stars: '⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-3000' },
                             { amount: 5000, label: 'Sovereign One', stars: '⭐⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-5000' }
                           ].map((tier) => (
