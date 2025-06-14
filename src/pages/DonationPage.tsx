@@ -515,6 +515,17 @@ const DonationPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Announcement Bar - Attached to Back Bar */}
+      <div className="bg-green-600 py-3">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="text-white font-semibold text-sm sm:text-base">
+              🛡️ 100% of donations received are directed to the School for development
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Optimized Header Section - Red Love Theme */}
       <motion.section className="py-6 sm:py-8 relative overflow-hidden">
         {/* Simplified Background */}
@@ -812,26 +823,24 @@ const DonationPage: React.FC = () => {
                   <div id="monthly-support" className="bg-white py-8">
                     {/* Bold Section Header in Rounded Rectangle */}
                     <div className="text-center mb-6">
-                      <div className="inline-block bg-gray-100 px-8 py-4 rounded-2xl border border-gray-200 shadow-sm">
-                        <h2 className="text-3xl sm:text-4xl font-black text-black mb-0">
+                      <div className="inline-block bg-gray-800 px-8 py-4 rounded-2xl border border-gray-600 shadow-sm">
+                        <h2 className="text-3xl sm:text-4xl font-black text-white mb-0">
                           MONTHLY SUPPORT
                         </h2>
                       </div>
                     </div>
 
                     <div className="text-center mb-6">
-                      <h3 className="text-xl font-bold text-black mb-4 flex items-center justify-center gap-2">
+                      <h3 className="text-lg sm:text-xl font-bold text-black mb-3 flex items-center justify-center gap-2">
                         <span>⭐</span>
-                        <span>Monthly Support Levels</span>
+                        <span>Support Levels</span>
                         <span>⭐</span>
                       </h3>
-                      <p className="text-green-500 text-base sm:text-lg font-semibold mb-2 text-center px-4">
-                        Join our community of monthly supporters and help us grow consistently through a subscription plan
+                      <p className="text-green-500 text-sm sm:text-base font-semibold mb-2 text-center px-2">
+                        Join our monthly supporters community
                       </p>
-                      <p className="text-blue-500 text-base sm:text-lg font-semibold text-center px-4 flex items-center justify-center gap-2">
-                        <span>✨</span>
-                        <span>Monthly recurring payments • Secure via Paystack • Cancel anytime</span>
-                        <span>✨</span>
+                      <p className="text-blue-500 text-xs sm:text-sm font-medium text-center px-2">
+                        ✨ Recurring • Secure • Cancel anytime ✨
                       </p>
                     </div>
 
@@ -931,19 +940,17 @@ const DonationPage: React.FC = () => {
                     </div>
 
                     <div className="text-center mb-4">
-                      <h3 className="text-lg font-bold text-white mb-4 flex items-center justify-center gap-2">
-                        <span>⭐</span>
-                        <span>One-Time Donation</span>
-                        <span>⭐</span>
+                      <h3 className="text-lg font-bold text-black mb-3">
+                        ⭐ One-Time Donation ⭐
                       </h3>
-                      <div className="flex items-center justify-center gap-2 mb-2">
-                        <span className="text-2xl">👇</span>
-                        <p className="text-orange-500 text-base sm:text-lg font-semibold text-center">
-                          The payment form below is for one-time payments
+                      <div className="flex items-center justify-center gap-1 mb-2">
+                        <span className="text-xl">👇</span>
+                        <p className="text-orange-500 text-sm sm:text-base font-semibold text-center">
+                          Payment form below
                         </p>
-                        <span className="text-2xl">👇</span>
+                        <span className="text-xl">👇</span>
                       </div>
-                      <p className="text-black text-sm font-semibold">Make a single contribution of any amount</p>
+                      <p className="text-black text-xs sm:text-sm font-medium">Single contribution • Any amount</p>
                     </div>
                   </div>
 

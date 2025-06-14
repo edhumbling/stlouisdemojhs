@@ -87,6 +87,17 @@ const DonateMonthly1000Page: React.FC = () => {
         </div>
       </div>
 
+      {/* Announcement Bar - Attached to Back Bar */}
+      <div className="bg-green-600 py-3">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="text-white font-semibold text-sm sm:text-base">
+              🛡️ 100% of donations received are directed to the School for development
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Full Screen Embedded Payment Form */}
       <div className="w-full" style={{ height: 'calc(100vh - 60px)' }}>
         <iframe
