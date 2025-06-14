@@ -8,6 +8,19 @@ const DonationPage: React.FC = () => {
   const location = useLocation();
   const state = location.state as any;
 
+  // Drag state for all buttons - Lego-like play (mobile only)
+  const [dragPositions, setDragPositions] = useState<{[key: number]: {x: number, y: number}}>({});
+
+  // Reset button position after drag (Lego bounce-back effect)
+  const handleDragEnd = (amount: number) => {
+    setTimeout(() => {
+      setDragPositions(prev => ({
+        ...prev,
+        [amount]: { x: 0, y: 0 }
+      }));
+    }, 1500); // Shorter delay for more playful feel
+  };
+
   // Skip loading if returning from monthly donation page for instant navigation
   const skipLoading = state?.preserveState && state?.returnFromCardContent;
   const [isLoading, setIsLoading] = useState(!skipLoading);
@@ -878,78 +891,126 @@ const DonationPage: React.FC = () => {
 
                       {/* Mobile: 3 rows with 3 buttons each */}
                       <div className="lg:hidden w-full space-y-2">
-                        {/* Row 1: Stone, Bronze, Silver */}
+                        {/* Row 1: Stone, Bronze, Silver - Lego Draggable */}
                         <div className="flex justify-center gap-2">
                           {[
                             { amount: 10, label: 'Stone', stars: '⭐', route: '/donate-monthly-10' },
                             { amount: 30, label: 'Bronze', stars: '⭐⭐', route: '/donate-monthly-30' },
                             { amount: 50, label: 'Silver', stars: '⭐⭐⭐', route: '/donate-monthly-50' }
                           ].map((tier) => (
-                            <Link
+                            <motion.div
                               key={tier.amount}
-                              to={tier.route}
-                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px]"
+                              drag
+                              dragConstraints={{ left: -60, right: 60, top: -40, bottom: 40 }}
+                              dragElastic={0.3}
+                              whileDrag={{ scale: 1.15, rotate: Math.random() * 10 - 5, zIndex: 20 }}
+                              dragTransition={{ bounceStiffness: 400, bounceDamping: 25 }}
+                              onDragEnd={() => handleDragEnd(tier.amount)}
+                              className="relative"
+                              animate={dragPositions[tier.amount] || { x: 0, y: 0 }}
+                              transition={{ type: "spring", stiffness: 400, damping: 25 }}
                             >
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
-                              <div className="relative">
-                                <div className="text-xs mb-1">{tier.stars}</div>
-                                <div className="text-white font-bold text-xs mb-1">₵{tier.amount}</div>
-                                <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 6px rgba(255, 255, 0, 0.6)' }}>
-                                  {tier.label}
+                              <Link
+                                to={tier.route}
+                                className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px] cursor-pointer"
+                                style={{ pointerEvents: 'auto' }}
+                              >
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
+                                <div className="relative">
+                                  <div className="text-xs mb-1">{tier.stars}</div>
+                                  <div className="text-white font-bold text-xs mb-1">₵{tier.amount}</div>
+                                  <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 6px rgba(255, 255, 0, 0.6)' }}>
+                                    {tier.label}
+                                  </div>
                                 </div>
-                              </div>
-                            </Link>
+                              </Link>
+                            </motion.div>
                           ))}
                         </div>
 
-                        {/* Row 2: Gold, Diamond, Platinum */}
+                        {/* Row 2: Gold, Diamond, Platinum - Lego Draggable */}
                         <div className="flex justify-center gap-2">
                           {[
                             { amount: 100, label: 'Gold', stars: '⭐⭐⭐⭐', route: '/donate-monthly-100' },
                             { amount: 200, label: 'Diamond', stars: '⭐⭐⭐⭐⭐', route: '/donate-monthly-200' },
                             { amount: 500, label: 'Platinum', stars: '⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-500' }
                           ].map((tier) => (
-                            <Link
+                            <motion.div
                               key={tier.amount}
-                              to={tier.route}
-                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px]"
+                              drag
+                              dragConstraints={{ left: -60, right: 60, top: -40, bottom: 40 }}
+                              dragElastic={0.3}
+                              whileDrag={{ scale: 1.15, rotate: Math.random() * 10 - 5, zIndex: 20 }}
+                              dragTransition={{ bounceStiffness: 400, bounceDamping: 25 }}
+                              onDragEnd={() => handleDragEnd(tier.amount)}
+                              className="relative"
+                              animate={dragPositions[tier.amount] || { x: 0, y: 0 }}
+                              transition={{ type: "spring", stiffness: 400, damping: 25 }}
                             >
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
-                              <div className="relative">
-                                <div className="text-xs mb-1">{tier.stars}</div>
-                                <div className="text-white font-bold text-xs mb-1">₵{tier.amount}</div>
-                                <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 6px rgba(255, 255, 0, 0.6)' }}>
-                                  {tier.label}
+                              <Link
+                                to={tier.route}
+                                className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px] cursor-pointer"
+                                style={{ pointerEvents: 'auto' }}
+                              >
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
+                                <div className="relative">
+                                  <div className="text-xs mb-1">{tier.stars}</div>
+                                  <div className="text-white font-bold text-xs mb-1">₵{tier.amount}</div>
+                                  <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 6px rgba(255, 255, 0, 0.6)' }}>
+                                    {tier.label}
+                                  </div>
                                 </div>
-                              </div>
-                            </Link>
+                              </Link>
+                            </motion.div>
                           ))}
                         </div>
 
-                        {/* Row 3: Vibranium Edge, Omega Force, Sovereign One */}
-                        <div className="flex justify-center gap-2">
+                        {/* Row 3: Vibranium Edge, Omega Force, Sovereign One - Premium Lego Draggable */}
+                        <div className="flex justify-center gap-2 relative">
                           {[
                             { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' },
                             { amount: 3000, label: 'Omega Force', stars: '⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-3000' },
                             { amount: 5000, label: 'Sovereign One', stars: '⭐⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-5000' }
                           ].map((tier) => (
-                            <Link
+                            <motion.div
                               key={tier.amount}
-                              to={tier.route}
-                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px]"
+                              drag
+                              dragConstraints={{ left: -60, right: 60, top: -40, bottom: 40 }}
+                              dragElastic={0.3}
+                              whileDrag={{ scale: 1.15, rotate: Math.random() * 15 - 7.5, zIndex: 20 }}
+                              dragTransition={{ bounceStiffness: 400, bounceDamping: 25 }}
+                              onDragEnd={() => handleDragEnd(tier.amount)}
+                              className="relative"
+                              animate={dragPositions[tier.amount] || { x: 0, y: 0 }}
+                              transition={{ type: "spring", stiffness: 400, damping: 25 }}
                             >
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
-                              <div className="relative">
-                                <div className="text-xs mb-1">{tier.stars}</div>
-                                <div className="text-white font-bold text-xs mb-1">₵{tier.amount}</div>
-                                <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 6px rgba(255, 255, 0, 0.6)' }}>
-                                  {tier.label}
+                              <Link
+                                to={tier.route}
+                                className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px] cursor-pointer"
+                                style={{ pointerEvents: 'auto' }}
+                              >
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
+                                <div className="relative">
+                                  <div className="text-xs mb-1" style={{ fontSize: '8px', lineHeight: '10px' }}>
+                                    {tier.stars}
+                                  </div>
+                                  <div className="text-white font-bold text-xs mb-1">₵{tier.amount}</div>
+                                  <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 6px rgba(255, 255, 0, 0.6)' }}>
+                                    {tier.label}
+                                  </div>
                                 </div>
-                              </div>
-                            </Link>
+                              </Link>
+                            </motion.div>
                           ))}
                         </div>
                       </div>
+
+                    {/* Fun Lego Drag Instruction - Mobile Only */}
+                    <div className="text-center mt-2 px-4 lg:hidden">
+                      <p className="text-purple-600 text-xs font-medium animate-pulse">
+                        🧱 Play with the donation buttons like Lego blocks! Drag them around - they'll bounce back! 🎮
+                      </p>
+                    </div>
 
                     {/* Gratitude Message - Black Text with Gold Glow */}
                     <div className="text-center mt-4 px-4">
