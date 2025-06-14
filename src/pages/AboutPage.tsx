@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { History, Award, Target, BookOpen, ArrowLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { History, Award, Target, BookOpen, ArrowLeft, X, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 import SEOHead from '../components/seo/SEOHead';
@@ -90,8 +90,59 @@ const OptimizedImage: React.FC<{
   );
 };
 
+// Image Modal Component
+const ImageModal: React.FC<{
+  isOpen: boolean;
+  onClose: () => void;
+  imageSrc: string;
+  imageAlt: string;
+}> = ({ isOpen, onClose, imageSrc, imageAlt }) => {
+  if (!isOpen) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
+          className="relative max-w-4xl max-h-full"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors duration-200"
+          >
+            <X size={24} />
+          </button>
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+          />
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
 const AboutPage: React.FC = () => {
   const navigate = useNavigate();
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const openModal = (src: string, alt: string) => {
+    setModalImage({ src, alt });
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
+  };
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
@@ -248,8 +299,8 @@ const AboutPage: React.FC = () => {
                   The 1990s brought significant challenges as Ghana navigated through economic difficulties that affected educational institutions nationwide. Limited resources, infrastructure constraints, and the pressure to maintain academic standards while serving a growing student population tested our resilience. However, these challenges only strengthened our resolve and fostered the development of core values that define us today: perseverance, community spirit, and an unwavering commitment to academic excellence.
                 </p>
 
-                {/* Mad. Millicent Otoo - Extensive Section with Images */}
-                <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 backdrop-blur-sm rounded-xl border border-white/20 p-4 sm:p-6 mb-6">
+                {/* Mad. Millicent Otoo - Extensive Section with Images - Edge to Edge */}
+                <div className="w-full bg-gradient-to-r from-blue-900/30 to-purple-900/30 backdrop-blur-sm border-y border-white/20 py-6 sm:py-8 mb-6 -mx-4 sm:-mx-8 md:-mx-12 px-4 sm:px-8 md:px-12">
                   <div className="flex items-center mb-4">
                     <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-3 shadow-lg">
                       <span className="text-white text-lg">👑</span>
@@ -259,21 +310,22 @@ const AboutPage: React.FC = () => {
                     </h3>
                   </div>
 
-                  {/* Beautiful Image Gallery of Mad. Millicent Otoo */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6">
+                  {/* Beautiful Image Gallery of Mad. Millicent Otoo - Mobile: 2 rows, Desktop: 2 rows */}
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
+                    {/* Row 1 */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637', 'Mad. Millicent Otoo - Former Headmistress')}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637&tr=w-400,h-300,q-80"
                         alt="Mad. Millicent Otoo - Former Headmistress"
-                        className="w-full h-48 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
-                        onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637', '_blank')}
-                        shimmerClassName="w-full h-48 sm:h-40"
+                        className="w-full h-32 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
+                        shimmerClassName="w-full h-32 sm:h-40"
                       />
                     </motion.div>
                     <motion.div
@@ -282,28 +334,45 @@ const AboutPage: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.1 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369', 'Mad. Millicent Otoo - Leadership Excellence')}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369&tr=w-400,h-300,q-80"
                         alt="Mad. Millicent Otoo - Leadership Excellence"
-                        className="w-full h-48 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
-                        onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369', '_blank')}
-                        shimmerClassName="w-full h-48 sm:h-40"
+                        className="w-full h-32 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
+                        shimmerClassName="w-full h-32 sm:h-40"
                       />
                     </motion.div>
+
+                    {/* Row 2 */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.2 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433', 'Mad. Millicent Otoo - Educational Vision')}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433&tr=w-400,h-300,q-80"
                         alt="Mad. Millicent Otoo - Educational Vision"
-                        className="w-full h-48 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
-                        onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433', '_blank')}
-                        shimmerClassName="w-full h-48 sm:h-40"
+                        className="w-full h-32 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
+                        shimmerClassName="w-full h-32 sm:h-40"
+                      />
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599', 'Mad. Millicent Otoo - Parade Cadet Leadership')}
+                    >
+                      <OptimizedImage
+                        src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599&tr=w-400,h-300,q-80"
+                        alt="Mad. Millicent Otoo - Parade Cadet Leadership"
+                        className="w-full h-32 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
+                        shimmerClassName="w-full h-32 sm:h-40"
                       />
                     </motion.div>
                   </div>
@@ -332,8 +401,8 @@ const AboutPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Mr. Atta Sarpong - PTA Chairman Section */}
-                <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 backdrop-blur-sm rounded-xl border border-white/20 p-4 sm:p-6 mb-6">
+                {/* Mr. Atta Sarpong - PTA Chairman Section - Edge to Edge */}
+                <div className="w-full bg-gradient-to-r from-green-900/30 to-blue-900/30 backdrop-blur-sm border-y border-white/20 py-6 sm:py-8 mb-6 -mx-4 sm:-mx-8 md:-mx-12 px-4 sm:px-8 md:px-12">
                   <div className="flex flex-col sm:flex-row items-start gap-4">
                     <motion.div
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -342,12 +411,14 @@ const AboutPage: React.FC = () => {
                       transition={{ duration: 0.6 }}
                       className="flex-shrink-0"
                     >
-                      <div className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-32 sm:w-40">
+                      <div
+                        className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-32 sm:w-40"
+                        onClick={() => openModal('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637', 'Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development')}
+                      >
                         <OptimizedImage
                           src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637&tr=w-300,h-400,q-80"
                           alt="Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development"
                           className="w-full h-40 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-700"
-                          onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637', '_blank')}
                           shimmerClassName="w-full h-40 sm:h-48"
                         />
                       </div>
@@ -1011,6 +1082,14 @@ const AboutPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      <ImageModal
+        isOpen={modalImage !== null}
+        onClose={closeModal}
+        imageSrc={modalImage?.src || ''}
+        imageAlt={modalImage?.alt || ''}
+      />
     </div>
   );
 };
