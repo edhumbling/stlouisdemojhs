@@ -950,6 +950,13 @@ const DonationPage: React.FC = () => {
                           ))}
                         </div>
                       </div>
+
+                    {/* Gratitude Message - Cute and Gold */}
+                    <div className="text-center mt-4 px-4">
+                      <p className="text-yellow-400 text-xs sm:text-sm font-medium italic" style={{ textShadow: '0 0 8px rgba(255, 215, 0, 0.6)' }}>
+                        ✨ Donors will be extended gratitude and added to a special group to further strengthen relations with the School. Thank you! 💛
+                      </p>
+                    </div>
                     </div>
 
 
