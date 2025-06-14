@@ -1188,6 +1188,22 @@ const AboutPage: React.FC = () => {
         toolbar={{
           buttons: ["close"]
         }}
+        render={{
+          buttonPrev: () => null,
+          buttonNext: () => null,
+        }}
+        on={{
+          view: ({ index }) => {
+            // Preload adjacent images for smoother navigation
+            const preloadIndexes = [index - 1, index + 1].filter(i =>
+              i >= 0 && i < historicalImages.length
+            );
+            preloadIndexes.forEach(i => {
+              const img = new Image();
+              img.src = historicalImages[i].src;
+            });
+          }
+        }}
         styles={{
           container: {
             backgroundColor: "rgba(0, 0, 0, 0.95)",
