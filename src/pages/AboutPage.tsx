@@ -1,11 +1,9 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { motion } from 'framer-motion';
-import { Award, Target, BookOpen, ArrowLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Award, Target, BookOpen, ArrowLeft, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 import SEOHead from '../components/seo/SEOHead';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
 
 // Shimmer Loading Component
 const ShimmerLoader: React.FC<{ className?: string; rounded?: string }> = ({
@@ -94,41 +92,40 @@ const OptimizedImage: React.FC<{
 
 const AboutPage: React.FC = () => {
   const navigate = useNavigate();
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
-  // Historical images for lightbox
+  // Historical images for modal
   const historicalImages = useMemo(() => [
     {
       src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637',
-      alt: 'Mad. Millicent Otoo - Former Headmistress',
-      title: 'Mad. Millicent Otoo - Former Headmistress'
+      alt: 'Mad. Millicent Otoo - Former Headmistress'
     },
     {
       src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369',
-      alt: 'Mad. Millicent Otoo - Leadership Excellence',
-      title: 'Mad. Millicent Otoo - Leadership Excellence'
+      alt: 'Mad. Millicent Otoo - Leadership Excellence'
     },
     {
       src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433',
-      alt: 'Mad. Millicent Otoo - Educational Vision',
-      title: 'Mad. Millicent Otoo - Educational Vision'
+      alt: 'Mad. Millicent Otoo - Educational Vision'
     },
     {
       src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599',
-      alt: 'Mad. Millicent Otoo - Parade Cadet Leadership',
-      title: 'Mad. Millicent Otoo - Parade Cadet Leadership'
+      alt: 'Mad. Millicent Otoo - Parade Cadet Leadership'
     },
     {
       src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637',
-      alt: 'Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development',
-      title: 'Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development'
+      alt: 'Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development'
     }
   ], []);
 
-  const openLightbox = useCallback((index: number) => {
-    setLightboxIndex(index);
-    setLightboxOpen(true);
+  const openModal = useCallback((index: number) => {
+    setSelectedImage(historicalImages[index]);
+    document.body.style.overflow = 'hidden';
+  }, [historicalImages]);
+
+  const closeModal = useCallback(() => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'auto';
   }, []);
 
   const handleBack = () => {
@@ -309,7 +306,7 @@ const AboutPage: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
-                      onClick={() => openLightbox(0)}
+                      onClick={() => openModal(0)}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637&tr=w-400,h-300,q-80"
@@ -324,7 +321,7 @@ const AboutPage: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.1 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
-                      onClick={() => openLightbox(1)}
+                      onClick={() => openModal(1)}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369&tr=w-400,h-300,q-80"
@@ -341,7 +338,7 @@ const AboutPage: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.2 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
-                      onClick={() => openLightbox(2)}
+                      onClick={() => openModal(2)}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433&tr=w-400,h-300,q-80"
@@ -356,7 +353,7 @@ const AboutPage: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.3 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
-                      onClick={() => openLightbox(3)}
+                      onClick={() => openModal(3)}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599&tr=w-400,h-300,q-80"
@@ -503,7 +500,7 @@ const AboutPage: React.FC = () => {
                     >
                       <div
                         className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-32 sm:w-40"
-                        onClick={() => openLightbox(4)}
+                        onClick={() => openModal(4)}
                       >
                         <OptimizedImage
                           src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637&tr=w-300,h-400,q-80"
@@ -1173,54 +1170,39 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Professional Lightbox for Historical Images */}
-      <Lightbox
-        open={lightboxOpen}
-        close={() => setLightboxOpen(false)}
-        index={lightboxIndex}
-        slides={historicalImages}
-        animation={{ fade: 200, swipe: 300 }}
-        controller={{
-          closeOnBackdropClick: true,
-          closeOnPullDown: true,
-          closeOnPullUp: true
-        }}
-        toolbar={{
-          buttons: ["close"]
-        }}
-        render={{
-          buttonPrev: () => null,
-          buttonNext: () => null,
-        }}
-        on={{
-          view: ({ index }) => {
-            // Preload adjacent images for smoother navigation
-            const preloadIndexes = [index - 1, index + 1].filter(i =>
-              i >= 0 && i < historicalImages.length
-            );
-            preloadIndexes.forEach(i => {
-              const img = new Image();
-              img.src = historicalImages[i].src;
-            });
-          }
-        }}
-        styles={{
-          container: {
-            backgroundColor: "rgba(0, 0, 0, 0.95)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)"
-          },
-          slide: {
-            filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))"
-          }
-        }}
-        carousel={{
-          finite: false,
-          preload: 2,
-          spacing: "30%",
-          imageFit: "contain"
-        }}
-      />
+      {/* Simple Image Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative max-w-4xl max-h-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors duration-200"
+              >
+                <X size={24} />
+              </button>
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                style={{ filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))" }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
