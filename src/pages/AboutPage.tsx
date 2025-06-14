@@ -909,7 +909,7 @@ const AboutPage: React.FC = () => {
               {
                 title: 'Toilet Facilities/Urinals',
                 description: 'Current toilet and urinal facilities require major upgrades to meet modern hygiene and accessibility standards.',
-                image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7114.HEIC',
+                image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/download.jpeg',
                 status: 'needs-improvement',
                 icon: '🚻'
               },
