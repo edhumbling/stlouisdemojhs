@@ -692,12 +692,12 @@ const DonationPage: React.FC = () => {
                   📱 Alternative: Use Our USSD Code
                 </h3>
 
-                {/* USSD Code Image - Guy with hands extended - Original size on desktop */}
+                {/* USSD Code Image - Guy with hands extended - Reduced size on desktop (1/3 original) */}
                 <div className="mb-5 flex justify-center">
                   <img
                     src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png"
                     alt="USSD Code Donation - Guy extending hands with code"
-                    className="h-24 sm:h-32 md:h-40 lg:w-auto lg:h-auto lg:max-w-none w-auto rounded-xl shadow-lg border-2 border-white/50"
+                    className="h-24 sm:h-32 md:h-40 lg:h-64 w-auto rounded-xl shadow-lg border-2 border-white/50"
                   />
                 </div>
 
