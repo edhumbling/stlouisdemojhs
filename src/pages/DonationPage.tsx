@@ -490,7 +490,7 @@ const DonationPage: React.FC = () => {
 
       {/* Original Page Content with Anti-Glitch */}
       <motion.div
-        className="min-h-screen bg-gray-50 lg:overflow-hidden"
+        className="min-h-screen bg-white lg:overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
@@ -788,9 +788,9 @@ const DonationPage: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* Main Content - Natural Scrolling Payment Form - Directly Attached */}
+      {/* Main Content - Natural Scrolling Payment Form - White Background */}
       <motion.section
-        className="py-6 cute-font payment-section"
+        className="py-6 cute-font payment-section bg-white"
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
@@ -805,20 +805,22 @@ const DonationPage: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="bg-white sharp-container shadow-md lg:shadow-lg overflow-hidden"
+                  className="bg-white overflow-hidden"
                 >
 
-                  {/* Monthly Support Section - Edge to Edge */}
-                  <div id="monthly-support" className="bg-gradient-to-br from-red-600 via-pink-600 to-red-700 py-8">
-                    {/* Bold Section Header */}
+                  {/* Monthly Support Section - White Background */}
+                  <div id="monthly-support" className="bg-white py-8">
+                    {/* Bold Section Header in Rounded Rectangle */}
                     <div className="text-center mb-6">
-                      <h2 className="text-3xl sm:text-4xl font-black text-black mb-4" style={{ textShadow: '0 0 15px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.6)' }}>
-                        MONTHLY SUPPORT
-                      </h2>
+                      <div className="inline-block bg-gray-100 px-8 py-4 rounded-2xl border border-gray-200 shadow-sm">
+                        <h2 className="text-3xl sm:text-4xl font-black text-black mb-0">
+                          MONTHLY SUPPORT
+                        </h2>
+                      </div>
                     </div>
 
                     <div className="text-center mb-6">
-                      <h3 className="text-xl font-bold text-white mb-4 flex items-center justify-center gap-2">
+                      <h3 className="text-xl font-bold text-black mb-4 flex items-center justify-center gap-2">
                         <span>⭐</span>
                         <span>Monthly Support Levels</span>
                         <span>⭐</span>
@@ -917,13 +919,15 @@ const DonationPage: React.FC = () => {
 
                   </div>
 
-                  {/* One-Time Payment Section - Edge to Edge */}
-                  <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 py-8">
-                    {/* Bold Section Header */}
+                  {/* One-Time Payment Section - Light Blue Background */}
+                  <div style={{ backgroundColor: '#EAF6FC' }} className="py-8">
+                    {/* Bold Section Header in Rounded Rectangle */}
                     <div className="text-center mb-6">
-                      <h2 className="text-3xl sm:text-4xl font-black text-black mb-4" style={{ textShadow: '0 0 15px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.6)' }}>
-                        ONE-TIME SUPPORT
-                      </h2>
+                      <div className="inline-block bg-white px-8 py-4 rounded-2xl border border-blue-200 shadow-sm">
+                        <h2 className="text-3xl sm:text-4xl font-black text-black mb-0">
+                          ONE-TIME SUPPORT
+                        </h2>
+                      </div>
                     </div>
 
                     <div className="text-center mb-4">
@@ -943,8 +947,8 @@ const DonationPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Payment Form Container - Edge to Edge */}
-                  <div className="relative w-full bg-gray-100">
+                  {/* Payment Form Container - White Background */}
+                  <div className="relative w-full bg-white">
                     <div className="payment-container w-full">
                       <iframe
                         src="https://paystack.shop/pay/stlouisjhsdonations"
