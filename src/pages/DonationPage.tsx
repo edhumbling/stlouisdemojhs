@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, ArrowLeft, BookOpen } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import SectionDivider from '../components/common/SectionDivider';
-import ShimmerLoader from '../components/common/ShimmerLoader';
 import SEOHead from '../components/seo/SEOHead';
 
 const DonationPage: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-  const [componentsLoaded, setComponentsLoaded] = useState(false);
-  const [paymentFormLoaded, setPaymentFormLoaded] = useState(false);
+  const location = useLocation();
+  const state = location.state as any;
+
+  // Skip loading if returning from monthly donation page for instant navigation
+  const skipLoading = state?.preserveState && state?.returnFromCardContent;
+  const [isLoading, setIsLoading] = useState(!skipLoading);
+  const [imagesLoaded, setImagesLoaded] = useState(skipLoading ? 4 : 0);
+  const [componentsLoaded, setComponentsLoaded] = useState(skipLoading);
+  const [paymentFormLoaded, setPaymentFormLoaded] = useState(skipLoading);
   const totalImages = 4; // Background image + 3 payment icons
 
   // Haptic feedback function
@@ -131,16 +134,22 @@ const DonationPage: React.FC = () => {
     };
   }, []);
 
-  // Handle scroll to section when returning from monthly donation pages
+  // Handle immediate scroll to section when returning from monthly donation pages
   useEffect(() => {
-    if (location.state?.scrollToSection === 'monthly-support' && location.state?.returnFromCardContent) {
-      const timer = setTimeout(() => {
-        const element = document.getElementById('monthly-support');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-      return () => clearTimeout(timer);
+    const state = location.state as any;
+    if (state?.scrollToSection === 'monthly-support' && state?.returnFromCardContent && state?.preserveState) {
+      // Immediate scroll without delay for smooth back navigation
+      const element = document.getElementById('monthly-support');
+      if (element) {
+        // Use requestAnimationFrame for immediate, smooth scroll
+        requestAnimationFrame(() => {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',  // Center the section for better visibility
+            inline: 'nearest'
+          });
+        });
+      }
     }
   }, [location]);
   // Show blazingly fast silver shimmer loading screen
@@ -779,9 +788,7 @@ const DonationPage: React.FC = () => {
         </div>
       </motion.section>
 
-      <SectionDivider position="bottom" />
-
-      {/* Main Content - Natural Scrolling Payment Form */}
+      {/* Main Content - Natural Scrolling Payment Form - Directly Attached */}
       <motion.section
         className="py-6 cute-font payment-section"
         initial={{ opacity: 0, y: 15 }}
@@ -804,31 +811,42 @@ const DonationPage: React.FC = () => {
                   {/* Monthly Support Section */}
                   <div id="monthly-support" className="mb-8">
                     <div className="text-center mb-6">
-                      <h3 className="text-xl font-bold text-white mb-2">💎 Monthly Support Levels</h3>
-                      <p className="text-gray-300 text-sm">Join our community of monthly supporters and help us grow consistently</p>
+                      <h3 className="text-xl font-bold text-white mb-4">⭐ Monthly Support Levels</h3>
+                      <p className="text-red-500 text-base sm:text-lg font-semibold mb-2 text-center sm:text-justify px-4">
+                        Join our community of monthly supporters and help us grow consistently through a subscription plan
+                      </p>
+                      <p className="text-blue-500 text-base sm:text-lg font-semibold text-center sm:text-justify px-4">
+                        ✨ Monthly recurring payments • Secure via Paystack • Cancel anytime
+                      </p>
                     </div>
 
-                    {/* Support Level Buttons - Small Cute Deep Black Buttons */}
-                    <div className="flex flex-wrap justify-center gap-2 mb-6">
+                    {/* Support Level Buttons - Larger with Stars and Labels */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-6">
                       {/* Desktop: All 7 in single row, Mobile: 4 top, 3 bottom */}
-                      <div className="hidden lg:flex gap-2">
+                      <div className="hidden lg:flex gap-3">
                         {[
-                          { amount: 10, route: '/donate-monthly-10' },
-                          { amount: 30, route: '/donate-monthly-30' },
-                          { amount: 50, route: '/donate-monthly-50' },
-                          { amount: 100, route: '/donate-monthly-100' },
-                          { amount: 200, route: '/donate-monthly-200' },
-                          { amount: 500, route: '/donate-monthly-500' },
-                          { amount: 1000, route: '/donate-monthly-1000' }
+                          { amount: 10, label: 'Stone', stars: '⭐', route: '/donate-monthly-10' },
+                          { amount: 30, label: 'Bronze', stars: '⭐⭐', route: '/donate-monthly-30' },
+                          { amount: 50, label: 'Silver', stars: '⭐⭐⭐', route: '/donate-monthly-50' },
+                          { amount: 100, label: 'Gold', stars: '⭐⭐⭐⭐', route: '/donate-monthly-100' },
+                          { amount: 200, label: 'Diamond', stars: '⭐⭐⭐⭐⭐', route: '/donate-monthly-200' },
+                          { amount: 500, label: 'Platinum', stars: '⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-500' },
+                          { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' }
                         ].map((tier) => (
                           <Link
                             key={tier.amount}
                             to={tier.route}
-                            className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden"
+                            className="relative bg-black border border-gray-800 hover:border-gray-600 px-4 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[80px]"
                           >
                             {/* Simple shine effect */}
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
-                            <div className="relative text-white font-bold text-sm">₵{tier.amount}</div>
+                            <div className="relative">
+                              <div className="text-xs mb-1">{tier.stars}</div>
+                              <div className="text-white font-bold text-sm mb-1">₵{tier.amount}</div>
+                              <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 8px rgba(255, 255, 0, 0.6)' }}>
+                                {tier.label}
+                              </div>
+                            </div>
                           </Link>
                         ))}
                       </div>
@@ -837,34 +855,46 @@ const DonationPage: React.FC = () => {
                       <div className="lg:hidden w-full">
                         <div className="flex justify-center gap-2 mb-2">
                           {[
-                            { amount: 10, route: '/donate-monthly-10' },
-                            { amount: 30, route: '/donate-monthly-30' },
-                            { amount: 50, route: '/donate-monthly-50' },
-                            { amount: 100, route: '/donate-monthly-100' }
+                            { amount: 10, label: 'Stone', stars: '⭐', route: '/donate-monthly-10' },
+                            { amount: 30, label: 'Bronze', stars: '⭐⭐', route: '/donate-monthly-30' },
+                            { amount: 50, label: 'Silver', stars: '⭐⭐⭐', route: '/donate-monthly-50' },
+                            { amount: 100, label: 'Gold', stars: '⭐⭐⭐⭐', route: '/donate-monthly-100' }
                           ].map((tier) => (
                             <Link
                               key={tier.amount}
                               to={tier.route}
-                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden"
+                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[65px]"
                             >
                               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
-                              <div className="relative text-white font-bold text-sm">₵{tier.amount}</div>
+                              <div className="relative">
+                                <div className="text-xs mb-1">{tier.stars}</div>
+                                <div className="text-white font-bold text-xs mb-1">₵{tier.amount}</div>
+                                <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 6px rgba(255, 255, 0, 0.6)' }}>
+                                  {tier.label}
+                                </div>
+                              </div>
                             </Link>
                           ))}
                         </div>
                         <div className="flex justify-center gap-2">
                           {[
-                            { amount: 200, route: '/donate-monthly-200' },
-                            { amount: 500, route: '/donate-monthly-500' },
-                            { amount: 1000, route: '/donate-monthly-1000' }
+                            { amount: 200, label: 'Diamond', stars: '⭐⭐⭐⭐⭐', route: '/donate-monthly-200' },
+                            { amount: 500, label: 'Platinum', stars: '⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-500' },
+                            { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' }
                           ].map((tier) => (
                             <Link
                               key={tier.amount}
                               to={tier.route}
-                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden"
+                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[65px]"
                             >
                               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
-                              <div className="relative text-white font-bold text-sm">₵{tier.amount}</div>
+                              <div className="relative">
+                                <div className="text-xs mb-1">{tier.stars}</div>
+                                <div className="text-white font-bold text-xs mb-1">₵{tier.amount}</div>
+                                <div className="text-yellow-400 text-xs font-medium" style={{ textShadow: '0 0 6px rgba(255, 255, 0, 0.6)' }}>
+                                  {tier.label}
+                                </div>
+                              </div>
                             </Link>
                           ))}
                         </div>
@@ -896,42 +926,19 @@ const DonationPage: React.FC = () => {
                         </div>
                       </div>
                     </div>
-
-                    {/* Level Names */}
-                    <div className="text-center mb-4">
-                      <div className="hidden lg:flex justify-center gap-2 text-xs">
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Stone Alumni</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Bronze</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Silver</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Gold</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Diamond</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Platinum</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Vibranium Edge</span>
-                      </div>
-                      <div className="lg:hidden">
-                        <div className="flex justify-center gap-2 text-xs mb-1">
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Stone Alumni</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Bronze</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Silver</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Gold</span>
-                        </div>
-                        <div className="flex justify-center gap-2 text-xs">
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Diamond</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Platinum</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Vibranium Edge</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="text-center text-gray-400 text-xs mb-6">
-                      <p>✨ Monthly recurring payments • Secure via Paystack • Cancel anytime</p>
-                    </div>
                   </div>
 
-                  {/* One-Time Payment Section */}
+                  {/* One-Time Payment Section - Directly Attached */}
                   <div className="mb-6">
                     <div className="text-center mb-4">
-                      <h3 className="text-lg font-bold text-white mb-2">💝 One-Time Donation</h3>
+                      <h3 className="text-lg font-bold text-white mb-4">⭐ One-Time Donation</h3>
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <span className="text-2xl">👇</span>
+                        <p className="text-orange-500 text-base sm:text-lg font-semibold">
+                          The payment form below is for one-time payments
+                        </p>
+                        <span className="text-2xl">👇</span>
+                      </div>
                       <p className="text-gray-300 text-sm">Make a single contribution of any amount</p>
                     </div>
                   </div>

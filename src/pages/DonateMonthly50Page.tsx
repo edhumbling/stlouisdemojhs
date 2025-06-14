@@ -47,12 +47,16 @@ const DonateMonthly50Page: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
-              onClick={() => navigate('/donate', {
-                state: {
-                  scrollToSection: 'monthly-support',
-                  returnFromCardContent: true
-                }
-              })}
+              onClick={() => {
+                navigate('/donate', {
+                  replace: true,
+                  state: {
+                    scrollToSection: 'monthly-support',
+                    returnFromCardContent: true,
+                    preserveState: true
+                  }
+                });
+              }}
               className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-gray-600/50 hover:bg-gray-500/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-gray-400/30 flex-shrink-0"
             >
               <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
