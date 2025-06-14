@@ -845,7 +845,7 @@ const DonationPage: React.FC = () => {
 
                     {/* Support Level Buttons - Larger with Stars and Labels */}
                     <div className="flex flex-wrap justify-center gap-3 mb-6">
-                      {/* Desktop: All 7 in single row, Mobile: 4 top, 3 bottom */}
+                      {/* Desktop: All 9 in single row, Mobile: 5 top, 4 bottom */}
                       <div className="hidden lg:flex gap-3">
                         {[
                           { amount: 10, label: 'Stone', stars: '⭐', route: '/donate-monthly-10' },
@@ -854,7 +854,9 @@ const DonationPage: React.FC = () => {
                           { amount: 100, label: 'Gold', stars: '⭐⭐⭐⭐', route: '/donate-monthly-100' },
                           { amount: 200, label: 'Diamond', stars: '⭐⭐⭐⭐⭐', route: '/donate-monthly-200' },
                           { amount: 500, label: 'Platinum', stars: '⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-500' },
-                          { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' }
+                          { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' },
+                          { amount: 3000, label: 'Omega Force', stars: '⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-3000' },
+                          { amount: 5000, label: 'Sovereign One', stars: '⭐⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-5000' }
                         ].map((tier) => (
                           <Link
                             key={tier.amount}
@@ -874,19 +876,20 @@ const DonationPage: React.FC = () => {
                         ))}
                       </div>
 
-                      {/* Mobile: 4 top, 3 bottom */}
+                      {/* Mobile: 5 top, 4 bottom */}
                       <div className="lg:hidden w-full">
                         <div className="flex justify-center gap-2 mb-2">
                           {[
                             { amount: 10, label: 'Stone', stars: '⭐', route: '/donate-monthly-10' },
                             { amount: 30, label: 'Bronze', stars: '⭐⭐', route: '/donate-monthly-30' },
                             { amount: 50, label: 'Silver', stars: '⭐⭐⭐', route: '/donate-monthly-50' },
-                            { amount: 100, label: 'Gold', stars: '⭐⭐⭐⭐', route: '/donate-monthly-100' }
+                            { amount: 100, label: 'Gold', stars: '⭐⭐⭐⭐', route: '/donate-monthly-100' },
+                            { amount: 200, label: 'Diamond', stars: '⭐⭐⭐⭐⭐', route: '/donate-monthly-200' }
                           ].map((tier) => (
                             <Link
                               key={tier.amount}
                               to={tier.route}
-                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[65px]"
+                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-2 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[60px]"
                             >
                               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                               <div className="relative">
@@ -901,14 +904,15 @@ const DonationPage: React.FC = () => {
                         </div>
                         <div className="flex justify-center gap-2">
                           {[
-                            { amount: 200, label: 'Diamond', stars: '⭐⭐⭐⭐⭐', route: '/donate-monthly-200' },
                             { amount: 500, label: 'Platinum', stars: '⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-500' },
-                            { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' }
+                            { amount: 1000, label: 'Vibranium Edge', stars: '⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-1000' },
+                            { amount: 3000, label: 'Omega Force', stars: '⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-3000' },
+                            { amount: 5000, label: 'Sovereign One', stars: '⭐⭐⭐⭐⭐⭐⭐⭐⭐', route: '/donate-monthly-5000' }
                           ].map((tier) => (
                             <Link
                               key={tier.amount}
                               to={tier.route}
-                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-3 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[65px]"
+                              className="relative bg-black border border-gray-800 hover:border-gray-600 px-2 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl group text-center block overflow-hidden min-w-[60px]"
                             >
                               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform -skew-x-12"></div>
                               <div className="relative">

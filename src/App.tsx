@@ -74,6 +74,8 @@ import DonateMonthly100Page from './pages/DonateMonthly100Page';
 import DonateMonthly200Page from './pages/DonateMonthly200Page';
 import DonateMonthly500Page from './pages/DonateMonthly500Page';
 import DonateMonthly1000Page from './pages/DonateMonthly1000Page';
+import DonateMonthly3000Page from './pages/DonateMonthly3000Page';
+import DonateMonthly5000Page from './pages/DonateMonthly5000Page';
 
 // Scroll Position Manager Component
 const ScrollPositionManager: React.FC = () => {
@@ -236,6 +238,8 @@ const App: React.FC = () => {
         <Route path="/donate-monthly-200" element={<DonateMonthly200Page />} />
         <Route path="/donate-monthly-500" element={<DonateMonthly500Page />} />
         <Route path="/donate-monthly-1000" element={<DonateMonthly1000Page />} />
+        <Route path="/donate-monthly-3000" element={<DonateMonthly3000Page />} />
+        <Route path="/donate-monthly-5000" element={<DonateMonthly5000Page />} />
 
         {/* Global catch-all route for direct access to non-existent routes */}
         <Route path="*" element={<NotFoundPage />} />
