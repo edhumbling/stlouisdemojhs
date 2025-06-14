@@ -248,9 +248,125 @@ const AboutPage: React.FC = () => {
                   The 1990s brought significant challenges as Ghana navigated through economic difficulties that affected educational institutions nationwide. Limited resources, infrastructure constraints, and the pressure to maintain academic standards while serving a growing student population tested our resilience. However, these challenges only strengthened our resolve and fostered the development of core values that define us today: perseverance, community spirit, and an unwavering commitment to academic excellence.
                 </p>
 
-                <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  A pivotal chapter in our history was written under the transformational leadership of <strong>Mrs. Millicent Otoo</strong>, our former headmistress whose visionary approach elevated the school to unprecedented heights. Mrs. Otoo's innovative educational methodologies, emphasis on discipline, and commitment to holistic student development established new benchmarks for excellence. Her tenure was characterized by significant improvements in academic performance, infrastructure development, and the establishment of programs that nurtured both intellectual and character growth.
-                </p>
+                {/* Mad. Millicent Otoo - Extensive Section with Images */}
+                <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 backdrop-blur-sm rounded-xl border border-white/20 p-4 sm:p-6 mb-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mr-3 shadow-lg">
+                      <span className="text-white text-lg">👑</span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-yellow-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                      Mad. Millicent Otoo - A Transformational Leader
+                    </h3>
+                  </div>
+
+                  {/* Beautiful Image Gallery of Mad. Millicent Otoo */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <OptimizedImage
+                        src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637&tr=w-400,h-300,q-80"
+                        alt="Mad. Millicent Otoo - Former Headmistress"
+                        className="w-full h-48 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
+                        onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637', '_blank')}
+                        shimmerClassName="w-full h-48 sm:h-40"
+                      />
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <OptimizedImage
+                        src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369&tr=w-400,h-300,q-80"
+                        alt="Mad. Millicent Otoo - Leadership Excellence"
+                        className="w-full h-48 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
+                        onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369', '_blank')}
+                        shimmerClassName="w-full h-48 sm:h-40"
+                      />
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <OptimizedImage
+                        src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433&tr=w-400,h-300,q-80"
+                        alt="Mad. Millicent Otoo - Educational Vision"
+                        className="w-full h-48 sm:h-40 object-cover group-hover:scale-110 transition-transform duration-700"
+                        onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433', '_blank')}
+                        shimmerClassName="w-full h-48 sm:h-40"
+                      />
+                    </motion.div>
+                  </div>
+
+                  {/* Extensive Biography */}
+                  <div className="space-y-4">
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      A pivotal and transformational chapter in our school's illustrious history was written under the visionary leadership of <strong className="text-yellow-300">Mad. Millicent Otoo</strong>, our beloved former headmistress whose extraordinary dedication and innovative approach elevated St. Louis Demonstration JHS to unprecedented heights of academic excellence and moral distinction. Her tenure represents one of the most significant periods of growth and development in our institution's proud heritage.
+                    </p>
+
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      <strong className="text-blue-300">Mad. Millicent Otoo</strong> brought to St. Louis Demonstration JHS a rare combination of educational expertise, administrative acumen, and genuine care for student welfare that transformed not just academic outcomes, but the entire culture and ethos of our school community. Her innovative educational methodologies, unwavering emphasis on discipline, and deep commitment to holistic student development established new benchmarks for excellence that continue to guide our institution today.
+                    </p>
+
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      Under her transformational leadership, the school witnessed remarkable improvements in academic performance, with BECE pass rates reaching new heights and students consistently excelling in various academic competitions. <strong className="text-green-300">Mad. Otoo's</strong> vision extended far beyond mere academic achievement; she understood that true education must nurture the whole person - intellectually, morally, socially, and spiritually.
+                    </p>
+
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      Her tenure was characterized by significant infrastructure development and the establishment of programs that nurtured both intellectual curiosity and character formation. She introduced innovative teaching methods, modernized the curriculum to meet contemporary educational standards, and created an environment where both students and teachers could thrive and reach their full potential.
+                    </p>
+
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      <strong className="text-purple-300">Mad. Millicent Otoo's</strong> legacy lives on in the countless lives she touched, the educational standards she established, and the culture of excellence she fostered. Her contributions to St. Louis Demonstration JHS extend far beyond her years of service, having laid the foundation for the continued success and growth that our school enjoys today. She remains an inspiration to current and future generations of educators, students, and the entire school community.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Mr. Atta Sarpong - PTA Chairman Section */}
+                <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 backdrop-blur-sm rounded-xl border border-white/20 p-4 sm:p-6 mb-6">
+                  <div className="flex flex-col sm:flex-row items-start gap-4">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="flex-shrink-0"
+                    >
+                      <div className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-32 sm:w-40">
+                        <OptimizedImage
+                          src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637&tr=w-300,h-400,q-80"
+                          alt="Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development"
+                          className="w-full h-40 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                          onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637', '_blank')}
+                          shimmerClassName="w-full h-40 sm:h-48"
+                        />
+                      </div>
+                    </motion.div>
+                    <div className="flex-1">
+                      <div className="flex items-center mb-3">
+                        <div className="w-6 h-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mr-2 shadow-lg">
+                          <span className="text-white text-sm">🏗️</span>
+                        </div>
+                        <h4 className="text-base sm:text-lg font-bold text-orange-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                          Mr. Atta Sarpong - Infrastructure Development Champion
+                        </h4>
+                      </div>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        <strong className="text-yellow-300">Mr. Atta Sarpong</strong>, our dedicated former PTA Chairman, played a crucial role in the physical development of our school infrastructure. His visionary leadership and commitment to providing quality learning environments resulted in significant building projects that enhanced our educational facilities. The structures he helped establish continue to serve our students today, standing as lasting monuments to his dedication to educational excellence and community service.
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
                 <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                   Today, under the capable leadership of <strong>Mrs. Michelle Acquaye</strong>, our current headmistress, we continue to build upon this solid foundation while adapting to the demands of modern education and global standards. Mrs. Acquaye has successfully integrated contemporary teaching methodologies with our time-tested values, ensuring that our students are well-prepared for the challenges of the 21st century.
