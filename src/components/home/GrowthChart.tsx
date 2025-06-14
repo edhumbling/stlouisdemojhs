@@ -124,7 +124,7 @@ const GrowthChart: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full bg-black flex items-center justify-center py-4 sm:py-6 md:py-8 px-2 sm:px-4" ref={chartRef}>
+    <div className="w-full bg-black/60 backdrop-blur-sm flex items-center justify-center py-4 sm:py-6 md:py-8 px-2 sm:px-4" ref={chartRef}>
       <div className="w-full max-w-7xl relative">
         {/* Mobile-Optimized Header */}
         <motion.div
