@@ -709,11 +709,11 @@ const DonationPage: React.FC = () => {
                 </div>
 
                 {/* Step-by-step Instructions - Free layout on desktop */}
-                <div className="text-left max-w-md lg:max-w-none mx-auto mb-3">
-                  <h4 className="text-white font-bold text-sm sm:text-base lg:text-xl mb-2 text-center">
+                <div className="text-left max-w-md lg:max-w-none mx-auto mb-4 lg:mb-2">
+                  <h4 className="text-white font-bold text-sm sm:text-base lg:text-xl mb-3 lg:mb-1 text-center">
                     📋 Follow These Steps:
                   </h4>
-                  <div className="space-y-1 lg:space-y-3 text-white/90 text-xs sm:text-sm lg:text-base lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0">
+                  <div className="space-y-2 lg:space-y-1 text-white/90 text-xs sm:text-sm lg:text-base lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0">
                     <div className="flex items-start gap-2 lg:gap-4">
                       <span className="bg-orange-500 text-white rounded-full w-5 h-5 lg:w-8 lg:h-8 flex items-center justify-center text-xs lg:text-sm font-bold flex-shrink-0 mt-0.5">1</span>
                       <span>Dial <strong className="text-yellow-300">*246#</strong></span>
@@ -750,13 +750,13 @@ const DonationPage: React.FC = () => {
                 </div>
 
                 {/* Mobile Money Number Highlight */}
-                <div className="mb-2">
+                <div className="mb-3 lg:mb-1">
                   <div className="bg-gradient-to-r from-yellow-300 to-yellow-400 text-yellow-900 font-black text-sm sm:text-base lg:text-xl px-3 py-2 lg:px-6 lg:py-4 rounded-lg border border-yellow-500 shadow-lg inline-block">
                     📱 Send to: <span className="font-black">0208705290</span>
                   </div>
                 </div>
 
-                <p className="text-white/90 text-xs sm:text-sm lg:text-base drop-shadow font-medium leading-tight">
+                <p className="text-white/90 text-xs sm:text-sm lg:text-base drop-shadow font-medium leading-relaxed lg:leading-tight">
                   Quick and easy way to donate using your mobile phone's USSD service
                 </p>
               </div>
