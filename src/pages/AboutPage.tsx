@@ -542,78 +542,95 @@ const AboutPage: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Compact 3-Column Layout */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto">
+          {/* Responsive Layout - Mobile: 1 column, Tablet: 2 columns, Desktop: 3 columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-6xl mx-auto">
 
-            {/* Mission Card */}
+            {/* Mission Card - Enhanced */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              whileHover={{ y: -3, transition: { duration: 0.3 } }}
+              whileHover={{ y: -5, scale: 1.02, transition: { duration: 0.3 } }}
+              className="w-full"
             >
-              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
-                <div className="text-center mb-2 sm:mb-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
+              <div className="glass-dark rounded-2xl p-5 sm:p-6 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="text-center mb-4">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center text-2xl sm:text-3xl mx-auto mb-3 shadow-lg">
                     🎯
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Mission</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-3" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>Our Mission</h3>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  Quality education through GES curriculum, developing critical thinking and character for BECE success.
+                <p className="text-sm sm:text-base text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  To provide <strong className="text-cyan-300">quality education</strong> through the Ghana Education Service curriculum, developing <strong className="text-blue-300">critical thinking, creativity, and character</strong> that prepares our students for BECE success and lifelong learning.
                 </p>
               </div>
             </motion.div>
 
-            {/* Vision Card */}
+            {/* Vision Card - Enhanced */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -3, transition: { duration: 0.3 } }}
+              whileHover={{ y: -5, scale: 1.02, transition: { duration: 0.3 } }}
+              className="w-full"
             >
-              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
-                <div className="text-center mb-2 sm:mb-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-400 to-green-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
+              <div className="glass-dark rounded-2xl p-5 sm:p-6 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="text-center mb-4">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-emerald-400 to-green-500 rounded-xl flex items-center justify-center text-2xl sm:text-3xl mx-auto mb-3 shadow-lg">
                     🌟
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Our Vision</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-3" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>Our Vision</h3>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                  World-class institution producing globally competitive, morally upright leaders for Ghana's development.
+                <p className="text-sm sm:text-base text-gray-200 leading-relaxed text-center" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                  To become a <strong className="text-emerald-300">world-class educational institution</strong> that produces <strong className="text-green-300">globally competitive, morally upright, and innovative leaders</strong> who contribute meaningfully to Ghana's development and the global community.
                 </p>
               </div>
             </motion.div>
 
-            {/* Core Values Card */}
+            {/* Core Values Card - Enhanced */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              whileHover={{ y: -3, transition: { duration: 0.3 } }}
+              whileHover={{ y: -5, scale: 1.02, transition: { duration: 0.3 } }}
+              className="w-full sm:col-span-2 lg:col-span-1"
             >
-              <div className="glass-dark rounded-xl p-3 sm:p-4 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
-                <div className="text-center mb-2 sm:mb-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center text-lg sm:text-xl mx-auto mb-2 shadow-lg">
+              <div className="glass-dark rounded-2xl p-5 sm:p-6 shadow-xl border border-white/20 backdrop-blur-lg hover:shadow-2xl transition-all duration-300 h-full">
+                <div className="text-center mb-4">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center text-2xl sm:text-3xl mx-auto mb-3 shadow-lg">
                     💎
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold text-white mb-2" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>Core Values</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-3" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>Core Values</h3>
                 </div>
-                <div className="space-y-1 sm:space-y-2">
+                <div className="space-y-3 sm:space-y-4">
                   {[
-                    { icon: "🤝", value: "Unity" },
-                    { icon: "🏆", value: "Excellence" },
-                    { icon: "⚖️", value: "Integrity" },
-                    { icon: "🌱", value: "Growth" },
-                    { icon: "❤️", value: "Service" }
+                    { icon: "🤝", value: "Unity", description: "Working together as one community" },
+                    { icon: "🏆", value: "Excellence", description: "Striving for the highest standards" },
+                    { icon: "⚖️", value: "Integrity", description: "Honesty and moral uprightness" },
+                    { icon: "🌱", value: "Growth", description: "Continuous learning and development" },
+                    { icon: "❤️", value: "Service", description: "Serving our community with dedication" }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <span className="text-xs sm:text-sm flex-shrink-0">{item.icon}</span>
-                      <div className="text-xs sm:text-sm font-semibold text-white" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{item.value}</div>
-                    </div>
+                    <motion.div
+                      key={index}
+                      className="flex items-start gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors duration-200"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.6 + (index * 0.1) }}
+                    >
+                      <span className="text-lg sm:text-xl flex-shrink-0 mt-1">{item.icon}</span>
+                      <div className="flex-1">
+                        <div className="text-sm sm:text-base font-bold text-white mb-1" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          {item.value}
+                        </div>
+                        <div className="text-xs sm:text-sm text-gray-300" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          {item.description}
+                        </div>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
