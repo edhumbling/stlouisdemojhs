@@ -748,8 +748,8 @@ const DonationPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Physical Donations Welcome - Yellow Glass, Rectangular, Four Icons */}
-            <div className="bg-yellow-200/40 backdrop-blur-xl rounded-2xl sm:rounded-xl border border-yellow-300/60 shadow-2xl p-4 sm:p-6 text-center flex flex-col items-center gap-2 mb-6">
+            {/* Physical Donations Welcome - Free Floating */}
+            <div className="text-center mb-6">
                 <div className="flex items-center justify-center mb-2 gap-2">
                   <BookOpen className="w-6 h-6 text-white drop-shadow" />
                   <h3 className="text-base sm:text-lg font-extrabold text-white drop-shadow">Physical Donations Welcome!</h3>
@@ -781,20 +781,7 @@ const DonationPage: React.FC = () => {
                 </div>
             </div>
 
-            {/* Payment Options Reminder */}
-            <div className="mt-6 text-center">
-              <div className="bg-blue-500/20 backdrop-blur-sm rounded-xl border border-blue-400/30 p-3 sm:p-4 max-w-lg mx-auto">
-                <p className="text-white text-sm sm:text-base font-medium drop-shadow">
-                  💳 <strong>In Ghana?</strong> Use MoMo, Credit Cards, or Bank Transfer via Paystack below!
-                </p>
-                <p className="text-blue-200 text-xs sm:text-sm mt-1 drop-shadow">
-                  MTN MoMo • Vodafone Cash • AirtelTigo • Visa/Mastercard • Bank Transfer
-                </p>
-                <p className="text-green-200 text-xs mt-2 drop-shadow">
-                  🏦 Bank transfer option available in the payment form below
-                </p>
-              </div>
-            </div>
+
           </motion.div>
         </div>
       </motion.section>
@@ -819,12 +806,24 @@ const DonationPage: React.FC = () => {
                   className="bg-white overflow-hidden"
                 >
 
+                  {/* Payment Info - Short and Snappy */}
+                  <div className="bg-white py-4 text-center">
+                    <div className="max-w-md mx-auto px-4">
+                      <p className="text-blue-600 text-sm font-semibold mb-1">
+                        💳 Ghana: MoMo • Cards • Bank Transfer
+                      </p>
+                      <p className="text-gray-600 text-xs">
+                        MTN • Vodafone • AirtelTigo • Visa/Mastercard
+                      </p>
+                    </div>
+                  </div>
+
                   {/* Monthly Support Section - White Background */}
                   <div id="monthly-support" className="bg-white py-8">
                     {/* Bold Section Header in Rounded Rectangle */}
                     <div className="text-center mb-6">
-                      <div className="inline-block bg-gray-800 px-8 py-4 rounded-2xl border border-gray-600 shadow-sm">
-                        <h2 className="text-3xl sm:text-4xl font-black text-white mb-0">
+                      <div className="inline-block bg-black px-4 sm:px-8 py-2 sm:py-4 rounded-2xl border border-gray-900 shadow-sm">
+                        <h2 className="text-base sm:text-4xl font-black text-white mb-0">
                           MONTHLY SUPPORT
                         </h2>
                       </div>
@@ -932,8 +931,8 @@ const DonationPage: React.FC = () => {
                   <div style={{ backgroundColor: '#EAF6FC' }} className="py-8">
                     {/* Bold Section Header in Rounded Rectangle */}
                     <div className="text-center mb-6">
-                      <div className="inline-block bg-white px-8 py-4 rounded-2xl border border-blue-200 shadow-sm">
-                        <h2 className="text-3xl sm:text-4xl font-black text-black mb-0">
+                      <div className="inline-block bg-white px-4 sm:px-8 py-2 sm:py-4 rounded-2xl border border-blue-200 shadow-sm">
+                        <h2 className="text-base sm:text-4xl font-black text-black mb-0">
                           ONE-TIME SUPPORT
                         </h2>
                       </div>
