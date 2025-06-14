@@ -1,6 +1,6 @@
-import React, { useState, useMemo, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Award, Target, BookOpen, ArrowLeft, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Award, Target, BookOpen, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider';
 import SEOHead from '../components/seo/SEOHead';
@@ -92,41 +92,6 @@ const OptimizedImage: React.FC<{
 
 const AboutPage: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
-
-  // Historical images for modal
-  const historicalImages = useMemo(() => [
-    {
-      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637',
-      alt: 'Mad. Millicent Otoo - Former Headmistress'
-    },
-    {
-      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369',
-      alt: 'Mad. Millicent Otoo - Leadership Excellence'
-    },
-    {
-      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433',
-      alt: 'Mad. Millicent Otoo - Educational Vision'
-    },
-    {
-      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599',
-      alt: 'Mad. Millicent Otoo - Parade Cadet Leadership'
-    },
-    {
-      src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637',
-      alt: 'Mr. Atta Sarpong - Former PTA Chairman and Infrastructure Development'
-    }
-  ], []);
-
-  const openModal = useCallback((index: number) => {
-    setSelectedImage(historicalImages[index]);
-    document.body.style.overflow = 'hidden';
-  }, [historicalImages]);
-
-  const closeModal = useCallback(() => {
-    setSelectedImage(null);
-    document.body.style.overflow = 'auto';
-  }, []);
 
   const handleBack = () => {
     navigate(-1); // Go back to previous page
@@ -261,7 +226,7 @@ const AboutPage: React.FC = () => {
           >
             <div className="flex items-center justify-center mb-6">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
-                <History size={20} className="text-white" />
+                <span className="text-white text-xl">📚</span>
               </div>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Our Remarkable Journey Since 1977
@@ -306,7 +271,7 @@ const AboutPage: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
-                      onClick={() => openModal(0)}
+                      onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637', '_blank')}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/462355557_8436163679826973_7122605708168266593_n.jpg?updatedAt=1749924917637&tr=w-400,h-300,q-80"
@@ -321,7 +286,7 @@ const AboutPage: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.1 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
-                      onClick={() => openModal(1)}
+                      onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369', '_blank')}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493611096_9703467799744043_7040316249254217980_n.jpg?updatedAt=1749924917369&tr=w-400,h-300,q-80"
@@ -338,7 +303,7 @@ const AboutPage: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.2 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
-                      onClick={() => openModal(2)}
+                      onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433', '_blank')}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/493210072_9703467779744045_5818101436559563126_n.jpg?updatedAt=1749924917433&tr=w-400,h-300,q-80"
@@ -353,7 +318,7 @@ const AboutPage: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.3 }}
                       className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3]"
-                      onClick={() => openModal(3)}
+                      onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599', '_blank')}
                     >
                       <OptimizedImage
                         src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/452931296_7956095171147990_6455496529918644651_n.jpg?updatedAt=1749924916599&tr=w-400,h-300,q-80"
@@ -500,7 +465,7 @@ const AboutPage: React.FC = () => {
                     >
                       <div
                         className="group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-32 sm:w-40"
-                        onClick={() => openModal(4)}
+                        onClick={() => window.open('https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637', '_blank')}
                       >
                         <OptimizedImage
                           src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/464417336_8436163229827018_5770202680327083225_n.jpg?updatedAt=1749924917637&tr=w-300,h-400,q-80"
@@ -1170,39 +1135,7 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Simple Image Modal */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={closeModal}
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="relative max-w-4xl max-h-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors duration-200"
-              >
-                <X size={24} />
-              </button>
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-                style={{ filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))" }}
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
     </div>
   );
 };
