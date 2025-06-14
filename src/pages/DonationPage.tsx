@@ -808,15 +808,28 @@ const DonationPage: React.FC = () => {
                   className="bg-white sharp-container shadow-md lg:shadow-lg overflow-hidden"
                 >
 
-                  {/* Monthly Support Section */}
-                  <div id="monthly-support" className="mb-8">
+                  {/* Monthly Support Section - Edge to Edge */}
+                  <div id="monthly-support" className="bg-gradient-to-br from-red-600 via-pink-600 to-red-700 py-8">
+                    {/* Bold Section Header */}
                     <div className="text-center mb-6">
-                      <h3 className="text-xl font-bold text-white mb-4">⭐ Monthly Support Levels</h3>
-                      <p className="text-red-500 text-base sm:text-lg font-semibold mb-2 text-center sm:text-justify px-4">
+                      <h2 className="text-3xl sm:text-4xl font-black text-black mb-4" style={{ textShadow: '0 0 15px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.6)' }}>
+                        MONTHLY SUPPORT
+                      </h2>
+                    </div>
+
+                    <div className="text-center mb-6">
+                      <h3 className="text-xl font-bold text-white mb-4 flex items-center justify-center gap-2">
+                        <span>⭐</span>
+                        <span>Monthly Support Levels</span>
+                        <span>⭐</span>
+                      </h3>
+                      <p className="text-green-500 text-base sm:text-lg font-semibold mb-2 text-center px-4">
                         Join our community of monthly supporters and help us grow consistently through a subscription plan
                       </p>
-                      <p className="text-blue-500 text-base sm:text-lg font-semibold text-center sm:text-justify px-4">
-                        ✨ Monthly recurring payments • Secure via Paystack • Cancel anytime
+                      <p className="text-blue-500 text-base sm:text-lg font-semibold text-center px-4 flex items-center justify-center gap-2">
+                        <span>✨</span>
+                        <span>Monthly recurring payments • Secure via Paystack • Cancel anytime</span>
+                        <span>✨</span>
                       </p>
                     </div>
 
@@ -901,50 +914,37 @@ const DonationPage: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Level Names */}
-                    <div className="text-center mb-4">
-                      <div className="hidden lg:flex justify-center gap-2 text-xs">
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Stone Alumni</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Bronze</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Silver</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Gold</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Diamond</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Platinum</span>
-                        <span className="px-3 py-1 bg-gray-800 text-black font-medium rounded">Vibranium Edge</span>
-                      </div>
-                      <div className="lg:hidden">
-                        <div className="flex justify-center gap-2 text-xs mb-1">
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Stone Alumni</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Bronze</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Silver</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Gold</span>
-                        </div>
-                        <div className="flex justify-center gap-2 text-xs">
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Diamond</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Platinum</span>
-                          <span className="px-2 py-1 bg-gray-800 text-black font-medium rounded text-xs">Vibranium Edge</span>
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
 
-                  {/* One-Time Payment Section - Directly Attached */}
-                  <div className="mb-6">
+                  {/* One-Time Payment Section - Edge to Edge */}
+                  <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 py-8">
+                    {/* Bold Section Header */}
+                    <div className="text-center mb-6">
+                      <h2 className="text-3xl sm:text-4xl font-black text-black mb-4" style={{ textShadow: '0 0 15px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.6)' }}>
+                        ONE-TIME SUPPORT
+                      </h2>
+                    </div>
+
                     <div className="text-center mb-4">
-                      <h3 className="text-lg font-bold text-white mb-4">⭐ One-Time Donation</h3>
+                      <h3 className="text-lg font-bold text-white mb-4 flex items-center justify-center gap-2">
+                        <span>⭐</span>
+                        <span>One-Time Donation</span>
+                        <span>⭐</span>
+                      </h3>
                       <div className="flex items-center justify-center gap-2 mb-2">
                         <span className="text-2xl">👇</span>
-                        <p className="text-orange-500 text-base sm:text-lg font-semibold">
+                        <p className="text-orange-500 text-base sm:text-lg font-semibold text-center">
                           The payment form below is for one-time payments
                         </p>
                         <span className="text-2xl">👇</span>
                       </div>
-                      <p className="text-gray-300 text-sm">Make a single contribution of any amount</p>
+                      <p className="text-black text-sm font-semibold">Make a single contribution of any amount</p>
                     </div>
                   </div>
 
-                  {/* Payment Form Container - Natural Scrolling */}
-                  <div className="relative w-full">
+                  {/* Payment Form Container - Edge to Edge */}
+                  <div className="relative w-full bg-gray-100">
                     <div className="payment-container w-full">
                       <iframe
                         src="https://paystack.shop/pay/stlouisjhsdonations"
