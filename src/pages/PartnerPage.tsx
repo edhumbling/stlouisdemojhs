@@ -164,9 +164,28 @@ const PartnerPage: React.FC = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               Partner With Us
             </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 mb-6 sm:mb-8 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 mb-4 sm:mb-6 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
               Join us in transforming education at St. Louis Demonstration JHS through meaningful partnerships and generous contributions
             </p>
+            <div className="bg-yellow-400/20 backdrop-blur-sm rounded-xl border border-yellow-300/40 p-4 sm:p-6 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8">
+              <p className="text-yellow-300 text-sm sm:text-base md:text-lg font-bold text-center" style={{ textShadow: '0 0 10px rgba(255, 255, 0, 0.8)' }}>
+                🤝 We Welcome Official Partnerships With:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mt-3 sm:mt-4">
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🏢</div>
+                  <p className="text-white text-xs sm:text-sm font-semibold">Local Organizations</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">🌍</div>
+                  <p className="text-white text-xs sm:text-sm font-semibold">Foreign Education-Oriented Organizations</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl mb-1 sm:mb-2">❤️</div>
+                  <p className="text-white text-xs sm:text-sm font-semibold">Non-Profit Organizations</p>
+                </div>
+              </div>
+            </div>
             <div className="flex flex-row gap-2 sm:gap-4 justify-center">
               <a
                 href="#contact"
@@ -252,6 +271,190 @@ const PartnerPage: React.FC = () => {
       </section>
 
       <SectionDivider position="bottom" flip={true} />
+
+      {/* Organizational Partnerships Section - Dark Aero */}
+      <section className="py-6 sm:py-8 md:py-12 relative overflow-hidden">
+        {/* Optimized School Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?tr=w-1200,h-800,q-60"
+            alt="St. Louis Demo JHS Background"
+            className="w-full h-full object-cover opacity-30"
+            shimmerClassName="w-full h-full opacity-30"
+          />
+        </div>
+        {/* Dark Aero Glass Overlay */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/40 via-black/60 to-orange-900/40"></div>
+        <div className="w-full px-2 sm:px-4 relative z-10 overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-4xl mx-auto text-center mb-6 sm:mb-8 md:mb-12"
+          >
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-4 sm:mb-6">
+              Organizational Partnership Opportunities
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-200 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto">
+              We actively seek partnerships with organizations that share our commitment to educational excellence and student development.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-xs sm:max-w-md md:max-w-5xl lg:max-w-6xl mx-auto">
+            {/* Local Organizations */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="glass-card rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-yellow-300/30"
+              whileHover={{ y: -2, transition: { duration: 0.2 } }}
+            >
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center text-white mb-4 shadow-lg mx-auto">
+                <div className="text-2xl sm:text-3xl">🏢</div>
+              </div>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-3 text-center">Local Organizations</h3>
+              <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Community Development Groups</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Local Businesses & Corporations</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Religious Organizations</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Professional Associations</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Alumni Networks</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Foreign Education-Oriented Organizations */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="glass-card rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-yellow-300/30"
+              whileHover={{ y: -2, transition: { duration: 0.2 } }}
+            >
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center text-white mb-4 shadow-lg mx-auto">
+                <div className="text-2xl sm:text-3xl">🌍</div>
+              </div>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-3 text-center">International Education Partners</h3>
+              <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>International Schools & Universities</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Educational Technology Companies</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Research Institutions</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Cultural Exchange Programs</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>International Development Agencies</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Non-Profit Organizations */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="glass-card rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-yellow-300/30"
+              whileHover={{ y: -2, transition: { duration: 0.2 } }}
+            >
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-red-500 to-pink-500 rounded-xl flex items-center justify-center text-white mb-4 shadow-lg mx-auto">
+                <div className="text-2xl sm:text-3xl">❤️</div>
+              </div>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-3 text-center">Non-Profit Organizations</h3>
+              <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Educational Foundations</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Youth Development Organizations</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Charitable Foundations</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Community Service Groups</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <span>Humanitarian Organizations</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Partnership Benefits */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-8 sm:mt-12 max-w-xs sm:max-w-md md:max-w-3xl lg:max-w-4xl mx-auto"
+          >
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-sm rounded-xl border border-yellow-300/40 p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4 text-center">Partnership Benefits</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="flex items-center text-white text-sm sm:text-base">
+                  <span className="text-yellow-400 mr-2">✨</span>
+                  <span>Official recognition and acknowledgment</span>
+                </div>
+                <div className="flex items-center text-white text-sm sm:text-base">
+                  <span className="text-yellow-400 mr-2">📜</span>
+                  <span>Partnership certificates and documentation</span>
+                </div>
+                <div className="flex items-center text-white text-sm sm:text-base">
+                  <span className="text-yellow-400 mr-2">🌟</span>
+                  <span>Featured on our website and materials</span>
+                </div>
+                <div className="flex items-center text-white text-sm sm:text-base">
+                  <span className="text-yellow-400 mr-2">🤝</span>
+                  <span>Long-term collaborative relationships</span>
+                </div>
+                <div className="flex items-center text-white text-sm sm:text-base">
+                  <span className="text-yellow-400 mr-2">📊</span>
+                  <span>Impact reports and progress updates</span>
+                </div>
+                <div className="flex items-center text-white text-sm sm:text-base">
+                  <span className="text-yellow-400 mr-2">💝</span>
+                  <span>Special gratitude events and ceremonies</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Contact Section - Dark Aero */}
       <section id="contact" className="py-6 sm:py-8 md:py-12 relative overflow-hidden">

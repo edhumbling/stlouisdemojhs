@@ -770,6 +770,11 @@ const DonationPage: React.FC = () => {
                 <p className="text-white/90 text-xs sm:text-sm mb-3 font-medium drop-shadow">
                   We also warmly receive gifts in the form of physical assets such as books, computers, furniture, and any other educational materials. Your contributions are received gladly and cheerfully with gratitude!
               </p>
+              <p className="text-white/90 text-xs sm:text-sm mb-3 font-medium drop-shadow">
+                <span className="text-yellow-300 font-bold" style={{ textShadow: '0 0 10px rgba(255, 255, 0, 0.8)' }}>
+                  🤝 Local Organizations, Foreign Education-Oriented Organizations, and Non-Profits are welcomed to donate officially with us too!
+                </span>
+              </p>
               <a
                 href="/partner"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
