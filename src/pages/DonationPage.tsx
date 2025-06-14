@@ -685,65 +685,65 @@ const DonationPage: React.FC = () => {
               />
             </div>
 
-            {/* USSD Code Alternative Section - Mobile Optimized */}
-            <div className="mb-4 px-1 sm:px-2">
-              <div className="bg-gradient-to-r from-orange-500/20 via-yellow-500/20 to-orange-500/20 backdrop-blur-sm rounded-lg border border-white/20 p-3 sm:p-4 text-center">
-                <h3 className="text-white font-bold text-sm sm:text-lg mb-3 drop-shadow">
+            {/* USSD Code Alternative Section - Mobile Optimized, Desktop Free */}
+            <div className="mb-4 px-1 sm:px-2 lg:px-0">
+              <div className="bg-gradient-to-r from-orange-500/20 via-yellow-500/20 to-orange-500/20 backdrop-blur-sm rounded-lg border border-white/20 p-3 sm:p-4 lg:p-8 text-center lg:bg-none lg:border-none lg:backdrop-blur-none">
+                <h3 className="text-white font-bold text-sm sm:text-lg lg:text-2xl mb-3 drop-shadow">
                   📱 Alternative: Use Our USSD Code
                 </h3>
 
-                {/* USSD Code Image - Guy with hands extended */}
+                {/* USSD Code Image - Guy with hands extended - Original size on desktop */}
                 <div className="mb-5 flex justify-center">
                   <img
                     src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png"
                     alt="USSD Code Donation - Guy extending hands with code"
-                    className="h-24 sm:h-32 md:h-40 lg:h-44 w-auto rounded-xl shadow-lg border-2 border-white/50"
+                    className="h-24 sm:h-32 md:h-40 lg:w-auto lg:h-auto lg:max-w-none w-auto rounded-xl shadow-lg border-2 border-white/50"
                   />
                 </div>
 
                 {/* USSD Code Display */}
                 <div className="mb-4">
-                  <div className="bg-gradient-to-r from-yellow-300 to-orange-400 text-orange-900 font-black text-lg sm:text-xl px-4 py-3 rounded-lg border border-orange-500 shadow-lg inline-block">
-                    📞 Dial: <span className="font-black text-2xl">*246#</span>
+                  <div className="bg-gradient-to-r from-yellow-300 to-orange-400 text-orange-900 font-black text-lg sm:text-xl lg:text-3xl px-4 py-3 lg:px-8 lg:py-6 rounded-lg border border-orange-500 shadow-lg inline-block">
+                    📞 Dial: <span className="font-black text-2xl lg:text-4xl">*246#</span>
                   </div>
                 </div>
 
-                {/* Step-by-step Instructions */}
-                <div className="text-left max-w-md mx-auto mb-4">
-                  <h4 className="text-white font-bold text-sm sm:text-base mb-3 text-center">
+                {/* Step-by-step Instructions - Free layout on desktop */}
+                <div className="text-left max-w-md lg:max-w-none mx-auto mb-4">
+                  <h4 className="text-white font-bold text-sm sm:text-base lg:text-xl mb-3 text-center">
                     📋 Follow These Steps:
                   </h4>
-                  <div className="space-y-2 text-white/90 text-xs sm:text-sm">
-                    <div className="flex items-start gap-2">
-                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                  <div className="space-y-2 lg:space-y-4 text-white/90 text-xs sm:text-sm lg:text-base lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0">
+                    <div className="flex items-start gap-2 lg:gap-4">
+                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 lg:w-8 lg:h-8 flex items-center justify-center text-xs lg:text-sm font-bold flex-shrink-0 mt-0.5">1</span>
                       <span>Dial <strong className="text-yellow-300">*246#</strong></span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                    <div className="flex items-start gap-2 lg:gap-4">
+                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 lg:w-8 lg:h-8 flex items-center justify-center text-xs lg:text-sm font-bold flex-shrink-0 mt-0.5">2</span>
                       <span>Choose a service. eg. <strong className="text-yellow-300">Transfer Money</strong></span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                    <div className="flex items-start gap-2 lg:gap-4">
+                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 lg:w-8 lg:h-8 flex items-center justify-center text-xs lg:text-sm font-bold flex-shrink-0 mt-0.5">3</span>
                       <span>Select a Destination Account eg. <strong className="text-yellow-300">To Mobile Wallet</strong></span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+                    <div className="flex items-start gap-2 lg:gap-4">
+                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 lg:w-8 lg:h-8 flex items-center justify-center text-xs lg:text-sm font-bold flex-shrink-0 mt-0.5">4</span>
                       <span>Select Mobile Network - <strong className="text-yellow-300">Telecel</strong></span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">5</span>
+                    <div className="flex items-start gap-2 lg:gap-4">
+                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 lg:w-8 lg:h-8 flex items-center justify-center text-xs lg:text-sm font-bold flex-shrink-0 mt-0.5">5</span>
                       <span>Enter Recipient Wallet Number - <strong className="text-yellow-300">0208705290</strong></span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">6</span>
+                    <div className="flex items-start gap-2 lg:gap-4">
+                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 lg:w-8 lg:h-8 flex items-center justify-center text-xs lg:text-sm font-bold flex-shrink-0 mt-0.5">6</span>
                       <span>Enter Amount - <strong className="text-yellow-300">any amount</strong></span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">7</span>
+                    <div className="flex items-start gap-2 lg:gap-4">
+                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 lg:w-8 lg:h-8 flex items-center justify-center text-xs lg:text-sm font-bold flex-shrink-0 mt-0.5">7</span>
                       <span>Enter Reference eg: <strong className="text-yellow-300">your Name</strong></span>
                     </div>
-                    <div className="flex items-start gap-2">
-                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">8</span>
+                    <div className="flex items-start gap-2 lg:gap-4">
+                      <span className="bg-orange-500 text-white rounded-full w-5 h-5 lg:w-8 lg:h-8 flex items-center justify-center text-xs lg:text-sm font-bold flex-shrink-0 mt-0.5">8</span>
                       <span>Wait for Prompt and confirm <strong className="text-yellow-300">Mobile Money Wallet Pin</strong></span>
                     </div>
                   </div>
@@ -751,12 +751,12 @@ const DonationPage: React.FC = () => {
 
                 {/* Mobile Money Number Highlight */}
                 <div className="mb-3">
-                  <div className="bg-gradient-to-r from-yellow-300 to-yellow-400 text-yellow-900 font-black text-sm sm:text-base px-3 py-2 rounded-lg border border-yellow-500 shadow-lg inline-block">
+                  <div className="bg-gradient-to-r from-yellow-300 to-yellow-400 text-yellow-900 font-black text-sm sm:text-base lg:text-xl px-3 py-2 lg:px-6 lg:py-4 rounded-lg border border-yellow-500 shadow-lg inline-block">
                     📱 Send to: <span className="font-black">0208705290</span>
                   </div>
                 </div>
 
-                <p className="text-white/90 text-xs sm:text-sm drop-shadow font-medium leading-relaxed">
+                <p className="text-white/90 text-xs sm:text-sm lg:text-base drop-shadow font-medium leading-relaxed">
                   Quick and easy way to donate using your mobile phone's USSD service
                 </p>
               </div>
