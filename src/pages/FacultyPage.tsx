@@ -299,13 +299,13 @@ const FacultyPage: React.FC = () => {
 
       {/* Word from Our Staff - Edge to Edge */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-purple-900 via-gray-900 to-green-900 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-        <div className="px-4 sm:px-6 lg:px-8">
+        <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-5xl mx-auto"
+            className="w-full px-4 sm:px-6 lg:px-8"
           >
             {/* Section Header */}
             <div className="text-center mb-12">
@@ -392,13 +392,13 @@ const FacultyPage: React.FC = () => {
 
       {/* Leadership Values Section - Edge to Edge */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-        <div className="px-4 sm:px-6 lg:px-8">
+        <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-6xl mx-auto"
+            className="w-full px-4 sm:px-6 lg:px-8"
           >
             {/* Section Header */}
             <div className="text-center mb-12">
@@ -470,28 +470,28 @@ const FacultyPage: React.FC = () => {
               </motion.div>
             </div>
 
-            {/* Call to Action */}
+            {/* Call to Action - Compact Mobile */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-center mt-12 bg-gradient-to-r from-blue-600/20 to-green-600/20 rounded-3xl p-8 border border-gray-700/50"
+              className="text-center mt-8 sm:mt-12 bg-gradient-to-r from-blue-600/20 to-green-600/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-700/50"
             >
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+              <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-4">
                 Experience Excellence in Education
               </h3>
-              <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-4 sm:mb-6 max-w-2xl mx-auto leading-tight">
                 Join our community of learners, dreamers, and achievers. Together, we're building the leaders of tomorrow.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <span className="bg-blue-600/30 text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4">
+                <span className="bg-blue-600/30 text-blue-200 px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm font-medium">
                   47+ Years of Excellence
                 </span>
-                <span className="bg-green-600/30 text-green-200 px-4 py-2 rounded-full text-sm font-medium">
+                <span className="bg-green-600/30 text-green-200 px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm font-medium">
                   30,000+ Students Trained
                 </span>
-                <span className="bg-yellow-600/30 text-yellow-200 px-4 py-2 rounded-full text-sm font-medium">
+                <span className="bg-yellow-600/30 text-yellow-200 px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm font-medium">
                   97%+ BECE Success Rate
                 </span>
               </div>
@@ -559,10 +559,11 @@ const FacultyPage: React.FC = () => {
                     'Mrs Grace Elsie',
                     'Mr Eugene Essel',
                     'Mrs Dora Antwi',
-                    'Mr Agyare',
+                    'Mr Agyare Amoateng',
                     'Mr Clement Owusu Agyemang',
                     'Mrs Dillys Tandoh',
-                    'Mr Agyabeng'
+                    'Mr Agyabeng',
+                    'Mr. Samuel Asiedu'
                   ].map((teacher, index) => (
                     <motion.div
                       key={index}
@@ -573,9 +574,9 @@ const FacultyPage: React.FC = () => {
                       whileHover={{ scale: 1.05 }}
                       className="text-center"
                     >
-                      {/* Simple Name on Wall - No Truncation */}
-                      <div className="bg-amber-800/80 text-amber-100 px-2 py-1 rounded-md shadow-md border border-amber-700 transform hover:rotate-1 transition-all duration-300">
-                        <h3 className="font-bold text-[10px] sm:text-xs leading-tight text-center break-words">
+                      {/* Simple Name on Wall - Smart Wrapping */}
+                      <div className="bg-amber-800/80 text-amber-100 px-1 sm:px-2 py-1 rounded-md shadow-md border border-amber-700 transform hover:rotate-1 transition-all duration-300">
+                        <h3 className="font-bold text-[9px] sm:text-[10px] lg:text-xs leading-tight text-center break-words hyphens-auto">
                           {teacher}
                         </h3>
                       </div>
