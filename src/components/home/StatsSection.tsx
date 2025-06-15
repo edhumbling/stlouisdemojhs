@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, Users, Award, BookOpen, Star, GraduationCap } from 'lucide-react';
+import { TrendingUp, Users, Award, BookOpen, Star, GraduationCap, UserCheck } from 'lucide-react';
 import { getSchoolStats, getDecadePerformance, getDecadeTitleCount, getDecadeSubtitle } from '../../utils/schoolStats';
 import GrowthChart from './GrowthChart';
 
@@ -21,11 +21,11 @@ const StatsSection: React.FC = () => {
       color: 'from-green-500 to-emerald-400'
     },
     {
-      icon: <Award className="w-8 h-8 text-blue-400" />,
-      number: schoolStats.currentBECERate,
-      suffix: '%',
-      label: 'BECE Success Rate',
-      description: `${schoolStats.currentYear} Results`,
+      icon: <UserCheck className="w-8 h-8 text-blue-400" />,
+      number: schoolStats.totalTeachers,
+      suffix: '+',
+      label: 'Professional Teachers',
+      description: 'Past & Present (Since 1977)',
       color: 'from-blue-500 to-cyan-400'
     },
     {

@@ -149,7 +149,7 @@ The website features dynamic statistics that automatically update:
 - **School Age**: 48+ years (increments annually - FULLY AUTOMATED)
 - **Total Graduates**: 40,000+ (increments every year - FULLY AUTOMATED)
 - **Current Enrollment**: 800+ students (FULLY AUTOMATED)
-- **BECE Success Rate**: 97.1%+ (improves annually - FULLY AUTOMATED)
+- **Professional Teachers**: 900+ (Past & Present, adds 50/year - FULLY AUTOMATED)
 - **Average BECE Rate**: 95.1%+ (5-year average - FULLY AUTOMATED)
 
 ## 🔧 Configuration

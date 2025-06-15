@@ -15,6 +15,8 @@ const SCHOOL_FOUNDING_YEAR = 1977;
 const BASE_STUDENT_COUNT = 40400; // Students trained by 2025 (updated count)
 const BASE_YEAR = 2025;
 const STUDENTS_PER_YEAR = 400; // Approximate new students per year
+const BASE_TEACHER_COUNT = 900; // Professional teachers by 2025 (since 1977)
+const TEACHERS_PER_YEAR = 50; // New teachers per year
 
 /**
  * Get the current school age in years
@@ -120,6 +122,26 @@ export const getAverageBECERateFormatted = (): string => {
 };
 
 /**
+ * 🚀 AUTOMATED: Get total professional teachers (past and present)
+ * Starts at 900 in 2025, adds 50 per year automatically
+ * @returns {number} Total professional teachers since 1977
+ */
+export const getTotalProfessionalTeachers = (): number => {
+  const currentYear = new Date().getFullYear();
+  const yearsFromBase = currentYear - BASE_YEAR;
+  return BASE_TEACHER_COUNT + (yearsFromBase * TEACHERS_PER_YEAR);
+};
+
+/**
+ * 🚀 AUTOMATED: Get formatted professional teachers count
+ * @returns {string} Formatted count like "900+" or "1,200+"
+ */
+export const getTotalProfessionalTeachersFormatted = (): string => {
+  const count = getTotalProfessionalTeachers();
+  return `${count.toLocaleString()}+`;
+};
+
+/**
  * Get years range from founding to current
  * @returns {string} Range like "1977-2024" or "1977-2030"
  */
@@ -164,6 +186,8 @@ export const getSchoolStats = () => {
     currentBECERateFormatted: getCurrentBECERateFormatted(),
     averageBECERate: getAverageBECERate(),
     averageBECERateFormatted: getAverageBECERateFormatted(),
+    totalTeachers: getTotalProfessionalTeachers(),
+    totalTeachersFormatted: getTotalProfessionalTeachersFormatted(),
     foundingYear: getFoundingYear(),
     yearsRange: getYearsRange(),
     currentYear: new Date().getFullYear()
@@ -319,6 +343,8 @@ export default {
   getCurrentBECERateFormatted,
   getAverageBECERate,
   getAverageBECERateFormatted,
+  getTotalProfessionalTeachers,
+  getTotalProfessionalTeachersFormatted,
   getFoundingYear,
   getCurrentYear,
   getYearsRange,

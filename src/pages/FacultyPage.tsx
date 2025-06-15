@@ -495,8 +495,8 @@ const FacultyPage: React.FC = () => {
                 <span className="bg-green-600/30 text-green-200 px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm font-medium">
                   {schoolStats.totalStudentsFormatted} Students Trained
                 </span>
-                <span className="bg-yellow-600/30 text-yellow-200 px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm font-medium">
-                  {schoolStats.currentBECERateFormatted} BECE Success Rate
+                <span className="bg-purple-600/30 text-purple-200 px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm font-medium">
+                  {schoolStats.totalTeachersFormatted} Professional Teachers
                 </span>
               </div>
             </motion.div>
