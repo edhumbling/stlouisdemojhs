@@ -500,13 +500,13 @@ const FacultyPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Wall of Notable Teachers - Past & Present */}
-      <section className="py-12 px-4 bg-gradient-to-br from-gray-900 via-blue-900 to-black">
-        <div className="container mx-auto">
+      {/* Wall of Notable Teachers - Past & Present - Edge to Edge */}
+      <section className="py-8 bg-gradient-to-br from-gray-900 via-blue-900 to-black w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+        <div className="px-4 sm:px-6 lg:px-8">
           {/* Notice Board Style Background */}
           <div className="relative">
             {/* Cork Board Background */}
-            <div className="bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-200 rounded-2xl shadow-2xl border-8 border-amber-800 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-200 rounded-xl sm:rounded-2xl shadow-2xl border-4 sm:border-8 border-amber-800 relative overflow-hidden">
               {/* Cork Board Texture Pattern */}
               <div className="absolute inset-0 opacity-20">
                 <div className="w-full h-full" style={{
@@ -525,33 +525,33 @@ const FacultyPage: React.FC = () => {
 
               {/* Content */}
               <div className="relative z-10 p-6 sm:p-8 lg:p-12">
-                {/* Header */}
+                {/* Header - Mobile Optimized */}
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className="text-center mb-8"
+                  className="text-center mb-6"
                 >
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <Star className="w-8 h-8 text-amber-600" />
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-900">
-                      WALL OF NOTABLE TEACHERS
+                  <div className="flex items-center justify-center gap-1 sm:gap-3 mb-3">
+                    <Star className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-amber-600" />
+                    <h2 className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-amber-900 leading-tight">
+                      NOTABLE TEACHERS
                     </h2>
-                    <Star className="w-8 h-8 text-amber-600" />
+                    <Star className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-amber-600" />
                   </div>
-                  <div className="bg-amber-800 text-amber-100 px-4 py-2 rounded-lg inline-block font-bold text-lg sm:text-xl">
+                  <div className="bg-amber-800 text-amber-100 px-2 py-1 sm:px-4 sm:py-2 rounded-lg inline-block font-bold text-xs sm:text-base lg:text-lg">
                     PAST & PRESENT
                   </div>
                 </motion.div>
 
-                {/* Teachers Grid */}
+                {/* Teachers Grid - Compact Cards */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="grid grid-cols-3 lg:grid-cols-8 gap-3 sm:gap-4 lg:gap-6 mb-8"
+                  className="grid grid-cols-3 lg:grid-cols-8 gap-2 sm:gap-3 lg:gap-4 mb-6"
                 >
                   {[
                     'Mr. Nyame Enock',
@@ -573,16 +573,22 @@ const FacultyPage: React.FC = () => {
                       whileHover={{ scale: 1.05, rotateZ: 2 }}
                       className="relative"
                     >
-                      {/* Paper Note Style */}
-                      <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-3 sm:p-4 transform rotate-1 hover:rotate-0 transition-all duration-300">
+                      {/* Compact Paper Note Style */}
+                      <div className="bg-white rounded-md shadow-lg border border-gray-200 p-2 sm:p-3 transform rotate-1 hover:rotate-0 transition-all duration-300">
                         {/* Small push pin */}
-                        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-red-400 rounded-full shadow-md border border-red-500"></div>
+                        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full shadow-md border border-red-500"></div>
 
                         <div className="text-center">
-                          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-2 sm:mb-3 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg">
-                            {teacher.split(' ').map(name => name[0]).join('')}
+                          {/* School Logo Container */}
+                          <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white rounded-full mx-auto mb-1 sm:mb-2 flex items-center justify-center shadow-lg border-2 border-gray-200">
+                            <img
+                              src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/St%20Louis%20Logo.png"
+                              alt="St. Louis Logo"
+                              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
+                            />
                           </div>
-                          <h3 className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base leading-tight">
+                          {/* Single Line Name */}
+                          <h3 className="font-bold text-gray-800 text-[8px] sm:text-xs leading-tight truncate px-1">
                             {teacher}
                           </h3>
                         </div>
