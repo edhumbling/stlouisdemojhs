@@ -297,9 +297,9 @@ const FacultyPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Word from Our Staff */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-purple-900 via-gray-900 to-green-900">
-        <div className="container mx-auto px-4">
+      {/* Word from Our Staff - Edge to Edge */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-purple-900 via-gray-900 to-green-900 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+        <div className="px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -390,9 +390,9 @@ const FacultyPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Leadership Values Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900">
-        <div className="container mx-auto px-4">
+      {/* Leadership Values Section - Edge to Edge */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+        <div className="px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -411,18 +411,18 @@ const FacultyPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Values Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {/* Values Grid - 2 Columns Mobile, 4 Desktop */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-2xl p-6 border border-blue-500/30 text-center"
+                className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-xl p-3 sm:p-4 lg:p-6 border border-blue-500/30 text-center"
               >
-                <Award className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">Excellence</h3>
-                <p className="text-gray-300 text-sm">
+                <Award className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-yellow-400 mx-auto mb-2 sm:mb-3 lg:mb-4" />
+                <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-white mb-1 sm:mb-2 lg:mb-3">Excellence</h3>
+                <p className="text-gray-300 text-xs sm:text-sm leading-tight">
                   Striving for the highest standards in education, character development, and student achievement.
                 </p>
               </motion.div>
@@ -432,11 +432,11 @@ const FacultyPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-gradient-to-br from-green-600/20 to-green-800/20 rounded-2xl p-6 border border-green-500/30 text-center"
+                className="bg-gradient-to-br from-green-600/20 to-green-800/20 rounded-xl p-3 sm:p-4 lg:p-6 border border-green-500/30 text-center"
               >
-                <Heart className="w-12 h-12 text-red-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">Compassion</h3>
-                <p className="text-gray-300 text-sm">
+                <Heart className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-red-400 mx-auto mb-2 sm:mb-3 lg:mb-4" />
+                <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-white mb-1 sm:mb-2 lg:mb-3">Compassion</h3>
+                <p className="text-gray-300 text-xs sm:text-sm leading-tight">
                   Creating a nurturing environment where every student feels valued, supported, and loved.
                 </p>
               </motion.div>
@@ -446,11 +446,11 @@ const FacultyPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-gradient-to-br from-purple-600/20 to-purple-800/20 rounded-2xl p-6 border border-purple-500/30 text-center"
+                className="bg-gradient-to-br from-purple-600/20 to-purple-800/20 rounded-xl p-3 sm:p-4 lg:p-6 border border-purple-500/30 text-center"
               >
-                <Users className="w-12 h-12 text-blue-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">Community</h3>
-                <p className="text-gray-300 text-sm">
+                <Users className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-blue-400 mx-auto mb-2 sm:mb-3 lg:mb-4" />
+                <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-white mb-1 sm:mb-2 lg:mb-3">Community</h3>
+                <p className="text-gray-300 text-xs sm:text-sm leading-tight">
                   Building strong partnerships between students, parents, teachers, and the wider community.
                 </p>
               </motion.div>
@@ -460,11 +460,11 @@ const FacultyPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 rounded-2xl p-6 border border-yellow-500/30 text-center"
+                className="bg-gradient-to-br from-yellow-600/20 to-orange-600/20 rounded-xl p-3 sm:p-4 lg:p-6 border border-yellow-500/30 text-center"
               >
-                <BookOpen className="w-12 h-12 text-green-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">Innovation</h3>
-                <p className="text-gray-300 text-sm">
+                <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-green-400 mx-auto mb-2 sm:mb-3 lg:mb-4" />
+                <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-white mb-1 sm:mb-2 lg:mb-3">Innovation</h3>
+                <p className="text-gray-300 text-xs sm:text-sm leading-tight">
                   Embracing modern teaching methods and technology to prepare students for the future.
                 </p>
               </motion.div>
@@ -500,13 +500,13 @@ const FacultyPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Wall of Notable Teachers - Past & Present - Edge to Edge */}
-      <section className="py-8 bg-gradient-to-br from-gray-900 via-blue-900 to-black w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-        <div className="px-4 sm:px-6 lg:px-8">
-          {/* Notice Board Style Background */}
-          <div className="relative">
-            {/* Cork Board Background */}
-            <div className="bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-200 rounded-xl sm:rounded-2xl shadow-2xl border-4 sm:border-8 border-amber-800 relative overflow-hidden">
+      {/* Wall of Notable Teachers - Past & Present - Full Edge to Edge */}
+      <section className="py-6 bg-gradient-to-br from-gray-900 via-blue-900 to-black w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+        <div className="w-full">
+          {/* Notice Board Style Background - Full Width */}
+          <div className="relative w-full">
+            {/* Cork Board Background - Edge to Edge */}
+            <div className="bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-200 shadow-2xl border-t-4 border-b-4 border-amber-800 relative overflow-hidden w-full">
               {/* Cork Board Texture Pattern */}
               <div className="absolute inset-0 opacity-20">
                 <div className="w-full h-full" style={{
@@ -545,13 +545,13 @@ const FacultyPage: React.FC = () => {
                   </div>
                 </motion.div>
 
-                {/* Teachers Grid - Compact Cards */}
+                {/* Teachers Names - Plastered on Wall */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="grid grid-cols-3 lg:grid-cols-8 gap-2 sm:gap-3 lg:gap-4 mb-6"
+                  className="grid grid-cols-4 lg:grid-cols-10 gap-2 sm:gap-3 lg:gap-4 mb-4 px-4 sm:px-6 lg:px-8"
                 >
                   {[
                     'Mr. Nyame Enock',
@@ -566,61 +566,35 @@ const FacultyPage: React.FC = () => {
                   ].map((teacher, index) => (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, rotateY: 90 }}
-                      whileInView={{ opacity: 1, rotateY: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
-                      whileHover={{ scale: 1.05, rotateZ: 2 }}
-                      className="relative"
+                      transition={{ duration: 0.6, delay: 0.2 + (index * 0.1) }}
+                      whileHover={{ scale: 1.05 }}
+                      className="text-center"
                     >
-                      {/* Compact Paper Note Style */}
-                      <div className="bg-white rounded-md shadow-lg border border-gray-200 p-2 sm:p-3 transform rotate-1 hover:rotate-0 transition-all duration-300">
-                        {/* Small push pin */}
-                        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full shadow-md border border-red-500"></div>
-
-                        <div className="text-center">
-                          {/* School Logo Container */}
-                          <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white rounded-full mx-auto mb-1 sm:mb-2 flex items-center justify-center shadow-lg border-2 border-gray-200">
-                            <img
-                              src="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/St%20Louis%20Logo.png"
-                              alt="St. Louis Logo"
-                              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
-                            />
-                          </div>
-                          {/* Single Line Name */}
-                          <h3 className="font-bold text-gray-800 text-[8px] sm:text-xs leading-tight truncate px-1">
-                            {teacher}
-                          </h3>
-                        </div>
+                      {/* Simple Name on Wall */}
+                      <div className="bg-amber-800/80 text-amber-100 px-2 py-1 rounded-md shadow-md border border-amber-700 transform hover:rotate-1 transition-all duration-300">
+                        <h3 className="font-bold text-[10px] sm:text-xs leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
+                          {teacher}
+                        </h3>
                       </div>
                     </motion.div>
                   ))}
                 </motion.div>
 
-                {/* Contact Note */}
+                {/* Cute Small Contact Tooltip */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 1.0 }}
+                  transition={{ duration: 0.4, delay: 0.8 }}
                   className="text-center"
                 >
-                  <div className="bg-yellow-200 border-l-4 border-yellow-500 p-4 sm:p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
-                    <div className="flex items-center justify-center gap-2 mb-3">
-                      <MessageCircle className="w-6 h-6 text-yellow-700" />
-                      <h3 className="font-bold text-yellow-800 text-lg sm:text-xl">
-                        Missing from the List?
-                      </h3>
-                    </div>
-                    <p className="text-yellow-800 text-sm sm:text-base leading-relaxed">
-                      If your name is not included in our Wall of Notable Teachers, please reach out to
-                      <strong className="text-yellow-900"> Emma</strong> and he will add you to the list.
+                  <div className="bg-yellow-100 border border-yellow-300 p-2 rounded-full shadow-sm max-w-xs mx-auto">
+                    <p className="text-yellow-800 text-[10px] sm:text-xs font-medium">
+                      Missing? Contact <strong>Emma</strong> 📱 <span className="font-bold">0208705290</span>
                     </p>
-                    <div className="mt-4 bg-yellow-300 rounded-lg p-3 inline-block">
-                      <p className="font-bold text-yellow-900 text-sm sm:text-base">
-                        📱 WhatsApp: <span className="text-lg">0208705290</span>
-                      </p>
-                    </div>
                   </div>
                 </motion.div>
               </div>
