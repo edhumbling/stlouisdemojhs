@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom'; // Added Link
 import SectionDivider from '../components/common/SectionDivider';
 import AlumniDetailModal from '../components/common/AlumniDetailModal';
 import SEOHead from '../components/seo/SEOHead';
+import { getSchoolStats } from '../utils/schoolStats';
 
 // Define Alumni type matching the one in AlumniDetailModal
 interface Alumni {
@@ -151,9 +152,11 @@ const AlumniPage: React.FC = () => {
   const itemsPerPage = 10; // Or a more complex calculation if based on "visual rows"
   // const [modalYPosition, setModalYPosition] = useState<number | null>(null); // Removed
 
+  // 🚀 AUTOMATED: Alumni stats with dynamic school age
+  const schoolStats = getSchoolStats();
   const alumniStats = [
-    { icon: <GraduationCap className="w-8 h-8" />, number: "30,000+", label: "Graduates", color: "from-blue-500 to-cyan-500" },
-    { icon: <span className="text-2xl">📅</span>, number: "47+", label: "Years of Excellence", color: "from-green-500 to-emerald-500" },
+    { icon: <GraduationCap className="w-8 h-8" />, number: schoolStats.totalStudentsFormatted, label: "Graduates", color: "from-blue-500 to-cyan-500" },
+    { icon: <span className="text-2xl">📅</span>, number: schoolStats.ageFormatted, label: "Years of Excellence", color: "from-green-500 to-emerald-500" },
     { icon: <Users className="w-8 h-8" />, number: "10,000+", label: "Active Alumni", color: "from-purple-500 to-pink-500" },
     { icon: <Award className="w-8 h-8" />, number: "100+", label: "Success Stories", color: "from-orange-500 to-red-500" }
   ];

@@ -5,6 +5,7 @@ import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
 
 import { useHeader } from '../../contexts/HeaderContext';
+import { getSchoolStats } from '../../utils/schoolStats';
 
 const Layout: React.FC = () => {
   const location = useLocation();
@@ -47,7 +48,8 @@ const Layout: React.FC = () => {
   const isHomePage = location.pathname === '/';
   const shouldHaveTopPadding = !isHomePage && showHeader;
 
-  // Structured data for Google search features
+  // 🚀 AUTOMATED: Structured data for Google search features
+  const schoolStats = getSchoolStats();
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
@@ -56,7 +58,7 @@ const Layout: React.FC = () => {
     "url": "https://stlouisdemojhs.com",
     "logo": "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748099386709",
     "image": "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_7097.HEIC?updatedAt=1748185709667",
-    "description": "Premier educational institution in Kumasi, Ghana with over 47 years of excellence in education. We have successfully trained 30,000+ students with exceptional BECE success rates.",
+    "description": `Premier educational institution in Kumasi, Ghana with over ${schoolStats.ageFormatted} years of excellence in education. We have successfully trained ${schoolStats.totalStudentsFormatted} students with exceptional BECE success rates.`,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "St. Louis Demonstration J.H.S",

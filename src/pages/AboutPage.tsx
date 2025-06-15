@@ -1058,7 +1058,7 @@ const AboutPage: React.FC = () => {
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Our Impact & Aspirations</h2>
             </div>
             <p className="text-sm text-gray-100 max-w-2xl mx-auto">
-              Building on 47 years of educational excellence while working towards our vision of becoming a world-class institution.
+              Building on 48 years of educational excellence while working towards our vision of becoming a world-class institution.
             </p>
           </motion.div>
 

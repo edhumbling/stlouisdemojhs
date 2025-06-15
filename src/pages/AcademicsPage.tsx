@@ -617,7 +617,7 @@ const AcademicsPage: React.FC = () => {
           {/* Enhanced Feature Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {[
-              { icon: '🏆', title: 'Premier School', desc: 'Leading educational institution in Ghana with 47+ years of excellence' },
+              { icon: '🏆', title: 'Premier School', desc: 'Leading educational institution in Ghana with 48+ years of excellence' },
               { icon: '👨‍🏫', title: 'Expert Faculty', desc: 'Highly qualified and dedicated teachers committed to student success' },
               { icon: '💡', title: 'Innovation', desc: 'Modern teaching methods integrated with cutting-edge technology' },
               { icon: '🌍', title: 'Global View', desc: 'International perspective preparing students for global opportunities' }

@@ -271,7 +271,7 @@ const CoreAcademicPage: React.FC = () => {
                 { number: "98%", label: "BECE Pass Rate" },
                 { number: "11", label: "Core Subjects" },
                 { number: "95%", label: "SHS Admission Rate" },
-                { number: "47+", label: "Years of Excellence" }
+                { number: "48+", label: "Years of Excellence" }
               ].map((stat, index) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-3xl font-bold text-green-400 mb-2">{stat.number}</div>

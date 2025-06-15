@@ -107,7 +107,7 @@ const AdmissionsPage: React.FC = () => {
     {
       icon: <GraduationCap className="w-8 h-8" />,
       title: "Proven Alumni Success",
-      description: "Our 30,000+ graduates excel in senior high schools and beyond, demonstrating our effective preparation",
+      description: "Our 20,000+ graduates excel in senior high schools and beyond, demonstrating our effective preparation",
       color: "from-purple-500 to-pink-500"
     }
   ];

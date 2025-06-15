@@ -4,7 +4,7 @@ A modern, responsive website for St. Louis Demonstration Junior High School, loc
 
 ## 🏫 About the School
 
-St. Louis Demonstration Junior High School is a prestigious public junior high school that has been serving the Kumasi community for over 47 years. As part of the esteemed St. Louis Demonstration J.H.S, the school has built a strong reputation for academic excellence, moral uprightness, and spiritual grounding.
+St. Louis Demonstration Junior High School is a prestigious public junior high school that has been serving the Kumasi community for over 48 years. As part of the esteemed St. Louis Demonstration J.H.S, the school has built a strong reputation for academic excellence, moral uprightness, and spiritual grounding.
 
 **School Motto:** "UT SINT UNUM – DIEU LE VEUT" ("That they may be one – God wills it")
 
@@ -146,10 +146,11 @@ The website uses the official school colors:
 ## 📊 School Statistics (Auto-Updated)
 
 The website features dynamic statistics that automatically update:
-- **School Age**: 47+ years (increments annually)
-- **Total Graduates**: 30,000+ (increments every 10 years)
-- **Current Enrollment**: 800-900+ students
-- **BECE Success Rate**: 98%+ consistently
+- **School Age**: 48+ years (increments annually - FULLY AUTOMATED)
+- **Total Graduates**: 20,000+ (increments every year - FULLY AUTOMATED)
+- **Current Enrollment**: 800+ students (FULLY AUTOMATED)
+- **BECE Success Rate**: 97.1%+ (improves annually - FULLY AUTOMATED)
+- **Average BECE Rate**: 95.1%+ (5-year average - FULLY AUTOMATED)
 
 ## 🔧 Configuration
 

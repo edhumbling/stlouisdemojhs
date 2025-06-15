@@ -32,21 +32,27 @@ const GrowthChart: React.FC = () => {
       {
         year: currentYear,
         students: schoolStats.totalStudents,
-        beceRate: Math.min(97.1 + (currentYear - 2025) * 0.2, 99.5),
+        beceRate: schoolStats.currentBECERate,
         label: 'Current',
         isCurrent: true,
         isFuture: false
       }
     ];
 
-    // Add future projections
+    // 🚀 AUTOMATED: Add future projections using automated BECE calculation
     const futureYears = [currentYear + 5, currentYear + 10];
-    futureYears.forEach((futureYear, index) => {
+    futureYears.forEach((futureYear) => {
       const yearsFromNow = futureYear - currentYear;
+      // Calculate future BECE rate using same logic as schoolStats
+      const futureBaseRate = 97.1; // 2025 base rate
+      const yearlyImprovement = 0.15;
+      const maxRate = 99.5;
+      const futureBECERate = Math.min(futureBaseRate + ((futureYear - 2025) * yearlyImprovement), maxRate);
+
       data.push({
         year: futureYear,
         students: schoolStats.totalStudents + (yearsFromNow * 400),
-        beceRate: Math.min(97.1 + (yearsFromNow * 0.15), 99.8),
+        beceRate: futureBECERate,
         label: `+${yearsFromNow}Y`,
         isCurrent: false,
         isFuture: true

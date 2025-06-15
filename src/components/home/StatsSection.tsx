@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Users, Award, BookOpen, Star, GraduationCap } from 'lucide-react';
-import { getSchoolStats, getDecadePerformance } from '../../utils/schoolStats';
+import { getSchoolStats, getDecadePerformance, getDecadeTitleCount, getDecadeSubtitle } from '../../utils/schoolStats';
 import GrowthChart from './GrowthChart';
 
 const StatsSection: React.FC = () => {
@@ -10,6 +10,7 @@ const StatsSection: React.FC = () => {
   // Get dynamic school statistics
   const schoolStats = getSchoolStats();
 
+  // 🚀 FULLY AUTOMATED: All stats update automatically
   const stats = [
     {
       icon: <GraduationCap className="w-8 h-8 text-green-400" />,
@@ -21,15 +22,15 @@ const StatsSection: React.FC = () => {
     },
     {
       icon: <Award className="w-8 h-8 text-blue-400" />,
-      number: 98.7,
+      number: schoolStats.currentBECERate,
       suffix: '%',
       label: 'BECE Success Rate',
-      description: `${schoolStats.currentYear - 1} Results`,
+      description: `${schoolStats.currentYear} Results`,
       color: 'from-blue-500 to-cyan-400'
     },
     {
       icon: <TrendingUp className="w-8 h-8 text-yellow-400" />,
-      number: 95.2,
+      number: schoolStats.averageBECERate,
       suffix: '%',
       label: 'Average BECE Rate',
       description: 'Last 5 Years',
@@ -136,7 +137,7 @@ const StatsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Decades of Excellence Performance Record */}
+        {/* 🚀 AUTOMATED: Decades of Excellence Performance Record */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -146,10 +147,10 @@ const StatsSection: React.FC = () => {
         >
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-600/30 max-w-7xl mx-auto">
             <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-              Five Decades of Academic Excellence
+              {getDecadeTitleCount()} of Academic Excellence
             </h3>
             <p className="text-gray-400 text-sm md:text-base mb-8">
-              Consistent BECE Success Rates Across Generations ({schoolStats.yearsRange}+)
+              Consistent BECE Success Rates Across Generations ({getDecadeSubtitle()})
             </p>
 
             {/* Decades Performance Timeline */}
@@ -209,7 +210,7 @@ const StatsSection: React.FC = () => {
                 Institutional Excellence & Accreditation
               </h4>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-                St. Louis Demonstration J.H.S is fully accredited by the <span className="text-green-400 font-semibold">Ghana Education Service (GES)</span> and operates under <span className="text-blue-400 font-semibold">Roman Catholic principles</span>, providing quality education that nurtures both academic excellence and moral character across five decades of service.
+                St. Louis Demonstration J.H.S is fully accredited by the <span className="text-green-400 font-semibold">Ghana Education Service (GES)</span> and operates under <span className="text-blue-400 font-semibold">Roman Catholic principles</span>, providing quality education that nurtures both academic excellence and moral character across {getDecadeTitleCount().toLowerCase()} of service.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
@@ -222,7 +223,7 @@ const StatsSection: React.FC = () => {
                   <div className="text-gray-400 text-sm">Graduates Trained</div>
                 </div>
                 <div className="bg-gray-800/50 rounded-lg p-3">
-                  <div className="text-yellow-400 font-bold text-lg">95.4%</div>
+                  <div className="text-yellow-400 font-bold text-lg">{schoolStats.averageBECERateFormatted}</div>
                   <div className="text-gray-400 text-sm">Overall Average</div>
                 </div>
               </div>
