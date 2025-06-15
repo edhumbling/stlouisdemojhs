@@ -573,9 +573,9 @@ const FacultyPage: React.FC = () => {
                       whileHover={{ scale: 1.05 }}
                       className="text-center"
                     >
-                      {/* Simple Name on Wall */}
+                      {/* Simple Name on Wall - No Truncation */}
                       <div className="bg-amber-800/80 text-amber-100 px-2 py-1 rounded-md shadow-md border border-amber-700 transform hover:rotate-1 transition-all duration-300">
-                        <h3 className="font-bold text-[10px] sm:text-xs leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
+                        <h3 className="font-bold text-[10px] sm:text-xs leading-tight text-center break-words">
                           {teacher}
                         </h3>
                       </div>
