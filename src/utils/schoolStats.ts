@@ -12,7 +12,7 @@
  */
 
 const SCHOOL_FOUNDING_YEAR = 1977;
-const BASE_STUDENT_COUNT = 20400; // Students trained by 2025 (corrected count)
+const BASE_STUDENT_COUNT = 40400; // Students trained by 2025 (updated count)
 const BASE_YEAR = 2025;
 const STUDENTS_PER_YEAR = 400; // Approximate new students per year
 

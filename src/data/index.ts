@@ -43,7 +43,7 @@ export const schoolDropdownItems: DropdownItem[] = [
   {
     label: 'Alumni Community',
     path: '/alumni',
-    description: 'Connect with our 20,000+ graduates and success stories',
+    description: 'Connect with our 40,000+ graduates and success stories',
     image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   }
 ];

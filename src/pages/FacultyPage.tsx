@@ -1,11 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Quote, Star, Heart, Award, Users, BookOpen, Target, MessageCircle } from 'lucide-react';
+import { getSchoolStats } from '../utils/schoolStats';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
 const FacultyPage: React.FC = () => {
   const navigate = useNavigate();
+
+  // 🚀 AUTOMATED: Get dynamic school stats
+  const schoolStats = getSchoolStats();
 
   const handleBack = () => {
     navigate(-1);
@@ -486,13 +490,13 @@ const FacultyPage: React.FC = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4">
                 <span className="bg-blue-600/30 text-blue-200 px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm font-medium">
-                  47+ Years of Excellence
+                  {schoolStats.ageFormatted} Years of Excellence
                 </span>
                 <span className="bg-green-600/30 text-green-200 px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm font-medium">
-                  30,000+ Students Trained
+                  {schoolStats.totalStudentsFormatted} Students Trained
                 </span>
                 <span className="bg-yellow-600/30 text-yellow-200 px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 rounded-full text-xs sm:text-sm font-medium">
-                  97%+ BECE Success Rate
+                  {schoolStats.currentBECERateFormatted} BECE Success Rate
                 </span>
               </div>
             </motion.div>

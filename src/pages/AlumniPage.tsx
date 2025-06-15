@@ -302,7 +302,7 @@ const AlumniPage: React.FC = () => {
     <div className="min-h-screen bg-black">
       <SEOHead
         title="Alumni Network | St. Louis Demonstration JHS"
-        description="Connect with the distinguished alumni network of St. Louis Demonstration JHS. Discover success stories from our 30,000+ graduates who are making a difference across various professions and industries worldwide."
+        description={`Connect with the distinguished alumni network of St. Louis Demonstration JHS. Discover success stories from our ${schoolStats.totalStudentsFormatted} graduates who are making a difference across various professions and industries worldwide.`}
         keywords="alumni network, graduates, success stories, professional network, St. Louis Demo JHS alumni, career achievements, alumni database"
         url="/alumni"
         type="website"
@@ -356,7 +356,7 @@ const AlumniPage: React.FC = () => {
               Alumni Community
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-gray-100 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-              Celebrating 47+ years of excellence and the remarkable achievements of our 30,000+ graduates
+              Celebrating {schoolStats.ageFormatted} years of excellence and the remarkable achievements of our {schoolStats.totalStudentsFormatted} graduates
             </p>
             <div className="flex flex-row flex-wrap gap-2 sm:gap-3 justify-center">
               <a
