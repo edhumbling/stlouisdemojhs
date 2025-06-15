@@ -603,6 +603,103 @@ const FacultyPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Forever Gratitude to All Teachers - Edge to Edge */}
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-green-800 via-green-700 to-green-900 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full text-center"
+          >
+            {/* Main Title */}
+            <div className="mb-6 sm:mb-8 lg:mb-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-300 mb-2 sm:mb-4 leading-tight">
+                FOREVER GRATITUDE TO ALL TEACHERS
+              </h2>
+              <div className="text-sm sm:text-base lg:text-lg text-white font-medium italic">
+                From Alumni, Current and Future Students
+              </div>
+              <div className="w-16 sm:w-24 lg:w-32 h-1 bg-yellow-400 mx-auto mt-3 sm:mt-4 rounded-full"></div>
+            </div>
+
+            {/* Heartfelt Message */}
+            <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6 lg:space-y-8">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-sm sm:text-base lg:text-lg text-white leading-relaxed"
+              >
+                We deeply appreciate your tireless work, from <span className="text-yellow-300 font-semibold">tirelessly drumming knowledge into our minds</span>,
+                to patiently adapting to our sometimes stubborn or indisciplined moments, and lovingly straightening us to become
+                <span className="text-yellow-300 font-semibold"> future assets to society</span>.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-sm sm:text-base lg:text-lg text-white leading-relaxed"
+              >
+                We acknowledge that your pay may not be exceedingly much, but please know that
+                <span className="text-yellow-300 font-semibold"> your craft is the seed of all greatness</span> in the lives of
+                millions and billions of people around the world.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="bg-green-600/30 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-green-400/30 my-6 sm:my-8"
+              >
+                <p className="text-sm sm:text-base lg:text-lg text-white leading-relaxed font-medium">
+                  <span className="text-yellow-300 text-lg sm:text-xl lg:text-2xl font-bold">"</span>
+                  The best thing we as benefactors can do is to <span className="text-yellow-300 font-semibold">look back, remember, cherish and honor you</span>.
+                  Our greatest aspiration is to make you proud through our achievements, knowing that every success we attain
+                  carries the <span className="text-yellow-300 font-semibold">imprint of your dedication and wisdom</span>.
+                  <span className="text-yellow-300 text-lg sm:text-xl lg:text-2xl font-bold">"</span>
+                </p>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="text-sm sm:text-base lg:text-lg text-white leading-relaxed"
+              >
+                <span className="text-yellow-300 font-semibold">We are forever grateful</span> for your unwavering commitment,
+                your patience with our growth, and your belief in our potential even when we couldn't see it ourselves.
+              </motion.p>
+
+              {/* Closing Signature */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+                className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-green-400/30"
+              >
+                <p className="text-base sm:text-lg lg:text-xl font-bold text-yellow-300 mb-2">
+                  With Deepest Respect and Eternal Gratitude
+                </p>
+                <p className="text-sm sm:text-base text-white font-medium">
+                  The Students of St. Louis Demonstration J.H.S
+                </p>
+                <p className="text-xs sm:text-sm text-green-200 mt-2 italic">
+                  Past • Present • Future
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };
