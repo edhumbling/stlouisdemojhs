@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Quote, Star, Heart, Award, Users, BookOpen, Target, MessageCircle } from 'lucide-react';
+import { ArrowLeft, Quote, Award, Heart, Users, BookOpen, Target } from 'lucide-react';
 import { getSchoolStats } from '../utils/schoolStats';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
@@ -74,7 +74,7 @@ const FacultyPage: React.FC = () => {
 
                 {/* Compact Badge */}
                 <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-yellow-500 text-black px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-bold shadow-lg">
-                  <Star className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
+                  <Award className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1" />
                   Headmistress
                 </div>
               </div>
@@ -538,11 +538,11 @@ const FacultyPage: React.FC = () => {
                   className="text-center mb-6"
                 >
                   <div className="flex items-center justify-center gap-1 sm:gap-3 mb-3">
-                    <Star className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-amber-600" />
+                    <Award className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-amber-600" />
                     <h2 className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-amber-900 leading-tight">
                       NOTABLE TEACHERS
                     </h2>
-                    <Star className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-amber-600" />
+                    <Award className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-amber-600" />
                   </div>
                   <div className="bg-amber-800 text-amber-100 px-2 py-1 sm:px-4 sm:py-2 rounded-lg inline-block font-bold text-xs sm:text-base lg:text-lg">
                     PAST & PRESENT
@@ -567,7 +567,25 @@ const FacultyPage: React.FC = () => {
                     'Mr Clement Owusu Agyemang',
                     'Mrs Dillys Tandoh',
                     'Mr Agyabeng',
-                    'Mr. Samuel Asiedu'
+                    'Mr. Samuel Asiedu',
+                    'Mr Isaac Tsiwah',
+                    'Mr Luke Sieka',
+                    'Mrs Millicent Too',
+                    'Mr Charles Ohene Benchie',
+                    'Mr Tamakleo Arnold',
+                    'Mrs Ama Akyaama',
+                    'Mrs Evelyn Twumasi',
+                    'Mr Hayford Danyo',
+                    'Mr Clement Agyeman',
+                    'Mrs Agyeiwaa Asare Konadu',
+                    'Mr Asiama',
+                    'Mad Mariam',
+                    'Mrs Ernestina Pokuaa',
+                    'Mrs Naa Adjele',
+                    'Mr Oppong Kyei Asamoah',
+                    'Mr Okyerefo Leonard',
+                    'Mrs Elsie Kpedoma',
+                    'Mrs Margaret Twumwaa'
                   ].map((teacher, index) => (
                     <motion.div
                       key={index}
