@@ -74,18 +74,18 @@ const Header: React.FC = () => {
               alt="St. Louis Demonstration Junior High School"
               className="h-8 xs:h-10 sm:h-12 w-auto flex-shrink-0"
             />
-            <div className={`md:hidden flex items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
+            <div className={`lg:hidden flex items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
               <div className="min-w-0 overflow-hidden">
-                <h1 className="text-xs sm:text-sm font-bold leading-tight tracking-tight truncate">St. Louis Demonstration</h1>
-                <p className="text-[10px] sm:text-xs leading-tight tracking-tight truncate">Junior High School</p>
+                <h1 className="text-xs sm:text-sm md:text-base font-bold leading-tight tracking-tight truncate">St. Louis Demonstration</h1>
+                <p className="text-[10px] sm:text-xs md:text-sm leading-tight tracking-tight truncate">Junior High School</p>
               </div>
               <img
                 src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MhQQRoQ5lei2Xoxy0tQ8z7rZTRLfvgpmsuw35"
                 alt="School Badge"
-                className="h-5 sm:h-6 w-auto ml-1 flex-shrink-0"
+                className="h-5 sm:h-6 md:h-7 w-auto ml-1 flex-shrink-0"
               />
             </div>
-            <div className={`hidden md:flex items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
+            <div className={`hidden lg:flex items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
               <div className="min-w-0 overflow-hidden">
                 <h1 className="text-lg font-bold leading-tight truncate">St. Louis Demonstration</h1>
                 <p className="text-xs truncate">Junior High School</p>
@@ -99,7 +99,7 @@ const Header: React.FC = () => {
           </NavLink>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:block relative">
+          <nav className="hidden lg:block relative">
             <div className="flex items-center space-x-6">
               <ul className="flex space-x-6">
                 {/* Home Link */}
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
                         {/* Yellow glass glow effect for active tab on desktop only */}
                         {isActive && (
                           <span
-                            className="hidden md:block absolute inset-0 rounded-xl pointer-events-none z-0"
+                            className="hidden lg:block absolute inset-0 rounded-xl pointer-events-none z-0"
                             style={{
                               background: 'linear-gradient(120deg, rgba(253, 224, 71, 0.25) 0%, rgba(253, 224, 71, 0.10) 100%)',
                               boxShadow: '0 0 24px 8px rgba(253, 224, 71, 0.25), 0 2px 8px 0 rgba(253, 224, 71, 0.10)',
@@ -130,7 +130,7 @@ const Header: React.FC = () => {
                           />
                         )}
                         <span
-                          className={`relative z-10 ${isActive ? 'md:text-yellow-300' : ''}`}
+                          className={`relative z-10 ${isActive ? 'lg:text-yellow-300' : ''}`}
                           style={isActive ? { textShadow: '0 0 8px #fde047, 0 0 16px #fde04799' } : {}}
                         >
                           Home
@@ -298,7 +298,7 @@ const Header: React.FC = () => {
                           ? (isActive ? 'text-yellow-300' : 'text-white')
                           : (isActive ? 'text-accent-300' : 'text-white')
                         }
-                        ${isActive ? 'nav-glass-glow md:text-yellow-300' : ''}
+                        ${isActive ? 'nav-glass-glow lg:text-yellow-300' : ''}
                       `}
                     >
                       {({ isActive }) => (
@@ -306,7 +306,7 @@ const Header: React.FC = () => {
                           {/* Yellow glass glow effect for active tab on desktop only */}
                           {isActive && (
                             <span
-                              className="hidden md:block absolute inset-0 rounded-xl pointer-events-none z-0"
+                              className="hidden lg:block absolute inset-0 rounded-xl pointer-events-none z-0"
                               style={{
                                 background: 'linear-gradient(120deg, rgba(253, 224, 71, 0.25) 0%, rgba(253, 224, 71, 0.10) 100%)',
                                 boxShadow: '0 0 24px 8px rgba(253, 224, 71, 0.25), 0 2px 8px 0 rgba(253, 224, 71, 0.10)',
@@ -315,7 +315,7 @@ const Header: React.FC = () => {
                             />
                           )}
                           <span
-                            className={`relative z-10 ${isActive ? 'md:text-yellow-300' : ''}`}
+                            className={`relative z-10 ${isActive ? 'lg:text-yellow-300' : ''}`}
                             style={isActive ? { textShadow: '0 0 8px #fde047, 0 0 16px #fde04799' } : {}}
                           >
                             {link.label}
@@ -480,7 +480,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Navigation - Donate Button and Menu */}
-          <div className="md:hidden flex items-center space-x-2 sm:space-x-4 flex-shrink-0 min-w-0">
+          <div className="lg:hidden flex items-center space-x-2 sm:space-x-4 flex-shrink-0 min-w-0">
             <div className="flex-shrink-0">
               <DonateButton variant="header" />
             </div>
@@ -506,11 +506,11 @@ const Header: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-black/85 backdrop-blur-lg border-t border-white/10 max-h-[80vh] overflow-y-auto"
+          className="lg:hidden bg-black/85 backdrop-blur-lg border-t border-white/10 max-h-[80vh] overflow-y-auto"
         >
-          <div className="p-3">
+          <div className="p-3 md:p-6">
             {/* Home Link - Mobile with Icon */}
-            <div className="mb-3">
+            <div className="mb-3 md:mb-4">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -523,23 +523,23 @@ const Header: React.FC = () => {
                     window.scrollTo({ top: 0, behavior: 'instant' });
                   }}
                   className={({ isActive }) => `
-                    flex items-center justify-center py-2 px-3 font-medium rounded-lg text-sm relative transition-all duration-200
+                    flex items-center justify-center py-2 md:py-3 px-3 md:px-4 font-medium rounded-lg text-sm md:text-base relative transition-all duration-200
                     ${isActive
                       ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-400/30'
                       : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
                     }
                   `}
                 >
-                  <Home size={16} className="mr-2" />
+                  <Home size={16} className="mr-2 md:w-5 md:h-5" />
                   Home
                 </NavLink>
               </motion.div>
             </div>
 
             {/* School Section - Mobile (No Arrows) - Smaller Containers */}
-            <div className="mb-2">
-              <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-1.5 px-1">School</h3>
-              <div className="grid grid-cols-2 gap-1">
+            <div className="mb-2 md:mb-4">
+              <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-1.5 md:mb-2 px-1">School</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2">
                 {schoolDropdownItems.map((item, index) => (
                   <motion.div
                     key={item.path}
@@ -553,16 +553,16 @@ const Header: React.FC = () => {
                         setIsMenuOpen(false);
                         window.scrollTo({ top: 0, behavior: 'instant' });
                       }}
-                      className="flex flex-col items-center p-1.5 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
+                      className="flex flex-col items-center p-1.5 md:p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
                     >
-                      <div className="w-6 h-6 rounded-md overflow-hidden mb-1 flex-shrink-0">
+                      <div className="w-6 h-6 md:w-8 md:h-8 rounded-md overflow-hidden mb-1 md:mb-2 flex-shrink-0">
                         <img
                           src={item.image}
                           alt={item.label}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <h4 className="font-medium text-white text-[10px] text-center leading-tight">{item.label}</h4>
+                      <h4 className="font-medium text-white text-[10px] md:text-xs text-center leading-tight">{item.label}</h4>
                     </Link>
                   </motion.div>
                 ))}
@@ -570,7 +570,7 @@ const Header: React.FC = () => {
             </div>
 
             {/* Other Menu Items - Compact Grid with Icons */}
-            <div className="grid grid-cols-2 gap-1.5 mb-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-1.5 md:gap-2 mb-3 md:mb-4">
               {navLinks.map((link, index) => {
                 // Get icon for each link
                 const getIcon = (label: string) => {
@@ -601,7 +601,7 @@ const Header: React.FC = () => {
                         }
                       }}
                       className={({ isActive }) => `
-                        flex items-center justify-center py-2 px-2 font-medium rounded-lg text-xs relative transition-all duration-200
+                        flex items-center justify-center py-2 md:py-3 px-2 md:px-3 font-medium rounded-lg text-xs md:text-sm relative transition-all duration-200
                         ${isActive
                           ? 'bg-white/20 text-white border border-white/30'
                           : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
@@ -645,7 +645,7 @@ const Header: React.FC = () => {
                     }
                   }}
                   className={({ isActive }) => `
-                    flex items-center justify-center py-2 px-2 font-medium rounded-lg text-xs relative transition-all duration-200
+                    flex items-center justify-center py-2 md:py-3 px-2 md:px-3 font-medium rounded-lg text-xs md:text-sm relative transition-all duration-200
                     ${isActive
                       ? 'bg-orange-500/20 text-orange-300 border border-orange-400/30'
                       : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
@@ -661,12 +661,12 @@ const Header: React.FC = () => {
             </div>
 
             {/* Contact Section - Mobile (With Arrows) */}
-            <div className="mb-3">
-              <h3 className="text-white/70 text-xs font-semibold uppercase tracking-wider mb-2 px-1 flex items-center">
+            <div className="mb-3 md:mb-4">
+              <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1 flex items-center">
                 Contact
-                <ChevronDown size={12} className="ml-1 text-white/50" />
+                <ChevronDown size={12} className="ml-1 text-white/50 md:w-4 md:h-4" />
               </h3>
-              <div className="grid grid-cols-2 gap-1.5">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-1.5 md:gap-2">
                 {contactDropdownItems.map((item, index) => (
                   <motion.div
                     key={item.path}
@@ -683,17 +683,17 @@ const Header: React.FC = () => {
                           window.scrollTo({ top: 0, behavior: 'instant' });
                         }
                       }}
-                      className="flex items-center justify-between p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
+                      className="flex items-center justify-between p-2 md:p-3 bg-white/10 hover:bg-white/20 rounded-lg transition-all duration-200 border border-white/20"
                     >
                       <div className="flex items-center flex-1 min-w-0">
-                        <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 mr-2 flex-shrink-0 flex items-center justify-center">
-                          <div className="text-white text-xs">
+                        <div className="w-6 h-6 md:w-8 md:h-8 rounded-md bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 mr-2 flex-shrink-0 flex items-center justify-center">
+                          <div className="text-white text-xs md:text-sm">
                             {item.icon && renderContactIcon(item.icon, 12)}
                           </div>
                         </div>
-                        <h4 className="font-medium text-white text-xs truncate">{item.label}</h4>
+                        <h4 className="font-medium text-white text-xs md:text-sm truncate">{item.label}</h4>
                       </div>
-                      <ChevronDown size={10} className="text-white/50 transform -rotate-90 flex-shrink-0 ml-1" />
+                      <ChevronDown size={10} className="text-white/50 transform -rotate-90 flex-shrink-0 ml-1 md:w-3 md:h-3" />
                     </Link>
                   </motion.div>
                 ))}
