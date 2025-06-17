@@ -75,6 +75,7 @@ import SocialStudiesPage from './pages/subjects/SocialStudiesPage';
 import ReligiousMoralEducationPage from './pages/subjects/ReligiousMoralEducationPage';
 import GhanaianLanguagePage from './pages/subjects/GhanaianLanguagePage';
 import FrenchPage from './pages/subjects/FrenchPage';
+import CareerTechnologyPage from './pages/subjects/CareerTechnologyPage';
 import ComputingICTPage from './pages/subjects/ComputingICTPage';
 import CreativeArtsDesignPage from './pages/subjects/CreativeArtsDesignPage';
 import MusicPage from './pages/subjects/MusicPage';
@@ -174,6 +175,7 @@ const App: React.FC = () => {
           <Route path="subject/religious-moral-education" element={<ReligiousMoralEducationPage />} />
           <Route path="subject/ghanaian-language" element={<GhanaianLanguagePage />} />
           <Route path="subject/french" element={<FrenchPage />} />
+          <Route path="subject/career-technology" element={<CareerTechnologyPage />} />
           <Route path="subject/computing-ict" element={<ComputingICTPage />} />
           <Route path="subject/creative-arts-design" element={<CreativeArtsDesignPage />} />
           <Route path="subject/music" element={<MusicPage />} />

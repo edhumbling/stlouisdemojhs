@@ -7,6 +7,24 @@ import { Link } from 'react-router-dom';
 const ProgramsSection: React.FC = () => {
   const [activeProgram, setActiveProgram] = useState(programs[0].id);
 
+  // Subject name to route mapping
+  const getSubjectRoute = (subject: string): string => {
+    const routeMap: { [key: string]: string } = {
+      'English Language': '/subject/english-language',
+      'Mathematics': '/subject/mathematics',
+      'Integrated Science': '/subject/integrated-science',
+      'Social Studies': '/subject/social-studies',
+      'Religious & Moral Education': '/subject/religious-moral-education',
+      'Ghanaian Language (Asante Twi)': '/subject/ghanaian-language',
+      'French': '/subject/french',
+      'Career Technology': '/subject/career-technology',
+      'Computing (ICT)': '/subject/computing-ict',
+      'Creative Arts & Design': '/subject/creative-arts-design',
+      'Music': '/subject/music'
+    };
+    return routeMap[subject] || '/academics';
+  };
+
   return (
     <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-blue-900 via-slate-900 to-green-900 relative overflow-hidden">
       {/* Enhanced Blue-Green Background Elements - School Colors */}
@@ -71,36 +89,41 @@ const ProgramsSection: React.FC = () => {
                 'Creative Arts & Design',
                 'Music'
               ].map((subject, index) => (
-                <motion.div
+                <Link
                   key={subject}
-                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.08,
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 20
-                  }}
-                  className="group relative bg-white/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-md hover:shadow-lg border border-white/30 hover:border-yellow-400/50 transition-all duration-300 overflow-hidden"
-                  whileHover={{
-                    scale: 1.05,
-                    y: -2,
-                    transition: { duration: 0.2 }
-                  }}
-                  whileTap={{ scale: 0.95 }}
+                  to={getSubjectRoute(subject)}
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 >
-                  {/* Magical Glow Effect - School Colors */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-green-500/5 to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.08,
+                      type: "spring",
+                      stiffness: 200,
+                      damping: 20
+                    }}
+                    className="group relative bg-white/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-md hover:shadow-lg border border-white/30 hover:border-yellow-400/50 transition-all duration-300 overflow-hidden cursor-pointer"
+                    whileHover={{
+                      scale: 1.05,
+                      y: -2,
+                      transition: { duration: 0.2 }
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {/* Magical Glow Effect - School Colors */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-green-500/5 to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                  {/* Sparkle Effect - Yellow School Color */}
-                  <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-yellow-400/80 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"></div>
+                    {/* Sparkle Effect - Yellow School Color */}
+                    <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-yellow-400/80 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"></div>
 
-                  <span className="relative z-10 text-gray-800 font-semibold group-hover:text-blue-700 transition-colors duration-300 leading-tight">
-                    {subject}
-                  </span>
-                </motion.div>
+                    <span className="relative z-10 text-gray-800 font-semibold group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                      {subject}
+                    </span>
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </motion.div>
