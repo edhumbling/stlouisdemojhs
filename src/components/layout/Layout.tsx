@@ -13,14 +13,22 @@ const Layout: React.FC = () => {
   const { showHeader, showFooter } = useHeader();
   const { restorePageState } = useEnhancedNavigation();
 
-  // Handle scroll restoration on route changes
+  // Handle scroll restoration on route changes with multiple attempts
   useEffect(() => {
-    // Small delay to ensure content is loaded before restoring scroll
-    const restoreTimer = setTimeout(() => {
-      restorePageState();
-    }, 150);
+    // Multiple restoration attempts to ensure it works
+    const restoreAttempts = [100, 250, 500];
+    const timers: ReturnType<typeof setTimeout>[] = [];
 
-    return () => clearTimeout(restoreTimer);
+    restoreAttempts.forEach((delay) => {
+      const timer = setTimeout(() => {
+        restorePageState();
+      }, delay);
+      timers.push(timer);
+    });
+
+    return () => {
+      timers.forEach(timer => clearTimeout(timer));
+    };
   }, [location.pathname, restorePageState]);
 
   // Pages that should not show the footer

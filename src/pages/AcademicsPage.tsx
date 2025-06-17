@@ -7,10 +7,14 @@ import DonateButton from '../components/common/DonateButton';
 import { getSchoolStats } from '../utils/schoolStats';
 import SEOHead from '../components/seo/SEOHead';
 import { useEnhancedNavigation } from '../hooks/useEnhancedNavigation';
+import { usePageRefreshRestore } from '../hooks/usePageRefreshRestore';
 
 const AcademicsPage: React.FC = () => {
   const navigate = useNavigate();
   const { navigateBackWithState, navigateToWithState } = useEnhancedNavigation();
+
+  // Handle page refresh scroll restoration
+  usePageRefreshRestore();
 
   // Get dynamic school statistics
   const schoolStats = getSchoolStats();

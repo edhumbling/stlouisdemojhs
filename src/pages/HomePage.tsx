@@ -11,9 +11,13 @@ import FacebookPostsSection from '../components/home/FacebookPostsSection';
 import CTASection from '../components/home/CTASection';
 import SectionDivider from '../components/common/SectionDivider';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import { usePageRefreshRestore } from '../hooks/usePageRefreshRestore';
 
 const HomePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
+
+  // Handle page refresh scroll restoration
+  usePageRefreshRestore();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {

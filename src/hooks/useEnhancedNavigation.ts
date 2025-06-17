@@ -1,56 +1,145 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 interface NavigationState {
-  scrollPosition?: number;
-  timestamp?: number;
-  fromPath?: string;
+  scrollPosition: number;
+  timestamp: number;
+  fromPath: string;
+  viewportHeight: number;
+  documentHeight: number;
+}
+
+interface NavigationHistory {
+  [path: string]: NavigationState;
 }
 
 export const useEnhancedNavigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isRestoringRef = useRef(false);
+  const saveTimeoutRef = useRef<NodeJS.Timeout>();
 
-  // Save current page state including scroll position
+  // Enhanced save with more context
   const savePageState = useCallback(() => {
+    if (isRestoringRef.current) return;
+
     const state: NavigationState = {
       scrollPosition: window.scrollY,
       timestamp: Date.now(),
-      fromPath: location.pathname
+      fromPath: location.pathname,
+      viewportHeight: window.innerHeight,
+      documentHeight: document.documentElement.scrollHeight
     };
-    
-    // Save to sessionStorage with current path as key
+
+    // Save individual state
     sessionStorage.setItem(`pageState_${location.pathname}`, JSON.stringify(state));
-    
-    // Also save scroll position for the scroll position manager
+
+    // Save to navigation history for better tracking
+    const historyKey = 'navigationHistory';
+    const existingHistory = sessionStorage.getItem(historyKey);
+    let history: NavigationHistory = {};
+
+    if (existingHistory) {
+      try {
+        history = JSON.parse(existingHistory);
+      } catch (e) {
+        history = {};
+      }
+    }
+
+    history[location.pathname] = state;
+    sessionStorage.setItem(historyKey, JSON.stringify(history));
+
+    // Also save for backward compatibility
     sessionStorage.setItem(`scrollPosition_${location.pathname}`, window.scrollY.toString());
   }, [location.pathname]);
 
-  // Restore page state including scroll position
+  // Debounced save to prevent excessive saves during scrolling
+  const debouncedSavePageState = useCallback(() => {
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
+    }
+
+    saveTimeoutRef.current = setTimeout(() => {
+      savePageState();
+    }, 100);
+  }, [savePageState]);
+
+  // Enhanced restore with multiple fallbacks
   const restorePageState = useCallback((pathname?: string) => {
     const pathToRestore = pathname || location.pathname;
-    const savedState = sessionStorage.getItem(`pageState_${pathToRestore}`);
-    
-    if (savedState) {
+    isRestoringRef.current = true;
+
+    // Try multiple sources for scroll position
+    const sources = [
+      () => {
+        const savedState = sessionStorage.getItem(`pageState_${pathToRestore}`);
+        if (savedState) {
+          const state: NavigationState = JSON.parse(savedState);
+          return state.scrollPosition;
+        }
+        return null;
+      },
+      () => {
+        const historyData = sessionStorage.getItem('navigationHistory');
+        if (historyData) {
+          const history: NavigationHistory = JSON.parse(historyData);
+          return history[pathToRestore]?.scrollPosition || null;
+        }
+        return null;
+      },
+      () => {
+        const fallbackPosition = sessionStorage.getItem(`scrollPosition_${pathToRestore}`);
+        return fallbackPosition ? parseInt(fallbackPosition, 10) : null;
+      }
+    ];
+
+    let scrollPosition: number | null = null;
+
+    for (const source of sources) {
       try {
-        const state: NavigationState = JSON.parse(savedState);
-        
-        if (state.scrollPosition !== undefined) {
-          // Use requestAnimationFrame to ensure DOM is ready
-          requestAnimationFrame(() => {
-            setTimeout(() => {
-              window.scrollTo({
-                top: state.scrollPosition!,
-                behavior: 'instant'
-              });
-            }, 50); // Small delay to ensure content is loaded
-          });
-          return true;
+        scrollPosition = source();
+        if (scrollPosition !== null && !isNaN(scrollPosition)) {
+          break;
         }
       } catch (error) {
-        console.warn('Failed to restore page state:', error);
+        console.warn('Error reading scroll position from source:', error);
       }
     }
+
+    if (scrollPosition !== null && scrollPosition >= 0) {
+      // Multiple restoration attempts with increasing delays
+      const restoreAttempts = [0, 50, 150, 300, 500];
+
+      restoreAttempts.forEach((delay, index) => {
+        setTimeout(() => {
+          requestAnimationFrame(() => {
+            const currentScroll = window.scrollY;
+            const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+            const targetScroll = Math.min(scrollPosition!, maxScroll);
+
+            // Only scroll if we're not already at the target position
+            if (Math.abs(currentScroll - targetScroll) > 5) {
+              window.scrollTo({
+                top: targetScroll,
+                behavior: 'instant'
+              });
+            }
+
+            // Mark restoration as complete after the last attempt
+            if (index === restoreAttempts.length - 1) {
+              setTimeout(() => {
+                isRestoringRef.current = false;
+              }, 100);
+            }
+          });
+        }, delay);
+      });
+
+      return true;
+    }
+
+    isRestoringRef.current = false;
     return false;
   }, [location.pathname]);
 
@@ -60,18 +149,30 @@ export const useEnhancedNavigation = () => {
     resetState?: boolean;
   }) => {
     const { preserveScroll = true, resetState = false } = options || {};
-    
+
     // Save current state before navigating
     if (preserveScroll) {
       savePageState();
     }
-    
+
     // Clear state if requested
     if (resetState) {
       sessionStorage.removeItem(`pageState_${location.pathname}`);
       sessionStorage.removeItem(`scrollPosition_${location.pathname}`);
+
+      // Also clear from navigation history
+      const historyData = sessionStorage.getItem('navigationHistory');
+      if (historyData) {
+        try {
+          const history: NavigationHistory = JSON.parse(historyData);
+          delete history[location.pathname];
+          sessionStorage.setItem('navigationHistory', JSON.stringify(history));
+        } catch (e) {
+          // Ignore errors
+        }
+      }
     }
-    
+
     // Try to go back in history
     if (window.history.length > 1) {
       navigate(-1);
@@ -90,12 +191,12 @@ export const useEnhancedNavigation = () => {
     replace?: boolean;
   }) => {
     const { preserveScroll = true, replace = false } = options || {};
-    
+
     // Save current state before navigating
     if (preserveScroll) {
       savePageState();
     }
-    
+
     // Navigate to the new path
     navigate(path, { replace });
   }, [navigate, savePageState]);
@@ -104,12 +205,12 @@ export const useEnhancedNavigation = () => {
   const handleInternalStateChange = useCallback((stateResetCallback?: () => void) => {
     // Save current scroll position
     savePageState();
-    
+
     // Execute state reset if provided
     if (stateResetCallback) {
       stateResetCallback();
     }
-    
+
     // Restore scroll position after state change
     setTimeout(() => {
       restorePageState();
@@ -120,11 +221,35 @@ export const useEnhancedNavigation = () => {
   const clearAllStates = useCallback(() => {
     const keys = Object.keys(sessionStorage);
     keys.forEach(key => {
-      if (key.startsWith('pageState_') || key.startsWith('scrollPosition_')) {
+      if (key.startsWith('pageState_') || key.startsWith('scrollPosition_') || key === 'navigationHistory') {
         sessionStorage.removeItem(key);
       }
     });
   }, []);
+
+  // Auto-save scroll position on scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      debouncedSavePageState();
+    };
+
+    const handleBeforeUnload = () => {
+      savePageState();
+    };
+
+    // Add event listeners
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
+  }, [debouncedSavePageState, savePageState]);
 
   return {
     savePageState,
@@ -132,7 +257,8 @@ export const useEnhancedNavigation = () => {
     navigateBackWithState,
     navigateToWithState,
     handleInternalStateChange,
-    clearAllStates
+    clearAllStates,
+    debouncedSavePageState
   };
 };
 

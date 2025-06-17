@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
 import { HeaderProvider } from './contexts/HeaderContext';
@@ -87,61 +87,7 @@ import DonateMonthly1000Page from './pages/DonateMonthly1000Page';
 import DonateMonthly3000Page from './pages/DonateMonthly3000Page';
 import DonateMonthly5000Page from './pages/DonateMonthly5000Page';
 
-// Scroll Position Manager Component
-const ScrollPositionManager: React.FC = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    const saveScrollPosition = () => {
-      const scrollPosition = window.scrollY;
-      const pathname = window.location.pathname;
-      sessionStorage.setItem(`scrollPosition_${pathname}`, scrollPosition.toString());
-    };
-
-    const restoreScrollPosition = () => {
-      const pathname = location.pathname;
-      const savedPosition = sessionStorage.getItem(`scrollPosition_${pathname}`);
-
-      if (savedPosition) {
-        // Use requestAnimationFrame to ensure DOM is ready
-        requestAnimationFrame(() => {
-          window.scrollTo({
-            top: parseInt(savedPosition, 10),
-            behavior: 'instant'
-          });
-        });
-      } else {
-        // Only scroll to top if no saved position (new page visit)
-        window.scrollTo(0, 0);
-      }
-    };
-
-    // Save scroll position before page unload
-    const handleBeforeUnload = () => {
-      saveScrollPosition();
-    };
-
-    // Save scroll position periodically while scrolling
-    const handleScroll = () => {
-      saveScrollPosition();
-    };
-
-    // Restore scroll position on page load
-    restoreScrollPosition();
-
-    // Add event listeners
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [location.pathname]);
-
-  return null;
-};
+// Note: Scroll position management is now handled by useEnhancedNavigation hook
 
 const App: React.FC = () => {
   // Cache busting for fresh deployments
@@ -154,9 +100,6 @@ const App: React.FC = () => {
     <HelmetProvider>
       <HeaderProvider>
         <Router>
-        {/* Scroll Position Manager */}
-        <ScrollPositionManager />
-
             <Routes>
         {/* Main layout with nested routes */}
         <Route path="/" element={<Layout />}>
