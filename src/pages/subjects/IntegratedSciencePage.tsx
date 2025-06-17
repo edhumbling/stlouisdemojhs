@@ -59,20 +59,23 @@ const IntegratedSciencePage: React.FC = () => {
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 sm:gap-6">
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-2 sm:py-3">
+          <div className="container mx-auto px-3 sm:px-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+                className="inline-flex items-center gap-1 px-2 py-1.5 sm:px-3 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
               >
-                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <ArrowLeft size={14} className="sm:w-4 sm:h-4" />
                 <span>Back</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                Integrated Science
-              </h1>
+              <div className="flex items-center gap-2">
+                <Microscope className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
+                <h1 className="text-sm sm:text-lg md:text-xl font-bold text-white">
+                  Integrated Science
+                </h1>
+              </div>
             </div>
           </div>
         </div>
@@ -80,7 +83,7 @@ const IntegratedSciencePage: React.FC = () => {
         {/* Main Content - Edge to Edge */}
         <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
           {/* Hero Section - Smaller and Cuter on Mobile */}
-          <div className="relative min-h-[40vh] sm:min-h-[60vh] flex items-center overflow-hidden">
+          <div className="relative min-h-[25vh] sm:min-h-[35vh] flex items-center overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
               <img

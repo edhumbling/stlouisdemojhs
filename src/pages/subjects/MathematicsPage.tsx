@@ -60,29 +60,32 @@ const MathematicsPage: React.FC = () => {
       />
 
       <div className="min-h-screen bg-black text-white">
-        {/* Header - Exact Back Bar from AI Search Page */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 sm:gap-6">
+        {/* Compact Mobile Header */}
+        <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 py-2 sm:py-3">
+          <div className="container mx-auto px-3 sm:px-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+                className="inline-flex items-center gap-1 px-2 py-1.5 sm:px-3 sm:py-2 bg-emerald-700/50 hover:bg-emerald-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-emerald-500/30 flex-shrink-0"
               >
-                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <ArrowLeft size={14} className="sm:w-4 sm:h-4" />
                 <span>Back</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                Mathematics
-              </h1>
+              <div className="flex items-center gap-2">
+                <Calculator className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
+                <h1 className="text-sm sm:text-lg md:text-xl font-bold text-white">
+                  Mathematics
+                </h1>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Main Content - Edge to Edge */}
         <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-          {/* Hero Section - Smaller and Cuter on Mobile */}
-          <div className="relative min-h-[40vh] sm:min-h-[60vh] flex items-center overflow-hidden">
+          {/* Compact Mobile Hero */}
+          <div className="relative min-h-[25vh] sm:min-h-[35vh] flex items-center overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
               <img
@@ -94,53 +97,53 @@ const MathematicsPage: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 via-black/50 to-green-900/40"></div>
             </div>
 
-            <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-12">
-              <div className="max-w-4xl mx-auto text-center">
+            <div className="relative z-10 w-full px-3 sm:px-4">
+              <div className="max-w-2xl mx-auto text-center">
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-emerald-500/20 rounded-2xl sm:rounded-3xl mb-4 sm:mb-6"
+                  transition={{ duration: 0.6 }}
+                  className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-emerald-500/20 rounded-xl mb-2 sm:mb-3"
                 >
-                  <Calculator className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-emerald-400" />
+                  <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" />
                 </motion.div>
 
                 <motion.h2
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight"
+                  transition={{ duration: 0.6 }}
+                  className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 leading-tight"
                   style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
                 >
                   Mathematical <span className="text-emerald-400">Excellence</span>
                 </motion.h2>
                 <motion.p
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-100 leading-relaxed"
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-xs sm:text-sm text-gray-100 leading-relaxed max-w-md mx-auto"
                   style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
                 >
-                  Develop analytical thinking and problem-solving skills through comprehensive mathematics education aligned with Ghana Education Service curriculum
+                  Master analytical thinking and problem-solving through comprehensive mathematics education
                 </motion.p>
               </div>
             </div>
           </div>
 
-          {/* GES Curriculum Overview Section */}
-          <div className="bg-gradient-to-br from-emerald-900/30 to-green-900/30 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          {/* Compact Curriculum Section */}
+          <div className="bg-gradient-to-br from-emerald-900/30 to-green-900/30 py-4 sm:py-6">
+            <div className="max-w-4xl mx-auto px-3 sm:px-4">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"
+                transition={{ duration: 0.6 }}
+                className="text-center mb-3 sm:mb-4"
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-emerald-500/20 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 md:mb-6">
-                  <Target className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-emerald-400" />
+                <div className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-emerald-500/20 rounded-lg mb-2">
+                  <Target className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
                 </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 text-emerald-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                <h3 className="text-sm sm:text-base md:text-lg font-bold text-emerald-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                   GES Mathematics Curriculum
                 </h3>
               </motion.div>
