@@ -40,6 +40,7 @@ const Layout: React.FC = () => {
     '/gallery',
     '/scholarship-opportunities',
     '/educational-pathway-guide',
+    '/leadership-excellence',
     ...((location.pathname.startsWith('/shs-database/pdf/')) ? [location.pathname] : []),
   ];
   const shouldShowFooter = !noFooterPages.includes(location.pathname) && showFooter;

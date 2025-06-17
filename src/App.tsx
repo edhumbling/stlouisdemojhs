@@ -67,6 +67,7 @@ import BusinessSchoolsPage from './pages/BusinessSchoolsPage';
 import OnlineUniversitiesPage from './pages/OnlineUniversitiesPage';
 import MayamilesAIPage from './pages/MayamilesAIPage';
 import SocialPreviewPage from './pages/SocialPreviewPage';
+import LeadershipExcellencePage from './pages/LeadershipExcellencePage';
 import DonateMonthly10Page from './pages/DonateMonthly10Page';
 import DonateMonthly30Page from './pages/DonateMonthly30Page';
 import DonateMonthly50Page from './pages/DonateMonthly50Page';
@@ -154,6 +155,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="leadership-excellence" element={<LeadershipExcellencePage />} />
           <Route path="academics" element={<AcademicsPage />} />
           <Route path="admissions" element={<AdmissionsPage />} />
           <Route path="faculty" element={<FacultyPage />} />
