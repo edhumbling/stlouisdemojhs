@@ -24,15 +24,19 @@ const AcademicsPage: React.FC = () => {
       description: 'Comprehensive language arts program focusing on reading, writing, speaking, and listening skills.',
       color: 'bg-blue-600',
       neonColor: '#3b82f6',
-      shadowColor: 'shadow-blue-500/50'
+      shadowColor: 'shadow-blue-500/50',
+      textColor: 'text-white',
+      route: '/subject/english-language'
     },
     {
       name: 'Mathematics',
       icon: <Calculator className="w-8 h-8" />,
       description: 'Rigorous mathematical curriculum covering algebra, geometry, statistics, and problem-solving.',
-      color: 'bg-green-600',
+      color: 'bg-emerald-600',
       neonColor: '#10b981',
-      shadowColor: 'shadow-green-500/50'
+      shadowColor: 'shadow-emerald-500/50',
+      textColor: 'text-white',
+      route: '/subject/mathematics'
     },
     {
       name: 'Integrated Science',
@@ -40,7 +44,9 @@ const AcademicsPage: React.FC = () => {
       description: 'Hands-on science education combining physics, chemistry, and biology concepts.',
       color: 'bg-purple-600',
       neonColor: '#8b5cf6',
-      shadowColor: 'shadow-purple-500/50'
+      shadowColor: 'shadow-purple-500/50',
+      textColor: 'text-white',
+      route: '/subject/integrated-science'
     },
     {
       name: 'Social Studies',
@@ -48,7 +54,9 @@ const AcademicsPage: React.FC = () => {
       description: 'Exploration of history, geography, civics, and cultural studies for global awareness.',
       color: 'bg-orange-600',
       neonColor: '#f97316',
-      shadowColor: 'shadow-orange-500/50'
+      shadowColor: 'shadow-orange-500/50',
+      textColor: 'text-white',
+      route: '/subject/social-studies'
     },
     {
       name: 'Religious & Moral Education',
@@ -56,7 +64,9 @@ const AcademicsPage: React.FC = () => {
       description: 'Character development through ethical reasoning and moral value formation.',
       color: 'bg-indigo-600',
       neonColor: '#6366f1',
-      shadowColor: 'shadow-indigo-500/50'
+      shadowColor: 'shadow-indigo-500/50',
+      textColor: 'text-white',
+      route: '/subject/religious-moral-education'
     },
     {
       name: 'Ghanaian Language (Asante Twi)',
@@ -64,7 +74,9 @@ const AcademicsPage: React.FC = () => {
       description: 'Cultural heritage preservation through native language and cultural studies.',
       color: 'bg-red-600',
       neonColor: '#ef4444',
-      shadowColor: 'shadow-red-500/50'
+      shadowColor: 'shadow-red-500/50',
+      textColor: 'text-white',
+      route: '/subject/ghanaian-language'
     },
     {
       name: 'French',
@@ -72,15 +84,19 @@ const AcademicsPage: React.FC = () => {
       description: 'International language skills for global communication and cultural exchange.',
       color: 'bg-pink-600',
       neonColor: '#ec4899',
-      shadowColor: 'shadow-pink-500/50'
+      shadowColor: 'shadow-pink-500/50',
+      textColor: 'text-white',
+      route: '/subject/french'
     },
     {
       name: 'Career Technology',
       icon: <Lightbulb className="w-8 h-8" />,
       description: 'Practical skills in design, technology, and vocational preparation (formerly BDT).',
-      color: 'bg-yellow-600',
-      neonColor: '#eab308',
-      shadowColor: 'shadow-yellow-500/50'
+      color: 'bg-amber-500',
+      neonColor: '#f59e0b',
+      shadowColor: 'shadow-amber-500/50',
+      textColor: 'text-black',
+      route: '/subject/career-technology'
     },
     {
       name: 'Computing (ICT)',
@@ -88,7 +104,9 @@ const AcademicsPage: React.FC = () => {
       description: 'Digital literacy, programming, and technology skills for the modern world.',
       color: 'bg-cyan-600',
       neonColor: '#06b6d4',
-      shadowColor: 'shadow-cyan-500/50'
+      shadowColor: 'shadow-cyan-500/50',
+      textColor: 'text-white',
+      route: '/subject/computing-ict'
     },
     {
       name: 'Creative Arts & Design',
@@ -96,7 +114,9 @@ const AcademicsPage: React.FC = () => {
       description: 'Artistic expression through visual arts, design, and creative projects.',
       color: 'bg-teal-600',
       neonColor: '#14b8a6',
-      shadowColor: 'shadow-teal-500/50'
+      shadowColor: 'shadow-teal-500/50',
+      textColor: 'text-white',
+      route: '/subject/creative-arts-design'
     },
     {
       name: 'Music',
@@ -104,7 +124,9 @@ const AcademicsPage: React.FC = () => {
       description: 'Musical education including theory, performance, and appreciation of various genres.',
       color: 'bg-violet-600',
       neonColor: '#7c3aed',
-      shadowColor: 'shadow-violet-500/50'
+      shadowColor: 'shadow-violet-500/50',
+      textColor: 'text-white',
+      route: '/subject/music'
     }
   ];
 
@@ -328,60 +350,65 @@ const AcademicsPage: React.FC = () => {
           {/* Mobile-Optimized Compact Subject Grid - First 6 */}
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1.5 sm:gap-2 mb-4">
             {subjects.slice(0, 6).map((subject, index) => (
-              <motion.div
+              <Link
                 key={subject.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.03 }}
-                className={`${subject.color} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${subject.shadowColor}`}
-                style={{
-                  boxShadow: `0 0 25px ${subject.neonColor}40, 0 0 50px ${subject.neonColor}20, inset 0 0 20px ${subject.neonColor}10`,
-                  border: `2px solid ${subject.neonColor}60`,
-                  filter: 'brightness(1.1) saturate(1.2)'
-                }}
-                whileHover={{
-                  boxShadow: `0 0 40px ${subject.neonColor}60, 0 0 80px ${subject.neonColor}40, inset 0 0 30px ${subject.neonColor}20`,
-                  filter: 'brightness(1.3) saturate(1.4)',
-                  scale: 1.15
-                }}
+                to={subject.route}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
               >
-                {/* Intense Neon Glow Effect */}
-                <div
-                  className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-lg"
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.03 }}
+                  className={`${subject.color} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${subject.shadowColor}`}
                   style={{
-                    background: `radial-gradient(circle at center, ${subject.neonColor}30 0%, transparent 70%)`
+                    boxShadow: `0 0 25px ${subject.neonColor}40, 0 0 50px ${subject.neonColor}20, inset 0 0 20px ${subject.neonColor}10`,
+                    border: `2px solid ${subject.neonColor}60`,
+                    filter: 'brightness(1.1) saturate(1.2)'
                   }}
-                ></div>
-
-                {/* Pulsing Border Effect */}
-                <div
-                  className="absolute inset-0 rounded-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    background: `linear-gradient(45deg, ${subject.neonColor}20, transparent, ${subject.neonColor}20)`,
-                    animation: 'pulse 2s infinite'
+                  whileHover={{
+                    boxShadow: `0 0 40px ${subject.neonColor}60, 0 0 80px ${subject.neonColor}40, inset 0 0 30px ${subject.neonColor}20`,
+                    filter: 'brightness(1.3) saturate(1.4)',
+                    scale: 1.15
                   }}
-                ></div>
-
-                <div className="relative z-10">
-                  <div className="mb-1 flex justify-center">
-                    {React.cloneElement(subject.icon, {
-                      className: "w-3 h-3 sm:w-4 sm:h-4 text-white drop-shadow-lg",
-                      style: {
-                        filter: `drop-shadow(0 0 8px ${subject.neonColor}) drop-shadow(0 0 4px ${subject.neonColor})`
-                      }
-                    })}
-                  </div>
-                  <h3
-                    className="text-xs font-bold text-white leading-tight"
+                >
+                  {/* Intense Neon Glow Effect */}
+                  <div
+                    className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-lg"
                     style={{
-                      textShadow: `0 0 10px ${subject.neonColor}, 0 0 20px ${subject.neonColor}80, 0 2px 4px rgba(0,0,0,0.8)`
+                      background: `radial-gradient(circle at center, ${subject.neonColor}30 0%, transparent 70%)`
                     }}
-                  >
-                    {subject.name}
-                  </h3>
-                </div>
-              </motion.div>
+                  ></div>
+
+                  {/* Pulsing Border Effect */}
+                  <div
+                    className="absolute inset-0 rounded-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: `linear-gradient(45deg, ${subject.neonColor}20, transparent, ${subject.neonColor}20)`,
+                      animation: 'pulse 2s infinite'
+                    }}
+                  ></div>
+
+                  <div className="relative z-10">
+                    <div className="mb-1 flex justify-center">
+                      {React.cloneElement(subject.icon, {
+                        className: `w-3 h-3 sm:w-4 sm:h-4 ${subject.textColor} drop-shadow-lg`,
+                        style: {
+                          filter: `drop-shadow(0 0 8px ${subject.neonColor}) drop-shadow(0 0 4px ${subject.neonColor})`
+                        }
+                      })}
+                    </div>
+                    <h3
+                      className={`text-xs font-bold ${subject.textColor} leading-tight`}
+                      style={{
+                        textShadow: `0 0 10px ${subject.neonColor}, 0 0 20px ${subject.neonColor}80, 0 2px 4px rgba(0,0,0,0.8)`
+                      }}
+                    >
+                      {subject.name}
+                    </h3>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
 
@@ -390,60 +417,65 @@ const AcademicsPage: React.FC = () => {
           {/* Remaining Subjects */}
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1.5 sm:gap-2 mb-4">
             {subjects.slice(6).map((subject, index) => (
-              <motion.div
+              <Link
                 key={subject.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.03 }}
-                className={`${subject.color} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${subject.shadowColor}`}
-                style={{
-                  boxShadow: `0 0 25px ${subject.neonColor}40, 0 0 50px ${subject.neonColor}20, inset 0 0 20px ${subject.neonColor}10`,
-                  border: `2px solid ${subject.neonColor}60`,
-                  filter: 'brightness(1.1) saturate(1.2)'
-                }}
-                whileHover={{
-                  boxShadow: `0 0 40px ${subject.neonColor}60, 0 0 80px ${subject.neonColor}40, inset 0 0 30px ${subject.neonColor}20`,
-                  filter: 'brightness(1.3) saturate(1.4)',
-                  scale: 1.15
-                }}
+                to={subject.route}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
               >
-                {/* Intense Neon Glow Effect */}
-                <div
-                  className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-lg"
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.03 }}
+                  className={`${subject.color} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${subject.shadowColor}`}
                   style={{
-                    background: `radial-gradient(circle at center, ${subject.neonColor}30 0%, transparent 70%)`
+                    boxShadow: `0 0 25px ${subject.neonColor}40, 0 0 50px ${subject.neonColor}20, inset 0 0 20px ${subject.neonColor}10`,
+                    border: `2px solid ${subject.neonColor}60`,
+                    filter: 'brightness(1.1) saturate(1.2)'
                   }}
-                ></div>
-
-                {/* Pulsing Border Effect */}
-                <div
-                  className="absolute inset-0 rounded-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    background: `linear-gradient(45deg, ${subject.neonColor}20, transparent, ${subject.neonColor}20)`,
-                    animation: 'pulse 2s infinite'
+                  whileHover={{
+                    boxShadow: `0 0 40px ${subject.neonColor}60, 0 0 80px ${subject.neonColor}40, inset 0 0 30px ${subject.neonColor}20`,
+                    filter: 'brightness(1.3) saturate(1.4)',
+                    scale: 1.15
                   }}
-                ></div>
-
-                <div className="relative z-10">
-                  <div className="mb-1 flex justify-center">
-                    {React.cloneElement(subject.icon, {
-                      className: "w-3 h-3 sm:w-4 sm:h-4 text-white drop-shadow-lg",
-                      style: {
-                        filter: `drop-shadow(0 0 8px ${subject.neonColor}) drop-shadow(0 0 4px ${subject.neonColor})`
-                      }
-                    })}
-                  </div>
-                  <h3
-                    className="text-xs font-bold text-white leading-tight"
+                >
+                  {/* Intense Neon Glow Effect */}
+                  <div
+                    className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-lg"
                     style={{
-                      textShadow: `0 0 10px ${subject.neonColor}, 0 0 20px ${subject.neonColor}80, 0 2px 4px rgba(0,0,0,0.8)`
+                      background: `radial-gradient(circle at center, ${subject.neonColor}30 0%, transparent 70%)`
                     }}
-                  >
-                    {subject.name}
-                  </h3>
-                </div>
-              </motion.div>
+                  ></div>
+
+                  {/* Pulsing Border Effect */}
+                  <div
+                    className="absolute inset-0 rounded-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: `linear-gradient(45deg, ${subject.neonColor}20, transparent, ${subject.neonColor}20)`,
+                      animation: 'pulse 2s infinite'
+                    }}
+                  ></div>
+
+                  <div className="relative z-10">
+                    <div className="mb-1 flex justify-center">
+                      {React.cloneElement(subject.icon, {
+                        className: `w-3 h-3 sm:w-4 sm:h-4 ${subject.textColor} drop-shadow-lg`,
+                        style: {
+                          filter: `drop-shadow(0 0 8px ${subject.neonColor}) drop-shadow(0 0 4px ${subject.neonColor})`
+                        }
+                      })}
+                    </div>
+                    <h3
+                      className={`text-xs font-bold ${subject.textColor} leading-tight`}
+                      style={{
+                        textShadow: `0 0 10px ${subject.neonColor}, 0 0 20px ${subject.neonColor}80, 0 2px 4px rgba(0,0,0,0.8)`
+                      }}
+                    >
+                      {subject.name}
+                    </h3>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
 

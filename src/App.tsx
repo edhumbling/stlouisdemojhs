@@ -68,6 +68,16 @@ import OnlineUniversitiesPage from './pages/OnlineUniversitiesPage';
 import MayamilesAIPage from './pages/MayamilesAIPage';
 import SocialPreviewPage from './pages/SocialPreviewPage';
 import LeadershipExcellencePage from './pages/LeadershipExcellencePage';
+import EnglishLanguagePage from './pages/subjects/EnglishLanguagePage';
+import MathematicsPage from './pages/subjects/MathematicsPage';
+import IntegratedSciencePage from './pages/subjects/IntegratedSciencePage';
+import SocialStudiesPage from './pages/subjects/SocialStudiesPage';
+import ReligiousMoralEducationPage from './pages/subjects/ReligiousMoralEducationPage';
+import GhanaianLanguagePage from './pages/subjects/GhanaianLanguagePage';
+import FrenchPage from './pages/subjects/FrenchPage';
+import ComputingICTPage from './pages/subjects/ComputingICTPage';
+import CreativeArtsDesignPage from './pages/subjects/CreativeArtsDesignPage';
+import MusicPage from './pages/subjects/MusicPage';
 import DonateMonthly10Page from './pages/DonateMonthly10Page';
 import DonateMonthly30Page from './pages/DonateMonthly30Page';
 import DonateMonthly50Page from './pages/DonateMonthly50Page';
@@ -157,6 +167,16 @@ const App: React.FC = () => {
           <Route path="about" element={<AboutPage />} />
           <Route path="leadership-excellence" element={<LeadershipExcellencePage />} />
           <Route path="academics" element={<AcademicsPage />} />
+          <Route path="subject/english-language" element={<EnglishLanguagePage />} />
+          <Route path="subject/mathematics" element={<MathematicsPage />} />
+          <Route path="subject/integrated-science" element={<IntegratedSciencePage />} />
+          <Route path="subject/social-studies" element={<SocialStudiesPage />} />
+          <Route path="subject/religious-moral-education" element={<ReligiousMoralEducationPage />} />
+          <Route path="subject/ghanaian-language" element={<GhanaianLanguagePage />} />
+          <Route path="subject/french" element={<FrenchPage />} />
+          <Route path="subject/computing-ict" element={<ComputingICTPage />} />
+          <Route path="subject/creative-arts-design" element={<CreativeArtsDesignPage />} />
+          <Route path="subject/music" element={<MusicPage />} />
           <Route path="admissions" element={<AdmissionsPage />} />
           <Route path="faculty" element={<FacultyPage />} />
           <Route path="staff-resources" element={<StaffResourcesPage />} />

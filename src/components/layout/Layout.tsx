@@ -41,6 +41,17 @@ const Layout: React.FC = () => {
     '/scholarship-opportunities',
     '/educational-pathway-guide',
     '/leadership-excellence',
+    '/subject/english-language',
+    '/subject/mathematics',
+    '/subject/integrated-science',
+    '/subject/social-studies',
+    '/subject/religious-moral-education',
+    '/subject/ghanaian-language',
+    '/subject/french',
+    '/subject/career-technology',
+    '/subject/computing-ict',
+    '/subject/creative-arts-design',
+    '/subject/music',
     ...((location.pathname.startsWith('/shs-database/pdf/')) ? [location.pathname] : []),
   ];
   const shouldShowFooter = !noFooterPages.includes(location.pathname) && showFooter;
