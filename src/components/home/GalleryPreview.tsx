@@ -7,7 +7,12 @@ import ShimmerLoader from '../common/ShimmerLoader';
 
 const GalleryPreview: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const previewImages = galleryImages.slice(0, 6);
+
+  const handleImageLoad = (imageId: number) => {
+    setLoadedImages(prev => new Set(prev).add(imageId));
+  };
 
   const openModal = (id: number) => {
     setSelectedImage(id);
@@ -48,24 +53,97 @@ const GalleryPreview: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="relative overflow-hidden rounded-xl shadow-lg aspect-square cursor-pointer group bg-gray-800"
+              className="relative overflow-hidden rounded-xl shadow-lg aspect-square cursor-pointer group bg-gray-900"
               onClick={() => openModal(image.id)}
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
               whileTap={{ scale: 0.95 }}
             >
-              {/* Shimmer placeholder */}
-              <ShimmerLoader variant="image" className="absolute inset-0" />
-              <img
+              {/* Enhanced Silver Shimmer Loading Effect */}
+              {!loadedImages.has(image.id) && (
+                <motion.div
+                  initial={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 z-20"
+                >
+                  <ShimmerLoader
+                    variant="silver"
+                    className="absolute inset-0 rounded-xl"
+                    width="w-full"
+                    height="h-full"
+                  />
+
+                  {/* Additional Silver Glow Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-slate-400/20 via-gray-300/30 to-slate-500/20 rounded-xl"></div>
+
+                  {/* Pulsing Silver Border */}
+                  <motion.div
+                    className="absolute inset-0 rounded-xl border-2 border-slate-300/40"
+                    animate={{
+                      borderColor: ['rgba(203, 213, 225, 0.4)', 'rgba(148, 163, 184, 0.6)', 'rgba(203, 213, 225, 0.4)'],
+                      boxShadow: [
+                        '0 0 10px rgba(203, 213, 225, 0.3)',
+                        '0 0 20px rgba(148, 163, 184, 0.5)',
+                        '0 0 10px rgba(203, 213, 225, 0.3)'
+                      ]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: 'easeInOut'
+                    }}
+                  />
+
+                  {/* Silver Sparkle Effects */}
+                  <motion.div
+                    className="absolute top-2 right-2 w-2 h-2 bg-white/60 rounded-full"
+                    animate={{
+                      scale: [0, 1, 0],
+                      opacity: [0, 1, 0]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: 0.5
+                    }}
+                  />
+                  <motion.div
+                    className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-slate-200/50 rounded-full"
+                    animate={{
+                      scale: [0, 1, 0],
+                      opacity: [0, 1, 0]
+                    }}
+                    transition={{
+                      duration: 1.8,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: 1
+                    }}
+                  />
+                </motion.div>
+              )}
+
+              {/* Image with Smooth Reveal Animation */}
+              <motion.img
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 relative z-10"
                 loading="lazy"
-                onLoad={(e) => {
-                  // Hide shimmer when image loads
-                  const shimmer = e.currentTarget.previousElementSibling;
-                  if (shimmer) shimmer.style.display = 'none';
-                }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: loadedImages.has(image.id) ? 1 : 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                onLoad={() => handleImageLoad(image.id)}
               />
+
+              {/* Subtle Hover Overlay for Loaded Images */}
+              {loadedImages.has(image.id) && (
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-15"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                />
+              )}
 
             </motion.div>
           ))}
