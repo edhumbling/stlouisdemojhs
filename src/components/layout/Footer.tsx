@@ -405,6 +405,8 @@ Primus Interparis
               {" "}- 2012 Alumnus
               <br />
               <span className="text-xs text-gray-500">(As a Personal Donation Project)</span>
+              <br />
+              <span className="text-xs text-gray-400">Contact: 0208705290</span>
             </p>
           </div>
         </div>
