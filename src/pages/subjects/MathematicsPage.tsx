@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calculator, Target, Award, TrendingUp, BarChart3, PieChart, CheckCircle2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import SEOHead from '../../components/seo/SEOHead';
 import ShimmerLoader from '../../components/common/ShimmerLoader';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
 
 const MathematicsPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { navigateBackWithState, restorePageState } = useEnhancedNavigation();
+  const { navigateBackWithState } = useEnhancedNavigation();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -19,14 +18,7 @@ const MathematicsPage: React.FC = () => {
     return () => clearTimeout(loadingTimer);
   }, []);
 
-  // Restore scroll position when component mounts
-  useEffect(() => {
-    const restoreTimer = setTimeout(() => {
-      restorePageState();
-    }, 100);
-
-    return () => clearTimeout(restoreTimer);
-  }, [restorePageState]);
+  // Note: Scroll restoration is now handled globally in Layout component
 
   const handleBack = () => {
     navigateBackWithState('/academics');
@@ -186,7 +178,7 @@ const MathematicsPage: React.FC = () => {
                           transition={{ duration: 0.5, delay: index * 0.1 }}
                           className="flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-emerald-400/30"
                         >
-                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 flex-shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 flex-shrink-0" />
                           <span className="text-white font-medium text-xs sm:text-sm md:text-base">{strand}</span>
                         </motion.div>
                       ))}
@@ -209,7 +201,7 @@ const MathematicsPage: React.FC = () => {
                         <p className="text-gray-100 text-sm sm:text-base">Develop computational fluency and mathematical reasoning skills</p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <BarChart className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 mt-1 flex-shrink-0" />
+                        <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 mt-1 flex-shrink-0" />
                         <p className="text-gray-100 text-sm sm:text-base">Apply mathematical concepts to solve real-world problems</p>
                       </div>
                       <div className="flex items-start gap-3">

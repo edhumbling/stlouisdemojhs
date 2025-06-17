@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -6,10 +6,22 @@ import ScrollButton from '../common/ScrollButton';
 
 import { useHeader } from '../../contexts/HeaderContext';
 import { getSchoolStats } from '../../utils/schoolStats';
+import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
 
 const Layout: React.FC = () => {
   const location = useLocation();
   const { showHeader, showFooter } = useHeader();
+  const { restorePageState } = useEnhancedNavigation();
+
+  // Handle scroll restoration on route changes
+  useEffect(() => {
+    // Small delay to ensure content is loaded before restoring scroll
+    const restoreTimer = setTimeout(() => {
+      restorePageState();
+    }, 150);
+
+    return () => clearTimeout(restoreTimer);
+  }, [location.pathname, restorePageState]);
 
   // Pages that should not show the footer
   const noFooterPages = [

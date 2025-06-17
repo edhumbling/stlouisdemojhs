@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, Users, Target, Award, Globe, Lightbulb, CheckCircle } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import SEOHead from '../../components/seo/SEOHead';
 import ShimmerLoader from '../../components/common/ShimmerLoader';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
 
 const EnglishLanguagePage: React.FC = () => {
-  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
-  const { navigateBackWithState, restorePageState } = useEnhancedNavigation();
+  const { navigateBackWithState } = useEnhancedNavigation();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -20,15 +18,7 @@ const EnglishLanguagePage: React.FC = () => {
     return () => clearTimeout(loadingTimer);
   }, []);
 
-  // Restore scroll position when component mounts
-  useEffect(() => {
-    // Small delay to ensure content is loaded
-    const restoreTimer = setTimeout(() => {
-      restorePageState();
-    }, 100);
-
-    return () => clearTimeout(restoreTimer);
-  }, [restorePageState]);
+  // Note: Scroll restoration is now handled globally in Layout component
 
   const handleBack = () => {
     navigateBackWithState('/academics');
