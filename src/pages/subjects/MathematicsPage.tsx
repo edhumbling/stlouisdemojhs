@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calculator, Target, Award, TrendingUp, BarChart, PieChart, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Calculator, Target, Award, TrendingUp, BarChart3, PieChart, CheckCircle2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../../components/seo/SEOHead';
 import ShimmerLoader from '../../components/common/ShimmerLoader';
+import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
 
 const MathematicsPage: React.FC = () => {
-  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const { navigateBackWithState, restorePageState } = useEnhancedNavigation();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -18,8 +19,17 @@ const MathematicsPage: React.FC = () => {
     return () => clearTimeout(loadingTimer);
   }, []);
 
+  // Restore scroll position when component mounts
+  useEffect(() => {
+    const restoreTimer = setTimeout(() => {
+      restorePageState();
+    }, 100);
+
+    return () => clearTimeout(restoreTimer);
+  }, [restorePageState]);
+
   const handleBack = () => {
-    navigate(-1);
+    navigateBackWithState('/academics');
   };
 
   // Show shimmer loading for initial page load
@@ -54,7 +64,7 @@ const MathematicsPage: React.FC = () => {
         title="Mathematics - Comprehensive Mathematical Excellence | St. Louis Demonstration JHS"
         description="Excel in Mathematics at St. Louis Demonstration JHS. Our GES-aligned curriculum covers algebra, geometry, statistics, number operations, and problem-solving for Basic 7-9 students."
         keywords="Mathematics, GES curriculum, algebra geometry statistics, number operations, problem solving, St. Louis Demonstration JHS, Ghana JHS Mathematics"
-        canonicalUrl="https://stlouisdemojhs.com/subject/mathematics"
+        canonical="https://stlouisdemojhs.com/subject/mathematics"
       />
 
       <div className="min-h-screen bg-black text-white">

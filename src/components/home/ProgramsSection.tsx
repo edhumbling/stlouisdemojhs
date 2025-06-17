@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import { programs } from '../../data';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
 
 const ProgramsSection: React.FC = () => {
   const [activeProgram, setActiveProgram] = useState(programs[0].id);
+  const { navigateToWithState } = useEnhancedNavigation();
 
-  // Subject name to route mapping
+  // Subject name to route mapping with distinct colors and silver reflections
   const getSubjectRoute = (subject: string): string => {
     const routeMap: { [key: string]: string } = {
       'English Language': '/subject/english-language',
@@ -23,6 +25,102 @@ const ProgramsSection: React.FC = () => {
       'Music': '/subject/music'
     };
     return routeMap[subject] || '/academics';
+  };
+
+  // Subject styling with distinct colors and silver reflections
+  const getSubjectStyle = (subject: string) => {
+    const styleMap: { [key: string]: any } = {
+      'English Language': {
+        gradient: 'from-blue-600 via-blue-500 to-blue-700',
+        shadow: 'shadow-blue-500/50',
+        glow: '#3b82f6',
+        border: 'border-blue-400/60',
+        text: 'text-white'
+      },
+      'Mathematics': {
+        gradient: 'from-emerald-600 via-emerald-500 to-emerald-700',
+        shadow: 'shadow-emerald-500/50',
+        glow: '#10b981',
+        border: 'border-emerald-400/60',
+        text: 'text-white'
+      },
+      'Integrated Science': {
+        gradient: 'from-purple-600 via-purple-500 to-purple-700',
+        shadow: 'shadow-purple-500/50',
+        glow: '#8b5cf6',
+        border: 'border-purple-400/60',
+        text: 'text-white'
+      },
+      'Social Studies': {
+        gradient: 'from-orange-600 via-orange-500 to-orange-700',
+        shadow: 'shadow-orange-500/50',
+        glow: '#f97316',
+        border: 'border-orange-400/60',
+        text: 'text-white'
+      },
+      'Religious & Moral Education': {
+        gradient: 'from-indigo-600 via-indigo-500 to-indigo-700',
+        shadow: 'shadow-indigo-500/50',
+        glow: '#6366f1',
+        border: 'border-indigo-400/60',
+        text: 'text-white'
+      },
+      'Ghanaian Language (Asante Twi)': {
+        gradient: 'from-red-600 via-red-500 to-red-700',
+        shadow: 'shadow-red-500/50',
+        glow: '#ef4444',
+        border: 'border-red-400/60',
+        text: 'text-white'
+      },
+      'French': {
+        gradient: 'from-pink-600 via-pink-500 to-pink-700',
+        shadow: 'shadow-pink-500/50',
+        glow: '#ec4899',
+        border: 'border-pink-400/60',
+        text: 'text-white'
+      },
+      'Career Technology': {
+        gradient: 'from-amber-500 via-yellow-500 to-amber-600',
+        shadow: 'shadow-amber-500/50',
+        glow: '#f59e0b',
+        border: 'border-amber-400/60',
+        text: 'text-black'
+      },
+      'Computing (ICT)': {
+        gradient: 'from-cyan-600 via-cyan-500 to-cyan-700',
+        shadow: 'shadow-cyan-500/50',
+        glow: '#06b6d4',
+        border: 'border-cyan-400/60',
+        text: 'text-white'
+      },
+      'Creative Arts & Design': {
+        gradient: 'from-teal-600 via-teal-500 to-teal-700',
+        shadow: 'shadow-teal-500/50',
+        glow: '#14b8a6',
+        border: 'border-teal-400/60',
+        text: 'text-white'
+      },
+      'Music': {
+        gradient: 'from-violet-600 via-violet-500 to-violet-700',
+        shadow: 'shadow-violet-500/50',
+        glow: '#7c3aed',
+        border: 'border-violet-400/60',
+        text: 'text-white'
+      }
+    };
+    return styleMap[subject] || {
+      gradient: 'from-gray-600 via-gray-500 to-gray-700',
+      shadow: 'shadow-gray-500/50',
+      glow: '#6b7280',
+      border: 'border-gray-400/60',
+      text: 'text-white'
+    };
+  };
+
+  // Handle subject navigation with state preservation
+  const handleSubjectClick = (subject: string) => {
+    const route = getSubjectRoute(subject);
+    navigateToWithState(route);
   };
 
   return (
@@ -88,13 +186,11 @@ const ProgramsSection: React.FC = () => {
                 'Computing (ICT)',
                 'Creative Arts & Design',
                 'Music'
-              ].map((subject, index) => (
-                <Link
-                  key={subject}
-                  to={getSubjectRoute(subject)}
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                >
+              ].map((subject, index) => {
+                const style = getSubjectStyle(subject);
+                return (
                   <motion.div
+                    key={subject}
                     initial={{ opacity: 0, scale: 0.8, y: 20 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
@@ -105,26 +201,60 @@ const ProgramsSection: React.FC = () => {
                       stiffness: 200,
                       damping: 20
                     }}
-                    className="group relative bg-white/90 backdrop-blur-sm rounded-xl p-2 sm:p-3 shadow-md hover:shadow-lg border border-white/30 hover:border-yellow-400/50 transition-all duration-300 overflow-hidden cursor-pointer"
+                    className={`group relative bg-gradient-to-br ${style.gradient} rounded-xl p-2 sm:p-3 ${style.shadow} hover:shadow-2xl border-2 ${style.border} transition-all duration-300 overflow-hidden cursor-pointer transform hover:scale-105 hover:-translate-y-1`}
+                    style={{
+                      boxShadow: `0 0 20px ${style.glow}40, 0 0 40px ${style.glow}20, inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)`,
+                      background: `linear-gradient(135deg, ${style.glow}20 0%, transparent 50%, rgba(255,255,255,0.1) 100%)`,
+                    }}
                     whileHover={{
-                      scale: 1.05,
-                      y: -2,
-                      transition: { duration: 0.2 }
+                      scale: 1.08,
+                      y: -3,
+                      transition: { duration: 0.2 },
+                      boxShadow: `0 0 30px ${style.glow}60, 0 0 60px ${style.glow}40, inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)`
                     }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => handleSubjectClick(subject)}
                   >
-                    {/* Magical Glow Effect - School Colors */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-green-500/5 to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    {/* Sharp Silver Reflection Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300 rounded-xl"></div>
 
-                    {/* Sparkle Effect - Yellow School Color */}
-                    <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-yellow-400/80 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"></div>
+                    {/* Top Silver Highlight */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-t-xl"></div>
 
-                    <span className="relative z-10 text-gray-800 font-semibold group-hover:text-blue-700 transition-colors duration-300 leading-tight">
+                    {/* Side Silver Highlights */}
+                    <div className="absolute top-0 left-0 w-1 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-l-xl"></div>
+                    <div className="absolute top-0 right-0 w-1 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-r-xl"></div>
+
+                    {/* Intense Glow Effect */}
+                    <div
+                      className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-xl"
+                      style={{
+                        background: `radial-gradient(circle at center, ${style.glow}30 0%, transparent 70%)`
+                      }}
+                    ></div>
+
+                    {/* Pulsing Border Effect */}
+                    <div
+                      className="absolute inset-0 rounded-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{
+                        background: `linear-gradient(45deg, ${style.glow}20, transparent, ${style.glow}20)`,
+                        animation: 'pulse 2s infinite'
+                      }}
+                    ></div>
+
+                    {/* Sharp Corner Reflections */}
+                    <div className="absolute top-1 left-1 w-2 h-2 bg-white/40 rounded-full opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-white/30 rounded-full opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+
+                    <span className={`relative z-10 ${style.text} font-bold group-hover:drop-shadow-lg transition-all duration-300 leading-tight text-center block`}
+                          style={{
+                            textShadow: `0 0 10px ${style.glow}, 0 0 20px ${style.glow}80, 0 1px 2px rgba(0,0,0,0.8), 0 0 5px rgba(255,255,255,0.3)`
+                          }}>
                       {subject}
                     </span>
                   </motion.div>
-                </Link>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
         </motion.div>

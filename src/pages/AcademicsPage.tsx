@@ -6,15 +6,33 @@ import SectionDivider from '../components/common/SectionDivider';
 import DonateButton from '../components/common/DonateButton';
 import { getSchoolStats } from '../utils/schoolStats';
 import SEOHead from '../components/seo/SEOHead';
+import { useEnhancedNavigation } from '../hooks/useEnhancedNavigation';
 
 const AcademicsPage: React.FC = () => {
   const navigate = useNavigate();
+  const { navigateBackWithState, navigateToWithState } = useEnhancedNavigation();
 
   // Get dynamic school statistics
   const schoolStats = getSchoolStats();
 
   const handleBack = () => {
-    navigate(-1); // Go back to previous page
+    navigateBackWithState('/'); // Go back to previous page with fallback to home
+  };
+
+  // Handle subject navigation with state preservation
+  const handleSubjectClick = (route: string) => {
+    navigateToWithState(route);
+  };
+
+  // Enhanced subject styling with distinct colors and silver reflections
+  const getEnhancedSubjectStyle = (subject: any) => {
+    return {
+      gradient: subject.color.replace('bg-', 'from-') + ' via-' + subject.color.replace('bg-', '').replace('-600', '-500') + ' to-' + subject.color.replace('bg-', '').replace('-600', '-700'),
+      glow: subject.neonColor,
+      border: 'border-' + subject.color.replace('bg-', '').replace('-600', '-400') + '/60',
+      text: subject.textColor,
+      shadow: subject.shadowColor
+    };
   };
 
   const subjects = [
@@ -349,34 +367,42 @@ const AcademicsPage: React.FC = () => {
 
           {/* Mobile-Optimized Compact Subject Grid - First 6 */}
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1.5 sm:gap-2 mb-4">
-            {subjects.slice(0, 6).map((subject, index) => (
-              <Link
-                key={subject.name}
-                to={subject.route}
-                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-              >
+            {subjects.slice(0, 6).map((subject, index) => {
+              const style = getEnhancedSubjectStyle(subject);
+              return (
                 <motion.div
+                  key={subject.name}
+                  onClick={() => handleSubjectClick(subject.route)}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.03 }}
-                  className={`${subject.color} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${subject.shadowColor}`}
+                  className={`bg-gradient-to-br ${style.gradient} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${style.shadow} border-2 ${style.border}`}
                   style={{
-                    boxShadow: `0 0 25px ${subject.neonColor}40, 0 0 50px ${subject.neonColor}20, inset 0 0 20px ${subject.neonColor}10`,
-                    border: `2px solid ${subject.neonColor}60`,
+                    boxShadow: `0 0 25px ${style.glow}40, 0 0 50px ${style.glow}20, inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)`,
                     filter: 'brightness(1.1) saturate(1.2)'
                   }}
                   whileHover={{
-                    boxShadow: `0 0 40px ${subject.neonColor}60, 0 0 80px ${subject.neonColor}40, inset 0 0 30px ${subject.neonColor}20`,
+                    boxShadow: `0 0 40px ${style.glow}60, 0 0 80px ${style.glow}40, inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)`,
                     filter: 'brightness(1.3) saturate(1.4)',
                     scale: 1.15
                   }}
                 >
+                  {/* Sharp Silver Reflection Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300 rounded-lg"></div>
+
+                  {/* Top Silver Highlight */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-t-lg"></div>
+
+                  {/* Side Silver Highlights */}
+                  <div className="absolute top-0 left-0 w-0.5 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-l-lg"></div>
+                  <div className="absolute top-0 right-0 w-0.5 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-r-lg"></div>
+
                   {/* Intense Neon Glow Effect */}
                   <div
                     className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-lg"
                     style={{
-                      background: `radial-gradient(circle at center, ${subject.neonColor}30 0%, transparent 70%)`
+                      background: `radial-gradient(circle at center, ${style.glow}30 0%, transparent 70%)`
                     }}
                   ></div>
 
@@ -384,66 +410,78 @@ const AcademicsPage: React.FC = () => {
                   <div
                     className="absolute inset-0 rounded-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
-                      background: `linear-gradient(45deg, ${subject.neonColor}20, transparent, ${subject.neonColor}20)`,
+                      background: `linear-gradient(45deg, ${style.glow}20, transparent, ${style.glow}20)`,
                       animation: 'pulse 2s infinite'
                     }}
                   ></div>
 
+                  {/* Sharp Corner Reflections */}
+                  <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-white/40 rounded-full opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+                  <div className="absolute top-0.5 right-0.5 w-0.5 h-0.5 bg-white/30 rounded-full opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+
                   <div className="relative z-10">
                     <div className="mb-1 flex justify-center">
                       {React.cloneElement(subject.icon, {
-                        className: `w-3 h-3 sm:w-4 sm:h-4 ${subject.textColor} drop-shadow-lg`,
+                        className: `w-3 h-3 sm:w-4 sm:h-4 ${style.text} drop-shadow-lg`,
                         style: {
-                          filter: `drop-shadow(0 0 8px ${subject.neonColor}) drop-shadow(0 0 4px ${subject.neonColor})`
+                          filter: `drop-shadow(0 0 8px ${style.glow}) drop-shadow(0 0 4px ${style.glow}) drop-shadow(0 0 2px rgba(255,255,255,0.3))`
                         }
                       })}
                     </div>
                     <h3
-                      className={`text-xs font-bold ${subject.textColor} leading-tight`}
+                      className={`text-xs font-bold ${style.text} leading-tight`}
                       style={{
-                        textShadow: `0 0 10px ${subject.neonColor}, 0 0 20px ${subject.neonColor}80, 0 2px 4px rgba(0,0,0,0.8)`
+                        textShadow: `0 0 10px ${style.glow}, 0 0 20px ${style.glow}80, 0 1px 2px rgba(0,0,0,0.8), 0 0 3px rgba(255,255,255,0.3)`
                       }}
                     >
                       {subject.name}
                     </h3>
                   </div>
                 </motion.div>
-              </Link>
-            ))}
+              );
+            })}
           </div>
 
 
 
           {/* Remaining Subjects */}
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1.5 sm:gap-2 mb-4">
-            {subjects.slice(6).map((subject, index) => (
-              <Link
-                key={subject.name}
-                to={subject.route}
-                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-              >
+            {subjects.slice(6).map((subject, index) => {
+              const style = getEnhancedSubjectStyle(subject);
+              return (
                 <motion.div
+                  key={subject.name}
+                  onClick={() => handleSubjectClick(subject.route)}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.03 }}
-                  className={`${subject.color} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${subject.shadowColor}`}
+                  className={`bg-gradient-to-br ${style.gradient} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${style.shadow} border-2 ${style.border}`}
                   style={{
-                    boxShadow: `0 0 25px ${subject.neonColor}40, 0 0 50px ${subject.neonColor}20, inset 0 0 20px ${subject.neonColor}10`,
-                    border: `2px solid ${subject.neonColor}60`,
+                    boxShadow: `0 0 25px ${style.glow}40, 0 0 50px ${style.glow}20, inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)`,
                     filter: 'brightness(1.1) saturate(1.2)'
                   }}
                   whileHover={{
-                    boxShadow: `0 0 40px ${subject.neonColor}60, 0 0 80px ${subject.neonColor}40, inset 0 0 30px ${subject.neonColor}20`,
+                    boxShadow: `0 0 40px ${style.glow}60, 0 0 80px ${style.glow}40, inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)`,
                     filter: 'brightness(1.3) saturate(1.4)',
                     scale: 1.15
                   }}
                 >
+                  {/* Sharp Silver Reflection Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300 rounded-lg"></div>
+
+                  {/* Top Silver Highlight */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-t-lg"></div>
+
+                  {/* Side Silver Highlights */}
+                  <div className="absolute top-0 left-0 w-0.5 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-l-lg"></div>
+                  <div className="absolute top-0 right-0 w-0.5 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-r-lg"></div>
+
                   {/* Intense Neon Glow Effect */}
                   <div
                     className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-300 rounded-lg"
                     style={{
-                      background: `radial-gradient(circle at center, ${subject.neonColor}30 0%, transparent 70%)`
+                      background: `radial-gradient(circle at center, ${style.glow}30 0%, transparent 70%)`
                     }}
                   ></div>
 
@@ -451,32 +489,36 @@ const AcademicsPage: React.FC = () => {
                   <div
                     className="absolute inset-0 rounded-lg opacity-60 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
-                      background: `linear-gradient(45deg, ${subject.neonColor}20, transparent, ${subject.neonColor}20)`,
+                      background: `linear-gradient(45deg, ${style.glow}20, transparent, ${style.glow}20)`,
                       animation: 'pulse 2s infinite'
                     }}
                   ></div>
 
+                  {/* Sharp Corner Reflections */}
+                  <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-white/40 rounded-full opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+                  <div className="absolute top-0.5 right-0.5 w-0.5 h-0.5 bg-white/30 rounded-full opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+
                   <div className="relative z-10">
                     <div className="mb-1 flex justify-center">
                       {React.cloneElement(subject.icon, {
-                        className: `w-3 h-3 sm:w-4 sm:h-4 ${subject.textColor} drop-shadow-lg`,
+                        className: `w-3 h-3 sm:w-4 sm:h-4 ${style.text} drop-shadow-lg`,
                         style: {
-                          filter: `drop-shadow(0 0 8px ${subject.neonColor}) drop-shadow(0 0 4px ${subject.neonColor})`
+                          filter: `drop-shadow(0 0 8px ${style.glow}) drop-shadow(0 0 4px ${style.glow}) drop-shadow(0 0 2px rgba(255,255,255,0.3))`
                         }
                       })}
                     </div>
                     <h3
-                      className={`text-xs font-bold ${subject.textColor} leading-tight`}
+                      className={`text-xs font-bold ${style.text} leading-tight`}
                       style={{
-                        textShadow: `0 0 10px ${subject.neonColor}, 0 0 20px ${subject.neonColor}80, 0 2px 4px rgba(0,0,0,0.8)`
+                        textShadow: `0 0 10px ${style.glow}, 0 0 20px ${style.glow}80, 0 1px 2px rgba(0,0,0,0.8), 0 0 3px rgba(255,255,255,0.3)`
                       }}
                     >
                       {subject.name}
                     </h3>
                   </div>
                 </motion.div>
-              </Link>
-            ))}
+              );
+            })}
           </div>
 
 
