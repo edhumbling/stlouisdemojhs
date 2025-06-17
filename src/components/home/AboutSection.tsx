@@ -72,84 +72,89 @@ const AboutSection: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Learn More Button */}
+        {/* Cute Horizontal Buttons */}
         <motion.div
-          className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-12 px-1 sm:px-2"
+          className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-12 px-2 sm:px-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block"
-          >
-            <Link
-              to="/leadership-excellence"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-              className="group relative inline-flex items-center justify-center px-8 sm:px-10 md:px-12 py-4 sm:py-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold rounded-full shadow-[0_0_20px_rgba(59,130,246,0.6),0_0_40px_rgba(147,51,234,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.8),0_0_60px_rgba(147,51,234,0.6)] transition-all duration-500 text-sm sm:text-base md:text-lg overflow-hidden border border-white/20"
-              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center max-w-2xl mx-auto">
+            {/* Learn More Button - Cute Blue/Purple */}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto"
             >
-              {/* Magical Shimmer Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <Link
+                to="/leadership-excellence"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-bold rounded-2xl shadow-[0_0_15px_rgba(59,130,246,0.5),0_0_30px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.7),0_0_50px_rgba(147,51,234,0.5)] transition-all duration-500 text-sm sm:text-base overflow-hidden border border-white/20"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+              >
+                {/* Cute Sparkle Background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
 
-              {/* Button Text */}
-              <span className="relative z-10 flex items-center gap-2">
-                Learn More
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="text-lg"
-                >
-                  →
-                </motion.span>
-              </span>
+                {/* Floating Particles */}
+                <div className="absolute top-1 right-2 w-1 h-1 bg-white/40 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-2 left-3 w-1.5 h-1.5 bg-blue-200/30 rounded-full animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200"></div>
 
-              {/* Pulsing Background */}
-              <div className="absolute inset-0 bg-blue-400/20 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Link>
-          </motion.div>
-        </motion.div>
+                {/* Button Text */}
+                <span className="relative z-10 flex items-center gap-2">
+                  <span className="text-lg">📚</span>
+                  Learn More
+                  <motion.span
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    className="text-sm"
+                  >
+                    →
+                  </motion.span>
+                </span>
 
-        {/* Magical CTA Button */}
-        <motion.div
-          className="text-center px-4 sm:px-0"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block"
-          >
-            <Link
-              to="/about"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-              className="group relative inline-flex items-center justify-center px-6 sm:px-8 md:px-10 py-3 sm:py-4 bg-gradient-to-r from-yellow-500 to-yellow-400 hover:from-yellow-400 hover:to-yellow-300 text-black font-bold rounded-full shadow-[0_0_20px_rgba(251,191,36,0.6),0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_30px_rgba(251,191,36,0.8),0_0_60px_rgba(251,191,36,0.6)] transition-all duration-500 text-sm sm:text-base md:text-lg overflow-hidden"
-              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
+                {/* Cute Glow Effect */}
+                <div className="absolute inset-0 bg-blue-400/20 rounded-2xl animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </Link>
+            </motion.div>
+
+            {/* Discover Excellence Button - Cute Yellow/Orange */}
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto"
             >
-              {/* Magical Shimmer Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              <Link
+                to="/about"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-500 to-orange-400 hover:from-yellow-400 hover:to-orange-300 text-black font-bold rounded-2xl shadow-[0_0_15px_rgba(251,191,36,0.5),0_0_30px_rgba(251,146,60,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.7),0_0_50px_rgba(251,146,60,0.5)] transition-all duration-500 text-sm sm:text-base overflow-hidden"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
+              >
+                {/* Cute Sparkle Background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
 
-              {/* Button Text */}
-              <span className="relative z-10 flex items-center gap-2">
-                Discover Our Excellence
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="text-lg"
-                >
-                  ✨
-                </motion.span>
-              </span>
+                {/* Floating Particles */}
+                <div className="absolute top-2 right-3 w-1 h-1 bg-white/50 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-1 left-2 w-1.5 h-1.5 bg-yellow-200/40 rounded-full animate-ping opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"></div>
 
-              {/* Pulsing Background */}
-              <div className="absolute inset-0 bg-yellow-300/30 rounded-full animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Link>
-          </motion.div>
+                {/* Button Text */}
+                <span className="relative z-10 flex items-center gap-2">
+                  <span className="text-lg">🌟</span>
+                  Discover Excellence
+                  <motion.span
+                    animate={{ rotate: [0, 15, -15, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="text-sm"
+                  >
+                    ✨
+                  </motion.span>
+                </span>
+
+                {/* Cute Glow Effect */}
+                <div className="absolute inset-0 bg-yellow-300/30 rounded-2xl animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </Link>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
