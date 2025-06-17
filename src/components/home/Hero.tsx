@@ -395,6 +395,16 @@ const Hero: React.FC = () => {
               </Link>
 
               <Link
+                to="/mayamiles-ai"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(16,185,129,0.5)] hover:shadow-[0_0_20px_rgba(16,185,129,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              >
+                <span className="relative z-10 whitespace-nowrap">Learn with AI</span>
+                <span className="absolute inset-0 bg-emerald-500 opacity-30 rounded-lg"></span>
+              </Link>
+
+              <Link
                 to="/partner"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
@@ -458,39 +468,7 @@ const Hero: React.FC = () => {
 
 
 
-        {/* Mayamiles AI Button - Intensified Glow Design */}
-        <div className="absolute top-1/2 right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 transform -translate-y-1/2 z-20">
-          <Link
-            to="/mayamiles-ai"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-            className="group relative inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36"
-          >
-            {/* Intensified glow effects - multiple layers */}
-            <span className="absolute inset-0 rounded-full bg-white/15 animate-pulse" style={{ animationDuration: '2s' }}></span>
-            <span className="absolute inset-0 rounded-full bg-olive-400/20 animate-ping" style={{ animationDuration: '3s' }}></span>
-            <span className="absolute inset-0 rounded-full bg-white/10 animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}></span>
 
-            {/* Main button container */}
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 rounded-full">
-              {/* White outer ring with intensified glow */}
-              <div className="absolute inset-0 rounded-full border-3 border-white/80 shadow-[0_0_25px_rgba(255,255,255,0.6),0_0_50px_rgba(255,255,255,0.3)] hover:shadow-[0_0_35px_rgba(255,255,255,0.8),0_0_70px_rgba(255,255,255,0.4)]"></div>
-
-              {/* Olive green circle with enhanced glow */}
-              <div className="absolute inset-2 rounded-full bg-gradient-to-br from-olive-500 via-olive-600 to-olive-700 shadow-[0_0_30px_rgba(107,124,50,0.6),0_0_60px_rgba(107,124,50,0.3)] hover:shadow-[0_0_40px_rgba(107,124,50,0.8),0_0_80px_rgba(107,124,50,0.4)] transition-all duration-300 group-hover:scale-105">
-
-                {/* Enhanced inner glow */}
-                <span className="absolute inset-1 rounded-full bg-gradient-to-br from-white/20 via-white/10 to-transparent animate-pulse" style={{ animationDuration: '1.5s' }}></span>
-
-                {/* Text content - Updated text */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold text-center px-1">
-                  <span className="text-[7px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm leading-tight" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9)' }}>
-                    Learn with<br/>MayaMiles<br/>AI
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </div>
       </div>
 
       {/* As Seen On Section - Mobile: above dots, Desktop: at dots line level */}
