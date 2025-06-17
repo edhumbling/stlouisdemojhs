@@ -32,7 +32,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-4 sm:py-6 md:py-8 lg:py-12 relative overflow-hidden min-h-screen flex items-center">
+    <section className="py-4 sm:py-6 md:py-8 relative overflow-hidden min-h-[400px] sm:min-h-[450px] md:min-h-[500px] flex items-center">
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0">
         <img
@@ -46,7 +46,7 @@ const AboutSection: React.FC = () => {
       </div>
 
       <div className="w-full px-1 sm:px-2 md:px-4 lg:px-6 relative z-10">
-        <div className="max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl mx-auto text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16 px-2">
+        <div className="max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto text-center mb-4 sm:mb-6 md:mb-8 px-2">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -68,29 +68,29 @@ const AboutSection: React.FC = () => {
             className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-100 px-1 sm:px-2 leading-relaxed"
             style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
           >
-            Since {schoolStats.foundingYear}, St. Louis Demonstration J.H.S has been Ghana's premier educational institution, fully accredited by the <span className="text-green-400 font-bold">Ghana Education Service (GES)</span> and guided by the <span className="text-blue-400 font-bold">Roman Catholic principles</span>. We pioneer innovative teaching methods while nurturing exceptional minds in an environment of faith, excellence, and moral character. Having trained over <span className="text-yellow-400 font-bold">{schoolStats.totalStudentsFormatted} students</span> throughout our distinguished history, our legacy of academic excellence and spiritual formation continues to inspire generations to achieve greatness.
+            At St. Louis Demonstration J.H.S, we cultivate <span className="text-green-400 font-bold">innovative minds</span> through cutting-edge educational approaches that blend <span className="text-blue-400 font-bold">academic rigor</span> with character development. Our dynamic learning environment empowers students to think critically, lead confidently, and excel globally. With over <span className="text-yellow-400 font-bold">{schoolStats.totalStudentsFormatted} graduates</span> making their mark worldwide, we continue to set new standards in transformative education that prepares young leaders for tomorrow's challenges.
           </motion.p>
         </div>
 
-        {/* Cute Horizontal Buttons */}
+        {/* Horizontal Aligned Buttons */}
         <motion.div
-          className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-12 px-2 sm:px-4"
+          className="text-center mb-4 sm:mb-6 px-2 sm:px-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center max-w-2xl mx-auto">
+          <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center items-center max-w-xl mx-auto">
             {/* Learn More Button - Cute Blue/Purple */}
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto"
+              className="flex-1 max-w-[180px] sm:max-w-[200px]"
             >
               <Link
                 to="/leadership-excellence"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-bold rounded-2xl shadow-[0_0_15px_rgba(59,130,246,0.5),0_0_30px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.7),0_0_50px_rgba(147,51,234,0.5)] transition-all duration-500 text-sm sm:text-base overflow-hidden border border-white/20"
+                className="group relative inline-flex items-center justify-center w-full px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 text-white font-bold rounded-xl shadow-[0_0_15px_rgba(59,130,246,0.5),0_0_30px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(59,130,246,0.7),0_0_50px_rgba(147,51,234,0.5)] transition-all duration-500 text-xs sm:text-sm overflow-hidden border border-white/20"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
               >
                 {/* Cute Sparkle Background */}
@@ -122,12 +122,12 @@ const AboutSection: React.FC = () => {
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto"
+              className="flex-1 max-w-[180px] sm:max-w-[200px]"
             >
               <Link
                 to="/about"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yellow-500 to-orange-400 hover:from-yellow-400 hover:to-orange-300 text-black font-bold rounded-2xl shadow-[0_0_15px_rgba(251,191,36,0.5),0_0_30px_rgba(251,146,60,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.7),0_0_50px_rgba(251,146,60,0.5)] transition-all duration-500 text-sm sm:text-base overflow-hidden"
+                className="group relative inline-flex items-center justify-center w-full px-3 sm:px-4 py-2 sm:py-3 bg-gradient-to-r from-yellow-500 to-orange-400 hover:from-yellow-400 hover:to-orange-300 text-black font-bold rounded-xl shadow-[0_0_15px_rgba(251,191,36,0.5),0_0_30px_rgba(251,146,60,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.7),0_0_50px_rgba(251,146,60,0.5)] transition-all duration-500 text-xs sm:text-sm overflow-hidden"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
               >
                 {/* Cute Sparkle Background */}
