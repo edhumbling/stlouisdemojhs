@@ -121,7 +121,7 @@ const StatsSection: React.FC = () => {
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">Achievements</span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed">
-            Decades of excellence in education, accredited by the Ghana Education Service and guided by Roman Catholic principles
+            Transforming lives through innovative education, exceptional teaching, and unwavering commitment to student success
           </p>
         </motion.div>
 
@@ -210,7 +210,7 @@ const StatsSection: React.FC = () => {
                 Institutional Excellence & Accreditation
               </h4>
               <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-                St. Louis Demonstration J.H.S is fully accredited by the <span className="text-green-400 font-semibold">Ghana Education Service (GES)</span> and operates under <span className="text-blue-400 font-semibold">Roman Catholic principles</span>, providing quality education that nurtures both academic excellence and moral character across {getDecadeTitleCount().toLowerCase()} of service.
+                St. Louis Demonstration J.H.S stands as a <span className="text-green-400 font-semibold">beacon of educational innovation</span> with comprehensive <span className="text-blue-400 font-semibold">institutional recognition</span>, delivering transformative learning experiences that cultivate intellectual curiosity, leadership skills, and ethical values. Our commitment to excellence drives continuous improvement in teaching methodologies and student outcomes.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
