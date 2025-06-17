@@ -20,6 +20,7 @@ const FacebookPostsSection: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [fbLoaded, setFbLoaded] = useState(false);
   const [loadError, setLoadError] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState('');
   const [selectedVideoTitle, setSelectedVideoTitle] = useState('');
@@ -28,12 +29,22 @@ const FacebookPostsSection: React.FC = () => {
   const facebookPageUrl = "https://www.facebook.com/stlouisdemojhs";
 
   useEffect(() => {
+    // Timeout fallback for slow connections (10 seconds)
+    const fallbackTimer = setTimeout(() => {
+      if (isLoading && !fbLoaded && !loadError) {
+        console.log('Facebook widget loading timeout - showing fallback button');
+        setIsLoading(false);
+        setShowFallback(true);
+      }
+    }, 10000); // 10 seconds timeout
+
     // Blazing fast Facebook SDK loading
     const loadFacebookSDK = () => {
       // Immediate check for existing FB
       if (window.FB) {
         setFbLoaded(true);
         setIsLoading(false);
+        clearTimeout(fallbackTimer);
         return;
       }
 
@@ -46,6 +57,7 @@ const FacebookPostsSection: React.FC = () => {
             setFbLoaded(true);
           }
           setIsLoading(false);
+          clearTimeout(fallbackTimer);
         });
         return;
       }
@@ -72,11 +84,13 @@ const FacebookPostsSection: React.FC = () => {
           setLoadError(true);
         }
         setIsLoading(false);
+        clearTimeout(fallbackTimer);
       };
 
       script.onerror = () => {
         setIsLoading(false);
         setLoadError(true);
+        clearTimeout(fallbackTimer);
       };
 
       // Immediate append for fastest loading
@@ -85,7 +99,12 @@ const FacebookPostsSection: React.FC = () => {
 
     // Start loading immediately without any delays
     loadFacebookSDK();
-  }, []);
+
+    // Cleanup timeout on unmount
+    return () => {
+      clearTimeout(fallbackTimer);
+    };
+  }, [isLoading, fbLoaded, loadError]);
 
   // Blazing fast Facebook widgets refresh
   useEffect(() => {
@@ -484,8 +503,8 @@ const FacebookPostsSection: React.FC = () => {
             </div>
           )}
 
-          {/* Error State - Fallback */}
-          {loadError && (
+          {/* Error State or Slow Connection Fallback */}
+          {(loadError || showFallback) && (
             <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden border border-gray-200 p-8">
               <div className="text-center">
                 <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/25 ring-4 ring-blue-100">
@@ -495,7 +514,10 @@ const FacebookPostsSection: React.FC = () => {
                   Connect with us on Facebook
                 </h3>
                 <p className="text-gray-700 mb-8 leading-relaxed max-w-md mx-auto">
-                  Stay updated with our latest news, events, and school activities by following our official Facebook page.
+                  {showFallback
+                    ? "Having trouble loading? Visit our Facebook page directly to see our latest updates and school activities."
+                    : "Stay updated with our latest news, events, and school activities by following our official Facebook page."
+                  }
                 </p>
                 <a
                   href={facebookPageUrl}
@@ -507,6 +529,12 @@ const FacebookPostsSection: React.FC = () => {
                   <span>Visit Our Facebook Page</span>
                   <ExternalLink size={18} />
                 </a>
+
+                {showFallback && (
+                  <p className="text-sm text-gray-500 mt-4">
+                    💡 Tip: Check your internet connection or try refreshing the page
+                  </p>
+                )}
 
                 {/* Decorative elements */}
                 <div className="flex items-center justify-center gap-2 mt-6">
@@ -521,7 +549,7 @@ const FacebookPostsSection: React.FC = () => {
           )}
 
           {/* Facebook Page Plugin - Neon Glow Container */}
-          {!isLoading && !loadError && (
+          {!isLoading && !loadError && !showFallback && (
             <div className="flex justify-center">
               {/* Desktop Layout - Centered with Neon Glow */}
               <div className="hidden lg:block">
@@ -590,7 +618,7 @@ const FacebookPostsSection: React.FC = () => {
           )}
 
           {/* Visit Facebook Page Button */}
-          {!loadError && (
+          {!loadError && !showFallback && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

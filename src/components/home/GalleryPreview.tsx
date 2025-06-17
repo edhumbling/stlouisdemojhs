@@ -66,31 +66,20 @@ const GalleryPreview: React.FC = () => {
                   if (shimmer) shimmer.style.display = 'none';
                 }}
               />
-              {/* Mobile-Friendly Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 active:opacity-100 transition-opacity duration-300 flex items-end p-2 sm:p-3">
-                <div className="text-white">
-                  <p className="text-xs font-medium leading-tight">{image.category}</p>
-                  <p className="text-xs opacity-80 mt-1 leading-tight line-clamp-2">{image.alt}</p>
-                </div>
-              </div>
 
-              {/* Cute Border Glow */}
-              <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-blue-400/50 transition-colors duration-300"></div>
             </motion.div>
           ))}
         </div>
 
-        {/* Beautiful CTA Button */}
+        {/* Simple CTA Button */}
         <div className="text-center mt-6 sm:mt-8 md:mt-10">
           <Link
             to="/gallery"
             onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-green-600 text-white font-bold rounded-2xl shadow-[0_0_20px_rgba(59,130,246,0.4),0_0_40px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6),0_0_60px_rgba(34,197,94,0.4)] transition-all duration-300 text-sm sm:text-base hover:scale-105 group"
+            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-green-600 text-white font-bold rounded-2xl transition-all duration-300 text-sm sm:text-base hover:scale-105"
             style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
           >
-            <span className="relative z-10">View Full Gallery</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-green-500 opacity-40 animate-pulse rounded-2xl"></span>
-            <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-green-400 opacity-30 animate-ping rounded-2xl group-hover:animate-none"></span>
+            View Full Gallery
           </Link>
         </div>
 
