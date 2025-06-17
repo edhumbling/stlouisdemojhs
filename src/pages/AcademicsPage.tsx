@@ -24,12 +24,12 @@ const AcademicsPage: React.FC = () => {
     navigateToWithState(route);
   };
 
-  // Enhanced subject styling with distinct colors and silver reflections
+  // Enhanced subject styling with solid colors and glass effect
   const getEnhancedSubjectStyle = (subject: any) => {
     return {
-      gradient: subject.color.replace('bg-', 'from-') + ' via-' + subject.color.replace('bg-', '').replace('-600', '-500') + ' to-' + subject.color.replace('bg-', '').replace('-600', '-700'),
+      solidColor: subject.color.replace('-600', '-600/80'),
       glow: subject.neonColor,
-      border: 'border-' + subject.color.replace('bg-', '').replace('-600', '-400') + '/60',
+      border: 'border-' + subject.color.replace('bg-', '').replace('-600', '-400') + '/40',
       text: subject.textColor,
       shadow: subject.shadowColor
     };
@@ -377,10 +377,12 @@ const AcademicsPage: React.FC = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.03 }}
-                  className={`bg-gradient-to-br ${style.gradient} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${style.shadow} border-2 ${style.border}`}
+                  className={`${style.solidColor} backdrop-blur-md rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${style.shadow} border border-white/20 ${style.border}`}
                   style={{
-                    boxShadow: `0 0 25px ${style.glow}40, 0 0 50px ${style.glow}20, inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)`,
-                    filter: 'brightness(1.1) saturate(1.2)'
+                    boxShadow: `0 0 25px ${style.glow}40, 0 0 50px ${style.glow}20, inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.1)`,
+                    filter: 'brightness(1.1) saturate(1.2)',
+                    backdropFilter: 'blur(12px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(12px) saturate(180%)',
                   }}
                   whileHover={{
                     boxShadow: `0 0 40px ${style.glow}60, 0 0 80px ${style.glow}40, inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)`,
@@ -388,15 +390,18 @@ const AcademicsPage: React.FC = () => {
                     scale: 1.15
                   }}
                 >
-                  {/* Sharp Silver Reflection Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300 rounded-lg"></div>
+                  {/* Glass Reflection Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300 rounded-lg"></div>
 
-                  {/* Top Silver Highlight */}
-                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-t-lg"></div>
+                  {/* Glass Top Highlight */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/60 to-transparent rounded-t-lg"></div>
 
-                  {/* Side Silver Highlights */}
-                  <div className="absolute top-0 left-0 w-0.5 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-l-lg"></div>
-                  <div className="absolute top-0 right-0 w-0.5 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-r-lg"></div>
+                  {/* Glass Side Highlights */}
+                  <div className="absolute top-0 left-0 w-0.5 bottom-0 bg-gradient-to-b from-white/50 via-white/20 to-transparent rounded-l-lg"></div>
+                  <div className="absolute top-0 right-0 w-0.5 bottom-0 bg-gradient-to-b from-white/50 via-white/20 to-transparent rounded-r-lg"></div>
+
+                  {/* Glass Frosted Effect */}
+                  <div className="absolute inset-0 bg-white/5 rounded-lg group-hover:bg-white/10 transition-colors duration-300"></div>
 
                   {/* Intense Neon Glow Effect */}
                   <div
@@ -415,9 +420,9 @@ const AcademicsPage: React.FC = () => {
                     }}
                   ></div>
 
-                  {/* Sharp Corner Reflections */}
-                  <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-white/40 rounded-full opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
-                  <div className="absolute top-0.5 right-0.5 w-0.5 h-0.5 bg-white/30 rounded-full opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                  {/* Glass Corner Highlights */}
+                  <div className="absolute top-0.5 left-0.5 w-2 h-2 bg-white/20 rounded-full blur-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-white/15 rounded-full blur-sm opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
 
                   <div className="relative z-10">
                     <div className="mb-1 flex justify-center">
@@ -456,10 +461,12 @@ const AcademicsPage: React.FC = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.03 }}
-                  className={`bg-gradient-to-br ${style.gradient} rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${style.shadow} border-2 ${style.border}`}
+                  className={`${style.solidColor} backdrop-blur-md rounded-lg p-1.5 sm:p-2 text-center transition-all duration-300 hover:scale-110 relative overflow-hidden group cursor-pointer ${style.shadow} border border-white/20 ${style.border}`}
                   style={{
-                    boxShadow: `0 0 25px ${style.glow}40, 0 0 50px ${style.glow}20, inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)`,
-                    filter: 'brightness(1.1) saturate(1.2)'
+                    boxShadow: `0 0 25px ${style.glow}40, 0 0 50px ${style.glow}20, inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.1)`,
+                    filter: 'brightness(1.1) saturate(1.2)',
+                    backdropFilter: 'blur(12px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(12px) saturate(180%)',
                   }}
                   whileHover={{
                     boxShadow: `0 0 40px ${style.glow}60, 0 0 80px ${style.glow}40, inset 0 2px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.3)`,
@@ -467,15 +474,18 @@ const AcademicsPage: React.FC = () => {
                     scale: 1.15
                   }}
                 >
-                  {/* Sharp Silver Reflection Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300 rounded-lg"></div>
+                  {/* Glass Reflection Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300 rounded-lg"></div>
 
-                  {/* Top Silver Highlight */}
-                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-t-lg"></div>
+                  {/* Glass Top Highlight */}
+                  <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white/60 to-transparent rounded-t-lg"></div>
 
-                  {/* Side Silver Highlights */}
-                  <div className="absolute top-0 left-0 w-0.5 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-l-lg"></div>
-                  <div className="absolute top-0 right-0 w-0.5 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-r-lg"></div>
+                  {/* Glass Side Highlights */}
+                  <div className="absolute top-0 left-0 w-0.5 bottom-0 bg-gradient-to-b from-white/50 via-white/20 to-transparent rounded-l-lg"></div>
+                  <div className="absolute top-0 right-0 w-0.5 bottom-0 bg-gradient-to-b from-white/50 via-white/20 to-transparent rounded-r-lg"></div>
+
+                  {/* Glass Frosted Effect */}
+                  <div className="absolute inset-0 bg-white/5 rounded-lg group-hover:bg-white/10 transition-colors duration-300"></div>
 
                   {/* Intense Neon Glow Effect */}
                   <div
@@ -494,9 +504,9 @@ const AcademicsPage: React.FC = () => {
                     }}
                   ></div>
 
-                  {/* Sharp Corner Reflections */}
-                  <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-white/40 rounded-full opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
-                  <div className="absolute top-0.5 right-0.5 w-0.5 h-0.5 bg-white/30 rounded-full opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                  {/* Glass Corner Highlights */}
+                  <div className="absolute top-0.5 left-0.5 w-2 h-2 bg-white/20 rounded-full blur-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-white/15 rounded-full blur-sm opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
 
                   <div className="relative z-10">
                     <div className="mb-1 flex justify-center">

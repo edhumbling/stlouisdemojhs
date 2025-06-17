@@ -27,92 +27,92 @@ const ProgramsSection: React.FC = () => {
     return routeMap[subject] || '/academics';
   };
 
-  // Subject styling with distinct colors and silver reflections
+  // Subject styling with solid colors and glass effect
   const getSubjectStyle = (subject: string) => {
     const styleMap: { [key: string]: any } = {
       'English Language': {
-        gradient: 'from-blue-600 via-blue-500 to-blue-700',
+        solidColor: 'bg-blue-600/80',
         shadow: 'shadow-blue-500/50',
         glow: '#3b82f6',
-        border: 'border-blue-400/60',
+        border: 'border-blue-400/40',
         text: 'text-white'
       },
       'Mathematics': {
-        gradient: 'from-emerald-600 via-emerald-500 to-emerald-700',
+        solidColor: 'bg-emerald-600/80',
         shadow: 'shadow-emerald-500/50',
         glow: '#10b981',
-        border: 'border-emerald-400/60',
+        border: 'border-emerald-400/40',
         text: 'text-white'
       },
       'Integrated Science': {
-        gradient: 'from-purple-600 via-purple-500 to-purple-700',
+        solidColor: 'bg-purple-600/80',
         shadow: 'shadow-purple-500/50',
         glow: '#8b5cf6',
-        border: 'border-purple-400/60',
+        border: 'border-purple-400/40',
         text: 'text-white'
       },
       'Social Studies': {
-        gradient: 'from-orange-600 via-orange-500 to-orange-700',
+        solidColor: 'bg-orange-600/80',
         shadow: 'shadow-orange-500/50',
         glow: '#f97316',
-        border: 'border-orange-400/60',
+        border: 'border-orange-400/40',
         text: 'text-white'
       },
       'Religious & Moral Education': {
-        gradient: 'from-indigo-600 via-indigo-500 to-indigo-700',
+        solidColor: 'bg-indigo-600/80',
         shadow: 'shadow-indigo-500/50',
         glow: '#6366f1',
-        border: 'border-indigo-400/60',
+        border: 'border-indigo-400/40',
         text: 'text-white'
       },
       'Ghanaian Language (Asante Twi)': {
-        gradient: 'from-red-600 via-red-500 to-red-700',
+        solidColor: 'bg-red-600/80',
         shadow: 'shadow-red-500/50',
         glow: '#ef4444',
-        border: 'border-red-400/60',
+        border: 'border-red-400/40',
         text: 'text-white'
       },
       'French': {
-        gradient: 'from-pink-600 via-pink-500 to-pink-700',
+        solidColor: 'bg-pink-600/80',
         shadow: 'shadow-pink-500/50',
         glow: '#ec4899',
-        border: 'border-pink-400/60',
+        border: 'border-pink-400/40',
         text: 'text-white'
       },
       'Career Technology': {
-        gradient: 'from-amber-500 via-yellow-500 to-amber-600',
+        solidColor: 'bg-amber-500/80',
         shadow: 'shadow-amber-500/50',
         glow: '#f59e0b',
-        border: 'border-amber-400/60',
+        border: 'border-amber-400/40',
         text: 'text-black'
       },
       'Computing (ICT)': {
-        gradient: 'from-cyan-600 via-cyan-500 to-cyan-700',
+        solidColor: 'bg-cyan-600/80',
         shadow: 'shadow-cyan-500/50',
         glow: '#06b6d4',
-        border: 'border-cyan-400/60',
+        border: 'border-cyan-400/40',
         text: 'text-white'
       },
       'Creative Arts & Design': {
-        gradient: 'from-teal-600 via-teal-500 to-teal-700',
+        solidColor: 'bg-teal-600/80',
         shadow: 'shadow-teal-500/50',
         glow: '#14b8a6',
-        border: 'border-teal-400/60',
+        border: 'border-teal-400/40',
         text: 'text-white'
       },
       'Music': {
-        gradient: 'from-violet-600 via-violet-500 to-violet-700',
+        solidColor: 'bg-violet-600/80',
         shadow: 'shadow-violet-500/50',
         glow: '#7c3aed',
-        border: 'border-violet-400/60',
+        border: 'border-violet-400/40',
         text: 'text-white'
       }
     };
     return styleMap[subject] || {
-      gradient: 'from-gray-600 via-gray-500 to-gray-700',
+      solidColor: 'bg-gray-600/80',
       shadow: 'shadow-gray-500/50',
       glow: '#6b7280',
-      border: 'border-gray-400/60',
+      border: 'border-gray-400/40',
       text: 'text-white'
     };
   };
@@ -201,10 +201,11 @@ const ProgramsSection: React.FC = () => {
                       stiffness: 200,
                       damping: 20
                     }}
-                    className={`group relative bg-gradient-to-br ${style.gradient} rounded-xl p-2 sm:p-3 ${style.shadow} hover:shadow-2xl border-2 ${style.border} transition-all duration-300 overflow-hidden cursor-pointer transform hover:scale-105 hover:-translate-y-1`}
+                    className={`group relative ${style.solidColor} backdrop-blur-md rounded-xl p-2 sm:p-3 ${style.shadow} hover:shadow-2xl border border-white/20 ${style.border} transition-all duration-300 overflow-hidden cursor-pointer transform hover:scale-105 hover:-translate-y-1`}
                     style={{
-                      boxShadow: `0 0 20px ${style.glow}40, 0 0 40px ${style.glow}20, inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2)`,
-                      background: `linear-gradient(135deg, ${style.glow}20 0%, transparent 50%, rgba(255,255,255,0.1) 100%)`,
+                      boxShadow: `0 0 20px ${style.glow}40, 0 0 40px ${style.glow}20, inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.1)`,
+                      backdropFilter: 'blur(12px) saturate(180%)',
+                      WebkitBackdropFilter: 'blur(12px) saturate(180%)',
                     }}
                     whileHover={{
                       scale: 1.08,
@@ -215,15 +216,18 @@ const ProgramsSection: React.FC = () => {
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleSubjectClick(subject)}
                   >
-                    {/* Sharp Silver Reflection Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300 rounded-xl"></div>
+                    {/* Glass Reflection Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-white/10 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300 rounded-xl"></div>
 
-                    {/* Top Silver Highlight */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-t-xl"></div>
+                    {/* Glass Top Highlight */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/60 to-transparent rounded-t-xl"></div>
 
-                    {/* Side Silver Highlights */}
-                    <div className="absolute top-0 left-0 w-1 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-l-xl"></div>
-                    <div className="absolute top-0 right-0 w-1 bottom-0 bg-gradient-to-b from-white/30 via-white/10 to-transparent rounded-r-xl"></div>
+                    {/* Glass Side Highlights */}
+                    <div className="absolute top-0 left-0 w-0.5 bottom-0 bg-gradient-to-b from-white/50 via-white/20 to-transparent rounded-l-xl"></div>
+                    <div className="absolute top-0 right-0 w-0.5 bottom-0 bg-gradient-to-b from-white/50 via-white/20 to-transparent rounded-r-xl"></div>
+
+                    {/* Glass Frosted Effect */}
+                    <div className="absolute inset-0 bg-white/5 rounded-xl group-hover:bg-white/10 transition-colors duration-300"></div>
 
                     {/* Intense Glow Effect */}
                     <div
@@ -242,9 +246,9 @@ const ProgramsSection: React.FC = () => {
                       }}
                     ></div>
 
-                    {/* Sharp Corner Reflections */}
-                    <div className="absolute top-1 left-1 w-2 h-2 bg-white/40 rounded-full opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
-                    <div className="absolute top-1 right-1 w-1.5 h-1.5 bg-white/30 rounded-full opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                    {/* Glass Corner Highlights */}
+                    <div className="absolute top-1 left-1 w-3 h-3 bg-white/20 rounded-full blur-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute top-1 right-1 w-2 h-2 bg-white/15 rounded-full blur-sm opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
 
                     <span className={`relative z-10 ${style.text} font-bold group-hover:drop-shadow-lg transition-all duration-300 leading-tight text-center block`}
                           style={{
