@@ -173,7 +173,9 @@ const PrivacyPolicyPage: React.FC = () => {
               <h4 className="font-semibold text-white mb-2">School Administration</h4>
               <p className="text-gray-300 text-sm">
                 St. Louis Demonstration Junior High School<br />
-                Suame Mbrom, Ashanti Region, Ghana<br />
+                P.O. Box 3041, Mbrom-Kumasi<br />
+                GPS Digital Address: AK-015-1612 🏫<br />
+                Ashanti Region, Ghana<br />
                 Email: info@stlouisdemojhs.com
               </p>
             </div>

@@ -275,9 +275,9 @@ St. Louis Demonstration J.H.S Website System
                   <div>
                     <h3 className="font-semibold text-base sm:text-lg text-white mb-1">Address</h3>
                     <p className="text-sm sm:text-base text-gray-300">
-                      P.O. Box 3041<br />
-                      Kumasi, Ashanti Region<br />
-                      Ghana
+                      P.O. Box 3041, Mbrom-Kumasi<br />
+                      GPS Digital Address: AK-015-1612 🏫<br />
+                      Ashanti Region, Ghana
                     </p>
                   </div>
                 </motion.div>
@@ -527,7 +527,9 @@ St. Louis Demonstration J.H.S Website System
                   <MapPin size={36} className="mx-auto text-green-400 mb-3" />
                 </motion.div>
                 <p className="text-white font-medium text-sm sm:text-base">
-                  P.O. Box 3041, Kumasi, Ashanti Region, Ghana
+                  P.O. Box 3041, Mbrom-Kumasi<br />
+                  GPS Digital Address: AK-015-1612 🏫<br />
+                  Ashanti Region, Ghana
                 </p>
                 <p className="text-xs sm:text-sm text-gray-400 mt-2">
                   (Google Maps would be embedded here in a production environment)

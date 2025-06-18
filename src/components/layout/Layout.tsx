@@ -93,11 +93,12 @@ const Layout: React.FC = () => {
     "description": `Premier educational institution in Kumasi, Ghana with over ${schoolStats.ageFormatted} years of excellence in education. We have successfully trained ${schoolStats.totalStudentsFormatted} students with exceptional BECE success rates.`,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "St. Louis Demonstration J.H.S",
+      "streetAddress": "P.O. Box 3041, Mbrom-Kumasi",
       "addressLocality": "Kumasi",
       "addressRegion": "Ashanti Region",
       "postalCode": "3041",
-      "addressCountry": "GH"
+      "addressCountry": "GH",
+      "gpsCoordinates": "AK-015-1612"
     },
     "contactPoint": {
       "@type": "ContactPoint",

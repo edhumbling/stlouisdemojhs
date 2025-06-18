@@ -101,7 +101,7 @@ const PartnerPage: React.FC = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
-      info: "St. Louis Demonstration J.H.S, Kumasi",
+      info: "P.O. Box 3041, Mbrom-Kumasi | GPS: AK-015-1612 🏫",
       description: "Schedule a visit to see our facilities and discuss partnerships"
     }
   ];

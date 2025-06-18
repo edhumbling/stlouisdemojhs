@@ -215,9 +215,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     "description": finalDescription,
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "P.O. Box 3041, Mbrom-Kumasi",
       "addressCountry": "Ghana",
       "addressRegion": "Ashanti Region",
-      "addressLocality": "Suame Mbrom"
+      "addressLocality": "Suame Mbrom",
+      "gpsCoordinates": "AK-015-1612"
     },
     "contactPoint": {
       "@type": "ContactPoint",
@@ -255,21 +257,21 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="description" content={finalDescription} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
-      
+
       {/* Robots Meta */}
-      <meta 
-        name="robots" 
-        content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'},max-snippet:-1,max-image-preview:large,max-video-preview:-1`} 
+      <meta
+        name="robots"
+        content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'},max-snippet:-1,max-image-preview:large,max-video-preview:-1`}
       />
-      
+
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
-      
+
       {/* Alternate Languages */}
       {alternateLanguages.map((lang, index) => (
         <link key={index} rel="alternate" hrefLang={lang.hreflang} href={lang.href} />
       ))}
-      
+
       {/* Open Graph Meta Tags - Facebook & LinkedIn optimized */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
@@ -291,7 +293,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Additional Open Graph images for different networks */}
       <meta property="og:image" content={linkedinImage} />
       <meta property="og:image" content={whatsappImage} />
-      
+
       {/* Article specific Open Graph tags */}
       {type === 'article' && (
         <>
@@ -304,7 +306,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
           ))}
         </>
       )}
-      
+
       {/* Twitter Card Meta Tags - Twitter optimized */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
@@ -313,7 +315,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:image:alt" content={title} />
       <meta name="twitter:site" content="@stlouisdemojhs" />
       <meta name="twitter:creator" content="@stlouisdemojhs" />
-      
+
       {/* Additional Meta Tags for Better SEO */}
       <meta name="theme-color" content="#1a1a1a" />
       <meta name="msapplication-TileColor" content="#1a1a1a" />
@@ -323,45 +325,47 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="format-detection" content="telephone=no" />
-      
+
       {/* Preconnect to external domains for performance */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://6z76leifsf.ufs.sh" />
-      
+
       {/* DNS Prefetch for better performance */}
       <link rel="dns-prefetch" href="//www.google-analytics.com" />
       <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       <link rel="dns-prefetch" href="//connect.facebook.net" />
-      
+
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(finalStructuredData)}
       </script>
-      
+
       {/* Additional Performance Hints */}
       <meta httpEquiv="x-dns-prefetch-control" content="on" />
       <meta name="referrer" content="strict-origin-when-cross-origin" />
-      
+
       {/* Geo Tags for Local SEO */}
       <meta name="geo.region" content="GH-AH" />
       <meta name="geo.country" content="Ghana" />
-      <meta name="geo.placename" content="Suame Mbrom, Ashanti Region" />
+      <meta name="geo.placename" content="P.O. Box 3041, Mbrom-Kumasi, GPS: AK-015-1612" />
+      <meta name="geo.position" content="6.6885,-1.6244" />
       <meta name="ICBM" content="6.6885,-1.6244" />
-      
+      <meta name="gps.coordinates" content="AK-015-1612" />
+
       {/* Educational Institution Specific Meta */}
       <meta name="education.level" content="Junior High School" />
       <meta name="education.type" content="Secondary Education" />
       <meta name="institution.type" content="Educational" />
       <meta name="audience" content="Students, Parents, Educators" />
-      
+
       {/* Language and Content Meta */}
       <meta httpEquiv="content-language" content="en" />
       <meta name="content-type" content="text/html; charset=utf-8" />
-      
+
       {/* Cache Control for better performance */}
       <meta httpEquiv="cache-control" content="public, max-age=31536000" />
-      
+
       {/* Verification Meta Tags (add when you have accounts) */}
       {/* <meta name="google-site-verification" content="your-google-verification-code" /> */}
       {/* <meta name="msvalidate.01" content="your-bing-verification-code" /> */}

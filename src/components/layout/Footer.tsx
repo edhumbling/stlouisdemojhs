@@ -303,7 +303,7 @@ const Footer: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-center sm:text-left">
               <div className="flex items-center justify-center sm:justify-start space-x-2">
                 <MapPin size={14} className="text-gray-400 flex-shrink-0" />
-                <span className="text-gray-400 text-xs">P.O. Box 3041, Kumasi</span>
+                <span className="text-gray-400 text-xs">P.O. Box 3041, Mbrom-Kumasi | GPS: AK-015-1612 🏫</span>
               </div>
               <div className="flex items-center justify-center sm:justify-start space-x-2">
                 <Phone size={14} className="text-gray-400 flex-shrink-0" />
