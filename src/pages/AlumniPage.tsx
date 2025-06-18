@@ -198,6 +198,14 @@ const AlumniPage: React.FC = () => {
       achievement: "Dedicated healthcare professional serving the community",
       image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/124517551_835272210621815_5398303524100255322_n.jpg?updatedAt=1748301421385",
       quote: "The values of compassion and service I learned here guide my nursing practice every day."
+    },
+    {
+      name: "Melody Amoabeng",
+      class: "Class of 2011",
+      profession: "Professional in the United Kingdom",
+      achievement: "Successfully established career and life in the United Kingdom",
+      image: "https://ik.imagekit.io/humbling/362242784_6497485583671328_249841871987614079_n.jpg",
+      quote: "St. Louis Demo JHS gave me the foundation and confidence to pursue my dreams internationally."
     }
   ];
 
@@ -569,7 +577,7 @@ const AlumniPage: React.FC = () => {
                 <p className="text-gray-200 text-xs sm:text-sm mb-3 leading-relaxed max-w-2xl mx-auto">
                   Join {alumniStats[2].number} alumni. Keep your profile updated to connect and grow your network.
                 </p>
-                
+
                 {/* Benefits - Horizontal */}
                 <div className="flex flex-wrap justify-center gap-2 mb-4">
                   {[
@@ -608,7 +616,7 @@ const AlumniPage: React.FC = () => {
                     <span className="mr-1.5">✉️</span> Email Us
                   </a>
                 </div>
-                
+
                 <p className="text-gray-400 text-xs mt-3">
                   <span className="text-blue-300 font-medium">{alumniStats[3].number} Alumni</span> have updated their profiles
                 </p>
@@ -650,7 +658,7 @@ const AlumniPage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-4 sm:gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {alumniEvents.map((event, index) => (
               <motion.div
                 key={index}
