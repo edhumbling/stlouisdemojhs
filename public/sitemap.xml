@@ -9,7 +9,7 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://stlouisdemojhs.com/</loc>
-    <lastmod>2025-01-15T10:00:00+00:00</lastmod>
+    <lastmod>2025-06-22T10:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <mobile:mobile/>
@@ -189,6 +189,14 @@
   </url>
 
   <url>
+    <loc>https://stlouisdemojhs.com/donate-paypal</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
     <loc>https://stlouisdemojhs.com/donate-us-bank</loc>
     <lastmod>2025-01-15T08:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -198,6 +206,14 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-uk-bank</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-euro-bank</loc>
     <lastmod>2025-01-15T08:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -217,6 +233,420 @@
     <lastmod>2025-01-15T08:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Community and Partnership Pages -->
+  <url>
+    <loc>https://stlouisdemojhs.com/alumni</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/sponsorship</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/partner</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/media</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/tiktok</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Subject Pages -->
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/mathematics</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/english-language</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/integrated-science</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/social-studies</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/religious-moral-education</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/ghanaian-language</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/french</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/career-technology</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/computing-ict</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/creative-arts-design</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/subject/music</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Educational Resources and Guidance -->
+  <url>
+    <loc>https://stlouisdemojhs.com/scholarship-opportunities</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/educational-guide</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/educational-pathway-guide</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/staff-resources</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/ai-teaching-guide</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/jhs-textbooks</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/dream-hive-resources</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/money-smart-links</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Educational Institutions -->
+  <url>
+    <loc>https://stlouisdemojhs.com/nursing-institutions</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/teacher-training</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/local-universities</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/professional-institutes</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/tvet-schools</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/military-academies</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/religious-seminaries</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/art-creative-schools</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/agricultural-colleges</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/business-schools</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/online-universities</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Additional School Pages -->
+  <url>
+    <loc>https://stlouisdemojhs.com/calendar</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/advice-speeches</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/thank-you</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/schedule-visit</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/leadership-excellence</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/tiktok-submit</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/social-preview</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Monthly Donation Pages -->
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-monthly-10</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-monthly-30</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-monthly-50</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-monthly-100</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-monthly-200</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-monthly-500</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-monthly-1000</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-monthly-3000</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://stlouisdemojhs.com/donate-monthly-5000</loc>
+    <lastmod>2025-01-15T08:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
     <mobile:mobile/>
   </url>
 
