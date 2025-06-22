@@ -109,6 +109,110 @@ const TikTokPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Official TikTok Account Section */}
+      <section className="py-6 sm:py-8 bg-gradient-to-r from-pink-600/20 via-purple-600/20 to-pink-600/20 border-b border-pink-500/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            {/* Official Account Header */}
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
+                <span className="text-xl">🎵</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white">
+                Follow Our Official TikTok Account
+              </h2>
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                <span className="text-xl">✨</span>
+              </div>
+            </div>
+
+            {/* Call to Action Text */}
+            <p className="text-sm sm:text-base text-gray-200 mb-6 leading-relaxed">
+              Join our growing TikTok community! Follow us for the latest school events, student achievements,
+              behind-the-scenes moments, and fun educational content from St. Louis Demonstration JHS.
+            </p>
+
+            {/* Official TikTok Button */}
+            <motion.a
+              href="https://www.tiktok.com/@stlouisdemojhs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-pink-500/30 transition-all duration-300 transform hover:scale-105 border border-pink-500/50 overflow-hidden"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 30px rgba(255, 20, 147, 0.5)"
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {/* Animated Background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+
+              {/* Shimmer Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+
+              {/* Content */}
+              <div className="relative z-10 flex items-center gap-3">
+                <motion.span
+                  className="text-2xl"
+                  animate={{
+                    rotate: [0, 10, -10, 0],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  🎵
+                </motion.span>
+                <span>@stlouisdemojhs</span>
+                <ExternalLink className="w-5 h-5" />
+              </div>
+            </motion.a>
+
+            {/* Action Buttons Row */}
+            <div className="flex flex-wrap justify-center gap-3 mt-6">
+              <motion.div
+                className="bg-pink-600/30 text-pink-200 px-4 py-2 rounded-full text-sm font-medium border border-pink-500/40 backdrop-blur-sm flex items-center gap-2"
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(236, 72, 153, 0.4)" }}
+              >
+                <Heart className="w-4 h-4" />
+                <span>Follow & Like</span>
+              </motion.div>
+              <motion.div
+                className="bg-purple-600/30 text-purple-200 px-4 py-2 rounded-full text-sm font-medium border border-purple-500/40 backdrop-blur-sm flex items-center gap-2"
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(147, 51, 234, 0.4)" }}
+              >
+                <span className="text-sm">🔄</span>
+                <span>Share Videos</span>
+              </motion.div>
+              <motion.div
+                className="bg-blue-600/30 text-blue-200 px-4 py-2 rounded-full text-sm font-medium border border-blue-500/40 backdrop-blur-sm flex items-center gap-2"
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(37, 99, 235, 0.4)" }}
+              >
+                <span className="text-sm">📈</span>
+                <span>Grow Our Presence</span>
+              </motion.div>
+            </div>
+
+            {/* Growth Message */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mt-6 p-4 bg-gradient-to-r from-pink-900/30 to-purple-900/30 rounded-xl border border-pink-500/30 backdrop-blur-sm"
+            >
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                <strong className="text-pink-300">Help us grow!</strong> Every follow, like, share, and comment helps us reach more students,
+                parents, and the community. Together, we can showcase the amazing spirit of St. Louis Demonstration JHS! 🚀
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Compact Hero Section with TikTok Backgrounds */}
       <section className="py-4 sm:py-6 relative overflow-hidden">
         {/* Multiple TikTok Background Images */}
@@ -233,8 +337,8 @@ const TikTokPage: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none"></div>
                     {/* TikTok Embed */}
                     <div className="aspect-[9/16] bg-black rounded-t-2xl overflow-hidden">
-                      <blockquote 
-                        className="tiktok-embed w-full h-full" 
+                      <blockquote
+                        className="tiktok-embed w-full h-full"
                         cite={video.url}
                         data-video-id={video.id}
                       >
@@ -252,7 +356,7 @@ const TikTokPage: React.FC = () => {
                       <h4 className="text-white font-semibold text-sm mb-2 line-clamp-2">
                         {video.description || 'St. Louis Demo JHS on TikTok'}
                       </h4>
-                      
+
                       <div className="flex items-center justify-between text-xs text-gray-400 mb-3">
                         <span>@{video.username}</span>
                         <span>{video.date}</span>
