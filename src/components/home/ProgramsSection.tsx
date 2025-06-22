@@ -360,7 +360,10 @@ const ProgramsSection: React.FC = () => {
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                     className="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm lg:text-base"
                   >
-                    Learn more
+                    {program.id === 1 ? 'Explore Core Academic Subjects' :
+                     program.id === 2 ? 'Discover STEM Education Programs' :
+                     program.id === 3 ? 'View Creative Arts Curriculum' :
+                     program.id === 4 ? 'Learn About Character Education' : 'Learn more'}
                     <ChevronRight size={16} className="ml-1 lg:w-5 lg:h-5" />
                   </Link>
                 </div>
