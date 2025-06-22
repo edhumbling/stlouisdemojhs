@@ -33,6 +33,13 @@ const currentSponsors: Sponsor[] = [
     description: 'Founder of AIDEL | Author'
   },
   {
+    id: 'melody-amoabeng',
+    name: 'Melody Amoabeng',
+    image: 'https://ik.imagekit.io/humbling/362242784_6497485583671328_249841871987614079_n.jpg',
+    level: 'Platinum',
+    description: 'Professional in the United Kingdom | Class of 2011'
+  },
+  {
     id: 'michael-duah',
     name: 'Michael Boateng Duah, MS, MLS(ASCPi)CM',
     image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/1741280603621.jpeg?updatedAt=1748301421485',
