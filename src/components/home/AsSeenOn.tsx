@@ -37,8 +37,8 @@ const AsSeenOn: React.FC = () => {
     },
     {
       id: 4,
-      name: 'Ghana News',
-      url: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/download.jpeg',
+      name: 'Graphic Online',
+      url: 'https://ik.imagekit.io/edhumbling/download.jpeg',
       width: 110,
       height: 38
     }
