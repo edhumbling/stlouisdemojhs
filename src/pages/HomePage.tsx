@@ -250,6 +250,7 @@ const HomePage: React.FC = () => {
         structuredData={homepageStructuredData}
         pageType="home"
         useGalleryImages={true}
+        image="https://ik.imagekit.io/edhumbling/500961895_1280873750548377_8614276957752557317_n.jpg?updatedAt=1750578385825"
       />
       <Hero />
       <SectionDivider position="bottom" />
