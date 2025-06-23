@@ -27,7 +27,7 @@ const DonationPage: React.FC = () => {
   const [imagesLoaded, setImagesLoaded] = useState(skipLoading ? 4 : 0);
   const [componentsLoaded, setComponentsLoaded] = useState(skipLoading);
   const [paymentFormLoaded, setPaymentFormLoaded] = useState(skipLoading);
-  const totalImages = 4; // Background image + 3 payment icons
+  const totalImages = 5; // Header background image + 3 payment icons + USSD image
 
   // Haptic feedback function
   const triggerHapticFeedback = (type: 'light' | 'medium' | 'heavy' = 'light') => {
@@ -539,10 +539,20 @@ const DonationPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Optimized Header Section - Red Love Theme */}
+      {/* Optimized Header Section - Red Love Theme with Background Image */}
       <motion.section className="py-6 sm:py-8 relative overflow-hidden">
-        {/* Simplified Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-red-600 via-pink-600 to-red-700"></div>
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src="https://ik.imagekit.io/edhumbling/Whisk_5d78f380df.jpg"
+            alt="School Background"
+            className="w-full h-full object-cover"
+            onLoad={handleImageLoad}
+            onError={handleImageLoad}
+          />
+          {/* Overlay to maintain readability and love theme */}
+          <div className="absolute inset-0 bg-gradient-to-br from-red-600/70 via-pink-600/70 to-red-700/70"></div>
+        </div>
 
         {/* Floating 3D Love Emojis */}
         <div className="absolute inset-0 pointer-events-none">
