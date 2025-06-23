@@ -61,6 +61,15 @@ const PTAPage: React.FC = () => {
         "Encourage positive behavior and discipline",
         "Support extracurricular activities and talents"
       ]
+    },
+    {
+      title: "Community Partnership",
+      items: [
+        "Build positive relationships with other parents",
+        "Advocate for school policies and improvements",
+        "Share expertise and skills with the school community",
+        "Promote the school's reputation in the wider community"
+      ]
     }
   ];
 
@@ -90,6 +99,15 @@ const PTAPage: React.FC = () => {
         "Collaborate effectively with fellow educators",
         "Participate actively in PTA initiatives and meetings",
         "Provide timely updates on student progress and concerns"
+      ]
+    },
+    {
+      title: "School Environment",
+      items: [
+        "Create a safe and supportive classroom atmosphere",
+        "Implement effective classroom management strategies",
+        "Contribute to school-wide policies and improvement initiatives",
+        "Mentor and guide students beyond academic subjects"
       ]
     }
   ];
@@ -209,7 +227,7 @@ const PTAPage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {parentResponsibilities.map((category, index) => (
               <motion.div
                 key={index}
@@ -255,7 +273,7 @@ const PTAPage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {teacherResponsibilities.map((category, index) => (
               <motion.div
                 key={index}
