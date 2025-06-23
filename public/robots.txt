@@ -252,55 +252,190 @@ Allow: /
 Crawl-delay: 1
 
 # ========================================
-# AI & LLM CRAWLERS - Machine Learning
+# AI & LLM CRAWLERS - Machine Learning & Training
 # ========================================
+# Special access for AI bots to leverage llms.txt files
+# Files available: /llms.txt and /llms-full.txt
 
-# OpenAI
+# OpenAI (ChatGPT, GPT models)
 User-agent: GPTBot
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
 
 User-agent: ChatGPT-User
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 
 User-agent: OpenAI-SearchBot
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
+
+User-agent: OAI-SearchBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
 
 # Anthropic (Claude)
 User-agent: anthropic-ai
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
 
 User-agent: Claude-Web
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
 
 User-agent: ClaudeBot
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
 
-# Perplexity
+# Perplexity AI
 User-agent: PerplexityBot
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
 
 User-agent: PerplexityAI
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
 
 # Cohere
 User-agent: CohereBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Crawl-delay: 1
 
 User-agent: cohere-ai
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Crawl-delay: 1
 
 # Hugging Face
 User-agent: HuggingFaceBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+# Mistral AI
+User-agent: MistralBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+User-agent: MistralAI
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+# Gemini (Google AI)
+User-agent: GeminiBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
+
+User-agent: BardBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 0.5
+
+# Meta AI (LLaMA)
+User-agent: MetaAI
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+User-agent: LLaMABot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+# Stability AI
+User-agent: StabilityAI
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+# AI21 Labs
+User-agent: AI21Bot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+# Inflection AI (Pi)
+User-agent: InflectionBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+User-agent: PiBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+# Character.AI
+User-agent: CharacterAI
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+# Replika
+User-agent: ReplikaBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+# Generic AI crawlers
+User-agent: AIBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+User-agent: LLMBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+User-agent: MLBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Crawl-delay: 1
+
+User-agent: NeuralBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Crawl-delay: 1
 
 # ========================================
@@ -846,19 +981,29 @@ Sitemap: https://stlouisdemojhs.com/sitemap-news.xml
 Sitemap: https://stlouisdemojhs.com/sitemap-images.xml
 
 # ========================================
+# LLM-FRIENDLY CONTENT FILES
+# ========================================
+# Special files for AI and LLM consumption:
+#
+# /llms.txt - Structured index with links and summaries
+# /llms-full.txt - Complete flattened website content
+#
+# These files follow the llmstxt.org standard and provide
+# comprehensive school information for AI training and responses.
+# All AI bots are explicitly allowed to access these files.
+# ========================================
+
+# ========================================
 # CRAWL OPTIMIZATION NOTES
 # ========================================
 # This robots.txt allows 200+ different crawlers and bots
 # Crawl delays are optimized for server performance:
-# - Google/Bing: 0.5s (priority crawlers)
-# - AI/Social: 1s (standard crawlers)
+# - Google/Bing/AI: 0.5s (priority crawlers)
+# - Social/Standard: 1s (regular crawlers)
 # - SEO Tools: 2-3s (resource-intensive crawlers)
 # - Security/Backup: 3s (low-priority crawlers)
 #
 # All crawlers are welcome to index our educational content
 # for maximum visibility and accessibility worldwide.
+# Special emphasis on AI/LLM access to llms.txt files.
 # ========================================
-
-# Additional sitemaps for better indexing
-Sitemap: https://stlouisdemojhs.com/sitemap-news.xml
-Sitemap: https://stlouisdemojhs.com/sitemap-images.xml
