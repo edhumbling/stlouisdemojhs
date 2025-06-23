@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Play, Calendar, Eye, Clock } from 'lucide-react';
+import { ArrowLeft, Play, Calendar, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
@@ -47,9 +47,9 @@ const MediaFilesPage: React.FC = () => {
       driveUrl: 'https://drive.google.com/file/d/1EYNZ4XLCFzCaS_9p3RGsM-W8nhTNWLfo/view',
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1EYNZ4XLCFzCaS_9p3RGsM-W8nhTNWLfo/view'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1EYNZ4XLCFzCaS_9p3RGsM-W8nhTNWLfo/view'),
-      duration: '8:45',
+      duration: '0:30',
       views: '1.2K',
-      uploadDate: '2 days ago',
+      uploadDate: '3 days ago',
       category: 'Election Diaries 2025'
     },
     {
@@ -59,21 +59,33 @@ const MediaFilesPage: React.FC = () => {
       driveUrl: 'https://drive.google.com/file/d/1KG71HVjDiSXkw9T4-QiOscqp1Vhji8bI/view?usp=drive_link',
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1KG71HVjDiSXkw9T4-QiOscqp1Vhji8bI/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1KG71HVjDiSXkw9T4-QiOscqp1Vhji8bI/view?usp=drive_link'),
-      duration: '12:30',
+      duration: '0:33',
       views: '856',
-      uploadDate: '1 day ago',
+      uploadDate: '2 days ago',
       category: 'Election Diaries 2025'
     },
     {
       id: '3',
       title: 'Election Diaries 2025 - Episode 3',
+      description: 'Student voting process and election activities at St. Louis Demonstration JHS.',
+      driveUrl: 'https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link',
+      embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
+      thumbnail: generateThumbnail('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
+      duration: '0:38',
+      views: '2.1K',
+      uploadDate: '1 day ago',
+      category: 'Election Diaries 2025'
+    },
+    {
+      id: '4',
+      title: 'Election Diaries 2025 - Episode 4',
       description: 'Final election day coverage and results announcement at St. Louis Demonstration JHS.',
       driveUrl: 'https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link',
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
-      duration: '15:22',
-      views: '2.1K',
-      uploadDate: '6 hours ago',
+      duration: '0:45',
+      views: '1.8K',
+      uploadDate: '12 hours ago',
       category: 'Election Diaries 2025'
     }
   ];
@@ -114,7 +126,7 @@ const MediaFilesPage: React.FC = () => {
               <ArrowLeft className="w-5 h-5" />
               <span className="text-sm font-medium">Back</span>
             </button>
-            
+
             <div className="text-center">
               <h1 className="text-lg sm:text-xl font-bold text-white">
                 St. Louis Media Files
@@ -123,7 +135,7 @@ const MediaFilesPage: React.FC = () => {
                 Exclusive Coverage by St. Louis Media Team
               </p>
             </div>
-            
+
             <div className="w-16"></div> {/* Spacer for centering */}
           </div>
         </div>
@@ -134,7 +146,7 @@ const MediaFilesPage: React.FC = () => {
         <div className="flex items-center space-x-3">
           <Calendar className="w-5 h-5 text-red-500" />
           <h2 className="text-lg font-semibold text-white">Election Diaries 2025</h2>
-          <span className="text-sm text-gray-400">({mediaVideos.length} videos)</span>
+          <span className="text-sm text-gray-400">(4 videos)</span>
         </div>
       </div>
 
@@ -161,17 +173,12 @@ const MediaFilesPage: React.FC = () => {
                     target.src = '/api/placeholder/320/180';
                   }}
                 />
-                
+
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
                   <div className="bg-red-600 rounded-full p-2 group-hover:scale-110 transition-transform">
                     <Play className="w-4 h-4 text-white fill-current" />
                   </div>
-                </div>
-                
-                {/* Duration Badge */}
-                <div className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded">
-                  {video.duration}
                 </div>
               </div>
 
@@ -180,14 +187,14 @@ const MediaFilesPage: React.FC = () => {
                 <h3 className="text-sm font-medium text-white line-clamp-2 mb-2">
                   {video.title}
                 </h3>
-                
+
                 <div className="flex items-center space-x-4 text-xs text-gray-400">
                   <div className="flex items-center space-x-1">
                     <Eye className="w-3 h-3" />
-                    <span>{video.views}</span>
+                    <span>{video.views} views</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <Clock className="w-3 h-3" />
+                    <Calendar className="w-3 h-3" />
                     <span>{video.uploadDate}</span>
                   </div>
                 </div>
@@ -223,13 +230,13 @@ const MediaFilesPage: React.FC = () => {
                 title={selectedVideo.title}
               />
             </div>
-            
+
             {/* Video Details */}
             <div className="p-6">
               <h2 className="text-xl font-bold text-white mb-2">
                 {selectedVideo.title}
               </h2>
-              
+
               <div className="flex items-center space-x-6 text-sm text-gray-400 mb-4">
                 <div className="flex items-center space-x-1">
                   <Eye className="w-4 h-4" />
@@ -243,11 +250,11 @@ const MediaFilesPage: React.FC = () => {
                   {selectedVideo.category}
                 </span>
               </div>
-              
+
               <p className="text-gray-300 leading-relaxed">
                 {selectedVideo.description}
               </p>
-              
+
               <button
                 onClick={closeVideoModal}
                 className="mt-6 bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors"
