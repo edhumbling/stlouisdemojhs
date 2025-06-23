@@ -505,6 +505,470 @@ const AboutPage: React.FC = () => {
       </section>
       <SectionDivider position="bottom" flip={true} />
 
+      {/* School Crest Section - Dark Aero with School Logo */}
+      <section className="py-8 sm:py-12 md:py-16 relative overflow-hidden">
+        {/* Dark Aero Background */}
+        <div className="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 via-black/50 to-gold-900/40"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(147,51,234,0.15),transparent_70%)]"></div>
+
+        <div className="w-full px-4 sm:px-6 relative z-10">
+          {/* School Logo Display */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-8 sm:mb-12"
+          >
+            <div className="group relative max-w-md mx-auto">
+              <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/30 to-gold-500/30 rounded-full blur-lg group-hover:blur-xl transition-all duration-500"></div>
+              <div className="relative rounded-full overflow-hidden shadow-2xl border-4 border-white/30 group-hover:scale-105 transition-all duration-500 cursor-zoom-in backdrop-blur-sm bg-white/10">
+                <OptimizedImage
+                  src="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
+                  alt="St. Louis Demonstration JHS School Logo and Crest"
+                  className="w-full h-auto group-hover:scale-110 transition-transform duration-700"
+                  onClick={() => window.open('https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs', '_blank')}
+                  shimmerClassName="w-full h-64 sm:h-80 md:h-96 rounded-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p className="text-sm font-medium backdrop-blur-sm bg-black/50 rounded-lg px-3 py-2">Click to view full crest</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Crest Introduction */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-8"
+          >
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-gold-500 rounded-xl flex items-center justify-center mr-3 shadow-lg">
+                <span className="text-white text-xl">🛡️</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                Understanding Our School Crest
+              </h2>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-6" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                <strong className="text-purple-300">A Society's Crest is a symbol of those values and aspirations which that society stands for.</strong> Inside the St. Louis Crest, therefore, are images that capture the historical background of our school, as well as the aims and intentions of our Founding Mothers for their children. Let's start from the Bottom Left Hand Corner of our Crest, and work through the symbolism that lies in it.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* I. THE CASTLE - Edge to Edge Section */}
+          <div className="w-screen bg-gradient-to-r from-blue-900/30 to-purple-900/30 backdrop-blur-sm border-y border-white/20 py-8 sm:py-10 mb-8 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+            <div className="max-w-none px-4 sm:px-8 md:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                    <span className="text-white text-2xl">🏰</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-blue-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                    I. THE CASTLE
+                  </h3>
+                </div>
+
+                <div className="space-y-6">
+                  {/* Historical Significance */}
+                  <div className="bg-gradient-to-r from-blue-900/20 to-indigo-900/20 backdrop-blur-sm rounded-lg border border-blue-300/30 p-5">
+                    <h4 className="text-lg font-bold text-blue-300 mb-3 flex items-center">
+                      <span className="mr-2">📚</span>
+                      Historical Significance
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      The castle comes from the fabric of the St. Louis Order. The royalty of St. Louis, King of France, is captured by it.
+                    </p>
+                  </div>
+
+                  {/* Modern Relevance */}
+                  <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 backdrop-blur-sm rounded-lg border border-purple-300/30 p-5">
+                    <h4 className="text-lg font-bold text-purple-300 mb-4 flex items-center">
+                      <span className="mr-2">✨</span>
+                      Modern Relevance
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      The St. Louis girls should radiate the qualities characteristic of royalty in the following ways:
+                    </p>
+
+                    {/* Leadership */}
+                    <div className="mb-6 bg-gradient-to-r from-yellow-900/20 to-orange-900/20 backdrop-blur-sm rounded-lg border border-yellow-300/30 p-4">
+                      <h5 className="text-base font-bold text-yellow-300 mb-3 flex items-center">
+                        <span className="mr-2">👑</span>
+                        i. Leadership
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        Leadership is integral to royalty. Our girl, therefore, has been born to lead. It is her birthright, just as it is the king's birthright to lead his people. The St. Louis girls should therefore, wear her leadership mantle with grace, and not try to ram it haughtily down anyone's throat. The best leader is one who carries her dependents along in her decision-making, not one who struts and preens around like the proverbial peacock.
+                      </p>
+                    </div>
+
+                    {/* Service to Community */}
+                    <div className="mb-6 bg-gradient-to-r from-green-900/20 to-emerald-900/20 backdrop-blur-sm rounded-lg border border-green-300/30 p-4">
+                      <h5 className="text-base font-bold text-green-300 mb-3 flex items-center">
+                        <span className="mr-2">🤝</span>
+                        ii. Service to Community
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        Just as the good king serves to make the world a better place for his subjects, so should our St. Louis girl put herself out to brighten whichever corner she finds herself in. Taken against the background of the smiling missionary nuns who put their entire lives at our disposal, this detail tells us to render our service to all and sundry with a smile.
+                      </p>
+                    </div>
+
+                    {/* Strength of Character */}
+                    <div className="bg-gradient-to-r from-red-900/20 to-pink-900/20 backdrop-blur-sm rounded-lg border border-red-300/30 p-4">
+                      <h5 className="text-base font-bold text-red-300 mb-3 flex items-center">
+                        <span className="mr-2">💪</span>
+                        iii. Strength of Character
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        Just as a fortress stands invincible to outside attacks, so should the St. Louis girl stand strong all means. Broaden your horizons, as a part of your learning. Take into consideration all things that deserve to be taken into consideration. But, once you've taken an informed decision, stick to your guns. As Tennyson advises, the St. Louis girl should be strong in will. To strive, to seek, to find, and not to yield.
+                      </p>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        It is to press this quality home that the nuns used to say, <em className="text-pink-300">"Girls, you've got to stand on your own two feet."</em> Or <em className="text-pink-300">"Don't be a jelly-fish."</em> Or <em className="text-pink-300">"Don't be like the men of Laodecea, blowing neither hot nor cold".</em> Or <em className="text-pink-300">"Be strong and firm".</em>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* II. THE FLEUR DE LIS - Edge to Edge Section */}
+          <div className="w-screen bg-gradient-to-r from-pink-900/30 to-purple-900/30 backdrop-blur-sm border-y border-white/20 py-8 sm:py-10 mb-8 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+            <div className="max-w-none px-4 sm:px-8 md:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                    <span className="text-white text-2xl">⚜️</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-pink-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                    II. THE FLEUR DE LIS (Bottom Right)
+                  </h3>
+                </div>
+
+                <div className="space-y-6">
+                  {/* Historical Significance */}
+                  <div className="bg-gradient-to-r from-pink-900/20 to-purple-900/20 backdrop-blur-sm rounded-lg border border-pink-300/30 p-5">
+                    <h4 className="text-lg font-bold text-pink-300 mb-3 flex items-center">
+                      <span className="mr-2">📚</span>
+                      Historical Significance
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      The lily of the French Court… that is St. Louis's lily… symbolized purity.
+                    </p>
+                  </div>
+
+                  {/* Modern Relevance */}
+                  <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 backdrop-blur-sm rounded-lg border border-purple-300/30 p-5">
+                    <h4 className="text-lg font-bold text-purple-300 mb-4 flex items-center">
+                      <span className="mr-2">✨</span>
+                      Modern Relevance
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      There are two aspects of purity that this symbol calls to mind:
+                    </p>
+
+                    {/* Chastity in Morals and Thought */}
+                    <div className="mb-6 bg-gradient-to-r from-white/10 to-gray-900/20 backdrop-blur-sm rounded-lg border border-white/30 p-4">
+                      <h5 className="text-base font-bold text-white mb-3 flex items-center">
+                        <span className="mr-2">🤍</span>
+                        (a) Chastity in Morals and Thought
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        No prize will be given for connecting the young girl's morals to Christian chastity. In one of Tennyson's poems, he describes the reaction of various flowers as a passionately expected lover approaches them:
+                      </p>
+                      <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-lg p-4 border-l-4 border-pink-400">
+                        <p className="text-sm italic text-pink-200 leading-relaxed">
+                          <em>The red rose cries, 'She is near, she is near;'<br/>
+                          And the white rose weeps; 'She is late;'<br/>
+                          The larkspur listens, 'I hear, I hear;'<br/>
+                          And the lily whispers, 'I wait.'</em>
+                        </p>
+                      </div>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed mt-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        This kind of waiting is what our nuns ordered and wished for us. The St. Louis girl is to be pure in word and in deed. She is to wait for the right time to take the right step.
+                      </p>
+                    </div>
+
+                    {/* Promise of Blossoming */}
+                    <div className="bg-gradient-to-r from-yellow-900/20 to-pink-900/20 backdrop-blur-sm rounded-lg border border-yellow-300/30 p-4">
+                      <h5 className="text-base font-bold text-yellow-300 mb-3 flex items-center">
+                        <span className="mr-2">🌸</span>
+                        (b) Promise of Blossoming
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        Another aspect of the lily symbol denotes the promise of pending blossoming. The teenage St. Louis girl, now in school, is being gently cared for until she blossoms into the Bible's lily of the valley. When, in all her glory, she is ready to face the world, and poets like James Elroy Flecker announce her debut with:
+                      </p>
+                      <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-lg p-4 border-l-4 border-yellow-400">
+                        <p className="text-sm italic text-yellow-200 leading-relaxed">
+                          <em>How splendid in the morning glows the lily;<br/>
+                          With what grace he throws<br/>
+                          His supplication to the rose.</em>
+                        </p>
+                      </div>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed mt-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        St. Louis girl finds, in the process of her blooming, the assurance of glorious days to come. In the lily symbol, then, she is assured that a good deal of grandeur lies in wait for her, if only she will bide her time, and allow herself to be tutored, and pruned, and guided for the ultimate goal.
+                      </p>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed mt-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        Especially if our St. Louis girl uses her time of waiting fruitfully, soaking up as much knowledge as the world put her way, she will bloom into a spectacular success. So, it is not only the waiting that has to be done through, but also the positive response to the grooming procedure.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* III. THE SWORD - Edge to Edge Section */}
+          <div className="w-screen bg-gradient-to-r from-red-900/30 to-orange-900/30 backdrop-blur-sm border-y border-white/20 py-8 sm:py-10 mb-8 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+            <div className="max-w-none px-4 sm:px-8 md:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                    <span className="text-white text-2xl">⚔️</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-red-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                    III. THE SWORD
+                  </h3>
+                </div>
+
+                <div className="space-y-6">
+                  {/* Historical Significance */}
+                  <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 backdrop-blur-sm rounded-lg border border-red-300/30 p-5">
+                    <h4 className="text-lg font-bold text-red-300 mb-3 flex items-center">
+                      <span className="mr-2">📚</span>
+                      Historical Significance
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      That is St. Louis's sword. He went to the Crusades.
+                    </p>
+                  </div>
+
+                  {/* Modern Relevance */}
+                  <div className="bg-gradient-to-r from-orange-900/20 to-red-900/20 backdrop-blur-sm rounded-lg border border-orange-300/30 p-5">
+                    <h4 className="text-lg font-bold text-orange-300 mb-4 flex items-center">
+                      <span className="mr-2">✨</span>
+                      Modern Relevance
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      The Sword and the Chains that hold it up to the top of the Crest warn us that life is no bed of roses. As Robert Louis Stevenson says, <em className="text-orange-300">"Life… is a field of battle, and not a bed of roses."</em>
+                    </p>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      The St. Louis girl should come into real life, knowing that she is going to encounter numerous difficulties. She should, however, believe that, with the solid grounding that she has had in survival skills, she will eventually overcome, God willing. And when she does overcome, then, there is the Crown of her Success waiting for her.
+                    </p>
+
+                    {/* Essential Lesson */}
+                    <div className="bg-gradient-to-r from-yellow-900/20 to-red-900/20 backdrop-blur-sm rounded-lg border border-yellow-300/30 p-4">
+                      <h5 className="text-base font-bold text-yellow-300 mb-3 flex items-center">
+                        <span className="mr-2">💪</span>
+                        Essential Lesson
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        The essential lesson of the sword is that <strong className="text-yellow-300">Hard Work and the Exercise of Talents are both essential part of life.</strong>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* IV. THE LAUREL - Edge to Edge Section */}
+          <div className="w-screen bg-gradient-to-r from-green-900/30 to-emerald-900/30 backdrop-blur-sm border-y border-white/20 py-8 sm:py-10 mb-8 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+            <div className="max-w-none px-4 sm:px-8 md:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                    <span className="text-white text-2xl">🏆</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-green-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                    IV. THE LAUREL
+                  </h3>
+                </div>
+
+                <div className="space-y-6">
+                  {/* Historical Significance */}
+                  <div className="bg-gradient-to-r from-green-900/20 to-emerald-900/20 backdrop-blur-sm rounded-lg border border-green-300/30 p-5">
+                    <h4 className="text-lg font-bold text-green-300 mb-3 flex items-center">
+                      <span className="mr-2">📚</span>
+                      Historical Significance
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      The laurel is the symbol of victory, or the crown of success, or the healthy glow of youth and vitality. That is why Rossetti says the laurel is the <em className="text-green-300">"the sign of the perfect prime"</em>. In ancient Greek times, the victorious athlete had a laurel slipped on his head. So, when the hard work has been done, success crowns one's achievements.
+                    </p>
+                  </div>
+
+                  {/* Modern Significance */}
+                  <div className="bg-gradient-to-r from-emerald-900/20 to-green-900/20 backdrop-blur-sm rounded-lg border border-emerald-300/30 p-5">
+                    <h4 className="text-lg font-bold text-emerald-300 mb-4 flex items-center">
+                      <span className="mr-2">✨</span>
+                      Modern Significance
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      It is important to note that the Laurel encircles the hilt of the Sword. The lesson here is that the sweet smell of success is coupled with the toil of hard work. Only after one has grabbed the bull of hard work (the Sword) by the horns, and has assiduously worked her way through whatever challenges that come her way, can she hope to earn any just reward.
+                    </p>
+
+                    {/* Work and Happiness */}
+                    <div className="bg-gradient-to-r from-yellow-900/20 to-green-900/20 backdrop-blur-sm rounded-lg border border-yellow-300/30 p-4">
+                      <h5 className="text-base font-bold text-yellow-300 mb-3 flex items-center">
+                        <span className="mr-2">💼</span>
+                        Work and Happiness
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        In other words, our girls should work very hard if she is, eventually, to land on her feet. This is the background upon which society bases the adage <strong className="text-yellow-300">Work and Happiness</strong>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* V. THE FRENCH MOTTO - Edge to Edge Section */}
+          <div className="w-screen bg-gradient-to-r from-indigo-900/30 to-purple-900/30 backdrop-blur-sm border-y border-white/20 py-8 sm:py-10 mb-8 relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+            <div className="max-w-none px-4 sm:px-8 md:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                    <span className="text-white text-2xl">📜</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-indigo-300" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                    V. THE FRENCH MOTTO: DIEU LE VEULT
+                  </h3>
+                </div>
+
+                <div className="space-y-6">
+                  {/* Classical vs Modern Spelling */}
+                  <div className="bg-gradient-to-r from-indigo-900/20 to-purple-900/20 backdrop-blur-sm rounded-lg border border-indigo-300/30 p-5">
+                    <h4 className="text-lg font-bold text-indigo-300 mb-3 flex items-center">
+                      <span className="mr-2">📝</span>
+                      Classical vs Modern Spelling
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      Alert readers will notice that the verb in the old logo has an L in it. It is, therefore, spelt <strong className="text-indigo-300">Veult</strong>. Thus, the Crest in front of St. Louis Training College used to retain the old L, and this spelling is appropriately duplicated on the cover of the College's 40th Anniversary Brochure. That old version reflects the spelling of that verb in Classical French.
+                    </p>
+
+                    <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-lg p-4 border-l-4 border-indigo-400 mb-3">
+                      <h5 className="text-sm font-bold text-indigo-200 mb-2">Similar instances in other languages:</h5>
+                      <div className="grid grid-cols-2 gap-4 text-sm text-gray-300">
+                        <div>
+                          <p className="font-semibold text-indigo-300">Classical English</p>
+                          <p>wert → were</p>
+                          <p>art → are</p>
+                          <p>shalt → shall</p>
+                          <p>wilt → will</p>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-purple-300">Modern French</p>
+                          <p>veult → veut</p>
+                          <p>(without the L)</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* The Permanence Factor */}
+                  <div className="bg-gradient-to-r from-purple-900/20 to-indigo-900/20 backdrop-blur-sm rounded-lg border border-purple-300/30 p-5">
+                    <h4 className="text-lg font-bold text-purple-300 mb-4 flex items-center">
+                      <span className="mr-2">⚓</span>
+                      The Permanence Factor in a Motto
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      The question to be asked is this: Does a motto ever change its construction with the time? Surely, the essence of capturing a feeling, or an idea, or a wish, in a motto is so as to make that feeling, or idea, or wish permanent. A motto is meant to give its beneficiaries (in this case, us the products of St. Louis) a sense of unshakeable stability. It is an anchor that always assures its beneficiary of a rock-of-ages solace. It is like the mother-image….always there. A motto, in this aspect, is a back-to-basics refuge.
+                    </p>
+                    <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                      It is for this always-the-same reason that most mottos are captured in Classical Latin or Classical Greek. And, these mottos remain in their classical constructions whether Latin changes down to present-day Italian, or whether Ancient Greek changes down to present-day Modern Greek. The property of the motto is to be permanent.
+                    </p>
+
+                    <div className="bg-gradient-to-r from-yellow-900/20 to-purple-900/20 backdrop-blur-sm rounded-lg border border-yellow-300/30 p-4">
+                      <h5 className="text-base font-bold text-yellow-300 mb-3 flex items-center">
+                        <span className="mr-2">🏛️</span>
+                        Tradition vs Trend
+                      </h5>
+                      <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                        We should not allow one single frenzy of trying to move with the times to make us look fickle, and break tradition. Especially, when the Training College in Kumasi maintains the old format, and St. Louis clusters of schools all over the world keep the old format, should we be guided by Ghana's <strong className="text-yellow-300">Sankofa doctrine</strong>, and go back to the wisdom of tradition?
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Historical and Modern Significance */}
+                  <div className="bg-gradient-to-r from-blue-900/20 to-indigo-900/20 backdrop-blur-sm rounded-lg border border-blue-300/30 p-5">
+                    <h4 className="text-lg font-bold text-blue-300 mb-4 flex items-center">
+                      <span className="mr-2">🏫</span>
+                      The Motto of the Religious Order
+                    </h4>
+
+                    <div className="space-y-4">
+                      {/* Historical Significance */}
+                      <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-lg p-4 border-l-4 border-blue-400">
+                        <h5 className="text-base font-bold text-blue-300 mb-3">Historical Significance</h5>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          Originally, the St. Louis nuns had only the French <em className="text-blue-300">Dieu Le Veut</em> (God willing) for the School Motto. Some time in the 1960s, the Latin top line, <em className="text-blue-300">Ut Sint Unum</em>, was added. The Latin addition was tacked on, in order to cater for the St. Louis cluster of schools, so as to distinguish the educational establishments from the convents. Together, the two strings read: <strong className="text-blue-300">God wishes that all may be one.</strong>
+                        </p>
+                      </div>
+
+                      {/* Modern Significance */}
+                      <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 backdrop-blur-sm rounded-lg border border-green-300/30 p-4">
+                        <h5 className="text-base font-bold text-green-300 mb-3 flex items-center">
+                          <span className="mr-2">🌍</span>
+                          Modern Significance
+                        </h5>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          History has proved that it is only when there is unity, harmony, and tranquility among people that any kind of development or progress occurs. It, therefore, only makes sense to pray that peace will reign, so that the good fortune that we so wish for will crown our efforts.
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+                          We notice also, with interest, that in this short single Motto, two languages coexist without any tears. The Latin top blends into the French bottom to read, and we hardly bat an eyelid as we declare, in yet the third language of English:
+                        </p>
+
+                        <div className="mt-4 text-center bg-gradient-to-r from-gold-900/30 to-yellow-900/30 rounded-lg p-4 border border-gold-300/50">
+                          <p className="text-lg font-bold text-gold-300 mb-2" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                            MAY GOD WILL IT THAT ALL MAY BE ONE
+                          </p>
+                          <p className="text-sm text-gold-200">
+                            HARMONY, PEACE and UNITY are our ambition, because these are the prerequisites for success in life.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission, Vision & Values Section - Compact Dark Aero */}
       <section className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
         {/* Optimized School Background Image */}
