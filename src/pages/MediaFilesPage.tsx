@@ -12,7 +12,7 @@ interface MediaVideo {
   embedUrl: string;
   thumbnail: string;
   duration: string;
-  views: string;
+  baseViews: number; // Base view count
   uploadDate: string;
   category: string;
 }
@@ -39,6 +39,40 @@ const MediaFilesPage: React.FC = () => {
     return '/api/placeholder/320/180';
   };
 
+  // Calculate current view count with automatic daily increment
+  const calculateCurrentViews = (baseViews: number, uploadDate: string): string => {
+    const now = new Date();
+    const currentDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    // Parse upload date to determine days since upload
+    let daysSinceUpload = 0;
+
+    if (uploadDate.includes('hours ago')) {
+      daysSinceUpload = 0;
+    } else if (uploadDate.includes('1 day ago')) {
+      daysSinceUpload = 1;
+    } else if (uploadDate.includes('2 days ago')) {
+      daysSinceUpload = 2;
+    } else if (uploadDate.includes('3 days ago')) {
+      daysSinceUpload = 3;
+    } else if (uploadDate.includes('days ago')) {
+      const match = uploadDate.match(/(\d+) days ago/);
+      daysSinceUpload = match ? parseInt(match[1]) : 0;
+    }
+
+    // Add 1K views per day since upload
+    const currentViews = baseViews + (daysSinceUpload * 1000);
+
+    // Format the view count
+    if (currentViews >= 1000000) {
+      return `${(currentViews / 1000000).toFixed(1)}M`;
+    } else if (currentViews >= 1000) {
+      return `${(currentViews / 1000).toFixed(1)}K`;
+    } else {
+      return currentViews.toString();
+    }
+  };
+
   const mediaVideos: MediaVideo[] = [
     {
       id: '1',
@@ -48,7 +82,7 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1EYNZ4XLCFzCaS_9p3RGsM-W8nhTNWLfo/view'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1EYNZ4XLCFzCaS_9p3RGsM-W8nhTNWLfo/view'),
       duration: '0:30',
-      views: '1.2K',
+      baseViews: 1200, // Base views, will auto-increment by 1K daily
       uploadDate: '3 days ago',
       category: 'Election Diaries 2025'
     },
@@ -60,7 +94,7 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1KG71HVjDiSXkw9T4-QiOscqp1Vhji8bI/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1KG71HVjDiSXkw9T4-QiOscqp1Vhji8bI/view?usp=drive_link'),
       duration: '0:33',
-      views: '856',
+      baseViews: 856, // Base views, will auto-increment by 1K daily
       uploadDate: '2 days ago',
       category: 'Election Diaries 2025'
     },
@@ -72,7 +106,7 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       duration: '0:38',
-      views: '2.1K',
+      baseViews: 2100, // Base views, will auto-increment by 1K daily
       uploadDate: '1 day ago',
       category: 'Election Diaries 2025'
     },
@@ -84,7 +118,7 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       duration: '0:45',
-      views: '1.8K',
+      baseViews: 1800, // Base views, will auto-increment by 1K daily
       uploadDate: '12 hours ago',
       category: 'Election Diaries 2025'
     }
@@ -191,7 +225,7 @@ const MediaFilesPage: React.FC = () => {
                 <div className="flex items-center space-x-4 text-xs text-gray-400">
                   <div className="flex items-center space-x-1">
                     <Eye className="w-3 h-3" />
-                    <span>{video.views} views</span>
+                    <span>{calculateCurrentViews(video.baseViews, video.uploadDate)} views</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Calendar className="w-3 h-3" />
@@ -240,7 +274,7 @@ const MediaFilesPage: React.FC = () => {
               <div className="flex items-center space-x-6 text-sm text-gray-400 mb-4">
                 <div className="flex items-center space-x-1">
                   <Eye className="w-4 h-4" />
-                  <span>{selectedVideo.views} views</span>
+                  <span>{calculateCurrentViews(selectedVideo.baseViews, selectedVideo.uploadDate)} views</span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Calendar className="w-4 h-4" />
