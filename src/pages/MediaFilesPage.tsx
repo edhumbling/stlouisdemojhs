@@ -184,9 +184,9 @@ const MediaFilesPage: React.FC = () => {
       id: '8',
       title: 'St Louis Brags to Win the Quiz Competition',
       description: 'St. Louis Demonstration JHS students showcase their academic prowess and competitive spirit in quiz competitions.',
-      driveUrl: 'https://www.youtube.com/watch?v=placeholder',
-      embedUrl: 'https://www.youtube.com/embed/placeholder?rel=0&modestbranding=1&controls=1',
-      thumbnail: 'https://ik.imagekit.io/edhumbling/image.png',
+      driveUrl: 'https://www.youtube.com/watch?v=c90tOBl5K6g&ab_channel=Epiphany',
+      embedUrl: 'https://www.youtube.com/embed/c90tOBl5K6g?rel=0&modestbranding=1&controls=1',
+      thumbnail: 'https://img.youtube.com/vi/c90tOBl5K6g/maxresdefault.jpg',
       duration: '4:15',
       baseViews: 3400, // Base views, will auto-increment by 1K daily
       uploadDate: '3 weeks ago',
@@ -194,8 +194,8 @@ const MediaFilesPage: React.FC = () => {
     },
     {
       id: '9',
-      title: 'St. Louis Demo JHS - Academic Excellence',
-      description: 'Highlighting academic programs, teaching methods, and educational excellence at St. Louis Demonstration JHS.',
+      title: 'St louis competes with two other Catholic Schools',
+      description: 'St. Louis Demonstration JHS competing against two other Catholic schools in an academic quiz competition.',
       driveUrl: 'https://www.youtube.com/watch?v=vMUVyKTTFZA',
       embedUrl: 'https://www.youtube.com/embed/vMUVyKTTFZA?rel=0&modestbranding=1&controls=1',
       thumbnail: 'https://img.youtube.com/vi/vMUVyKTTFZA/maxresdefault.jpg',
