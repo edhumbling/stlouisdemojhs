@@ -165,12 +165,12 @@ const MediaFilesPage: React.FC = () => {
     },
     {
       id: '8',
-      title: 'St. Louis Demo JHS - School Life & Activities',
-      description: 'Showcasing daily school activities, student engagement, and community involvement at St. Louis Demonstration JHS.',
-      driveUrl: 'https://www.youtube.com/watch?v=c90tOBl5K6g',
-      embedUrl: 'https://www.youtube.com/embed/c90tOBl5K6g?rel=0&modestbranding=1&controls=1',
-      thumbnail: 'https://img.youtube.com/vi/c90tOBl5K6g/maxresdefault.jpg',
-      duration: '5:42',
+      title: 'St Louis Brags to Win the Quiz Competition',
+      description: 'St. Louis Demonstration JHS students showcase their academic prowess and competitive spirit in quiz competitions.',
+      driveUrl: 'https://www.youtube.com/watch?v=placeholder',
+      embedUrl: 'https://www.youtube.com/embed/placeholder?rel=0&modestbranding=1&controls=1',
+      thumbnail: 'https://ik.imagekit.io/edhumbling/image.png',
+      duration: '4:15',
       baseViews: 3400, // Base views, will auto-increment by 1K daily
       uploadDate: '2 weeks ago',
       category: 'Quiz Competitions'
@@ -351,23 +351,26 @@ const MediaFilesPage: React.FC = () => {
       </div>
 
       {/* TikTok Reminder Section */}
-      <div className="bg-gradient-to-r from-gray-900 to-black py-6 px-4 sm:px-6 border-t border-gray-800">
+      <div className="bg-gradient-to-r from-gray-900 to-black py-4 px-4 sm:px-6 border-t border-gray-800">
         <div className="text-center">
-          <div className="flex items-center justify-center space-x-2 mb-2">
-            <span className="text-2xl">🎵</span>
-            <h3 className="text-lg font-semibold text-white">Want More School Videos?</h3>
+          <div className="flex items-center justify-center space-x-2 mb-3">
+            <span className="text-xl">🎵</span>
+            <h3 className="text-sm sm:text-base font-semibold text-white">More Videos on TikTok!</h3>
           </div>
-          <p className="text-gray-400 text-sm mb-4">
-            Follow us on TikTok for daily school life, student activities, and behind-the-scenes content!
-          </p>
-          <div className="flex items-center justify-center space-x-4">
-            <div className="bg-gradient-to-r from-pink-500 to-purple-600 p-3 rounded-full">
-              <span className="text-white font-bold text-sm">@StLouisDemoJHS</span>
-            </div>
-            <div className="text-yellow-400 animate-pulse">
-              <span className="text-sm font-medium">✨ New videos daily!</span>
-            </div>
-          </div>
+          <a
+            href="/tiktok"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:from-pink-600 hover:via-red-600 hover:to-yellow-600 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <svg
+              className="w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43V7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.43z"/>
+            </svg>
+            <span className="text-sm">Watch @StLouisDemoJHS</span>
+            <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">Daily!</span>
+          </a>
         </div>
       </div>
 
