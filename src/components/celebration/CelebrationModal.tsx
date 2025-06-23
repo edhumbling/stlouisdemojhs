@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Volume2, VolumeX } from 'lucide-react';
 
 interface CelebrationModalProps {
   isOpen: boolean;
@@ -9,16 +8,12 @@ interface CelebrationModalProps {
 
 const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) => {
   const [isMuted, setIsMuted] = useState(false);
-  const [currentSong, setCurrentSong] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
   const confettiRef = useRef<HTMLDivElement>(null);
 
-  // Playlist of songs
-  const playlist = [
-    'https://ik.imagekit.io/edhumbling/20th%20Century%20Fox.mp3',
-    'https://ik.imagekit.io/edhumbling/King%20Paluta%20-%20Aseda%20Mp3%20Download%20_%20TrendyBeatz.mp3'
-  ];
+  // Single song for celebration
+  const audioSrc = 'https://ik.imagekit.io/edhumbling/20th%20Century%20Fox.mp3';
 
   // Array of graduation images
   const graduationImages = [
@@ -28,12 +23,13 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
     'https://ik.imagekit.io/edhumbling/a-celebratory-graduation-greeting-card-h_aCjmYmUQT1iWBEdPqEjS_A_Nql0ou6-SXqXEG4Jiv4QQg.jpeg'
   ];
 
-  // Initialize audio and confetti when modal opens
+  // Initialize audio when modal opens
   useEffect(() => {
     if (isOpen && audioRef.current) {
       const audio = audioRef.current;
       audio.volume = 1.0; // Set to 100% volume
-      audio.src = playlist[currentSong];
+      audio.src = audioSrc;
+      audio.loop = true; // Loop the single song
 
       // Load and play the audio
       audio.load();
@@ -41,7 +37,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
       const playAudio = async () => {
         try {
           await audio.play();
-          console.log('Audio playing:', playlist[currentSong]);
+          console.log('Audio playing:', audioSrc);
         } catch (error) {
           console.error('Audio play failed:', error);
           // Try to play after user interaction
@@ -62,41 +58,29 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
         audioRef.current.currentTime = 0;
       }
     };
-  }, [isOpen, currentSong, playlist]);
+  }, [isOpen, audioSrc]);
 
-  // Handle song end - play next song in playlist
+  // Handle audio events
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-
-    const handleSongEnd = () => {
-      console.log('Song ended, switching to next song');
-      // Move to next song, loop back to first song after last one
-      setCurrentSong((prev) => {
-        const nextSong = (prev + 1) % playlist.length;
-        console.log('Next song index:', nextSong);
-        return nextSong;
-      });
-    };
 
     const handleCanPlay = () => {
       console.log('Audio can play:', audio.src);
     };
 
-    const handleError = (e) => {
+    const handleError = (e: any) => {
       console.error('Audio error:', e);
     };
 
-    audio.addEventListener('ended', handleSongEnd);
     audio.addEventListener('canplay', handleCanPlay);
     audio.addEventListener('error', handleError);
 
     return () => {
-      audio.removeEventListener('ended', handleSongEnd);
       audio.removeEventListener('canplay', handleCanPlay);
       audio.removeEventListener('error', handleError);
     };
-  }, [playlist.length]);
+  }, []);
 
   // Handle image sliding - change image every 4 seconds
   useEffect(() => {
@@ -203,7 +187,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
             onClick={onClose}
             className="absolute top-4 right-4 z-10 bg-black/20 hover:bg-black/40 text-white rounded-full p-2 transition-colors duration-200"
           >
-            <X size={24} />
+            <span className="text-xl">✕</span>
           </button>
 
           {/* Audio Controls */}
@@ -213,7 +197,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
               onClick={toggleMute}
               className="bg-black/20 hover:bg-black/40 text-white rounded-full p-2 transition-colors duration-200"
             >
-              {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+              <span className="text-xl">{isMuted ? '🔇' : '🔊'}</span>
             </button>
 
             {/* Manual Play Button for Testing */}
@@ -300,69 +284,76 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
             </div>
           </div>
 
-          {/* Announcement Section */}
-          <div className="p-6 bg-gradient-to-br from-blue-50 to-purple-50">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-center"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                🎉 Premium Website Launch! 🎉
-              </h2>
-              <p className="text-lg text-gray-700 mb-4">
-                We are officially launching our premium school website today!
-              </p>
-              <p className="text-base text-gray-600 mb-6">
-                Enjoy the enhanced features, improved design, and better user experience! 🚀
-              </p>
-
-              {/* Celebration Emojis */}
-              <div className="flex justify-center space-x-2 text-3xl mb-4">
-                <motion.span
-                  animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 1, repeat: Infinity, repeatDelay: 0.5 }}
-                >
-                  🎓
-                </motion.span>
-                <motion.span
-                  animate={{ scale: [1, 1.2, 1], rotate: [0, -10, 10, 0] }}
-                  transition={{ duration: 1, repeat: Infinity, repeatDelay: 0.7 }}
-                >
-                  🎊
-                </motion.span>
-                <motion.span
-                  animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 1, repeat: Infinity, repeatDelay: 0.3 }}
-                >
-                  🎈
-                </motion.span>
-                <motion.span
-                  animate={{ scale: [1, 1.2, 1], rotate: [0, -10, 10, 0] }}
-                  transition={{ duration: 1, repeat: Infinity, repeatDelay: 0.9 }}
-                >
-                  🏆
-                </motion.span>
-              </div>
-
-              {/* Close Button */}
-              <motion.button
-                onClick={onClose}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
+          {/* Cute Floating Announcement - Hovering at Base of Images */}
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.8, type: 'spring', damping: 20, stiffness: 300 }}
+            className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20"
+          >
+            <div className="bg-black/90 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-2xl border border-white/20 max-w-sm mx-auto">
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                className="text-center"
               >
-                Continue to Website ✨
-              </motion.button>
-            </motion.div>
-          </div>
+                <h2 className="text-lg md:text-xl font-bold text-white mb-2">
+                  🎉 Premium Website Launch! 🎉
+                </h2>
+                <p className="text-sm text-white/90 mb-3">
+                  We are officially launching our premium school website today!
+                </p>
+                <p className="text-xs text-white/80 mb-4">
+                  Enjoy the enhanced features, improved design, and better user experience! 🚀
+                </p>
+
+                {/* Cute Celebration Emojis */}
+                <div className="flex justify-center space-x-1 text-xl mb-4">
+                  <motion.span
+                    animate={{ scale: [1, 1.3, 1], rotate: [0, 15, -15, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
+                  >
+                    🎓
+                  </motion.span>
+                  <motion.span
+                    animate={{ scale: [1, 1.3, 1], rotate: [0, -15, 15, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.7 }}
+                  >
+                    🎊
+                  </motion.span>
+                  <motion.span
+                    animate={{ scale: [1, 1.3, 1], rotate: [0, 15, -15, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.3 }}
+                  >
+                    🎈
+                  </motion.span>
+                  <motion.span
+                    animate={{ scale: [1, 1.3, 1], rotate: [0, -15, 15, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.9 }}
+                  >
+                    🏆
+                  </motion.span>
+                </div>
+
+                {/* Cute Continue Button */}
+                <motion.button
+                  onClick={onClose}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-sm"
+                >
+                  Continue to Website ✨
+                </motion.button>
+              </motion.div>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Background Audio */}
         <audio
           ref={audioRef}
           preload="auto"
+          loop
           className="hidden"
           crossOrigin="anonymous"
           controls={false}
