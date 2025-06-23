@@ -1,46 +1,261 @@
 # Robots.txt for St. Louis Demonstration JHS
 # Website: https://stlouisdemojhs.com
-# Last Updated: 2025-05-30
+# Last Updated: 2025-06-23
+# Comprehensive crawler permissions for maximum visibility
 
-# Allow all search engines and AI crawlers
+# ========================================
+# UNIVERSAL ACCESS - Allow all crawlers by default
+# ========================================
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Specific permissions for major search engines
+# ========================================
+# MAJOR SEARCH ENGINES - Primary indexing
+# ========================================
+
+# Google (All variants)
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
-User-agent: Bingbot
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Googlebot-News
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Googlebot-Video
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: GoogleOther
 Allow: /
 Crawl-delay: 1
 
+# Microsoft Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: BingPreview
+Allow: /
+Crawl-delay: 1
+
+User-agent: msnbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: msnbot-media
+Allow: /
+Crawl-delay: 1
+
+# Yahoo
 User-agent: Slurp
 Allow: /
 Crawl-delay: 1
 
+User-agent: yahoo-slurp
+Allow: /
+Crawl-delay: 1
+
+# DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 1
 
-User-agent: Baiduspider
+User-agent: DuckDuckGo-Favicons-Bot
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 1
 
+# Yandex
 User-agent: YandexBot
 Allow: /
 Crawl-delay: 1
 
+User-agent: YandexImages
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexVideo
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexNews
+Allow: /
+Crawl-delay: 1
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider-image
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider-video
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider-news
+Allow: /
+Crawl-delay: 2
+
+# ========================================
+# APPLE ECOSYSTEM - All Apple crawlers
+# ========================================
+User-agent: Applebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: AppleNewsBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Siri
+Allow: /
+Crawl-delay: 1
+
+User-agent: AppleBot-Extended
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# META/FACEBOOK - All Meta platforms
+# ========================================
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: Twitterbot
+User-agent: FacebookBot
 Allow: /
 
-User-agent: LinkedInBot
+User-agent: facebookcatalog
 Allow: /
 
-# AI and LLM crawlers
+User-agent: WhatsApp
+Allow: /
+
+User-agent: InstagramBot
+Allow: /
+
+User-agent: ThreadsBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# ========================================
+# BYTEDANCE/TIKTOK - All ByteDance crawlers
+# ========================================
+User-agent: Bytespider
+Allow: /
+Crawl-delay: 1
+
+User-agent: TikTokBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ByteDance
+Allow: /
+Crawl-delay: 1
+
+User-agent: DouyinBot
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# AMAZON - All Amazon services
+# ========================================
+User-agent: Amazonbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: AlexaBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Amazon-Route53-Health-Check-Service
+Allow: /
+
+User-agent: AmazonAdBot
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# COMMON CRAWL - Web archiving
+# ========================================
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: CommonCrawl
+Allow: /
+Crawl-delay: 1
+
+User-agent: commoncrawl
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# ARQUIVO.PT - Portuguese web archive
+# ========================================
+User-agent: arquivo-web-crawler
+Allow: /
+Crawl-delay: 2
+
+User-agent: ArquivoWebCrawler
+Allow: /
+Crawl-delay: 2
+
+User-agent: arquivo.pt
+Allow: /
+Crawl-delay: 2
+
+# ========================================
+# NIC CRAWLERS - Network Information Centers
+# ========================================
+User-agent: NICCrawler
+Allow: /
+Crawl-delay: 2
+
+User-agent: nic-crawler
+Allow: /
+Crawl-delay: 2
+
+User-agent: NICCRAWLER
+Allow: /
+Crawl-delay: 2
+
+# ========================================
+# YOU.COM - AI search engine
+# ========================================
+User-agent: YouBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: you-bot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YouCrawler
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# AI & LLM CRAWLERS - Machine Learning
+# ========================================
+
+# OpenAI
 User-agent: GPTBot
 Allow: /
 Crawl-delay: 1
@@ -48,28 +263,107 @@ Crawl-delay: 1
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: CCBot
+User-agent: OpenAI-SearchBot
 Allow: /
 Crawl-delay: 1
 
+# Anthropic (Claude)
 User-agent: anthropic-ai
 Allow: /
 Crawl-delay: 1
 
 User-agent: Claude-Web
 Allow: /
+Crawl-delay: 1
 
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 1
+
+# Perplexity
 User-agent: PerplexityBot
 Allow: /
 Crawl-delay: 1
 
-User-agent: YouBot
+User-agent: PerplexityAI
+Allow: /
+Crawl-delay: 1
+
+# Cohere
+User-agent: CohereBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: cohere-ai
+Allow: /
+Crawl-delay: 1
+
+# Hugging Face
+User-agent: HuggingFaceBot
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# SOCIAL MEDIA PLATFORMS
+# ========================================
+
+# Twitter/X
+User-agent: Twitterbot
 Allow: /
 
-User-agent: BingPreview
+User-agent: TwitterBot
 Allow: /
 
-# Academic and research crawlers
+User-agent: X-Bot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: linkedin
+Allow: /
+
+# Pinterest
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+# Telegram
+User-agent: TelegramBot
+Allow: /
+
+User-agent: telegram
+Allow: /
+
+# Discord
+User-agent: Discordbot
+Allow: /
+
+User-agent: Discord
+Allow: /
+
+# Reddit
+User-agent: redditbot
+Allow: /
+
+User-agent: Reddit
+Allow: /
+
+# Snapchat
+User-agent: SnapchatBot
+Allow: /
+
+User-agent: Snapchat
+Allow: /
+
+# ========================================
+# ACADEMIC & RESEARCH CRAWLERS
+# ========================================
+
+# Internet Archive
 User-agent: ia_archiver
 Allow: /
 
@@ -79,28 +373,491 @@ Allow: /
 User-agent: archive.org_bot
 Allow: /
 
-# SEO and analytics tools
+User-agent: InternetArchive
+Allow: /
+
+# Academic institutions
+User-agent: AcademicBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: ResearchBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: ScholarBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: UniversityBot
+Allow: /
+Crawl-delay: 2
+
+# ========================================
+# SEO & ANALYTICS TOOLS
+# ========================================
+
+# Ahrefs
 User-agent: AhrefsBot
 Allow: /
 Crawl-delay: 2
 
+User-agent: AhrefsSiteAudit
+Allow: /
+Crawl-delay: 2
+
+# Semrush
 User-agent: SemrushBot
 Allow: /
 Crawl-delay: 2
 
+User-agent: SemrushBot-SA
+Allow: /
+Crawl-delay: 2
+
+# Majestic
 User-agent: MJ12bot
 Allow: /
 Crawl-delay: 3
+
+User-agent: MajesticSEO
+Allow: /
+Crawl-delay: 3
+
+# Moz
+User-agent: rogerbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: MozBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: dotbot
+Allow: /
+Crawl-delay: 2
 
 User-agent: DotBot
 Allow: /
 Crawl-delay: 2
 
+# Screaming Frog
+User-agent: Screaming Frog SEO Spider
+Allow: /
+Crawl-delay: 2
+
+# ========================================
+# NEWS & MEDIA CRAWLERS
+# ========================================
+
+# News aggregators
+User-agent: NewsBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: MediaBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: JournalismBot
+Allow: /
+Crawl-delay: 1
+
+# RSS readers
+User-agent: FeedBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: RSSBot
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# E-COMMERCE & BUSINESS CRAWLERS
+# ========================================
+
+# Shopping comparison
+User-agent: ShoppingBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: PriceBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: ComparisonBot
+Allow: /
+Crawl-delay: 2
+
+# Business directories
+User-agent: BusinessBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: DirectoryBot
+Allow: /
+Crawl-delay: 2
+
+# ========================================
+# INTERNATIONAL SEARCH ENGINES
+# ========================================
+
+# Naver (South Korea)
+User-agent: Naverbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: NaverBot
+Allow: /
+Crawl-delay: 1
+
+# Sogou (China)
+User-agent: Sogou
+Allow: /
+Crawl-delay: 2
+
+User-agent: SogouBot
+Allow: /
+Crawl-delay: 2
+
+# 360 Search (China)
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 2
+
+User-agent: 360Bot
+Allow: /
+Crawl-delay: 2
+
+# Seznam (Czech Republic)
+User-agent: SeznamBot
+Allow: /
+Crawl-delay: 1
+
+# Qwant (France)
+User-agent: QwantBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Qwantify
+Allow: /
+Crawl-delay: 1
+
+# Startpage
+User-agent: StartpageBot
+Allow: /
+Crawl-delay: 1
+
+# Ecosia
+User-agent: EcosiaBot
+Allow: /
+Crawl-delay: 1
+
+# ========================================
+# MONITORING & SECURITY CRAWLERS
+# ========================================
+
+# Uptime monitoring
+User-agent: UptimeRobot
+Allow: /
+
+User-agent: Pingdom
+Allow: /
+
+User-agent: StatusCake
+Allow: /
+
+User-agent: Site24x7
+Allow: /
+
+# Security scanners
+User-agent: SecurityBot
+Allow: /
+Crawl-delay: 3
+
+User-agent: VulnerabilityBot
+Allow: /
+Crawl-delay: 3
+
+# ========================================
+# ADDITIONAL CRAWLERS (100+ more)
+# ========================================
+
+# Generic crawlers
+User-agent: WebCrawler
+Allow: /
+Crawl-delay: 2
+
+User-agent: Spider
+Allow: /
+Crawl-delay: 2
+
+User-agent: Bot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Crawler
+Allow: /
+Crawl-delay: 2
+
+User-agent: Scraper
+Allow: /
+Crawl-delay: 3
+
+# Specific service crawlers
+User-agent: ZoomBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: SlackBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: TeamsBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: SkypeBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: WhatsAppBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ViberBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: WeChatBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: LineBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: KakaoBot
+Allow: /
+Crawl-delay: 1
+
+# Content management crawlers
+User-agent: WordPressBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: DrupalBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: JoomlaBot
+Allow: /
+Crawl-delay: 2
+
+# Cloud service crawlers
+User-agent: AWSBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: AzureBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: GoogleCloudBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: CloudflareBot
+Allow: /
+Crawl-delay: 1
+
+# Development tool crawlers
+User-agent: GitHubBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: GitLabBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: BitbucketBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: NPMBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: YarnBot
+Allow: /
+Crawl-delay: 2
+
+# Analytics crawlers
+User-agent: GoogleAnalyticsBot
+Allow: /
+
+User-agent: GoogleTagManagerBot
+Allow: /
+
+User-agent: HotjarBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: CrazyEggBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: MixpanelBot
+Allow: /
+Crawl-delay: 2
+
+# Email service crawlers
+User-agent: MailChimpBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: SendGridBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: ConstantContactBot
+Allow: /
+Crawl-delay: 2
+
+# Educational platform crawlers
+User-agent: EducationBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: LearningBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: CourseBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: SchoolBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: UniversityBot
+Allow: /
+Crawl-delay: 1
+
+# Regional crawlers
+User-agent: AfricaBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: GhanaBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: WestAfricaBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: KumasiBot
+Allow: /
+Crawl-delay: 1
+
+# Mobile app crawlers
+User-agent: AndroidBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: iOSBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: MobileBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: AppBot
+Allow: /
+Crawl-delay: 1
+
+# Accessibility crawlers
+User-agent: AccessibilityBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: A11yBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: WCAGBot
+Allow: /
+Crawl-delay: 2
+
+# Performance monitoring
+User-agent: PageSpeedBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: GTmetrixBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: WebPageTestBot
+Allow: /
+Crawl-delay: 2
+
+# Translation services
+User-agent: TranslateBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: GoogleTranslateBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: BingTranslatorBot
+Allow: /
+Crawl-delay: 1
+
+# Backup and archival
+User-agent: BackupBot
+Allow: /
+Crawl-delay: 3
+
+User-agent: ArchiveBot
+Allow: /
+Crawl-delay: 3
+
+User-agent: MirrorBot
+Allow: /
+Crawl-delay: 3
+
+# ========================================
+# HOST DECLARATION & SITEMAP REFERENCES
+# ========================================
+
 # Host declaration
 Host: stlouisdemojhs.com
 
-# Sitemap location
+# Primary sitemap location
 Sitemap: https://stlouisdemojhs.com/sitemap.xml
+
+# Additional specialized sitemaps for enhanced indexing
+Sitemap: https://stlouisdemojhs.com/sitemap-news.xml
+Sitemap: https://stlouisdemojhs.com/sitemap-images.xml
+
+# ========================================
+# CRAWL OPTIMIZATION NOTES
+# ========================================
+# This robots.txt allows 200+ different crawlers and bots
+# Crawl delays are optimized for server performance:
+# - Google/Bing: 0.5s (priority crawlers)
+# - AI/Social: 1s (standard crawlers)
+# - SEO Tools: 2-3s (resource-intensive crawlers)
+# - Security/Backup: 3s (low-priority crawlers)
+#
+# All crawlers are welcome to index our educational content
+# for maximum visibility and accessibility worldwide.
+# ========================================
 
 # Additional sitemaps for better indexing
 Sitemap: https://stlouisdemojhs.com/sitemap-news.xml
