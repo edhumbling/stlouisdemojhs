@@ -11,13 +11,18 @@ import FacebookPostsSection from '../components/home/FacebookPostsSection';
 import CTASection from '../components/home/CTASection';
 import SectionDivider from '../components/common/SectionDivider';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import CelebrationModal from '../components/celebration/CelebrationModal';
 import { usePageRefreshRestore } from '../hooks/usePageRefreshRestore';
+import { useCelebrationModal } from '../hooks/useCelebrationModal';
 
 const HomePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   // Handle page refresh scroll restoration
   usePageRefreshRestore();
+
+  // Handle celebration modal for June 24th, 2025
+  const { showCelebration, closeCelebration } = useCelebrationModal();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -252,6 +257,10 @@ const HomePage: React.FC = () => {
         useGalleryImages={true}
         image="https://ik.imagekit.io/edhumbling/500961895_1280873750548377_8614276957752557317_n.jpg?updatedAt=1750578385825"
       />
+
+      {/* Celebration Modal for June 24th, 2025 */}
+      <CelebrationModal isOpen={showCelebration} onClose={closeCelebration} />
+
       <Hero />
       <SectionDivider position="bottom" />
 
