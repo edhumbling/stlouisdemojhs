@@ -176,7 +176,7 @@ const getOptimalSocialImage = (
 };
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "St. Louis Demonstration Junior High School - Excellence in Education",
+  title = "ST. LOUIS DEMONSTRATION J.H.S - Leading Education",
   description,
   keywords = "St. Louis Demonstration JHS, junior high school Ghana, quality education Ghana, JHS Ghana, secondary education, academic excellence, STEM education, student resources, Ghana education",
   image = "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
@@ -357,7 +357,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:image:alt" content={title} />
       <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:url" content={fullUrl} />
-      <meta property="og:site_name" content="St. Louis Demonstration JHS" />
+      <meta property="og:site_name" content="Best School in Ghana - SLDJHS" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:updated_time" content={finalModifiedTime} />
 
@@ -393,8 +393,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Additional Meta Tags for Better SEO */}
       <meta name="theme-color" content="#1a1a1a" />
       <meta name="msapplication-TileColor" content="#1a1a1a" />
-      <meta name="application-name" content="St. Louis Demonstration JHS" />
-      <meta name="apple-mobile-web-app-title" content="St. Louis Demo JHS" />
+      <meta name="application-name" content="Best School in Ghana - SLDJHS" />
+      <meta name="apple-mobile-web-app-title" content="Best School in Ghana - SLDJHS" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       <meta name="mobile-web-app-capable" content="yes" />
