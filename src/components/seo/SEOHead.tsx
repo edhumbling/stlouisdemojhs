@@ -315,11 +315,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <link rel="canonical" href={canonicalUrl} />
 
       {/* Favicon and Logo Links for Google and Search Engines */}
-      <link rel="icon" type="image/png" sizes="32x32" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
-      <link rel="icon" type="image/png" sizes="16x16" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
-      <link rel="icon" type="image/x-icon" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
-      <link rel="apple-touch-icon" sizes="180x180" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
-      <link rel="apple-touch-icon" sizes="152x152" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
+      <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
       <link rel="apple-touch-icon" sizes="144x144" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
       <link rel="apple-touch-icon" sizes="120x120" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
       <link rel="apple-touch-icon" sizes="114x114" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
