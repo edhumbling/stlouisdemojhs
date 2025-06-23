@@ -132,9 +132,9 @@ const MediaFilesPage: React.FC = () => {
       id: '4',
       title: 'Election Diaries 2025 - Episode 4',
       description: 'Final election day coverage and results announcement at St. Louis Demonstration JHS.',
-      driveUrl: 'https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link',
-      embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
-      thumbnail: generateThumbnail('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
+      driveUrl: 'https://drive.google.com/file/d/1cO5KJHvRetuiuCVqF2OgBKjCI75gc3td/view?usp=drive_link',
+      embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1cO5KJHvRetuiuCVqF2OgBKjCI75gc3td/view?usp=drive_link'),
+      thumbnail: generateThumbnail('https://drive.google.com/file/d/1cO5KJHvRetuiuCVqF2OgBKjCI75gc3td/view?usp=drive_link'),
       duration: '0:45',
       baseViews: 1800, // Base views, will auto-increment by 1K daily
       uploadDate: '1 day ago',
