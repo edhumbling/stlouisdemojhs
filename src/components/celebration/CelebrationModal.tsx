@@ -82,13 +82,13 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
     };
   }, []);
 
-  // Handle image sliding - change image every 4 seconds
+  // Handle image sliding - change image every 2 seconds (faster)
   useEffect(() => {
     if (!isOpen) return;
 
     const imageInterval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % graduationImages.length);
-    }, 4000); // Change image every 4 seconds
+    }, 2000); // Change image every 2 seconds (faster)
 
     return () => clearInterval(imageInterval);
   }, [isOpen, graduationImages.length]);
@@ -135,6 +135,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
         className="fixed inset-0 z-50 flex items-start justify-center pt-16 p-4"
         onClick={handleBackdropClick}
         style={{ top: '0px' }}
@@ -175,11 +176,11 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
 
         {/* Modal Content */}
         <motion.div
-          initial={{ scale: 0.5, opacity: 0, y: 50 }}
+          initial={{ scale: 0.8, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.5, opacity: 0, y: 50 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+          exit={{ scale: 0.8, opacity: 0, y: 20 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className="relative bg-white rounded-2xl shadow-2xl max-w-xl lg:max-w-lg w-full max-h-[90vh] overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
@@ -237,7 +238,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
                     scale: index === currentImage ? 1 : 0.95,
                   }}
                   transition={{
-                    duration: 0.8,
+                    duration: 0.4,
                     ease: 'easeInOut',
                   }}
                 />
@@ -284,51 +285,51 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
             </div>
           </div>
 
-          {/* Cute Floating Announcement - Hovering at Base of Images */}
+          {/* Desktop: Cute Floating Announcement - Hovering at Base of Images */}
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.8 }}
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 0.8, type: 'spring', damping: 20, stiffness: 300 }}
-            className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20"
+            transition={{ delay: 0.2, duration: 0.3, ease: 'easeOut' }}
+            className="hidden lg:block absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20"
           >
-            <div className="bg-black/90 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-2xl border border-white/20 max-w-sm mx-auto">
+            <div className="bg-black/90 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-white/20 max-w-xs mx-auto">
               <motion.div
-                animate={{ y: [0, -5, 0] }}
+                animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 className="text-center"
               >
-                <h2 className="text-lg md:text-xl font-bold text-white mb-2">
+                <h2 className="text-sm font-bold text-white mb-1">
                   🎉 Premium Website Launch! 🎉
                 </h2>
-                <p className="text-sm text-white/90 mb-3">
+                <p className="text-xs text-white/90 mb-2">
                   We are officially launching our premium school website today!
                 </p>
-                <p className="text-xs text-white/80 mb-4">
-                  Enjoy the enhanced features, improved design, and better user experience! 🚀
+                <p className="text-xs text-white/80 mb-3">
+                  Enjoy enhanced features! 🚀
                 </p>
 
                 {/* Cute Celebration Emojis */}
-                <div className="flex justify-center space-x-1 text-xl mb-4">
+                <div className="flex justify-center space-x-1 text-sm mb-3">
                   <motion.span
-                    animate={{ scale: [1, 1.3, 1], rotate: [0, 15, -15, 0] }}
+                    animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
                   >
                     🎓
                   </motion.span>
                   <motion.span
-                    animate={{ scale: [1, 1.3, 1], rotate: [0, -15, 15, 0] }}
+                    animate={{ scale: [1, 1.2, 1], rotate: [0, -10, 10, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.7 }}
                   >
                     🎊
                   </motion.span>
                   <motion.span
-                    animate={{ scale: [1, 1.3, 1], rotate: [0, 15, -15, 0] }}
+                    animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.3 }}
                   >
                     🎈
                   </motion.span>
                   <motion.span
-                    animate={{ scale: [1, 1.3, 1], rotate: [0, -15, 15, 0] }}
+                    animate={{ scale: [1, 1.2, 1], rotate: [0, -10, 10, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.9 }}
                   >
                     🏆
@@ -338,15 +339,79 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
                 {/* Cute Continue Button */}
                 <motion.button
                   onClick={onClose}
-                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileHover={{ scale: 1.05, y: -1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-sm"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-1.5 px-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-xs"
                 >
                   Continue to Website ✨
                 </motion.button>
               </motion.div>
             </div>
           </motion.div>
+        </motion.div>
+
+        {/* Mobile: Cute Announcement Under Modal */}
+        <motion.div
+          initial={{ opacity: 0, y: 30, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.3, ease: 'easeOut' }}
+          className="lg:hidden mt-4 mx-4"
+        >
+          <div className="bg-black/90 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-xl border border-white/20 max-w-sm mx-auto">
+            <motion.div
+              animate={{ y: [0, -2, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              className="text-center"
+            >
+              <h2 className="text-base font-bold text-white mb-2">
+                🎉 Premium Website Launch! 🎉
+              </h2>
+              <p className="text-sm text-white/90 mb-2">
+                We are officially launching our premium school website today!
+              </p>
+              <p className="text-xs text-white/80 mb-3">
+                Enjoy the enhanced features, improved design, and better user experience! 🚀
+              </p>
+
+              {/* Cute Celebration Emojis */}
+              <div className="flex justify-center space-x-2 text-lg mb-4">
+                <motion.span
+                  animate={{ scale: [1, 1.3, 1], rotate: [0, 15, -15, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
+                >
+                  🎓
+                </motion.span>
+                <motion.span
+                  animate={{ scale: [1, 1.3, 1], rotate: [0, -15, 15, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.7 }}
+                >
+                  🎊
+                </motion.span>
+                <motion.span
+                  animate={{ scale: [1, 1.3, 1], rotate: [0, 15, -15, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.3 }}
+                >
+                  🎈
+                </motion.span>
+                <motion.span
+                  animate={{ scale: [1, 1.3, 1], rotate: [0, -15, 15, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.9 }}
+                >
+                  🏆
+                </motion.span>
+              </div>
+
+              {/* Cute Continue Button */}
+              <motion.button
+                onClick={onClose}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-2.5 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-sm"
+              >
+                Continue to Website ✨
+              </motion.button>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Background Audio */}

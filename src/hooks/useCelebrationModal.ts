@@ -16,10 +16,10 @@ export const useCelebrationModal = () => {
       const hasSeenCelebration = localStorage.getItem('celebration-seen-2025-06-23-24');
 
       if (isWithinCelebrationPeriod && !hasSeenCelebration) {
-        // Small delay to let the page load first
+        // Very fast reveal - minimal delay
         setTimeout(() => {
           setShowCelebration(true);
-        }, 1500);
+        }, 300);
       }
     };
 
