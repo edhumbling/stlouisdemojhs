@@ -1,8 +1,8 @@
 // AdSense Configuration
 export const ADSENSE_CONFIG = {
-  // Replace with your actual AdSense Publisher ID
-  PUBLISHER_ID: 'ca-pub-XXXXXXXXXX',
-  
+  // Your actual AdSense Publisher ID
+  PUBLISHER_ID: 'ca-pub-3612569845845172',
+
   // Ad Slot IDs - Replace with your actual ad slot IDs from AdSense
   AD_SLOTS: {
     HEADER_BANNER: '1234567890',
@@ -13,12 +13,12 @@ export const ADSENSE_CONFIG = {
     AUTO_AD: '6789012345',
     EDUCATIONAL_CONTENT: '7890123456'
   },
-  
+
   // Ad Settings
   SETTINGS: {
     // Enable/disable ads globally
     ADS_ENABLED: true,
-    
+
     // Show ads only on specific pages
     SHOW_ON_PAGES: [
       '/',
@@ -30,7 +30,7 @@ export const ADSENSE_CONFIG = {
       '/alumni',
       '/resources'
     ],
-    
+
     // Pages where ads should NOT appear
     EXCLUDE_PAGES: [
       '/apply-now',
@@ -39,15 +39,15 @@ export const ADSENSE_CONFIG = {
       '/pta',
       '/admissions'
     ],
-    
+
     // Ad frequency settings
     MAX_ADS_PER_PAGE: 3,
     MIN_CONTENT_LENGTH: 500, // Minimum content length before showing ads
-    
+
     // Mobile settings
     MOBILE_ADS_ENABLED: true,
     TABLET_ADS_ENABLED: true,
-    
+
     // Performance settings
     LAZY_LOAD_ADS: true,
     AD_REFRESH_INTERVAL: 30000, // 30 seconds
@@ -57,17 +57,17 @@ export const ADSENSE_CONFIG = {
 // Helper function to check if ads should be shown on current page
 export const shouldShowAds = (pathname: string): boolean => {
   if (!ADSENSE_CONFIG.SETTINGS.ADS_ENABLED) return false;
-  
+
   // Check if page is excluded
   if (ADSENSE_CONFIG.SETTINGS.EXCLUDE_PAGES.includes(pathname)) {
     return false;
   }
-  
+
   // Check if page is in allowed list (if specified)
   if (ADSENSE_CONFIG.SETTINGS.SHOW_ON_PAGES.length > 0) {
     return ADSENSE_CONFIG.SETTINGS.SHOW_ON_PAGES.includes(pathname);
   }
-  
+
   return true;
 };
 
@@ -75,7 +75,7 @@ export const shouldShowAds = (pathname: string): boolean => {
 export const getAdSettings = () => {
   const isMobile = window.innerWidth < 768;
   const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-  
+
   return {
     showMobileAds: isMobile && ADSENSE_CONFIG.SETTINGS.MOBILE_ADS_ENABLED,
     showTabletAds: isTablet && ADSENSE_CONFIG.SETTINGS.TABLET_ADS_ENABLED,

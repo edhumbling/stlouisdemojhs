@@ -37,7 +37,7 @@ const AdSenseAd: React.FC<AdSenseAdProps> = ({
       <ins
         className="adsbygoogle"
         style={adStyle}
-        data-ad-client="ca-pub-XXXXXXXXXX" // Replace with your Publisher ID
+        data-ad-client="ca-pub-3612569845845172"
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive={responsive ? 'true' : 'false'}

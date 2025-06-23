@@ -1,0 +1,8 @@
+# ads.txt file for stlouisdemojhs.com
+# This file helps prevent unauthorized ad serving and improves AdSense approval
+
+# Google AdSense - Official verification snippet
+google.com, pub-3612569845845172, DIRECT, f08c47fec0942fa0
+
+# Additional authorized sellers can be added here
+# Format: domain, publisher_id, relationship, certification_authority_id
