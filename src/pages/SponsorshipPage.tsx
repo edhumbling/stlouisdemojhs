@@ -6,6 +6,7 @@ import { ArrowLeft, Users, Star } from 'lucide-react'; // Example icons, can adj
 import { useNavigate } from 'react-router-dom';
 import SectionDivider from '../components/common/SectionDivider'; // Common component
 import SEOHead from '../components/seo/SEOHead';
+import DonateButton from '../components/common/DonateButton';
 
 // Define Sponsor type
 interface Sponsor {
@@ -198,17 +199,34 @@ const SponsorshipPage: React.FC = () => {
 
       <SectionDivider position="bottom" flip={true} />
 
-      {/* How to Become a Sponsor Section - Placeholder */}
+      {/* How to Become a Sponsor Section */}
       <section id="become-sponsor" className="py-10 sm:py-12 md:py-16 bg-gray-900/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
-            Become a Valued Sponsor
-          </h2>
-          <p className="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
-            Information about sponsorship levels, benefits, and how to get in touch will be available here soon.
-            Please contact us at <a href="mailto:sponsorship@example.com" className="text-blue-400 hover:text-blue-300">sponsorship@example.com</a> (placeholder) for inquiries.
-          </p>
-          {/* More details or a CTA button can be added here later */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+              Become a Valued Sponsor
+            </h2>
+            <p className="text-gray-300 text-base sm:text-lg mb-6 leading-relaxed">
+              Join our prestigious community of sponsors and make a lasting impact on education. Your generous contribution will be permanently acknowledged on our school's wall of honor, ensuring your legacy lives on for generations of students to see and appreciate.
+            </p>
+            <p className="text-yellow-400 text-lg sm:text-xl font-semibold mb-8 leading-relaxed">
+              🏆 Make a significant donation and secure your place on our Wall of Honor - a permanent tribute to your commitment to education that will inspire future generations! 🏆
+            </p>
+
+            {/* Exact same glowing donate button from header */}
+            <div className="flex justify-center">
+              <DonateButton variant="standalone" />
+            </div>
+
+            <p className="text-gray-400 text-sm sm:text-base mt-6 leading-relaxed">
+              For sponsorship inquiries and wall acknowledgment details, your donation will help us continue providing quality education to our students. Contact us through the donation process to discuss permanent recognition opportunities.
+            </p>
+          </motion.div>
         </div>
       </section>
 

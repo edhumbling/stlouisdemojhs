@@ -517,30 +517,35 @@ St. Louis Demonstration J.H.S Website System
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Placeholder for a map with dark aero styling */}
-            <div className="glass-card w-full h-64 sm:h-80 md:h-96 flex items-center justify-center border border-white/20">
-              <div className="text-center glass-card p-5 rounded-xl shadow-md border border-white/30">
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <MapPin size={36} className="mx-auto text-green-400 mb-3" />
-                </motion.div>
-                <p className="text-white font-medium text-sm sm:text-base">
-                  P.O. Box 3041, Mbrom-Kumasi<br />
-                  GPS Digital Address: AK-015-1612 🏫<br />
-                  Ashanti Region, Ghana
-                </p>
-                <p className="text-xs sm:text-sm text-gray-400 mt-2">
-                  (Google Maps would be embedded here in a production environment)
-                </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-4 px-4 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black text-xs sm:text-sm font-medium rounded-full shadow-md hover:from-yellow-400 hover:to-yellow-500 transition-all duration-300"
-                >
-                  Get Directions
-                </motion.button>
+            {/* Google Maps Embed */}
+            <div className="glass-card w-full border border-white/20 rounded-lg overflow-hidden relative">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.5069005985206!2d-1.627637426115572!3d6.707817820996283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb97beb9b388ad%3A0x3ab914f545d073ac!2sSt.%20Louis%20Demonstration%20Junior%20High%20School!5e0!3m2!1sen!2sgh!4v1750695381815!5m2!1sen!2sgh"
+                width="100%"
+                height="450"
+                style={{ border: 0, minHeight: '300px' }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-64 sm:h-80 md:h-96"
+                title="St. Louis Demonstration Junior High School Location"
+              />
+
+              {/* School Address Overlay */}
+              <div className="absolute bottom-4 left-4 right-4 glass-card p-3 sm:p-4 rounded-lg shadow-lg border border-white/30 bg-black/60 backdrop-blur-sm">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-medium text-sm sm:text-base">
+                      St. Louis Demonstration Junior High School
+                    </p>
+                    <p className="text-gray-300 text-xs sm:text-sm">
+                      P.O. Box 3041, Mbrom-Kumasi<br />
+                      GPS Digital Address: AK-015-1612<br />
+                      Ashanti Region, Ghana
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
