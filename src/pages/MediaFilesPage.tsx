@@ -41,13 +41,10 @@ const MediaFilesPage: React.FC = () => {
 
   // Calculate current view count with automatic daily increment
   const calculateCurrentViews = (baseViews: number, uploadDate: string): string => {
-    const now = new Date();
-    const currentDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
     // Parse upload date to determine days since upload
     let daysSinceUpload = 0;
 
-    if (uploadDate.includes('hours ago')) {
+    if (uploadDate.includes('hours ago') || uploadDate.includes('hour ago')) {
       daysSinceUpload = 0;
     } else if (uploadDate.includes('1 day ago')) {
       daysSinceUpload = 1;
@@ -55,9 +52,29 @@ const MediaFilesPage: React.FC = () => {
       daysSinceUpload = 2;
     } else if (uploadDate.includes('3 days ago')) {
       daysSinceUpload = 3;
+    } else if (uploadDate.includes('4 days ago')) {
+      daysSinceUpload = 4;
+    } else if (uploadDate.includes('5 days ago')) {
+      daysSinceUpload = 5;
+    } else if (uploadDate.includes('6 days ago')) {
+      daysSinceUpload = 6;
+    } else if (uploadDate.includes('1 week ago')) {
+      daysSinceUpload = 7;
+    } else if (uploadDate.includes('2 weeks ago')) {
+      daysSinceUpload = 14;
+    } else if (uploadDate.includes('3 weeks ago')) {
+      daysSinceUpload = 21;
+    } else if (uploadDate.includes('1 month ago')) {
+      daysSinceUpload = 30;
     } else if (uploadDate.includes('days ago')) {
       const match = uploadDate.match(/(\d+) days ago/);
       daysSinceUpload = match ? parseInt(match[1]) : 0;
+    } else if (uploadDate.includes('weeks ago')) {
+      const match = uploadDate.match(/(\d+) weeks ago/);
+      daysSinceUpload = match ? parseInt(match[1]) * 7 : 0;
+    } else if (uploadDate.includes('months ago')) {
+      const match = uploadDate.match(/(\d+) months ago/);
+      daysSinceUpload = match ? parseInt(match[1]) * 30 : 0;
     }
 
     // Add 1K views per day since upload
@@ -84,7 +101,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1EYNZ4XLCFzCaS_9p3RGsM-W8nhTNWLfo/view'),
       duration: '0:30',
       baseViews: 1200, // Base views, will auto-increment by 1K daily
-      uploadDate: '3 days ago',
+      uploadDate: '4 days ago',
       category: 'Election Diaries 2025'
     },
     {
@@ -96,7 +113,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1KG71HVjDiSXkw9T4-QiOscqp1Vhji8bI/view?usp=drive_link'),
       duration: '0:33',
       baseViews: 856, // Base views, will auto-increment by 1K daily
-      uploadDate: '2 days ago',
+      uploadDate: '3 days ago',
       category: 'Election Diaries 2025'
     },
     {
@@ -108,7 +125,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       duration: '0:38',
       baseViews: 2100, // Base views, will auto-increment by 1K daily
-      uploadDate: '1 day ago',
+      uploadDate: '2 days ago',
       category: 'Election Diaries 2025'
     },
     {
@@ -120,7 +137,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       duration: '0:45',
       baseViews: 1800, // Base views, will auto-increment by 1K daily
-      uploadDate: '12 hours ago',
+      uploadDate: '1 day ago',
       category: 'Election Diaries 2025'
     },
 
@@ -134,7 +151,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1ly09Lgr-tDdg262pGPvdwNn5bex-9THk/view?usp=drive_link'),
       duration: '2:15',
       baseViews: 2800, // Base views, will auto-increment by 1K daily
-      uploadDate: '5 days ago',
+      uploadDate: '1 week ago',
       category: 'Sports Competitions'
     },
     {
@@ -146,7 +163,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1_mj1rl56w59ls8yN_Bqdviim-YGmE-AE/view?usp=drive_link'),
       duration: '3:42',
       baseViews: 3200, // Base views, will auto-increment by 1K daily
-      uploadDate: '4 days ago',
+      uploadDate: '5 days ago',
       category: 'Sports Competitions'
     },
 
@@ -160,7 +177,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1_Q_Fahvjz_Xt3kkVnxMV-lkZg-gj96zK/view?usp=drive_link'),
       duration: '4:18',
       baseViews: 1950, // Base views, will auto-increment by 1K daily
-      uploadDate: '6 days ago',
+      uploadDate: '1 week ago',
       category: 'Quiz Competitions'
     },
     {
@@ -172,7 +189,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: 'https://ik.imagekit.io/edhumbling/image.png',
       duration: '4:15',
       baseViews: 3400, // Base views, will auto-increment by 1K daily
-      uploadDate: '2 weeks ago',
+      uploadDate: '3 weeks ago',
       category: 'Quiz Competitions'
     },
     {
@@ -184,7 +201,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: 'https://img.youtube.com/vi/vMUVyKTTFZA/maxresdefault.jpg',
       duration: '7:23',
       baseViews: 4200, // Base views, will auto-increment by 1K daily
-      uploadDate: '3 weeks ago',
+      uploadDate: '1 month ago',
       category: 'Quiz Competitions'
     }
   ];
@@ -251,28 +268,20 @@ const MediaFilesPage: React.FC = () => {
         footer { display: none !important; }
       `}</style>
 
-      {/* Compact Hero Header */}
+      {/* Back Bar - Donate Page Style */}
       <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
-        <div className="px-3 sm:px-6">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={() => navigate(-1)}
-              className="flex items-center space-x-1 sm:space-x-2 text-white/90 hover:text-white transition-colors bg-black/20 px-2 py-1 rounded-md"
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
             >
-              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-xs sm:text-sm font-medium">Back</span>
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
             </button>
-
-            <div className="text-center flex-1 mx-4">
-              <h1 className="text-sm sm:text-lg font-bold text-white">
-                St. Louis Media Files
-              </h1>
-              <p className="text-xs text-white/80 mt-0.5 hidden sm:block">
-                Elections • Sports • Quiz • School Events
-              </p>
-            </div>
-
-            <div className="w-12 sm:w-16"></div> {/* Spacer for centering */}
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+              🎬 St. Louis Media Files
+            </h1>
           </div>
         </div>
       </div>
@@ -296,7 +305,7 @@ const MediaFilesPage: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: (categoryIndex * 0.2) + (index * 0.1) }}
-                  className="bg-gray-900 rounded-lg overflow-hidden hover:bg-gray-800 transition-colors cursor-pointer group"
+                  className="bg-red-900/80 rounded-lg overflow-hidden hover:bg-red-800/90 transition-colors cursor-pointer group border border-red-700/50"
                   onClick={() => handleVideoClick(video)}
                 >
                   {/* Video Thumbnail */}
@@ -374,24 +383,24 @@ const MediaFilesPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Video Modal */}
+      {/* Video Modal - Improved for Mobile */}
       {selectedVideo && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-2 sm:p-4"
           onClick={closeVideoModal}
         >
           <motion.div
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.8 }}
-            className="bg-gray-900 rounded-lg overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-red-900/90 rounded-lg overflow-hidden w-full max-w-4xl max-h-[95vh] flex flex-col border border-red-700/50"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Video Player */}
-            <div className="aspect-video bg-black">
+            {/* Video Player - Larger on Mobile */}
+            <div className="aspect-video bg-black flex-shrink-0">
               <iframe
                 src={selectedVideo.embedUrl}
                 className="w-full h-full"
@@ -401,33 +410,35 @@ const MediaFilesPage: React.FC = () => {
               />
             </div>
 
-            {/* Video Details */}
-            <div className="p-6">
-              <h2 className="text-xl font-bold text-white mb-2">
+            {/* Video Details - Compact */}
+            <div className="p-3 sm:p-4 flex-1 min-h-0 overflow-y-auto">
+              <h2 className="text-sm sm:text-lg font-bold text-white mb-2 leading-tight">
                 {selectedVideo.title}
               </h2>
 
-              <div className="flex items-center space-x-6 text-sm text-gray-400 mb-4">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-300 mb-3">
                 <div className="flex items-center space-x-1">
-                  <Eye className="w-4 h-4" />
+                  <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{calculateCurrentViews(selectedVideo.baseViews, selectedVideo.uploadDate)} views</span>
                 </div>
                 <div className="flex items-center space-x-1">
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{selectedVideo.uploadDate}</span>
                 </div>
-                <span className="bg-red-600 text-white px-2 py-1 rounded text-xs">
-                  {selectedVideo.category}
+                <span className={`${getCategoryColor(selectedVideo.category)} text-white px-2 py-1 rounded text-xs`}>
+                  {selectedVideo.category === 'Election Diaries 2025' ? 'Election' :
+                   selectedVideo.category === 'Sports Competitions' ? 'Sports' :
+                   selectedVideo.category === 'Quiz Competitions' ? 'Quiz' : selectedVideo.category}
                 </span>
               </div>
 
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
                 {selectedVideo.description}
               </p>
 
               <button
                 onClick={closeVideoModal}
-                className="mt-6 bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors"
+                className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
               >
                 Close Video
               </button>
