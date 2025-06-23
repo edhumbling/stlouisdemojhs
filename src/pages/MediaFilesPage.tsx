@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Play, Calendar, Eye } from 'lucide-react';
+import { ArrowLeft, Play, Calendar, Eye, Trophy, Brain, Vote } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
@@ -74,6 +74,7 @@ const MediaFilesPage: React.FC = () => {
   };
 
   const mediaVideos: MediaVideo[] = [
+    // Election Diaries 2025
     {
       id: '1',
       title: 'Election Diaries 2025 - Episode 1',
@@ -121,6 +122,70 @@ const MediaFilesPage: React.FC = () => {
       baseViews: 1800, // Base views, will auto-increment by 1K daily
       uploadDate: '12 hours ago',
       category: 'Election Diaries 2025'
+    },
+
+    // Sports Competitions
+    {
+      id: '5',
+      title: 'Inter-House Sports Competition 2025',
+      description: 'Exciting sports competition between different houses at St. Louis Demonstration JHS featuring various athletic events.',
+      driveUrl: 'https://drive.google.com/file/d/1ly09Lgr-tDdg262pGPvdwNn5bex-9THk/view?usp=drive_link',
+      embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1ly09Lgr-tDdg262pGPvdwNn5bex-9THk/view?usp=drive_link'),
+      thumbnail: generateThumbnail('https://drive.google.com/file/d/1ly09Lgr-tDdg262pGPvdwNn5bex-9THk/view?usp=drive_link'),
+      duration: '2:15',
+      baseViews: 2800, // Base views, will auto-increment by 1K daily
+      uploadDate: '5 days ago',
+      category: 'Sports Competitions'
+    },
+    {
+      id: '6',
+      title: 'Athletics Championship Finals',
+      description: 'Final rounds of the athletics championship with track and field events showcasing student talents at St. Louis Demonstration JHS.',
+      driveUrl: 'https://drive.google.com/file/d/1_mj1rl56w59ls8yN_Bqdviim-YGmE-AE/view?usp=drive_link',
+      embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1_mj1rl56w59ls8yN_Bqdviim-YGmE-AE/view?usp=drive_link'),
+      thumbnail: generateThumbnail('https://drive.google.com/file/d/1_mj1rl56w59ls8yN_Bqdviim-YGmE-AE/view?usp=drive_link'),
+      duration: '3:42',
+      baseViews: 3200, // Base views, will auto-increment by 1K daily
+      uploadDate: '4 days ago',
+      category: 'Sports Competitions'
+    },
+
+    // Quiz Competitions
+    {
+      id: '7',
+      title: 'Academic Quiz Competition 2025',
+      description: 'Intense academic quiz competition featuring bright students from St. Louis Demonstration JHS competing in various subjects.',
+      driveUrl: 'https://drive.google.com/file/d/1_Q_Fahvjz_Xt3kkVnxMV-lkZg-gj96zK/view?usp=drive_link',
+      embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1_Q_Fahvjz_Xt3kkVnxMV-lkZg-gj96zK/view?usp=drive_link'),
+      thumbnail: generateThumbnail('https://drive.google.com/file/d/1_Q_Fahvjz_Xt3kkVnxMV-lkZg-gj96zK/view?usp=drive_link'),
+      duration: '4:18',
+      baseViews: 1950, // Base views, will auto-increment by 1K daily
+      uploadDate: '6 days ago',
+      category: 'Quiz Competitions'
+    },
+    {
+      id: '8',
+      title: 'School Activities & Community',
+      description: 'School events and community involvement initiatives highlighting our vibrant school life at St. Louis Demonstration JHS.',
+      driveUrl: 'https://www.youtube.com/watch?v=c90tOBl5K6g',
+      embedUrl: 'https://www.youtube.com/embed/c90tOBl5K6g?rel=0&modestbranding=1&controls=1',
+      thumbnail: 'https://img.youtube.com/vi/c90tOBl5K6g/maxresdefault.jpg',
+      duration: '5:42',
+      baseViews: 3400, // Base views, will auto-increment by 1K daily
+      uploadDate: '2 weeks ago',
+      category: 'Quiz Competitions'
+    },
+    {
+      id: '9',
+      title: 'Educational Programs & Student Life',
+      description: 'Comprehensive look at educational programs and student life at St. Louis Demonstration JHS.',
+      driveUrl: 'https://www.youtube.com/watch?v=vMUVyKTTFZA',
+      embedUrl: 'https://www.youtube.com/embed/vMUVyKTTFZA?rel=0&modestbranding=1&controls=1',
+      thumbnail: 'https://img.youtube.com/vi/vMUVyKTTFZA/maxresdefault.jpg',
+      duration: '7:23',
+      baseViews: 4200, // Base views, will auto-increment by 1K daily
+      uploadDate: '3 weeks ago',
+      category: 'Quiz Competitions'
     }
   ];
 
@@ -130,6 +195,43 @@ const MediaFilesPage: React.FC = () => {
 
   const closeVideoModal = () => {
     setSelectedVideo(null);
+  };
+
+  // Group videos by category
+  const videosByCategory = mediaVideos.reduce((acc, video) => {
+    if (!acc[video.category]) {
+      acc[video.category] = [];
+    }
+    acc[video.category].push(video);
+    return acc;
+  }, {} as Record<string, MediaVideo[]>);
+
+  // Get category icon
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case 'Election Diaries 2025':
+        return <Vote className="w-5 h-5 text-blue-500" />;
+      case 'Sports Competitions':
+        return <Trophy className="w-5 h-5 text-yellow-500" />;
+      case 'Quiz Competitions':
+        return <Brain className="w-5 h-5 text-purple-500" />;
+      default:
+        return <Calendar className="w-5 h-5 text-red-500" />;
+    }
+  };
+
+  // Get category color
+  const getCategoryColor = (category: string) => {
+    switch (category) {
+      case 'Election Diaries 2025':
+        return 'bg-blue-600';
+      case 'Sports Competitions':
+        return 'bg-yellow-600';
+      case 'Quiz Competitions':
+        return 'bg-purple-600';
+      default:
+        return 'bg-red-600';
+    }
   };
 
   return (
@@ -166,7 +268,7 @@ const MediaFilesPage: React.FC = () => {
                 St. Louis Media Files
               </h1>
               <p className="text-xs sm:text-sm text-white/80 mt-1">
-                Exclusive Coverage by St. Louis Media Team
+                Elections • Sports • Quiz Competitions • School Events
               </p>
             </div>
 
@@ -175,67 +277,77 @@ const MediaFilesPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Category Header */}
-      <div className="px-4 sm:px-6 py-4 border-b border-gray-800">
-        <div className="flex items-center space-x-3">
-          <Calendar className="w-5 h-5 text-red-500" />
-          <h2 className="text-lg font-semibold text-white">Election Diaries 2025</h2>
-          <span className="text-sm text-gray-400">(4 videos)</span>
-        </div>
-      </div>
+      {/* Categories and Videos */}
+      <div className="px-4 sm:px-6 py-6 space-y-8">
+        {Object.entries(videosByCategory).map(([category, videos], categoryIndex) => (
+          <div key={category}>
+            {/* Category Header */}
+            <div className="flex items-center space-x-3 mb-4">
+              {getCategoryIcon(category)}
+              <h2 className="text-lg font-semibold text-white">{category}</h2>
+              <span className="text-sm text-gray-400">({videos.length} videos)</span>
+            </div>
 
-      {/* Video Grid - YouTube-like Interface */}
-      <div className="px-4 sm:px-6 py-6">
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-          {mediaVideos.map((video, index) => (
-            <motion.div
-              key={video.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-900 rounded-lg overflow-hidden hover:bg-gray-800 transition-colors cursor-pointer group"
-              onClick={() => handleVideoClick(video)}
-            >
-              {/* Video Thumbnail */}
-              <div className="relative aspect-video bg-gray-800">
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = '/api/placeholder/320/180';
-                  }}
-                />
+            {/* Video Grid for this category */}
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+              {videos.map((video, index) => (
+                <motion.div
+                  key={video.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: (categoryIndex * 0.2) + (index * 0.1) }}
+                  className="bg-gray-900 rounded-lg overflow-hidden hover:bg-gray-800 transition-colors cursor-pointer group"
+                  onClick={() => handleVideoClick(video)}
+                >
+                  {/* Video Thumbnail */}
+                  <div className="relative aspect-video bg-gray-800">
+                    <img
+                      src={video.thumbnail}
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/api/placeholder/320/180';
+                      }}
+                    />
 
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                  <div className="bg-red-600 rounded-full p-2 group-hover:scale-110 transition-transform">
-                    <Play className="w-4 h-4 text-white fill-current" />
+                    {/* Play Button Overlay */}
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                      <div className={`${getCategoryColor(video.category)} rounded-full p-2 group-hover:scale-110 transition-transform`}>
+                        <Play className="w-4 h-4 text-white fill-current" />
+                      </div>
+                    </div>
+
+                    {/* Category Badge */}
+                    <div className={`absolute top-2 left-2 ${getCategoryColor(video.category)} text-white text-xs px-2 py-1 rounded`}>
+                      {video.category === 'Election Diaries 2025' ? 'Election' :
+                       video.category === 'Sports Competitions' ? 'Sports' :
+                       video.category === 'Quiz Competitions' ? 'Quiz' : video.category}
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              {/* Video Info */}
-              <div className="p-3">
-                <h3 className="text-sm font-medium text-white line-clamp-2 mb-2">
-                  {video.title}
-                </h3>
+                  {/* Video Info */}
+                  <div className="p-3">
+                    <h3 className="text-sm font-medium text-white line-clamp-2 mb-2">
+                      {video.title}
+                    </h3>
 
-                <div className="flex items-center space-x-4 text-xs text-gray-400">
-                  <div className="flex items-center space-x-1">
-                    <Eye className="w-3 h-3" />
-                    <span>{calculateCurrentViews(video.baseViews, video.uploadDate)} views</span>
+                    <div className="flex items-center space-x-4 text-xs text-gray-400">
+                      <div className="flex items-center space-x-1">
+                        <Eye className="w-3 h-3" />
+                        <span>{calculateCurrentViews(video.baseViews, video.uploadDate)} views</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Calendar className="w-3 h-3" />
+                        <span>{video.uploadDate}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-1">
-                    <Calendar className="w-3 h-3" />
-                    <span>{video.uploadDate}</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Video Modal */}
