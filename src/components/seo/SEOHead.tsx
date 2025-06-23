@@ -203,37 +203,84 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   // Generate dynamic description based on page type
   const finalDescription = getPageDescription(pageType, description);
 
-  // Default structured data for the school
+  // Default structured data for the school with enhanced logo schema
   const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "St. Louis Demonstration Junior High School",
-    "alternateName": "St. Louis Demonstration JHS",
+    "alternateName": ["St. Louis Demonstration JHS", "St. Louis Demo JHS", "SLDJHS"],
     "url": baseUrl,
-    "logo": image,
-    "image": image,
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+      "width": 512,
+      "height": 512,
+      "caption": "St. Louis Demonstration Junior High School Logo"
+    },
+    "image": [
+      {
+        "@type": "ImageObject",
+        "url": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+        "width": 512,
+        "height": 512,
+        "caption": "St. Louis Demonstration JHS School Logo"
+      },
+      {
+        "@type": "ImageObject",
+        "url": "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/afffabd4-9771-46d5-b98a-a0adf6a5a3d0.png?updatedAt=1748272090100",
+        "width": 1200,
+        "height": 800,
+        "caption": "St. Louis Demonstration JHS School Building"
+      }
+    ],
     "description": finalDescription,
+    "foundingDate": "1977",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "P.O. Box 3041, Mbrom-Kumasi",
       "addressCountry": "Ghana",
       "addressRegion": "Ashanti Region",
       "addressLocality": "Suame Mbrom",
-      "gpsCoordinates": "AK-015-1612"
+      "postalCode": "AK-015-1612"
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "admissions",
-      "url": `${baseUrl}/contact`
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 6.6885,
+      "longitude": -1.6244
     },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "admissions",
+        "telephone": "+233-244-758-575",
+        "email": "contact@stlouisdemojhs.com",
+        "url": `${baseUrl}/contact`,
+        "availableLanguage": "English"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+233-244-758-575",
+        "url": `${baseUrl}/contact`
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/stlouisdemojhs",
+      "https://whatsapp.com/channel/0029VbBO7RD7IUYZjOnapG3q",
+      "https://www.tiktok.com/@st.louis.demonstr",
       "https://stlouisdemojhs.blogspot.com"
     ],
     "educationalCredentialAwarded": "Junior High School Certificate",
     "hasCredential": {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "Junior High School Education"
+    },
+    "numberOfStudents": 800,
+    "slogan": "Primus Interparis - The Best Among the Rest",
+    "motto": "UT SINT UNUM – DIEU LE VEUT",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Ashanti Region, Ghana"
     }
   };
 
@@ -266,6 +313,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
+
+      {/* Favicon and Logo Links for Google */}
+      <link rel="icon" type="image/png" sizes="32x32" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" />
+      <link rel="icon" type="image/png" sizes="16x16" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" />
+      <link rel="apple-touch-icon" sizes="180x180" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" />
+      <link rel="shortcut icon" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" />
 
       {/* Alternate Languages */}
       {alternateLanguages.map((lang, index) => (
@@ -339,6 +392,22 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(finalStructuredData)}
+      </script>
+
+      {/* Additional Organization Schema for Google Logo */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "St. Louis Demonstration Junior High School",
+          "url": "https://stlouisdemojhs.com",
+          "logo": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+          "sameAs": [
+            "https://www.facebook.com/stlouisdemojhs",
+            "https://whatsapp.com/channel/0029VbBO7RD7IUYZjOnapG3q",
+            "https://www.tiktok.com/@st.louis.demonstr"
+          ]
+        })}
       </script>
 
       {/* Additional Performance Hints */}

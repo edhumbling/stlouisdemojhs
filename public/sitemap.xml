@@ -9,10 +9,15 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://stlouisdemojhs.com/</loc>
-    <lastmod>2025-06-22T10:00:00+00:00</lastmod>
+    <lastmod>2025-06-23T10:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <mobile:mobile/>
+    <image:image>
+      <image:loc>https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs</image:loc>
+      <image:title>St. Louis Demonstration JHS School Logo</image:title>
+      <image:caption>Official logo and crest of St. Louis Demonstration Junior High School in Kumasi, Ghana</image:caption>
+    </image:image>
   </url>
 
   <!-- Main Navigation Pages - High Priority -->
