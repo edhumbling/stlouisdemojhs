@@ -212,7 +212,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     "url": baseUrl,
     "logo": {
       "@type": "ImageObject",
-      "url": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+      "url": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO",
       "width": 512,
       "height": 512,
       "caption": "St. Louis Demonstration Junior High School Logo"
@@ -220,7 +220,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     "image": [
       {
         "@type": "ImageObject",
-        "url": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+        "url": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO",
         "width": 512,
         "height": 512,
         "caption": "St. Louis Demonstration JHS School Logo"
@@ -314,11 +314,32 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
 
-      {/* Favicon and Logo Links for Google */}
-      <link rel="icon" type="image/png" sizes="32x32" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" />
-      <link rel="icon" type="image/png" sizes="16x16" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" />
-      <link rel="apple-touch-icon" sizes="180x180" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" />
-      <link rel="shortcut icon" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs" />
+      {/* Favicon and Logo Links for Google and Search Engines */}
+      <link rel="icon" type="image/png" sizes="32x32" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="icon" type="image/png" sizes="16x16" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="icon" type="image/x-icon" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="apple-touch-icon" sizes="180x180" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="apple-touch-icon" sizes="152x152" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="apple-touch-icon" sizes="144x144" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="apple-touch-icon" sizes="120x120" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="apple-touch-icon" sizes="114x114" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="apple-touch-icon" sizes="76x76" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="apple-touch-icon" sizes="72x72" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="apple-touch-icon" sizes="60x60" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="apple-touch-icon" sizes="57x57" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="shortcut icon" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <link rel="icon" href="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+
+      {/* Microsoft Tiles for Windows */}
+      <meta name="msapplication-TileImage" content="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <meta name="msapplication-TileColor" content="#1a1a1a" />
+      <meta name="msapplication-square70x70logo" content="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <meta name="msapplication-square150x150logo" content="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <meta name="msapplication-wide310x150logo" content="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <meta name="msapplication-square310x310logo" content="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+
+      {/* Web App Manifest */}
+      <link rel="manifest" href="/manifest.json" />
 
       {/* Alternate Languages */}
       {alternateLanguages.map((lang, index) => (
@@ -401,7 +422,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
           "@type": "Organization",
           "name": "St. Louis Demonstration Junior High School",
           "url": "https://stlouisdemojhs.com",
-          "logo": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+          "logo": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO",
           "sameAs": [
             "https://www.facebook.com/stlouisdemojhs",
             "https://whatsapp.com/channel/0029VbBO7RD7IUYZjOnapG3q",
