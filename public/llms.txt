@@ -1,0 +1,147 @@
+# St. Louis Demonstration Junior High School - LLM Information File
+
+## Website Overview
+St. Louis Demonstration Junior High School (St. Louis Demo JHS) is a premier educational institution located in Suame Mbrom, Kumasi, Ashanti Region, Ghana. This website serves as the official digital platform for the school, providing comprehensive information about academics, admissions, community engagement, and educational resources.
+
+## School Information
+- **Full Name**: St. Louis Demonstration Junior High School
+- **Location**: Suame Mbrom, Kumasi, Ashanti Region, Ghana
+- **Address**: P.O. Box 3041, Mbrom-Kumasi
+- **GPS Digital Address**: AK-015-1612
+- **Type**: Junior High School (JHS)
+- **Affiliation**: Catholic Educational Institution
+- **Established**: Serving the community for decades as a demonstration school
+
+## Key Website Features
+
+### Main Navigation Pages
+- **Homepage** (/): School overview, news, quick access to key features
+- **News** (/news): Latest school announcements and updates
+- **STEM** (/stem): Science, Technology, Engineering, and Mathematics programs
+- **Learn Hub** (/learnhub): Educational resources and learning materials
+- **AI Search** (/ai-search): AI-powered search functionality
+- **Gallery** (/gallery): Photo galleries of school events and activities
+
+### Academic Information
+- **About** (/about): School history, mission, vision, and values
+- **Academics** (/academics): Curriculum, subjects, and academic programs
+- **Admissions** (/admissions): Enrollment process and requirements
+- **Faculty** (/faculty): Teaching staff and administration
+- **Facilities** (/facilities): School infrastructure and resources
+
+### Subject Pages
+The school offers comprehensive JHS curriculum including:
+- Mathematics (/subject/mathematics)
+- English Language (/subject/english-language)
+- Integrated Science (/subject/integrated-science)
+- Social Studies (/subject/social-studies)
+- Religious and Moral Education (/subject/religious-moral-education)
+- Ghanaian Language (/subject/ghanaian-language)
+- French (/subject/french)
+- Career Technology (/subject/career-technology)
+- Computing/ICT (/subject/computing-ict)
+- Creative Arts and Design (/subject/creative-arts-design)
+- Music (/subject/music)
+
+### Community and Engagement
+- **Alumni Network** (/alumni): Alumni database, networking, and updates
+- **PTA** (/pta): Parents and Teachers Association information, objectives, responsibilities
+- **Sponsorship** (/sponsorship): Partnership opportunities and wall of honor
+- **Media** (/media): School media presence and communications
+- **Media Files** (/media-files): Video content, quiz competitions, school events
+- **TikTok** (/tiktok): Social media presence and student content
+
+### Educational Resources
+- **AI Tools**: Audio (/ai-audio-tools), Video (/ai-video-tools), Image (/ai-image-tools)
+- **Text-to-Speech Tools** (/ai-text-to-speech-tools)
+- **Career Resources** (/career-reel-resources)
+- **Educational Guides** (/educational-guide, /educational-pathway-guide)
+- **Staff Resources** (/staff-resources)
+- **AI Teaching Guide** (/ai-teaching-guide)
+- **JHS Textbooks** (/jhs-textbooks)
+- **Dream Hive Resources** (/dream-hive-resources)
+- **Money Smart Links** (/money-smart-links)
+
+### Educational Institutions Database
+Comprehensive database of higher education options:
+- **Nursing Institutions** (/nursing-institutions)
+- **Teacher Training** (/teacher-training)
+- **Local Universities** (/local-universities)
+- **Professional Institutes** (/professional-institutes)
+- **TVET Schools** (/tvet-schools)
+- **Military Academies** (/military-academies)
+- **Religious Seminaries** (/religious-seminaries)
+- **Art and Creative Schools** (/art-creative-schools)
+- **Agricultural Colleges** (/agricultural-colleges)
+- **Business Schools** (/business-schools)
+- **Online Universities** (/online-universities)
+
+### Support and Services
+- **Contact** (/contact): Contact information with Google Maps integration
+- **Apply Now** (/apply-now): Application process
+- **Visit Us** (/visit-us): Campus visit information
+- **Schedule Tour** (/schedule-tour): Tour booking
+- **Virtual Tour** (/virtual-tour): Online campus tour
+- **Calendar** (/calendar): School events and important dates
+- **SHS Database** (/shs-database): Senior High School information
+- **Results Placement** (/results-placement): BECE results and placement
+
+### Donation and Support
+- **Main Donate** (/donate): Primary donation page
+- **PayPal Donations** (/donate-paypal)
+- **US Bank Donations** (/donate-us-bank)
+- **UK Bank Donations** (/donate-uk-bank)
+- **Euro Bank Donations** (/donate-euro-bank)
+- **Monthly Donation Tiers**: /donate-monthly-10, /donate-monthly-30, /donate-monthly-50, /donate-monthly-100, /donate-monthly-200, /donate-monthly-500, /donate-monthly-1000, /donate-monthly-3000, /donate-monthly-5000
+
+## Special Features
+
+### AI Integration
+- **MayaMiles AI**: AI-powered learning assistant with Maya (female voice) and Miles (male voice)
+- **SuperChat**: Integration with supermemory.chat for text-based learning
+- **AI Search**: Advanced search functionality across school resources
+- **Educational AI Tools**: Comprehensive suite of AI tools for learning
+
+### Media and Social Presence
+- **YouTube Integration**: Embedded videos of school events, competitions, and activities
+- **TikTok Content**: Student-generated content and school highlights
+- **Photo Galleries**: Comprehensive image collections with modal viewers
+- **Video Collections**: Quiz competitions, school events, academic showcases
+
+### Mobile-First Design
+- **Progressive Web App (PWA)**: Installable web application
+- **Responsive Design**: Optimized for all device sizes
+- **Touch-Friendly Interface**: Mobile-optimized navigation and interactions
+- **Offline Capabilities**: PWA features for offline access
+
+### Accessibility and SEO
+- **Comprehensive SEO**: Optimized meta tags, structured data, and search engine visibility
+- **Mobile Optimization**: Google Mobile-Friendly design
+- **Fast Loading**: Optimized performance and loading speeds
+- **Accessibility Features**: Screen reader compatible and WCAG compliant
+
+## Contact Information
+- **Email**: Various department-specific emails
+- **Alumni Contact**: emma@stlouisdemojhs.com
+- **PTA Contact**: michelle@stlouisdemojhs.com
+- **Phone**: +233 20 870 5290 (Alumni Coordinator: Emmanuel Humbling Dwamena)
+- **Social Media**: Facebook, WhatsApp, TikTok
+
+## Technical Information
+- **Framework**: React with TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Deployment**: Modern web hosting with CDN
+- **Analytics**: Simple Analytics for privacy-first tracking
+
+## Recent Updates (2025)
+- Added comprehensive PTA page with parent and teacher responsibilities
+- Enhanced media files section with working YouTube integrations
+- Improved footer design with neon glow effects for special sections
+- Added Google Maps integration to contact page
+- Expanded donation system with multiple payment options
+- Enhanced alumni network features
+- Improved mobile responsiveness and PWA capabilities
+
+This website represents a modern, comprehensive digital presence for St. Louis Demonstration JHS, combining traditional educational values with cutting-edge technology to serve students, parents, teachers, and the broader community.
