@@ -249,6 +249,15 @@ const Footer: React.FC = () => {
                     Staff Resources
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/media-files"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    St. Louis Media Files
+                  </Link>
+                </li>
               </ul>
             </div>
 

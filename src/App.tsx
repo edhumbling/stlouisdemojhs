@@ -25,6 +25,7 @@ import PartnerPage from './pages/PartnerPage';
 import AlumniPage from './pages/AlumniPage';
 import SponsorshipPage from './pages/SponsorshipPage'; // Import SponsorshipPage
 import MediaPage from './pages/MediaPage';
+import MediaFilesPage from './pages/MediaFilesPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import SitemapPage from './pages/SitemapPage';
@@ -142,6 +143,7 @@ const App: React.FC = () => {
           <Route path="alumni" element={<AlumniPage />} />
           <Route path="sponsorship" element={<SponsorshipPage />} /> {/* New Route */}
           <Route path="media" element={<MediaPage />} />
+          <Route path="media-files" element={<MediaFilesPage />} />
           <Route path="donate" element={<DonationPage />} />
           <Route path="donate-paypal" element={<PayPalDonatePage />} />
           <Route path="donate-us-bank" element={<DonateUSBankPage />} />
