@@ -6,15 +6,16 @@ export const useCelebrationModal = () => {
   useEffect(() => {
     const checkCelebrationDate = () => {
       const today = new Date();
-      const celebrationDate = new Date('2025-06-24'); // June 24th, 2025
-      
-      // Check if today is the celebration date
-      const isToday = today.toDateString() === celebrationDate.toDateString();
-      
-      // Check if user has already seen the celebration today
-      const hasSeenToday = localStorage.getItem('celebration-seen-2025-06-24');
-      
-      if (isToday && !hasSeenToday) {
+      const startDate = new Date('2025-06-23'); // June 23rd, 2025 (today)
+      const endDate = new Date('2025-06-24'); // June 24th, 2025 (tomorrow)
+
+      // Check if today is within the celebration period (June 23-24, 2025)
+      const isWithinCelebrationPeriod = today >= startDate && today <= endDate;
+
+      // Check if user has already seen the celebration during this period
+      const hasSeenCelebration = localStorage.getItem('celebration-seen-2025-06-23-24');
+
+      if (isWithinCelebrationPeriod && !hasSeenCelebration) {
         // Small delay to let the page load first
         setTimeout(() => {
           setShowCelebration(true);
@@ -27,8 +28,8 @@ export const useCelebrationModal = () => {
 
   const closeCelebration = () => {
     setShowCelebration(false);
-    // Mark as seen for today
-    localStorage.setItem('celebration-seen-2025-06-24', 'true');
+    // Mark as seen for the celebration period
+    localStorage.setItem('celebration-seen-2025-06-23-24', 'true');
   };
 
   return {

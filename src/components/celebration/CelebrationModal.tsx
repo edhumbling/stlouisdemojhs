@@ -15,7 +15,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
   // Initialize audio and confetti when modal opens
   useEffect(() => {
     if (isOpen && audioRef.current) {
-      audioRef.current.volume = 0.3; // Set to 30% volume
+      audioRef.current.volume = 1.0; // Set to 100% volume
       audioRef.current.play().catch(console.error);
     }
 
@@ -39,7 +39,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
   const generateConfetti = () => {
     const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8'];
     const shapes = ['circle', 'square', 'triangle'];
-    
+
     return Array.from({ length: 150 }, (_, i) => ({
       id: i,
       color: colors[Math.floor(Math.random() * colors.length)],
@@ -74,7 +74,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
       >
         {/* Blurred Background */}
         <div className="absolute inset-0 bg-black/50 backdrop-blur-md" />
-        
+
         {/* Confetti Container */}
         <div ref={confettiRef} className="absolute inset-0 pointer-events-none overflow-hidden">
           {confettiParticles.map((particle) => (
@@ -138,7 +138,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
               alt="Congratulatory Graduation Message"
               className="w-full h-auto object-cover rounded-t-2xl"
             />
-            
+
             {/* Sparkle Effects on Image */}
             <div className="absolute inset-0 pointer-events-none">
               {Array.from({ length: 20 }, (_, i) => (
@@ -184,7 +184,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
               <p className="text-base text-gray-600 mb-6">
                 Enjoy the enhanced features, improved design, and better user experience! 🚀
               </p>
-              
+
               {/* Celebration Emojis */}
               <div className="flex justify-center space-x-2 text-3xl mb-4">
                 <motion.span
