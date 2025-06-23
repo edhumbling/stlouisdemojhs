@@ -217,6 +217,19 @@ const Footer: React.FC = () => {
                     Character Ed.
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/pta"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="relative inline-block text-xs sm:text-sm group"
+                  >
+                    <span className="relative z-10 text-green-300 group-hover:text-green-200 transition-colors font-bold">
+                      Parents & Teachers Association
+                    </span>
+                    <span className="absolute inset-0 -m-1 bg-green-400/30 blur-md animate-pulse rounded-lg group-hover:bg-green-400/40 transition-colors"></span>
+                    <span className="absolute inset-0 -m-0.5 bg-green-300/20 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+                  </Link>
+                </li>
 
               </ul>
             </div>
