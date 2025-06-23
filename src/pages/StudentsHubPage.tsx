@@ -3660,7 +3660,7 @@ const StudentsHubPage: React.FC = () => {
     return (
       <div className="min-h-screen bg-black">
         {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 pt-20 pb-3 sm:pb-4">
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button

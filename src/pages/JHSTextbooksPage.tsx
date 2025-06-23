@@ -168,7 +168,7 @@ const JHSTextbooksPage: React.FC = () => {
     return (
       <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
         {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 pt-20 pb-2 sm:pb-3">
+        <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-2 sm:py-3">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button

@@ -3,7 +3,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
-import Breadcrumb from '../common/Breadcrumb';
 
 import { useHeader } from '../../contexts/HeaderContext';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
@@ -88,9 +87,6 @@ const Layout: React.FC = () => {
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {showHeader && <Header />}
 
-      {/* Breadcrumb Navigation - appears after header */}
-      {showHeader && <Breadcrumb />}
-
       <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
         <Outlet />
       </main>
@@ -98,9 +94,6 @@ const Layout: React.FC = () => {
 
       {/* Global Scroll Button - Always visible like taskbar time */}
       <ScrollButton />
-
-
-
     </div>
   );
 };
