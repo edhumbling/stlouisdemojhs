@@ -10,13 +10,22 @@ interface CelebrationModalProps {
 const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) => {
   const [isMuted, setIsMuted] = useState(false);
   const [currentSong, setCurrentSong] = useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
   const confettiRef = useRef<HTMLDivElement>(null);
 
   // Playlist of songs
   const playlist = [
     'https://ik.imagekit.io/edhumbling/20th%20Century%20Fox.mp3',
-    'https://cdn.trendybeatz.com/audio/King-Paluta-Aseda-(TrendyBeatz.com).mp3'
+    'https://ik.imagekit.io/edhumbling/King%20Paluta%20-%20Aseda%20Mp3%20Download%20_%20TrendyBeatz.mp3'
+  ];
+
+  // Array of graduation images
+  const graduationImages = [
+    'https://ik.imagekit.io/edhumbling/a-celebratory-graduation-greeting-card-c_0OzMAirqSGCcwMEP_3NWSA_0OIWsY8GSIS-MA7CeXABkQ.jpeg',
+    'https://ik.imagekit.io/edhumbling/a-celebratory-graduation-greeting-card-f_axyzHKcDSVK5pTQ0ne5g5w_0IYqG1rKSIyiHJEdAFlUwg.jpeg',
+    'https://ik.imagekit.io/edhumbling/a-celebratory-graduation-card-for-the-cl_hi2O_6vFRn6rM6l0axMDiQ_Nql0ou6-SXqXEG4Jiv4QQg.jpeg',
+    'https://ik.imagekit.io/edhumbling/a-celebratory-graduation-greeting-card-h_aCjmYmUQT1iWBEdPqEjS_A_Nql0ou6-SXqXEG4Jiv4QQg.jpeg'
   ];
 
   // Initialize audio and confetti when modal opens
@@ -51,6 +60,17 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
       audio.removeEventListener('ended', handleSongEnd);
     };
   }, [playlist.length]);
+
+  // Handle image sliding - change image every 4 seconds
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const imageInterval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % graduationImages.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(imageInterval);
+  }, [isOpen, graduationImages.length]);
 
   // Handle mute/unmute
   const toggleMute = () => {
@@ -94,8 +114,9 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 z-50 flex items-start justify-center pt-16 p-4"
         onClick={handleBackdropClick}
+        style={{ top: '0px' }}
       >
         {/* Blurred Background */}
         <div className="absolute inset-0 bg-black/50 backdrop-blur-md" />
@@ -156,13 +177,32 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
             {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
           </button>
 
-          {/* Graduation Flyer Image */}
-          <div className="relative">
-            <img
-              src="https://ik.imagekit.io/edhumbling/a-celebratory-graduation-greeting-card-c_0OzMAirqSGCcwMEP_3NWSA_0OIWsY8GSIS-MA7CeXABkQ.jpeg"
-              alt="Congratulatory Graduation Message"
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
+          {/* Graduation Flyer Images - Sliding */}
+          <div className="relative overflow-hidden">
+            <div className="relative w-full h-auto">
+              {graduationImages.map((image, index) => (
+                <motion.img
+                  key={index}
+                  src={image}
+                  alt={`Congratulatory Graduation Message ${index + 1}`}
+                  className="w-full h-auto object-contain rounded-t-2xl"
+                  style={{
+                    position: index === 0 ? 'relative' : 'absolute',
+                    top: index === 0 ? 'auto' : '0',
+                    left: index === 0 ? 'auto' : '0',
+                  }}
+                  initial={{ opacity: index === 0 ? 1 : 0, scale: 1 }}
+                  animate={{
+                    opacity: index === currentImage ? 1 : 0,
+                    scale: index === currentImage ? 1 : 0.95,
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    ease: 'easeInOut',
+                  }}
+                />
+              ))}
+            </div>
 
             {/* Sparkle Effects on Image */}
             <div className="absolute inset-0 pointer-events-none">
@@ -188,6 +228,18 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
                 >
                   ✨
                 </motion.div>
+              ))}
+            </div>
+
+            {/* Image Indicators */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+              {graduationImages.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentImage ? 'bg-white' : 'bg-white/50'
+                  }`}
+                />
               ))}
             </div>
           </div>
