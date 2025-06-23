@@ -31,9 +31,29 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
   // Initialize audio and confetti when modal opens
   useEffect(() => {
     if (isOpen && audioRef.current) {
-      audioRef.current.volume = 1.0; // Set to 100% volume
-      audioRef.current.src = playlist[currentSong];
-      audioRef.current.play().catch(console.error);
+      const audio = audioRef.current;
+      audio.volume = 1.0; // Set to 100% volume
+      audio.src = playlist[currentSong];
+
+      // Load and play the audio
+      audio.load();
+
+      const playAudio = async () => {
+        try {
+          await audio.play();
+          console.log('Audio playing:', playlist[currentSong]);
+        } catch (error) {
+          console.error('Audio play failed:', error);
+          // Try to play after user interaction
+          const playOnClick = () => {
+            audio.play().catch(console.error);
+            document.removeEventListener('click', playOnClick);
+          };
+          document.addEventListener('click', playOnClick);
+        }
+      };
+
+      playAudio();
     }
 
     return () => {
@@ -42,7 +62,7 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
         audioRef.current.currentTime = 0;
       }
     };
-  }, [isOpen, currentSong]);
+  }, [isOpen, currentSong, playlist]);
 
   // Handle song end - play next song in playlist
   useEffect(() => {
@@ -50,14 +70,31 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
     if (!audio) return;
 
     const handleSongEnd = () => {
+      console.log('Song ended, switching to next song');
       // Move to next song, loop back to first song after last one
-      setCurrentSong((prev) => (prev + 1) % playlist.length);
+      setCurrentSong((prev) => {
+        const nextSong = (prev + 1) % playlist.length;
+        console.log('Next song index:', nextSong);
+        return nextSong;
+      });
+    };
+
+    const handleCanPlay = () => {
+      console.log('Audio can play:', audio.src);
+    };
+
+    const handleError = (e) => {
+      console.error('Audio error:', e);
     };
 
     audio.addEventListener('ended', handleSongEnd);
+    audio.addEventListener('canplay', handleCanPlay);
+    audio.addEventListener('error', handleError);
 
     return () => {
       audio.removeEventListener('ended', handleSongEnd);
+      audio.removeEventListener('canplay', handleCanPlay);
+      audio.removeEventListener('error', handleError);
     };
   }, [playlist.length]);
 
@@ -169,13 +206,32 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
             <X size={24} />
           </button>
 
-          {/* Mute/Unmute Button */}
-          <button
-            onClick={toggleMute}
-            className="absolute top-4 left-4 z-10 bg-black/20 hover:bg-black/40 text-white rounded-full p-2 transition-colors duration-200"
-          >
-            {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
-          </button>
+          {/* Audio Controls */}
+          <div className="absolute top-4 left-4 z-10 flex gap-2">
+            {/* Mute/Unmute Button */}
+            <button
+              onClick={toggleMute}
+              className="bg-black/20 hover:bg-black/40 text-white rounded-full p-2 transition-colors duration-200"
+            >
+              {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+            </button>
+
+            {/* Manual Play Button for Testing */}
+            <button
+              onClick={() => {
+                if (audioRef.current) {
+                  if (audioRef.current.paused) {
+                    audioRef.current.play().catch(console.error);
+                  } else {
+                    audioRef.current.pause();
+                  }
+                }
+              }}
+              className="bg-black/20 hover:bg-black/40 text-white rounded-full p-2 transition-colors duration-200"
+            >
+              ▶️
+            </button>
+          </div>
 
           {/* Graduation Flyer Images - Sliding */}
           <div className="relative overflow-hidden">
@@ -308,6 +364,8 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
           ref={audioRef}
           preload="auto"
           className="hidden"
+          crossOrigin="anonymous"
+          controls={false}
         >
           {/* Source will be set dynamically via JavaScript */}
         </audio>
