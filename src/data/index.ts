@@ -473,6 +473,68 @@ const rawGalleryImages: GalleryImage[] = [
     src: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/57d8e0dd-d63c-44c3-8525-047656ef22e5.jpg',
     alt: 'Student engagement and school environment',
     category: 'Campus Life'
+  },
+
+  // New Gallery Images from ImageKit Public Folder
+  {
+    id: 45,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7324.HEIC?updatedAt=1750679987520',
+    alt: 'Student election activities and democratic participation',
+    category: 'School Events'
+  },
+  {
+    id: 46,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7124.HEIC?updatedAt=1750679981859',
+    alt: 'Students engaged in classroom learning activities',
+    category: 'Academic Life'
+  },
+  {
+    id: 47,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_2288.jpg?updatedAt=1750679981834',
+    alt: 'School campus and learning environment',
+    category: 'Campus Life'
+  },
+  {
+    id: 48,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7063.HEIC?updatedAt=1750679980233',
+    alt: 'Interactive classroom sessions and student participation',
+    category: 'Academic Life'
+  },
+  {
+    id: 49,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7007.HEIC?updatedAt=1750679980146',
+    alt: 'Students in collaborative learning activities',
+    category: 'Academic Life'
+  },
+  {
+    id: 50,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7082.HEIC?updatedAt=1750679979249',
+    alt: 'Hands-on learning and practical activities',
+    category: 'Academic Life'
+  },
+  {
+    id: 51,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7051.HEIC?updatedAt=1750679977714',
+    alt: 'Student presentations and academic discussions',
+    category: 'Academic Life'
+  },
+  {
+    id: 52,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7107.HEIC?updatedAt=1750679977057',
+    alt: 'Creative learning environment and student engagement',
+    category: 'Academic Life'
+  },
+  {
+    id: 53,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7543.HEIC?updatedAt=1750679969691',
+    alt: 'School facilities and modern learning spaces',
+    category: 'Campus Life'
+  },
+  {
+    id: 54,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7545.HEIC?updatedAt=1750679970119',
+    alt: 'Students in educational activities and school life',
+    category: 'Campus Life'
   }
 ];
 
