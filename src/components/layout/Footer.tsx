@@ -165,9 +165,13 @@ const Footer: React.FC = () => {
                   <Link
                     to="/alumni"
                     onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                    className="text-gray-400 hover:text-white transition-colors text-xs sm:text-sm"
+                    className="relative inline-block text-xs sm:text-sm group"
                   >
-                    Alumni
+                    <span className="relative z-10 text-green-300 group-hover:text-green-200 transition-colors font-medium">
+                      Alumni Network
+                    </span>
+                    <span className="absolute inset-0 -m-1 bg-green-400/20 blur-md animate-pulse rounded-lg group-hover:bg-green-400/30 transition-colors"></span>
+                    <span className="absolute inset-0 -m-0.5 bg-green-300/15 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
                   </Link>
                 </li>
               </ul>
@@ -227,8 +231,8 @@ const Footer: React.FC = () => {
                       <span className="relative z-10 text-green-300 group-hover:text-green-200 transition-colors font-bold text-xs">
                         PTA Association
                       </span>
-                      <span className="absolute inset-0 -m-1 bg-green-400/30 blur-md animate-pulse rounded-lg group-hover:bg-green-400/40 transition-colors"></span>
-                      <span className="absolute inset-0 -m-0.5 bg-green-300/20 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+                      <span className="absolute inset-0 -m-1 bg-green-400/20 blur-md animate-pulse rounded-lg group-hover:bg-green-400/30 transition-colors"></span>
+                      <span className="absolute inset-0 -m-0.5 bg-green-300/15 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
                     </div>
                   </Link>
                 </li>
@@ -294,8 +298,8 @@ const Footer: React.FC = () => {
                     <span className="relative z-10 text-yellow-300 group-hover:text-yellow-200 transition-colors font-medium">
                       St. Louis Media Files
                     </span>
-                    <span className="absolute inset-0 -m-1 bg-yellow-400/30 blur-md animate-pulse rounded-lg group-hover:bg-yellow-400/40 transition-colors"></span>
-                    <span className="absolute inset-0 -m-0.5 bg-yellow-300/20 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+                    <span className="absolute inset-0 -m-1 bg-yellow-400/20 blur-md animate-pulse rounded-lg group-hover:bg-yellow-400/30 transition-colors"></span>
+                    <span className="absolute inset-0 -m-0.5 bg-yellow-300/15 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
                   </Link>
                 </li>
               </ul>
@@ -359,8 +363,8 @@ const Footer: React.FC = () => {
                     <span className="relative z-10 text-yellow-300 group-hover:text-yellow-200 transition-colors font-medium">
                       🎵 St. Louis on TikTok
                     </span>
-                    <span className="absolute inset-0 -m-1 bg-yellow-400/30 blur-md animate-pulse rounded-lg group-hover:bg-yellow-400/40 transition-colors"></span>
-                    <span className="absolute inset-0 -m-0.5 bg-yellow-300/20 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
+                    <span className="absolute inset-0 -m-1 bg-yellow-400/20 blur-md animate-pulse rounded-lg group-hover:bg-yellow-400/30 transition-colors"></span>
+                    <span className="absolute inset-0 -m-0.5 bg-yellow-300/15 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
                   </Link>
                 </li>
               </ul>
