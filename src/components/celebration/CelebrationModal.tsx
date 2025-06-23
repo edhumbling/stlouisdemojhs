@@ -292,58 +292,76 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
             transition={{ delay: 0.2, duration: 0.3, ease: 'easeOut' }}
             className="absolute bottom-6 lg:bottom-4 left-1/2 transform -translate-x-1/2 z-20 px-4"
           >
-            <div className="bg-black/90 backdrop-blur-sm rounded-2xl lg:rounded-xl px-5 lg:px-4 py-4 lg:py-3 shadow-xl border border-white/20 max-w-sm lg:max-w-xs mx-auto">
+            <div className="bg-black/90 backdrop-blur-sm rounded-3xl lg:rounded-xl px-8 lg:px-4 py-8 lg:py-3 shadow-xl border border-white/20 w-80 lg:max-w-xs mx-auto aspect-square lg:aspect-auto flex items-center justify-center lg:block">
               <motion.div
                 animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 className="text-center"
               >
-                <h2 className="text-base lg:text-sm font-bold text-white mb-2 lg:mb-1">
+                <h2 className="text-lg lg:text-sm font-bold text-white mb-3 lg:mb-1">
                   🎉 Premium Website Launch! 🎉
                 </h2>
-                <p className="text-sm lg:text-xs text-white/90 mb-2">
+                <p className="text-sm lg:text-xs text-white/90 mb-3 lg:mb-2">
                   We are officially launching our premium school website today!
                 </p>
-                <p className="text-xs text-white/80 mb-4 lg:mb-3">
-                  Enjoy enhanced features, improved design, and better user experience! 🚀
+                <p className="text-xs text-white/80 mb-5 lg:mb-3">
+                  Enjoy enhanced features! 🚀
                 </p>
 
                 {/* Cute Celebration Emojis */}
-                <div className="flex justify-center space-x-2 lg:space-x-1 text-lg lg:text-sm mb-4 lg:mb-3">
+                <div className="flex justify-center space-x-3 lg:space-x-1 text-2xl lg:text-sm mb-6 lg:mb-3">
                   <motion.span
-                    animate={{ scale: [1, 1.3, 1], rotate: [0, 15, -15, 0] }}
+                    animate={{ scale: [1, 1.4, 1], rotate: [0, 20, -20, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.5 }}
                   >
                     🎓
                   </motion.span>
                   <motion.span
-                    animate={{ scale: [1, 1.3, 1], rotate: [0, -15, 15, 0] }}
+                    animate={{ scale: [1, 1.4, 1], rotate: [0, -20, 20, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.7 }}
                   >
                     🎊
                   </motion.span>
                   <motion.span
-                    animate={{ scale: [1, 1.3, 1], rotate: [0, 15, -15, 0] }}
+                    animate={{ scale: [1, 1.4, 1], rotate: [0, 20, -20, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.3 }}
                   >
                     🎈
                   </motion.span>
                   <motion.span
-                    animate={{ scale: [1, 1.3, 1], rotate: [0, -15, 15, 0] }}
+                    animate={{ scale: [1, 1.4, 1], rotate: [0, -20, 20, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 0.9 }}
                   >
                     🏆
                   </motion.span>
                 </div>
 
-                {/* Cute Continue Button */}
+                {/* Super Cute Continue Button */}
                 <motion.button
                   onClick={onClose}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-2.5 lg:py-1.5 px-6 lg:px-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 text-sm lg:text-xs"
+                  whileHover={{ scale: 1.1, y: -3 }}
+                  whileTap={{ scale: 0.9 }}
+                  animate={{
+                    boxShadow: [
+                      '0 0 20px rgba(168, 85, 247, 0.4)',
+                      '0 0 30px rgba(236, 72, 153, 0.6)',
+                      '0 0 20px rgba(168, 85, 247, 0.4)'
+                    ]
+                  }}
+                  transition={{
+                    boxShadow: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
+                    scale: { duration: 0.2 },
+                    y: { duration: 0.2 }
+                  }}
+                  className="bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 text-white font-black py-4 lg:py-1.5 px-8 lg:px-4 rounded-full shadow-2xl border-2 border-white/30 text-base lg:text-xs relative overflow-hidden"
                 >
-                  Continue to Website ✨
+                  {/* Cute sparkle effect inside button */}
+                  <motion.div
+                    animate={{ x: [-100, 100] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
+                  />
+                  <span className="relative z-10">Continue to Website ✨</span>
                 </motion.button>
               </motion.div>
             </div>
