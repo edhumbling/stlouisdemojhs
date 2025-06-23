@@ -831,7 +831,7 @@ const AboutPage: React.FC = () => {
                       Modern Significance
                     </h4>
                     <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-4" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                      It is important to note that the Laurel encircles the hilt of the Sword. The lesson here is that the sweet smell of success is coupled with the toil of hard work. Only after one has grabbed the bull of hard work (the Sword) by the horns, and has assiduously worked her way through whatever challenges that come her way, can she hope to earn any just reward.
+                      It is important to note that the Laurel encircles the hilt of the Sword. The lesson here is that the sweet smell of success is coupled with the toil of hard work. Only after one has grabbed the bull of hard work (the Sword) by the horns, and has assiduously worked their way through whatever challenges that come their way, can they hope to earn any just reward.
                     </p>
 
                     {/* Work and Happiness */}
@@ -841,7 +841,7 @@ const AboutPage: React.FC = () => {
                         Work and Happiness
                       </h5>
                       <p className="text-sm sm:text-base text-gray-200 leading-relaxed" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
-                        In other words, our girls should work very hard if she is, eventually, to land on her feet. This is the background upon which society bases the adage <strong className="text-yellow-300">Work and Happiness</strong>.
+                        In other words, our St. Louis students should work very hard if they are, eventually, to land on their feet. This is the background upon which society bases the adage <strong className="text-yellow-300">Work and Happiness</strong>.
                       </p>
                     </div>
                   </div>
