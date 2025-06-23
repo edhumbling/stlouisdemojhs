@@ -1,147 +1,133 @@
-# St. Louis Demonstration Junior High School - LLM Information File
+# St. Louis Demonstration Junior High School
 
-## Website Overview
-St. Louis Demonstration Junior High School (St. Louis Demo JHS) is a premier educational institution located in Suame Mbrom, Kumasi, Ashanti Region, Ghana. This website serves as the official digital platform for the school, providing comprehensive information about academics, admissions, community engagement, and educational resources.
+> Official website for St. Louis Demonstration Junior High School, a premier Catholic educational institution in Kumasi, Ghana, serving students with excellence in academics, character development, and community engagement.
 
-## School Information
-- **Full Name**: St. Louis Demonstration Junior High School
-- **Location**: Suame Mbrom, Kumasi, Ashanti Region, Ghana
-- **Address**: P.O. Box 3041, Mbrom-Kumasi
-- **GPS Digital Address**: AK-015-1612
-- **Type**: Junior High School (JHS)
-- **Affiliation**: Catholic Educational Institution
-- **Established**: Serving the community for decades as a demonstration school
+## About the School
 
-## Key Website Features
+**St. Louis Demonstration Junior High School** is located in Suame Mbrom, Kumasi, Ashanti Region, Ghana (P.O. Box 3041, Mbrom-Kumasi, GPS: AK-015-1612). As a Catholic demonstration school, we provide comprehensive junior high school education with a focus on academic excellence, moral development, and community service.
 
-### Main Navigation Pages
-- **Homepage** (/): School overview, news, quick access to key features
-- **News** (/news): Latest school announcements and updates
-- **STEM** (/stem): Science, Technology, Engineering, and Mathematics programs
-- **Learn Hub** (/learnhub): Educational resources and learning materials
-- **AI Search** (/ai-search): AI-powered search functionality
-- **Gallery** (/gallery): Photo galleries of school events and activities
+**Contact Information:**
+- Phone: +233 20 870 5290
+- Alumni Contact: emma@stlouisdemojhs.com
+- PTA Contact: michelle@stlouisdemojhs.com
+- Social Media: Facebook, WhatsApp, TikTok (@st.louis.demonstr)
 
-### Academic Information
-- **About** (/about): School history, mission, vision, and values
-- **Academics** (/academics): Curriculum, subjects, and academic programs
-- **Admissions** (/admissions): Enrollment process and requirements
-- **Faculty** (/faculty): Teaching staff and administration
-- **Facilities** (/facilities): School infrastructure and resources
+## Academic Programs
 
-### Subject Pages
-The school offers comprehensive JHS curriculum including:
-- Mathematics (/subject/mathematics)
-- English Language (/subject/english-language)
-- Integrated Science (/subject/integrated-science)
-- Social Studies (/subject/social-studies)
-- Religious and Moral Education (/subject/religious-moral-education)
-- Ghanaian Language (/subject/ghanaian-language)
-- French (/subject/french)
-- Career Technology (/subject/career-technology)
-- Computing/ICT (/subject/computing-ict)
-- Creative Arts and Design (/subject/creative-arts-design)
-- Music (/subject/music)
+**Core Curriculum:** We offer the complete Ghana Education Service JHS curriculum including:
+- Mathematics - Advanced problem-solving and numerical literacy
+- English Language - Communication skills and literature
+- Integrated Science - Physics, Chemistry, Biology foundations
+- Social Studies - History, Geography, Civic education
+- Religious and Moral Education - Character and ethical development
+- Ghanaian Language - Local language proficiency
+- French - International language skills
+- Career Technology - Practical and vocational skills
+- Computing/ICT - Digital literacy and technology
+- Creative Arts and Design - Artistic expression and creativity
+- Music - Musical education and performance
 
-### Community and Engagement
-- **Alumni Network** (/alumni): Alumni database, networking, and updates
-- **PTA** (/pta): Parents and Teachers Association information, objectives, responsibilities
-- **Sponsorship** (/sponsorship): Partnership opportunities and wall of honor
-- **Media** (/media): School media presence and communications
-- **Media Files** (/media-files): Video content, quiz competitions, school events
-- **TikTok** (/tiktok): Social media presence and student content
+**Special Programs:**
+- STEM Education (/stem) - Science, Technology, Engineering, Mathematics focus
+- AI Integration - MayaMiles AI learning assistant with Maya (female) and Miles (male) voices
+- Character Education - Moral and ethical development programs
 
-### Educational Resources
-- **AI Tools**: Audio (/ai-audio-tools), Video (/ai-video-tools), Image (/ai-image-tools)
-- **Text-to-Speech Tools** (/ai-text-to-speech-tools)
-- **Career Resources** (/career-reel-resources)
-- **Educational Guides** (/educational-guide, /educational-pathway-guide)
-- **Staff Resources** (/staff-resources)
-- **AI Teaching Guide** (/ai-teaching-guide)
-- **JHS Textbooks** (/jhs-textbooks)
-- **Dream Hive Resources** (/dream-hive-resources)
-- **Money Smart Links** (/money-smart-links)
+## Community & Engagement
 
-### Educational Institutions Database
-Comprehensive database of higher education options:
-- **Nursing Institutions** (/nursing-institutions)
-- **Teacher Training** (/teacher-training)
-- **Local Universities** (/local-universities)
-- **Professional Institutes** (/professional-institutes)
-- **TVET Schools** (/tvet-schools)
-- **Military Academies** (/military-academies)
-- **Religious Seminaries** (/religious-seminaries)
-- **Art and Creative Schools** (/art-creative-schools)
-- **Agricultural Colleges** (/agricultural-colleges)
-- **Business Schools** (/business-schools)
-- **Online Universities** (/online-universities)
+**Alumni Network** (/alumni): Active alumni community with networking opportunities, career guidance, and school support. Contact: emma@stlouisdemojhs.com
 
-### Support and Services
-- **Contact** (/contact): Contact information with Google Maps integration
-- **Apply Now** (/apply-now): Application process
-- **Visit Us** (/visit-us): Campus visit information
-- **Schedule Tour** (/schedule-tour): Tour booking
-- **Virtual Tour** (/virtual-tour): Online campus tour
-- **Calendar** (/calendar): School events and important dates
-- **SHS Database** (/shs-database): Senior High School information
-- **Results Placement** (/results-placement): BECE results and placement
+**Parents & Teachers Association** (/pta): Collaborative community fostering educational excellence through:
+- Parent Responsibilities: Academic support, school engagement, student welfare, community partnership, digital responsibility, cultural values
+- Teacher Responsibilities: Academic excellence, student development, communication, school environment, technology integration, professional growth
+- Contact: michelle@stlouisdemojhs.com
 
-### Donation and Support
-- **Main Donate** (/donate): Primary donation page
-- **PayPal Donations** (/donate-paypal)
-- **US Bank Donations** (/donate-us-bank)
-- **UK Bank Donations** (/donate-uk-bank)
-- **Euro Bank Donations** (/donate-euro-bank)
-- **Monthly Donation Tiers**: /donate-monthly-10, /donate-monthly-30, /donate-monthly-50, /donate-monthly-100, /donate-monthly-200, /donate-monthly-500, /donate-monthly-1000, /donate-monthly-3000, /donate-monthly-5000
+**Sponsorship Program** (/sponsorship): Partnership opportunities with Wall of Honor recognition for significant contributors supporting school development.
 
-## Special Features
+**Media Presence**:
+- Media Files (/media-files): YouTube videos of quiz competitions, school events, academic showcases
+- TikTok (/tiktok): Student-generated content and school highlights
+- Gallery (/gallery): Photo collections of school activities and events
 
-### AI Integration
-- **MayaMiles AI**: AI-powered learning assistant with Maya (female voice) and Miles (male voice)
-- **SuperChat**: Integration with supermemory.chat for text-based learning
-- **AI Search**: Advanced search functionality across school resources
-- **Educational AI Tools**: Comprehensive suite of AI tools for learning
+## Educational Resources & Tools
 
-### Media and Social Presence
-- **YouTube Integration**: Embedded videos of school events, competitions, and activities
-- **TikTok Content**: Student-generated content and school highlights
-- **Photo Galleries**: Comprehensive image collections with modal viewers
-- **Video Collections**: Quiz competitions, school events, academic showcases
+**AI-Powered Learning:**
+- MayaMiles AI Assistant: Personalized learning with Maya (female voice) and Miles (male voice)
+- SuperChat Integration: Full-screen iframe access to supermemory.chat for text-based learning
+- AI Search (/ai-search): Advanced search functionality across school resources
+- AI Tools: Audio, Video, Image, and Text-to-Speech tools for enhanced learning
 
-### Mobile-First Design
-- **Progressive Web App (PWA)**: Installable web application
-- **Responsive Design**: Optimized for all device sizes
-- **Touch-Friendly Interface**: Mobile-optimized navigation and interactions
-- **Offline Capabilities**: PWA features for offline access
+**Student Resources:**
+- Learn Hub (/learnhub): Comprehensive educational materials and learning resources
+- JHS Textbooks (/jhs-textbooks): Curriculum-aligned textbooks and materials
+- Career Resources (/career-reel-resources): Career guidance and pathway information
+- Educational Guides (/educational-guide): Academic and pathway guidance
+- Dream Hive Resources (/dream-hive-resources): Inspirational and motivational content
+- Money Smart Links (/money-smart-links): Financial literacy resources
 
-### Accessibility and SEO
-- **Comprehensive SEO**: Optimized meta tags, structured data, and search engine visibility
-- **Mobile Optimization**: Google Mobile-Friendly design
-- **Fast Loading**: Optimized performance and loading speeds
-- **Accessibility Features**: Screen reader compatible and WCAG compliant
+**Higher Education Database:** Comprehensive information on post-JHS options including nursing institutions, teacher training, universities, professional institutes, TVET schools, military academies, religious seminaries, art schools, agricultural colleges, business schools, and online universities.
 
-## Contact Information
-- **Email**: Various department-specific emails
-- **Alumni Contact**: emma@stlouisdemojhs.com
-- **PTA Contact**: michelle@stlouisdemojhs.com
-- **Phone**: +233 20 870 5290 (Alumni Coordinator: Emmanuel Humbling Dwamena)
-- **Social Media**: Facebook, WhatsApp, TikTok
+## Admissions & Services
 
-## Technical Information
-- **Framework**: React with TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Deployment**: Modern web hosting with CDN
-- **Analytics**: Simple Analytics for privacy-first tracking
+**Application Process:**
+- Apply Now (/apply-now): Complete application process and requirements
+- Contact (/contact): School contact information with integrated Google Maps location
+- Visit Us (/visit-us): Campus visit information and scheduling
+- Schedule Tour (/schedule-tour): Book guided campus tours
+- Virtual Tour (/virtual-tour): Online campus exploration
 
-## Recent Updates (2025)
-- Added comprehensive PTA page with parent and teacher responsibilities
-- Enhanced media files section with working YouTube integrations
-- Improved footer design with neon glow effects for special sections
-- Added Google Maps integration to contact page
-- Expanded donation system with multiple payment options
-- Enhanced alumni network features
-- Improved mobile responsiveness and PWA capabilities
+**Student Services:**
+- Calendar (/calendar): Academic calendar, events, and important dates
+- SHS Database (/shs-database): Senior High School placement information
+- Results Placement (/results-placement): BECE results and school placement guidance
 
-This website represents a modern, comprehensive digital presence for St. Louis Demonstration JHS, combining traditional educational values with cutting-edge technology to serve students, parents, teachers, and the broader community.
+## Support & Donations
+
+**Donation Options:** Multiple secure donation methods supporting school development:
+- Main Donate Page (/donate): Primary donation portal with Paystack integration
+- International Options: PayPal, US Bank, UK Bank, Euro Bank transfers
+- Monthly Giving: Tiered monthly donation options from ₵10 to ₵5000
+- 100% of donations go directly to school development and student support
+
+## Technology & Features
+
+**Progressive Web App (PWA):** Installable web application with offline capabilities, optimized for all devices with touch-friendly interface and fast loading speeds.
+
+**AI Integration:**
+- MayaMiles AI learning assistant (Maya female voice, Miles male voice)
+- SuperChat integration with supermemory.chat
+- AI-powered search across all school resources
+- Educational AI tools for enhanced learning
+
+**Media & Social:**
+- YouTube: Embedded videos of quiz competitions, school events, academic showcases
+- TikTok: Student-generated content (@st.louis.demonstr)
+- Photo galleries with modal viewers and full-screen capabilities
+- Social media presence on Facebook, WhatsApp, TikTok
+
+## Key Pages & URLs
+
+**Main Navigation:**
+- Homepage (/) - School overview and news
+- News (/news) - Latest announcements
+- STEM (/stem) - Science and technology programs
+- Learn Hub (/learnhub) - Educational resources
+- Gallery (/gallery) - Photo collections
+
+**Academic:**
+- About (/about) - School information
+- Academics (/academics) - Curriculum details
+- Admissions (/admissions) - Enrollment process
+- Faculty (/faculty) - Staff information
+- Facilities (/facilities) - School infrastructure
+
+**Subject Pages:** All 11 JHS subjects available at /subject/[subject-name]
+
+**Community:**
+- Alumni (/alumni) - Alumni network and database
+- PTA (/pta) - Parents and Teachers Association
+- Sponsorship (/sponsorship) - Partnership opportunities
+- Media Files (/media-files) - Video content library
+
+---
+
+*This website serves as the comprehensive digital platform for St. Louis Demonstration Junior High School, combining academic excellence with modern technology to support students, parents, teachers, and the broader educational community in Ghana.*
