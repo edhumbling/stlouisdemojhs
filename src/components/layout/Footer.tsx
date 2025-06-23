@@ -218,6 +218,10 @@ const Footer: React.FC = () => {
                     Character Ed.
                   </Link>
                 </li>
+
+                {/* Space separator */}
+                <li className="h-2"></li>
+
                 <li>
                   <Link
                     to="/pta"
