@@ -70,6 +70,24 @@ const PTAPage: React.FC = () => {
         "Share expertise and skills with the school community",
         "Promote the school's reputation in the wider community"
       ]
+    },
+    {
+      title: "Digital Responsibility",
+      items: [
+        "Monitor child's online activities and screen time",
+        "Teach responsible social media and internet usage",
+        "Support digital learning initiatives and tools",
+        "Ensure cybersafety and digital citizenship awareness"
+      ]
+    },
+    {
+      title: "Cultural & Values",
+      items: [
+        "Reinforce school values and moral principles at home",
+        "Celebrate cultural diversity and inclusivity",
+        "Support character education and ethical development",
+        "Model positive behavior and respect for others"
+      ]
     }
   ];
 
@@ -108,6 +126,24 @@ const PTAPage: React.FC = () => {
         "Implement effective classroom management strategies",
         "Contribute to school-wide policies and improvement initiatives",
         "Mentor and guide students beyond academic subjects"
+      ]
+    },
+    {
+      title: "Technology Integration",
+      items: [
+        "Incorporate digital tools and educational technology",
+        "Teach digital literacy and responsible technology use",
+        "Adapt teaching methods to modern learning platforms",
+        "Stay updated with educational technology trends"
+      ]
+    },
+    {
+      title: "Professional Growth",
+      items: [
+        "Engage in continuous professional development programs",
+        "Share best practices with colleagues and community",
+        "Reflect on teaching effectiveness and seek improvement",
+        "Contribute to educational research and innovation"
       ]
     }
   ];
@@ -227,7 +263,7 @@ const PTAPage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {parentResponsibilities.map((category, index) => (
               <motion.div
                 key={index}
@@ -273,7 +309,7 @@ const PTAPage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {teacherResponsibilities.map((category, index) => (
               <motion.div
                 key={index}
