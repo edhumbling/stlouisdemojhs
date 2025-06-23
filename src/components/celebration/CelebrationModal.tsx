@@ -9,13 +9,21 @@ interface CelebrationModalProps {
 
 const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) => {
   const [isMuted, setIsMuted] = useState(false);
+  const [currentSong, setCurrentSong] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
   const confettiRef = useRef<HTMLDivElement>(null);
+
+  // Playlist of songs
+  const playlist = [
+    'https://ik.imagekit.io/edhumbling/20th%20Century%20Fox.mp3',
+    'https://cdn.trendybeatz.com/audio/King-Paluta-Aseda-(TrendyBeatz.com).mp3'
+  ];
 
   // Initialize audio and confetti when modal opens
   useEffect(() => {
     if (isOpen && audioRef.current) {
       audioRef.current.volume = 1.0; // Set to 100% volume
+      audioRef.current.src = playlist[currentSong];
       audioRef.current.play().catch(console.error);
     }
 
@@ -25,7 +33,24 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
         audioRef.current.currentTime = 0;
       }
     };
-  }, [isOpen]);
+  }, [isOpen, currentSong]);
+
+  // Handle song end - play next song in playlist
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleSongEnd = () => {
+      // Move to next song, loop back to first song after last one
+      setCurrentSong((prev) => (prev + 1) % playlist.length);
+    };
+
+    audio.addEventListener('ended', handleSongEnd);
+
+    return () => {
+      audio.removeEventListener('ended', handleSongEnd);
+    };
+  }, [playlist.length]);
 
   // Handle mute/unmute
   const toggleMute = () => {
@@ -229,11 +254,10 @@ const CelebrationModal: React.FC<CelebrationModalProps> = ({ isOpen, onClose }) 
         {/* Background Audio */}
         <audio
           ref={audioRef}
-          loop
           preload="auto"
           className="hidden"
         >
-          <source src="https://ik.imagekit.io/edhumbling/20th%20Century%20Fox.mp3" type="audio/mpeg" />
+          {/* Source will be set dynamically via JavaScript */}
         </audio>
       </motion.div>
     </AnimatePresence>
