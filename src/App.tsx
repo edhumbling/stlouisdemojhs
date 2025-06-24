@@ -88,6 +88,7 @@ import DonateMonthly1000Page from './pages/DonateMonthly1000Page';
 import DonateMonthly3000Page from './pages/DonateMonthly3000Page';
 import DonateMonthly5000Page from './pages/DonateMonthly5000Page';
 import PTAPage from './pages/PTAPage';
+import DonationThankYouPage from './pages/DonationThankYouPage';
 
 // Note: Scroll position management is now handled by useEnhancedNavigation hook
 
@@ -151,6 +152,7 @@ const App: React.FC = () => {
           <Route path="donate-us-bank" element={<DonateUSBankPage />} />
           <Route path="donate-uk-bank" element={<DonateUKBankPage />} />
           <Route path="donate-euro-bank" element={<DonateEuroBankPage />} />
+          <Route path="donation-thank-you" element={<DonationThankYouPage />} />
 
 
           <Route path="shs-database" element={<SHSDatabasePage />} />
