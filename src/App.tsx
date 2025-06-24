@@ -152,7 +152,6 @@ const App: React.FC = () => {
           <Route path="donate-us-bank" element={<DonateUSBankPage />} />
           <Route path="donate-uk-bank" element={<DonateUKBankPage />} />
           <Route path="donate-euro-bank" element={<DonateEuroBankPage />} />
-          <Route path="donation-thank-you" element={<DonationThankYouPage />} />
 
 
           <Route path="shs-database" element={<SHSDatabasePage />} />
@@ -198,6 +197,7 @@ const App: React.FC = () => {
 
         {/* Standalone pages without Layout (no header/footer) */}
         <Route path="/mayamiles-ai" element={<MayamilesAIPage />} />
+        <Route path="/donation-thank-you" element={<DonationThankYouPage />} />
 
         {/* Monthly Donation Pages - No Header/Footer */}
         <Route path="/donate-monthly-10" element={<DonateMonthly10Page />} />
