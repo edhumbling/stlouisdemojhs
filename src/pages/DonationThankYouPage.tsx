@@ -289,6 +289,63 @@ const DonationThankYouPage: React.FC = () => {
             </motion.div>
           </div>
         </div>
+
+        {/* Yellow Footer - WhatsApp Group Invitation */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.8 }}
+          className="bg-yellow-500 py-8 sm:py-12"
+        >
+          <div className="text-center px-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black mb-4" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif' }}>
+              Join Our Donors Community! 💬
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-black/90 font-medium mb-6 leading-relaxed" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif' }}>
+              Join this special WhatsApp group solely for donors. The school will communicate with you and build a long-term relationship with you.
+            </p>
+
+            {/* WhatsApp Link Button */}
+            <motion.a
+              href="https://chat.whatsapp.com/KruCXF0LEVpD2VdjouYUUg"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 text-lg border-2 border-green-800"
+            >
+              <span className="text-2xl">📱</span>
+              <span>Join WhatsApp Group</span>
+              <span className="text-xl">💚</span>
+            </motion.a>
+
+            <p className="text-sm sm:text-base text-black/80 font-medium mt-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif' }}>
+              Click the link above to join our exclusive donors WhatsApp community
+            </p>
+
+            {/* WhatsApp Icons */}
+            <div className="flex justify-center space-x-4 mt-6">
+              {['💬', '🤝', '📢', '❤️'].map((icon, index) => (
+                <motion.span
+                  key={index}
+                  className="text-2xl sm:text-3xl"
+                  animate={{
+                    y: [0, -5, 0],
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: index * 0.3,
+                    ease: 'easeInOut',
+                  }}
+                >
+                  {icon}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
