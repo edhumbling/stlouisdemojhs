@@ -166,13 +166,13 @@ const DonationThankYouPage: React.FC = () => {
 
         {/* Content Cards */}
         <div className="pb-20">
-          <div className="space-y-8">
+          <div>
             {/* Main Message Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.0 }}
-              className="bg-black/90 backdrop-blur-md p-8 sm:p-10 border-t border-b border-white/20 shadow-2xl"
+              className="bg-black/90 backdrop-blur-md p-8 sm:p-10 border-t border-white/20 shadow-2xl"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6 text-center" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif' }}>
                 Your Heart Touches Lives 💝
@@ -192,7 +192,7 @@ const DonationThankYouPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2 }}
-              className="bg-black/90 backdrop-blur-md p-8 sm:p-10 border-t border-b border-white/20 shadow-2xl"
+              className="bg-black/90 backdrop-blur-md p-8 sm:p-10 shadow-2xl"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6 text-center" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif' }}>
                 Your Impact 🌟
@@ -226,7 +226,7 @@ const DonationThankYouPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.4 }}
-              className="bg-black/90 backdrop-blur-md p-8 sm:p-10 border-t border-b border-white/20 shadow-2xl text-center"
+              className="bg-black/90 backdrop-blur-md p-8 sm:p-10 border-b border-white/20 shadow-2xl text-center"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif' }}>
                 Welcome to Our Family! 🤗
