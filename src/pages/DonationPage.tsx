@@ -3,10 +3,15 @@ import { motion } from 'framer-motion';
 import { Heart, ArrowLeft, BookOpen } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
+import { useDeviceDetection } from '../hooks/useDeviceDetection';
 
 const DonationPage: React.FC = () => {
   const location = useLocation();
   const state = location.state as any;
+
+  // Smart device detection for edge-to-edge layout
+  const deviceInfo = useDeviceDetection();
+  const isTabletOrDesktop = deviceInfo.type === 'tablet' || deviceInfo.type === 'desktop';
 
   // Drag state for all buttons - Lego-like play (mobile only)
   const [dragPositions, setDragPositions] = useState<{[key: number]: {x: number, y: number}}>({});
@@ -898,8 +903,8 @@ const DonationPage: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
       >
-        <div className="px-3 lg:px-4">
-          <div className="max-w-sm lg:max-w-none lg:w-full mx-auto lg:mx-0">
+        <div className={isTabletOrDesktop ? '' : 'px-3'}>
+          <div className={isTabletOrDesktop ? 'w-full' : 'max-w-sm mx-auto'}>
 
             {/* Payment Form - Natural Scrolling */}
             <div className="w-full">
@@ -913,7 +918,7 @@ const DonationPage: React.FC = () => {
 
                   {/* Payment Info - Short and Snappy */}
                   <div className="bg-white py-4 text-center">
-                    <div className="max-w-md mx-auto px-4">
+                    <div className={`max-w-md mx-auto ${isTabletOrDesktop ? 'px-0' : 'px-4'}`}>
                       <p className="text-blue-600 text-sm font-semibold mb-1">
                         💳 Ghana: MoMo • Cards • Bank Transfer
                       </p>
@@ -924,7 +929,7 @@ const DonationPage: React.FC = () => {
                   </div>
 
                   {/* Monthly Support Section - White Background */}
-                  <div id="monthly-support" className="bg-white py-8">
+                  <div id="monthly-support" className={`bg-white py-8 ${isTabletOrDesktop ? '' : 'px-4'}`}>
                     {/* Bold Section Header in Rounded Rectangle */}
                     <div className="text-center mb-6">
                       <div className="inline-block bg-black px-4 sm:px-8 py-2 sm:py-4 rounded-2xl border border-gray-900 shadow-sm">
@@ -1116,7 +1121,7 @@ const DonationPage: React.FC = () => {
                   </div>
 
                   {/* One-Time Payment Section - Light Blue Background */}
-                  <div style={{ backgroundColor: '#EAF6FC' }} className="py-8">
+                  <div style={{ backgroundColor: '#EAF6FC' }} className={`py-8 ${isTabletOrDesktop ? '' : 'px-4'}`}>
                     {/* Bold Section Header in Rounded Rectangle */}
                     <div className="text-center mb-6">
                       <div className="inline-block bg-white px-4 sm:px-8 py-2 sm:py-4 rounded-2xl border border-blue-200 shadow-sm">
