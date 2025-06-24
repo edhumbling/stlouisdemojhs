@@ -213,7 +213,43 @@ export const programs: Program[] = [
 ];
 
 // Raw gallery data
+// ⚠️ IMPORTANT RULE: Always add NEW images at the TOP of this array
+// This ensures newest pictures appear first in the gallery
+// When adding new images, place them in the "NEWEST IMAGES" section below
 const rawGalleryImages: GalleryImage[] = [
+  // ========================================
+  // 🆕 NEWEST IMAGES - ADD NEW IMAGES HERE
+  // ========================================
+  // Graduation Pictures - Added 2025-01-30
+  {
+    id: 55,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg',
+    alt: 'Graduation ceremony - students celebrating their achievements',
+    category: 'Graduation Pictures'
+  },
+  {
+    id: 56,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/511559821_1304677461501339_2753664546532955675_n.jpg',
+    alt: 'Graduation day - proud graduates with certificates',
+    category: 'Graduation Pictures'
+  },
+  {
+    id: 57,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/512772655_1304677454834673_5497654079817626977_n.jpg',
+    alt: 'Graduation ceremony - academic achievement celebration',
+    category: 'Graduation Pictures'
+  },
+  {
+    id: 58,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/509585814_1304677511501334_659978082681321443_n.jpg',
+    alt: 'Graduation event - students and faculty celebrating success',
+    category: 'Graduation Pictures'
+  },
+
+  // ========================================
+  // 📚 OLDER IMAGES - DO NOT ADD NEW IMAGES BELOW THIS LINE
+  // ========================================
+
   // Original Hero Slider Images - The Foundation Collection
   {
     id: 35,
@@ -535,32 +571,6 @@ const rawGalleryImages: GalleryImage[] = [
     src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7545.HEIC?updatedAt=1750679970119',
     alt: 'Students in educational activities and school life',
     category: 'Campus Life'
-  },
-
-  // Graduation Pictures
-  {
-    id: 55,
-    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg',
-    alt: 'Graduation ceremony - students celebrating their achievements',
-    category: 'Graduation Pictures'
-  },
-  {
-    id: 56,
-    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/511559821_1304677461501339_2753664546532955675_n.jpg',
-    alt: 'Graduation day - proud graduates with certificates',
-    category: 'Graduation Pictures'
-  },
-  {
-    id: 57,
-    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/512772655_1304677454834673_5497654079817626977_n.jpg',
-    alt: 'Graduation ceremony - academic achievement celebration',
-    category: 'Graduation Pictures'
-  },
-  {
-    id: 58,
-    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/509585814_1304677511501334_659978082681321443_n.jpg',
-    alt: 'Graduation event - students and faculty celebrating success',
-    category: 'Graduation Pictures'
   }
 ];
 
@@ -644,11 +654,16 @@ class GalleryDataManager {
 const galleryManager = new GalleryDataManager(rawGalleryImages);
 
 // Export optimized gallery data
+// Note: Gallery images are automatically sorted with newest first due to array order
 export const galleryImages = galleryManager.getAllImages();
 export const getGalleryImagesByCategory = (category: string) => galleryManager.getImagesByCategory(category);
 export const getGalleryCategories = () => galleryManager.getCategories();
 export const getGalleryImagesChunk = (startIndex: number, chunkSize?: number) =>
   galleryManager.getImagesChunk(startIndex, chunkSize);
+
+// 📝 DEVELOPER NOTE:
+// To add new gallery images, always add them to the "NEWEST IMAGES" section
+// at the TOP of the rawGalleryImages array above. This ensures they appear first in the gallery.
 
 export const navigationItems = [
   { label: 'Home', path: '/' },
