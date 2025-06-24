@@ -164,22 +164,25 @@ const DonationThankYouPage: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        {/* Yellow Announcement Bar */}
+        {/* Cute Appreciation Message */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          className="bg-yellow-500 py-4"
+          className="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 py-6"
         >
-          <div className="text-center">
-            <p className="text-black font-bold text-sm sm:text-base md:text-lg">
-              🛡️ 100% of donations received are directed to the School for development
+          <div className="text-center px-4">
+            <p className="text-white font-bold text-lg sm:text-xl md:text-2xl leading-relaxed" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif' }}>
+              Wow, You just gave back to Us! 💝 That's so kind of you!
+            </p>
+            <p className="text-white/95 font-medium text-base sm:text-lg mt-2" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif' }}>
+              Aww, We respect this seed and promise to yield greatness for our school! 🌱✨
             </p>
           </div>
         </motion.div>
 
         {/* Content Cards */}
-        <div className="pb-20">
+        <div>
           <div>
             {/* Main Message Card */}
             <motion.div
