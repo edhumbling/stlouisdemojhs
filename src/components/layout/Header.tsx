@@ -14,9 +14,10 @@ const Header: React.FC = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
-  // Smart device detection for navigation
+  // Smart device detection for navigation - Conservative approach to prevent flashing
   const deviceInfo = useDeviceDetection();
-  const shouldShowMobileNav = deviceInfo.type === 'mobile' || deviceInfo.type === 'tablet';
+  // Only force mobile nav for tablets (iPads), CSS handles regular mobile/desktop
+  const forceTabletMobileNav = deviceInfo.type === 'tablet';
 
   // Function to render contact icons
   const renderContactIcon = (iconName: string, size: number = 16) => {
@@ -79,7 +80,7 @@ const Header: React.FC = () => {
               alt="St. Louis Demonstration Junior High School"
               className="h-8 xs:h-10 sm:h-12 w-auto flex-shrink-0"
             />
-            <div className={`${shouldShowMobileNav ? 'flex' : 'hidden'} items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
+            <div className={`${forceTabletMobileNav ? 'flex' : 'lg:hidden flex'} items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
               <div className="min-w-0 overflow-hidden">
                 <h1 className="text-xs sm:text-sm md:text-base font-bold leading-tight tracking-tight truncate">St. Louis Demonstration</h1>
                 <p className="text-[10px] sm:text-xs md:text-sm leading-tight tracking-tight truncate">Junior High School</p>
@@ -90,7 +91,7 @@ const Header: React.FC = () => {
                 className="h-5 sm:h-6 md:h-7 w-auto ml-1 flex-shrink-0"
               />
             </div>
-            <div className={`${shouldShowMobileNav ? 'hidden' : 'flex'} items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
+            <div className={`${forceTabletMobileNav ? 'hidden' : 'hidden lg:flex'} items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
               <div className="min-w-0 overflow-hidden">
                 <h1 className="text-lg font-bold leading-tight truncate">St. Louis Demonstration</h1>
                 <p className="text-xs truncate">Junior High School</p>
@@ -104,7 +105,7 @@ const Header: React.FC = () => {
           </NavLink>
 
           {/* Desktop Navigation */}
-          <nav className={`${shouldShowMobileNav ? 'hidden' : 'block'} relative`}>
+          <nav className={`${forceTabletMobileNav ? 'hidden' : 'hidden lg:block'} relative`}>
             <div className="flex items-center space-x-6">
               <ul className="flex space-x-6">
                 {/* Home Link */}
@@ -485,7 +486,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Navigation - Donate Button and Menu */}
-          <div className={`${shouldShowMobileNav ? 'flex' : 'hidden'} items-center space-x-2 sm:space-x-4 flex-shrink-0 min-w-0`}>
+          <div className={`${forceTabletMobileNav ? 'flex' : 'lg:hidden flex'} items-center space-x-2 sm:space-x-4 flex-shrink-0 min-w-0`}>
             <div className="flex-shrink-0">
               <DonateButton variant="header" />
             </div>
@@ -505,7 +506,7 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile Navigation - Compact Dark Glass */}
-      {isMenuOpen && shouldShowMobileNav && (
+      {isMenuOpen && (forceTabletMobileNav || window.innerWidth < 1024) && (
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
