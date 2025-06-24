@@ -105,14 +105,12 @@ const DonationThankYouPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Announcement Bar - Attached to Back Bar */}
-      <div className="bg-green-600 py-3">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <p className="text-white font-semibold text-sm sm:text-base">
-              🛡️ 100% of donations received are directed to the School for development
-            </p>
-          </div>
+      {/* Cute Message Bar - Attached to Back Bar */}
+      <div className="py-3">
+        <div className="text-center px-4">
+          <p className="text-white/90 font-medium text-sm sm:text-base" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif' }}>
+            Wow, You just gave back to Us! that's kind of you, Aww, We respect this seed and we promise to do so much with it to yield greatness for the school
+          </p>
         </div>
       </div>
 
@@ -164,22 +162,7 @@ const DonationThankYouPage: React.FC = () => {
           </motion.p>
         </motion.div>
 
-        {/* Cute Appreciation Message */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-          className="bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 py-6"
-        >
-          <div className="text-center px-4">
-            <p className="text-white font-bold text-lg sm:text-xl md:text-2xl leading-relaxed" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif' }}>
-              Wow, You just gave back to Us! 💝 That's so kind of you!
-            </p>
-            <p className="text-white/95 font-medium text-base sm:text-lg mt-2" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif' }}>
-              Aww, We respect this seed and promise to yield greatness for our school! 🌱✨
-            </p>
-          </div>
-        </motion.div>
+
 
         {/* Content Cards */}
         <div>
