@@ -165,14 +165,14 @@ const DonationThankYouPage: React.FC = () => {
         </motion.div>
 
         {/* Content Cards */}
-        <div className="px-6 pb-20">
-          <div className="max-w-4xl mx-auto space-y-8">
+        <div className="pb-20">
+          <div className="space-y-8">
             {/* Main Message Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.0 }}
-              className="bg-white/15 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/20 shadow-2xl"
+              className="bg-black/90 backdrop-blur-md p-8 sm:p-10 border-t border-b border-white/20 shadow-2xl"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6 text-center" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif' }}>
                 Your Heart Touches Lives 💝
@@ -192,7 +192,7 @@ const DonationThankYouPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2 }}
-              className="bg-white/15 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/20 shadow-2xl"
+              className="bg-black/90 backdrop-blur-md p-8 sm:p-10 border-t border-b border-white/20 shadow-2xl"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6 text-center" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif' }}>
                 Your Impact 🌟
@@ -226,7 +226,7 @@ const DonationThankYouPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.4 }}
-              className="bg-white/15 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/20 shadow-2xl text-center"
+              className="bg-black/90 backdrop-blur-md p-8 sm:p-10 border-t border-b border-white/20 shadow-2xl text-center"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif' }}>
                 Welcome to Our Family! 🤗
@@ -241,7 +241,7 @@ const DonationThankYouPage: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 1.6 }}
-                className="bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-2xl p-6 border border-yellow-300/30"
+                className="bg-gradient-to-r from-yellow-400/10 to-orange-400/10 rounded-2xl p-6 border border-yellow-300/30"
               >
                 <p className="text-xl sm:text-2xl text-white/95 font-medium mb-4" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif' }}>
                   From all of us at St. Louis Demonstration JHS:
