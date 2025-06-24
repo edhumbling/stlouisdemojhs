@@ -333,8 +333,8 @@ const Hero: React.FC = () => {
 
 
 
-      {/* Content - Mobile High, Desktop Low Positioning */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-start sm:items-start lg:items-end justify-start pt-20 sm:pt-24 md:pt-20 lg:pt-0 pb-4 sm:pb-8 lg:pb-16 xl:pb-24 h-full">
+      {/* Content - Mobile High, Tablet High, Desktop Low Positioning */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex items-start sm:items-start md:items-start lg:items-start xl:items-end justify-start pt-20 sm:pt-28 md:pt-32 lg:pt-36 xl:pt-0 pb-4 sm:pb-8 md:pb-12 lg:pb-16 xl:pb-24 h-full">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -342,22 +342,22 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-white"
           >
-            {/* Main Heading - Mobile Compact, Desktop Reduced */}
-            <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight mb-1 sm:mb-2 md:mb-3 lg:mb-4 xl:mb-6 drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6)' }}>
+            {/* Main Heading - Mobile Compact, Tablet Medium, Desktop Large */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6 drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6)' }}>
               The <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.8)' }}>Leading</span> Forces in Excellent & Wholistic <span className="text-yellow-400 drop-shadow-[0_0_15px_rgba(251,191,36,1)] animate-pulse" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.8)' }}>Education</span>
             </h1>
 
-            {/* Subtext - Mobile Compact, Desktop Reduced */}
-            <p className="text-xs sm:text-sm md:text-sm lg:text-base xl:text-lg text-gray-100 mb-2 sm:mb-3 md:mb-4 lg:mb-6 xl:mb-8 max-w-2xl xl:max-w-3xl drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
+            {/* Subtext - Mobile Compact, Tablet Medium, Desktop Large */}
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-100 mb-3 sm:mb-4 md:mb-5 lg:mb-6 xl:mb-8 max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)' }}>
               Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
             </p>
 
             {/* Deep Color Glowing Buttons - Responsive Layout */}
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-2 lg:gap-3 max-w-full">
+            <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-3 lg:gap-4 xl:gap-4 max-w-full">
               <Link
                 to="/about"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-3 md:py-1.5 lg:px-4 lg:py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-xs lg:text-sm relative overflow-hidden flex-shrink-0"
+                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_20px_rgba(59,130,246,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Our Story</span>
@@ -367,7 +367,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/schedule-visit"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(34,197,94,0.5)] hover:shadow-[0_0_20px_rgba(34,197,94,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
+                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(34,197,94,0.5)] hover:shadow-[0_0_20px_rgba(34,197,94,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Visit Us</span>
@@ -377,7 +377,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/apply-now"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-3 md:py-1.5 lg:px-4 lg:py-2 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(234,88,12,0.5)] hover:shadow-[0_0_20px_rgba(234,88,12,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-xs lg:text-sm relative overflow-hidden flex-shrink-0"
+                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(234,88,12,0.5)] hover:shadow-[0_0_20px_rgba(234,88,12,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Apply</span>
@@ -387,7 +387,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/news"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-3 md:py-1.5 lg:px-4 lg:py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-xs lg:text-sm relative overflow-hidden flex-shrink-0"
+                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Latest News</span>
@@ -397,7 +397,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/mayamiles-ai"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-3 md:py-1.5 lg:px-4 lg:py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(16,185,129,0.5)] hover:shadow-[0_0_20px_rgba(16,185,129,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-xs lg:text-sm relative overflow-hidden flex-shrink-0"
+                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(16,185,129,0.5)] hover:shadow-[0_0_20px_rgba(16,185,129,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Learn with AI</span>
@@ -407,7 +407,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/partner"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
+                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Partner with Us</span>
@@ -417,7 +417,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/donate"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-1.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(239,68,68,0.5)] hover:shadow-[0_0_20px_rgba(239,68,68,0.7)] transition-all duration-300 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0"
+                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(239,68,68,0.5)] hover:shadow-[0_0_20px_rgba(239,68,68,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Donate</span>
