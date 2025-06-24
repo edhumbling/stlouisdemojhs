@@ -535,6 +535,32 @@ const rawGalleryImages: GalleryImage[] = [
     src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/IMG_7545.HEIC?updatedAt=1750679970119',
     alt: 'Students in educational activities and school life',
     category: 'Campus Life'
+  },
+
+  // Graduation Pictures
+  {
+    id: 55,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg',
+    alt: 'Graduation ceremony - students celebrating their achievements',
+    category: 'Graduation Pictures'
+  },
+  {
+    id: 56,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/511559821_1304677461501339_2753664546532955675_n.jpg',
+    alt: 'Graduation day - proud graduates with certificates',
+    category: 'Graduation Pictures'
+  },
+  {
+    id: 57,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/512772655_1304677454834673_5497654079817626977_n.jpg',
+    alt: 'Graduation ceremony - academic achievement celebration',
+    category: 'Graduation Pictures'
+  },
+  {
+    id: 58,
+    src: 'https://ik.imagekit.io/edhumbling/stldjhsgallery/509585814_1304677511501334_659978082681321443_n.jpg',
+    alt: 'Graduation event - students and faculty celebrating success',
+    category: 'Graduation Pictures'
   }
 ];
 
