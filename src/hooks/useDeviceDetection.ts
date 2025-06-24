@@ -31,10 +31,10 @@ export const useDeviceDetection = (): DeviceInfo => {
       let specificDevice = 'unknown';
 
       // iPad Detection (most important for our use case)
-      if (/iPad/.test(userAgent) || 
+      if (/iPad/.test(userAgent) ||
           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
         type = 'tablet';
-        
+
         // Specific iPad models based on screen dimensions
         if (width === 1024 && height === 1366) {
           specificDevice = 'iPad Pro 12.9"';
@@ -74,11 +74,11 @@ export const useDeviceDetection = (): DeviceInfo => {
         specificDevice = 'Generic Tablet';
       }
       // Mobile Detection
-      else if (/iPhone|iPod/.test(userAgent) || 
+      else if (/iPhone|iPod/.test(userAgent) ||
                (/Android/.test(userAgent) && /Mobile/.test(userAgent)) ||
                width < 768) {
         type = 'mobile';
-        
+
         if (/iPhone/.test(userAgent)) {
           if (width >= 414) {
             specificDevice = 'iPhone Plus/Pro Max';
@@ -148,21 +148,21 @@ export const getTabletPadding = (deviceInfo: DeviceInfo): string => {
   if (deviceInfo.type !== 'tablet') return '';
 
   const { width } = deviceInfo.screenSize;
-  
-  // iPad Pro 12.9" (1024x1366) - needs most padding
+
+  // iPad Pro 12.9" (1024x1366) - needs maximum padding to clear header
   if (width >= 1024) {
-    return 'pt-44'; // 11rem = 176px
+    return 'pt-56'; // 14rem = 224px - much more padding
   }
-  // iPad Air (820x1180) - medium padding
+  // iPad Air (820x1180) - high padding
   else if (width >= 820) {
-    return 'pt-40'; // 10rem = 160px
+    return 'pt-52'; // 13rem = 208px - increased padding
   }
-  // iPad Mini/Standard (768x1024) - standard padding
+  // iPad Mini/Standard (768x1024) - increased padding
   else if (width >= 768) {
-    return 'pt-36'; // 9rem = 144px
+    return 'pt-48'; // 12rem = 192px - increased padding
   }
-  
-  return 'pt-32'; // 8rem = 128px fallback
+
+  return 'pt-44'; // 11rem = 176px fallback - increased
 };
 
 // Helper function to get tablet-specific text sizes
@@ -170,7 +170,7 @@ export const getTabletTextSizes = (deviceInfo: DeviceInfo) => {
   if (deviceInfo.type !== 'tablet') return null;
 
   const { width } = deviceInfo.screenSize;
-  
+
   if (width >= 1024) {
     // iPad Pro - largest tablet text
     return {
