@@ -164,6 +164,20 @@ const DonationThankYouPage: React.FC = () => {
           </motion.p>
         </motion.div>
 
+        {/* Yellow Announcement Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
+          className="bg-yellow-500 py-4"
+        >
+          <div className="text-center">
+            <p className="text-black font-bold text-sm sm:text-base md:text-lg">
+              🛡️ 100% of donations received are directed to the School for development
+            </p>
+          </div>
+        </motion.div>
+
         {/* Content Cards */}
         <div className="pb-20">
           <div>
