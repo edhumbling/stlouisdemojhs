@@ -4,6 +4,7 @@ import { Menu, X, Heart, ChevronDown, Home, Newspaper, Zap, Beaker, BookOpen, Ca
 import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks, schoolDropdownItems, contactDropdownItems } from '../../data';
 import DonateButton from '../common/DonateButton';
+import { useDeviceDetection } from '../../hooks/useDeviceDetection';
 
 
 const Header: React.FC = () => {
@@ -12,6 +13,10 @@ const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+
+  // Smart device detection for navigation
+  const deviceInfo = useDeviceDetection();
+  const shouldShowMobileNav = deviceInfo.type === 'mobile' || deviceInfo.type === 'tablet';
 
   // Function to render contact icons
   const renderContactIcon = (iconName: string, size: number = 16) => {
@@ -74,7 +79,7 @@ const Header: React.FC = () => {
               alt="St. Louis Demonstration Junior High School"
               className="h-8 xs:h-10 sm:h-12 w-auto flex-shrink-0"
             />
-            <div className={`lg:hidden flex items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
+            <div className={`${shouldShowMobileNav ? 'flex' : 'hidden'} items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
               <div className="min-w-0 overflow-hidden">
                 <h1 className="text-xs sm:text-sm md:text-base font-bold leading-tight tracking-tight truncate">St. Louis Demonstration</h1>
                 <p className="text-[10px] sm:text-xs md:text-sm leading-tight tracking-tight truncate">Junior High School</p>
@@ -85,7 +90,7 @@ const Header: React.FC = () => {
                 className="h-5 sm:h-6 md:h-7 w-auto ml-1 flex-shrink-0"
               />
             </div>
-            <div className={`hidden lg:flex items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
+            <div className={`${shouldShowMobileNav ? 'hidden' : 'flex'} items-center transition-colors duration-300 text-white min-w-0 overflow-hidden`}>
               <div className="min-w-0 overflow-hidden">
                 <h1 className="text-lg font-bold leading-tight truncate">St. Louis Demonstration</h1>
                 <p className="text-xs truncate">Junior High School</p>
@@ -99,7 +104,7 @@ const Header: React.FC = () => {
           </NavLink>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:block relative">
+          <nav className={`${shouldShowMobileNav ? 'hidden' : 'block'} relative`}>
             <div className="flex items-center space-x-6">
               <ul className="flex space-x-6">
                 {/* Home Link */}
@@ -480,7 +485,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile Navigation - Donate Button and Menu */}
-          <div className="lg:hidden flex items-center space-x-2 sm:space-x-4 flex-shrink-0 min-w-0">
+          <div className={`${shouldShowMobileNav ? 'flex' : 'hidden'} items-center space-x-2 sm:space-x-4 flex-shrink-0 min-w-0`}>
             <div className="flex-shrink-0">
               <DonateButton variant="header" />
             </div>
@@ -500,13 +505,13 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile Navigation - Compact Dark Glass */}
-      {isMenuOpen && (
+      {isMenuOpen && shouldShowMobileNav && (
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className="lg:hidden bg-black/85 backdrop-blur-lg border-t border-white/10 max-h-[80vh] overflow-y-auto"
+          className="bg-black/85 backdrop-blur-lg border-t border-white/10 max-h-[80vh] overflow-y-auto"
         >
           <div className="p-3 md:p-6">
             {/* Home Link - Mobile with Icon */}
