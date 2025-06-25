@@ -48,6 +48,7 @@ The scripts run automatically:
 - `sitemap-images.xml` - Image gallery
 - Updates: `<lastmod>YYYY-MM-DDTHH:mm:ss.sssZ</lastmod>`
 - Format: Full ISO datetime
+
 ## 🎯 Benefits
 
 ### SEO Advantages
@@ -102,5 +103,3 @@ The scripts run automatically:
 ## 🎉 Result
 
 Your SEO files will always appear fresh and recently maintained, encouraging search engines to crawl more frequently and index your content with higher priority!
-
-
