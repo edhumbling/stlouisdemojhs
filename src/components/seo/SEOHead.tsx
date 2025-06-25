@@ -208,8 +208,13 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "St. Louis Demonstration Junior High School",
-    "alternateName": ["St. Louis Demonstration JHS", "St. Louis Demo JHS", "SLDJHS"],
+    "alternateName": ["St. Louis Demonstration JHS", "St. Louis Demo JHS", "St. Louis Demo. JHS - Suame, Mbrom", "SLDJHS"],
     "url": baseUrl,
+    "sameAs": [
+      "https://stlouisdemojhs.com",
+      "https://www.facebook.com/stlouisdemojhs",
+      "https://twitter.com/stlouisdemojhs"
+    ],
     "logo": {
       "@type": "ImageObject",
       "url": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO",
@@ -356,7 +361,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:image:alt" content={title} />
       <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:url" content={fullUrl} />
-      <meta property="og:site_name" content="Best School in Ghana - SLDJHS" />
+      <meta property="og:site_name" content="St. Louis Demo. JHS - Suame, Mbrom" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:updated_time" content={finalModifiedTime} />
 
@@ -392,8 +397,14 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Additional Meta Tags for Better SEO */}
       <meta name="theme-color" content="#1a1a1a" />
       <meta name="msapplication-TileColor" content="#1a1a1a" />
-      <meta name="application-name" content="Best School in Ghana - SLDJHS" />
-      <meta name="apple-mobile-web-app-title" content="Best School in Ghana - SLDJHS" />
+
+      {/* Google-specific meta tags for logo and organization */}
+      <meta name="google-site-verification" content="St. Louis Demo. JHS - Suame, Mbrom" />
+      <meta name="organization" content="St. Louis Demonstration Junior High School" />
+      <meta name="organization-logo" content="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO" />
+      <meta name="publisher" content="St. Louis Demo. JHS - Suame, Mbrom" />
+      <meta name="application-name" content="St. Louis Demo. JHS - Suame, Mbrom" />
+      <meta name="apple-mobile-web-app-title" content="St. Louis Demo. JHS - Suame, Mbrom" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       <meta name="mobile-web-app-capable" content="yes" />
