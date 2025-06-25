@@ -9,11 +9,12 @@
 # AI systems, research tools, and content discovery platforms.
 #
 # FEATURES:
-# - 300+ different crawler types supported
+# - 350+ different crawler types supported
 # - Zero crawl delays for maximum indexing speed
 # - Explicit educational path allowances
 # - Special AI/LLM content files (llms.txt, llms-full.txt)
 # - Ghana-specific educational crawler support
+# - CNN-inspired comprehensive bot coverage
 
 # ========================================
 # UNIVERSAL ACCESS - Allow all crawlers by default
@@ -75,6 +76,12 @@ Allow: /
 User-agent: GoogleOther
 Allow: /
 
+User-agent: GoogleOther-Image
+Allow: /
+
+User-agent: GoogleOther-Video
+Allow: /
+
 # Microsoft Bing - PRIORITY ACCESS, NO DELAYS
 User-agent: Bingbot
 Allow: /
@@ -102,6 +109,9 @@ Allow: /
 User-agent: DuckDuckGo-Favicons-Bot
 Allow: /
 
+User-agent: DuckAssistBot
+Allow: /
+
 # Yandex
 User-agent: YandexBot
 Allow: /
@@ -113,6 +123,12 @@ User-agent: YandexVideo
 Allow: /
 
 User-agent: YandexNews
+Allow: /
+
+User-agent: YandexAdditional
+Allow: /
+
+User-agent: YandexAdditionalBot
 Allow: /
 
 # Baidu
@@ -286,7 +302,63 @@ Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
 
+User-agent: omgili
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: omgilibot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
 User-agent: magpie-crawler
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: NewsNow
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: news-please
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+# AI Research & Training Bots
+User-agent: AI2Bot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Ai2Bot-Dolma
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: PanguBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: Panscient
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: QuillBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: quillbot.com
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: TurnitinBot
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
@@ -629,6 +701,12 @@ Allow: /
 User-agent: SemrushBot-SA
 Allow: /
 
+User-agent: SemrushBot-OCOB
+Allow: /
+
+User-agent: SemrushBot-SWA
+Allow: /
+
 # Majestic
 User-agent: MJ12bot
 Allow: /
@@ -651,6 +729,70 @@ Allow: /
 
 # Screaming Frog
 User-agent: Screaming Frog SEO Spider
+Allow: /
+
+# Additional SEO & Analytics Tools
+User-agent: DataForSeoBot
+Allow: /
+
+User-agent: AwarioRssBot
+Allow: /
+
+User-agent: AwarioSmartBot
+Allow: /
+
+User-agent: Brightbot 1.0
+Allow: /
+
+User-agent: Crawlspace
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: EchoboxBot
+Allow: /
+
+User-agent: FriendlyCrawler
+Allow: /
+
+User-agent: iaskspider/2.0
+Allow: /
+
+User-agent: ICC-Crawler
+Allow: /
+
+User-agent: ISSCyberRiskCrawler
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: Kangaroo Bot
+Allow: /
+
+User-agent: PiplBot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+User-agent: SBIntuitionsBot
+Allow: /
+
+User-agent: Scrapy
+Allow: /
+
+User-agent: Sidetrade indexer bot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: VelenPublicWebCrawler
+Allow: /
+
+User-agent: Webzio-Extended
 Allow: /
 
 # ========================================
@@ -988,7 +1130,7 @@ Sitemap: https://stlouisdemojhs.com/sitemap-images.xml
 # ========================================
 # CRAWL OPTIMIZATION NOTES
 # ========================================
-# This robots.txt allows 300+ different crawlers and bots
+# This robots.txt allows 350+ different crawlers and bots
 # NO CRAWL DELAYS - All bots get instant access for maximum SEO performance
 # - All search engines: Instant access (no delays)
 # - All AI/LLM bots: Instant access (no delays)
