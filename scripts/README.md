@@ -1,178 +1,106 @@
-# 🎵 TikTok Video Scraper for St. Louis Demo JHS
+# SEO Date Update Scripts
 
-This automated system searches for and publishes TikTok videos featuring St. Louis Demonstration Junior High School on the school website.
+This directory contains automated scripts to keep SEO files fresh with current dates.
 
-## 🎯 How It Works
+## 📁 Scripts Overview
 
-### Search Terms
-The script searches for TikTok videos containing:
-- "St. Louis Demo JHS"
-- "Demonstration JHS" 
-- "St Louis Demonstration"
-- "StLouisDemoJHS"
+### `update-robots-date.js`
+Updates the "Last Updated" date in `robots.txt` to the current date.
 
-### Automation Schedule
-- **Frequency**: Runs automatically every Sunday at 6:00 AM UTC
-- **Method**: GitHub Actions workflow
-- **Updates**: Automatically commits new videos to the repository
+### `update-sitemaps-date.js`
+Updates all `<lastmod>` dates in sitemap files to the current date/time.
 
-### Output Files
-1. **`public/tiktok-videos.json`** - JSON data for the React component
-2. **`public/tiktok-videos.html`** - Standalone HTML page with embeds
+### `update-all-dates.js` ⭐
+**Master script** that updates both robots.txt and all sitemaps in one go.
 
-## 🚀 Manual Execution
+## 🚀 Usage
 
-### Local Development
+### Manual Updates
+
 ```bash
-# Install dependencies
-pip install -r scripts/requirements.txt
+# Update only robots.txt
+npm run update-robots
 
-# Run the scraper
-python scripts/tiktok_scraper.py
+# Update only sitemaps
+npm run update-sitemaps
+
+# Update everything (recommended)
+npm run update-dates
 ```
 
-### GitHub Actions (Manual Trigger)
-1. Go to the "Actions" tab in the GitHub repository
-2. Select "TikTok Video Scraper" workflow
-3. Click "Run workflow"
+### Automatic Updates
 
-## 📋 Features
+The scripts run automatically:
 
-### Video Filtering
-- ✅ Exact match filtering for school mentions
-- ✅ Duplicate removal by video ID
-- ✅ Relevance scoring
+1. **On every build** - `prebuild` script ensures fresh dates before deployment
+2. **Daily at 00:01 UTC** - GitHub Action keeps files current
+3. **On every push to main** - Ensures dates are fresh on deployments
 
-### Data Extraction
-- 📱 Video URL and ID
-- 👤 Username and verification status
-- 📝 Description/caption
-- 📊 Engagement metrics (likes, comments, shares)
-- 📅 Upload date
+## 📋 Files Updated
 
-### Web Integration
-- 🎨 Responsive TikTok embeds
-- 📱 Mobile-optimized display
-- 🔄 Automatic weekly updates
-- 🎯 SEO-friendly structure
+### robots.txt
+- Updates: `# Last Updated: YYYY-MM-DD`
+- Format: Simple date format
 
-## 🛠️ Technical Implementation
+### Sitemaps
+- `sitemap.xml` - Main sitemap
+- `sitemap-news.xml` - News articles
+- `sitemap-images.xml` - Image gallery
+- Updates: `<lastmod>YYYY-MM-DDTHH:mm:ss.sssZ</lastmod>`
+- Format: Full ISO datetime
+## 🎯 Benefits
 
-### Current Method (Demonstration)
-The current implementation uses sample data for demonstration purposes. 
+### SEO Advantages
+- **Fresh Appearance**: Search engines see recently updated files
+- **Crawl Priority**: Recent dates encourage more frequent crawling
+- **Trust Signals**: Shows active maintenance and content updates
 
-### Production Implementation Options
+### Automation Benefits
+- **Zero Maintenance**: Runs automatically without manual intervention
+- **Consistent Updates**: Never forget to update dates manually
+- **Build Integration**: Automatic updates before every deployment
 
-#### Option 1: TikTok Research API (Recommended)
-```python
-# Requires TikTok Research API approval
-# Best for academic/educational institutions
-import tiktok_research_api
+## 🔧 Technical Details
 
-api = tiktok_research_api.Client(api_key="your_key")
-videos = api.search_videos(query="St. Louis Demo JHS")
+### Date Formats
+- **robots.txt**: `2025-06-25` (YYYY-MM-DD)
+- **Sitemaps**: `2025-06-25T07:47:41.625Z` (ISO 8601)
+
+### Error Handling
+- Graceful handling of missing files
+- Detailed logging of all operations
+- Non-destructive updates (only changes dates)
+
+### GitHub Action
+- Runs daily to keep dates current
+- Only commits if changes are made
+- Comprehensive logging for monitoring
+
+## 📊 Example Output
+
+```
+🚀 Starting comprehensive date updates...
+📅 Current date: 2025-06-25
+🕐 Current datetime: 2025-06-25T07:47:41.625Z
+
+🤖 Updating robots.txt...
+✅ Updated robots.txt date to: 2025-06-25
+
+🗺️  Updating sitemaps...
+✅ Updated sitemap.xml with current dates
+✅ Updated sitemap-news.xml with current dates
+✅ Updated sitemap-images.xml with current dates
+
+══════════════════════════════════════════════════
+🎯 SUMMARY: 4 file(s) updated
+📁 Files checked: robots.txt + 3 sitemaps
+✨ All SEO files are now fresh and current!
+🔍 Search engines will see recent update dates
+══════════════════════════════════════════════════
 ```
 
-#### Option 2: Alternative Services
-```python
-# Using alternative TikTok data services
-# (Implementation will be added based on chosen service)
-import requests
+## 🎉 Result
 
-# Example placeholder for future implementation
-response = requests.get(
-    "https://alternative-service.com/search",
-    params={"query": "St. Louis Demo JHS"}
-)
-```
+Your SEO files will always appear fresh and recently maintained, encouraging search engines to crawl more frequently and index your content with higher priority!
 
-#### Option 3: Selenium Web Scraping
-```python
-# For dynamic content scraping
-from selenium import webdriver
 
-driver = webdriver.Chrome()
-driver.get("https://www.tiktok.com/search?q=St.%20Louis%20Demo%20JHS")
-# Extract video data
-```
-
-## 📊 Data Structure
-
-### JSON Output Format
-```json
-{
-  "last_updated": "2025-01-26T12:00:00.000Z",
-  "total_videos": 5,
-  "videos": [
-    {
-      "id": "7234567890123456789",
-      "url": "https://www.tiktok.com/@username/video/7234567890123456789",
-      "username": "username",
-      "description": "Amazing students at St. Louis Demo JHS!",
-      "date": "2025-01-26",
-      "likes": "1.2K",
-      "comments": "45",
-      "shares": "23",
-      "verified": true
-    }
-  ]
-}
-```
-
-## 🔧 Configuration
-
-### Environment Variables
-- `TIKTOK_API_KEY` - TikTok Research API key (if using)
-- `ALTERNATIVE_API_KEY` - Alternative service API key (if using)
-
-### Search Terms Customization
-Edit the `search_terms` list in `tiktok_scraper.py`:
-```python
-self.search_terms = [
-    "St. Louis Demo JHS",
-    "Demonstration JHS",
-    "Your Custom Term"
-]
-```
-
-## 📈 Monitoring & Logs
-
-### GitHub Actions Logs
-- View execution logs in the Actions tab
-- Monitor success/failure rates
-- Check for API rate limits
-
-### Local Logs
-- Log file: `tiktok_scraper.log`
-- Console output with timestamps
-- Error tracking and debugging
-
-## 🎯 Usage on Website
-
-The TikTok page (`/tiktok`) automatically:
-1. Loads video data from `public/tiktok-videos.json`
-2. Renders TikTok embeds using official embed code
-3. Displays engagement metrics and video info
-4. Updates weekly with new content
-
-## 🔒 Privacy & Compliance
-
-- Only searches public TikTok content
-- Respects TikTok's terms of service
-- No personal data collection
-- Educational use case compliance
-
-## 🚨 Rate Limiting
-
-- 2-second delays between requests
-- Respects API rate limits
-- Implements exponential backoff
-- Error handling for timeouts
-
-## 📞 Support
-
-For issues or questions about the TikTok scraper:
-1. Check the GitHub Actions logs
-2. Review the error logs in `tiktok_scraper.log`
-3. Ensure API keys are properly configured
-4. Verify search terms are relevant

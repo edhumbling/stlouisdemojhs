@@ -1,0 +1,57 @@
+name: Update SEO Files Dates
+
+on:
+  # Run daily at 00:01 UTC (keeps all SEO files fresh)
+  schedule:
+    - cron: '1 0 * * *'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+  # Run on every push to main (ensures dates are current on deployments)
+  push:
+    branches: [ main ]
+
+jobs:
+  update-seo-dates:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Update all SEO file dates
+      run: |
+        node scripts/update-all-dates.js
+
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add public/robots.txt public/sitemap*.xml
+        git commit -m "🤖 Auto-update SEO files dates to $(date +%Y-%m-%d)"
+        git push
+
+    - name: Log completion
+      run: |
+        echo "✅ SEO files date update completed"
+        echo "📅 Current date: $(date +%Y-%m-%d)"
+        echo "🔄 Changed files: ${{ steps.verify-changed-files.outputs.changed }}"
+        echo "📁 Files updated: robots.txt, sitemaps"
