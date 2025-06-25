@@ -13,8 +13,8 @@ const CalendarPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       <SEOHead
-        title="School Events Calendar | St. Louis Demonstration JHS"
-        description="Stay up-to-date with all school events, academic calendar, holidays, and important dates at St. Louis Demonstration JHS. View our comprehensive calendar of activities, examinations, and special events."
+        title="Calendar | School Events, Academic Dates & Important Activities - St. Louis Demonstration JHS"
+        description="Calendar - Stay up-to-date with all school events, academic calendar, holidays, and important dates at St. Louis Demonstration JHS. View our comprehensive calendar of activities, examinations, and special events."
         keywords="school calendar, events, academic calendar, school holidays, examination dates, school activities, important dates, Ghana JHS calendar"
         url="/calendar"
         type="website"

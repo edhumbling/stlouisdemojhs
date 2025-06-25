@@ -115,8 +115,8 @@ const AdmissionsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
-        title="Admissions | St. Louis Demonstration JHS"
-        description="Join the St. Louis Demonstration JHS family! Learn about our admission process, requirements, application deadlines, and discover how to become part of Ghana's most prestigious junior high school community."
+        title="Admissions | Join Our School Community & Application Process - St. Louis Demonstration JHS"
+        description="Admissions - Join the St. Louis Demonstration JHS family! Learn about our admission process, requirements, application deadlines, and discover how to become part of Ghana's most prestigious junior high school community."
         keywords="admissions, application process, entrance exam, school admission, JHS admission Ghana, merit-based selection, academic assessment"
         url="/admissions"
         type="website"

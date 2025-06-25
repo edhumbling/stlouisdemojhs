@@ -2091,8 +2091,8 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       <SEOHead
-        title="Educational and Global Opportunities | St. Louis Demonstration JHS"
-        description="Unlock your future with comprehensive scholarship opportunities and educational pathways. Discover local and international scholarships, SAT preparation resources, and global educational opportunities designed to help St. Louis Demonstration JHS students achieve their academic dreams."
+        title="Scholarship Opportunities | Educational Funding & Global Academic Pathways - St. Louis Demonstration JHS"
+        description="Scholarship Opportunities - Unlock your future with comprehensive scholarship opportunities and educational pathways. Discover local and international scholarships, SAT preparation resources, and global educational opportunities designed to help St. Louis Demonstration JHS students achieve their academic dreams."
         keywords="scholarships, SAT preparation, educational opportunities, Ghana scholarships, international scholarships, college preparation"
         url="/scholarship-opportunities"
         type="website"
@@ -2410,4 +2410,4 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
   );
 };
 
-export default ScholarshipOpportunitiesPage; 
+export default ScholarshipOpportunitiesPage;

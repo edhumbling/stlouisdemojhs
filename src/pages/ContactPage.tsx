@@ -159,8 +159,8 @@ St. Louis Demonstration J.H.S Website System
   return (
     <div className="min-h-screen bg-black">
       <SEOHead
-        title="Contact Us | St. Louis Demonstration JHS"
-        description="Connect with St. Louis Demonstration JHS - Ghana's leading junior high school. Find our location, contact information, admission details, and schedule a visit to experience our exceptional educational environment firsthand."
+        title="Contact Us | Get in Touch & Visit Our Campus - St. Louis Demonstration JHS"
+        description="Contact Us - Connect with St. Louis Demonstration JHS, Ghana's leading junior high school. Find our location, contact information, admission details, and schedule a visit to experience our exceptional educational environment firsthand."
         keywords="contact St. Louis Demonstration JHS, school contact information, admission inquiry, visit campus, phone email address, Kumasi Ghana school"
         url="/contact"
         type="website"

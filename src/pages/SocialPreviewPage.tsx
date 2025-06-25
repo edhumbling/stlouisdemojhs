@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Globe, Users, Microscope, Image, Newspaper, Search, Phone, Info } from 'lucide-react';
+import { ArrowLeft, Globe, Users, Microscope, Image, Newspaper, Search, Phone, Info, BookOpen, Zap, GraduationCap, Heart, Calendar, FileText, Award } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SocialMediaPreview from '../components/seo/SocialMediaPreview';
 import SEOHead from '../components/seo/SEOHead';
 
 const SocialPreviewPage: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedPageType, setSelectedPageType] = useState<'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'contact' | 'about'>('home');
+  const [selectedPageType, setSelectedPageType] = useState<'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'contact' | 'about' | 'admissions' | 'faculty' | 'alumni' | 'pta' | 'calendar' | 'apply-now' | 'scholarship-opportunities' | 'shs-database' | 'mayamiles-ai' | 'donate'>('home');
 
   const pageTypes = [
     {
@@ -22,57 +22,137 @@ const SocialPreviewPage: React.FC = () => {
       id: 'students-hub' as const,
       name: 'Students Hub',
       icon: Users,
-      title: 'Students Hub - Learning Resources | St. Louis Demonstration JHS',
-      description: 'Comprehensive learning resources, study materials, and educational tools for St. Louis Demonstration JHS students. Access STEM resources, study guides, and interactive learning materials.',
+      title: 'Students Hub | Digital Learning Resources & Educational Tools - St. Louis Demonstration JHS',
+      description: 'Students Hub - Comprehensive learning resources, study materials, and educational tools for St. Louis Demonstration JHS students. Access STEM resources, study guides, and interactive learning materials.',
       url: 'https://stlouisdemojhs.com/learnhub'
     },
     {
       id: 'stem' as const,
       name: 'STEM Page',
       icon: Microscope,
-      title: 'STEM Education Resources | St. Louis Demonstration JHS',
-      description: 'Explore Science, Technology, Engineering, and Mathematics resources at St. Louis Demonstration JHS. Interactive labs, experiments, and hands-on learning experiences.',
+      title: 'STEM Education | Science, Technology, Engineering & Mathematics Resources - St. Louis Demonstration JHS',
+      description: 'STEM Education - Explore Science, Technology, Engineering, and Mathematics resources at St. Louis Demonstration JHS. Interactive labs, experiments, and hands-on learning experiences.',
       url: 'https://stlouisdemojhs.com/stem'
     },
     {
       id: 'gallery' as const,
       name: 'Gallery',
       icon: Image,
-      title: 'School Gallery - Campus Life | St. Louis Demonstration JHS',
-      description: 'Explore our vibrant school community through photos of academic life, campus events, student activities, and school facilities at St. Louis Demonstration JHS.',
+      title: 'Gallery | School Life Photos & Campus Memories - St. Louis Demonstration JHS',
+      description: 'Gallery - Explore our vibrant school community through photos of academic life, campus events, student activities, and school facilities at St. Louis Demonstration JHS.',
       url: 'https://stlouisdemojhs.com/gallery'
     },
     {
       id: 'news' as const,
       name: 'News & Events',
       icon: Newspaper,
-      title: 'News & Events | St. Louis Demonstration JHS',
-      description: 'Stay updated with the latest news, events, announcements, and achievements from St. Louis Demonstration Junior High School.',
+      title: 'News & Updates | Latest School Announcements & Events - St. Louis Demonstration JHS',
+      description: 'News & Updates - Stay updated with the latest news, events, announcements, and achievements from St. Louis Demonstration Junior High School.',
       url: 'https://stlouisdemojhs.com/news'
     },
     {
       id: 'ai-search' as const,
       name: 'AI Search',
       icon: Search,
-      title: 'AI-Powered Learning Search | St. Louis Demonstration JHS',
-      description: 'Discover educational resources with our AI-powered search. Find study materials, learning tools, and academic resources tailored for JHS students.',
+      title: 'AI Search | AI-Powered Learning & Educational Resources - St. Louis Demonstration JHS',
+      description: 'AI Search - Discover educational resources with our AI-powered search. Find study materials, learning tools, and academic resources tailored for JHS students.',
       url: 'https://stlouisdemojhs.com/ai-search'
     },
     {
       id: 'contact' as const,
       name: 'Contact',
       icon: Phone,
-      title: 'Contact Us | St. Louis Demonstration JHS',
-      description: 'Get in touch with St. Louis Demonstration Junior High School. Find our location, contact information, and schedule a visit to our campus.',
+      title: 'Contact Us | Get in Touch & Visit Our Campus - St. Louis Demonstration JHS',
+      description: 'Contact Us - Get in touch with St. Louis Demonstration Junior High School. Find our location, contact information, and schedule a visit to our campus.',
       url: 'https://stlouisdemojhs.com/contact'
     },
     {
       id: 'about' as const,
       name: 'About',
       icon: Info,
-      title: 'About Us | St. Louis Demonstration JHS',
-      description: 'Learn about St. Louis Demonstration Junior High School - our history, mission, values, and commitment to providing quality education in Ghana.',
+      title: 'About Us | Our School History, Mission & Values - St. Louis Demonstration JHS',
+      description: 'About Us - Learn about St. Louis Demonstration Junior High School, our history, mission, values, and commitment to providing quality education in Ghana.',
       url: 'https://stlouisdemojhs.com/about'
+    },
+    {
+      id: 'admissions' as const,
+      name: 'Admissions',
+      icon: BookOpen,
+      title: 'Admissions | Join Our School Community & Application Process - St. Louis Demonstration JHS',
+      description: 'Admissions - Join the St. Louis Demonstration JHS family! Learn about our admission process, requirements, application deadlines, and discover how to become part of Ghana\'s most prestigious junior high school community.',
+      url: 'https://stlouisdemojhs.com/admissions'
+    },
+    {
+      id: 'faculty' as const,
+      name: 'Faculty',
+      icon: Users,
+      title: 'Faculty & Administration | Meet Our Dedicated Teachers & School Leadership - St. Louis Demonstration JHS',
+      description: 'Faculty & Administration - Meet the dedicated faculty and administration team at St. Louis Demonstration JHS. Learn about our experienced educators, school leadership, and the passionate professionals committed to student success.',
+      url: 'https://stlouisdemojhs.com/faculty'
+    },
+    {
+      id: 'alumni' as const,
+      name: 'Alumni',
+      icon: GraduationCap,
+      title: 'Alumni Network | Connect with Our Distinguished Graduates & Success Stories - St. Louis Demonstration JHS',
+      description: 'Alumni Network - Connect with the distinguished alumni network of St. Louis Demonstration JHS. Discover success stories from our graduates who are making a difference across various professions and industries worldwide.',
+      url: 'https://stlouisdemojhs.com/alumni'
+    },
+    {
+      id: 'pta' as const,
+      name: 'PTA',
+      icon: Heart,
+      title: 'PTA | Parents & Teachers Association Community - St. Louis Demonstration JHS',
+      description: 'PTA - Join the St. Louis Demo JHS Parents and Teachers Association community. Learn about our objectives, parent and teacher responsibilities, and how we work together to enhance educational excellence.',
+      url: 'https://stlouisdemojhs.com/pta'
+    },
+    {
+      id: 'calendar' as const,
+      name: 'Calendar',
+      icon: Calendar,
+      title: 'Calendar | School Events, Academic Dates & Important Activities - St. Louis Demonstration JHS',
+      description: 'Calendar - Stay up-to-date with all school events, academic calendar, holidays, and important dates at St. Louis Demonstration JHS. View our comprehensive calendar of activities and examinations.',
+      url: 'https://stlouisdemojhs.com/calendar'
+    },
+    {
+      id: 'apply-now' as const,
+      name: 'Apply Now',
+      icon: FileText,
+      title: 'Apply Now | Start Your Application & Join Our School Community - St. Louis Demonstration JHS',
+      description: 'Apply Now - Apply for admission to St. Louis Demonstration JHS, Ghana\'s premier junior high school. Complete your application online and join our community of academic excellence.',
+      url: 'https://stlouisdemojhs.com/apply-now'
+    },
+    {
+      id: 'scholarship-opportunities' as const,
+      name: 'Scholarships',
+      icon: Award,
+      title: 'Scholarship Opportunities | Educational Funding & Global Academic Pathways - St. Louis Demonstration JHS',
+      description: 'Scholarship Opportunities - Unlock your future with comprehensive scholarship opportunities and educational pathways. Discover local and international scholarships and global educational opportunities.',
+      url: 'https://stlouisdemojhs.com/scholarship-opportunities'
+    },
+    {
+      id: 'shs-database' as const,
+      name: 'SHS Database',
+      icon: Search,
+      title: 'SHS Database | Senior High School Selection Guide & BECE Placement - St. Louis Demonstration JHS',
+      description: 'SHS Database - Complete SHS school selection guide and database for BECE students. Access Category A, B, C, D school lists, CSSPS forms, and expert guidance for choosing the right senior high school.',
+      url: 'https://stlouisdemojhs.com/shs-database'
+    },
+    {
+      id: 'mayamiles-ai' as const,
+      name: 'MayaMiles AI',
+      icon: Zap,
+      title: 'MayaMiles AI | Personalized Voice & Text Learning Assistant - St. Louis Demonstration JHS',
+      description: 'MayaMiles AI - Experience personalized AI learning with MayaMiles. Choose Maya (lady voice) or Miles (guy voice) for voice-powered education, or use SuperChat for text-based learning.',
+      url: 'https://stlouisdemojhs.com/mayamiles-ai'
+    },
+    {
+      id: 'donate' as const,
+      name: 'Donate',
+      icon: Heart,
+      title: 'Donate | Support Our Educational Mission & Student Development - St. Louis Demonstration JHS',
+      description: 'Donate - Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students.',
+      url: 'https://stlouisdemojhs.com/donate'
     }
   ];
 

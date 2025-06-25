@@ -58,8 +58,8 @@ const SHSDatabasePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100 px-0 sm:px-0">
       <SEOHead
-        title="SHS Database & Selection Guide | St. Louis Demonstration JHS"
-        description="Complete SHS school selection guide and database for BECE students. Access Category A, B, C, D school lists, CSSPS forms, and expert guidance for choosing the right senior high school in Ghana."
+        title="SHS Database | Senior High School Selection Guide & BECE Placement - St. Louis Demonstration JHS"
+        description="SHS Database - Complete SHS school selection guide and database for BECE students. Access Category A, B, C, D school lists, CSSPS forms, and expert guidance for choosing the right senior high school in Ghana."
         keywords="SHS database, school selection guide, BECE placement, CSSPS form, Ghana SHS schools, Category A B C D schools, senior high school selection"
         url="/shs-database"
         type="website"
@@ -139,4 +139,4 @@ const SHSDatabasePage: React.FC = () => {
   );
 };
 
-export default SHSDatabasePage; 
+export default SHSDatabasePage;

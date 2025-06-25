@@ -7,7 +7,7 @@ interface SocialMediaPreviewProps {
   title?: string;
   description?: string;
   url?: string;
-  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'contact' | 'about';
+  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'contact' | 'about' | 'admissions' | 'faculty' | 'alumni' | 'pta' | 'calendar' | 'apply-now' | 'scholarship-opportunities' | 'shs-database' | 'mayamiles-ai' | 'donate';
 }
 
 const SocialMediaPreview: React.FC<SocialMediaPreviewProps> = ({
@@ -21,7 +21,7 @@ const SocialMediaPreview: React.FC<SocialMediaPreviewProps> = ({
   // Get optimized images for different networks (same logic as SEOHead)
   const getOptimalSocialImage = (network: 'facebook' | 'twitter' | 'linkedin' | 'whatsapp'): string => {
     const defaultImage = "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs";
-    
+
     const imageSelections: Record<string, Record<string, string>> = {
       home: {
         facebook: galleryImages.find(img => img.category === 'Original Hero Collection')?.src || defaultImage,
@@ -144,7 +144,7 @@ const SocialMediaPreview: React.FC<SocialMediaPreviewProps> = ({
           <p className="text-gray-300 text-lg mb-6">
             See how your website links will appear across different social media platforms
           </p>
-          
+
           {/* URL Display with Copy */}
           <div className="flex items-center justify-center gap-3 bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
             <span className="text-blue-400 font-mono text-sm md:text-base">{url}</span>
@@ -187,7 +187,7 @@ const SocialMediaPreview: React.FC<SocialMediaPreviewProps> = ({
                     loading="lazy"
                   />
                 </div>
-                
+
                 {/* Content */}
                 <div className="p-4">
                   <div className="text-xs text-gray-500 mb-2 uppercase tracking-wide">
@@ -219,8 +219,8 @@ const SocialMediaPreview: React.FC<SocialMediaPreviewProps> = ({
               🎯 Dynamic Image Selection Active
             </h3>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Each social network gets optimized images from your gallery based on the page type. 
-              Facebook gets hero images, Twitter gets campus life photos, LinkedIn gets academic shots, 
+              Each social network gets optimized images from your gallery based on the page type.
+              Facebook gets hero images, Twitter gets campus life photos, LinkedIn gets academic shots,
               and WhatsApp gets engaging student photos.
             </p>
           </div>

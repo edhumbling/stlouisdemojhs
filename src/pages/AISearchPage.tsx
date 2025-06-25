@@ -1269,8 +1269,8 @@ const AISearchPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       <SEOHead
-        title="AI-Powered Learning Search | St. Louis Demonstration JHS"
-        description="Experience the future of learning with our AI-powered educational search platform. Find personalized study materials, academic resources, and learning tools tailored specifically for St. Louis Demonstration JHS students."
+        title="AI Search | AI-Powered Learning & Educational Resources - St. Louis Demonstration JHS"
+        description="AI Search - Experience the future of learning with our AI-powered educational search platform. Find personalized study materials, academic resources, and learning tools tailored specifically for St. Louis Demonstration JHS students."
         keywords="AI search, educational AI, learning tools, study materials, academic resources, AI-powered search, educational technology, student resources"
         url="/ai-search"
         type="website"

@@ -18,8 +18,8 @@ const FacultyPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       <SEOHead
-        title="Faculty & Administration | St. Louis Demonstration JHS"
-        description="Meet the dedicated faculty and administration team at St. Louis Demonstration JHS. Learn about our experienced educators, school leadership, and the passionate professionals committed to student success and educational excellence."
+        title="Faculty & Administration | Meet Our Dedicated Teachers & School Leadership - St. Louis Demonstration JHS"
+        description="Faculty & Administration - Meet the dedicated faculty and administration team at St. Louis Demonstration JHS. Learn about our experienced educators, school leadership, and the passionate professionals committed to student success and educational excellence."
         keywords="faculty, administration, teachers, headmistress, school staff, educational leadership, professional educators, Ghana JHS teachers"
         url="/faculty"
         type="website"

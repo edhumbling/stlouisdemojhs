@@ -3214,8 +3214,8 @@ const StudentsHubPage: React.FC = () => {
   const renderMainContent = () => (
     <>
       <SEOHead
-        title="Students Hub - Digital Learning Resources | St. Louis Demonstration JHS"
-        description="Discover your ultimate learning companion at St. Louis Demonstration JHS Students Hub. Access curated educational resources, STEM tools, study guides, scholarship opportunities, and interactive learning materials designed specifically for junior high school success."
+        title="Students Hub | Digital Learning Resources & Educational Tools - St. Louis Demonstration JHS"
+        description="Students Hub - Your ultimate learning companion at St. Louis Demonstration JHS. Access curated educational resources, STEM tools, study guides, scholarship opportunities, and interactive learning materials designed specifically for junior high school success."
         keywords="students hub, digital learning, educational resources, STEM tools, study materials, JHS resources, online learning, educational technology, student portal, learning platform"
         url="/students-hub"
         type="website"

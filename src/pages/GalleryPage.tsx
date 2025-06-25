@@ -27,8 +27,8 @@ const GalleryPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       <SEOHead
-        title="School Life Gallery | St. Louis Demonstration JHS"
-        description="Explore the vibrant life at St. Louis Demonstration JHS through our comprehensive photo gallery. Witness our students' academic achievements, campus events, modern facilities, and the dynamic learning environment that makes our school special."
+        title="Gallery | School Life Photos & Campus Memories - St. Louis Demonstration JHS"
+        description="Gallery - Explore the vibrant life at St. Louis Demonstration JHS through our comprehensive photo gallery. Witness our students' academic achievements, campus events, modern facilities, and the dynamic learning environment that makes our school special."
         keywords="St. Louis Demonstration JHS gallery, school photos, campus life, student activities, academic achievements, school events, facilities, Ghana JHS"
         url="/gallery"
         type="website"

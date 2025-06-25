@@ -177,8 +177,8 @@ const ApplyNowPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
-        title="Apply Now | St. Louis Demonstration JHS"
-        description="Apply for admission to St. Louis Demonstration JHS - Ghana's premier junior high school. Complete your application online and join our community of academic excellence with 48+ years of educational leadership."
+        title="Apply Now | Start Your Application & Join Our School Community - St. Louis Demonstration JHS"
+        description="Apply Now - Apply for admission to St. Louis Demonstration JHS, Ghana's premier junior high school. Complete your application online and join our community of academic excellence with 48+ years of educational leadership."
         keywords="apply now, school application, admission form, enroll, St. Louis Demonstration JHS application, Ghana JHS admission, school enrollment"
         url="/apply-now"
         type="website"

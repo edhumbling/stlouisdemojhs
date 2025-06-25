@@ -370,8 +370,8 @@ const DonationPage: React.FC = () => {
   return (
     <>
       <SEOHead
-        title="Support Our Mission | St. Louis Demonstration JHS"
-        description="Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students. Every contribution makes a difference in shaping young minds."
+        title="Donate | Support Our Educational Mission & Student Development - St. Louis Demonstration JHS"
+        description="Donate - Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students. Every contribution makes a difference in shaping young minds."
         keywords="donate, support education, school donation, Ghana education support, educational funding, school development, student support, charitable giving"
         url="/donate"
         type="website"

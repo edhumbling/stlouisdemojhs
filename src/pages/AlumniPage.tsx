@@ -309,8 +309,8 @@ const AlumniPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       <SEOHead
-        title="Alumni Network | St. Louis Demonstration JHS"
-        description={`Connect with the distinguished alumni network of St. Louis Demonstration JHS. Discover success stories from our ${schoolStats.totalStudentsFormatted} graduates who are making a difference across various professions and industries worldwide.`}
+        title="Alumni Network | Connect with Our Distinguished Graduates & Success Stories - St. Louis Demonstration JHS"
+        description={`Alumni Network - Connect with the distinguished alumni network of St. Louis Demonstration JHS. Discover success stories from our ${schoolStats.totalStudentsFormatted} graduates who are making a difference across various professions and industries worldwide.`}
         keywords="alumni network, graduates, success stories, professional network, St. Louis Demo JHS alumni, career achievements, alumni database"
         url="/alumni"
         type="website"

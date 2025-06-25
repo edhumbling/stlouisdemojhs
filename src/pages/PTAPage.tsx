@@ -151,8 +151,8 @@ const PTAPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <SEOHead
-        title="Parents and Teachers Association (PTA) | St. Louis Demonstration JHS"
-        description="Join the St. Louis Demo JHS PTA community. Learn about our objectives, parent and teacher responsibilities, and how we work together to enhance educational excellence and student welfare."
+        title="PTA | Parents & Teachers Association Community - St. Louis Demonstration JHS"
+        description="PTA - Join the St. Louis Demo JHS Parents and Teachers Association community. Learn about our objectives, parent and teacher responsibilities, and how we work together to enhance educational excellence and student welfare."
         keywords="PTA, parents teachers association, school community, educational excellence, student welfare, parent engagement, teacher collaboration"
         url="/pta"
         type="website"

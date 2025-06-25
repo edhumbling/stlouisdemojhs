@@ -66,8 +66,8 @@ const MayamilesAIPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       <SEOHead
-        title="MayaMiles AI Learning | St. Louis Demonstration JHS"
-        description="Experience personalized AI learning with MayaMiles - choose Maya (lady voice) or Miles (guy voice) for voice-powered education, or use SuperChat for text-based learning. Available 24/7 for all subjects."
+        title="MayaMiles AI | Personalized Voice & Text Learning Assistant - St. Louis Demonstration JHS"
+        description="MayaMiles AI - Experience personalized AI learning with MayaMiles. Choose Maya (lady voice) or Miles (guy voice) for voice-powered education, or use SuperChat for text-based learning. Available 24/7 for all subjects."
         keywords="MayaMiles AI, AI learning, voice learning, personalized education, AI tutor, Maya Miles, SuperChat, educational AI, student learning assistant"
         url="/mayamiles-ai"
         type="website"

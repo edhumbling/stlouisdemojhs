@@ -134,8 +134,8 @@ const MediaPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
-        title="Media & Press | St. Louis Demonstration JHS"
-        description="Access media resources, press releases, and news coverage about St. Louis Demonstration JHS. Download high-quality assets, read latest announcements, and connect with our media relations team."
+        title="Media & Press | News Coverage & Media Resources - St. Louis Demonstration JHS"
+        description="Media & Press - Access media resources, press releases, and news coverage about St. Louis Demonstration JHS. Download high-quality assets, read latest announcements, and connect with our media relations team."
         keywords="media kit, press releases, news coverage, school media, press contacts, media resources, school announcements, Ghana JHS news"
         url="/media"
         type="website"
