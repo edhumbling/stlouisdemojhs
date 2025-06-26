@@ -2528,6 +2528,16 @@ const AILearningPage: React.FC = () => {
           </div>
         </section>
 
+        {/* AI Career Guide Video 3 */}
+        <AIVideo
+          src="https://www.youtube.com/embed/kqkD5SqKuSY"
+          title="🎯 AI Engineer Roadmap 2024"
+          description="Complete step-by-step guide to becoming an AI engineer"
+          icon={<Target size={20} className="text-white" />}
+          gradient="from-purple-900 to-indigo-800"
+          note="🎯 Roadmap Guide: Comprehensive step-by-step path to becoming an AI engineer with practical advice and timeline!"
+        />
+
         {/* Start Your Journey - Edge to Edge */}
         <section className="w-full bg-cyan-900 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
