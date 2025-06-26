@@ -1,8 +1,141 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import BackButton from '../components/BackButton';
 
+// Shimmer Loading Component
+const VideoShimmer: React.FC = () => (
+  <div className="w-full h-full bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse relative overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
+    <div className="flex items-center justify-center h-full">
+      <div className="w-16 h-16 bg-gray-600 rounded-full animate-pulse flex items-center justify-center">
+        <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+        </svg>
+      </div>
+    </div>
+  </div>
+);
+
+// Video Modal Component
+interface VideoModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  videoId: string;
+  title: string;
+}
+
+const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose, videoId, title }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div className="relative w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-all duration-200"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+          title={title}
+          className="w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    </div>
+  );
+};
+
+// Video Card Component with Shimmer Loading
+interface VideoCardProps {
+  videoId: string;
+  title: string;
+  description: string;
+  gradientFrom: string;
+  gradientTo: string;
+  borderColor: string;
+  hoverColor: string;
+  textColor: string;
+  onClick: () => void;
+}
+
+const VideoCard: React.FC<VideoCardProps> = ({
+  videoId,
+  title,
+  description,
+  gradientFrom,
+  gradientTo,
+  borderColor,
+  hoverColor,
+  textColor,
+  onClick
+}) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      setThumbnailLoaded(true);
+    }, 1000 + Math.random() * 1000); // Random delay between 1-2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div
+      className={`bg-gradient-to-br ${gradientFrom} ${gradientTo} rounded-xl overflow-hidden border ${borderColor} hover:${hoverColor} transition-all duration-300 group cursor-pointer`}
+      onClick={onClick}
+    >
+      <div className="relative aspect-video bg-gray-800">
+        {isLoading ? (
+          <VideoShimmer />
+        ) : (
+          <div className="relative w-full h-full">
+            <img
+              src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+              alt={title}
+              className={`w-full h-full object-cover transition-opacity duration-500 ${thumbnailLoaded ? 'opacity-100' : 'opacity-0'}`}
+              onLoad={() => setThumbnailLoaded(true)}
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">
+              <div className="w-16 h-16 bg-red-600 hover:bg-red-500 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      <div className="p-3 sm:p-4">
+        <h4 className={`font-semibold text-white text-sm mb-2 group-hover:${textColor} transition-colors`}>{title}</h4>
+        <p className="text-xs text-gray-300">{description}</p>
+      </div>
+    </div>
+  );
+};
+
 const StemDeepLearningPage: React.FC = () => {
+  const [selectedVideo, setSelectedVideo] = useState<{id: string, title: string} | null>(null);
   return (
     <div className="min-h-screen bg-black text-white">
       <Helmet>
@@ -29,9 +162,9 @@ const StemDeepLearningPage: React.FC = () => {
 
       {/* Main Content - True Edge to Edge, No Containers */}
       <main className="w-full">
-        {/* Hero Section - Edge to Edge with Background Image */}
+        {/* Compact Hero Section - Edge to Edge with Background Image */}
         <section
-          className="w-full py-16 sm:py-24 relative overflow-hidden"
+          className="w-full py-8 sm:py-12 relative overflow-hidden"
           style={{
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`,
             backgroundSize: 'cover',
@@ -40,43 +173,42 @@ const StemDeepLearningPage: React.FC = () => {
           }}
         >
           <div className="px-4 sm:px-6 text-center">
-            {/* Large Gradient Icon */}
-            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-400 via-purple-500 to-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
-              <svg className="w-12 h-12 sm:w-14 sm:h-14 text-white" fill="currentColor" viewBox="0 0 20 20">
+            {/* Compact Gradient Icon */}
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-400 via-purple-500 to-cyan-400 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-2xl">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
               </svg>
             </div>
 
-            {/* Gradient Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent leading-tight">
+            {/* Compact Gradient Title */}
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent leading-tight">
               Master STEM Fields
             </h1>
 
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed">
-              🚀 Unlock the power of <strong className="text-blue-300">Science</strong>, <strong className="text-green-300">Technology</strong>, <strong className="text-purple-300">Engineering</strong>, and <strong className="text-yellow-300">Mathematics</strong>!
-              Discover career pathways, develop essential skills, and shape the future through STEM excellence. 🌟
+            <p className="text-sm sm:text-base lg:text-lg text-gray-200 mb-4 max-w-3xl mx-auto leading-relaxed">
+              🚀 Unlock <strong className="text-blue-300">Science</strong>, <strong className="text-green-300">Technology</strong>, <strong className="text-purple-300">Engineering</strong>, and <strong className="text-yellow-300">Mathematics</strong> career pathways! 🌟
             </p>
 
-            {/* STEM Field Badges */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              <span className="px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-sm font-medium">
+            {/* Compact STEM Field Badges */}
+            <div className="flex flex-wrap justify-center gap-2 mb-4">
+              <span className="px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-xs font-medium">
                 🔬 Science
               </span>
-              <span className="px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-full text-green-300 text-sm font-medium">
+              <span className="px-3 py-1 bg-green-500/20 border border-green-400/30 rounded-full text-green-300 text-xs font-medium">
                 💻 Technology
               </span>
-              <span className="px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full text-purple-300 text-sm font-medium">
+              <span className="px-3 py-1 bg-purple-500/20 border border-purple-400/30 rounded-full text-purple-300 text-xs font-medium">
                 ⚙️ Engineering
               </span>
-              <span className="px-4 py-2 bg-yellow-500/20 border border-yellow-400/30 rounded-full text-yellow-300 text-sm font-medium">
+              <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-400/30 rounded-full text-yellow-300 text-xs font-medium">
                 📊 Mathematics
               </span>
             </div>
 
-            {/* Enhanced CTA Button */}
+            {/* Compact CTA Button */}
             <a
               href="/stem"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-400/25 hover:scale-105 text-lg"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-400/25 hover:scale-105 text-sm sm:text-base"
               style={{
                 textShadow: '0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6)',
                 boxShadow: '0 0 20px rgba(255, 255, 0, 0.3), 0 0 40px rgba(255, 255, 0, 0.2)'
@@ -266,106 +398,82 @@ const StemDeepLearningPage: React.FC = () => {
 
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {/* What is STEM Education */}
-              <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl overflow-hidden border border-blue-700/30 hover:border-blue-500/50 transition-all duration-300 group">
-                <div className="relative aspect-video bg-gray-800">
-                  <iframe
-                    src="https://www.youtube.com/embed/CWnMBRHd9Ho"
-                    title="What is STEM Education?"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="p-3 sm:p-4">
-                  <h4 className="font-semibold text-white text-sm mb-2 group-hover:text-blue-300 transition-colors">What is STEM Education?</h4>
-                  <p className="text-xs text-gray-300">Comprehensive overview of Science, Technology, Engineering, and Mathematics education</p>
-                </div>
-              </div>
+              <VideoCard
+                videoId="CWnMBRHd9Ho"
+                title="What is STEM Education?"
+                description="Comprehensive overview of Science, Technology, Engineering, and Mathematics education"
+                gradientFrom="from-blue-900/30"
+                gradientTo="to-cyan-900/30"
+                borderColor="border-blue-700/30"
+                hoverColor="border-blue-500/50"
+                textColor="text-blue-300"
+                onClick={() => setSelectedVideo({id: 'CWnMBRHd9Ho', title: 'What is STEM Education?'})}
+              />
 
               {/* STEM Career Benefits */}
-              <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl overflow-hidden border border-green-700/30 hover:border-green-500/50 transition-all duration-300 group">
-                <div className="relative aspect-video bg-gray-800">
-                  <iframe
-                    src="https://www.youtube.com/embed/PVJ3S6Lb8F8"
-                    title="STEM Degrees = Success? Top Universities and Career Perks"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="p-3 sm:p-4">
-                  <h4 className="font-semibold text-white text-sm mb-2 group-hover:text-green-300 transition-colors">STEM Degrees = Success?</h4>
-                  <p className="text-xs text-gray-300">Career perks, university insights, and STEM education benefits explained</p>
-                </div>
-              </div>
+              <VideoCard
+                videoId="PVJ3S6Lb8F8"
+                title="STEM Degrees = Success?"
+                description="Career perks, university insights, and STEM education benefits explained"
+                gradientFrom="from-green-900/30"
+                gradientTo="to-emerald-900/30"
+                borderColor="border-green-700/30"
+                hoverColor="border-green-500/50"
+                textColor="text-green-300"
+                onClick={() => setSelectedVideo({id: 'PVJ3S6Lb8F8', title: 'STEM Degrees = Success? Top Universities and Career Perks'})}
+              />
 
               {/* Women in STEM */}
-              <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl overflow-hidden border border-purple-700/30 hover:border-purple-500/50 transition-all duration-300 group">
-                <div className="relative aspect-video bg-gray-800">
-                  <iframe
-                    src="https://www.youtube.com/embed/kA08vfoZAJY"
-                    title="Why do so many women leave their careers in STEM?"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="p-3 sm:p-4">
-                  <h4 className="font-semibold text-white text-sm mb-2 group-hover:text-purple-300 transition-colors">Women in STEM Careers</h4>
-                  <p className="text-xs text-gray-300">Challenges and opportunities for women in science, technology, engineering, and math</p>
-                </div>
-              </div>
+              <VideoCard
+                videoId="kA08vfoZAJY"
+                title="Women in STEM Careers"
+                description="Challenges and opportunities for women in science, technology, engineering, and math"
+                gradientFrom="from-purple-900/30"
+                gradientTo="to-pink-900/30"
+                borderColor="border-purple-700/30"
+                hoverColor="border-purple-500/50"
+                textColor="text-purple-300"
+                onClick={() => setSelectedVideo({id: 'kA08vfoZAJY', title: 'Why do so many women leave their careers in STEM?'})}
+              />
 
               {/* STEM Importance */}
-              <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-xl overflow-hidden border border-orange-700/30 hover:border-orange-500/50 transition-all duration-300 group">
-                <div className="relative aspect-video bg-gray-800">
-                  <iframe
-                    src="https://www.youtube.com/embed/fH5iLx_jCUk"
-                    title="STEM - What is it and why is it important?"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="p-3 sm:p-4">
-                  <h4 className="font-semibold text-white text-sm mb-2 group-hover:text-orange-300 transition-colors">Why is STEM Important?</h4>
-                  <p className="text-xs text-gray-300">Understanding the importance and impact of STEM education in today's world</p>
-                </div>
-              </div>
+              <VideoCard
+                videoId="fH5iLx_jCUk"
+                title="Why is STEM Important?"
+                description="Understanding the importance and impact of STEM education in today's world"
+                gradientFrom="from-orange-900/30"
+                gradientTo="to-red-900/30"
+                borderColor="border-orange-700/30"
+                hoverColor="border-orange-500/50"
+                textColor="text-orange-300"
+                onClick={() => setSelectedVideo({id: 'fH5iLx_jCUk', title: 'STEM - What is it and why is it important?'})}
+              />
 
               {/* STEM Role Models */}
-              <div className="bg-gradient-to-br from-teal-900/30 to-cyan-900/30 rounded-xl overflow-hidden border border-teal-700/30 hover:border-teal-500/50 transition-all duration-300 group">
-                <div className="relative aspect-video bg-gray-800">
-                  <iframe
-                    src="https://www.youtube.com/embed/mulAuJFcxQQ"
-                    title="We Need More STEM Role Models Who Are A Bit Less Brilliant"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="p-3 sm:p-4">
-                  <h4 className="font-semibold text-white text-sm mb-2 group-hover:text-teal-300 transition-colors">STEM Role Models</h4>
-                  <p className="text-xs text-gray-300">The importance of relatable role models in STEM education and careers</p>
-                </div>
-              </div>
+              <VideoCard
+                videoId="mulAuJFcxQQ"
+                title="STEM Role Models"
+                description="The importance of relatable role models in STEM education and careers"
+                gradientFrom="from-teal-900/30"
+                gradientTo="to-cyan-900/30"
+                borderColor="border-teal-700/30"
+                hoverColor="border-teal-500/50"
+                textColor="text-teal-300"
+                onClick={() => setSelectedVideo({id: 'mulAuJFcxQQ', title: 'We Need More STEM Role Models Who Are A Bit Less Brilliant'})}
+              />
 
               {/* Robotics Engineering Career */}
-              <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl overflow-hidden border border-indigo-700/30 hover:border-indigo-500/50 transition-all duration-300 group">
-                <div className="relative aspect-video bg-gray-800">
-                  <iframe
-                    src="https://www.youtube.com/embed/2nQ_5zXuSm8"
-                    title="In The Know with Robotics Engineer Dr. Carlotta Berry"
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="p-3 sm:p-4">
-                  <h4 className="font-semibold text-white text-sm mb-2 group-hover:text-indigo-300 transition-colors">Robotics Engineering Career</h4>
-                  <p className="text-xs text-gray-300">Real-world insights from a robotics engineer about STEM careers</p>
-                </div>
-              </div>
+              <VideoCard
+                videoId="2nQ_5zXuSm8"
+                title="Robotics Engineering Career"
+                description="Real-world insights from a robotics engineer about STEM careers"
+                gradientFrom="from-indigo-900/30"
+                gradientTo="to-purple-900/30"
+                borderColor="border-indigo-700/30"
+                hoverColor="border-indigo-500/50"
+                textColor="text-indigo-300"
+                onClick={() => setSelectedVideo({id: '2nQ_5zXuSm8', title: 'In The Know with Robotics Engineer Dr. Carlotta Berry'})}
+              />
             </div>
           </div>
         </section>
@@ -663,6 +771,16 @@ const StemDeepLearningPage: React.FC = () => {
           </div>
         </section>
       </main>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <VideoModal
+          isOpen={!!selectedVideo}
+          onClose={() => setSelectedVideo(null)}
+          videoId={selectedVideo.id}
+          title={selectedVideo.title}
+        />
+      )}
     </div>
   );
 };
