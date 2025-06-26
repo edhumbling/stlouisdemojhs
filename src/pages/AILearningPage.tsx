@@ -136,7 +136,7 @@ const AILearningPage: React.FC = () => {
         title="Learn Artificial Intelligence | Complete AI Guide for Students - St. Louis Demonstration JHS"
         description="Comprehensive AI learning guide covering everything from basics to advanced concepts. Explore machine learning, neural networks, career opportunities, and the future of AI technology."
         keywords="artificial intelligence, AI learning, machine learning, neural networks, AI careers, technology education, AI basics, deep learning"
-        url="/ai-learning"
+        url="/ai"
         type="article"
         pageType="educational"
       />
