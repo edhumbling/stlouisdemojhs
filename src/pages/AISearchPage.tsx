@@ -706,6 +706,16 @@ const AISearchPage: React.FC = () => {
       color: 'from-violet-600 to-purple-600',
       glowColor: '#7c3aed',
       hasWhiteBackground: true
+    },
+    {
+      id: 'opendeepresearch',
+      name: 'OpenDeepResearch',
+      url: 'https://opendeepresearch.dev/',
+      description: 'Open-source deep research platform for AI-powered academic and scientific research',
+      icon: <img src="https://opendeepresearch.dev/favicon.ico" alt="OpenDeepResearch" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=ODR'; }} />,
+      color: 'from-emerald-600 to-green-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true
     }
   ];
 
