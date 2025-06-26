@@ -41,143 +41,147 @@ const StemDeepLearningPage: React.FC = () => {
         </div>
       </div>
 
-      {/* External Link Content - Opens in New Tab */}
-      <main className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
-        <div className="text-center px-6 py-12 max-w-2xl mx-auto">
-          {/* Icon */}
-          <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-yellow-400/30">
-            <svg className="w-12 h-12 text-black" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd" />
-            </svg>
-          </div>
-
-          {/* Title */}
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            STEM Deep Learning Resources
-          </h2>
-
-          {/* Description */}
-          <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            Access comprehensive STEM definitions and career information from the Bureau of Labor Statistics.
-            This government resource provides in-depth analysis of Science, Technology, Engineering, and Mathematics fields.
-          </p>
-
-          {/* External Link Button */}
-          <a
-            href="https://www.bls.gov/opub/btn/volume-14/stem-alternate-definitions.htm"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-400/25 hover:scale-105 group text-lg"
-            style={{
-              textShadow: '0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.4)',
-              boxShadow: '0 0 20px rgba(255, 255, 0, 0.3), 0 0 40px rgba(255, 255, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.2)'
-            }}
-          >
-            <svg className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-            </svg>
-            <span>Open BLS STEM Resources</span>
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </a>
-
-          {/* Additional Info */}
-          <div className="mt-8 p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm">
-            <h3 className="text-xl font-semibold text-yellow-400 mb-3">What You'll Find:</h3>
-            <ul className="text-gray-300 space-y-2 text-left">
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                <span>Comprehensive STEM field definitions</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                <span>Career opportunities and job market data</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                <span>Educational pathway recommendations</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                <span>Industry trends and future outlook</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Note */}
-          <p className="text-sm text-gray-400 mt-6">
-            This link opens in a new tab to the official Bureau of Labor Statistics website
-          </p>
-        </div>
-
-        {/* In-Depth STEM Content */}
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          {/* STEM Overview Section */}
-          <section className="mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-6">Understanding STEM Fields</h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                STEM represents the interconnected fields of Science, Technology, Engineering, and Mathematics -
-                the foundation of innovation and progress in our modern world.
-              </p>
+      {/* Main Content - True Edge to Edge, No Containers */}
+      <main className="w-full">
+        {/* Hero Section - Edge to Edge with Background Image */}
+        <section
+          className="w-full py-16 sm:py-24 relative overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          <div className="text-center px-4 sm:px-6 relative z-10">
+            <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-2xl mb-6 sm:mb-8 shadow-2xl backdrop-blur-sm border border-white/20">
+              <svg className="w-10 h-10 sm:w-12 sm:h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 bg-clip-text text-transparent leading-tight">
+              Master STEM Fields
+            </h2>
+            <p className="text-base sm:text-lg text-white leading-relaxed max-w-3xl mx-auto mb-8">
+              🚀 Explore Science, Technology, Engineering, and Mathematics. From foundational concepts to cutting-edge careers shaping our future. Discover pathways from K-12 to professional success.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <span className="text-blue-300">🔬 Science Careers</span>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <span className="text-green-300">💻 Technology Jobs</span>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <span className="text-purple-300">⚙️ Engineering Paths</span>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <span className="text-yellow-300">📊 Mathematics Fields</span>
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Science */}
-              <div className="bg-gradient-to-br from-blue-900/50 to-blue-800/30 rounded-2xl p-8 border border-blue-700/30 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-blue-300 mb-4 text-center">Science</h3>
-                <p className="text-gray-300 text-center leading-relaxed">
-                  The systematic study of the natural world through observation, experimentation, and analysis.
+            {/* External Link Button */}
+            <a
+              href="https://www.bls.gov/opub/btn/volume-14/stem-alternate-definitions.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-400/25 hover:scale-105 group"
+              style={{
+                textShadow: '0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.4)',
+                boxShadow: '0 0 20px rgba(255, 255, 0, 0.3), 0 0 40px rgba(255, 255, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.2)'
+              }}
+            >
+              <svg className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+              </svg>
+              <span>Official BLS STEM Data</span>
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </section>
+
+        {/* What is STEM & Deep Understanding - Edge to Edge */}
+        <section className="w-full bg-gray-800 py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">What is STEM? The Complete Guide 🔬</h3>
+            </div>
+
+            <div className="space-y-6">
+              {/* Modern Definition */}
+              <div className="bg-yellow-900/20 rounded-lg p-4 border border-yellow-700/30">
+                <p className="text-sm sm:text-base text-yellow-100 leading-relaxed mb-4">
+                  <strong className="text-yellow-300">STEM (Science, Technology, Engineering, Mathematics)</strong> represents the interconnected fields that drive innovation, solve global challenges, and create the foundation for modern society. These disciplines work together to advance human knowledge and improve our world! 🚀✨
+                </p>
+                <p className="text-sm sm:text-base text-yellow-100 leading-relaxed">
+                  In 2024-2025, STEM careers are experiencing unprecedented growth with <strong className="text-yellow-300">AI Integration</strong>, <strong className="text-yellow-300">Sustainable Technology</strong>, <strong className="text-yellow-300">Biotechnology</strong>, and <strong className="text-yellow-300">Quantum Computing</strong> leading the way.
                 </p>
               </div>
 
-              {/* Technology */}
-              <div className="bg-gradient-to-br from-green-900/50 to-green-800/30 rounded-2xl p-8 border border-green-700/30 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-green-300 mb-4 text-center">Technology</h3>
-                <p className="text-gray-300 text-center leading-relaxed">
-                  The application of scientific knowledge to create tools, systems, and solutions for practical purposes.
-                </p>
-              </div>
+              {/* The Four Pillars of STEM */}
+              <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg p-6 border border-blue-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-4 flex items-center gap-2">
+                  🏛️ The Four Pillars of STEM
+                </h4>
+                <div className="space-y-4">
+                  <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
+                    STEM education integrates these four fundamental disciplines to create well-rounded problem solvers and innovators who can tackle complex real-world challenges.
+                  </p>
 
-              {/* Engineering */}
-              <div className="bg-gradient-to-br from-orange-900/50 to-orange-800/30 rounded-2xl p-8 border border-orange-700/30 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-orange-300 mb-4 text-center">Engineering</h3>
-                <p className="text-gray-300 text-center leading-relaxed">
-                  The design and construction of machines, structures, and systems using scientific principles.
-                </p>
-              </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
+                      <h5 className="font-semibold text-blue-300 text-sm mb-2">🔬 Science</h5>
+                      <ul className="space-y-1 text-xs text-blue-100">
+                        <li>• <strong>Biology</strong> - Study of living organisms</li>
+                        <li>• <strong>Chemistry</strong> - Matter and chemical reactions</li>
+                        <li>• <strong>Physics</strong> - Natural phenomena and forces</li>
+                        <li>• <strong>Earth Science</strong> - Our planet and environment</li>
+                      </ul>
+                    </div>
 
-              {/* Mathematics */}
-              <div className="bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-2xl p-8 border border-purple-700/30 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
-                  </svg>
+                    <div className="bg-green-800/30 rounded-lg p-4 border border-green-600/30">
+                      <h5 className="font-semibold text-green-300 text-sm mb-2">💻 Technology</h5>
+                      <ul className="space-y-1 text-xs text-green-100">
+                        <li>• <strong>Computer Science</strong> - Programming and algorithms</li>
+                        <li>• <strong>Information Technology</strong> - Systems and networks</li>
+                        <li>• <strong>Artificial Intelligence</strong> - Machine learning</li>
+                        <li>• <strong>Cybersecurity</strong> - Digital protection</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                      <h5 className="font-semibold text-purple-300 text-sm mb-2">⚙️ Engineering</h5>
+                      <ul className="space-y-1 text-xs text-purple-100">
+                        <li>• <strong>Civil Engineering</strong> - Infrastructure design</li>
+                        <li>• <strong>Mechanical Engineering</strong> - Machines and systems</li>
+                        <li>• <strong>Electrical Engineering</strong> - Electronics and power</li>
+                        <li>• <strong>Software Engineering</strong> - Application development</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30">
+                      <h5 className="font-semibold text-yellow-300 text-sm mb-2">📊 Mathematics</h5>
+                      <ul className="space-y-1 text-xs text-yellow-100">
+                        <li>• <strong>Algebra & Calculus</strong> - Advanced mathematics</li>
+                        <li>• <strong>Statistics</strong> - Data analysis and probability</li>
+                        <li>• <strong>Applied Mathematics</strong> - Real-world modeling</li>
+                        <li>• <strong>Discrete Mathematics</strong> - Computer science math</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-purple-300 mb-4 text-center">Mathematics</h3>
-                <p className="text-gray-300 text-center leading-relaxed">
-                  The language of patterns, relationships, and logical reasoning that underlies all STEM fields.
-                </p>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
           {/* Career Pathways Section */}
           <section className="mb-16">
