@@ -1535,6 +1535,202 @@ const AILearningPage: React.FC = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Enterprise AI & Data Companies */}
+              <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-6 border border-cyan-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-cyan-300 mb-4">🏢 Enterprise AI & Data Companies</h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-3">📊 Data Platforms</h5>
+                    <ul className="space-y-2 text-xs text-cyan-100">
+                      <li>• <a href="https://www.databricks.com/careers" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">Databricks</a> - Unified analytics platform</li>
+                      <li>• <a href="https://careers.snowflake.com" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">Snowflake</a> - Cloud data warehouse</li>
+                      <li>• <a href="https://www.palantir.com/careers" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">Palantir</a> - Big data analytics</li>
+                      <li>• <a href="https://c3.ai/careers" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">C3.ai</a> - Enterprise AI applications</li>
+                      <li>• <a href="https://www.datarobot.com/careers" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">DataRobot</a> - Automated machine learning</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-3">🔍 Analytics & BI</h5>
+                    <ul className="space-y-2 text-xs text-blue-100">
+                      <li>• <a href="https://www.tableau.com/careers" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">Tableau</a> - Data visualization</li>
+                      <li>• <a href="https://careers.looker.com" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">Looker</a> - Business intelligence</li>
+                      <li>• <a href="https://www.alteryx.com/careers" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">Alteryx</a> - Self-service analytics</li>
+                      <li>• <a href="https://h2o.ai/careers" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">H2O.ai</a> - Open-source ML platform</li>
+                      <li>• <a href="https://www.dataiku.com/careers" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">Dataiku</a> - Data science platform</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30">
+                    <h5 className="font-semibold text-indigo-300 text-sm mb-3">🛡️ AI Security & MLOps</h5>
+                    <ul className="space-y-2 text-xs text-indigo-100">
+                      <li>• <a href="https://www.crowdstrike.com/careers" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline">CrowdStrike</a> - AI-powered cybersecurity</li>
+                      <li>• <a href="https://www.darktrace.com/careers" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline">Darktrace</a> - AI cyber defense</li>
+                      <li>• <a href="https://www.mlflow.org/careers" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline">MLflow</a> - ML lifecycle management</li>
+                      <li>• <a href="https://www.kubeflow.org/careers" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline">Kubeflow</a> - ML workflows on Kubernetes</li>
+                      <li>• <a href="https://neptune.ai/careers" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline">Neptune.ai</a> - ML experiment management</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Consulting & Professional Services */}
+              <div className="bg-gradient-to-r from-purple-900/30 to-violet-900/30 rounded-lg p-6 border border-purple-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-4">💼 Consulting & Professional Services</h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-3">🏛️ Top Strategy Firms</h5>
+                    <ul className="space-y-2 text-xs text-purple-100">
+                      <li>• <a href="https://www.mckinsey.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">McKinsey & Company</a> - QuantumBlack AI</li>
+                      <li>• <a href="https://careers.bcg.com" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">Boston Consulting Group</a> - BCG Gamma</li>
+                      <li>• <a href="https://www.bain.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">Bain & Company</a> - Advanced Analytics</li>
+                      <li>• <a href="https://www.oliverwyman.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">Oliver Wyman</a> - Digital & Analytics</li>
+                      <li>• <a href="https://www.kearney.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">Kearney</a> - Analytics practice</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-violet-800/30 rounded-lg p-4 border border-violet-600/30">
+                    <h5 className="font-semibold text-violet-300 text-sm mb-3">🏢 Big Four Consulting</h5>
+                    <ul className="space-y-2 text-xs text-violet-100">
+                      <li>• <a href="https://www2.deloitte.com/careers" target="_blank" rel="noopener noreferrer" className="text-violet-300 hover:text-violet-200 underline">Deloitte</a> - AI & Data practice</li>
+                      <li>• <a href="https://www.pwc.com/careers" target="_blank" rel="noopener noreferrer" className="text-violet-300 hover:text-violet-200 underline">PwC</a> - AI & Analytics</li>
+                      <li>• <a href="https://careers.ey.com" target="_blank" rel="noopener noreferrer" className="text-violet-300 hover:text-violet-200 underline">Ernst & Young</a> - AI advisory</li>
+                      <li>• <a href="https://home.kpmg/careers" target="_blank" rel="noopener noreferrer" className="text-violet-300 hover:text-violet-200 underline">KPMG</a> - Data & Analytics</li>
+                      <li>• <a href="https://www.accenture.com/careers" target="_blank" rel="noopener noreferrer" className="text-violet-300 hover:text-violet-200 underline">Accenture</a> - Applied Intelligence</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-pink-800/30 rounded-lg p-4 border border-pink-600/30">
+                    <h5 className="font-semibold text-pink-300 text-sm mb-3">🔧 Tech Consulting</h5>
+                    <ul className="space-y-2 text-xs text-pink-100">
+                      <li>• <a href="https://www.capgemini.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Capgemini</a> - AI & Analytics</li>
+                      <li>• <a href="https://www.cognizant.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Cognizant</a> - Digital engineering</li>
+                      <li>• <a href="https://www.tcs.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Tata Consultancy Services</a> - AI services</li>
+                      <li>• <a href="https://www.infosys.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Infosys</a> - AI & automation</li>
+                      <li>• <a href="https://www.wipro.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Wipro</a> - AI & cognitive computing</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fintech & Financial Services */}
+              <div className="bg-gradient-to-r from-emerald-900/30 to-green-900/30 rounded-lg p-6 border border-emerald-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-emerald-300 mb-4">💳 Fintech & Financial Services</h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-emerald-800/30 rounded-lg p-4 border border-emerald-600/30">
+                    <h5 className="font-semibold text-emerald-300 text-sm mb-3">💰 Payment Platforms</h5>
+                    <ul className="space-y-2 text-xs text-emerald-100">
+                      <li>• <a href="https://stripe.com/jobs" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">Stripe</a> - Payment processing AI</li>
+                      <li>• <a href="https://squareup.com/careers" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">Square</a> - Financial services AI</li>
+                      <li>• <a href="https://www.paypal.com/careers" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">PayPal</a> - Fraud detection AI</li>
+                      <li>• <a href="https://www.adyen.com/careers" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">Adyen</a> - Payment optimization</li>
+                      <li>• <a href="https://plaid.com/careers" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">Plaid</a> - Financial data APIs</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-green-800/30 rounded-lg p-4 border border-green-600/30">
+                    <h5 className="font-semibold text-green-300 text-sm mb-3">📈 Trading & Investment</h5>
+                    <ul className="space-y-2 text-xs text-green-100">
+                      <li>• <a href="https://robinhood.com/careers" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">Robinhood</a> - Commission-free trading</li>
+                      <li>• <a href="https://www.coinbase.com/careers" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">Coinbase</a> - Cryptocurrency platform</li>
+                      <li>• <a href="https://www.affirm.com/careers" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">Affirm</a> - Buy now, pay later</li>
+                      <li>• <a href="https://www.klarna.com/careers" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">Klarna</a> - Shopping & payments</li>
+                      <li>• <a href="https://www.sofi.com/careers" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">SoFi</a> - Digital financial services</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30">
+                    <h5 className="font-semibold text-teal-300 text-sm mb-3">🏦 Traditional Finance</h5>
+                    <ul className="space-y-2 text-xs text-teal-100">
+                      <li>• <a href="https://www.jpmorgan.com/careers" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">JPMorgan Chase</a> - AI research & trading</li>
+                      <li>• <a href="https://www.goldmansachs.com/careers" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">Goldman Sachs</a> - Algorithmic trading</li>
+                      <li>• <a href="https://www.morganstanley.com/careers" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">Morgan Stanley</a> - AI & analytics</li>
+                      <li>• <a href="https://careers.blackrock.com" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">BlackRock</a> - Aladdin AI platform</li>
+                      <li>• <a href="https://www.citadel.com/careers" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">Citadel</a> - Quantitative trading</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Healthcare & Life Sciences */}
+              <div className="bg-gradient-to-r from-rose-900/30 to-red-900/30 rounded-lg p-6 border border-rose-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-rose-300 mb-4">🏥 Healthcare & Life Sciences AI</h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-rose-800/30 rounded-lg p-4 border border-rose-600/30">
+                    <h5 className="font-semibold text-rose-300 text-sm mb-3">💊 Drug Discovery</h5>
+                    <ul className="space-y-2 text-xs text-rose-100">
+                      <li>• <a href="https://www.deepmind.com/careers" target="_blank" rel="noopener noreferrer" className="text-rose-300 hover:text-rose-200 underline">DeepMind</a> - AlphaFold protein folding</li>
+                      <li>• <a href="https://www.atomwise.com/careers" target="_blank" rel="noopener noreferrer" className="text-rose-300 hover:text-rose-200 underline">Atomwise</a> - AI drug discovery</li>
+                      <li>• <a href="https://www.benevolent.com/careers" target="_blank" rel="noopener noreferrer" className="text-rose-300 hover:text-rose-200 underline">BenevolentAI</a> - Drug development AI</li>
+                      <li>• <a href="https://www.insitro.com/careers" target="_blank" rel="noopener noreferrer" className="text-rose-300 hover:text-rose-200 underline">Insitro</a> - ML for drug discovery</li>
+                      <li>• <a href="https://www.recursion.com/careers" target="_blank" rel="noopener noreferrer" className="text-rose-300 hover:text-rose-200 underline">Recursion</a> - Digital biology platform</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30">
+                    <h5 className="font-semibold text-red-300 text-sm mb-3">🔬 Medical Imaging</h5>
+                    <ul className="space-y-2 text-xs text-red-100">
+                      <li>• <a href="https://www.aidoc.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Aidoc</a> - Radiology AI</li>
+                      <li>• <a href="https://www.zebra-med.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Zebra Medical</a> - Medical imaging AI</li>
+                      <li>• <a href="https://www.pathai.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">PathAI</a> - Pathology AI</li>
+                      <li>• <a href="https://www.paige.ai/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Paige</a> - Cancer detection AI</li>
+                      <li>• <a href="https://www.tempus.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Tempus</a> - Precision medicine</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-pink-800/30 rounded-lg p-4 border border-pink-600/30">
+                    <h5 className="font-semibold text-pink-300 text-sm mb-3">🩺 Digital Health</h5>
+                    <ul className="space-y-2 text-xs text-pink-100">
+                      <li>• <a href="https://www.teladoc.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Teladoc</a> - Telehealth platform</li>
+                      <li>• <a href="https://www.veracyte.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Veracyte</a> - Genomic diagnostics</li>
+                      <li>• <a href="https://www.flatiron.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Flatiron Health</a> - Oncology data platform</li>
+                      <li>• <a href="https://www.23andme.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">23andMe</a> - Personal genomics</li>
+                      <li>• <a href="https://www.modernhealth.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Modern Health</a> - Mental health AI</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Summary & Call to Action */}
+              <div className="bg-gradient-to-r from-amber-900/30 to-yellow-900/30 rounded-lg p-6 border border-amber-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-amber-300 mb-4">🎯 Your AI Career Journey Starts Here!</h4>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="bg-amber-800/30 rounded-lg p-4 border border-amber-600/30">
+                    <h5 className="font-semibold text-amber-300 text-sm mb-3">📊 By the Numbers</h5>
+                    <ul className="space-y-2 text-xs text-amber-100">
+                      <li>• <strong>100+ Companies</strong> actively hiring AI talent</li>
+                      <li>• <strong>15+ Industries</strong> from tech to healthcare</li>
+                      <li>• <strong>$80K-$500K+</strong> salary ranges available</li>
+                      <li>• <strong>Remote & Hybrid</strong> opportunities worldwide</li>
+                      <li>• <strong>Entry to Senior</strong> level positions</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30">
+                    <h5 className="font-semibold text-yellow-300 text-sm mb-3">🚀 Next Steps</h5>
+                    <ul className="space-y-2 text-xs text-yellow-100">
+                      <li>• <strong>Pick 5-10 companies</strong> that excite you most</li>
+                      <li>• <strong>Visit their careers pages</strong> and explore openings</li>
+                      <li>• <strong>Follow them on LinkedIn</strong> for updates</li>
+                      <li>• <strong>Build relevant skills</strong> for your target roles</li>
+                      <li>• <strong>Network with employees</strong> on professional platforms</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-6 text-center">
+                  <div className="inline-flex items-center gap-4 p-4 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-2xl">
+                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                      <Rocket size={24} className="text-white" />
+                    </div>
+                    <div className="text-left">
+                      <h4 className="text-base sm:text-lg font-bold text-white mb-1">Ready to Launch Your AI Career? 🌟</h4>
+                      <p className="text-xs sm:text-sm text-amber-100">The future is AI, and your dream job is waiting. Start applying today! 💫</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
