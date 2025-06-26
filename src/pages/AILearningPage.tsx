@@ -1940,6 +1940,294 @@ const AILearningPage: React.FC = () => {
           </div>
         </section>
 
+        {/* US-China AI Competition - Edge to Edge */}
+        <section className="w-full bg-gradient-to-br from-red-900 via-gray-900 to-blue-900 py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-red-500 to-blue-500 rounded-lg flex items-center justify-center">
+                <Target size={20} className="sm:w-6 sm:h-6 text-white" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">The Great AI Race: USA vs China 🌍</h3>
+            </div>
+
+            <div className="space-y-6">
+              {/* Introduction */}
+              <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-red-300 mb-4">🚨 The Most Important Competition of Our Time</h4>
+                <p className="text-sm sm:text-base text-gray-100 leading-relaxed mb-4">
+                  The race for AI supremacy between the United States and China is reshaping global power dynamics, national security strategies, and the future of human civilization. This isn't just about technology—it's about who will lead the world in the 21st century.
+                </p>
+                <p className="text-sm sm:text-base text-gray-100 leading-relaxed">
+                  From Silicon Valley's tech giants to China's state-backed AI champions, from semiconductor export controls to surveillance systems, this competition touches every aspect of modern life and will determine the future of democracy, authoritarianism, and human freedom.
+                </p>
+              </div>
+
+              {/* The Stakes */}
+              <div className="bg-gradient-to-r from-red-900/30 to-blue-900/30 rounded-lg p-6 border border-purple-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-4">⚔️ What's at Stake: The Future of Everything</h4>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30">
+                    <h5 className="font-semibold text-red-300 text-sm mb-2">🇺🇸 US Advantages</h5>
+                    <ul className="space-y-1 text-xs text-red-100">
+                      <li>• <strong>Silicon Valley Innovation:</strong> Google, Microsoft, OpenAI, Meta</li>
+                      <li>• <strong>Semiconductor Dominance:</strong> NVIDIA, Intel, advanced chips</li>
+                      <li>• <strong>Research Universities:</strong> MIT, Stanford, Carnegie Mellon</li>
+                      <li>• <strong>Venture Capital:</strong> $50+ billion in AI investments</li>
+                      <li>• <strong>Global Alliances:</strong> NATO, Five Eyes, democratic partners</li>
+                      <li>• <strong>Open Innovation:</strong> Collaborative research ecosystem</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2">🇨🇳 China's Strengths</h5>
+                    <ul className="space-y-1 text-xs text-blue-100">
+                      <li>• <strong>State Coordination:</strong> Unified national AI strategy</li>
+                      <li>• <strong>Massive Data:</strong> 1.4 billion people, surveillance state</li>
+                      <li>• <strong>Tech Giants:</strong> Baidu, Alibaba, Tencent, ByteDance</li>
+                      <li>• <strong>Manufacturing Scale:</strong> World's factory for AI hardware</li>
+                      <li>• <strong>Talent Pool:</strong> Millions of STEM graduates annually</li>
+                      <li>• <strong>Speed of Deployment:</strong> Rapid implementation without regulation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* China's AI Strategy */}
+              <div className="bg-gradient-to-r from-yellow-900/30 to-red-900/30 rounded-lg p-6 border border-yellow-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4">🐉 China's Master Plan: AI Superpower by 2030</h4>
+                <div className="space-y-4">
+                  <p className="text-sm sm:text-base text-yellow-100 leading-relaxed">
+                    In July 2017, China unveiled its <strong>"New Generation Artificial Intelligence Development Plan"</strong> - a comprehensive strategy to become the world's primary AI innovation center by 2030, with a domestic AI industry worth $150 billion.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30">
+                      <h5 className="font-semibold text-yellow-300 text-sm mb-2">📈 Three-Phase Strategy</h5>
+                      <ul className="space-y-1 text-xs text-yellow-100">
+                        <li>• <strong>2020:</strong> Catch up with global AI leaders</li>
+                        <li>• <strong>2025:</strong> Achieve major breakthroughs in AI applications</li>
+                        <li>• <strong>2030:</strong> Become the world's primary AI innovation center</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30">
+                      <h5 className="font-semibold text-red-300 text-sm mb-2">🏢 National AI Champions</h5>
+                      <ul className="space-y-1 text-xs text-red-100">
+                        <li>• <strong>Baidu:</strong> Autonomous driving, search AI</li>
+                        <li>• <strong>Alibaba:</strong> Smart cities, cloud AI</li>
+                        <li>• <strong>Tencent:</strong> Medical imaging, gaming AI</li>
+                        <li>• <strong>SenseTime:</strong> Computer vision, facial recognition</li>
+                        <li>• <strong>iFlytek:</strong> Speech recognition, voice AI</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* The Dark Side: Surveillance State */}
+              <div className="bg-gradient-to-r from-gray-900/50 to-red-900/50 rounded-lg p-6 border border-red-800/50">
+                <h4 className="text-lg sm:text-xl font-bold text-red-400 mb-4">👁️ The Dark Side: AI-Powered Authoritarianism</h4>
+                <div className="space-y-4">
+                  <p className="text-sm sm:text-base text-red-100 leading-relaxed">
+                    China's AI development has a sinister side: the creation of the world's most sophisticated surveillance state. The Chinese government uses AI to monitor, control, and oppress its own citizens, particularly ethnic minorities.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-red-900/40 rounded-lg p-4 border border-red-700/50">
+                      <h5 className="font-semibold text-red-300 text-sm mb-2">🔍 Social Credit System</h5>
+                      <p className="text-xs text-red-100 mb-2">
+                        AI-powered system that scores citizens based on behavior, restricting travel, education, and employment for "untrustworthy" individuals.
+                      </p>
+                      <ul className="space-y-1 text-xs text-red-200">
+                        <li>• 200+ million cameras with facial recognition</li>
+                        <li>• Real-time behavior monitoring and scoring</li>
+                        <li>• Punishment for "social infractions"</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gray-900/40 rounded-lg p-4 border border-gray-700/50">
+                      <h5 className="font-semibold text-gray-300 text-sm mb-2">⚠️ Xinjiang Surveillance</h5>
+                      <p className="text-xs text-gray-100 mb-2">
+                        AI systems specifically designed to target and oppress Uyghur Muslims and other ethnic minorities in Xinjiang province.
+                      </p>
+                      <ul className="space-y-1 text-xs text-gray-200">
+                        <li>• Ethnic profiling algorithms</li>
+                        <li>• Mass detention based on AI predictions</li>
+                        <li>• Cultural and religious suppression</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* US Response: Export Controls & National Security */}
+              <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-lg p-6 border border-blue-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-4">🛡️ America Fights Back: The Chip War</h4>
+                <div className="space-y-4">
+                  <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
+                    The United States has launched an unprecedented campaign to maintain its technological edge, using export controls, sanctions, and alliance-building to limit China's access to critical AI technologies.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
+                      <h5 className="font-semibold text-blue-300 text-sm mb-2">🚫 Export Controls (2022-2025)</h5>
+                      <ul className="space-y-1 text-xs text-blue-100">
+                        <li>• <strong>NVIDIA Restrictions:</strong> Banned H100, A100 AI chips to China</li>
+                        <li>• <strong>Semiconductor Equipment:</strong> ASML, Applied Materials blocked</li>
+                        <li>• <strong>Software Limits:</strong> EDA tools, chip design software</li>
+                        <li>• <strong>Entity List:</strong> 100+ Chinese AI companies blacklisted</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30">
+                      <h5 className="font-semibold text-indigo-300 text-sm mb-2">🤝 Alliance Building</h5>
+                      <ul className="space-y-1 text-xs text-indigo-100">
+                        <li>• <strong>CHIPS Act:</strong> $52 billion for US semiconductor manufacturing</li>
+                        <li>• <strong>AUKUS Partnership:</strong> AI cooperation with UK, Australia</li>
+                        <li>• <strong>Japan & Netherlands:</strong> Coordinated export controls</li>
+                        <li>• <strong>NATO AI Strategy:</strong> Democratic AI alliance</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* The Current Battlefield */}
+              <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-6 border border-purple-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-4">⚡ The Current Battlefield: 2024-2025</h4>
+                <div className="space-y-4">
+                  <div className="grid sm:grid-cols-3 gap-4">
+                    <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                      <h5 className="font-semibold text-purple-300 text-sm mb-2">🧠 Large Language Models</h5>
+                      <p className="text-xs text-purple-100 mb-2"><strong>US Leaders:</strong></p>
+                      <ul className="space-y-1 text-xs text-purple-200">
+                        <li>• OpenAI GPT-4, o3</li>
+                        <li>• Anthropic Claude</li>
+                        <li>• Google Gemini</li>
+                      </ul>
+                      <p className="text-xs text-purple-100 mb-2 mt-2"><strong>China Response:</strong></p>
+                      <ul className="space-y-1 text-xs text-purple-200">
+                        <li>• Baidu ERNIE</li>
+                        <li>• Alibaba Qwen</li>
+                        <li>• DeepSeek models</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-pink-800/30 rounded-lg p-4 border border-pink-600/30">
+                      <h5 className="font-semibold text-pink-300 text-sm mb-2">🔬 AI Research</h5>
+                      <p className="text-xs text-pink-100 mb-2"><strong>Publication Race:</strong></p>
+                      <ul className="space-y-1 text-xs text-pink-200">
+                        <li>• China: 40% of AI papers globally</li>
+                        <li>• US: 35% of AI papers globally</li>
+                        <li>• Quality vs Quantity debate</li>
+                      </ul>
+                      <p className="text-xs text-pink-100 mb-2 mt-2"><strong>Talent War:</strong></p>
+                      <ul className="space-y-1 text-xs text-pink-200">
+                        <li>• Brain drain from China to US</li>
+                        <li>• Visa restrictions impact</li>
+                        <li>• Competing for top researchers</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30">
+                      <h5 className="font-semibold text-indigo-300 text-sm mb-2">💰 Investment & Funding</h5>
+                      <p className="text-xs text-indigo-100 mb-2"><strong>US Private Investment:</strong></p>
+                      <ul className="space-y-1 text-xs text-indigo-200">
+                        <li>• $50+ billion in AI startups</li>
+                        <li>• OpenAI: $13 billion from Microsoft</li>
+                        <li>• Venture capital dominance</li>
+                      </ul>
+                      <p className="text-xs text-indigo-100 mb-2 mt-2"><strong>China State Investment:</strong></p>
+                      <ul className="space-y-1 text-xs text-indigo-200">
+                        <li>• $150 billion national AI plan</li>
+                        <li>• State-backed AI funds</li>
+                        <li>• Coordinated industrial policy</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* What This Means for the World */}
+              <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg p-6 border border-green-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-green-300 mb-4">🌍 What This Means for the World</h4>
+                <div className="space-y-4">
+                  <p className="text-sm sm:text-base text-green-100 leading-relaxed">
+                    The outcome of this AI race will determine whether the future is shaped by democratic values of freedom, privacy, and human rights, or by authoritarian control, surveillance, and oppression.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-green-800/30 rounded-lg p-4 border border-green-600/30">
+                      <h5 className="font-semibold text-green-300 text-sm mb-2">🕊️ Democratic AI Future</h5>
+                      <ul className="space-y-1 text-xs text-green-100">
+                        <li>• AI that respects human rights and privacy</li>
+                        <li>• Transparent, accountable AI systems</li>
+                        <li>• AI that empowers individuals and communities</li>
+                        <li>• Global cooperation on AI safety and ethics</li>
+                        <li>• AI that reduces inequality and promotes freedom</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30">
+                      <h5 className="font-semibold text-teal-300 text-sm mb-2">⚠️ Authoritarian AI Future</h5>
+                      <ul className="space-y-1 text-xs text-teal-100">
+                        <li>• AI-powered surveillance and social control</li>
+                        <li>• Suppression of dissent and free speech</li>
+                        <li>• AI that serves state power over individual rights</li>
+                        <li>• Export of authoritarian AI technologies globally</li>
+                        <li>• AI that increases inequality and oppression</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mary Meeker Report */}
+              <div className="bg-gradient-to-r from-amber-900/30 to-yellow-900/30 rounded-lg p-6 border border-amber-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-amber-300 mb-4">📊 Essential Reading: Mary Meeker's AI Trends Report</h4>
+                <div className="space-y-4">
+                  <p className="text-sm sm:text-base text-amber-100 leading-relaxed">
+                    For the most comprehensive analysis of AI trends, competition, and global implications, read Mary Meeker's authoritative "Trends of Artificial Intelligence" report - the definitive guide to understanding the AI landscape.
+                  </p>
+
+                  <div className="bg-amber-800/30 rounded-lg p-4 border border-amber-600/30 text-center">
+                    <h5 className="font-semibold text-amber-300 text-sm mb-3">🔗 Get the Full Report</h5>
+                    <a
+                      href="https://www.bondcap.com/report/tai/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm"
+                    >
+                      📈 Read Mary Meeker's AI Trends Report
+                    </a>
+                    <p className="text-xs text-amber-200 mt-2">
+                      Deep dive into AI investment trends, competitive dynamics, and future predictions from one of the world's top technology analysts.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Call to Action */}
+              <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-6 border border-cyan-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-cyan-300 mb-4">🎯 Your Role in the AI Future</h4>
+                <p className="text-sm sm:text-base text-cyan-100 leading-relaxed mb-4">
+                  As the next generation, you have the power to shape how AI develops and is used. Whether you become an AI researcher, policymaker, entrepreneur, or informed citizen, your voice matters in determining whether AI serves humanity or controls it.
+                </p>
+                <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
+                  <h5 className="font-semibold text-cyan-300 text-sm mb-2">💡 How You Can Make a Difference</h5>
+                  <ul className="space-y-1 text-xs text-cyan-100">
+                    <li>• <strong>Learn AI:</strong> Understand the technology to participate in its governance</li>
+                    <li>• <strong>Advocate for Ethics:</strong> Support AI that respects human rights and dignity</li>
+                    <li>• <strong>Stay Informed:</strong> Follow AI developments and their societal implications</li>
+                    <li>• <strong>Choose Wisely:</strong> Support companies and technologies that align with your values</li>
+                    <li>• <strong>Engage Politically:</strong> Vote for leaders who understand AI's importance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Start Your Journey - Edge to Edge */}
         <section className="w-full bg-cyan-900 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
