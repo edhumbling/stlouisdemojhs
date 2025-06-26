@@ -1468,6 +1468,158 @@ const AILearningPage: React.FC = () => {
                 </div>
               </div>
 
+              <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-blue-300 mb-4 text-center">📚 Essential AI Books - From Beginner to Mastery</h4>
+                <p className="text-xs sm:text-sm text-gray-100 text-center mb-6">
+                  Master AI with these world-class books - from your first steps to cutting-edge research! 📖✨
+                </p>
+
+                {/* Beginner Level Books */}
+                <div className="mb-6">
+                  <h5 className="text-sm sm:text-base font-semibold text-green-300 mb-3 text-center">🌱 Beginner Level - Start Your AI Journey</h5>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="bg-green-800/30 rounded-lg p-3 border border-green-600/30">
+                      <h6 className="font-semibold text-green-300 text-sm mb-2">🤖 AI: A Modern Approach</h6>
+                      <p className="text-xs text-green-100 mb-2">Russell & Norvig - The definitive AI textbook</p>
+                      <p className="text-xs text-green-200 mb-2">Perfect introduction to all AI concepts</p>
+                      <a href="https://aima.cs.berkeley.edu" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-green-300 hover:text-green-200 underline">
+                        Preview & Info →
+                      </a>
+                    </div>
+
+                    <div className="bg-blue-800/30 rounded-lg p-3 border border-blue-600/30">
+                      <h6 className="font-semibold text-blue-300 text-sm mb-2">🎯 Machine Learning Yearning</h6>
+                      <p className="text-xs text-blue-100 mb-2">Andrew Ng - FREE practical ML guide</p>
+                      <p className="text-xs text-blue-200 mb-2">Learn how to structure ML projects</p>
+                      <a href="https://www.deeplearning.ai/machine-learning-yearning" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-blue-300 hover:text-blue-200 underline">
+                        Free Download →
+                      </a>
+                    </div>
+
+                    <div className="bg-purple-800/30 rounded-lg p-3 border border-purple-600/30">
+                      <h6 className="font-semibold text-purple-300 text-sm mb-2">🧠 The Hundred-Page ML Book</h6>
+                      <p className="text-xs text-purple-100 mb-2">Andriy Burkov - Concise ML overview</p>
+                      <p className="text-xs text-purple-200 mb-2">All ML essentials in 100 pages</p>
+                      <a href="http://themlbook.com" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-purple-300 hover:text-purple-200 underline">
+                        Read Online →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Intermediate Level Books */}
+                <div className="mb-6">
+                  <h5 className="text-sm sm:text-base font-semibold text-yellow-300 mb-3 text-center">⚡ Intermediate Level - Build Real Skills</h5>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
+                      <h6 className="font-semibold text-orange-300 text-sm mb-2">🛠️ Hands-On Machine Learning</h6>
+                      <p className="text-xs text-orange-100 mb-2">Aurélien Géron - Scikit-Learn, Keras, TensorFlow</p>
+                      <p className="text-xs text-orange-200 mb-2">Build real ML systems with Python</p>
+                      <a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-orange-300 hover:text-orange-200 underline">
+                        O'Reilly Preview →
+                      </a>
+                    </div>
+
+                    <div className="bg-teal-800/30 rounded-lg p-3 border border-teal-600/30">
+                      <h6 className="font-semibold text-teal-300 text-sm mb-2">📊 Python Machine Learning</h6>
+                      <p className="text-xs text-teal-100 mb-2">Sebastian Raschka - Practical Python ML</p>
+                      <p className="text-xs text-teal-200 mb-2">From linear models to deep learning</p>
+                      <a href="https://sebastianraschka.com/books/#python-machine-learning-3rd-edition" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-teal-300 hover:text-teal-200 underline">
+                        Author's Page →
+                      </a>
+                    </div>
+
+                    <div className="bg-pink-800/30 rounded-lg p-3 border border-pink-600/30">
+                      <h6 className="font-semibold text-pink-300 text-sm mb-2">🎨 Deep Learning Illustrated</h6>
+                      <p className="text-xs text-pink-100 mb-2">Jon Krohn - Visual guide to deep learning</p>
+                      <p className="text-xs text-pink-200 mb-2">Beautiful illustrations make DL easy</p>
+                      <a href="https://www.deeplearningillustrated.com" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-pink-300 hover:text-pink-200 underline">
+                        Official Site →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Advanced/Mastery Level Books */}
+                <div className="mb-4">
+                  <h5 className="text-sm sm:text-base font-semibold text-red-300 mb-3 text-center">🔥 Advanced/Mastery - Become an Expert</h5>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="bg-red-800/30 rounded-lg p-3 border border-red-600/30">
+                      <h6 className="font-semibold text-red-300 text-sm mb-2">🧬 Deep Learning</h6>
+                      <p className="text-xs text-red-100 mb-2">Goodfellow, Bengio, Courville - The DL Bible</p>
+                      <p className="text-xs text-red-200 mb-2">Comprehensive mathematical foundation</p>
+                      <a href="https://www.deeplearningbook.org" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-red-300 hover:text-red-200 underline">
+                        Free Online →
+                      </a>
+                    </div>
+
+                    <div className="bg-indigo-800/30 rounded-lg p-3 border border-indigo-600/30">
+                      <h6 className="font-semibold text-indigo-300 text-sm mb-2">📈 Elements of Statistical Learning</h6>
+                      <p className="text-xs text-indigo-100 mb-2">Hastie, Tibshirani, Friedman - ML Theory</p>
+                      <p className="text-xs text-indigo-200 mb-2">Mathematical foundations of ML</p>
+                      <a href="https://hastie.su.domains/ElemStatLearn" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-indigo-300 hover:text-indigo-200 underline">
+                        Free PDF →
+                      </a>
+                    </div>
+
+                    <div className="bg-emerald-800/30 rounded-lg p-3 border border-emerald-600/30">
+                      <h6 className="font-semibold text-emerald-300 text-sm mb-2">🎯 Pattern Recognition & ML</h6>
+                      <p className="text-xs text-emerald-100 mb-2">Christopher Bishop - Bayesian approach</p>
+                      <p className="text-xs text-emerald-200 mb-2">Graduate-level ML theory</p>
+                      <a href="https://www.microsoft.com/en-us/research/people/cmbishop/prml-book" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-emerald-300 hover:text-emerald-200 underline">
+                        Microsoft Research →
+                      </a>
+                    </div>
+
+                    <div className="bg-amber-800/30 rounded-lg p-3 border border-amber-600/30">
+                      <h6 className="font-semibold text-amber-300 text-sm mb-2">🚀 Reinforcement Learning</h6>
+                      <p className="text-xs text-amber-100 mb-2">Sutton & Barto - RL: An Introduction</p>
+                      <p className="text-xs text-amber-200 mb-2">The definitive RL textbook</p>
+                      <a href="http://incompleteideas.net/book/the-book-2nd.html" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-amber-300 hover:text-amber-200 underline">
+                        Free Online →
+                      </a>
+                    </div>
+
+                    <div className="bg-cyan-800/30 rounded-lg p-3 border border-cyan-600/30">
+                      <h6 className="font-semibold text-cyan-300 text-sm mb-2">🌐 Information Theory</h6>
+                      <p className="text-xs text-cyan-100 mb-2">MacKay - Information Theory & ML</p>
+                      <p className="text-xs text-cyan-200 mb-2">Deep mathematical insights</p>
+                      <a href="http://www.inference.org.uk/mackay/itila" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-cyan-300 hover:text-cyan-200 underline">
+                        Free Download →
+                      </a>
+                    </div>
+
+                    <div className="bg-violet-800/30 rounded-lg p-3 border border-violet-600/30">
+                      <h6 className="font-semibold text-violet-300 text-sm mb-2">🔬 Probabilistic ML</h6>
+                      <p className="text-xs text-violet-100 mb-2">Kevin Murphy - Advanced Probabilistic ML</p>
+                      <p className="text-xs text-violet-200 mb-2">Cutting-edge probabilistic methods</p>
+                      <a href="https://probml.github.io/pml-book" target="_blank" rel="noopener noreferrer"
+                         className="text-xs text-violet-300 hover:text-violet-200 underline">
+                        Free Online →
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center bg-gray-800/30 rounded-lg p-3 border border-gray-600/30">
+                  <p className="text-xs sm:text-sm text-gray-200">
+                    💡 <strong>Pro Tip:</strong> Start with beginner books, practice with code, then advance to theory-heavy books.
+                    Many of these books are available FREE online! 🎉
+                  </p>
+                </div>
+              </div>
+
               <div className="bg-gray-900/20 rounded-lg p-4 border border-gray-700/30">
                 <h4 className="text-base sm:text-lg font-semibold text-green-300 mb-4 text-center">🚀 Top AI GitHub Repositories</h4>
                 <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
