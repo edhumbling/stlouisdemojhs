@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import BackButton from '../components/BackButton';
+import { ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 // Shimmer Loading Component
 const VideoShimmer: React.FC = () => (
@@ -135,6 +136,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
 };
 
 const StemDeepLearningPage: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedVideo, setSelectedVideo] = useState<{id: string, title: string} | null>(null);
   return (
     <div className="min-h-screen bg-black text-white">
@@ -217,7 +219,13 @@ const StemDeepLearningPage: React.FC = () => {
       {/* Back Button */}
       <div className="relative z-10">
         <div className="px-4 py-4">
-          <BackButton />
+          <button
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800/80 hover:bg-gray-700/90 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-gray-600/30 hover:border-gray-500/50"
+          >
+            <ArrowLeft size={16} />
+            <span>Back</span>
+          </button>
         </div>
       </div>
 
