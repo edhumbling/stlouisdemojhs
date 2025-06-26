@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Briefcase, Lightbulb, Code, Bot, Calculator, Zap, Play, Rocket, Target, Heart, Brain, Network, Database, Eye, MessageSquare, Car, Shield, Sparkles, AlertTriangle, TrendingUp, Star } from 'lucide-react';
+import { ArrowLeft, BookOpen, Briefcase, Lightbulb, Code, Bot, Calculator, Zap, Play, Rocket, Target, Heart, Brain, Network, Database, Eye, MessageSquare, Car, Shield, Sparkles, AlertTriangle, TrendingUp, Star, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
@@ -65,13 +65,73 @@ const AIVideo: React.FC<{
 
 const AILearningPage: React.FC = () => {
   const navigate = useNavigate();
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   const handleBack = () => {
     navigate(-1);
   };
 
+  const openVideoModal = (videoId: string) => {
+    setSelectedVideo(videoId);
+  };
+
+  const closeVideoModal = () => {
+    setSelectedVideo(null);
+  };
+
+  // Handle keyboard events
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && selectedVideo) {
+        closeVideoModal();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedVideo]);
+
+  // Video Modal Component
+  const VideoModal = () => {
+    if (!selectedVideo) return null;
+
+    const handleBackdropClick = (e: React.MouseEvent) => {
+      if (e.target === e.currentTarget) {
+        closeVideoModal();
+      }
+    };
+
+    return (
+      <div
+        className="fixed inset-0 bg-black/95 flex items-center justify-center z-50 p-4 backdrop-blur-sm"
+        onClick={handleBackdropClick}
+      >
+        <div className="relative w-full max-w-5xl bg-gray-900 rounded-xl overflow-hidden shadow-2xl border border-gray-700">
+          <button
+            onClick={closeVideoModal}
+            className="absolute top-4 right-4 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
+            title="Close video (or click anywhere outside)"
+          >
+            <X size={20} />
+          </button>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0&modestbranding=1`}
+              title="Andrej Karpathy - AI Education Video"
+              style={{ border: 'none' }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute top-0 left-0 w-full h-full rounded-xl"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <VideoModal />
       <SEOHead
         title="Learn Artificial Intelligence | Complete AI Guide for Students - St. Louis Demonstration JHS"
         description="Comprehensive AI learning guide covering everything from basics to advanced concepts. Explore machine learning, neural networks, career opportunities, and the future of AI technology."
@@ -1275,113 +1335,125 @@ const AILearningPage: React.FC = () => {
                   </a>
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-                  <a href="https://www.youtube.com/watch?v=VMj-3S1tku0" target="_blank" rel="noopener noreferrer"
-                     className="bg-red-800/30 rounded-lg p-2 border border-red-600/30 text-center hover:bg-red-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('VMj-3S1tku0')}
+                     className="bg-red-800/30 rounded-lg p-2 border border-red-600/30 text-center hover:bg-red-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-red-300 mb-1">Micrograd</h6>
                     <p className="text-xs text-red-100">Autograd Engine</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=PaCmpygFfXo" target="_blank" rel="noopener noreferrer"
-                     className="bg-blue-800/30 rounded-lg p-2 border border-blue-600/30 text-center hover:bg-blue-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('PaCmpygFfXo')}
+                     className="bg-blue-800/30 rounded-lg p-2 border border-blue-600/30 text-center hover:bg-blue-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-blue-300 mb-1">Makemore pt1</h6>
                     <p className="text-xs text-blue-100">Bigram Model</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=TCH_1BHY58I" target="_blank" rel="noopener noreferrer"
-                     className="bg-green-800/30 rounded-lg p-2 border border-green-600/30 text-center hover:bg-green-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('TCH_1BHY58I')}
+                     className="bg-green-800/30 rounded-lg p-2 border border-green-600/30 text-center hover:bg-green-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-green-300 mb-1">Makemore pt2</h6>
                     <p className="text-xs text-green-100">MLP Language Model</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=P6sfmUTpUmc" target="_blank" rel="noopener noreferrer"
-                     className="bg-purple-800/30 rounded-lg p-2 border border-purple-600/30 text-center hover:bg-purple-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('P6sfmUTpUmc')}
+                     className="bg-purple-800/30 rounded-lg p-2 border border-purple-600/30 text-center hover:bg-purple-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-purple-300 mb-1">Makemore pt3</h6>
                     <p className="text-xs text-purple-100">Activations & Gradients</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=q8SA3rM6ckI" target="_blank" rel="noopener noreferrer"
-                     className="bg-orange-800/30 rounded-lg p-2 border border-orange-600/30 text-center hover:bg-orange-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('q8SA3rM6ckI')}
+                     className="bg-orange-800/30 rounded-lg p-2 border border-orange-600/30 text-center hover:bg-orange-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-orange-300 mb-1">Makemore pt4</h6>
                     <p className="text-xs text-orange-100">Manual Backprop</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=t3YJ5hKiMQ0" target="_blank" rel="noopener noreferrer"
-                     className="bg-cyan-800/30 rounded-lg p-2 border border-cyan-600/30 text-center hover:bg-cyan-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('t3YJ5hKiMQ0')}
+                     className="bg-cyan-800/30 rounded-lg p-2 border border-cyan-600/30 text-center hover:bg-cyan-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-cyan-300 mb-1">Makemore pt5</h6>
                     <p className="text-xs text-cyan-100">WaveNet</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" rel="noopener noreferrer"
-                     className="bg-pink-800/30 rounded-lg p-2 border border-pink-600/30 text-center hover:bg-pink-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('kCc8FmEb1nY')}
+                     className="bg-pink-800/30 rounded-lg p-2 border border-pink-600/30 text-center hover:bg-pink-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-pink-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-pink-300 mb-1">GPT from Scratch</h6>
                     <p className="text-xs text-pink-100">Build ChatGPT</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=l8pRSuU81PU" target="_blank" rel="noopener noreferrer"
-                     className="bg-yellow-800/30 rounded-lg p-2 border border-yellow-600/30 text-center hover:bg-yellow-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('l8pRSuU81PU')}
+                     className="bg-yellow-800/30 rounded-lg p-2 border border-yellow-600/30 text-center hover:bg-yellow-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-yellow-300 mb-1">Tokenization</h6>
                     <p className="text-xs text-yellow-100">Text to Numbers</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=bZQun8Y4L2A" target="_blank" rel="noopener noreferrer"
-                     className="bg-teal-800/30 rounded-lg p-2 border border-teal-600/30 text-center hover:bg-teal-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('bZQun8Y4L2A')}
+                     className="bg-teal-800/30 rounded-lg p-2 border border-teal-600/30 text-center hover:bg-teal-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-teal-300 mb-1">State of GPT</h6>
                     <p className="text-xs text-teal-100">Microsoft Build</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" rel="noopener noreferrer"
-                     className="bg-indigo-800/30 rounded-lg p-2 border border-indigo-600/30 text-center hover:bg-indigo-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('zjkBMFhNj_g')}
+                     className="bg-indigo-800/30 rounded-lg p-2 border border-indigo-600/30 text-center hover:bg-indigo-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-indigo-300 mb-1">Intro to LLMs</h6>
                     <p className="text-xs text-indigo-100">1hr Talk</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=EWvNQjAaOHw" target="_blank" rel="noopener noreferrer"
-                     className="bg-rose-800/30 rounded-lg p-2 border border-rose-600/30 text-center hover:bg-rose-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('EWvNQjAaOHw')}
+                     className="bg-rose-800/30 rounded-lg p-2 border border-rose-600/30 text-center hover:bg-rose-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-rose-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-rose-300 mb-1">How I use LLMs</h6>
                     <p className="text-xs text-rose-100">Practical Guide</p>
-                  </a>
+                  </button>
 
-                  <a href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" rel="noopener noreferrer"
-                     className="bg-emerald-800/30 rounded-lg p-2 border border-emerald-600/30 text-center hover:bg-emerald-800/50 transition-colors">
+                  <button
+                     onClick={() => openVideoModal('7xTGNNLPyMI')}
+                     className="bg-emerald-800/30 rounded-lg p-2 border border-emerald-600/30 text-center hover:bg-emerald-800/50 transition-colors w-full">
                     <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center mx-auto mb-2">
                       <Play size={14} className="text-white" />
                     </div>
                     <h6 className="text-xs font-semibold text-emerald-300 mb-1">Deep Dive LLMs</h6>
                     <p className="text-xs text-emerald-100">Under the Hood</p>
-                  </a>
+                  </button>
                 </div>
               </div>
 
