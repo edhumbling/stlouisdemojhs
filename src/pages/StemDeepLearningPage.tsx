@@ -401,147 +401,199 @@ const StemDeepLearningPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Educational Pathways - Edge to Edge */}
-          <section className="mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-6">Educational Pathways to STEM Success</h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                Build a strong foundation for your STEM career with these educational milestones and recommendations.
-              </p>
+        {/* STEM Education Pathways - Edge to Edge */}
+        <section className="w-full bg-black py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">STEM Education Pathways 🎓</h3>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Junior High School */}
-              <div className="bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-2xl p-8 border border-green-700/30 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                  <span className="text-2xl font-bold text-white">JHS</span>
-                </div>
-                <h3 className="text-2xl font-bold text-green-400 mb-6 text-center">Junior High School</h3>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                    <span>Strong foundation in Mathematics and Integrated Science</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                    <span>Introduction to Computing and ICT</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                    <span>Career Technology exploration</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
-                    <span>Critical thinking and problem-solving skills</span>
-                  </li>
-                </ul>
+            <div className="space-y-6">
+              {/* Education Overview */}
+              <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700/30">
+                <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
+                  <strong className="text-blue-300">Build a strong STEM foundation</strong> from Junior High School through University and beyond. Each educational stage prepares you for the next level of STEM excellence! 📚✨
+                </p>
               </div>
 
-              {/* Senior High School */}
-              <div className="bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-2xl p-8 border border-blue-700/30 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                  <span className="text-2xl font-bold text-white">SHS</span>
+              {/* Educational Stages */}
+              <div className="bg-gradient-to-r from-green-900/30 to-purple-900/30 rounded-lg p-6 border border-green-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-green-300 mb-4 flex items-center gap-2">
+                  🏫 Educational Journey: JHS → SHS → University
+                </h4>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div className="bg-green-800/30 rounded-lg p-4 border border-green-600/30">
+                    <h5 className="font-semibold text-green-300 text-sm mb-2">🌱 Junior High School (JHS)</h5>
+                    <ul className="space-y-1 text-xs text-green-100">
+                      <li>• <strong>Mathematics</strong> - Algebra, Geometry foundations</li>
+                      <li>• <strong>Integrated Science</strong> - Basic scientific concepts</li>
+                      <li>• <strong>ICT</strong> - Computer literacy and basic programming</li>
+                      <li>• <strong>Critical Thinking</strong> - Problem-solving skills</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2">🚀 Senior High School (SHS)</h5>
+                    <ul className="space-y-1 text-xs text-blue-100">
+                      <li>• <strong>Advanced Math</strong> - Calculus, Statistics</li>
+                      <li>• <strong>Specialized Sciences</strong> - Physics, Chemistry, Biology</li>
+                      <li>• <strong>Programming</strong> - Computer Science fundamentals</li>
+                      <li>• <strong>Research Projects</strong> - Scientific method application</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2">🎓 University & Beyond</h5>
+                    <ul className="space-y-1 text-xs text-purple-100">
+                      <li>• <strong>Bachelor's Degree</strong> - Specialized STEM field</li>
+                      <li>• <strong>Internships</strong> - Real-world experience</li>
+                      <li>• <strong>Graduate Studies</strong> - Advanced specialization</li>
+                      <li>• <strong>Continuous Learning</strong> - Professional development</li>
+                    </ul>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-blue-400 mb-6 text-center">Senior High School</h3>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
-                    <span>Advanced Mathematics (Calculus, Statistics)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
-                    <span>Specialized Sciences (Physics, Chemistry, Biology)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
-                    <span>Programming and Computer Science</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
-                    <span>Research projects and scientific method</span>
-                  </li>
-                </ul>
               </div>
 
-              {/* University & Beyond */}
-              <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-2xl p-8 border border-purple-700/30 backdrop-blur-sm">
-                <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
-                  <span className="text-2xl font-bold text-white">UNI</span>
+              {/* Ghana Education System Focus */}
+              <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-6 border border-yellow-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4 flex items-center gap-2">
+                  🇬🇭 Ghana Education System STEM Track
+                </h4>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-3">
+                    <div className="bg-yellow-800/30 rounded-lg p-3 border border-yellow-600/30">
+                      <h5 className="font-semibold text-yellow-300 text-sm mb-1">📋 BECE Preparation</h5>
+                      <p className="text-xs text-yellow-100">Excel in Mathematics and Integrated Science for STEM program placement</p>
+                    </div>
+                    <div className="bg-yellow-800/30 rounded-lg p-3 border border-yellow-600/30">
+                      <h5 className="font-semibold text-yellow-300 text-sm mb-1">🔬 SHS Science Programs</h5>
+                      <p className="text-xs text-yellow-100">Choose General Science or specialized tracks for university preparation</p>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
+                      <h5 className="font-semibold text-orange-300 text-sm mb-1">🎯 WASSCE Excellence</h5>
+                      <p className="text-xs text-orange-100">Achieve top grades in Core Math, Integrated Science, and electives</p>
+                    </div>
+                    <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
+                      <h5 className="font-semibold text-orange-300 text-sm mb-1">🏛️ University Admission</h5>
+                      <p className="text-xs text-orange-100">Meet cut-off points for Engineering, Medicine, Computer Science programs</p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-purple-400 mb-6 text-center">University & Beyond</h3>
-                <ul className="space-y-3 text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
-                    <span>Bachelor's degree in chosen STEM field</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
-                    <span>Internships and practical experience</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
-                    <span>Graduate studies for specialized roles</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
-                    <span>Continuous learning and professional development</span>
-                  </li>
-                </ul>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* STEM Skills Development */}
-          <section className="mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-6">Essential STEM Skills</h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                Develop these critical skills to excel in any STEM field and prepare for the challenges of tomorrow.
-              </p>
+        {/* Essential STEM Skills - Edge to Edge */}
+        <section className="w-full bg-gray-800 py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">Essential STEM Skills 🛠️</h3>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700/30 backdrop-blur-sm text-center">
-                <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-2">Problem Solving</h4>
-                <p className="text-gray-300 text-sm">Breaking down complex challenges into manageable solutions</p>
+            <div className="space-y-6">
+              {/* Skills Overview */}
+              <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-700/30">
+                <p className="text-sm sm:text-base text-purple-100 leading-relaxed">
+                  <strong className="text-purple-300">Master these critical skills</strong> to excel in any STEM field and prepare for the challenges of tomorrow. These competencies are essential for success in modern STEM careers! 🚀💡
+                </p>
               </div>
 
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700/30 backdrop-blur-sm text-center">
-                <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
+              {/* Core Skills Categories */}
+              <div className="bg-gradient-to-r from-red-900/30 to-blue-900/30 rounded-lg p-6 border border-red-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-red-300 mb-4 flex items-center gap-2">
+                  🧠 Core STEM Competencies
+                </h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30 text-center">
+                    <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <h5 className="font-semibold text-red-300 text-sm mb-2">Problem Solving</h5>
+                    <p className="text-xs text-red-100">Breaking down complex challenges into manageable solutions</p>
+                  </div>
+
+                  <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30 text-center">
+                    <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2">Programming</h5>
+                    <p className="text-xs text-blue-100">Coding skills essential for modern STEM applications</p>
+                  </div>
+
+                  <div className="bg-green-800/30 rounded-lg p-4 border border-green-600/30 text-center">
+                    <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <h5 className="font-semibold text-green-300 text-sm mb-2">Data Analysis</h5>
+                    <p className="text-xs text-green-100">Interpreting and drawing insights from complex datasets</p>
+                  </div>
+
+                  <div className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30 text-center">
+                    <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                      <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <h5 className="font-semibold text-yellow-300 text-sm mb-2">Critical Thinking</h5>
+                    <p className="text-xs text-yellow-100">Evaluating information and making logical decisions</p>
+                  </div>
                 </div>
-                <h4 className="text-lg font-semibold text-white mb-2">Programming</h4>
-                <p className="text-gray-300 text-sm">Coding skills essential for modern STEM applications</p>
               </div>
 
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700/30 backdrop-blur-sm text-center">
-                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11 4a1 1 0 10-2 0v4a1 1 0 102 0V7zm-3 1a1 1 0 10-2 0v3a1 1 0 102 0V8zM8 9a1 1 0 00-2 0v2a1 1 0 102 0V9z" clipRule="evenodd" />
-                  </svg>
+              {/* Advanced Skills */}
+              <div className="bg-gradient-to-r from-cyan-900/30 to-purple-900/30 rounded-lg p-6 border border-cyan-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-cyan-300 mb-4 flex items-center gap-2">
+                  🚀 Advanced STEM Skills (21st Century)
+                </h4>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-2">🤖 AI & Machine Learning</h5>
+                    <ul className="space-y-1 text-xs text-cyan-100">
+                      <li>• Neural Networks & Deep Learning</li>
+                      <li>• Data Science & Analytics</li>
+                      <li>• Algorithm Development</li>
+                    </ul>
+                  </div>
+                  <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2">🔬 Research & Innovation</h5>
+                    <ul className="space-y-1 text-xs text-purple-100">
+                      <li>• Scientific Method Application</li>
+                      <li>• Experimental Design</li>
+                      <li>• Peer Review & Publication</li>
+                    </ul>
+                  </div>
+                  <div className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30">
+                    <h5 className="font-semibold text-indigo-300 text-sm mb-2">🌐 Digital Literacy</h5>
+                    <ul className="space-y-1 text-xs text-indigo-100">
+                      <li>• Cloud Computing & DevOps</li>
+                      <li>• Cybersecurity Awareness</li>
+                      <li>• Digital Communication</li>
+                    </ul>
+                  </div>
                 </div>
-                <h4 className="text-lg font-semibold text-white mb-2">Data Analysis</h4>
-                <p className="text-gray-300 text-sm">Interpreting and drawing insights from complex datasets</p>
-              </div>
-
-              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700/30 backdrop-blur-sm text-center">
-                <div className="w-12 h-12 bg-yellow-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-2">Critical Thinking</h4>
-                <p className="text-gray-300 text-sm">Evaluating information and making logical decisions</p>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
           {/* Call to Action */}
           <section className="text-center">
@@ -1131,7 +1183,6 @@ const StemDeepLearningPage: React.FC = () => {
               </div>
             </div>
           </section>
-        </div>
       </main>
     </div>
   );
