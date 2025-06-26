@@ -139,18 +139,79 @@ const StemDeepLearningPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Helmet>
-        <title>Master STEM Fields - Deep Learning & Career Guidance | St. Louis Demo JHS</title>
-        <meta name="description" content="Comprehensive STEM education guide covering Science, Technology, Engineering, and Mathematics. Explore career pathways, skills development, and educational resources for students at St. Louis Demonstration JHS." />
-        <meta name="keywords" content="STEM education, science careers, technology jobs, engineering pathways, mathematics, Ghana education, JHS STEM, career guidance" />
-        <meta property="og:title" content="Master STEM Fields - Deep Learning & Career Guidance" />
-        <meta property="og:description" content="Comprehensive STEM education guide covering Science, Technology, Engineering, and Mathematics career pathways and skills development." />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+        <title>Master STEM Fields - Complete Career Guide & Resources | St. Louis Demo JHS</title>
+        <meta name="description" content="🚀 Unlock your STEM potential! Comprehensive guide to Science, Technology, Engineering & Mathematics careers. Features 30+ expert publications, career pathways, skills development, and educational videos for students in Ghana." />
+        <meta name="keywords" content="STEM education, science careers, technology jobs, engineering pathways, mathematics, Ghana education, JHS STEM, career guidance, STEM publications, data science, AI careers" />
+        <meta property="og:title" content="🔬 Master STEM Fields - Complete Career Guide & Expert Resources" />
+        <meta property="og:description" content="🚀 Unlock your STEM potential with our comprehensive guide! Explore Science, Technology, Engineering & Mathematics careers, watch expert videos, discover 30+ premium publications, and build essential skills for the future." />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" />
         <meta property="og:url" content="https://stlouisdemojhs.com/stem-deep-learning" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="St. Louis Demonstration JHS" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Master STEM Fields - Deep Learning & Career Guidance" />
-        <meta name="twitter:description" content="Comprehensive STEM education guide covering Science, Technology, Engineering, and Mathematics career pathways." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+        <meta name="twitter:title" content="🔬 Master STEM Fields - Complete Career Guide & Expert Resources" />
+        <meta name="twitter:description" content="🚀 Unlock your STEM potential! Comprehensive guide with career pathways, expert videos, 30+ premium publications, and skills development for Science, Technology, Engineering & Mathematics." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" />
+        <meta name="twitter:site" content="@StLouisDemoJHS" />
+        <meta name="twitter:creator" content="@StLouisDemoJHS" />
         <link rel="canonical" href="https://stlouisdemojhs.com/stem-deep-learning" />
+
+        {/* Additional SEO Meta Tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="author" content="St. Louis Demonstration JHS" />
+        <meta name="publisher" content="St. Louis Demonstration JHS" />
+        <meta name="theme-color" content="#1f2937" />
+        <meta name="msapplication-TileColor" content="#1f2937" />
+
+        {/* Structured Data for Rich Snippets */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "name": "St. Louis Demonstration JHS - STEM Education",
+            "description": "Comprehensive STEM education guide covering Science, Technology, Engineering, and Mathematics career pathways, skills development, and expert resources.",
+            "url": "https://stlouisdemojhs.com/stem-deep-learning",
+            "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+            "sameAs": [
+              "https://stlouisdemojhs.com",
+              "https://stlouisdemojhs.com/stem"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Suame Mbrom",
+              "addressLocality": "Kumasi",
+              "addressRegion": "Ashanti Region",
+              "addressCountry": "Ghana"
+            },
+            "educationalCredentialAwarded": "Junior High School Certificate",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "STEM Education Programs",
+              "itemListElement": [
+                {
+                  "@type": "Course",
+                  "name": "Science Education",
+                  "description": "Physics, Chemistry, Biology, and Earth Science"
+                },
+                {
+                  "@type": "Course",
+                  "name": "Technology Education",
+                  "description": "Computer Science, Information Technology, and Digital Media"
+                },
+                {
+                  "@type": "Course",
+                  "name": "Engineering Education",
+                  "description": "Civil, Mechanical, Electrical, and Software Engineering"
+                },
+                {
+                  "@type": "Course",
+                  "name": "Mathematics Education",
+                  "description": "Algebra, Calculus, Statistics, and Applied Mathematics"
+                }
+              ]
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Back Button */}
