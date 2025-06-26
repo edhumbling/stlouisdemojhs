@@ -21,6 +21,7 @@ const SitemapPage: React.FC = () => {
         { name: 'News & Events', path: '/news', description: 'Latest school news and upcoming events' },
         { name: 'STEM Education', path: '/stem', description: 'Science, Technology, Engineering & Mathematics' },
         { name: 'Students Hub', path: '/learnhub', description: 'Digital learning platform and resources' },
+        { name: 'AI Learning', path: '/ai', description: 'Comprehensive AI education and learning resources' },
         { name: 'AI Search', path: '/ai-search', description: 'Intelligent search for school information' },
         { name: 'Gallery', path: '/gallery', description: 'Photos and videos from school events' },
       ]

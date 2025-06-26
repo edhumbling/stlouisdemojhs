@@ -39,6 +39,8 @@ Allow: /apply-now
 Allow: /apply-now/*
 Allow: /students-hub
 Allow: /students-hub/*
+Allow: /ai
+Allow: /ai/*
 Allow: /donate
 Allow: /donate/*
 Allow: /media
