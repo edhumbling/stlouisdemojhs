@@ -4,21 +4,65 @@ import { ArrowLeft, BookOpen, Briefcase, Lightbulb, Code, Bot, Calculator, Zap, 
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
-// Shimmer Loading Component for Videos
+// Enhanced Silver Shimmer Loading Component for Videos
 const VideoShimmer: React.FC = () => (
-  <div className="relative w-full bg-gray-800 rounded-lg overflow-hidden" style={{ paddingBottom: '56.25%' }}>
-    <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse">
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
+  <div className="relative w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-lg overflow-hidden border border-gray-700/50" style={{ paddingBottom: '56.25%' }}>
+    {/* Base shimmer background */}
+    <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800">
+      {/* Silver shimmer wave effect */}
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent"
+        style={{
+          animation: 'shimmer 2s ease-in-out infinite alternate'
+        }}
+      ></div>
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+        style={{
+          animation: 'shimmer 3s ease-in-out infinite alternate-reverse'
+        }}
+      ></div>
+
+      {/* Animated silver lines */}
+      <div className="absolute top-4 left-4 right-4 h-3 bg-gradient-to-r from-transparent via-gray-300/40 to-transparent rounded animate-pulse"></div>
+      <div className="absolute top-10 left-8 right-8 h-2 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent rounded animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+      <div className="absolute top-16 left-6 right-12 h-2 bg-gradient-to-r from-transparent via-gray-300/25 to-transparent rounded animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+
+      {/* Center play button with silver glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center animate-pulse">
-          <Play size={24} className="text-gray-400 ml-1" />
+        <div className="relative">
+          <div className="w-20 h-20 bg-gradient-to-br from-gray-400/20 to-gray-600/30 rounded-full flex items-center justify-center animate-pulse border border-gray-400/40 shadow-lg shadow-gray-400/20">
+            <Play size={28} className="text-gray-300 ml-1 animate-pulse" />
+          </div>
+          {/* Pulsing silver ring */}
+          <div className="absolute inset-0 w-20 h-20 border-2 border-gray-400/60 rounded-full animate-ping"></div>
+          <div className="absolute inset-2 w-16 h-16 border border-gray-300/40 rounded-full animate-pulse"></div>
+        </div>
+      </div>
+
+      {/* Loading text with silver shimmer */}
+      <div className="absolute bottom-4 left-4 right-4 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 rounded-full border border-gray-400/30">
+          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+          <span className="text-gray-300 text-xs font-medium ml-2">Loading Video...</span>
         </div>
       </div>
     </div>
+
+    {/* Custom CSS for shimmer animation */}
+    <style jsx>{`
+      @keyframes shimmer {
+        0% { transform: translateX(-100%); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateX(100%); opacity: 0; }
+      }
+    `}</style>
   </div>
 );
 
-// Enhanced Video Component with Shimmer Loading
+// Enhanced Video Component with Shimmer Loading and Error Handling
 const AIVideo: React.FC<{
   src: string;
   title: string;
@@ -28,6 +72,34 @@ const AIVideo: React.FC<{
   note: string;
 }> = ({ src, title, description, icon, gradient, note }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
+
+  const handleLoad = () => {
+    setIsLoading(false);
+    setHasError(false);
+  };
+
+  const handleError = () => {
+    setIsLoading(false);
+    setHasError(true);
+  };
+
+  const handleRetry = () => {
+    setIsLoading(true);
+    setHasError(false);
+    setRetryCount(prev => prev + 1);
+  };
+
+  // Auto-retry mechanism
+  useEffect(() => {
+    if (hasError && retryCount < 3) {
+      const timer = setTimeout(() => {
+        handleRetry();
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [hasError, retryCount]);
 
   return (
     <div className={`w-full bg-gradient-to-br ${gradient} p-4 sm:p-6 mb-8`}>
@@ -43,15 +115,37 @@ const AIVideo: React.FC<{
 
       <div className="relative w-full mb-4">
         {isLoading && <VideoShimmer />}
-        <div className={`relative w-full ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} style={{ paddingBottom: '56.25%' }}>
+
+        {hasError && (
+          <div className="relative w-full bg-gradient-to-br from-red-900/30 to-red-800/30 rounded-lg border border-red-700/50 flex items-center justify-center" style={{ paddingBottom: '56.25%' }}>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mb-4 border border-red-400/40">
+                <AlertTriangle size={24} className="text-red-300" />
+              </div>
+              <h4 className="text-white font-semibold mb-2">Video Loading Error</h4>
+              <p className="text-red-200 text-sm mb-4">Unable to load video. Retrying automatically...</p>
+              <button
+                onClick={handleRetry}
+                className="px-4 py-2 bg-red-600/50 hover:bg-red-600/70 text-white rounded-lg border border-red-500/50 transition-all duration-200 text-sm"
+              >
+                Retry Now ({retryCount}/3)
+              </button>
+            </div>
+          </div>
+        )}
+
+        <div className={`relative w-full ${isLoading || hasError ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`} style={{ paddingBottom: '56.25%' }}>
           <iframe
-            className="absolute top-0 left-0 w-full h-full rounded-lg"
+            key={retryCount} // Force re-render on retry
+            className="absolute top-0 left-0 w-full h-full rounded-lg border border-gray-600/30"
             src={src}
             title={title}
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            onLoad={() => setIsLoading(false)}
+            onLoad={handleLoad}
+            onError={handleError}
+            loading="lazy"
           ></iframe>
         </div>
       </div>
@@ -91,8 +185,11 @@ const AILearningPage: React.FC = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [selectedVideo]);
 
-  // Video Modal Component
+  // Enhanced Video Modal Component with Shimmer Loading
   const VideoModal = () => {
+    const [modalLoading, setModalLoading] = useState(true);
+    const [modalError, setModalError] = useState(false);
+
     if (!selectedVideo) return null;
 
     const handleBackdropClick = (e: React.MouseEvent) => {
@@ -100,6 +197,24 @@ const AILearningPage: React.FC = () => {
         closeVideoModal();
       }
     };
+
+    const handleModalLoad = () => {
+      setModalLoading(false);
+      setModalError(false);
+    };
+
+    const handleModalError = () => {
+      setModalLoading(false);
+      setModalError(true);
+    };
+
+    // Reset loading state when video changes
+    useEffect(() => {
+      if (selectedVideo) {
+        setModalLoading(true);
+        setModalError(false);
+      }
+    }, [selectedVideo]);
 
     return (
       <div
@@ -114,14 +229,41 @@ const AILearningPage: React.FC = () => {
           >
             <X size={20} />
           </button>
+
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            {modalLoading && (
+              <div className="absolute inset-0">
+                <VideoShimmer />
+              </div>
+            )}
+
+            {modalError && (
+              <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 to-red-800/30 rounded-xl border border-red-700/50 flex items-center justify-center">
+                <div className="text-center p-4">
+                  <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mb-4 mx-auto border border-red-400/40">
+                    <AlertTriangle size={24} className="text-red-300" />
+                  </div>
+                  <h4 className="text-white font-semibold mb-2">Video Loading Error</h4>
+                  <p className="text-red-200 text-sm mb-4">Unable to load Andrej Karpathy video</p>
+                  <button
+                    onClick={() => window.open(`https://www.youtube.com/watch?v=${selectedVideo}`, '_blank')}
+                    className="px-4 py-2 bg-red-600/50 hover:bg-red-600/70 text-white rounded-lg border border-red-500/50 transition-all duration-200 text-sm"
+                  >
+                    Open on YouTube
+                  </button>
+                </div>
+              </div>
+            )}
+
             <iframe
               src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0&modestbranding=1`}
               title="Andrej Karpathy - AI Education Video"
               style={{ border: 'none' }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
-              className="absolute top-0 left-0 w-full h-full rounded-xl"
+              className={`absolute top-0 left-0 w-full h-full rounded-xl transition-opacity duration-500 ${modalLoading || modalError ? 'opacity-0' : 'opacity-100'}`}
+              onLoad={handleModalLoad}
+              onError={handleModalError}
             />
           </div>
         </div>
