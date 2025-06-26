@@ -413,6 +413,191 @@ const StemDeepLearningPage: React.FC = () => {
             </div>
           </section>
 
+          {/* STEM Education Videos Section */}
+          <section className="w-full bg-gradient-to-br from-gray-900 to-black py-12">
+            <div className="px-6">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-pink-500 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white">Understanding STEM Education 🎥</h3>
+              </div>
+
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* What is STEM Education */}
+                <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl overflow-hidden border border-blue-700/30 hover:border-blue-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/CWnMBRHd9Ho"
+                      title="What is STEM Education?"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">What is STEM Education?</h4>
+                    <p className="text-sm text-gray-300">Comprehensive overview of Science, Technology, Engineering, and Mathematics education</p>
+                  </div>
+                </div>
+
+                {/* STEM Career Benefits */}
+                <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl overflow-hidden border border-green-700/30 hover:border-green-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/PVJ3S6Lb8F8"
+                      title="STEM Degrees = Success? Top Universities and Career Perks"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-green-300 transition-colors">STEM Degrees = Success?</h4>
+                    <p className="text-sm text-gray-300">Career perks, university insights, and STEM education benefits explained</p>
+                  </div>
+                </div>
+
+                {/* Women in STEM */}
+                <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl overflow-hidden border border-purple-700/30 hover:border-purple-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/kA08vfoZAJY"
+                      title="Why do so many women leave their careers in STEM?"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">Women in STEM Careers</h4>
+                    <p className="text-sm text-gray-300">Challenges and opportunities for women in science, technology, engineering, and math</p>
+                  </div>
+                </div>
+
+                {/* STEM vs Liberal Arts */}
+                <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-xl overflow-hidden border border-orange-700/30 hover:border-orange-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/fH5iLx_jCUk"
+                      title="STEM - What is it and why is it important?"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-orange-300 transition-colors">Why is STEM Important?</h4>
+                    <p className="text-sm text-gray-300">Understanding the importance and impact of STEM education in today's world</p>
+                  </div>
+                </div>
+
+                {/* STEM Role Models */}
+                <div className="bg-gradient-to-br from-teal-900/30 to-cyan-900/30 rounded-xl overflow-hidden border border-teal-700/30 hover:border-teal-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/mulAuJFcxQQ"
+                      title="We Need More STEM Role Models Who Are A Bit Less Brilliant"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">STEM Role Models</h4>
+                    <p className="text-sm text-gray-300">The importance of relatable role models in STEM education and careers</p>
+                  </div>
+                </div>
+
+                {/* Robotics Engineering Career */}
+                <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl overflow-hidden border border-indigo-700/30 hover:border-indigo-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/2nQ_5zXuSm8"
+                      title="In The Know with Robotics Engineer Dr. Carlotta Berry"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-indigo-300 transition-colors">Robotics Engineering Career</h4>
+                    <p className="text-sm text-gray-300">Real-world insights from a robotics engineer about STEM careers</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* STEM Education Videos Section */}
+          <section className="w-full bg-gradient-to-br from-gray-900 to-black py-12">
+            <div className="px-6">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-pink-500 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white">Understanding STEM Education 🎥</h3>
+              </div>
+
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* What is STEM Education */}
+                <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl overflow-hidden border border-blue-700/30 hover:border-blue-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/CWnMBRHd9Ho"
+                      title="What is STEM Education?"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">What is STEM Education?</h4>
+                    <p className="text-sm text-gray-300">Comprehensive overview of Science, Technology, Engineering, and Mathematics education</p>
+                  </div>
+                </div>
+
+                {/* STEM Career Benefits */}
+                <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl overflow-hidden border border-green-700/30 hover:border-green-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/PVJ3S6Lb8F8"
+                      title="STEM Degrees = Success? Top Universities and Career Perks"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-green-300 transition-colors">STEM Degrees = Success?</h4>
+                    <p className="text-sm text-gray-300">Career perks, university insights, and STEM education benefits explained</p>
+                  </div>
+                </div>
+
+                {/* STEM Importance */}
+                <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-xl overflow-hidden border border-orange-700/30 hover:border-orange-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/fH5iLx_jCUk"
+                      title="STEM - What is it and why is it important?"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-orange-300 transition-colors">Why is STEM Important?</h4>
+                    <p className="text-sm text-gray-300">Understanding the importance and impact of STEM education in today's world</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* STEM Education Pathways - Edge to Edge */}
           <section className="w-full bg-gradient-to-br from-gray-900 to-gray-800 py-12">
             <div className="px-6">
@@ -588,6 +773,124 @@ const StemDeepLearningPage: React.FC = () => {
                       <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
                       <span className="text-sm text-white">Digital Tools & Platforms</span>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* STEM Career Guidance Videos */}
+          <section className="w-full bg-gradient-to-br from-black to-gray-900 py-12">
+            <div className="px-6">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-500 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white">STEM Career Insights 👥</h3>
+              </div>
+
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Women in STEM Careers */}
+                <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl overflow-hidden border border-purple-700/30 hover:border-purple-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/kA08vfoZAJY"
+                      title="Why do so many women leave their careers in STEM?"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors">Women in STEM Careers</h4>
+                    <p className="text-sm text-gray-300">Challenges and opportunities for women in science, technology, engineering, and math</p>
+                  </div>
+                </div>
+
+                {/* STEM Role Models */}
+                <div className="bg-gradient-to-br from-teal-900/30 to-cyan-900/30 rounded-xl overflow-hidden border border-teal-700/30 hover:border-teal-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/mulAuJFcxQQ"
+                      title="We Need More STEM Role Models Who Are A Bit Less Brilliant"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">STEM Role Models</h4>
+                    <p className="text-sm text-gray-300">The importance of relatable role models in STEM education and careers</p>
+                  </div>
+                </div>
+
+                {/* Robotics Engineering Career */}
+                <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl overflow-hidden border border-indigo-700/30 hover:border-indigo-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/2nQ_5zXuSm8"
+                      title="In The Know with Robotics Engineer Dr. Carlotta Berry"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-indigo-300 transition-colors">Robotics Engineering Career</h4>
+                    <p className="text-sm text-gray-300">Real-world insights from a robotics engineer about STEM careers</p>
+                  </div>
+                </div>
+
+                {/* Career Spotlight: Robotics Engineer */}
+                <div className="bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-xl overflow-hidden border border-blue-700/30 hover:border-blue-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/sUOY3JZ-9C4"
+                      title="Career Spotlight: Robotics Engineer"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-blue-300 transition-colors">Career Spotlight: Robotics</h4>
+                    <p className="text-sm text-gray-300">What it's like to work as a robotics engineer - real-world career insights</p>
+                  </div>
+                </div>
+
+                {/* Women on Boards - Engineering Leadership */}
+                <div className="bg-gradient-to-br from-green-900/30 to-teal-900/30 rounded-xl overflow-hidden border border-green-700/30 hover:border-green-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/cvIm_8kXnYE"
+                      title="Women on Boards"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-green-300 transition-colors">Women in STEM Leadership</h4>
+                    <p className="text-sm text-gray-300">Engineering career paths and renewable energy expertise in leadership roles</p>
+                  </div>
+                </div>
+
+                {/* Sports and STEM */}
+                <div className="bg-gradient-to-br from-yellow-900/30 to-orange-900/30 rounded-xl overflow-hidden border border-yellow-700/30 hover:border-yellow-500/50 transition-all duration-300 group">
+                  <div className="relative aspect-video bg-gray-800">
+                    <iframe
+                      src="https://www.youtube.com/embed/_gWIXxWRPk4"
+                      title="She's4Sports Presents"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h4 className="font-semibold text-white mb-2 group-hover:text-yellow-300 transition-colors">STEM in Sports</h4>
+                    <p className="text-sm text-gray-300">How science, technology, engineering, and math apply to sports and athletics</p>
                   </div>
                 </div>
               </div>
