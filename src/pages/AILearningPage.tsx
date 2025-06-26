@@ -225,10 +225,13 @@ const AILearningPage: React.FC = () => {
                 </div>
                 <h4 className="text-base sm:text-lg font-bold text-blue-300 mb-2">Narrow AI (ANI) 🎯</h4>
                 <p className="text-xs sm:text-sm text-blue-100 mb-3 leading-relaxed">
-                  AI that's really good at ONE specific thing. This is what we use today!
+                  AI that's really good at ONE specific thing. This is what we use today! Also called "Weak AI," it's designed to perform specific tasks within a limited domain.
                 </p>
+                <div className="text-xs text-blue-200 mb-2">
+                  <strong>Real Examples:</strong> ChatGPT (text), DALL-E (images), Tesla Autopilot (driving), AlphaGo (Go game)
+                </div>
                 <div className="text-xs text-blue-200">
-                  <strong>Examples:</strong> Chess programs, Spotify playlists, spam filters
+                  <strong>Capabilities:</strong> Exceeds human performance in specific domains but can't transfer knowledge to other areas
                 </div>
               </div>
 
@@ -238,10 +241,13 @@ const AILearningPage: React.FC = () => {
                 </div>
                 <h4 className="text-base sm:text-lg font-bold text-purple-300 mb-2">General AI (AGI) 🌟</h4>
                 <p className="text-xs sm:text-sm text-purple-100 mb-3 leading-relaxed">
-                  AI as smart as humans in EVERYTHING. Still being developed!
+                  AI as smart as humans in EVERYTHING. Also called "Strong AI," it would match human cognitive abilities across all domains with reasoning, learning, and creativity.
                 </p>
+                <div className="text-xs text-purple-200 mb-2">
+                  <strong>Current Status:</strong> Major research focus at OpenAI, DeepMind, Anthropic. No system has achieved AGI yet.
+                </div>
                 <div className="text-xs text-purple-200">
-                  <strong>Timeline:</strong> Maybe 2030-2050 (scientists are working hard!)
+                  <strong>Timeline:</strong> Experts debate 2030-2050, but significant challenges remain
                 </div>
               </div>
 
@@ -251,10 +257,92 @@ const AILearningPage: React.FC = () => {
                 </div>
                 <h4 className="text-base sm:text-lg font-bold text-red-300 mb-2">Super AI (ASI) ⚡</h4>
                 <p className="text-xs sm:text-sm text-red-100 mb-3 leading-relaxed">
-                  AI smarter than ALL humans combined. Pure sci-fi for now!
+                  AI smarter than ALL humans combined. Also called "Artificial Superintelligence," it would vastly outperform humans in every field including creativity and wisdom.
                 </p>
+                <div className="text-xs text-red-200 mb-2">
+                  <strong>Theoretical Capabilities:</strong> Scientific breakthroughs, solving climate change, space exploration
+                </div>
                 <div className="text-xs text-red-200">
-                  <strong>Status:</strong> Theoretical - like having superpowers!
+                  <strong>Status:</strong> Purely theoretical - requires solving AGI first, then recursive self-improvement
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-900/20 rounded-lg p-4 border border-gray-700/30 mt-6">
+              <h4 className="text-base sm:text-lg font-semibold text-green-300 mb-3">🔬 Deep Dive: Understanding AI Types</h4>
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <h5 className="font-semibold text-white text-sm mb-3">Narrow AI (What We Have Now) 🤖</h5>
+                  <div className="space-y-2 text-xs text-gray-100">
+                    <p><strong>Definition:</strong> AI systems designed for specific tasks that can match or exceed human performance in narrow domains.</p>
+                    <p><strong>Key Characteristics:</strong></p>
+                    <ul className="ml-4 space-y-1">
+                      <li>• Operates within predefined parameters</li>
+                      <li>• Cannot transfer learning to new domains</li>
+                      <li>• Requires human programming for each task</li>
+                      <li>• Lacks consciousness or self-awareness</li>
+                    </ul>
+                    <p><strong>Current Applications:</strong></p>
+                    <ul className="ml-4 space-y-1">
+                      <li>• <strong>Language Models:</strong> GPT-4, Claude, Gemini</li>
+                      <li>• <strong>Computer Vision:</strong> Medical imaging, facial recognition</li>
+                      <li>• <strong>Game AI:</strong> AlphaGo, chess engines</li>
+                      <li>• <strong>Recommendation Systems:</strong> Netflix, Spotify, Amazon</li>
+                      <li>• <strong>Autonomous Vehicles:</strong> Tesla, Waymo (limited scenarios)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <h5 className="font-semibold text-white text-sm mb-3">AGI vs ASI: The Future 🚀</h5>
+                  <div className="space-y-2 text-xs text-gray-100">
+                    <p><strong>Artificial General Intelligence (AGI):</strong></p>
+                    <ul className="ml-4 space-y-1">
+                      <li>• Human-level intelligence across all cognitive tasks</li>
+                      <li>• Ability to understand, learn, and apply knowledge flexibly</li>
+                      <li>• Transfer learning between different domains</li>
+                      <li>• Reasoning, creativity, and problem-solving like humans</li>
+                    </ul>
+                    <p><strong>Artificial Superintelligence (ASI):</strong></p>
+                    <ul className="ml-4 space-y-1">
+                      <li>• Intelligence that vastly exceeds human cognitive abilities</li>
+                      <li>• Recursive self-improvement capabilities</li>
+                      <li>• Could solve humanity's greatest challenges</li>
+                      <li>• Potential risks require careful safety research</li>
+                    </ul>
+                    <p><strong>Research Challenges:</strong></p>
+                    <ul className="ml-4 space-y-1">
+                      <li>• <strong>Alignment Problem:</strong> Ensuring AI goals match human values</li>
+                      <li>• <strong>Control Problem:</strong> Maintaining human oversight</li>
+                      <li>• <strong>Consciousness:</strong> Understanding machine consciousness</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700/30 mt-4">
+              <h4 className="text-base sm:text-lg font-semibold text-blue-300 mb-3">🏢 What Major AI Companies Are Building</h4>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <h5 className="font-semibold text-white text-sm mb-2">Current Narrow AI Leaders:</h5>
+                  <ul className="space-y-1 text-xs text-blue-100">
+                    <li>• <strong>OpenAI:</strong> GPT-4, ChatGPT, DALL-E, Sora (text, images, video)</li>
+                    <li>• <strong>Google DeepMind:</strong> Gemini, AlphaFold, Bard (multimodal AI)</li>
+                    <li>• <strong>Anthropic:</strong> Claude (constitutional AI, safety-focused)</li>
+                    <li>• <strong>Microsoft:</strong> Copilot integration across Office, Azure AI</li>
+                    <li>• <strong>Meta:</strong> LLaMA models, Reality Labs (VR/AR AI)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="font-semibold text-white text-sm mb-2">AGI Research Efforts:</h5>
+                  <ul className="space-y-1 text-xs text-blue-100">
+                    <li>• <strong>OpenAI:</strong> Explicit AGI mission, scaling transformer models</li>
+                    <li>• <strong>DeepMind:</strong> General intelligence research, multi-task learning</li>
+                    <li>• <strong>Anthropic:</strong> Constitutional AI for safe, beneficial AGI</li>
+                    <li>• <strong>Stanford AI Lab:</strong> Fundamental research on intelligence</li>
+                    <li>• <strong>MIT CSAIL:</strong> Cognitive architectures, reasoning systems</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -340,33 +428,204 @@ const AILearningPage: React.FC = () => {
               </div>
 
               <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-700/30">
-                <h4 className="text-base sm:text-lg font-semibold text-indigo-300 mb-3">🚀 Real-World ML Applications</h4>
+                <h4 className="text-base sm:text-lg font-semibold text-indigo-300 mb-3">🔬 Advanced Machine Learning Types (Deep Dive)</h4>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-3">Supervised Learning (Detailed) 📚</h5>
+                    <div className="space-y-2 text-xs text-purple-100">
+                      <p><strong>How it works:</strong> Uses labeled training data (input-output pairs) to learn patterns and make predictions on new, unseen data.</p>
+
+                      <p><strong>Two Main Types:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• <strong>Classification:</strong> Predicts categories (spam/not spam, cat/dog)</li>
+                        <li>• <strong>Regression:</strong> Predicts continuous values (house prices, stock prices)</li>
+                      </ul>
+
+                      <p><strong>Popular Algorithms:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• <strong>Linear/Logistic Regression:</strong> Simple, interpretable</li>
+                        <li>• <strong>Decision Trees:</strong> Easy to understand, visual</li>
+                        <li>• <strong>Random Forest:</strong> Multiple decision trees combined</li>
+                        <li>• <strong>Support Vector Machines (SVM):</strong> Great for complex boundaries</li>
+                        <li>• <strong>Neural Networks:</strong> Deep learning for complex patterns</li>
+                      </ul>
+
+                      <p><strong>Real Examples:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• Gmail spam detection (classification)</li>
+                        <li>• Netflix movie recommendations (regression)</li>
+                        <li>• Medical diagnosis from symptoms (classification)</li>
+                        <li>• Stock price prediction (regression)</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-3">Unsupervised Learning (Detailed) 🔍</h5>
+                    <div className="space-y-2 text-xs text-purple-100">
+                      <p><strong>How it works:</strong> Finds hidden patterns in data without labeled examples. The algorithm explores data to discover structure.</p>
+
+                      <p><strong>Main Types:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• <strong>Clustering:</strong> Groups similar data points together</li>
+                        <li>• <strong>Association:</strong> Finds relationships between variables</li>
+                        <li>• <strong>Dimensionality Reduction:</strong> Simplifies complex data</li>
+                      </ul>
+
+                      <p><strong>Popular Algorithms:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• <strong>K-Means Clustering:</strong> Groups data into K clusters</li>
+                        <li>• <strong>Hierarchical Clustering:</strong> Creates tree-like groupings</li>
+                        <li>• <strong>Principal Component Analysis (PCA):</strong> Reduces dimensions</li>
+                        <li>• <strong>DBSCAN:</strong> Finds clusters of varying shapes</li>
+                        <li>• <strong>Apriori Algorithm:</strong> Market basket analysis</li>
+                      </ul>
+
+                      <p><strong>Real Examples:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• Customer segmentation for marketing</li>
+                        <li>• Gene sequencing analysis</li>
+                        <li>• Anomaly detection in network security</li>
+                        <li>• Market basket analysis ("people who buy X also buy Y")</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-green-900/20 rounded-lg p-4 border border-green-700/30 mt-4">
+                <h4 className="text-base sm:text-lg font-semibold text-green-300 mb-3">🎮 Reinforcement Learning & Semi-Supervised Learning</h4>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-3">Reinforcement Learning (RL) 🎮</h5>
+                    <div className="space-y-2 text-xs text-green-100">
+                      <p><strong>How it works:</strong> An agent learns through trial and error by receiving rewards or penalties for actions in an environment.</p>
+
+                      <p><strong>Key Components:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• <strong>Agent:</strong> The learner/decision maker</li>
+                        <li>• <strong>Environment:</strong> The world the agent operates in</li>
+                        <li>• <strong>Actions:</strong> What the agent can do</li>
+                        <li>• <strong>Rewards:</strong> Feedback for good/bad actions</li>
+                        <li>• <strong>Policy:</strong> Strategy for choosing actions</li>
+                      </ul>
+
+                      <p><strong>Popular Algorithms:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• <strong>Q-Learning:</strong> Learns action values</li>
+                        <li>• <strong>Deep Q-Networks (DQN):</strong> Neural network Q-learning</li>
+                        <li>• <strong>Policy Gradient:</strong> Directly optimizes policy</li>
+                        <li>• <strong>Actor-Critic:</strong> Combines value and policy methods</li>
+                      </ul>
+
+                      <p><strong>Breakthrough Applications:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• <strong>AlphaGo:</strong> Defeated world Go champion</li>
+                        <li>• <strong>OpenAI Five:</strong> Mastered Dota 2</li>
+                        <li>• <strong>Tesla Autopilot:</strong> Self-driving cars</li>
+                        <li>• <strong>ChatGPT:</strong> RLHF for human alignment</li>
+                        <li>• <strong>Trading Bots:</strong> Algorithmic trading</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-3">Semi-Supervised Learning 🔄</h5>
+                    <div className="space-y-2 text-xs text-green-100">
+                      <p><strong>How it works:</strong> Combines small amounts of labeled data with large amounts of unlabeled data for training.</p>
+
+                      <p><strong>Why it's useful:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• Labeling data is expensive and time-consuming</li>
+                        <li>• Unlabeled data is often abundant and cheap</li>
+                        <li>• Can achieve better performance than supervised learning alone</li>
+                        <li>• Reduces human annotation effort significantly</li>
+                      </ul>
+
+                      <p><strong>Common Techniques:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• <strong>Self-Training:</strong> Use model predictions as labels</li>
+                        <li>• <strong>Co-Training:</strong> Multiple models teach each other</li>
+                        <li>• <strong>Graph-Based:</strong> Propagate labels through data graphs</li>
+                        <li>• <strong>Generative Models:</strong> Model data distribution</li>
+                      </ul>
+
+                      <p><strong>Real Applications:</strong></p>
+                      <ul className="ml-4 space-y-1">
+                        <li>• <strong>Web Page Classification:</strong> Few labeled, millions unlabeled</li>
+                        <li>• <strong>Speech Recognition:</strong> Limited transcribed audio</li>
+                        <li>• <strong>Medical Imaging:</strong> Expert annotations are rare</li>
+                        <li>• <strong>Natural Language Processing:</strong> Text understanding</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-orange-900/20 rounded-lg p-4 border border-orange-700/30 mt-4">
+                <h4 className="text-base sm:text-lg font-semibold text-orange-300 mb-3">🚀 Cutting-Edge ML Techniques (2024-2025)</h4>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Self-Supervised Learning 🤖</h5>
+                    <ul className="space-y-1 text-xs text-orange-100">
+                      <li>• <strong>Concept:</strong> Creates its own labels from data structure</li>
+                      <li>• <strong>Example:</strong> Predicting next word in sentence</li>
+                      <li>• <strong>Powers:</strong> GPT models, BERT, image models</li>
+                      <li>• <strong>Advantage:</strong> No human labeling needed</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Transfer Learning 🔄</h5>
+                    <ul className="space-y-1 text-xs text-orange-100">
+                      <li>• <strong>Concept:</strong> Reuse pre-trained models for new tasks</li>
+                      <li>• <strong>Example:</strong> Use ImageNet model for medical images</li>
+                      <li>• <strong>Benefits:</strong> Faster training, less data needed</li>
+                      <li>• <strong>Foundation:</strong> Basis for modern AI applications</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Few-Shot Learning 🎯</h5>
+                    <ul className="space-y-1 text-xs text-orange-100">
+                      <li>• <strong>Concept:</strong> Learn new tasks with very few examples</li>
+                      <li>• <strong>Example:</strong> GPT-4 learning from just a few examples</li>
+                      <li>• <strong>Techniques:</strong> Meta-learning, prompt engineering</li>
+                      <li>• <strong>Goal:</strong> Human-like learning efficiency</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-700/30 mt-4">
+                <h4 className="text-base sm:text-lg font-semibold text-indigo-300 mb-3">🚀 Real-World ML Applications by Industry</h4>
                 <div className="grid sm:grid-cols-3 gap-4">
                   <div>
                     <h5 className="font-semibold text-white text-sm mb-2">Healthcare 🏥</h5>
                     <ul className="space-y-1 text-xs text-purple-100">
-                      <li>• Cancer detection from medical scans</li>
-                      <li>• Drug discovery acceleration</li>
-                      <li>• Personalized treatment plans</li>
-                      <li>• Epidemic prediction models</li>
+                      <li>• <strong>Medical Imaging:</strong> Cancer detection, X-ray analysis</li>
+                      <li>• <strong>Drug Discovery:</strong> AlphaFold protein folding</li>
+                      <li>• <strong>Personalized Medicine:</strong> Treatment recommendations</li>
+                      <li>• <strong>Epidemic Modeling:</strong> COVID-19 spread prediction</li>
+                      <li>• <strong>Robotic Surgery:</strong> Precision surgical assistance</li>
                     </ul>
                   </div>
                   <div>
                     <h5 className="font-semibold text-white text-sm mb-2">Technology 💻</h5>
                     <ul className="space-y-1 text-xs text-purple-100">
-                      <li>• Search engine algorithms</li>
-                      <li>• Recommendation systems</li>
-                      <li>• Fraud detection systems</li>
-                      <li>• Autonomous vehicles</li>
+                      <li>• <strong>Search Engines:</strong> Google's PageRank algorithm</li>
+                      <li>• <strong>Recommendation Systems:</strong> Netflix, YouTube, Spotify</li>
+                      <li>• <strong>Fraud Detection:</strong> Credit card, banking security</li>
+                      <li>• <strong>Autonomous Vehicles:</strong> Tesla, Waymo self-driving</li>
+                      <li>• <strong>Voice Assistants:</strong> Siri, Alexa, Google Assistant</li>
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-semibold text-white text-sm mb-2">Business 📈</h5>
+                    <h5 className="font-semibold text-white text-sm mb-2">Business & Finance 📈</h5>
                     <ul className="space-y-1 text-xs text-purple-100">
-                      <li>• Predictive analytics</li>
-                      <li>• Customer behavior analysis</li>
-                      <li>• Supply chain optimization</li>
-                      <li>• Financial risk assessment</li>
+                      <li>• <strong>Algorithmic Trading:</strong> High-frequency trading bots</li>
+                      <li>• <strong>Risk Assessment:</strong> Credit scoring, loan approval</li>
+                      <li>• <strong>Customer Analytics:</strong> Behavior prediction, churn analysis</li>
+                      <li>• <strong>Supply Chain:</strong> Demand forecasting, optimization</li>
+                      <li>• <strong>Marketing:</strong> Targeted ads, A/B testing</li>
                     </ul>
                   </div>
                 </div>
