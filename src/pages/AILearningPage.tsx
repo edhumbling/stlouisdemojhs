@@ -3139,6 +3139,232 @@ const AILearningPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Top AI Substack Publications */}
+              <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-lg p-6 border border-purple-700/30">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-400 to-blue-500 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Top AI Newsletters 🤖</h3>
+                </div>
+
+                <div className="space-y-6">
+                  {/* Overview */}
+                  <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-700/30">
+                    <p className="text-sm sm:text-base text-purple-100 leading-relaxed">
+                      <strong className="text-purple-300">Stay ahead in AI!</strong> These are the highest-rated AI newsletters trusted by professionals, researchers, and enthusiasts worldwide. 🚀✨
+                    </p>
+                  </div>
+
+                  {/* Top Tier AI Newsletters */}
+                  <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg p-6 border border-blue-700/30">
+                    <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-4 flex items-center gap-2">
+                      🏆 Top Tier AI Newsletters
+                    </h4>
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                      <a href="https://www.therundown.ai/" target="_blank" rel="noopener noreferrer" className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30 hover:border-blue-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-blue-300 text-sm mb-2 group-hover:text-blue-200">The Rundown AI</h5>
+                        <p className="text-xs text-blue-100 mb-2">by Rowan Cheung</p>
+                        <p className="text-xs text-blue-100">Daily AI news and insights for professionals</p>
+                      </a>
+
+                      <a href="https://bensbites.beehiiv.com/" target="_blank" rel="noopener noreferrer" className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30 hover:border-cyan-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-cyan-300 text-sm mb-2 group-hover:text-cyan-200">Ben's Bites</h5>
+                        <p className="text-xs text-cyan-100 mb-2">by Ben Tossell</p>
+                        <p className="text-xs text-cyan-100">Daily AI news with a fun, accessible approach</p>
+                      </a>
+
+                      <a href="https://www.theneuron.ai/" target="_blank" rel="noopener noreferrer" className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30 hover:border-indigo-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-indigo-300 text-sm mb-2 group-hover:text-indigo-200">The Neuron</h5>
+                        <p className="text-xs text-indigo-100 mb-2">by Pete Huang</p>
+                        <p className="text-xs text-indigo-100">Curated AI news without information overload</p>
+                      </a>
+
+                      <a href="https://www.superhuman.ai/" target="_blank" rel="noopener noreferrer" className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30 hover:border-purple-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-purple-300 text-sm mb-2 group-hover:text-purple-200">Superhuman AI</h5>
+                        <p className="text-xs text-purple-100 mb-2">by Zain Kahn</p>
+                        <p className="text-xs text-purple-100">AI tools and productivity insights</p>
+                      </a>
+
+                      <a href="https://tldr.tech/ai" target="_blank" rel="noopener noreferrer" className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30 hover:border-teal-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-teal-300 text-sm mb-2 group-hover:text-teal-200">TLDR AI</h5>
+                        <p className="text-xs text-teal-100 mb-2">by TLDR Team</p>
+                        <p className="text-xs text-teal-100">Concise AI news and research summaries</p>
+                      </a>
+
+                      <a href="https://www.deeplearning.ai/the-batch/" target="_blank" rel="noopener noreferrer" className="bg-red-800/30 rounded-lg p-4 border border-red-600/30 hover:border-red-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-red-300 text-sm mb-2 group-hover:text-red-200">The Batch</h5>
+                        <p className="text-xs text-red-100 mb-2">by Andrew Ng</p>
+                        <p className="text-xs text-red-100">Weekly AI insights from DeepLearning.AI</p>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Research & Technical AI Publications */}
+                  <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg p-6 border border-green-700/30">
+                    <h4 className="text-lg sm:text-xl font-bold text-green-300 mb-4 flex items-center gap-2">
+                      🔬 Research & Technical AI
+                    </h4>
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                      <a href="https://import.ai/" target="_blank" rel="noopener noreferrer" className="bg-green-800/30 rounded-lg p-4 border border-green-600/30 hover:border-green-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-green-300 text-sm mb-2 group-hover:text-green-200">Import AI</h5>
+                        <p className="text-xs text-green-100 mb-2">by Jack Clark</p>
+                        <p className="text-xs text-green-100">In-depth AI research analysis and policy</p>
+                      </a>
+
+                      <a href="https://artificialintelligencemadesimple.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-emerald-800/30 rounded-lg p-4 border border-emerald-600/30 hover:border-emerald-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-emerald-300 text-sm mb-2 group-hover:text-emerald-200">AI Made Simple</h5>
+                        <p className="text-xs text-emerald-100 mb-2">by Devansh</p>
+                        <p className="text-xs text-emerald-100">Complex AI concepts explained simply</p>
+                      </a>
+
+                      <a href="https://cameronrwolfe.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30 hover:border-teal-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-teal-300 text-sm mb-2 group-hover:text-teal-200">Deep Learning Focus</h5>
+                        <p className="text-xs text-teal-100 mb-2">by Cameron Wolfe</p>
+                        <p className="text-xs text-teal-100">Deep learning research and applications</p>
+                      </a>
+
+                      <a href="https://supervised.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30 hover:border-cyan-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-cyan-300 text-sm mb-2 group-hover:text-cyan-200">Supervised</h5>
+                        <p className="text-xs text-cyan-100 mb-2">by Matthew Lynley</p>
+                        <p className="text-xs text-cyan-100">AI, ML, and analytics industry coverage</p>
+                      </a>
+
+                      <a href="https://www.aisnakeoil.com/" target="_blank" rel="noopener noreferrer" className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30 hover:border-blue-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-blue-300 text-sm mb-2 group-hover:text-blue-200">AI Snake Oil</h5>
+                        <p className="text-xs text-blue-100 mb-2">by Arvind Narayanan</p>
+                        <p className="text-xs text-blue-100">Critical analysis of AI hype and reality</p>
+                      </a>
+
+                      <a href="https://www.latent.space/" target="_blank" rel="noopener noreferrer" className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30 hover:border-indigo-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-indigo-300 text-sm mb-2 group-hover:text-indigo-200">Latent Space</h5>
+                        <p className="text-xs text-indigo-100 mb-2">by Swyx & Alessio</p>
+                        <p className="text-xs text-indigo-100">AI engineering and developer insights</p>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Business & Industry AI Publications */}
+                  <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-6 border border-yellow-700/30">
+                    <h4 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4 flex items-center gap-2">
+                      💼 Business & Industry AI
+                    </h4>
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                      <a href="https://aibreakfast.beehiiv.com/" target="_blank" rel="noopener noreferrer" className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30 hover:border-yellow-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-yellow-300 text-sm mb-2 group-hover:text-yellow-200">AI Breakfast</h5>
+                        <p className="text-xs text-yellow-100 mb-2">by Neil Reddy</p>
+                        <p className="text-xs text-yellow-100">Daily AI business news and trends</p>
+                      </a>
+
+                      <a href="https://mindstream.news/" target="_blank" rel="noopener noreferrer" className="bg-orange-800/30 rounded-lg p-4 border border-orange-600/30 hover:border-orange-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-orange-300 text-sm mb-2 group-hover:text-orange-200">Mindstream</h5>
+                        <p className="text-xs text-orange-100 mb-2">by Mindstream Team</p>
+                        <p className="text-xs text-orange-100">AI industry analysis and investment insights</p>
+                      </a>
+
+                      <a href="https://www.aisupremacy.com/" target="_blank" rel="noopener noreferrer" className="bg-red-800/30 rounded-lg p-4 border border-red-600/30 hover:border-red-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-red-300 text-sm mb-2 group-hover:text-red-200">AI Supremacy</h5>
+                        <p className="text-xs text-red-100 mb-2">by Michael Spencer</p>
+                        <p className="text-xs text-red-100">AI industry trends and future predictions</p>
+                      </a>
+
+                      <a href="https://www.exponentialview.co/" target="_blank" rel="noopener noreferrer" className="bg-pink-800/30 rounded-lg p-4 border border-pink-600/30 hover:border-pink-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-pink-300 text-sm mb-2 group-hover:text-pink-200">Exponential View</h5>
+                        <p className="text-xs text-pink-100 mb-2">by Azeem Azhar</p>
+                        <p className="text-xs text-pink-100">Technology's impact on society and business</p>
+                      </a>
+
+                      <a href="https://www.thealgorithm.io/" target="_blank" rel="noopener noreferrer" className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30 hover:border-purple-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-purple-300 text-sm mb-2 group-hover:text-purple-200">The Algorithm</h5>
+                        <p className="text-xs text-purple-100 mb-2">by MIT Technology Review</p>
+                        <p className="text-xs text-purple-100">Weekly AI news from MIT Tech Review</p>
+                      </a>
+
+                      <a href="https://www.chinai.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30 hover:border-indigo-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-indigo-300 text-sm mb-2 group-hover:text-indigo-200">ChinAI Newsletter</h5>
+                        <p className="text-xs text-indigo-100 mb-2">by Jeffrey Ding</p>
+                        <p className="text-xs text-indigo-100">China's AI developments and policy</p>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* AI Tools & Practical Applications */}
+                  <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-6 border border-cyan-700/30">
+                    <h4 className="text-lg sm:text-xl font-bold text-cyan-300 mb-4 flex items-center gap-2">
+                      🛠️ AI Tools & Applications
+                    </h4>
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                      <a href="https://www.futuretools.io/" target="_blank" rel="noopener noreferrer" className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30 hover:border-cyan-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-cyan-300 text-sm mb-2 group-hover:text-cyan-200">Future Tools</h5>
+                        <p className="text-xs text-cyan-100 mb-2">by Matt Wolfe</p>
+                        <p className="text-xs text-cyan-100">Latest AI tools and practical applications</p>
+                      </a>
+
+                      <a href="https://www.aitidbits.ai/" target="_blank" rel="noopener noreferrer" className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30 hover:border-blue-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-blue-300 text-sm mb-2 group-hover:text-blue-200">AI Tidbits</h5>
+                        <p className="text-xs text-blue-100 mb-2">by Rohan Chaubey</p>
+                        <p className="text-xs text-blue-100">Practical AI tips and tool reviews</p>
+                      </a>
+
+                      <a href="https://www.aiadvantage.beehiiv.com/" target="_blank" rel="noopener noreferrer" className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30 hover:border-indigo-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-indigo-300 text-sm mb-2 group-hover:text-indigo-200">AI Advantage</h5>
+                        <p className="text-xs text-indigo-100 mb-2">by AI Advantage Team</p>
+                        <p className="text-xs text-indigo-100">AI productivity and business applications</p>
+                      </a>
+
+                      <a href="https://www.airesearch.co/" target="_blank" rel="noopener noreferrer" className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30 hover:border-purple-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-purple-300 text-sm mb-2 group-hover:text-purple-200">AI Research</h5>
+                        <p className="text-xs text-purple-100 mb-2">by AI Research Team</p>
+                        <p className="text-xs text-purple-100">Weekly AI research paper summaries</p>
+                      </a>
+
+                      <a href="https://www.aiethics.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30 hover:border-teal-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-teal-300 text-sm mb-2 group-hover:text-teal-200">AI Ethics Brief</h5>
+                        <p className="text-xs text-teal-100 mb-2">by AI Ethics Team</p>
+                        <p className="text-xs text-teal-100">Ethical considerations in AI development</p>
+                      </a>
+
+                      <a href="https://www.machinelearnings.co/" target="_blank" rel="noopener noreferrer" className="bg-green-800/30 rounded-lg p-4 border border-green-600/30 hover:border-green-400/50 transition-all duration-300 group">
+                        <h5 className="font-semibold text-green-300 text-sm mb-2 group-hover:text-green-200">Machine Learnings</h5>
+                        <p className="text-xs text-green-100 mb-2">by Charlie Guo</p>
+                        <p className="text-xs text-green-100">ML engineering and practical insights</p>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Call to Action */}
+                  <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-lg p-6 border border-green-700/30">
+                    <h4 className="text-lg sm:text-xl font-bold text-green-300 mb-4 flex items-center gap-2">
+                      📖 Start Your AI Learning Journey Today!
+                    </h4>
+                    <p className="text-sm sm:text-base text-green-100 leading-relaxed mb-4">
+                      These top-rated AI newsletters will keep you at the forefront of artificial intelligence developments. Subscribe to stay informed about the latest breakthroughs, tools, and opportunities! 🌟
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <a
+                        href="https://www.therundown.ai/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold rounded-xl hover:from-green-300 hover:to-blue-400 transition-all duration-300 shadow-lg hover:shadow-green-400/25 hover:scale-105 text-sm sm:text-base"
+                      >
+                        <span>Start with The Rundown AI</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                      <a
+                        href="/ai"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-xl transition-all duration-300 text-sm sm:text-base"
+                      >
+                        <span>Back to AI Learning</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div className="text-center">
                 <div className="inline-flex items-center gap-4 p-4 sm:p-6 bg-gradient-to-r from-green-600 to-cyan-600 rounded-2xl">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-2xl flex items-center justify-center">
