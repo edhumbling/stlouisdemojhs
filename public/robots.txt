@@ -1106,9 +1106,6 @@ Allow: /
 # HOST DECLARATION & SITEMAP REFERENCES
 # ========================================
 
-# Host declaration
-Host: stlouisdemojhs.com
-
 # Primary sitemap location
 Sitemap: https://stlouisdemojhs.com/sitemap.xml
 
