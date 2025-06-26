@@ -60,14 +60,14 @@ const GalleryPage: React.FC = () => {
       </div>
 
       {/* Red Announcement Bar */}
-      <div className="bg-red-600 py-2">
+      <div className="bg-red-600 py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center">
             <button
               onClick={() => navigate('/media-files')}
-              className="text-white text-sm font-medium hover:text-red-100 transition-colors duration-200 flex items-center gap-2"
+              className="bg-white/20 hover:bg-white/30 text-white font-semibold px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 border border-white/30 backdrop-blur-sm"
             >
-              📹 View video files from St Louis Media
+              📹 View video files from <span className="font-bold">St Louis Media</span>
             </button>
           </div>
         </div>
