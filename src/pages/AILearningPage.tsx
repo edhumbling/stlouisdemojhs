@@ -1358,6 +1358,16 @@ const AILearningPage: React.FC = () => {
           </div>
         </section>
 
+        {/* AI Career Guide Video 1 */}
+        <AIVideo
+          src="https://www.youtube.com/embed/aircAruvnKk"
+          title="🚀 How to Get Started in AI/ML Career"
+          description="3Blue1Brown's guide to breaking into AI careers"
+          icon={<Briefcase size={20} className="text-white" />}
+          gradient="from-green-900 to-emerald-800"
+          note="💼 3Blue1Brown: Excellent career guidance from one of the best math/AI educators on YouTube!"
+        />
+
         {/* Job Automation Documentary */}
         <AIVideo
           src="https://www.youtube.com/embed/5dZ_lvDgevk"
