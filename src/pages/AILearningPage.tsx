@@ -1383,7 +1383,7 @@ const AILearningPage: React.FC = () => {
               {/* Top Tech Giants */}
               <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg p-6 border border-blue-700/30">
                 <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-4">🏛️ Top Tech Giants (The Big Players)</h4>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
                     <h5 className="font-semibold text-blue-300 text-sm mb-3">🔥 AI Leaders</h5>
                     <ul className="space-y-2 text-xs text-blue-100">
@@ -1422,7 +1422,7 @@ const AILearningPage: React.FC = () => {
               {/* AI Hardware Companies */}
               <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg p-6 border border-green-700/30">
                 <h4 className="text-lg sm:text-xl font-bold text-green-300 mb-4">🔧 AI Hardware & Semiconductor Companies</h4>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-green-800/30 rounded-lg p-4 border border-green-600/30">
                     <h5 className="font-semibold text-green-300 text-sm mb-3">💎 Chip Giants</h5>
                     <ul className="space-y-2 text-xs text-green-100">
@@ -1904,7 +1904,7 @@ const AILearningPage: React.FC = () => {
                 <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
                   These world-class research institutions are racing to build Artificial General Intelligence (AGI) - AI as smart as humans! 🧠
                 </p>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-green-800/30 rounded-lg p-3 border border-green-600/30">
                     <h5 className="font-semibold text-green-300 text-sm mb-2">🤖 OpenAI</h5>
                     <p className="text-xs text-green-100 mb-2">Creator of ChatGPT & GPT-4 - Leading AGI research</p>
@@ -1993,7 +1993,7 @@ const AILearningPage: React.FC = () => {
                 <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
                   Meet the brilliant minds shaping the future of AI - from Nobel Prize winners to industry pioneers! 🏆
                 </p>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-yellow-800/30 rounded-lg p-3 border border-yellow-600/30">
                     <h5 className="font-semibold text-yellow-300 text-sm mb-2">🏆 Geoffrey Hinton</h5>
                     <p className="text-xs text-yellow-100 mb-2">Nobel Prize 2024 - "Godfather of Deep Learning"</p>
@@ -2113,7 +2113,7 @@ const AILearningPage: React.FC = () => {
                 {/* Beginner Level Books */}
                 <div className="mb-6">
                   <h5 className="text-sm sm:text-base font-semibold text-green-300 mb-3 text-center">🌱 Beginner Level - Start Your AI Journey</h5>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                     <div className="bg-green-800/30 rounded-lg p-3 border border-green-600/30">
                       <h6 className="font-semibold text-green-300 text-sm mb-2">🤖 AI: A Modern Approach</h6>
                       <p className="text-xs text-green-100 mb-2">Russell & Norvig - The definitive AI textbook</p>
@@ -2149,7 +2149,7 @@ const AILearningPage: React.FC = () => {
                 {/* Intermediate Level Books */}
                 <div className="mb-6">
                   <h5 className="text-sm sm:text-base font-semibold text-yellow-300 mb-3 text-center">⚡ Intermediate Level - Build Real Skills</h5>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                     <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
                       <h6 className="font-semibold text-orange-300 text-sm mb-2">🛠️ Hands-On Machine Learning</h6>
                       <p className="text-xs text-orange-100 mb-2">Aurélien Géron - Scikit-Learn, Keras, TensorFlow</p>
@@ -2185,7 +2185,7 @@ const AILearningPage: React.FC = () => {
                 {/* Advanced/Mastery Level Books */}
                 <div className="mb-4">
                   <h5 className="text-sm sm:text-base font-semibold text-red-300 mb-3 text-center">🔥 Advanced/Mastery - Become an Expert</h5>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                     <div className="bg-red-800/30 rounded-lg p-3 border border-red-600/30">
                       <h6 className="font-semibold text-red-300 text-sm mb-2">🧬 Deep Learning</h6>
                       <p className="text-xs text-red-100 mb-2">Goodfellow, Bengio, Courville - The DL Bible</p>
@@ -2261,7 +2261,7 @@ const AILearningPage: React.FC = () => {
                 <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
                   Explore these amazing open-source AI projects to learn, contribute, and build incredible things!
                 </p>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-blue-800/30 rounded-lg p-3 border border-blue-600/30">
                     <h5 className="font-semibold text-blue-300 text-sm mb-2">🤖 AutoGPT</h5>
                     <p className="text-xs text-blue-100 mb-2">176k+ ⭐ - Autonomous AI agents</p>
