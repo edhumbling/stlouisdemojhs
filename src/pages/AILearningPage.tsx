@@ -1457,6 +1457,84 @@ const AILearningPage: React.FC = () => {
                   </div>
                 </div>
               </div>
+
+              {/* AI Startups & Unicorns */}
+              <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-6 border border-yellow-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4">🦄 AI Startups & Unicorns (The Innovators)</h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30">
+                    <h5 className="font-semibold text-yellow-300 text-sm mb-3">🚀 Generative AI Startups</h5>
+                    <ul className="space-y-2 text-xs text-yellow-100">
+                      <li>• <a href="https://stability.ai/careers" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-200 underline">Stability AI</a> - Stable Diffusion, open-source AI</li>
+                      <li>• <a href="https://www.midjourney.com/jobs" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-200 underline">Midjourney</a> - AI art generation platform</li>
+                      <li>• <a href="https://runwayml.com/careers" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-200 underline">Runway ML</a> - Creative AI tools, video generation</li>
+                      <li>• <a href="https://www.jasper.ai/careers" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-200 underline">Jasper</a> - AI writing assistant</li>
+                      <li>• <a href="https://www.copy.ai/careers" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-200 underline">Copy.ai</a> - AI copywriting platform</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-orange-800/30 rounded-lg p-4 border border-orange-600/30">
+                    <h5 className="font-semibold text-orange-300 text-sm mb-3">🧠 AI Research Startups</h5>
+                    <ul className="space-y-2 text-xs text-orange-100">
+                      <li>• <a href="https://cohere.com/careers" target="_blank" rel="noopener noreferrer" className="text-orange-300 hover:text-orange-200 underline">Cohere</a> - Large language models</li>
+                      <li>• <a href="https://www.adept.ai/careers" target="_blank" rel="noopener noreferrer" className="text-orange-300 hover:text-orange-200 underline">Adept</a> - AI that acts on computers</li>
+                      <li>• <a href="https://www.inflection.ai/careers" target="_blank" rel="noopener noreferrer" className="text-orange-300 hover:text-orange-200 underline">Inflection AI</a> - Personal AI assistant Pi</li>
+                      <li>• <a href="https://www.character.ai/careers" target="_blank" rel="noopener noreferrer" className="text-orange-300 hover:text-orange-200 underline">Character.AI</a> - Conversational AI characters</li>
+                      <li>• <a href="https://www.perplexity.ai/careers" target="_blank" rel="noopener noreferrer" className="text-orange-300 hover:text-orange-200 underline">Perplexity</a> - AI-powered search engine</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30">
+                    <h5 className="font-semibold text-red-300 text-sm mb-3">💼 Enterprise AI Startups</h5>
+                    <ul className="space-y-2 text-xs text-red-100">
+                      <li>• <a href="https://scale.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Scale AI</a> - Data labeling and ML ops</li>
+                      <li>• <a href="https://www.weights-biases.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Weights & Biases</a> - ML experiment tracking</li>
+                      <li>• <a href="https://www.huggingface.co/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Hugging Face</a> - Open-source AI community</li>
+                      <li>• <a href="https://www.anyscale.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Anyscale</a> - Distributed AI computing</li>
+                      <li>• <a href="https://www.modal.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Modal</a> - Cloud functions for AI</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Robotics & Autonomous Systems */}
+              <div className="bg-gradient-to-r from-red-900/30 to-pink-900/30 rounded-lg p-6 border border-red-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-red-300 mb-4">🤖 Robotics & Autonomous Systems</h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30">
+                    <h5 className="font-semibold text-red-300 text-sm mb-3">🚗 Autonomous Vehicles</h5>
+                    <ul className="space-y-2 text-xs text-red-100">
+                      <li>• <a href="https://www.tesla.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Tesla</a> - Autopilot, FSD, robotics</li>
+                      <li>• <a href="https://waymo.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Waymo</a> - Google's self-driving cars</li>
+                      <li>• <a href="https://getcruise.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Cruise</a> - GM's autonomous vehicles</li>
+                      <li>• <a href="https://zoox.com/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Zoox</a> - Amazon's robotaxi service</li>
+                      <li>• <a href="https://aurora.tech/careers" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline">Aurora</a> - Self-driving technology</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-pink-800/30 rounded-lg p-4 border border-pink-600/30">
+                    <h5 className="font-semibold text-pink-300 text-sm mb-3">🦾 Humanoid Robotics</h5>
+                    <ul className="space-y-2 text-xs text-pink-100">
+                      <li>• <a href="https://www.bostondynamics.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Boston Dynamics</a> - Atlas, Spot robots</li>
+                      <li>• <a href="https://www.figure.ai/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Figure</a> - Humanoid robots for work</li>
+                      <li>• <a href="https://www.agility.ai/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Agility Robotics</a> - Digit humanoid robot</li>
+                      <li>• <a href="https://www.1x.tech/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">1X Technologies</a> - NEO humanoid robots</li>
+                      <li>• <a href="https://apptronik.com/careers" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline">Apptronik</a> - Apollo humanoid robot</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-3">🏭 Industrial Robotics</h5>
+                    <ul className="space-y-2 text-xs text-purple-100">
+                      <li>• <a href="https://www.abb.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">ABB Robotics</a> - Industrial automation</li>
+                      <li>• <a href="https://www.kuka.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">KUKA</a> - Manufacturing robots</li>
+                      <li>• <a href="https://www.fanuc.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">FANUC</a> - Factory automation</li>
+                      <li>• <a href="https://www.universal-robots.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">Universal Robots</a> - Collaborative robots</li>
+                      <li>• <a href="https://www.berkshiregrey.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">Berkshire Grey</a> - AI-powered automation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
