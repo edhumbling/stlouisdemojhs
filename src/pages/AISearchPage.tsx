@@ -1320,15 +1320,6 @@ const AISearchPage: React.FC = () => {
             <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Access {aiEngines.length}+ powerful AI search engines and chat assistants in one place.
             </p>
-            <p className="text-base text-gray-400 max-w-3xl mx-auto leading-relaxed mt-3">
-              Learn more about{' '}
-              <button
-                onClick={() => navigate('/ai-learning')}
-                className="text-purple-400 hover:text-purple-300 underline decoration-purple-400 hover:decoration-purple-300 underline-offset-2 font-medium transition-colors duration-200"
-              >
-                Artificial Intelligence here
-              </button>
-            </p>
           </div>
 
           {/* Smart Search Bar */}
@@ -1352,7 +1343,11 @@ const AISearchPage: React.FC = () => {
                 Learn more about{' '}
                 <button
                   onClick={() => navigate('/ai-learning')}
-                  className="text-purple-400 hover:text-purple-300 underline decoration-purple-400 hover:decoration-purple-300 underline-offset-2 font-medium transition-colors duration-200"
+                  className="text-yellow-400 hover:text-yellow-300 underline decoration-yellow-400 hover:decoration-yellow-300 underline-offset-2 font-medium transition-all duration-300 hover:shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:text-shadow-[0_0_8px_rgba(250,204,21,0.8)]"
+                  style={{
+                    textShadow: '0 0 8px rgba(250, 204, 21, 0.6), 0 0 16px rgba(250, 204, 21, 0.4)',
+                    filter: 'drop-shadow(0 0 4px rgba(250, 204, 21, 0.3))'
+                  }}
                 >
                   Artificial Intelligence here
                 </button>
