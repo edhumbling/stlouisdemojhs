@@ -290,9 +290,24 @@ const AILearningPage: React.FC = () => {
 
                   <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
                     <h5 className="font-semibold text-cyan-300 text-sm mb-2">🌐 Cybernetics Movement</h5>
-                    <p className="text-xs text-cyan-100">
+                    <p className="text-xs text-cyan-100 mb-3">
                       <strong>Norbert Wiener's</strong> "Cybernetics" (1948) explored feedback loops and control systems, inspiring early AI researchers to think about machines that could learn and adapt - concepts central to today's AI systems.
                     </p>
+
+                    {/* AI History Video */}
+                    <div className="bg-black/30 rounded-lg p-2 border border-cyan-500/30">
+                      <div className="aspect-video rounded overflow-hidden">
+                        <iframe
+                          src="https://www.youtube.com/embed/R3YFxF0n8n8?si=stu901"
+                          title="The History of Artificial Intelligence [Documentary]"
+                          className="w-full h-full"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <p className="text-xs text-cyan-300 mt-1 text-center">🏛️ Complete AI History Documentary</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -424,8 +439,23 @@ const AILearningPage: React.FC = () => {
                 <div className="text-xs text-blue-200 mb-2">
                   <strong>Real Examples:</strong> ChatGPT (text), DALL-E (images), Tesla Autopilot (driving), AlphaGo (Go game)
                 </div>
-                <div className="text-xs text-blue-200">
+                <div className="text-xs text-blue-200 mb-3">
                   <strong>Capabilities:</strong> Exceeds human performance in specific domains but can't transfer knowledge to other areas
+                </div>
+
+                {/* Narrow AI Video */}
+                <div className="bg-black/30 rounded-lg p-2 border border-blue-500/30">
+                  <div className="aspect-video rounded overflow-hidden">
+                    <iframe
+                      src="https://www.youtube.com/embed/W01tIRP_Rqs?si=abc123"
+                      title="Supervised vs Unsupervised Learning - Narrow AI Examples"
+                      className="w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <p className="text-xs text-blue-300 mt-1 text-center">🎯 Narrow AI in Action: Real-World Examples</p>
                 </div>
               </div>
 
@@ -440,8 +470,23 @@ const AILearningPage: React.FC = () => {
                 <div className="text-xs text-purple-200 mb-2">
                   <strong>Current Status:</strong> Major research focus at OpenAI, DeepMind, Anthropic. No system has achieved AGI yet.
                 </div>
-                <div className="text-xs text-purple-200">
+                <div className="text-xs text-purple-200 mb-3">
                   <strong>Timeline:</strong> Experts debate 2030-2050, but significant challenges remain
+                </div>
+
+                {/* AGI Video */}
+                <div className="bg-black/30 rounded-lg p-2 border border-purple-500/30">
+                  <div className="aspect-video rounded overflow-hidden">
+                    <iframe
+                      src="https://www.youtube.com/embed/LhLyOWoUnDI?si=def456"
+                      title="Artificial General Intelligence (AGI) Simply Explained"
+                      className="w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <p className="text-xs text-purple-300 mt-1 text-center">🌟 AGI Explained: The Future of Intelligence</p>
                 </div>
               </div>
 
@@ -456,8 +501,23 @@ const AILearningPage: React.FC = () => {
                 <div className="text-xs text-red-200 mb-2">
                   <strong>Theoretical Capabilities:</strong> Scientific breakthroughs, solving climate change, space exploration
                 </div>
-                <div className="text-xs text-red-200">
+                <div className="text-xs text-red-200 mb-3">
                   <strong>Status:</strong> Purely theoretical - requires solving AGI first, then recursive self-improvement
+                </div>
+
+                {/* ASI Video */}
+                <div className="bg-black/30 rounded-lg p-2 border border-red-500/30">
+                  <div className="aspect-video rounded overflow-hidden">
+                    <iframe
+                      src="https://www.youtube.com/embed/P_w7YJPASlE?si=ghi789"
+                      title="What is Artificial Super Intelligence Explained (ASI)"
+                      className="w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <p className="text-xs text-red-300 mt-1 text-center">⚡ ASI: Beyond Human Intelligence</p>
                 </div>
               </div>
             </div>
@@ -569,8 +629,23 @@ const AILearningPage: React.FC = () => {
                   </div>
                   <h4 className="text-sm sm:text-base font-semibold text-green-300 mb-2">Supervised Learning 📚</h4>
                   <p className="text-xs sm:text-sm text-green-100 mb-2">Like studying with answer keys - we show AI the right answers!</p>
-                  <div className="text-xs text-green-200">
+                  <div className="text-xs text-green-200 mb-3">
                     <strong>Examples:</strong> Email spam detection, medical diagnosis, image recognition, price prediction
+                  </div>
+
+                  {/* Supervised Learning Video */}
+                  <div className="bg-black/30 rounded-lg p-2 border border-green-500/30">
+                    <div className="aspect-video rounded overflow-hidden">
+                      <iframe
+                        src="https://www.youtube.com/embed/wvODQqb3D_8?si=jkl012"
+                        title="Supervised & Unsupervised Machine Learning"
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <p className="text-xs text-green-300 mt-1 text-center">📚 Supervised Learning Explained</p>
                   </div>
                 </div>
 
@@ -580,8 +655,23 @@ const AILearningPage: React.FC = () => {
                   </div>
                   <h4 className="text-sm sm:text-base font-semibold text-yellow-300 mb-2">Unsupervised Learning 🔍</h4>
                   <p className="text-xs sm:text-sm text-yellow-100 mb-2">Like being a detective - AI finds hidden patterns on its own!</p>
-                  <div className="text-xs text-yellow-200">
+                  <div className="text-xs text-yellow-200 mb-3">
                     <strong>Examples:</strong> Customer segmentation, anomaly detection, data compression, market research
+                  </div>
+
+                  {/* Unsupervised Learning Video */}
+                  <div className="bg-black/30 rounded-lg p-2 border border-yellow-500/30">
+                    <div className="aspect-video rounded overflow-hidden">
+                      <iframe
+                        src="https://www.youtube.com/embed/D6gtZrsYi6c?si=mno345"
+                        title="Unsupervised Learning | Machine Learning Tutorial"
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <p className="text-xs text-yellow-300 mt-1 text-center">🔍 Unsupervised Learning Deep Dive</p>
                   </div>
                 </div>
 
@@ -591,8 +681,23 @@ const AILearningPage: React.FC = () => {
                   </div>
                   <h4 className="text-sm sm:text-base font-semibold text-purple-300 mb-2">Reinforcement Learning 🎮</h4>
                   <p className="text-xs sm:text-sm text-purple-100 mb-2">Like playing video games - AI learns by trial and error!</p>
-                  <div className="text-xs text-purple-200">
+                  <div className="text-xs text-purple-200 mb-3">
                     <strong>Examples:</strong> Game AI (AlphaGo), autonomous vehicles, robotics, trading algorithms
+                  </div>
+
+                  {/* Reinforcement Learning Video */}
+                  <div className="bg-black/30 rounded-lg p-2 border border-purple-500/30">
+                    <div className="aspect-video rounded overflow-hidden">
+                      <iframe
+                        src="https://www.youtube.com/embed/Mut_u40Sqz4?si=pqr678"
+                        title="Reinforcement Learning in 3 Hours"
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <p className="text-xs text-purple-300 mt-1 text-center">🎮 Reinforcement Learning Mastery</p>
                   </div>
                 </div>
               </div>
