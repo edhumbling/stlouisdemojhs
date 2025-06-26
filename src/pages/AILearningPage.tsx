@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Brain, Cpu, Network, BookOpen, Briefcase, TrendingUp, AlertTriangle, Lightbulb, Code, Database, Eye, MessageSquare, Car, Bot, Stethoscope, Calculator, Globe, Zap, Play, Users, Award, Rocket, Target, Star, Heart, Shield, Sparkles } from 'lucide-react';
+import { ArrowLeft, BookOpen, Briefcase, Lightbulb, Code, Bot, Calculator, Zap, Play, Rocket, Target, Heart, Brain, Network, Database, Eye, MessageSquare, Car, Shield, Sparkles, AlertTriangle, TrendingUp, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
@@ -43,16 +43,17 @@ const AIVideo: React.FC<{
 
       <div className="relative w-full mb-4">
         {isLoading && <VideoShimmer />}
-        <iframe
-          className={`w-full rounded-lg transition-opacity duration-300 ${isLoading ? 'opacity-0 absolute' : 'opacity-100'}`}
-          style={{ height: isLoading ? '0' : 'auto', paddingBottom: isLoading ? '0' : '56.25%', position: isLoading ? 'absolute' : 'relative' }}
-          src={src}
-          title={title}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          onLoad={() => setIsLoading(false)}
-        ></iframe>
+        <div className={`relative w-full ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`} style={{ paddingBottom: '56.25%' }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full rounded-lg"
+            src={src}
+            title={title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            onLoad={() => setIsLoading(false)}
+          ></iframe>
+        </div>
       </div>
 
       <div className="bg-black/20 rounded-lg p-3 border border-white/10">
@@ -102,7 +103,7 @@ const AILearningPage: React.FC = () => {
       {/* Main Content - True Edge to Edge, No Containers */}
       <main className="w-full">
         {/* Hero Section - Edge to Edge */}
-        <section className="w-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 py-8 sm:py-12">
+        <section className="w-full bg-gray-900 py-8 sm:py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,7 +123,7 @@ const AILearningPage: React.FC = () => {
         </section>
 
         {/* What is AI - Edge to Edge */}
-        <section className="w-full bg-gradient-to-br from-blue-900 to-cyan-900 py-8 sm:py-12">
+        <section className="w-full bg-gray-800 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center">
@@ -133,7 +134,11 @@ const AILearningPage: React.FC = () => {
 
             <div className="space-y-4 sm:space-y-6">
               <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-                <strong className="text-cyan-300">Artificial Intelligence (AI)</strong> is like giving computers a brain! 🧠 It's the technology that makes machines think, learn, and make decisions like humans. AI is everywhere around you - from Siri understanding your voice to Netflix recommending movies you'll love.
+                <strong className="text-cyan-300">Artificial Intelligence (AI)</strong> is like giving computers a brain! 🧠 It's technology that enables computers and machines to simulate human learning, comprehension, problem-solving, decision-making, creativity and autonomy. AI is everywhere around you - from Siri understanding your voice to Netflix recommending movies you'll love.
+              </p>
+
+              <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
+                In 2024-2025, we're experiencing an incredible AI revolution! 🚀 The latest breakthroughs include <strong className="text-cyan-300">Generative AI</strong> (like ChatGPT that can write essays), <strong className="text-cyan-300">AI Agents</strong> (that can complete complex tasks autonomously), and <strong className="text-cyan-300">Multimodal AI</strong> (that can understand text, images, audio, and video all at once).
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4">
@@ -143,24 +148,50 @@ const AILearningPage: React.FC = () => {
                     How AI Works ⚡
                   </h4>
                   <ul className="space-y-1 text-xs sm:text-sm text-blue-100">
-                    <li>• <strong>Learning:</strong> Gets smarter from experience</li>
-                    <li>• <strong>Reasoning:</strong> Makes logical decisions</li>
-                    <li>• <strong>Problem-solving:</strong> Finds creative solutions</li>
-                    <li>• <strong>Pattern Recognition:</strong> Spots hidden connections</li>
+                    <li>• <strong>Learning:</strong> Gets smarter from experience and data</li>
+                    <li>• <strong>Reasoning:</strong> Makes logical decisions step-by-step</li>
+                    <li>• <strong>Problem-solving:</strong> Finds creative solutions to complex challenges</li>
+                    <li>• <strong>Pattern Recognition:</strong> Spots hidden connections in massive data</li>
+                    <li>• <strong>Autonomy:</strong> Acts independently without human intervention</li>
+                    <li>• <strong>Creativity:</strong> Generates original content and ideas</li>
                   </ul>
                 </div>
 
                 <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
                   <h4 className="text-base sm:text-lg font-semibold text-blue-300 mb-2 flex items-center gap-2">
                     <Sparkles size={16} className="sm:w-5 sm:h-5" />
-                    AI in Your Life 🌟
+                    Latest AI in Your Life 🌟
                   </h4>
                   <ul className="space-y-1 text-xs sm:text-sm text-cyan-100">
-                    <li>• <strong>Voice Assistants:</strong> Siri, Alexa, Google</li>
-                    <li>• <strong>Social Media:</strong> Instagram filters, TikTok FYP</li>
-                    <li>• <strong>Gaming:</strong> Smart NPCs, game recommendations</li>
-                    <li>• <strong>Shopping:</strong> Amazon suggestions, price alerts</li>
+                    <li>• <strong>ChatGPT & Claude:</strong> AI tutors and writing assistants</li>
+                    <li>• <strong>Sora & DALL-E:</strong> AI creates videos and images from text</li>
+                    <li>• <strong>GitHub Copilot:</strong> AI writes code for programmers</li>
+                    <li>• <strong>Tesla Autopilot:</strong> Self-driving car technology</li>
+                    <li>• <strong>AI Agents:</strong> Book flights, schedule meetings autonomously</li>
+                    <li>• <strong>Medical AI:</strong> Diagnoses diseases from X-rays</li>
                   </ul>
+                </div>
+              </div>
+
+              <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-cyan-300 mb-3">🔥 2024-2025 AI Breakthroughs</h4>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <ul className="space-y-1 text-xs sm:text-sm text-blue-100">
+                      <li>• <strong>OpenAI o3:</strong> AI that can reason like a PhD scientist</li>
+                      <li>• <strong>GPT-4.5:</strong> Improved pattern recognition and creativity</li>
+                      <li>• <strong>AI Agents:</strong> Autonomous systems that complete complex tasks</li>
+                      <li>• <strong>Multimodal AI:</strong> Understands text, images, audio, video together</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul className="space-y-1 text-xs sm:text-sm text-blue-100">
+                      <li>• <strong>Agentic AI:</strong> Multiple AI agents working together</li>
+                      <li>• <strong>Real-time AI:</strong> Instant responses across all media types</li>
+                      <li>• <strong>AI in Medicine:</strong> Revolutionary diagnostic capabilities</li>
+                      <li>• <strong>Quantum + AI:</strong> Solving previously impossible problems</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -173,12 +204,12 @@ const AILearningPage: React.FC = () => {
           title="🎓 MIT's Introduction to AI"
           description="Perfect starting point from world's top university"
           icon={<BookOpen size={20} className="text-white" />}
-          gradient="from-red-900 to-pink-900"
+          gradient="from-gray-900 to-gray-800"
           note="🏛️ MIT OpenCourseWare: Prof. Patrick Winston's legendary lecture that has inspired millions of AI students worldwide!"
         />
 
         {/* Types of AI - Edge to Edge */}
-        <section className="w-full bg-gradient-to-br from-green-900 to-emerald-900 py-8 sm:py-12">
+        <section className="w-full bg-gray-900 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
@@ -231,7 +262,7 @@ const AILearningPage: React.FC = () => {
         </section>
 
         {/* Machine Learning Deep Dive - Edge to Edge */}
-        <section className="w-full bg-gradient-to-br from-indigo-900 to-purple-900 py-8 sm:py-12">
+        <section className="w-full bg-gray-800 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-lg flex items-center justify-center">
@@ -245,13 +276,20 @@ const AILearningPage: React.FC = () => {
                 <strong className="text-purple-300">Machine Learning (ML)</strong> is like teaching a computer to learn patterns, just like how you learned to recognize your friends' faces! Instead of programming every single rule, we show the computer lots of examples and it figures out the patterns by itself. 🤯
               </p>
 
+              <p className="text-sm sm:text-base text-indigo-100 leading-relaxed">
+                ML is the foundation of modern AI breakthroughs! It creates models by training algorithms on massive datasets to make predictions or decisions. From Netflix recommendations to medical diagnoses, ML algorithms are revolutionizing every industry by finding patterns humans could never spot.
+              </p>
+
               <div className="grid sm:grid-cols-3 gap-4">
                 <div className="bg-green-800/30 rounded-lg p-4 text-center border border-green-600/30">
                   <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <BookOpen size={18} className="text-white" />
                   </div>
                   <h4 className="text-sm sm:text-base font-semibold text-green-300 mb-2">Supervised Learning 📚</h4>
-                  <p className="text-xs sm:text-sm text-green-100">Like studying with answer keys - we show AI the right answers!</p>
+                  <p className="text-xs sm:text-sm text-green-100 mb-2">Like studying with answer keys - we show AI the right answers!</p>
+                  <div className="text-xs text-green-200">
+                    <strong>Examples:</strong> Email spam detection, medical diagnosis, image recognition, price prediction
+                  </div>
                 </div>
 
                 <div className="bg-yellow-800/30 rounded-lg p-4 text-center border border-yellow-600/30">
@@ -259,7 +297,10 @@ const AILearningPage: React.FC = () => {
                     <Eye size={18} className="text-white" />
                   </div>
                   <h4 className="text-sm sm:text-base font-semibold text-yellow-300 mb-2">Unsupervised Learning 🔍</h4>
-                  <p className="text-xs sm:text-sm text-yellow-100">Like being a detective - AI finds hidden patterns on its own!</p>
+                  <p className="text-xs sm:text-sm text-yellow-100 mb-2">Like being a detective - AI finds hidden patterns on its own!</p>
+                  <div className="text-xs text-yellow-200">
+                    <strong>Examples:</strong> Customer segmentation, anomaly detection, data compression, market research
+                  </div>
                 </div>
 
                 <div className="bg-purple-800/30 rounded-lg p-4 text-center border border-purple-600/30">
@@ -267,7 +308,67 @@ const AILearningPage: React.FC = () => {
                     <Target size={18} className="text-white" />
                   </div>
                   <h4 className="text-sm sm:text-base font-semibold text-purple-300 mb-2">Reinforcement Learning 🎮</h4>
-                  <p className="text-xs sm:text-sm text-purple-100">Like playing video games - AI learns by trial and error!</p>
+                  <p className="text-xs sm:text-sm text-purple-100 mb-2">Like playing video games - AI learns by trial and error!</p>
+                  <div className="text-xs text-purple-200">
+                    <strong>Examples:</strong> Game AI (AlphaGo), autonomous vehicles, robotics, trading algorithms
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-indigo-900/20 rounded-lg p-4 border border-indigo-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-purple-300 mb-3">🧠 Advanced ML Techniques (2024-2025)</h4>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Foundation Models:</h5>
+                    <ul className="space-y-1 text-xs text-indigo-100">
+                      <li>• <strong>Large Language Models (LLMs):</strong> GPT-4, Claude, Gemini</li>
+                      <li>• <strong>Vision Models:</strong> DALL-E, Midjourney, Stable Diffusion</li>
+                      <li>• <strong>Multimodal Models:</strong> GPT-4o, Gemini Ultra</li>
+                      <li>• <strong>Code Models:</strong> GitHub Copilot, CodeT5</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Cutting-Edge Techniques:</h5>
+                    <ul className="space-y-1 text-xs text-indigo-100">
+                      <li>• <strong>Transfer Learning:</strong> Reusing pre-trained models</li>
+                      <li>• <strong>Few-Shot Learning:</strong> Learning from minimal examples</li>
+                      <li>• <strong>Self-Supervised Learning:</strong> Learning without labels</li>
+                      <li>• <strong>Federated Learning:</strong> Training across devices privately</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-indigo-300 mb-3">🚀 Real-World ML Applications</h4>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Healthcare 🏥</h5>
+                    <ul className="space-y-1 text-xs text-purple-100">
+                      <li>• Cancer detection from medical scans</li>
+                      <li>• Drug discovery acceleration</li>
+                      <li>• Personalized treatment plans</li>
+                      <li>• Epidemic prediction models</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Technology 💻</h5>
+                    <ul className="space-y-1 text-xs text-purple-100">
+                      <li>• Search engine algorithms</li>
+                      <li>• Recommendation systems</li>
+                      <li>• Fraud detection systems</li>
+                      <li>• Autonomous vehicles</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Business 📈</h5>
+                    <ul className="space-y-1 text-xs text-purple-100">
+                      <li>• Predictive analytics</li>
+                      <li>• Customer behavior analysis</li>
+                      <li>• Supply chain optimization</li>
+                      <li>• Financial risk assessment</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -280,12 +381,12 @@ const AILearningPage: React.FC = () => {
           title="🧠 Neural Networks Explained"
           description="3Blue1Brown's brilliant visual explanation"
           icon={<Network size={20} className="text-white" />}
-          gradient="from-pink-900 to-red-900"
+          gradient="from-gray-900 to-gray-800"
           note="🎨 3Blue1Brown: Grant Sanderson makes the most complex math concepts incredibly beautiful and easy to understand!"
         />
 
         {/* Neural Networks Deep Dive - Edge to Edge */}
-        <section className="w-full bg-gradient-to-br from-pink-900 to-red-900 py-8 sm:py-12">
+        <section className="w-full bg-gray-900 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-pink-400 to-red-500 rounded-lg flex items-center justify-center">
@@ -364,12 +465,12 @@ const AILearningPage: React.FC = () => {
           title="⚡ Attention is All You Need"
           description="The paper that revolutionized AI"
           icon={<Zap size={20} className="text-white" />}
-          gradient="from-yellow-900 to-orange-900"
+          gradient="from-gray-900 to-gray-800"
           note="🔥 Transformer Deep Dive: This groundbreaking paper made ChatGPT, GPT-4, and modern language models possible!"
         />
 
         {/* Attention Mechanism - Edge to Edge */}
-        <section className="w-full bg-gradient-to-br from-yellow-900 to-orange-900 py-8 sm:py-12">
+        <section className="w-full bg-gray-800 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
@@ -383,13 +484,17 @@ const AILearningPage: React.FC = () => {
                 In 2017, Google researchers published <strong className="text-orange-300">"Attention is All You Need"</strong> - a paper that completely changed AI forever! 🤯 It introduced the <strong className="text-yellow-300">Transformer architecture</strong> that powers ChatGPT, GPT-4, Google Translate, and almost every modern AI you use today.
               </p>
 
+              <p className="text-sm sm:text-base text-yellow-100 leading-relaxed">
+                The Transformer revolutionized AI by solving the fundamental problem of understanding context and relationships in sequences. Before Transformers, AI struggled with long-term dependencies - now it can understand entire books, write coherent essays, and even generate code that works! 🚀
+              </p>
+
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30">
                   <h4 className="text-base sm:text-lg font-semibold text-orange-300 mb-3">What is Attention? 👀</h4>
                   <p className="text-xs sm:text-sm text-yellow-100 mb-3 leading-relaxed">
-                    Attention is like having a super-smart spotlight! 🔦 When you read a sentence, your brain automatically focuses on the most important words. The attention mechanism teaches AI to do the same thing.
+                    Attention is like having a super-smart spotlight! 🔦 When you read a sentence, your brain automatically focuses on the most important words. The attention mechanism teaches AI to do the same thing, but across massive amounts of text simultaneously.
                   </p>
-                  <div className="bg-orange-800/30 rounded-lg p-3">
+                  <div className="bg-orange-800/30 rounded-lg p-3 mb-3">
                     <h6 className="font-semibold text-white text-sm mb-1">Example:</h6>
                     <p className="text-xs text-yellow-200 italic">
                       "The cat sat on the <span className="text-orange-300 font-bold">mat</span> because it was <span className="text-orange-300 font-bold">comfortable</span>."
@@ -398,34 +503,105 @@ const AILearningPage: React.FC = () => {
                       AI learns that "it" refers to "mat" by paying attention! 🎯
                     </p>
                   </div>
+                  <div className="space-y-1 text-xs text-yellow-200">
+                    <div>• <strong>Self-Attention:</strong> Words attend to other words in the same sentence</div>
+                    <div>• <strong>Multi-Head Attention:</strong> Multiple attention patterns simultaneously</div>
+                    <div>• <strong>Cross-Attention:</strong> Connecting different types of data</div>
+                  </div>
                 </div>
 
                 <div className="bg-orange-800/30 rounded-lg p-4 border border-orange-600/30">
                   <h4 className="text-base sm:text-lg font-semibold text-yellow-300 mb-3">Transformer Impact 🚀</h4>
-                  <div className="space-y-2">
+                  <div className="space-y-2 mb-3">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                      <span className="text-xs sm:text-sm text-yellow-100"><strong>ChatGPT:</strong> Conversational AI that understands context</span>
+                      <span className="text-xs sm:text-sm text-yellow-100"><strong>ChatGPT/GPT-4:</strong> Conversational AI that understands context</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span className="text-xs sm:text-sm text-yellow-100"><strong>Google Translate:</strong> Better language translation</span>
+                      <span className="text-xs sm:text-sm text-yellow-100"><strong>Google Translate:</strong> Near-human quality translation</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      <span className="text-xs sm:text-sm text-yellow-100"><strong>DALL-E:</strong> Creates images from text descriptions</span>
+                      <span className="text-xs sm:text-sm text-yellow-100"><strong>DALL-E/Midjourney:</strong> Creates images from text</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                       <span className="text-xs sm:text-sm text-yellow-100"><strong>GitHub Copilot:</strong> AI that writes code for you</span>
                     </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                      <span className="text-xs sm:text-sm text-yellow-100"><strong>Sora:</strong> Generates realistic videos from text</span>
+                    </div>
+                  </div>
+                  <div className="text-xs text-orange-200">
+                    <strong>Latest 2024-2025:</strong> Vision Transformers (ViTs), Audio Transformers, and Multimodal Transformers that understand text, images, audio, and video together!
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-yellow-900/20 rounded-lg p-4 border border-yellow-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-orange-300 mb-3">🔬 How Transformers Actually Work</h4>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Key Components:</h5>
+                    <ul className="space-y-1 text-xs text-yellow-100">
+                      <li>• <strong>Encoder:</strong> Understands input (like reading)</li>
+                      <li>• <strong>Decoder:</strong> Generates output (like writing)</li>
+                      <li>• <strong>Attention Layers:</strong> Focus on relevant parts</li>
+                      <li>• <strong>Feed-Forward Networks:</strong> Process information</li>
+                      <li>• <strong>Positional Encoding:</strong> Understands word order</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Why They're Revolutionary:</h5>
+                    <ul className="space-y-1 text-xs text-yellow-100">
+                      <li>• <strong>Parallel Processing:</strong> Much faster training</li>
+                      <li>• <strong>Long-Range Dependencies:</strong> Understands context</li>
+                      <li>• <strong>Transfer Learning:</strong> Pre-train once, use everywhere</li>
+                      <li>• <strong>Scalability:</strong> Bigger models = better performance</li>
+                      <li>• <strong>Versatility:</strong> Works for text, images, audio, video</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-orange-900/20 rounded-lg p-4 border border-orange-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-yellow-300 mb-3">🌟 Latest Transformer Innovations (2024-2025)</h4>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Language Models:</h5>
+                    <ul className="space-y-1 text-xs text-orange-100">
+                      <li>• <strong>GPT-4.5:</strong> Enhanced reasoning</li>
+                      <li>• <strong>Claude 3:</strong> Constitutional AI</li>
+                      <li>• <strong>Gemini Ultra:</strong> Multimodal capabilities</li>
+                      <li>• <strong>LLaMA 3:</strong> Open-source powerhouse</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Vision & Media:</h5>
+                    <ul className="space-y-1 text-xs text-orange-100">
+                      <li>• <strong>DALL-E 3:</strong> Photorealistic images</li>
+                      <li>• <strong>Sora:</strong> Hollywood-quality videos</li>
+                      <li>• <strong>ViT-G:</strong> Giant vision transformers</li>
+                      <li>• <strong>CLIP:</strong> Image-text understanding</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Specialized Applications:</h5>
+                    <ul className="space-y-1 text-xs text-orange-100">
+                      <li>• <strong>AlphaFold:</strong> Protein structure prediction</li>
+                      <li>• <strong>CodeT5:</strong> Advanced code generation</li>
+                      <li>• <strong>MusicLM:</strong> AI music composition</li>
+                      <li>• <strong>Med-PaLM:</strong> Medical AI assistant</li>
+                    </ul>
                   </div>
                 </div>
               </div>
 
               <div className="bg-yellow-900/20 rounded-lg p-4 border border-yellow-700/30">
                 <p className="text-xs sm:text-sm text-yellow-200">
-                  <strong>💡 Mind-Blowing Fact:</strong> The Transformer architecture is so powerful that it's used not just for text, but also for images, music, video, and even predicting protein structures for medical research! 🧬
+                  <strong>💡 Mind-Blowing Fact:</strong> The Transformer architecture is so powerful that it's used not just for text, but also for images, music, video, protein folding, weather prediction, and even controlling robots! The same attention mechanism that helps ChatGPT understand your questions also helps self-driving cars navigate traffic and helps doctors diagnose diseases from medical scans. 🧬🚗🏥
                 </p>
               </div>
             </div>
@@ -433,7 +609,7 @@ const AILearningPage: React.FC = () => {
         </section>
 
         {/* AI Career Opportunities - Edge to Edge */}
-        <section className="w-full bg-gradient-to-br from-green-900 to-emerald-900 py-8 sm:py-12">
+        <section className="w-full bg-gray-900 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
@@ -444,7 +620,11 @@ const AILearningPage: React.FC = () => {
 
             <div className="space-y-6">
               <p className="text-sm sm:text-base text-green-100 leading-relaxed">
-                The AI revolution is creating incredible career opportunities! 🚀 These jobs are not only super exciting but also pay really well. Here are some of the coolest AI careers you can pursue:
+                The AI revolution is creating incredible career opportunities! 🚀 In 2024-2025, AI job demand has exploded with companies like Microsoft, Google, OpenAI, and Anthropic hiring thousands of AI professionals. These jobs are not only super exciting but also pay exceptionally well, with some positions reaching $500K+ at top companies.
+              </p>
+
+              <p className="text-sm sm:text-base text-green-100 leading-relaxed">
+                The latest trend is <strong className="text-green-300">AI Agents</strong> - autonomous systems that can complete complex tasks independently. Companies are desperately seeking professionals who can build, deploy, and manage these intelligent agents across industries.
               </p>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -453,9 +633,12 @@ const AILearningPage: React.FC = () => {
                     <Code size={18} className="text-white" />
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-blue-300 mb-2">ML Engineer 🤖</h4>
-                  <p className="text-xs text-blue-100 mb-2 leading-relaxed">Build AI systems that learn from data</p>
+                  <p className="text-xs text-blue-100 mb-2 leading-relaxed">Build AI systems that learn from data, deploy models at scale</p>
+                  <div className="text-xs text-blue-200 mb-2">
+                    <strong>Salary:</strong> $120K-$250K+/year 💰
+                  </div>
                   <div className="text-xs text-blue-200">
-                    <strong>Salary:</strong> $120K-$200K+/year 💰
+                    <strong>Hot Skills:</strong> PyTorch, TensorFlow, MLOps, Kubernetes
                   </div>
                 </div>
 
@@ -464,9 +647,12 @@ const AILearningPage: React.FC = () => {
                     <Database size={18} className="text-white" />
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-purple-300 mb-2">Data Scientist 📊</h4>
-                  <p className="text-xs text-purple-100 mb-2 leading-relaxed">Find patterns in data to solve problems</p>
+                  <p className="text-xs text-purple-100 mb-2 leading-relaxed">Extract insights from data, build predictive models</p>
+                  <div className="text-xs text-purple-200 mb-2">
+                    <strong>Salary:</strong> $95K-$180K+/year 💰
+                  </div>
                   <div className="text-xs text-purple-200">
-                    <strong>Salary:</strong> $95K-$165K+/year 💰
+                    <strong>Hot Skills:</strong> Python, SQL, Statistics, A/B Testing
                   </div>
                 </div>
 
@@ -475,9 +661,12 @@ const AILearningPage: React.FC = () => {
                     <Bot size={18} className="text-white" />
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-green-300 mb-2">AI Researcher 🔬</h4>
-                  <p className="text-xs text-green-100 mb-2 leading-relaxed">Invent new AI technologies</p>
+                  <p className="text-xs text-green-100 mb-2 leading-relaxed">Invent breakthrough AI technologies, publish papers</p>
+                  <div className="text-xs text-green-200 mb-2">
+                    <strong>Salary:</strong> $150K-$500K+/year 💰
+                  </div>
                   <div className="text-xs text-green-200">
-                    <strong>Salary:</strong> $150K-$300K+/year 💰
+                    <strong>Hot Skills:</strong> Deep Learning, Research, Mathematics
                   </div>
                 </div>
 
@@ -486,9 +675,12 @@ const AILearningPage: React.FC = () => {
                     <Eye size={18} className="text-white" />
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-orange-300 mb-2">Computer Vision Engineer 👁️</h4>
-                  <p className="text-xs text-orange-100 mb-2 leading-relaxed">Teach computers to "see" images</p>
+                  <p className="text-xs text-orange-100 mb-2 leading-relaxed">Build AI that sees: autonomous cars, medical imaging</p>
+                  <div className="text-xs text-orange-200 mb-2">
+                    <strong>Salary:</strong> $110K-$220K+/year 💰
+                  </div>
                   <div className="text-xs text-orange-200">
-                    <strong>Salary:</strong> $110K-$180K+/year 💰
+                    <strong>Hot Skills:</strong> OpenCV, YOLO, Transformers, CNNs
                   </div>
                 </div>
 
@@ -496,10 +688,13 @@ const AILearningPage: React.FC = () => {
                   <div className="w-10 h-10 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-lg flex items-center justify-center mb-3">
                     <MessageSquare size={18} className="text-white" />
                   </div>
-                  <h4 className="text-sm sm:text-base font-bold text-teal-300 mb-2">NLP Engineer 💬</h4>
-                  <p className="text-xs text-teal-100 mb-2 leading-relaxed">Build AI that understands language</p>
+                  <h4 className="text-sm sm:text-base font-bold text-teal-300 mb-2">LLM Engineer 💬</h4>
+                  <p className="text-xs text-teal-100 mb-2 leading-relaxed">Build ChatGPT-like systems, fine-tune language models</p>
+                  <div className="text-xs text-teal-200 mb-2">
+                    <strong>Salary:</strong> $130K-$280K+/year 💰
+                  </div>
                   <div className="text-xs text-teal-200">
-                    <strong>Salary:</strong> $115K-$190K+/year 💰
+                    <strong>Hot Skills:</strong> Transformers, RAG, Vector DBs, LangChain
                   </div>
                 </div>
 
@@ -507,10 +702,68 @@ const AILearningPage: React.FC = () => {
                   <div className="w-10 h-10 bg-gradient-to-br from-indigo-400 to-purple-600 rounded-lg flex items-center justify-center mb-3">
                     <Shield size={18} className="text-white" />
                   </div>
-                  <h4 className="text-sm sm:text-base font-bold text-indigo-300 mb-2">AI Ethics Specialist ⚖️</h4>
-                  <p className="text-xs text-indigo-100 mb-2 leading-relaxed">Make sure AI is fair and safe</p>
+                  <h4 className="text-sm sm:text-base font-bold text-indigo-300 mb-2">AI Safety Engineer ⚖️</h4>
+                  <p className="text-xs text-indigo-100 mb-2 leading-relaxed">Ensure AI systems are safe, aligned, and beneficial</p>
+                  <div className="text-xs text-indigo-200 mb-2">
+                    <strong>Salary:</strong> $120K-$200K+/year 💰
+                  </div>
                   <div className="text-xs text-indigo-200">
-                    <strong>Salary:</strong> $90K-$150K+/year 💰
+                    <strong>Hot Skills:</strong> AI Alignment, Ethics, Risk Assessment
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-900/20 rounded-lg p-4 border border-gray-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-green-300 mb-3">🔥 Hottest New AI Jobs (2024-2025)</h4>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <ul className="space-y-2 text-xs sm:text-sm text-green-100">
+                      <li>• <strong className="text-green-300">AI Agent Developer:</strong> $140K-$300K+ - Build autonomous AI systems</li>
+                      <li>• <strong className="text-blue-300">Prompt Engineer:</strong> $80K-$150K+ - Optimize AI interactions</li>
+                      <li>• <strong className="text-purple-300">AI Product Manager:</strong> $120K-$250K+ - Lead AI product strategy</li>
+                      <li>• <strong className="text-orange-300">Multimodal AI Engineer:</strong> $130K-$280K+ - Build AI that handles text, images, video</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul className="space-y-2 text-xs sm:text-sm text-green-100">
+                      <li>• <strong className="text-cyan-300">AI Infrastructure Engineer:</strong> $125K-$270K+ - Scale AI systems</li>
+                      <li>• <strong className="text-pink-300">AI UX Designer:</strong> $90K-$160K+ - Design AI user experiences</li>
+                      <li>• <strong className="text-yellow-300">AI Trainer/Tutor:</strong> $70K-$120K+ - Train AI models with human feedback</li>
+                      <li>• <strong className="text-red-300">AI Compliance Officer:</strong> $100K-$180K+ - Ensure AI regulatory compliance</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-green-900/20 rounded-lg p-4 border border-green-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-green-300 mb-3">🌟 Top Companies Hiring AI Talent</h4>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Tech Giants:</h5>
+                    <ul className="space-y-1 text-xs text-green-100">
+                      <li>• <strong>Microsoft:</strong> Copilot, Azure AI (10,000+ AI roles)</li>
+                      <li>• <strong>Google:</strong> Gemini, DeepMind (8,000+ AI roles)</li>
+                      <li>• <strong>Meta:</strong> LLaMA, Reality Labs (5,000+ AI roles)</li>
+                      <li>• <strong>Amazon:</strong> Alexa, AWS AI (7,000+ AI roles)</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">AI-First Companies:</h5>
+                    <ul className="space-y-1 text-xs text-green-100">
+                      <li>• <strong>OpenAI:</strong> ChatGPT, GPT-4 (1,500+ roles)</li>
+                      <li>• <strong>Anthropic:</strong> Claude AI (800+ roles)</li>
+                      <li>• <strong>Hugging Face:</strong> Open-source AI (400+ roles)</li>
+                      <li>• <strong>Stability AI:</strong> Stable Diffusion (300+ roles)</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white text-sm mb-2">Traditional Industries:</h5>
+                    <ul className="space-y-1 text-xs text-green-100">
+                      <li>• <strong>Healthcare:</strong> Medical AI, drug discovery</li>
+                      <li>• <strong>Finance:</strong> Trading algorithms, fraud detection</li>
+                      <li>• <strong>Automotive:</strong> Self-driving cars, Tesla, Waymo</li>
+                      <li>• <strong>Retail:</strong> Recommendation systems, supply chain</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -551,12 +804,12 @@ const AILearningPage: React.FC = () => {
           title="🎬 In the Age of AI (Documentary)"
           description="FRONTLINE's deep look at AI's impact on society"
           icon={<AlertTriangle size={20} className="text-white" />}
-          gradient="from-red-900 to-orange-900"
+          gradient="from-gray-900 to-gray-800"
           note="📺 FRONTLINE PBS: Award-winning documentary exploring AI's promise and challenges, from job changes to privacy concerns."
         />
 
         {/* Future of Work - Edge to Edge */}
-        <section className="w-full bg-gradient-to-br from-red-900 to-orange-900 py-8 sm:py-12">
+        <section className="w-full bg-gray-800 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-red-400 to-orange-500 rounded-lg flex items-center justify-center">
@@ -670,12 +923,12 @@ const AILearningPage: React.FC = () => {
           title="🎓 Machine Learning Explained"
           description="Zach Star's beginner-friendly ML introduction"
           icon={<BookOpen size={20} className="text-white" />}
-          gradient="from-green-900 to-emerald-900"
+          gradient="from-gray-900 to-gray-800"
           note="🌟 Zach Star: Perfect introduction to machine learning concepts explained in simple terms that anyone can understand!"
         />
 
         {/* Learning Resources - Edge to Edge */}
-        <section className="w-full bg-gradient-to-br from-cyan-900 to-blue-900 py-8 sm:py-12">
+        <section className="w-full bg-gray-900 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
