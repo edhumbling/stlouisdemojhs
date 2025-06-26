@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
+import FloatingAIButton from '../common/FloatingAIButton';
 
 import { useHeader } from '../../contexts/HeaderContext';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
@@ -96,6 +97,9 @@ const Layout: React.FC = () => {
 
       {/* Global Scroll Button - Always visible like taskbar time */}
       <ScrollButton />
+
+      {/* Floating AI Button - Inkeep-style chat button */}
+      <FloatingAIButton />
     </div>
   );
 };
