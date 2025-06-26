@@ -182,45 +182,178 @@ const AILearningPage: React.FC = () => {
           </motion.div>
         </section>
 
-        {/* What is AI - Edge to Edge */}
+        {/* What is AI & Deep History - Edge to Edge */}
         <section className="w-full bg-gray-800 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center">
                 <Lightbulb size={20} className="sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white">What is AI? 🤖</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">What is AI? The Complete Story 🤖</h3>
             </div>
 
-            <div className="space-y-4 sm:space-y-6">
-              <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-                <strong className="text-cyan-300">Artificial Intelligence (AI)</strong> is like giving computers a brain! 🧠 It's technology that enables computers and machines to simulate human learning, comprehension, problem-solving, decision-making, creativity and autonomy. AI is everywhere around you - from Siri understanding your voice to Netflix recommending movies you'll love.
-              </p>
+            <div className="space-y-6">
+              {/* Modern Definition */}
+              <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700/30">
+                <p className="text-sm sm:text-base text-blue-100 leading-relaxed mb-4">
+                  <strong className="text-cyan-300">Artificial Intelligence (AI)</strong> is technology that enables computers and machines to simulate human learning, comprehension, problem-solving, decision-making, creativity and autonomy. Today's AI can write essays, create art, diagnose diseases, drive cars, and even engage in philosophical conversations! 🧠✨
+                </p>
+                <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
+                  In 2024-2025, we're experiencing an unprecedented AI revolution with <strong className="text-cyan-300">Generative AI</strong> (ChatGPT, Claude), <strong className="text-cyan-300">AI Agents</strong> (autonomous task completion), and <strong className="text-cyan-300">Multimodal AI</strong> (understanding text, images, audio, video simultaneously).
+                </p>
+              </div>
 
-              <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-                In 2024-2025, we're experiencing an incredible AI revolution! 🚀 The latest breakthroughs include <strong className="text-cyan-300">Generative AI</strong> (like ChatGPT that can write essays), <strong className="text-cyan-300">AI Agents</strong> (that can complete complex tasks autonomously), and <strong className="text-cyan-300">Multimodal AI</strong> (that can understand text, images, audio, and video all at once).
-              </p>
+              {/* The Birth of AI: Dartmouth 1956 */}
+              <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-lg p-6 border border-purple-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-4 flex items-center gap-2">
+                  🏛️ The Birth of AI: Dartmouth College, Summer 1956
+                </h4>
+                <div className="space-y-4">
+                  <p className="text-sm sm:text-base text-purple-100 leading-relaxed">
+                    The field of Artificial Intelligence was officially born during a historic 6-week workshop at <strong className="text-purple-300">Dartmouth College</strong> in the summer of 1956. This legendary gathering brought together the brightest minds who would shape the future of computing and human civilization.
+                  </p>
 
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                      <h5 className="font-semibold text-purple-300 text-sm mb-2">🧠 The Founding Fathers</h5>
+                      <ul className="space-y-1 text-xs text-purple-100">
+                        <li>• <strong>John McCarthy</strong> - Coined the term "Artificial Intelligence"</li>
+                        <li>• <strong>Marvin Minsky</strong> - MIT AI pioneer, neural networks</li>
+                        <li>• <strong>Claude Shannon</strong> - Information theory genius</li>
+                        <li>• <strong>Allen Newell</strong> - Logic Theorist creator</li>
+                        <li>• <strong>Herbert Simon</strong> - Nobel Prize winner, cognitive science</li>
+                        <li>• <strong>Arthur Samuel</strong> - Machine learning pioneer</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
+                      <h5 className="font-semibold text-blue-300 text-sm mb-2">🎯 The Bold Vision</h5>
+                      <p className="text-xs text-blue-100 mb-2">
+                        Their proposal stated: <em>"Every aspect of learning or any other feature of intelligence can be so precisely described that a machine can be made to simulate it."</em>
+                      </p>
+                      <p className="text-xs text-blue-100">
+                        This audacious claim launched a field that would eventually create ChatGPT, self-driving cars, and AI that can beat world champions at chess and Go!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pre-History: The Mathematical Foundations */}
+              <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg p-6 border border-green-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-green-300 mb-4">⚡ The Mathematical Foundations (1940s-1950s)</h4>
+                <div className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-green-800/30 rounded-lg p-4 border border-green-600/30">
+                      <h5 className="font-semibold text-green-300 text-sm mb-2">🧮 McCulloch & Pitts (1943)</h5>
+                      <p className="text-xs text-green-100 mb-2">
+                        <strong>Warren McCulloch</strong> (neurophysiologist) and <strong>Walter Pitts</strong> (mathematical prodigy) published the first mathematical model of artificial neurons - the foundation of all modern neural networks!
+                      </p>
+                      <p className="text-xs text-green-200">
+                        Their paper "A Logical Calculus of Ideas Immanent in Nervous Activity" proved that networks of simple artificial neurons could compute any logical function.
+                      </p>
+                    </div>
+
+                    <div className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30">
+                      <h5 className="font-semibold text-teal-300 text-sm mb-2">🤖 Alan Turing (1950)</h5>
+                      <p className="text-xs text-teal-100 mb-2">
+                        The brilliant British mathematician proposed the famous <strong>"Turing Test"</strong> in his paper "Computing Machinery and Intelligence" - asking whether machines can think.
+                      </p>
+                      <p className="text-xs text-teal-200">
+                        His question "Can machines think?" launched philosophical debates that continue today with ChatGPT and advanced AI systems!
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-2">🌐 Cybernetics Movement</h5>
+                    <p className="text-xs text-cyan-100">
+                      <strong>Norbert Wiener's</strong> "Cybernetics" (1948) explored feedback loops and control systems, inspiring early AI researchers to think about machines that could learn and adapt - concepts central to today's AI systems.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* The Golden Age and AI Winter */}
+              <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-6 border border-yellow-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4">🌟 The Golden Age & The AI Winter (1960s-1980s)</h4>
+                <div className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30">
+                      <h5 className="font-semibold text-yellow-300 text-sm mb-2">🚀 The Perceptron (1957)</h5>
+                      <p className="text-xs text-yellow-100 mb-2">
+                        <strong>Frank Rosenblatt</strong> created the Perceptron at Cornell University - the first artificial neural network that could learn! The New York Times proclaimed it would be "the embryo of an electronic computer that [the Navy] expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence."
+                      </p>
+                    </div>
+
+                    <div className="bg-orange-800/30 rounded-lg p-4 border border-orange-600/30">
+                      <h5 className="font-semibold text-orange-300 text-sm mb-2">🏥 Expert Systems (1970s-80s)</h5>
+                      <p className="text-xs text-orange-100 mb-2">
+                        <strong>MYCIN</strong> (medical diagnosis) and <strong>DENDRAL</strong> (chemical analysis) were early expert systems that could match human specialists in narrow domains. These systems used rule-based reasoning - very different from today's neural networks.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30">
+                    <h5 className="font-semibold text-red-300 text-sm mb-2">❄️ The AI Winter (1970s-1980s)</h5>
+                    <p className="text-xs text-red-100">
+                      Overpromising and underdelivering led to massive funding cuts. The limitations of early neural networks were exposed, and symbolic AI dominated. This "AI Winter" lasted until the 1990s when neural networks made a dramatic comeback with better algorithms and more computing power.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modern AI Renaissance */}
+              <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-lg p-6 border border-indigo-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-indigo-300 mb-4">🔥 The Modern AI Renaissance (1990s-Present)</h4>
+                <div className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30">
+                      <h5 className="font-semibold text-indigo-300 text-sm mb-2">🧠 Deep Learning Revolution</h5>
+                      <ul className="space-y-1 text-xs text-indigo-100">
+                        <li>• <strong>1990s:</strong> Backpropagation algorithm perfected</li>
+                        <li>• <strong>2006:</strong> Geoffrey Hinton's deep learning breakthrough</li>
+                        <li>• <strong>2012:</strong> AlexNet wins ImageNet, CNN revolution begins</li>
+                        <li>• <strong>2017:</strong> Transformer architecture ("Attention is All You Need")</li>
+                        <li>• <strong>2018:</strong> BERT and GPT models emerge</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                      <h5 className="font-semibold text-purple-300 text-sm mb-2">🏆 Historic Milestones</h5>
+                      <ul className="space-y-1 text-xs text-purple-100">
+                        <li>• <strong>1997:</strong> IBM Deep Blue beats chess champion Garry Kasparov</li>
+                        <li>• <strong>2016:</strong> AlphaGo defeats Go world champion Lee Sedol</li>
+                        <li>• <strong>2020:</strong> GPT-3 shows emergent language abilities</li>
+                        <li>• <strong>2022:</strong> ChatGPT launches, reaching 100M users in 2 months</li>
+                        <li>• <strong>2024:</strong> AI achieves human-level performance in many domains</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Current AI Capabilities */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
                   <h4 className="text-base sm:text-lg font-semibold text-cyan-300 mb-2 flex items-center gap-2">
                     <Brain size={16} className="sm:w-5 sm:h-5" />
-                    How AI Works ⚡
+                    How Modern AI Works ⚡
                   </h4>
                   <ul className="space-y-1 text-xs sm:text-sm text-blue-100">
-                    <li>• <strong>Learning:</strong> Gets smarter from experience and data</li>
-                    <li>• <strong>Reasoning:</strong> Makes logical decisions step-by-step</li>
-                    <li>• <strong>Problem-solving:</strong> Finds creative solutions to complex challenges</li>
-                    <li>• <strong>Pattern Recognition:</strong> Spots hidden connections in massive data</li>
-                    <li>• <strong>Autonomy:</strong> Acts independently without human intervention</li>
-                    <li>• <strong>Creativity:</strong> Generates original content and ideas</li>
+                    <li>• <strong>Deep Learning:</strong> Neural networks with millions of parameters</li>
+                    <li>• <strong>Transformer Architecture:</strong> Attention mechanisms for language</li>
+                    <li>• <strong>Reinforcement Learning:</strong> Learning through trial and error</li>
+                    <li>• <strong>Transfer Learning:</strong> Applying knowledge across domains</li>
+                    <li>• <strong>Multimodal Processing:</strong> Understanding multiple data types</li>
+                    <li>• <strong>Emergent Abilities:</strong> Capabilities that arise at scale</li>
                   </ul>
                 </div>
 
                 <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
                   <h4 className="text-base sm:text-lg font-semibold text-blue-300 mb-2 flex items-center gap-2">
                     <Sparkles size={16} className="sm:w-5 sm:h-5" />
-                    Latest AI in Your Life 🌟
+                    AI in Your Daily Life 🌟
                   </h4>
                   <ul className="space-y-1 text-xs sm:text-sm text-cyan-100">
                     <li>• <strong>ChatGPT & Claude:</strong> AI tutors and writing assistants</li>
@@ -228,30 +361,8 @@ const AILearningPage: React.FC = () => {
                     <li>• <strong>GitHub Copilot:</strong> AI writes code for programmers</li>
                     <li>• <strong>Tesla Autopilot:</strong> Self-driving car technology</li>
                     <li>• <strong>AI Agents:</strong> Book flights, schedule meetings autonomously</li>
-                    <li>• <strong>Medical AI:</strong> Diagnoses diseases from X-rays</li>
+                    <li>• <strong>Medical AI:</strong> Diagnoses diseases from medical scans</li>
                   </ul>
-                </div>
-              </div>
-
-              <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700/30">
-                <h4 className="text-base sm:text-lg font-semibold text-cyan-300 mb-3">🔥 2024-2025 AI Breakthroughs</h4>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <ul className="space-y-1 text-xs sm:text-sm text-blue-100">
-                      <li>• <strong>OpenAI o3:</strong> AI that can reason like a PhD scientist</li>
-                      <li>• <strong>GPT-4.5:</strong> Improved pattern recognition and creativity</li>
-                      <li>• <strong>AI Agents:</strong> Autonomous systems that complete complex tasks</li>
-                      <li>• <strong>Multimodal AI:</strong> Understands text, images, audio, video together</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul className="space-y-1 text-xs sm:text-sm text-blue-100">
-                      <li>• <strong>Agentic AI:</strong> Multiple AI agents working together</li>
-                      <li>• <strong>Real-time AI:</strong> Instant responses across all media types</li>
-                      <li>• <strong>AI in Medicine:</strong> Revolutionary diagnostic capabilities</li>
-                      <li>• <strong>Quantum + AI:</strong> Solving previously impossible problems</li>
-                    </ul>
-                  </div>
                 </div>
               </div>
             </div>
