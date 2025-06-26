@@ -139,6 +139,7 @@ const AILearningPage: React.FC = () => {
         url="/ai"
         type="article"
         pageType="educational"
+        image="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
       />
 
       {/* Back Bar - Exact same as AI Search Page */}
@@ -162,23 +163,45 @@ const AILearningPage: React.FC = () => {
 
       {/* Main Content - True Edge to Edge, No Containers */}
       <main className="w-full">
-        {/* Hero Section - Edge to Edge */}
-        <section className="w-full bg-gray-900 py-8 sm:py-12">
+        {/* Hero Section - Edge to Edge with Background Image */}
+        <section
+          className="w-full py-16 sm:py-24 relative overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center px-4 sm:px-6"
+            className="text-center px-4 sm:px-6 relative z-10"
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-400 to-blue-600 rounded-2xl mb-4 sm:mb-6 shadow-2xl">
-              <Brain size={32} className="sm:w-10 sm:h-10 text-white" />
+            <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-purple-400 to-blue-600 rounded-2xl mb-6 sm:mb-8 shadow-2xl backdrop-blur-sm border border-white/20">
+              <Brain size={40} className="sm:w-12 sm:h-12 text-white" />
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent leading-tight">
               Master Artificial Intelligence
             </h2>
-            <p className="text-sm sm:text-base text-purple-100 leading-relaxed max-w-2xl mx-auto">
-              🚀 Embark on an incredible journey into AI. From basic concepts to cutting-edge tech reshaping our world.
+            <p className="text-base sm:text-lg text-white leading-relaxed max-w-3xl mx-auto mb-8">
+              🚀 Embark on an incredible journey into AI. From basic concepts to cutting-edge tech reshaping our world. Explore the complete story from Dartmouth 1956 to the US-China AI race.
             </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <span className="text-purple-300">🏛️ AGI Research Labs</span>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <span className="text-blue-300">🌟 AI Pioneers</span>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <span className="text-cyan-300">📚 Expert Books</span>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <span className="text-green-300">🎥 Video Learning</span>
+              </div>
+            </div>
           </motion.div>
         </section>
 
