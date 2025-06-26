@@ -210,11 +210,6 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     "name": "St. Louis Demonstration Junior High School",
     "alternateName": ["St. Louis Demonstration JHS", "St. Louis Demo JHS", "St. Louis Demo. JHS - Suame, Mbrom", "SLDJHS"],
     "url": baseUrl,
-    "sameAs": [
-      "https://stlouisdemojhs.com",
-      "https://www.facebook.com/stlouisdemojhs",
-      "https://twitter.com/stlouisdemojhs"
-    ],
     "logo": {
       "@type": "ImageObject",
       "url": "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1M6q6dmU5zPYJTensbIFy9BQvGZ6hHUoNLkwlO",

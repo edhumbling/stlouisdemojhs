@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Brain, Cpu, Network, BookOpen, Briefcase, TrendingUp, AlertTriangle, Lightbulb, Code, Database, Eye, MessageSquare, Car, Robot, Stethoscope, Calculator, Globe, Zap } from 'lucide-react';
+import { ArrowLeft, Brain, Cpu, Network, BookOpen, Briefcase, TrendingUp, AlertTriangle, Lightbulb, Code, Database, Eye, MessageSquare, Car, Bot, Stethoscope, Calculator, Globe, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
@@ -115,6 +115,46 @@ const AILearningPage: React.FC = () => {
           </motion.div>
         </section>
 
+        {/* AI Introduction Video */}
+        <section className="px-4 sm:px-6 lg:px-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-blue-800/30">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl flex items-center justify-center">
+                  <Eye size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Watch: MIT's Introduction to AI</h3>
+                  <p className="text-gray-300 text-sm">Get started with this comprehensive introduction from MIT</p>
+                </div>
+              </div>
+
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                  src="https://www.youtube.com/embed/TjZBTDzGeGg"
+                  title="MIT Introduction to Artificial Intelligence"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+
+              <div className="mt-4 p-4 bg-blue-900/20 rounded-lg border border-blue-700/30">
+                <p className="text-sm text-blue-200">
+                  <strong>🎓 MIT OpenCourseWare:</strong> This lecture by Prof. Patrick Winston provides an excellent foundation for understanding AI concepts and scope.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         {/* Types of AI Section */}
         <section className="px-4 sm:px-6 lg:px-8 mb-16">
           <motion.div
@@ -137,7 +177,7 @@ const AILearningPage: React.FC = () => {
                 className="bg-gradient-to-br from-blue-900/50 to-purple-900/50 backdrop-blur-sm rounded-2xl p-6 border border-blue-800/30"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mb-4">
-                  <Robot size={28} className="text-white" />
+                  <Bot size={28} className="text-white" />
                 </div>
                 <h4 className="text-xl font-bold text-blue-400 mb-3">Narrow AI (ANI)</h4>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4">
@@ -228,6 +268,46 @@ const AILearningPage: React.FC = () => {
                   <h4 className="text-lg font-semibold text-purple-400 mb-2">Reinforcement Learning</h4>
                   <p className="text-sm text-gray-300">Learning through trial and error, like playing games</p>
                 </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Neural Networks Video */}
+        <section className="px-4 sm:px-6 lg:px-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="bg-gradient-to-br from-pink-900/30 to-red-900/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-pink-800/30">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-red-600 rounded-xl flex items-center justify-center">
+                  <Network size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Watch: Neural Networks Explained</h3>
+                  <p className="text-gray-300 text-sm">3Blue1Brown's brilliant visual explanation of how neural networks work</p>
+                </div>
+              </div>
+
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                  src="https://www.youtube.com/embed/aircAruvnKk"
+                  title="But what is a neural network? | Deep learning chapter 1"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+
+              <div className="mt-4 p-4 bg-pink-900/20 rounded-lg border border-pink-700/30">
+                <p className="text-sm text-pink-200">
+                  <strong>🧠 3Blue1Brown:</strong> This is the gold standard for understanding neural networks visually. Grant Sanderson makes complex math concepts incredibly intuitive.
+                </p>
               </div>
             </div>
           </motion.div>
@@ -391,6 +471,271 @@ const AILearningPage: React.FC = () => {
           </motion.div>
         </section>
 
+        {/* Transformer Architecture Video */}
+        <section className="px-4 sm:px-6 lg:px-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="bg-gradient-to-br from-yellow-900/30 to-orange-900/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-yellow-800/30">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center">
+                  <Zap size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Watch: "Attention is All You Need" Explained</h3>
+                  <p className="text-gray-300 text-sm">Deep dive into the paper that revolutionized AI</p>
+                </div>
+              </div>
+
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                  src="https://www.youtube.com/embed/iDulhoQ2pro"
+                  title="Attention Is All You Need"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+
+              <div className="mt-4 p-4 bg-yellow-900/20 rounded-lg border border-yellow-700/30">
+                <p className="text-sm text-yellow-200">
+                  <strong>⚡ Transformer Deep Dive:</strong> This video breaks down the groundbreaking paper that made ChatGPT, GPT-4, and modern language models possible.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* AI Ethics and Responsible AI */}
+        <section className="px-4 sm:px-6 lg:px-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
+                <Stethoscope size={24} className="text-white" />
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white">AI Ethics & Responsible Development</h3>
+            </div>
+
+            <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-800">
+              <p className="text-lg text-gray-300 leading-relaxed mb-8">
+                As AI becomes more powerful, ensuring it's developed and used responsibly becomes crucial. Understanding AI ethics is essential for anyone working in this field.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h4 className="text-xl font-semibold text-indigo-400 mb-4">Key Ethical Challenges</h4>
+                  <div className="space-y-4">
+                    <div className="bg-gray-800/50 rounded-lg p-4">
+                      <h5 className="font-semibold text-white mb-2 flex items-center gap-2">
+                        <AlertTriangle size={16} className="text-red-400" />
+                        Bias and Fairness
+                      </h5>
+                      <p className="text-sm text-gray-300">AI systems can perpetuate or amplify human biases, leading to unfair treatment of certain groups.</p>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-4">
+                      <h5 className="font-semibold text-white mb-2 flex items-center gap-2">
+                        <Eye size={16} className="text-blue-400" />
+                        Privacy and Surveillance
+                      </h5>
+                      <p className="text-sm text-gray-300">AI can process vast amounts of personal data, raising concerns about privacy and surveillance.</p>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-4">
+                      <h5 className="font-semibold text-white mb-2 flex items-center gap-2">
+                        <Brain size={16} className="text-green-400" />
+                        Transparency and Explainability
+                      </h5>
+                      <p className="text-sm text-gray-300">Many AI systems are "black boxes" - we don't understand how they make decisions.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-semibold text-purple-400 mb-4">Principles of Responsible AI</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0">1</div>
+                      <div>
+                        <h5 className="font-semibold text-white">Fairness</h5>
+                        <p className="text-sm text-gray-400">AI should treat all people equitably and avoid discriminatory outcomes</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0">2</div>
+                      <div>
+                        <h5 className="font-semibold text-white">Accountability</h5>
+                        <p className="text-sm text-gray-400">Clear responsibility for AI decisions and their consequences</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0">3</div>
+                      <div>
+                        <h5 className="font-semibold text-white">Transparency</h5>
+                        <p className="text-sm text-gray-400">AI systems should be understandable and their decisions explainable</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0">4</div>
+                      <div>
+                        <h5 className="font-semibold text-white">Human-Centered</h5>
+                        <p className="text-sm text-gray-400">AI should augment human capabilities, not replace human judgment</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 bg-gradient-to-r from-indigo-900/20 to-purple-900/20 rounded-xl border border-indigo-800/30">
+                <h4 className="text-xl font-semibold text-indigo-400 mb-4">Real-World Examples</h4>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 className="font-semibold text-white mb-2">❌ AI Bias Cases:</h5>
+                    <ul className="space-y-1 text-sm text-gray-300">
+                      <li>• Facial recognition systems with higher error rates for darker skin tones</li>
+                      <li>• Hiring algorithms that discriminated against women</li>
+                      <li>• Criminal justice algorithms with racial bias</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-white mb-2">✅ Positive AI Applications:</h5>
+                    <ul className="space-y-1 text-sm text-gray-300">
+                      <li>• AI helping diagnose diseases earlier and more accurately</li>
+                      <li>• Language models breaking down communication barriers</li>
+                      <li>• AI optimizing energy usage to fight climate change</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Real-World AI Applications */}
+        <section className="px-4 sm:px-6 lg:px-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-6xl mx-auto"
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center">
+                <Globe size={24} className="text-white" />
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white">AI in Action: Real-World Applications</h3>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 backdrop-blur-sm rounded-xl p-6 border border-blue-800/30"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-xl flex items-center justify-center mb-4">
+                  <Stethoscope size={20} className="text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-blue-400 mb-3">Healthcare</h4>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• <strong>Medical Imaging:</strong> AI detects cancer in X-rays and MRIs</li>
+                  <li>• <strong>Drug Discovery:</strong> AI accelerates development of new medicines</li>
+                  <li>• <strong>Personalized Treatment:</strong> AI tailors treatments to individual patients</li>
+                  <li>• <strong>Epidemic Tracking:</strong> AI monitors disease outbreaks</li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-xl p-6 border border-green-800/30"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                  <Car size={20} className="text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-green-400 mb-3">Transportation</h4>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• <strong>Autonomous Vehicles:</strong> Self-driving cars and trucks</li>
+                  <li>• <strong>Traffic Optimization:</strong> AI manages traffic flow in cities</li>
+                  <li>• <strong>Route Planning:</strong> GPS systems find optimal paths</li>
+                  <li>• <strong>Predictive Maintenance:</strong> AI prevents vehicle breakdowns</li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-sm rounded-xl p-6 border border-purple-800/30"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-600 rounded-xl flex items-center justify-center mb-4">
+                  <MessageSquare size={20} className="text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-purple-400 mb-3">Communication</h4>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• <strong>Language Translation:</strong> Real-time translation across languages</li>
+                  <li>• <strong>Voice Assistants:</strong> Siri, Alexa, Google Assistant</li>
+                  <li>• <strong>Content Moderation:</strong> AI filters harmful content online</li>
+                  <li>• <strong>Accessibility:</strong> AI helps people with disabilities</li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-gradient-to-br from-orange-900/50 to-red-900/50 backdrop-blur-sm rounded-xl p-6 border border-orange-800/30"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-600 rounded-xl flex items-center justify-center mb-4">
+                  <Lightbulb size={20} className="text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-orange-400 mb-3">Environment</h4>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• <strong>Climate Modeling:</strong> AI predicts climate change impacts</li>
+                  <li>• <strong>Energy Optimization:</strong> Smart grids reduce energy waste</li>
+                  <li>• <strong>Wildlife Conservation:</strong> AI tracks endangered species</li>
+                  <li>• <strong>Disaster Response:</strong> AI coordinates emergency responses</li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-gradient-to-br from-yellow-900/50 to-orange-900/50 backdrop-blur-sm rounded-xl p-6 border border-yellow-800/30"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                  <Calculator size={20} className="text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-yellow-400 mb-3">Finance</h4>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• <strong>Fraud Detection:</strong> AI spots suspicious transactions</li>
+                  <li>• <strong>Algorithmic Trading:</strong> AI makes investment decisions</li>
+                  <li>• <strong>Credit Scoring:</strong> AI assesses loan applications</li>
+                  <li>• <strong>Personal Finance:</strong> AI budgeting and investment apps</li>
+                </ul>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 backdrop-blur-sm rounded-xl p-6 border border-indigo-800/30"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-indigo-400 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+                  <BookOpen size={20} className="text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-indigo-400 mb-3">Education</h4>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li>• <strong>Personalized Learning:</strong> AI adapts to each student's pace</li>
+                  <li>• <strong>Automated Grading:</strong> AI grades essays and assignments</li>
+                  <li>• <strong>Language Learning:</strong> AI tutors for language practice</li>
+                  <li>• <strong>Accessibility:</strong> AI helps students with learning disabilities</li>
+                </ul>
+              </motion.div>
+            </div>
+          </motion.div>
+        </section>
+
         {/* AI Career Opportunities */}
         <section className="px-4 sm:px-6 lg:px-8 mb-16">
           <motion.div
@@ -446,7 +791,7 @@ const AILearningPage: React.FC = () => {
                   className="bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-xl p-6 border border-green-800/30"
                 >
                   <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-xl flex items-center justify-center mb-4">
-                    <Robot size={20} className="text-white" />
+                    <Bot size={20} className="text-white" />
                   </div>
                   <h4 className="text-lg font-bold text-green-400 mb-2">AI Research Scientist</h4>
                   <p className="text-sm text-gray-300 mb-3">Develop new AI algorithms and techniques</p>
@@ -668,6 +1013,46 @@ const AILearningPage: React.FC = () => {
           </motion.div>
         </section>
 
+        {/* AI and Future of Work Video */}
+        <section className="px-4 sm:px-6 lg:px-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="bg-gradient-to-br from-red-900/30 to-orange-900/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-red-800/30">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-600 rounded-xl flex items-center justify-center">
+                  <AlertTriangle size={24} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Watch: In the Age of AI (Documentary)</h3>
+                  <p className="text-gray-300 text-sm">FRONTLINE's comprehensive look at AI's impact on jobs and society</p>
+                </div>
+              </div>
+
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                  src="https://www.youtube.com/embed/5dZ_lvDgevk"
+                  title="In the Age of AI (full documentary) | FRONTLINE"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+
+              <div className="mt-4 p-4 bg-red-900/20 rounded-lg border border-red-700/30">
+                <p className="text-sm text-red-200">
+                  <strong>📺 FRONTLINE PBS:</strong> This award-winning documentary explores AI's promise and perils, from job displacement to privacy concerns and the US-China AI race.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         {/* Getting Started Resources */}
         <section className="px-4 sm:px-6 lg:px-8 mb-16">
           <motion.div
@@ -752,6 +1137,38 @@ const AILearningPage: React.FC = () => {
                     <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">4</div>
                     <h5 className="font-semibold text-white mb-2">Week 4</h5>
                     <p className="text-sm text-gray-300">Create a portfolio project and share it online</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Andrew Ng Course Video */}
+              <div className="mb-8">
+                <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-green-800/30">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center">
+                      <BookOpen size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl sm:text-2xl font-bold text-white">Watch: Andrew Ng's Machine Learning Course</h4>
+                      <p className="text-gray-300 text-sm">The most popular ML course in the world - Stanford CS229</p>
+                    </div>
+                  </div>
+
+                  <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                    <iframe
+                      className="absolute top-0 left-0 w-full h-full rounded-xl"
+                      src="https://www.youtube.com/embed/jGwO_UgTS7I"
+                      title="Stanford CS229: Machine Learning Course, Lecture 1 - Andrew Ng"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+
+                  <div className="mt-4 p-4 bg-green-900/20 rounded-lg border border-green-700/30">
+                    <p className="text-sm text-green-200">
+                      <strong>🎓 Stanford University:</strong> Andrew Ng's legendary course has taught millions of students worldwide. This is where many AI careers begin!
+                    </p>
                   </div>
                 </div>
               </div>
