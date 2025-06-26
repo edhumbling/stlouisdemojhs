@@ -1263,6 +1263,95 @@ const AILearningPage: React.FC = () => {
                 Explore the best AI resources from GitHub repositories to world-class educational content! 🌟
               </p>
 
+              <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-purple-300 mb-4 text-center">🏛️ Leading AGI Research Labs</h4>
+                <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
+                  These world-class research institutions are racing to build Artificial General Intelligence (AGI) - AI as smart as humans! 🧠
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-green-800/30 rounded-lg p-3 border border-green-600/30">
+                    <h5 className="font-semibold text-green-300 text-sm mb-2">🤖 OpenAI</h5>
+                    <p className="text-xs text-green-100 mb-2">Creator of ChatGPT & GPT-4 - Leading AGI research</p>
+                    <a href="https://openai.com" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-green-300 hover:text-green-200 underline">
+                      openai.com
+                    </a>
+                  </div>
+
+                  <div className="bg-blue-800/30 rounded-lg p-3 border border-blue-600/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2">🧠 Google DeepMind</h5>
+                    <p className="text-xs text-blue-100 mb-2">AlphaGo, Gemini, AlphaFold - Google's AI powerhouse</p>
+                    <a href="https://deepmind.google" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-blue-300 hover:text-blue-200 underline">
+                      deepmind.google
+                    </a>
+                  </div>
+
+                  <div className="bg-purple-800/30 rounded-lg p-3 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2">⚖️ Anthropic</h5>
+                    <p className="text-xs text-purple-100 mb-2">Claude AI, Constitutional AI - Safety-focused AGI</p>
+                    <a href="https://anthropic.com" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-purple-300 hover:text-purple-200 underline">
+                      anthropic.com
+                    </a>
+                  </div>
+
+                  <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
+                    <h5 className="font-semibold text-orange-300 text-sm mb-2">🔬 Microsoft Research</h5>
+                    <p className="text-xs text-orange-100 mb-2">Copilot, Azure AI - Enterprise AGI solutions</p>
+                    <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-ai" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-orange-300 hover:text-orange-200 underline">
+                      microsoft.com/research
+                    </a>
+                  </div>
+
+                  <div className="bg-cyan-800/30 rounded-lg p-3 border border-cyan-600/30">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-2">🌐 Meta FAIR</h5>
+                    <p className="text-xs text-cyan-100 mb-2">LLaMA models, VR/AR AI - Fundamental AI Research</p>
+                    <a href="https://ai.meta.com" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-cyan-300 hover:text-cyan-200 underline">
+                      ai.meta.com
+                    </a>
+                  </div>
+
+                  <div className="bg-red-800/30 rounded-lg p-3 border border-red-600/30">
+                    <h5 className="font-semibold text-red-300 text-sm mb-2">🚗 Tesla AI</h5>
+                    <p className="text-xs text-red-100 mb-2">Full Self-Driving, Optimus Robot - Real-world AI</p>
+                    <a href="https://www.tesla.com/AI" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-red-300 hover:text-red-200 underline">
+                      tesla.com/AI
+                    </a>
+                  </div>
+
+                  <div className="bg-yellow-800/30 rounded-lg p-3 border border-yellow-600/30">
+                    <h5 className="font-semibold text-yellow-300 text-sm mb-2">🏛️ Stanford HAI</h5>
+                    <p className="text-xs text-yellow-100 mb-2">Human-Centered AI Institute - Academic research</p>
+                    <a href="https://hai.stanford.edu" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-yellow-300 hover:text-yellow-200 underline">
+                      hai.stanford.edu
+                    </a>
+                  </div>
+
+                  <div className="bg-teal-800/30 rounded-lg p-3 border border-teal-600/30">
+                    <h5 className="font-semibold text-teal-300 text-sm mb-2">🎓 MIT CSAIL</h5>
+                    <p className="text-xs text-teal-100 mb-2">Computer Science & AI Lab - Cutting-edge research</p>
+                    <a href="https://www.csail.mit.edu" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-teal-300 hover:text-teal-200 underline">
+                      csail.mit.edu
+                    </a>
+                  </div>
+
+                  <div className="bg-pink-800/30 rounded-lg p-3 border border-pink-600/30">
+                    <h5 className="font-semibold text-pink-300 text-sm mb-2">🇨🇳 DeepSeek</h5>
+                    <p className="text-xs text-pink-100 mb-2">Chinese AGI lab - Open-source AI models</p>
+                    <a href="https://www.deepseek.com" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-pink-300 hover:text-pink-200 underline">
+                      deepseek.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               <div className="bg-gray-900/20 rounded-lg p-4 border border-gray-700/30">
                 <h4 className="text-base sm:text-lg font-semibold text-green-300 mb-4 text-center">🚀 Top AI GitHub Repositories</h4>
                 <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
