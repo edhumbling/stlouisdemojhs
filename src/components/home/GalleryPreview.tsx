@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { galleryImages } from '../../data';
-import { X } from 'lucide-react';
+import { X, Copy, Download, ZoomIn } from 'lucide-react';
 import ShimmerLoader from '../common/ShimmerLoader';
 
 const GalleryPreview: React.FC = () => {
@@ -23,6 +23,42 @@ const GalleryPreview: React.FC = () => {
     setSelectedImage(null);
     document.body.style.overflow = 'auto';
   };
+
+  // Action button handlers
+  const handleCopyImage = useCallback(async (imageSrc: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      const response = await fetch(imageSrc);
+      const blob = await response.blob();
+      await navigator.clipboard.write([
+        new ClipboardItem({ [blob.type]: blob })
+      ]);
+      console.log('Image copied to clipboard');
+    } catch (error) {
+      // Fallback: copy image URL
+      try {
+        await navigator.clipboard.writeText(imageSrc);
+        console.log('Image URL copied to clipboard');
+      } catch (fallbackError) {
+        console.error('Failed to copy image:', fallbackError);
+      }
+    }
+  }, []);
+
+  const handleDownloadImage = useCallback((imageSrc: string, imageAlt: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const link = document.createElement('a');
+    link.href = imageSrc;
+    link.download = `${imageAlt.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }, []);
+
+  const handleZoomImage = useCallback((imageId: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    openModal(imageId);
+  }, []);
 
   return (
     <section className="py-8 sm:py-12 md:py-16 lg:py-24 bg-black">
@@ -136,13 +172,49 @@ const GalleryPreview: React.FC = () => {
                 onLoad={() => handleImageLoad(image.id)}
               />
 
-              {/* Subtle Hover Overlay for Loaded Images */}
+              {/* Hover overlay with action buttons */}
               {loadedImages.has(image.id) && (
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-15"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-end justify-center pb-2 z-20">
+                  {/* Action buttons - only show on hover */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                    className="opacity-0 group-hover:opacity-100 transition-all duration-300 flex gap-2"
+                  >
+                    {/* Copy Button */}
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => handleCopyImage(image.src, e)}
+                      className="bg-black/60 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-200"
+                      title="Copy image"
+                    >
+                      <Copy size={16} />
+                    </motion.button>
+
+                    {/* Download Button */}
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => handleDownloadImage(image.src, image.alt, e)}
+                      className="bg-black/60 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-200"
+                      title="Download image"
+                    >
+                      <Download size={16} />
+                    </motion.button>
+
+                    {/* Zoom Button */}
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={(e) => handleZoomImage(image.id, e)}
+                      className="bg-black/60 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-200"
+                      title="View full size"
+                    >
+                      <ZoomIn size={16} />
+                    </motion.button>
+                  </motion.div>
+                </div>
               )}
 
             </motion.div>
