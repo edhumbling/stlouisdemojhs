@@ -1188,8 +1188,220 @@ const AILearningPage: React.FC = () => {
           note="🌟 Zach Star: Perfect introduction to machine learning concepts explained in simple terms that anyone can understand!"
         />
 
-        {/* Learning Resources - Edge to Edge */}
+        {/* AI Resources - Edge to Edge */}
         <section className="w-full bg-gray-900 py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-lg flex items-center justify-center">
+                <Rocket size={20} className="sm:w-6 sm:h-6 text-white" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">AI Resources & Learning Materials 📚</h3>
+            </div>
+
+            <div className="space-y-6">
+              <p className="text-sm sm:text-base text-green-100 leading-relaxed text-center">
+                Explore the best AI resources from GitHub repositories to world-class educational content! 🌟
+              </p>
+
+              <div className="bg-gray-900/20 rounded-lg p-4 border border-gray-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-green-300 mb-4 text-center">🚀 Top AI GitHub Repositories</h4>
+                <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
+                  Explore these amazing open-source AI projects to learn, contribute, and build incredible things!
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-blue-800/30 rounded-lg p-3 border border-blue-600/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2">🤖 AutoGPT</h5>
+                    <p className="text-xs text-blue-100 mb-2">176k+ ⭐ - Autonomous AI agents</p>
+                    <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-blue-300 hover:text-blue-200 underline">
+                      github.com/Significant-Gravitas/AutoGPT
+                    </a>
+                  </div>
+
+                  <div className="bg-purple-800/30 rounded-lg p-3 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2">📚 LLMs from Scratch</h5>
+                    <p className="text-xs text-purple-100 mb-2">57k+ ⭐ - Build ChatGPT from scratch</p>
+                    <a href="https://github.com/rasbt/LLMs-from-scratch" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-purple-300 hover:text-purple-200 underline">
+                      github.com/rasbt/LLMs-from-scratch
+                    </a>
+                  </div>
+
+                  <div className="bg-green-800/30 rounded-lg p-3 border border-green-600/30">
+                    <h5 className="font-semibold text-green-300 text-sm mb-2">🎓 AI for Beginners</h5>
+                    <p className="text-xs text-green-100 mb-2">38k+ ⭐ - Microsoft's AI curriculum</p>
+                    <a href="https://github.com/microsoft/AI-For-Beginners" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-green-300 hover:text-green-200 underline">
+                      github.com/microsoft/AI-For-Beginners
+                    </a>
+                  </div>
+
+                  <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
+                    <h5 className="font-semibold text-orange-300 text-sm mb-2">🔧 Flowise</h5>
+                    <p className="text-xs text-orange-100 mb-2">41k+ ⭐ - Build AI agents visually</p>
+                    <a href="https://github.com/FlowiseAI/Flowise" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-orange-300 hover:text-orange-200 underline">
+                      github.com/FlowiseAI/Flowise
+                    </a>
+                  </div>
+
+                  <div className="bg-cyan-800/30 rounded-lg p-3 border border-cyan-600/30">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-2">🧠 spaCy</h5>
+                    <p className="text-xs text-cyan-100 mb-2">32k+ ⭐ - Industrial NLP library</p>
+                    <a href="https://github.com/explosion/spaCy" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-cyan-300 hover:text-cyan-200 underline">
+                      github.com/explosion/spaCy
+                    </a>
+                  </div>
+
+                  <div className="bg-pink-800/30 rounded-lg p-3 border border-pink-600/30">
+                    <h5 className="font-semibold text-pink-300 text-sm mb-2">📊 500 AI Projects</h5>
+                    <p className="text-xs text-pink-100 mb-2">24k+ ⭐ - Massive project collection</p>
+                    <a href="https://github.com/ashishpatel26/500-AI-Machine-learning-Deep-learning-Computer-vision-NLP-Projects-with-code" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-pink-300 hover:text-pink-200 underline">
+                      github.com/ashishpatel26/500-AI-Projects
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-indigo-900/20 rounded-lg p-4 border border-indigo-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-indigo-300 mb-4 text-center">🎥 Learn from Andrej Karpathy</h4>
+                <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
+                  Former Tesla AI Director & OpenAI researcher - Learn AI from one of the world's best teachers!
+                  <a href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener noreferrer"
+                     className="text-indigo-300 hover:text-indigo-200 underline ml-1">
+                    Visit his YouTube channel →
+                  </a>
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                  <a href="https://www.youtube.com/watch?v=VMj-3S1tku0" target="_blank" rel="noopener noreferrer"
+                     className="bg-red-800/30 rounded-lg p-2 border border-red-600/30 text-center hover:bg-red-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-red-300 mb-1">Micrograd</h6>
+                    <p className="text-xs text-red-100">Autograd Engine</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=PaCmpygFfXo" target="_blank" rel="noopener noreferrer"
+                     className="bg-blue-800/30 rounded-lg p-2 border border-blue-600/30 text-center hover:bg-blue-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-blue-300 mb-1">Makemore pt1</h6>
+                    <p className="text-xs text-blue-100">Bigram Model</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=TCH_1BHY58I" target="_blank" rel="noopener noreferrer"
+                     className="bg-green-800/30 rounded-lg p-2 border border-green-600/30 text-center hover:bg-green-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-green-300 mb-1">Makemore pt2</h6>
+                    <p className="text-xs text-green-100">MLP Language Model</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=P6sfmUTpUmc" target="_blank" rel="noopener noreferrer"
+                     className="bg-purple-800/30 rounded-lg p-2 border border-purple-600/30 text-center hover:bg-purple-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-purple-300 mb-1">Makemore pt3</h6>
+                    <p className="text-xs text-purple-100">Activations & Gradients</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=q8SA3rM6ckI" target="_blank" rel="noopener noreferrer"
+                     className="bg-orange-800/30 rounded-lg p-2 border border-orange-600/30 text-center hover:bg-orange-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-orange-300 mb-1">Makemore pt4</h6>
+                    <p className="text-xs text-orange-100">Manual Backprop</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=t3YJ5hKiMQ0" target="_blank" rel="noopener noreferrer"
+                     className="bg-cyan-800/30 rounded-lg p-2 border border-cyan-600/30 text-center hover:bg-cyan-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-cyan-300 mb-1">Makemore pt5</h6>
+                    <p className="text-xs text-cyan-100">WaveNet</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" rel="noopener noreferrer"
+                     className="bg-pink-800/30 rounded-lg p-2 border border-pink-600/30 text-center hover:bg-pink-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-pink-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-pink-300 mb-1">GPT from Scratch</h6>
+                    <p className="text-xs text-pink-100">Build ChatGPT</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=l8pRSuU81PU" target="_blank" rel="noopener noreferrer"
+                     className="bg-yellow-800/30 rounded-lg p-2 border border-yellow-600/30 text-center hover:bg-yellow-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-yellow-300 mb-1">Tokenization</h6>
+                    <p className="text-xs text-yellow-100">Text to Numbers</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=bZQun8Y4L2A" target="_blank" rel="noopener noreferrer"
+                     className="bg-teal-800/30 rounded-lg p-2 border border-teal-600/30 text-center hover:bg-teal-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-teal-300 mb-1">State of GPT</h6>
+                    <p className="text-xs text-teal-100">Microsoft Build</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" rel="noopener noreferrer"
+                     className="bg-indigo-800/30 rounded-lg p-2 border border-indigo-600/30 text-center hover:bg-indigo-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-indigo-300 mb-1">Intro to LLMs</h6>
+                    <p className="text-xs text-indigo-100">1hr Talk</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=EWvNQjAaOHw" target="_blank" rel="noopener noreferrer"
+                     className="bg-rose-800/30 rounded-lg p-2 border border-rose-600/30 text-center hover:bg-rose-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-rose-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-rose-300 mb-1">How I use LLMs</h6>
+                    <p className="text-xs text-rose-100">Practical Guide</p>
+                  </a>
+
+                  <a href="https://www.youtube.com/watch?v=7xTGNNLPyMI" target="_blank" rel="noopener noreferrer"
+                     className="bg-emerald-800/30 rounded-lg p-2 border border-emerald-600/30 text-center hover:bg-emerald-800/50 transition-colors">
+                    <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <Play size={14} className="text-white" />
+                    </div>
+                    <h6 className="text-xs font-semibold text-emerald-300 mb-1">Deep Dive LLMs</h6>
+                    <p className="text-xs text-emerald-100">Under the Hood</p>
+                  </a>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <div className="inline-flex items-center gap-4 p-4 sm:p-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <Star size={24} className="sm:w-7 sm:h-7 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">Ready to Change the World? 🌍</h4>
+                    <p className="text-xs sm:text-sm text-blue-100">The AI revolution is happening now. Don't just watch it - be part of it! ✨</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Start Your Journey - Edge to Edge */}
+        <section className="w-full bg-cyan-900 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
@@ -1270,184 +1482,14 @@ const AILearningPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-900/20 rounded-lg p-4 border border-gray-700/30">
-                <h4 className="text-base sm:text-lg font-semibold text-green-300 mb-4 text-center">🚀 Top AI GitHub Repositories</h4>
-                <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
-                  Explore these amazing open-source AI projects to learn, contribute, and build incredible things!
-                </p>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <div className="bg-blue-800/30 rounded-lg p-3 border border-blue-600/30">
-                    <h5 className="font-semibold text-blue-300 text-sm mb-2">🤖 AutoGPT</h5>
-                    <p className="text-xs text-blue-100 mb-2">176k+ ⭐ - Autonomous AI agents</p>
-                    <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener noreferrer"
-                       className="text-xs text-blue-300 hover:text-blue-200 underline">
-                      github.com/Significant-Gravitas/AutoGPT
-                    </a>
-                  </div>
-
-                  <div className="bg-purple-800/30 rounded-lg p-3 border border-purple-600/30">
-                    <h5 className="font-semibold text-purple-300 text-sm mb-2">📚 LLMs from Scratch</h5>
-                    <p className="text-xs text-purple-100 mb-2">57k+ ⭐ - Build ChatGPT from scratch</p>
-                    <a href="https://github.com/rasbt/LLMs-from-scratch" target="_blank" rel="noopener noreferrer"
-                       className="text-xs text-purple-300 hover:text-purple-200 underline">
-                      github.com/rasbt/LLMs-from-scratch
-                    </a>
-                  </div>
-
-                  <div className="bg-green-800/30 rounded-lg p-3 border border-green-600/30">
-                    <h5 className="font-semibold text-green-300 text-sm mb-2">🎓 AI for Beginners</h5>
-                    <p className="text-xs text-green-100 mb-2">38k+ ⭐ - Microsoft's AI curriculum</p>
-                    <a href="https://github.com/microsoft/AI-For-Beginners" target="_blank" rel="noopener noreferrer"
-                       className="text-xs text-green-300 hover:text-green-200 underline">
-                      github.com/microsoft/AI-For-Beginners
-                    </a>
-                  </div>
-
-                  <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
-                    <h5 className="font-semibold text-orange-300 text-sm mb-2">🔧 Flowise</h5>
-                    <p className="text-xs text-orange-100 mb-2">41k+ ⭐ - Build AI agents visually</p>
-                    <a href="https://github.com/FlowiseAI/Flowise" target="_blank" rel="noopener noreferrer"
-                       className="text-xs text-orange-300 hover:text-orange-200 underline">
-                      github.com/FlowiseAI/Flowise
-                    </a>
-                  </div>
-
-                  <div className="bg-cyan-800/30 rounded-lg p-3 border border-cyan-600/30">
-                    <h5 className="font-semibold text-cyan-300 text-sm mb-2">🧠 spaCy</h5>
-                    <p className="text-xs text-cyan-100 mb-2">32k+ ⭐ - Industrial NLP library</p>
-                    <a href="https://github.com/explosion/spaCy" target="_blank" rel="noopener noreferrer"
-                       className="text-xs text-cyan-300 hover:text-cyan-200 underline">
-                      github.com/explosion/spaCy
-                    </a>
-                  </div>
-
-                  <div className="bg-pink-800/30 rounded-lg p-3 border border-pink-600/30">
-                    <h5 className="font-semibold text-pink-300 text-sm mb-2">📊 500 AI Projects</h5>
-                    <p className="text-xs text-pink-100 mb-2">24k+ ⭐ - Massive project collection</p>
-                    <a href="https://github.com/ashishpatel26/500-AI-Machine-learning-Deep-learning-Computer-vision-NLP-Projects-with-code" target="_blank" rel="noopener noreferrer"
-                       className="text-xs text-pink-300 hover:text-pink-200 underline">
-                      github.com/ashishpatel26/500-AI-Projects
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-indigo-900/20 rounded-lg p-4 border border-indigo-700/30">
-                <h4 className="text-base sm:text-lg font-semibold text-indigo-300 mb-4 text-center">🎥 Learn from Andrej Karpathy</h4>
-                <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
-                  Former Tesla AI Director & OpenAI researcher - Learn AI from one of the world's best teachers!
-                  <a href="https://www.youtube.com/@AndrejKarpathy" target="_blank" rel="noopener noreferrer"
-                     className="text-indigo-300 hover:text-indigo-200 underline ml-1">
-                    Visit his YouTube channel →
-                  </a>
-                </p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-                  <div className="bg-red-800/30 rounded-lg p-2 border border-red-600/30 text-center">
-                    <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-red-300 mb-1">Neural Networks</h6>
-                    <p className="text-xs text-red-100">Zero to Hero</p>
-                  </div>
-
-                  <div className="bg-blue-800/30 rounded-lg p-2 border border-blue-600/30 text-center">
-                    <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-blue-300 mb-1">GPT from Scratch</h6>
-                    <p className="text-xs text-blue-100">Build ChatGPT</p>
-                  </div>
-
-                  <div className="bg-green-800/30 rounded-lg p-2 border border-green-600/30 text-center">
-                    <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-green-300 mb-1">Backpropagation</h6>
-                    <p className="text-xs text-green-100">How AI Learns</p>
-                  </div>
-
-                  <div className="bg-purple-800/30 rounded-lg p-2 border border-purple-600/30 text-center">
-                    <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-purple-300 mb-1">Transformers</h6>
-                    <p className="text-xs text-purple-100">Attention Mechanism</p>
-                  </div>
-
-                  <div className="bg-orange-800/30 rounded-lg p-2 border border-orange-600/30 text-center">
-                    <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-orange-300 mb-1">Tokenization</h6>
-                    <p className="text-xs text-orange-100">Text to Numbers</p>
-                  </div>
-
-                  <div className="bg-cyan-800/30 rounded-lg p-2 border border-cyan-600/30 text-center">
-                    <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-cyan-300 mb-1">Micrograd</h6>
-                    <p className="text-xs text-cyan-100">Tiny Engine</p>
-                  </div>
-
-                  <div className="bg-pink-800/30 rounded-lg p-2 border border-pink-600/30 text-center">
-                    <div className="w-8 h-8 bg-pink-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-pink-300 mb-1">Makemore</h6>
-                    <p className="text-xs text-pink-100">Character RNN</p>
-                  </div>
-
-                  <div className="bg-yellow-800/30 rounded-lg p-2 border border-yellow-600/30 text-center">
-                    <div className="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-yellow-300 mb-1">WaveNet</h6>
-                    <p className="text-xs text-yellow-100">Audio Generation</p>
-                  </div>
-
-                  <div className="bg-teal-800/30 rounded-lg p-2 border border-teal-600/30 text-center">
-                    <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-teal-300 mb-1">Optimization</h6>
-                    <p className="text-xs text-teal-100">Training Tips</p>
-                  </div>
-
-                  <div className="bg-indigo-800/30 rounded-lg p-2 border border-indigo-600/30 text-center">
-                    <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-indigo-300 mb-1">State of GPT</h6>
-                    <p className="text-xs text-indigo-100">Latest Updates</p>
-                  </div>
-
-                  <div className="bg-rose-800/30 rounded-lg p-2 border border-rose-600/30 text-center">
-                    <div className="w-8 h-8 bg-rose-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-rose-300 mb-1">AI Safety</h6>
-                    <p className="text-xs text-rose-100">Responsible AI</p>
-                  </div>
-
-                  <div className="bg-emerald-800/30 rounded-lg p-2 border border-emerald-600/30 text-center">
-                    <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Play size={14} className="text-white" />
-                    </div>
-                    <h6 className="text-xs font-semibold text-emerald-300 mb-1">Career Advice</h6>
-                    <p className="text-xs text-emerald-100">AI Journey</p>
-                  </div>
-                </div>
-              </div>
-
               <div className="text-center">
-                <div className="inline-flex items-center gap-4 p-4 sm:p-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl">
+                <div className="inline-flex items-center gap-4 p-4 sm:p-6 bg-gradient-to-r from-green-600 to-cyan-600 rounded-2xl">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-2xl flex items-center justify-center">
-                    <Star size={24} className="sm:w-7 sm:h-7 text-white" />
+                    <Heart size={24} className="sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div className="text-left">
-                    <h4 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">Ready to Change the World? 🌍</h4>
-                    <p className="text-xs sm:text-sm text-blue-100">The AI revolution is happening now. Don't just watch it - be part of it! ✨</p>
+                    <h4 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">Your AI Adventure Starts Now! 🌟</h4>
+                    <p className="text-xs sm:text-sm text-green-100">Every expert was once a beginner. Take the first step today! 💫</p>
                   </div>
                 </div>
               </div>
