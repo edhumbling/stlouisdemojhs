@@ -62,12 +62,13 @@ const GalleryPage: React.FC = () => {
       {/* Red Announcement Bar */}
       <div className="bg-red-600 py-3">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-white text-sm font-medium">📹 View video files from</span>
             <button
               onClick={() => navigate('/media-files')}
-              className="bg-white/20 hover:bg-white/30 text-white font-semibold px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 border border-white/30 backdrop-blur-sm"
+              className="bg-white/20 hover:bg-white/30 text-white font-bold px-3 py-1 rounded-md shadow-md hover:shadow-lg transition-all duration-300 border border-white/30 backdrop-blur-sm text-sm"
             >
-              📹 View video files from <span className="font-bold">St Louis Media</span>
+              St Louis Media
             </button>
           </div>
         </div>
