@@ -1461,7 +1461,7 @@ const AILearningPage: React.FC = () => {
               {/* AI Startups & Unicorns */}
               <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-6 border border-yellow-700/30">
                 <h4 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4">🦄 AI Startups & Unicorns (The Innovators)</h4>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30">
                     <h5 className="font-semibold text-yellow-300 text-sm mb-3">🚀 Generative AI Startups</h5>
                     <ul className="space-y-2 text-xs text-yellow-100">
@@ -1500,7 +1500,7 @@ const AILearningPage: React.FC = () => {
               {/* Robotics & Autonomous Systems */}
               <div className="bg-gradient-to-r from-red-900/30 to-pink-900/30 rounded-lg p-6 border border-red-700/30">
                 <h4 className="text-lg sm:text-xl font-bold text-red-300 mb-4">🤖 Robotics & Autonomous Systems</h4>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30">
                     <h5 className="font-semibold text-red-300 text-sm mb-3">🚗 Autonomous Vehicles</h5>
                     <ul className="space-y-2 text-xs text-red-100">
@@ -1539,7 +1539,7 @@ const AILearningPage: React.FC = () => {
               {/* Enterprise AI & Data Companies */}
               <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-6 border border-cyan-700/30">
                 <h4 className="text-lg sm:text-xl font-bold text-cyan-300 mb-4">🏢 Enterprise AI & Data Companies</h4>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
                     <h5 className="font-semibold text-cyan-300 text-sm mb-3">📊 Data Platforms</h5>
                     <ul className="space-y-2 text-xs text-cyan-100">
@@ -1578,7 +1578,7 @@ const AILearningPage: React.FC = () => {
               {/* Consulting & Professional Services */}
               <div className="bg-gradient-to-r from-purple-900/30 to-violet-900/30 rounded-lg p-6 border border-purple-700/30">
                 <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-4">💼 Consulting & Professional Services</h4>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
                     <h5 className="font-semibold text-purple-300 text-sm mb-3">🏛️ Top Strategy Firms</h5>
                     <ul className="space-y-2 text-xs text-purple-100">
@@ -1617,7 +1617,7 @@ const AILearningPage: React.FC = () => {
               {/* Fintech & Financial Services */}
               <div className="bg-gradient-to-r from-emerald-900/30 to-green-900/30 rounded-lg p-6 border border-emerald-700/30">
                 <h4 className="text-lg sm:text-xl font-bold text-emerald-300 mb-4">💳 Fintech & Financial Services</h4>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-emerald-800/30 rounded-lg p-4 border border-emerald-600/30">
                     <h5 className="font-semibold text-emerald-300 text-sm mb-3">💰 Payment Platforms</h5>
                     <ul className="space-y-2 text-xs text-emerald-100">
@@ -1656,7 +1656,7 @@ const AILearningPage: React.FC = () => {
               {/* Healthcare & Life Sciences */}
               <div className="bg-gradient-to-r from-rose-900/30 to-red-900/30 rounded-lg p-6 border border-rose-700/30">
                 <h4 className="text-lg sm:text-xl font-bold text-rose-300 mb-4">🏥 Healthcare & Life Sciences AI</h4>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-rose-800/30 rounded-lg p-4 border border-rose-600/30">
                     <h5 className="font-semibold text-rose-300 text-sm mb-3">💊 Drug Discovery</h5>
                     <ul className="space-y-2 text-xs text-rose-100">
