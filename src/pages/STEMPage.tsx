@@ -1013,6 +1013,25 @@ const STEMPage: React.FC = () => {
             />
           </div>
 
+          {/* STEM Deep Learning Link */}
+          <div className="text-center mb-8">
+            <p className="text-lg text-gray-300 mb-4">
+              Learn deeply about STEM here
+            </p>
+            <a
+              href="/stem-deep-learning"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-400/25 hover:scale-105 group"
+              style={{
+                textShadow: '0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.4)',
+                boxShadow: '0 0 20px rgba(255, 255, 0, 0.3), 0 0 40px rgba(255, 255, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.2)'
+              }}
+            >
+              <BookOpen size={20} className="group-hover:rotate-12 transition-transform duration-300" />
+              <span>Explore STEM Definitions & Careers</span>
+              <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
+          </div>
+
           {/* STEM Categories Grid - Apple Style */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4 mb-8">
             {filteredCategories.map((category, index) => (
