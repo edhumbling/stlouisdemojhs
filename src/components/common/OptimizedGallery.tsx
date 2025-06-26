@@ -111,46 +111,36 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
               />
 
               {/* Hover overlay with action buttons */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-end justify-center pb-2">
-                {/* Action buttons - only show on hover */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  className="opacity-0 group-hover:opacity-100 transition-all duration-300 flex gap-2"
-                >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
+                {/* Action buttons positioned at bottom */}
+                <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2 px-2">
                   {/* Copy Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                  <button
                     onClick={(e) => handleCopyImage(image.src, e)}
-                    className="bg-black/60 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-200"
+                    className="bg-black/70 hover:bg-black/90 text-white p-2 rounded-full backdrop-blur-sm border border-white/30 transition-all duration-200 hover:scale-110 active:scale-95"
                     title="Copy image"
                   >
-                    <Copy size={16} />
-                  </motion.button>
+                    <Copy size={14} />
+                  </button>
 
                   {/* Download Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                  <button
                     onClick={(e) => handleDownloadImage(image.src, image.alt, e)}
-                    className="bg-black/60 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-200"
+                    className="bg-black/70 hover:bg-black/90 text-white p-2 rounded-full backdrop-blur-sm border border-white/30 transition-all duration-200 hover:scale-110 active:scale-95"
                     title="Download image"
                   >
-                    <Download size={16} />
-                  </motion.button>
+                    <Download size={14} />
+                  </button>
 
                   {/* Zoom Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                  <button
                     onClick={(e) => handleZoomImage(index, e)}
-                    className="bg-black/60 hover:bg-black/80 text-white p-2 rounded-full backdrop-blur-sm border border-white/20 transition-all duration-200"
+                    className="bg-black/70 hover:bg-black/90 text-white p-2 rounded-full backdrop-blur-sm border border-white/30 transition-all duration-200 hover:scale-110 active:scale-95"
                     title="View full size"
                   >
-                    <ZoomIn size={16} />
-                  </motion.button>
-                </motion.div>
+                    <ZoomIn size={14} />
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
