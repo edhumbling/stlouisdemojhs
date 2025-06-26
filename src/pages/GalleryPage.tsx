@@ -60,7 +60,7 @@ const GalleryPage: React.FC = () => {
       </div>
 
       {/* Red Announcement Bar */}
-      <div className="bg-red-600 py-3">
+      <div className="bg-red-600 py-1.5">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-2">
             <span className="text-white text-sm font-medium">📹 View video files from</span>
