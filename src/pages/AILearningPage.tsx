@@ -1358,6 +1358,109 @@ const AILearningPage: React.FC = () => {
           </div>
         </section>
 
+        {/* 100+ Companies Hiring in AI - Edge to Edge */}
+        <section className="w-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-lg flex items-center justify-center">
+                <Briefcase size={20} className="sm:w-6 sm:h-6 text-white" />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">100+ Companies Hiring in AI 🚀</h3>
+            </div>
+
+            <div className="space-y-6">
+              {/* Introduction */}
+              <div className="bg-indigo-800/50 rounded-lg p-6 border border-indigo-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-indigo-300 mb-4">🌟 Your Dream AI Job Awaits!</h4>
+                <p className="text-sm sm:text-base text-indigo-100 leading-relaxed mb-4">
+                  From tech giants to innovative startups, from robotics companies to consulting firms - here's your comprehensive guide to 100+ companies actively hiring AI talent. Each link takes you directly to their careers page!
+                </p>
+                <p className="text-sm sm:text-base text-indigo-100 leading-relaxed">
+                  💡 <strong>Pro Tip:</strong> Click on any company name to visit their careers page and explore current AI job openings. Many offer internships, entry-level positions, and remote work opportunities!
+                </p>
+              </div>
+
+              {/* Top Tech Giants */}
+              <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg p-6 border border-blue-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-4">🏛️ Top Tech Giants (The Big Players)</h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-3">🔥 AI Leaders</h5>
+                    <ul className="space-y-2 text-xs text-blue-100">
+                      <li>• <a href="https://careers.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">Google/Alphabet</a> - DeepMind, Bard, Search AI</li>
+                      <li>• <a href="https://careers.microsoft.com" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">Microsoft</a> - OpenAI partner, Copilot, Azure AI</li>
+                      <li>• <a href="https://openai.com/careers" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">OpenAI</a> - ChatGPT, GPT models, AGI research</li>
+                      <li>• <a href="https://www.anthropic.com/careers" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">Anthropic</a> - Claude AI, Constitutional AI</li>
+                      <li>• <a href="https://careers.meta.com" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline">Meta</a> - Llama models, VR/AR AI</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-3">🍎 FAANG Companies</h5>
+                    <ul className="space-y-2 text-xs text-cyan-100">
+                      <li>• <a href="https://jobs.apple.com" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">Apple</a> - Siri, Core ML, on-device AI</li>
+                      <li>• <a href="https://amazon.jobs" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">Amazon</a> - Alexa, AWS AI, robotics</li>
+                      <li>• <a href="https://careers.netflix.com" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">Netflix</a> - Recommendation algorithms</li>
+                      <li>• <a href="https://careers.salesforce.com" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">Salesforce</a> - Einstein AI platform</li>
+                      <li>• <a href="https://careers.adobe.com" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline">Adobe</a> - Creative AI, Firefly</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-3">🚀 Cloud & Enterprise</h5>
+                    <ul className="space-y-2 text-xs text-purple-100">
+                      <li>• <a href="https://www.ibm.com/careers" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">IBM</a> - Watson AI, enterprise solutions</li>
+                      <li>• <a href="https://careers.oracle.com" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">Oracle</a> - Database AI, cloud services</li>
+                      <li>• <a href="https://careers.servicenow.com" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">ServiceNow</a> - IT automation AI</li>
+                      <li>• <a href="https://careers.workday.com" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">Workday</a> - HR and finance AI</li>
+                      <li>• <a href="https://careers.vmware.com" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline">VMware</a> - Infrastructure AI</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* AI Hardware Companies */}
+              <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg p-6 border border-green-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-green-300 mb-4">🔧 AI Hardware & Semiconductor Companies</h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-green-800/30 rounded-lg p-4 border border-green-600/30">
+                    <h5 className="font-semibold text-green-300 text-sm mb-3">💎 Chip Giants</h5>
+                    <ul className="space-y-2 text-xs text-green-100">
+                      <li>• <a href="https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">NVIDIA</a> - GPU computing, AI chips</li>
+                      <li>• <a href="https://jobs.amd.com" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">AMD</a> - AI accelerators, GPUs</li>
+                      <li>• <a href="https://jobs.intel.com" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">Intel</a> - AI processors, edge computing</li>
+                      <li>• <a href="https://careers.qualcomm.com" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">Qualcomm</a> - Mobile AI, 5G + AI</li>
+                      <li>• <a href="https://www.broadcom.com/company/careers" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline">Broadcom</a> - Networking AI chips</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-emerald-800/30 rounded-lg p-4 border border-emerald-600/30">
+                    <h5 className="font-semibold text-emerald-300 text-sm mb-3">⚡ AI Chip Startups</h5>
+                    <ul className="space-y-2 text-xs text-emerald-100">
+                      <li>• <a href="https://www.cerebras.net/careers" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">Cerebras</a> - Wafer-scale AI processors</li>
+                      <li>• <a href="https://www.graphcore.ai/careers" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">Graphcore</a> - Intelligence Processing Units</li>
+                      <li>• <a href="https://sambanova.ai/careers" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">SambaNova</a> - Dataflow AI chips</li>
+                      <li>• <a href="https://groq.com/careers" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">Groq</a> - Language Processing Units</li>
+                      <li>• <a href="https://www.habana.ai/careers" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-emerald-200 underline">Habana Labs</a> - Intel AI accelerators</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30">
+                    <h5 className="font-semibold text-teal-300 text-sm mb-3">🔬 Research Hardware</h5>
+                    <ul className="space-y-2 text-xs text-teal-100">
+                      <li>• <a href="https://www.d-wave.com/careers" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">D-Wave</a> - Quantum computing for AI</li>
+                      <li>• <a href="https://rigetti.com/careers" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">Rigetti</a> - Quantum cloud services</li>
+                      <li>• <a href="https://www.ionq.com/careers" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">IonQ</a> - Trapped ion quantum computers</li>
+                      <li>• <a href="https://www.xanadu.ai/careers" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">Xanadu</a> - Photonic quantum computing</li>
+                      <li>• <a href="https://www.pasqal.io/careers" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline">Pasqal</a> - Neutral atom quantum</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* AI Career Guide Video 1 */}
         <AIVideo
           src="https://www.youtube.com/embed/aircAruvnKk"
