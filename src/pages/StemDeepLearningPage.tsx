@@ -183,74 +183,225 @@ const StemDeepLearningPage: React.FC = () => {
           </div>
         </section>
 
-          {/* Career Pathways Section */}
-          <section className="mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-6">STEM Career Pathways</h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                Explore the diverse and rewarding career opportunities available in STEM fields,
-                from research and development to innovation and entrepreneurship.
-              </p>
+        {/* STEM Career Guidance - Edge to Edge */}
+        <section className="w-full bg-black py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
+                  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">STEM Career Pathways & Opportunities 💼</h3>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              {/* Career Overview */}
+              <div className="bg-green-900/20 rounded-lg p-4 border border-green-700/30">
+                <p className="text-sm sm:text-base text-green-100 leading-relaxed">
+                  <strong className="text-green-300">STEM careers offer exceptional growth opportunities</strong> with median salaries 50% higher than non-STEM fields. The Bureau of Labor Statistics projects 8.8% growth in STEM occupations through 2028, much faster than average! 📈💰
+                </p>
+              </div>
+
               {/* High-Demand Careers */}
-              <div className="bg-gradient-to-br from-yellow-900/30 to-yellow-800/20 rounded-2xl p-8 border border-yellow-700/30 backdrop-blur-sm">
-                <h3 className="text-2xl font-bold text-yellow-400 mb-6">High-Demand STEM Careers</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">Data Scientists:</strong> $126,830 median salary</span>
+              <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-6 border border-yellow-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4 flex items-center gap-2">
+                  🔥 High-Demand STEM Careers (2024-2025)
+                </h4>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-3">
+                    <div className="bg-yellow-800/30 rounded-lg p-3 border border-yellow-600/30">
+                      <h5 className="font-semibold text-yellow-300 text-sm mb-1">💻 Data Scientist</h5>
+                      <p className="text-xs text-yellow-100">Median Salary: $126,830 | Growth: 22%</p>
+                      <p className="text-xs text-yellow-100 mt-1">Analyze complex data to drive business decisions</p>
+                    </div>
+                    <div className="bg-yellow-800/30 rounded-lg p-3 border border-yellow-600/30">
+                      <h5 className="font-semibold text-yellow-300 text-sm mb-1">🛡️ Cybersecurity Analyst</h5>
+                      <p className="text-xs text-yellow-100">Median Salary: $103,590 | Growth: 31%</p>
+                      <p className="text-xs text-yellow-100 mt-1">Protect organizations from digital threats</p>
+                    </div>
+                    <div className="bg-yellow-800/30 rounded-lg p-3 border border-yellow-600/30">
+                      <h5 className="font-semibold text-yellow-300 text-sm mb-1">🧬 Biomedical Engineer</h5>
+                      <p className="text-xs text-yellow-100">Median Salary: $97,410 | Growth: 5%</p>
+                      <p className="text-xs text-yellow-100 mt-1">Design medical devices and healthcare solutions</p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">Software Engineers:</strong> $110,140 median salary</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">Biomedical Engineers:</strong> $97,410 median salary</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">Cybersecurity Analysts:</strong> $103,590 median salary</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">Environmental Engineers:</strong> $96,820 median salary</span>
+                  <div className="space-y-3">
+                    <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
+                      <h5 className="font-semibold text-orange-300 text-sm mb-1">⚡ Software Engineer</h5>
+                      <p className="text-xs text-orange-100">Median Salary: $110,140 | Growth: 21%</p>
+                      <p className="text-xs text-orange-100 mt-1">Develop applications and software systems</p>
+                    </div>
+                    <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
+                      <h5 className="font-semibold text-orange-300 text-sm mb-1">🌱 Environmental Engineer</h5>
+                      <p className="text-xs text-orange-100">Median Salary: $96,820 | Growth: 3%</p>
+                      <p className="text-xs text-orange-100 mt-1">Solve environmental problems using engineering</p>
+                    </div>
+                    <div className="bg-orange-800/30 rounded-lg p-3 border border-orange-600/30">
+                      <h5 className="font-semibold text-orange-300 text-sm mb-1">🤖 AI/ML Engineer</h5>
+                      <p className="text-xs text-orange-100">Median Salary: $130,000+ | Growth: 40%+</p>
+                      <p className="text-xs text-orange-100 mt-1">Build intelligent systems and algorithms</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Emerging Fields */}
-              <div className="bg-gradient-to-br from-cyan-900/30 to-cyan-800/20 rounded-2xl p-8 border border-cyan-700/30 backdrop-blur-sm">
-                <h3 className="text-2xl font-bold text-cyan-400 mb-6">Emerging STEM Fields</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">AI/Machine Learning Engineers</strong></span>
+              <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-6 border border-purple-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-4 flex items-center gap-2">
+                  🚀 Emerging STEM Fields (Future-Ready Careers)
+                </h4>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2">🔬 Quantum Computing</h5>
+                    <ul className="space-y-1 text-xs text-purple-100">
+                      <li>• Quantum Software Developer</li>
+                      <li>• Quantum Research Scientist</li>
+                      <li>• Quantum Hardware Engineer</li>
+                    </ul>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">Renewable Energy Specialists</strong></span>
+                  <div className="bg-pink-800/30 rounded-lg p-4 border border-pink-600/30">
+                    <h5 className="font-semibold text-pink-300 text-sm mb-2">🧬 Biotechnology</h5>
+                    <ul className="space-y-1 text-xs text-pink-100">
+                      <li>• Gene Therapy Specialist</li>
+                      <li>• Bioinformatics Analyst</li>
+                      <li>• Synthetic Biology Engineer</li>
+                    </ul>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">Biotechnology Researchers</strong></span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">Quantum Computing Scientists</strong></span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
-                    <span className="text-gray-300"><strong className="text-white">Space Technology Engineers</strong></span>
+                  <div className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30">
+                    <h5 className="font-semibold text-indigo-300 text-sm mb-2">🌍 Sustainability Tech</h5>
+                    <ul className="space-y-1 text-xs text-indigo-100">
+                      <li>• Clean Energy Engineer</li>
+                      <li>• Carbon Capture Specialist</li>
+                      <li>• Sustainable Materials Scientist</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Educational Pathways */}
+        {/* STEM Career & Education Videos - Edge to Edge */}
+        <section className="w-full bg-gray-800 py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-red-400 to-pink-500 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 6a2 2 0 012-2h6l2 2h6a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">STEM Career Guidance Videos 🎥</h3>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {/* What is STEM Education */}
+              <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-xl overflow-hidden border border-blue-700/30 hover:border-blue-500/50 transition-all duration-300 group">
+                <div className="relative aspect-video bg-gray-800">
+                  <iframe
+                    src="https://www.youtube.com/embed/CWnMBRHd9Ho"
+                    title="What is STEM Education?"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="p-3 sm:p-4">
+                  <h4 className="font-semibold text-white text-sm sm:text-base mb-2 group-hover:text-blue-300 transition-colors">What is STEM Education?</h4>
+                  <p className="text-xs sm:text-sm text-gray-300">Comprehensive overview of Science, Technology, Engineering, and Mathematics education</p>
+                </div>
+              </div>
+
+              {/* STEM Degrees = Success */}
+              <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl overflow-hidden border border-green-700/30 hover:border-green-500/50 transition-all duration-300 group">
+                <div className="relative aspect-video bg-gray-800">
+                  <iframe
+                    src="https://www.youtube.com/embed/PVJ3S6Lb8F8"
+                    title="STEM Degrees = Success? Top Universities and Career Perks"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="p-3 sm:p-4">
+                  <h4 className="font-semibold text-white text-sm sm:text-base mb-2 group-hover:text-green-300 transition-colors">STEM Degrees = Success?</h4>
+                  <p className="text-xs sm:text-sm text-gray-300">Career perks, university insights, and STEM education benefits explained</p>
+                </div>
+              </div>
+
+              {/* Women in STEM */}
+              <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl overflow-hidden border border-purple-700/30 hover:border-purple-500/50 transition-all duration-300 group">
+                <div className="relative aspect-video bg-gray-800">
+                  <iframe
+                    src="https://www.youtube.com/embed/kA08vfoZAJY"
+                    title="Why do so many women leave their careers in STEM?"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="p-3 sm:p-4">
+                  <h4 className="font-semibold text-white text-sm sm:text-base mb-2 group-hover:text-purple-300 transition-colors">Women in STEM Careers</h4>
+                  <p className="text-xs sm:text-sm text-gray-300">Challenges and opportunities for women in science, technology, engineering, and math</p>
+                </div>
+              </div>
+
+              {/* Why is STEM Important */}
+              <div className="bg-gradient-to-br from-orange-900/30 to-red-900/30 rounded-xl overflow-hidden border border-orange-700/30 hover:border-orange-500/50 transition-all duration-300 group">
+                <div className="relative aspect-video bg-gray-800">
+                  <iframe
+                    src="https://www.youtube.com/embed/fH5iLx_jCUk"
+                    title="STEM - What is it and why is it important?"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="p-3 sm:p-4">
+                  <h4 className="font-semibold text-white text-sm sm:text-base mb-2 group-hover:text-orange-300 transition-colors">Why is STEM Important?</h4>
+                  <p className="text-xs sm:text-sm text-gray-300">Understanding the importance and impact of STEM education in today's world</p>
+                </div>
+              </div>
+
+              {/* STEM Role Models */}
+              <div className="bg-gradient-to-br from-teal-900/30 to-cyan-900/30 rounded-xl overflow-hidden border border-teal-700/30 hover:border-teal-500/50 transition-all duration-300 group">
+                <div className="relative aspect-video bg-gray-800">
+                  <iframe
+                    src="https://www.youtube.com/embed/mulAuJFcxQQ"
+                    title="We Need More STEM Role Models Who Are A Bit Less Brilliant"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="p-3 sm:p-4">
+                  <h4 className="font-semibold text-white text-sm sm:text-base mb-2 group-hover:text-teal-300 transition-colors">STEM Role Models</h4>
+                  <p className="text-xs sm:text-sm text-gray-300">The importance of relatable role models in STEM education and careers</p>
+                </div>
+              </div>
+
+              {/* Robotics Engineering Career */}
+              <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 rounded-xl overflow-hidden border border-indigo-700/30 hover:border-indigo-500/50 transition-all duration-300 group">
+                <div className="relative aspect-video bg-gray-800">
+                  <iframe
+                    src="https://www.youtube.com/embed/2nQ_5zXuSm8"
+                    title="In The Know with Robotics Engineer Dr. Carlotta Berry"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="p-3 sm:p-4">
+                  <h4 className="font-semibold text-white text-sm sm:text-base mb-2 group-hover:text-indigo-300 transition-colors">Robotics Engineering Career</h4>
+                  <p className="text-xs sm:text-sm text-gray-300">Real-world insights from a robotics engineer about STEM careers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Educational Pathways - Edge to Edge */}
           <section className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-white mb-6">Educational Pathways to STEM Success</h2>
