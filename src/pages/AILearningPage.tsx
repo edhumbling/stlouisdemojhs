@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Briefcase, Lightbulb, Code, Bot, Calculator, Zap, Play, Rocket, Target, Heart, Brain, Network, Database, Eye, MessageSquare, Car, Shield, Sparkles, AlertTriangle, TrendingUp, Star, X } from 'lucide-react';
+import { ArrowLeft, BookOpen, Briefcase, Lightbulb, Code, Bot, Calculator, Zap, Play, Rocket, Target, Heart, Brain, Network, Database, Eye, MessageSquare, Car, Shield, Sparkles, AlertTriangle, TrendingUp, Star, X, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
@@ -1495,6 +1495,16 @@ const AILearningPage: React.FC = () => {
           icon={<BookOpen size={20} className="text-white" />}
           gradient="from-gray-900 to-gray-800"
           note="🌟 Zach Star: Perfect introduction to machine learning concepts explained in simple terms that anyone can understand!"
+        />
+
+        {/* AI Career Guide Video 2 */}
+        <AIVideo
+          src="https://www.youtube.com/embed/z5cn9Gk85Sg"
+          title="💰 Highest Paying AI Jobs in 2024"
+          description="Complete guide to AI salaries and career paths"
+          icon={<DollarSign size={20} className="text-white" />}
+          gradient="from-yellow-900 to-orange-800"
+          note="💰 Career Guide: Comprehensive breakdown of AI job market, salaries, and how to land high-paying AI positions!"
         />
 
         {/* AI Resources - Edge to Edge */}
