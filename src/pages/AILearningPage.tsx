@@ -1876,12 +1876,12 @@ const AILearningPage: React.FC = () => {
 
         {/* AI Career Guide Video 2 */}
         <AIVideo
-          src="https://www.youtube.com/embed/z5cn9Gk85Sg"
-          title="💰 Highest Paying AI Jobs in 2024"
-          description="Complete guide to AI salaries and career paths"
+          src="https://www.youtube.com/embed/MhCHrvfAXlc"
+          title="💰 AI Engineer Roadmap - How I'd Learn AI in 2024"
+          description="Complete roadmap to becoming an AI engineer"
           icon={<DollarSign size={20} className="text-white" />}
           gradient="from-yellow-900 to-orange-800"
-          note="💰 Career Guide: Comprehensive breakdown of AI job market, salaries, and how to land high-paying AI positions!"
+          note="💰 Career Guide: Comprehensive AI learning roadmap with practical steps and high-paying career paths!"
         />
 
         {/* AI Resources - Edge to Edge */}
@@ -2907,12 +2907,12 @@ const AILearningPage: React.FC = () => {
 
         {/* AI Career Guide Video 3 */}
         <AIVideo
-          src="https://www.youtube.com/embed/kqkD5SqKuSY"
-          title="🎯 AI Engineer Roadmap 2024"
-          description="Complete step-by-step guide to becoming an AI engineer"
+          src="https://www.youtube.com/embed/_buMdqF7o-A"
+          title="🎯 AI Engineer Roadmap 2025: Step-by-Step Guide"
+          description="Complete step-by-step guide to master AI engineering"
           icon={<Target size={20} className="text-white" />}
           gradient="from-purple-900 to-indigo-800"
-          note="🎯 Roadmap Guide: Comprehensive step-by-step path to becoming an AI engineer with practical advice and timeline!"
+          note="🎯 Roadmap Guide: Latest 2025 comprehensive step-by-step path to becoming an AI engineer with practical advice!"
         />
 
         {/* Start Your Journey - Edge to Edge */}
