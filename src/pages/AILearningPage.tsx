@@ -1978,11 +1978,47 @@ const AILearningPage: React.FC = () => {
               <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700/30">
                 <h4 className="text-lg sm:text-xl font-bold text-red-300 mb-4">🚨 The Most Important Competition of Our Time</h4>
                 <p className="text-sm sm:text-base text-gray-100 leading-relaxed mb-4">
-                  The race for AI supremacy between the United States and China is reshaping global power dynamics, national security strategies, and the future of human civilization. This isn't just about technology—it's about who will lead the world in the 21st century.
+                  The race for AI supremacy between the United States and China represents the defining geopolitical struggle of the 21st century. As <strong className="text-red-300">Kai-Fu Lee</strong> argues in his seminal book <em>"AI Superpowers: China, Silicon Valley, and the New World Order"</em>, this competition will determine not just technological leadership, but the fundamental structure of global power, economic systems, and human society itself.
+                </p>
+                <p className="text-sm sm:text-base text-gray-100 leading-relaxed mb-4">
+                  From Silicon Valley's innovation ecosystem to China's state-coordinated AI strategy, from semiconductor export controls to surveillance technologies, this competition touches every aspect of modern life. The outcome will determine whether the future is shaped by democratic values of freedom, privacy, and human rights, or by authoritarian control, surveillance, and state power.
                 </p>
                 <p className="text-sm sm:text-base text-gray-100 leading-relaxed">
-                  From Silicon Valley's tech giants to China's state-backed AI champions, from semiconductor export controls to surveillance systems, this competition touches every aspect of modern life and will determine the future of democracy, authoritarianism, and human freedom.
+                  As <strong className="text-red-300">Henry Kissinger, Eric Schmidt, and Daniel Huttenlocher</strong> warn in <em>"The Age of AI: And Our Human Future"</em>, we are witnessing a transformation as profound as the Industrial Revolution, but compressed into decades rather than centuries. The stakes could not be higher.
                 </p>
+              </div>
+
+              {/* Essential Reading */}
+              <div className="bg-gradient-to-r from-amber-900/30 to-orange-900/30 rounded-lg p-6 border border-amber-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-amber-300 mb-4">📚 Essential Books: Understanding the AI Superpowers</h4>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-amber-800/30 rounded-lg p-4 border border-amber-600/30">
+                    <h5 className="font-semibold text-amber-300 text-sm mb-2">🇨🇳 AI Superpowers (2018)</h5>
+                    <p className="text-xs text-amber-100 mb-2"><strong>Kai-Fu Lee</strong> - Former Google China President</p>
+                    <p className="text-xs text-amber-200 mb-2">
+                      Prophetic analysis of China's AI strategy and the coming US-China competition. Lee predicted China's rapid AI advancement and the "four waves" of AI implementation.
+                    </p>
+                    <p className="text-xs text-amber-300">Key insight: China's data advantage and implementation speed vs US innovation edge</p>
+                  </div>
+
+                  <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2">🤖 The Age of AI (2021)</h5>
+                    <p className="text-xs text-blue-100 mb-2"><strong>Kissinger, Schmidt, Huttenlocher</strong></p>
+                    <p className="text-xs text-blue-200 mb-2">
+                      Geopolitical analysis by former Secretary of State, ex-Google CEO, and MIT dean. Explores how AI transforms international relations and power structures.
+                    </p>
+                    <p className="text-xs text-blue-300">Key insight: AI as the new nuclear weapon in great power competition</p>
+                  </div>
+
+                  <div className="bg-green-800/30 rounded-lg p-4 border border-green-600/30">
+                    <h5 className="font-semibold text-green-300 text-sm mb-2">⚡ The Technology Trap (2019)</h5>
+                    <p className="text-xs text-green-100 mb-2"><strong>Carl Benedikt Frey</strong> - Oxford economist</p>
+                    <p className="text-xs text-green-200 mb-2">
+                      Historical analysis of technological revolutions and their impact on labor, power, and society. Provides crucial context for understanding AI's disruptive potential.
+                    </p>
+                    <p className="text-xs text-green-300">Key insight: How technological leadership determines global power shifts</p>
+                  </div>
+                </div>
               </div>
 
               {/* The Stakes */}
@@ -2020,28 +2056,73 @@ const AILearningPage: React.FC = () => {
                 <h4 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4">🐉 China's Master Plan: AI Superpower by 2030</h4>
                 <div className="space-y-4">
                   <p className="text-sm sm:text-base text-yellow-100 leading-relaxed">
-                    In July 2017, China unveiled its <strong>"New Generation Artificial Intelligence Development Plan"</strong> - a comprehensive strategy to become the world's primary AI innovation center by 2030, with a domestic AI industry worth $150 billion.
+                    In July 2017, China unveiled its <strong>"New Generation Artificial Intelligence Development Plan"</strong> - a comprehensive strategy to become the world's primary AI innovation center by 2030, with a domestic AI industry worth $150 billion. This plan, as <strong className="text-yellow-300">Kai-Fu Lee</strong> explains, represents the most ambitious national AI strategy ever conceived, combining state coordination with market forces in unprecedented ways.
                   </p>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30">
                       <h5 className="font-semibold text-yellow-300 text-sm mb-2">📈 Three-Phase Strategy</h5>
                       <ul className="space-y-1 text-xs text-yellow-100">
-                        <li>• <strong>2020:</strong> Catch up with global AI leaders</li>
-                        <li>• <strong>2025:</strong> Achieve major breakthroughs in AI applications</li>
-                        <li>• <strong>2030:</strong> Become the world's primary AI innovation center</li>
+                        <li>• <strong>2020:</strong> Catch up with global AI leaders (✅ Achieved)</li>
+                        <li>• <strong>2025:</strong> Achieve major breakthroughs in AI applications (🔄 In Progress)</li>
+                        <li>• <strong>2030:</strong> Become the world's primary AI innovation center (🎯 Target)</li>
+                        <li>• <strong>Investment:</strong> $150+ billion in state and private funding</li>
+                        <li>• <strong>Research:</strong> 40% of global AI papers by 2024</li>
+                        <li>• <strong>Patents:</strong> Leading in AI patent applications globally</li>
                       </ul>
                     </div>
 
                     <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30">
-                      <h5 className="font-semibold text-red-300 text-sm mb-2">🏢 National AI Champions</h5>
+                      <h5 className="font-semibold text-red-300 text-sm mb-2">🏢 National AI Champions (2024 Update)</h5>
                       <ul className="space-y-1 text-xs text-red-100">
-                        <li>• <strong>Baidu:</strong> Autonomous driving, search AI</li>
-                        <li>• <strong>Alibaba:</strong> Smart cities, cloud AI</li>
-                        <li>• <strong>Tencent:</strong> Medical imaging, gaming AI</li>
-                        <li>• <strong>SenseTime:</strong> Computer vision, facial recognition</li>
-                        <li>• <strong>iFlytek:</strong> Speech recognition, voice AI</li>
+                        <li>• <strong>Baidu:</strong> ERNIE LLM, Apollo autonomous driving, $13B AI investment</li>
+                        <li>• <strong>Alibaba:</strong> Qwen models, cloud AI, "ALL IN AI" strategy 2025</li>
+                        <li>• <strong>Tencent:</strong> Hunyuan models, gaming AI, medical imaging</li>
+                        <li>• <strong>ByteDance:</strong> Doubao LLM, TikTok AI algorithms</li>
+                        <li>• <strong>DeepSeek:</strong> Revolutionary cost-efficient AI models (2025 breakthrough)</li>
+                        <li>• <strong>SenseTime:</strong> Computer vision, facial recognition, IPO $8.8B</li>
                       </ul>
+                    </div>
+                  </div>
+
+                  {/* Kai-Fu Lee's Four Waves Analysis */}
+                  <div className="bg-orange-800/30 rounded-lg p-4 border border-orange-600/30">
+                    <h5 className="font-semibold text-orange-300 text-sm mb-3">🌊 Kai-Fu Lee's "Four Waves of AI" - China's Advantages</h5>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <div>
+                        <p className="text-xs text-orange-100 mb-2"><strong>Wave 1: Internet AI</strong> 🌐</p>
+                        <p className="text-xs text-orange-200 mb-2">China's advantage: Massive user base (1.4B), mobile-first adoption, data abundance</p>
+
+                        <p className="text-xs text-orange-100 mb-2"><strong>Wave 2: Business AI</strong> 💼</p>
+                        <p className="text-xs text-orange-200">China's advantage: Rapid deployment, less regulation, state coordination</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-orange-100 mb-2"><strong>Wave 3: Perception AI</strong> 👁️</p>
+                        <p className="text-xs text-orange-200 mb-2">China's advantage: Surveillance infrastructure, facial recognition, smart cities</p>
+
+                        <p className="text-xs text-orange-100 mb-2"><strong>Wave 4: Autonomous AI</strong> 🚗</p>
+                        <p className="text-xs text-orange-200">China's advantage: Government support, dedicated lanes, data collection</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* DeepSeek Revolution 2025 */}
+                  <div className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-3">🚀 The DeepSeek Revolution (2025): Game-Changing Breakthrough</h5>
+                    <p className="text-xs text-purple-100 mb-2">
+                      In January 2025, Chinese startup <strong>DeepSeek</strong> shocked the AI world by developing competitive AI models at a fraction of the cost of US counterparts, demonstrating that China can achieve AI leadership through efficiency rather than just scale.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <div>
+                        <p className="text-xs text-purple-200 mb-1"><strong>Cost Efficiency:</strong> 53x cheaper than OpenAI models</p>
+                        <p className="text-xs text-purple-200 mb-1"><strong>Performance:</strong> Competitive with GPT-4 and Claude</p>
+                        <p className="text-xs text-purple-200"><strong>Innovation:</strong> Novel training techniques, optimized architectures</p>
+                      </div>
+                      <div>
+                        <p className="text-xs text-purple-200 mb-1"><strong>Impact:</strong> NVIDIA stock dropped 17% in one day</p>
+                        <p className="text-xs text-purple-200 mb-1"><strong>Strategy:</strong> Turning US chip restrictions into advantage</p>
+                        <p className="text-xs text-purple-200"><strong>Signal:</strong> China's AI independence accelerating</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2085,31 +2166,102 @@ const AILearningPage: React.FC = () => {
 
               {/* US Response: Export Controls & National Security */}
               <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-lg p-6 border border-blue-700/30">
-                <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-4">🛡️ America Fights Back: The Chip War</h4>
+                <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-4">🛡️ America Fights Back: The Chip War & Silicon Valley's Response</h4>
                 <div className="space-y-4">
                   <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-                    The United States has launched an unprecedented campaign to maintain its technological edge, using export controls, sanctions, and alliance-building to limit China's access to critical AI technologies.
+                    The United States has launched the most comprehensive technology export control regime since the Cold War, as documented by <strong className="text-blue-300">David Sanger</strong> in <em>"The Perfect Weapon"</em> and <em>"New Cold Wars"</em>. This represents a fundamental shift from economic integration to strategic competition, with AI at the center of national security policy.
                   </p>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
-                      <h5 className="font-semibold text-blue-300 text-sm mb-2">🚫 Export Controls (2022-2025)</h5>
+                      <h5 className="font-semibold text-blue-300 text-sm mb-2">🚫 Export Controls Evolution (2022-2025)</h5>
                       <ul className="space-y-1 text-xs text-blue-100">
-                        <li>• <strong>NVIDIA Restrictions:</strong> Banned H100, A100 AI chips to China</li>
-                        <li>• <strong>Semiconductor Equipment:</strong> ASML, Applied Materials blocked</li>
-                        <li>• <strong>Software Limits:</strong> EDA tools, chip design software</li>
-                        <li>• <strong>Entity List:</strong> 100+ Chinese AI companies blacklisted</li>
+                        <li>• <strong>October 2022:</strong> Initial semiconductor controls, NVIDIA H100/A100 banned</li>
+                        <li>• <strong>2023:</strong> Expanded to include more chip types, cloud services</li>
+                        <li>• <strong>2024:</strong> Allied coordination with Netherlands (ASML), Japan</li>
+                        <li>• <strong>January 2025:</strong> AI Diffusion Framework - country caps on AI chips</li>
+                        <li>• <strong>May 2025:</strong> Biden-era rules rescinded, new Trump approach</li>
+                        <li>• <strong>Entity List:</strong> 200+ Chinese AI companies blacklisted</li>
+                        <li>• <strong>Software Controls:</strong> EDA tools, chip design software restricted</li>
                       </ul>
                     </div>
 
                     <div className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30">
-                      <h5 className="font-semibold text-indigo-300 text-sm mb-2">🤝 Alliance Building</h5>
+                      <h5 className="font-semibold text-indigo-300 text-sm mb-2">🤝 Democratic AI Alliance Building</h5>
                       <ul className="space-y-1 text-xs text-indigo-100">
-                        <li>• <strong>CHIPS Act:</strong> $52 billion for US semiconductor manufacturing</li>
+                        <li>• <strong>CHIPS Act (2022):</strong> $52B for US semiconductor manufacturing</li>
                         <li>• <strong>AUKUS Partnership:</strong> AI cooperation with UK, Australia</li>
-                        <li>• <strong>Japan & Netherlands:</strong> Coordinated export controls</li>
-                        <li>• <strong>NATO AI Strategy:</strong> Democratic AI alliance</li>
+                        <li>• <strong>Japan Alliance:</strong> Joint semiconductor research, export controls</li>
+                        <li>• <strong>Netherlands Coordination:</strong> ASML lithography restrictions</li>
+                        <li>• <strong>NATO AI Strategy:</strong> Article 5 extended to cyber/AI attacks</li>
+                        <li>• <strong>G7 AI Principles:</strong> Democratic values in AI development</li>
+                        <li>• <strong>EU-US Tech Council:</strong> Coordinated AI governance</li>
                       </ul>
+                    </div>
+                  </div>
+
+                  {/* Silicon Valley's AI Dominance */}
+                  <div className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-3">🏛️ Silicon Valley: The AI Innovation Engine</h5>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <div>
+                        <p className="text-xs text-cyan-100 mb-2"><strong>OpenAI Revolution:</strong></p>
+                        <ul className="space-y-1 text-xs text-cyan-200">
+                          <li>• ChatGPT: 100M users in 2 months (2022)</li>
+                          <li>• $13B Microsoft partnership</li>
+                          <li>• GPT-4, o3 models leading globally</li>
+                          <li>• $157B valuation (2025)</li>
+                        </ul>
+
+                        <p className="text-xs text-cyan-100 mb-2 mt-3"><strong>Google DeepMind:</strong></p>
+                        <ul className="space-y-1 text-xs text-cyan-200">
+                          <li>• Gemini models competitive with GPT</li>
+                          <li>• AlphaFold protein folding breakthrough</li>
+                          <li>• $100B+ AI investment commitment</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-xs text-cyan-100 mb-2"><strong>Anthropic & Meta:</strong></p>
+                        <ul className="space-y-1 text-xs text-cyan-200">
+                          <li>• Claude models: Constitutional AI approach</li>
+                          <li>• $4B Amazon investment in Anthropic</li>
+                          <li>• Meta's Llama: Open-source strategy</li>
+                          <li>• $65B Meta AI infrastructure investment</li>
+                        </ul>
+
+                        <p className="text-xs text-cyan-100 mb-2 mt-3"><strong>NVIDIA Dominance:</strong></p>
+                        <ul className="space-y-1 text-xs text-cyan-200">
+                          <li>• 90%+ AI chip market share</li>
+                          <li>• $2T+ market capitalization</li>
+                          <li>• H100 chips: $40K each, 6-month wait</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* The DeepSeek Challenge */}
+                  <div className="bg-red-800/30 rounded-lg p-4 border border-red-600/30">
+                    <h5 className="font-semibold text-red-300 text-sm mb-3">⚠️ The DeepSeek Wake-Up Call (January 2025)</h5>
+                    <p className="text-xs text-red-100 mb-2">
+                      DeepSeek's breakthrough exposed vulnerabilities in the US strategy, showing that export controls may accelerate rather than prevent Chinese AI innovation.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <div>
+                        <p className="text-xs text-red-200 mb-1"><strong>Market Impact:</strong></p>
+                        <ul className="space-y-1 text-xs text-red-200">
+                          <li>• NVIDIA stock dropped 17% ($600B loss)</li>
+                          <li>• Questions about AI infrastructure spending</li>
+                          <li>• Rethinking of export control effectiveness</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-xs text-red-200 mb-1"><strong>Strategic Implications:</strong></p>
+                        <ul className="space-y-1 text-xs text-red-200">
+                          <li>• China achieving AI leadership through efficiency</li>
+                          <li>• US advantage in raw compute challenged</li>
+                          <li>• Need for new competitive strategies</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
