@@ -770,6 +770,279 @@ const StemDeepLearningPage: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* STEM Substack Publications - Edge to Edge */}
+        <section className="w-full bg-gray-800 py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V9a1 1 0 00-1-1h-1v3a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h1V5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 01-2 2h-1v-1z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">STEM Substack Publications 📚</h3>
+            </div>
+
+            <div className="space-y-6">
+              {/* Publications Overview */}
+              <div className="bg-orange-900/20 rounded-lg p-4 border border-orange-700/30">
+                <p className="text-sm sm:text-base text-orange-100 leading-relaxed">
+                  <strong className="text-orange-300">Discover top STEM newsletters</strong> from leading experts, researchers, and educators. Stay updated with the latest in science, technology, engineering, and mathematics! 📖✨
+                </p>
+              </div>
+
+              {/* Engineering & Technology Publications */}
+              <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg p-6 border border-blue-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-4 flex items-center gap-2">
+                  ⚙️ Engineering & Technology
+                </h4>
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  <a href="https://newsletter.pragmaticengineer.com/" target="_blank" rel="noopener noreferrer" className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30 hover:border-blue-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2 group-hover:text-blue-200">The Pragmatic Engineer</h5>
+                    <p className="text-xs text-blue-100 mb-2">by Gergely Orosz</p>
+                    <p className="text-xs text-blue-100">Big Tech engineering practices, career advice, and industry insights</p>
+                  </a>
+
+                  <a href="https://dataengineeringweekly.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30 hover:border-cyan-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-2 group-hover:text-cyan-200">Data Engineering Weekly</h5>
+                    <p className="text-xs text-cyan-100 mb-2">by Ananth Packkildurai</p>
+                    <p className="text-xs text-cyan-100">Latest tools and best practices for building data platforms</p>
+                  </a>
+
+                  <a href="https://qualityeng.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30 hover:border-indigo-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-indigo-300 text-sm mb-2 group-hover:text-indigo-200">Quality Engineering Newsletter</h5>
+                    <p className="text-xs text-indigo-100 mb-2">by Jit Gosai</p>
+                    <p className="text-xs text-indigo-100">Building quality into every part of software systems</p>
+                  </a>
+
+                  <a href="https://juhache.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30 hover:border-purple-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2 group-hover:text-purple-200">Ju Data Engineering Newsletter</h5>
+                    <p className="text-xs text-purple-100 mb-2">by Julien Hurault</p>
+                    <p className="text-xs text-purple-100">Weekly exploration of data engineering tools and practices</p>
+                  </a>
+
+                  <a href="https://eczachly.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30 hover:border-teal-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-teal-300 text-sm mb-2 group-hover:text-teal-200">DataEngineer.io Newsletter</h5>
+                    <p className="text-xs text-teal-100 mb-2">by Zach Wilson</p>
+                    <p className="text-xs text-teal-100">Data engineering and technology trends discussion</p>
+                  </a>
+
+                  <a href="https://detectionengineering.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-red-800/30 rounded-lg p-4 border border-red-600/30 hover:border-red-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-red-300 text-sm mb-2 group-hover:text-red-200">Detection Engineering Weekly</h5>
+                    <p className="text-xs text-red-100 mb-2">by Zack Allen</p>
+                    <p className="text-xs text-red-100">Latest news and how-tos in detection engineering</p>
+                  </a>
+                </div>
+              </div>
+
+              {/* Science & Research Publications */}
+              <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg p-6 border border-green-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-green-300 mb-4 flex items-center gap-2">
+                  🔬 Science & Research
+                </h4>
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  <a href="https://fromthescienceclass.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-green-800/30 rounded-lg p-4 border border-green-600/30 hover:border-green-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-green-300 text-sm mb-2 group-hover:text-green-200">From the Science Class</h5>
+                    <p className="text-xs text-green-100 mb-2">by Elisabeth Marnik, PhD</p>
+                    <p className="text-xs text-green-100">Science education, funding, and STEM policy insights</p>
+                  </a>
+
+                  <a href="https://pinoyscientists.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-emerald-800/30 rounded-lg p-4 border border-emerald-600/30 hover:border-emerald-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-emerald-300 text-sm mb-2 group-hover:text-emerald-200">The Pinoy Scientists Newsletter</h5>
+                    <p className="text-xs text-emerald-100 mb-2">by Filipino Scientists Community</p>
+                    <p className="text-xs text-emerald-100">Highlighting Filipino scientists and their research</p>
+                  </a>
+
+                  <a href="https://ultracold.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30 hover:border-teal-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-teal-300 text-sm mb-2 group-hover:text-teal-200">Ultracold</h5>
+                    <p className="text-xs text-teal-100 mb-2">by Karmela Padavic Callaghan</p>
+                    <p className="text-xs text-teal-100">Physics research and quantum science exploration</p>
+                  </a>
+
+                  <a href="https://beyondeuclid.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30 hover:border-cyan-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-2 group-hover:text-cyan-200">Beyond Euclid</h5>
+                    <p className="text-xs text-cyan-100 mb-2">by Ali Kaya</p>
+                    <p className="text-xs text-cyan-100">Mathematics, physics, and scientific discoveries</p>
+                  </a>
+
+                  <a href="https://mattsclancy.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30 hover:border-blue-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2 group-hover:text-blue-200">New Things Under the Sun</h5>
+                    <p className="text-xs text-blue-100 mb-2">by Matt Clancy</p>
+                    <p className="text-xs text-blue-100">Innovation research and science of science</p>
+                  </a>
+
+                  <a href="https://rssdsaisection.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30 hover:border-purple-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2 group-hover:text-purple-200">RSS DS+AI Section</h5>
+                    <p className="text-xs text-purple-100 mb-2">by Royal Statistical Society</p>
+                    <p className="text-xs text-purple-100">Data science and AI research insights</p>
+                  </a>
+                </div>
+              </div>
+
+              {/* Mathematics & Analytics Publications */}
+              <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-6 border border-purple-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-4 flex items-center gap-2">
+                  📊 Mathematics & Analytics
+                </h4>
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  <a href="https://learnanalyticsengineering.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30 hover:border-purple-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2 group-hover:text-purple-200">Learn Analytics Engineering</h5>
+                    <p className="text-xs text-purple-100 mb-2">by Madison Mae</p>
+                    <p className="text-xs text-purple-100">Practical analytics engineering skills for data professionals</p>
+                  </a>
+
+                  <a href="https://datawithbaraa.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-pink-800/30 rounded-lg p-4 border border-pink-600/30 hover:border-pink-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-pink-300 text-sm mb-2 group-hover:text-pink-200">Data with Baraa</h5>
+                    <p className="text-xs text-pink-100 mb-2">by Baraa</p>
+                    <p className="text-xs text-pink-100">Data engineering roadmaps and big data project insights</p>
+                  </a>
+
+                  <a href="https://joereis.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30 hover:border-indigo-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-indigo-300 text-sm mb-2 group-hover:text-indigo-200">Joe Reis</h5>
+                    <p className="text-xs text-indigo-100 mb-2">by Joe Reis</p>
+                    <p className="text-xs text-indigo-100">Fundamentals of data engineering and industry trends</p>
+                  </a>
+
+                  <a href="https://econhappyhour.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30 hover:border-yellow-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-yellow-300 text-sm mb-2 group-hover:text-yellow-200">Econ Happy Hour</h5>
+                    <p className="text-xs text-yellow-100 mb-2">by Economics Researchers</p>
+                    <p className="text-xs text-yellow-100">Economics as a STEM discipline and quantitative analysis</p>
+                  </a>
+
+                  <a href="https://astralcodexten.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-red-800/30 rounded-lg p-4 border border-red-600/30 hover:border-red-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-red-300 text-sm mb-2 group-hover:text-red-200">Astral Codex Ten</h5>
+                    <p className="text-xs text-red-100 mb-2">by Scott Alexander</p>
+                    <p className="text-xs text-red-100">Mathematics, statistics, and scientific reasoning</p>
+                  </a>
+
+                  <a href="https://dwarkesh.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-orange-800/30 rounded-lg p-4 border border-orange-600/30 hover:border-orange-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-orange-300 text-sm mb-2 group-hover:text-orange-200">The Lunar Society</h5>
+                    <p className="text-xs text-orange-100 mb-2">by Dwarkesh Patel</p>
+                    <p className="text-xs text-orange-100">Mathematics education and technology interviews</p>
+                  </a>
+                </div>
+              </div>
+
+              {/* AI & Computer Science Publications */}
+              <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-6 border border-cyan-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-cyan-300 mb-4 flex items-center gap-2">
+                  🤖 AI & Computer Science
+                </h4>
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  <a href="https://drphilippahardman.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-cyan-800/30 rounded-lg p-4 border border-cyan-600/30 hover:border-cyan-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-2 group-hover:text-cyan-200">Dr Phil's Newsletter</h5>
+                    <p className="text-xs text-cyan-100 mb-2">by Dr Philippa Hardman</p>
+                    <p className="text-xs text-cyan-100">AI in learning science and educational technology</p>
+                  </a>
+
+                  <a href="https://addyo.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30 hover:border-blue-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2 group-hover:text-blue-200">The Prompt Engineering Playbook</h5>
+                    <p className="text-xs text-blue-100 mb-2">by Addy Osmani</p>
+                    <p className="text-xs text-blue-100">Prompt engineering techniques for programmers</p>
+                  </a>
+
+                  <a href="https://productfaculty.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30 hover:border-indigo-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-indigo-300 text-sm mb-2 group-hover:text-indigo-200">Product Faculty</h5>
+                    <p className="text-xs text-indigo-100 mb-2">by Product Faculty Team</p>
+                    <p className="text-xs text-indigo-100">AI reasoning and path to artificial general intelligence</p>
+                  </a>
+
+                  <a href="https://edbeng.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30 hover:border-purple-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2 group-hover:text-purple-200">EDB Engineering Newsletter</h5>
+                    <p className="text-xs text-purple-100 mb-2">by EDB Team</p>
+                    <p className="text-xs text-purple-100">PostgreSQL development and database engineering</p>
+                  </a>
+
+                  <a href="https://techsoda.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-teal-800/30 rounded-lg p-4 border border-teal-600/30 hover:border-teal-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-teal-300 text-sm mb-2 group-hover:text-teal-200">Tech Soda</h5>
+                    <p className="text-xs text-teal-100 mb-2">by Tech Soda Team</p>
+                    <p className="text-xs text-teal-100">STEM career transitions and technology innovation</p>
+                  </a>
+
+                  <a href="https://jameswphillips.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-green-800/30 rounded-lg p-4 border border-green-600/30 hover:border-green-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-green-300 text-sm mb-2 group-hover:text-green-200">Science & Technology Research</h5>
+                    <p className="text-xs text-green-100 mb-2">by James Phillips</p>
+                    <p className="text-xs text-green-100">Research ecosystems and scientific innovation</p>
+                  </a>
+                </div>
+              </div>
+
+              {/* Innovation & Future Tech Publications */}
+              <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-6 border border-yellow-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-yellow-300 mb-4 flex items-center gap-2">
+                  🚀 Innovation & Future Tech
+                </h4>
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  <a href="https://fasterplease.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-yellow-800/30 rounded-lg p-4 border border-yellow-600/30 hover:border-yellow-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-yellow-300 text-sm mb-2 group-hover:text-yellow-200">Faster, Please!</h5>
+                    <p className="text-xs text-yellow-100 mb-2">by James Pethokoukis</p>
+                    <p className="text-xs text-yellow-100">Innovation policy and STEM excellence promotion</p>
+                  </a>
+
+                  <a href="https://tamingcomplexity.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-orange-800/30 rounded-lg p-4 border border-orange-600/30 hover:border-orange-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-orange-300 text-sm mb-2 group-hover:text-orange-200">Taming Complexity</h5>
+                    <p className="text-xs text-orange-100 mb-2">by Complexity Researchers</p>
+                    <p className="text-xs text-orange-100">Humanities in STEM and engineering society interactions</p>
+                  </a>
+
+                  <a href="https://nirhindie.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-red-800/30 rounded-lg p-4 border border-red-600/30 hover:border-red-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-red-300 text-sm mb-2 group-hover:text-red-200">Nir Hindie</h5>
+                    <p className="text-xs text-red-100 mb-2">by Nir Hindie</p>
+                    <p className="text-xs text-red-100">Technology design and the importance of arts in tech</p>
+                  </a>
+
+                  <a href="https://charlotteledger.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-pink-800/30 rounded-lg p-4 border border-pink-600/30 hover:border-pink-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-pink-300 text-sm mb-2 group-hover:text-pink-200">Charlotte Ledger</h5>
+                    <p className="text-xs text-pink-100 mb-2">by Lindsey Banks</p>
+                    <p className="text-xs text-pink-100">Robotics education and STEM workforce development</p>
+                  </a>
+
+                  <a href="https://latinometrics.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-purple-800/30 rounded-lg p-4 border border-purple-600/30 hover:border-purple-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2 group-hover:text-purple-200">LatinOmetrics</h5>
+                    <p className="text-xs text-purple-100 mb-2">by LatinOmetrics Team</p>
+                    <p className="text-xs text-purple-100">STEM graduates and technology adoption in Latin America</p>
+                  </a>
+
+                  <a href="https://michaelshermer.substack.com/" target="_blank" rel="noopener noreferrer" className="bg-indigo-800/30 rounded-lg p-4 border border-indigo-600/30 hover:border-indigo-400/50 transition-all duration-300 group">
+                    <h5 className="font-semibold text-indigo-300 text-sm mb-2 group-hover:text-indigo-200">Skeptic</h5>
+                    <p className="text-xs text-indigo-100 mb-2">by Michael Shermer</p>
+                    <p className="text-xs text-indigo-100">Scientific skepticism and critical thinking in STEM</p>
+                  </a>
+                </div>
+              </div>
+
+              {/* Call to Action */}
+              <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-lg p-6 border border-green-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-green-300 mb-4 flex items-center gap-2">
+                  📖 Start Reading & Learning Today!
+                </h4>
+                <p className="text-sm sm:text-base text-green-100 leading-relaxed mb-4">
+                  These STEM Substack publications offer world-class insights from leading experts, researchers, and educators. Subscribe to expand your knowledge and stay at the forefront of scientific and technological innovation! 🌟
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <a
+                    href="https://substack.com/discover/category/technology"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold rounded-xl hover:from-green-300 hover:to-blue-400 transition-all duration-300 shadow-lg hover:shadow-green-400/25 hover:scale-105 text-sm sm:text-base"
+                  >
+                    <span>Explore More STEM Publications</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                  <a
+                    href="/stem"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-xl transition-all duration-300 text-sm sm:text-base"
+                  >
+                    <span>Back to STEM Resources</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Video Modal */}
