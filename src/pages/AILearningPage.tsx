@@ -1352,6 +1352,122 @@ const AILearningPage: React.FC = () => {
                 </div>
               </div>
 
+              <div className="bg-orange-900/20 rounded-lg p-4 border border-orange-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-orange-300 mb-4 text-center">🌟 Prominent AI Figures & Researchers</h4>
+                <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
+                  Meet the brilliant minds shaping the future of AI - from Nobel Prize winners to industry pioneers! 🏆
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-yellow-800/30 rounded-lg p-3 border border-yellow-600/30">
+                    <h5 className="font-semibold text-yellow-300 text-sm mb-2">🏆 Geoffrey Hinton</h5>
+                    <p className="text-xs text-yellow-100 mb-2">Nobel Prize 2024 - "Godfather of Deep Learning"</p>
+                    <a href="https://en.wikipedia.org/wiki/Geoffrey_Hinton" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-yellow-300 hover:text-yellow-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-blue-800/30 rounded-lg p-3 border border-blue-600/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2">🧠 Yann LeCun</h5>
+                    <p className="text-xs text-blue-100 mb-2">Turing Award Winner - CNN Pioneer, Meta Chief AI Scientist</p>
+                    <a href="https://en.wikipedia.org/wiki/Yann_LeCun" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-blue-300 hover:text-blue-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-green-800/30 rounded-lg p-3 border border-green-600/30">
+                    <h5 className="font-semibold text-green-300 text-sm mb-2">🎓 Yoshua Bengio</h5>
+                    <p className="text-xs text-green-100 mb-2">Turing Award Winner - Deep Learning Pioneer</p>
+                    <a href="https://en.wikipedia.org/wiki/Yoshua_Bengio" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-green-300 hover:text-green-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-purple-800/30 rounded-lg p-3 border border-purple-600/30">
+                    <h5 className="font-semibold text-purple-300 text-sm mb-2">👁️ Fei-Fei Li</h5>
+                    <p className="text-xs text-purple-100 mb-2">Stanford AI Lab - Computer Vision Pioneer, ImageNet</p>
+                    <a href="https://en.wikipedia.org/wiki/Fei-Fei_Li" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-purple-300 hover:text-purple-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-red-800/30 rounded-lg p-3 border border-red-600/30">
+                    <h5 className="font-semibold text-red-300 text-sm mb-2">🚀 Sam Altman</h5>
+                    <p className="text-xs text-red-100 mb-2">OpenAI CEO - Leading the ChatGPT revolution</p>
+                    <a href="https://en.wikipedia.org/wiki/Sam_Altman" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-red-300 hover:text-red-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-cyan-800/30 rounded-lg p-3 border border-cyan-600/30">
+                    <h5 className="font-semibold text-cyan-300 text-sm mb-2">🏛️ Demis Hassabis</h5>
+                    <p className="text-xs text-cyan-100 mb-2">Nobel Prize 2024 - DeepMind CEO, AlphaGo creator</p>
+                    <a href="https://en.wikipedia.org/wiki/Demis_Hassabis" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-cyan-300 hover:text-cyan-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-pink-800/30 rounded-lg p-3 border border-pink-600/30">
+                    <h5 className="font-semibold text-pink-300 text-sm mb-2">⚖️ Dario Amodei</h5>
+                    <p className="text-xs text-pink-100 mb-2">Anthropic CEO - AI Safety & Constitutional AI</p>
+                    <a href="https://en.wikipedia.org/wiki/Dario_Amodei" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-pink-300 hover:text-pink-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-teal-800/30 rounded-lg p-3 border border-teal-600/30">
+                    <h5 className="font-semibold text-teal-300 text-sm mb-2">🇨🇳 Kai-Fu Lee</h5>
+                    <p className="text-xs text-teal-100 mb-2">AI Superpowers author - Former Google China head</p>
+                    <a href="https://en.wikipedia.org/wiki/Kai-Fu_Lee" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-teal-300 hover:text-teal-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-indigo-800/30 rounded-lg p-3 border border-indigo-600/30">
+                    <h5 className="font-semibold text-indigo-300 text-sm mb-2">🎯 Andrew Ng</h5>
+                    <p className="text-xs text-indigo-100 mb-2">DeepLearning.AI founder - Stanford AI pioneer</p>
+                    <a href="https://en.wikipedia.org/wiki/Andrew_Ng" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-indigo-300 hover:text-indigo-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-emerald-800/30 rounded-lg p-3 border border-emerald-600/30">
+                    <h5 className="font-semibold text-emerald-300 text-sm mb-2">🧪 Ilya Sutskever</h5>
+                    <p className="text-xs text-emerald-100 mb-2">OpenAI Co-founder - Transformer architecture pioneer</p>
+                    <a href="https://en.wikipedia.org/wiki/Ilya_Sutskever" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-emerald-300 hover:text-emerald-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-rose-800/30 rounded-lg p-3 border border-rose-600/30">
+                    <h5 className="font-semibold text-rose-300 text-sm mb-2">📚 Ian Goodfellow</h5>
+                    <p className="text-xs text-rose-100 mb-2">GAN inventor - Deep Learning book co-author</p>
+                    <a href="https://en.wikipedia.org/wiki/Ian_Goodfellow" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-rose-300 hover:text-rose-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+
+                  <div className="bg-amber-800/30 rounded-lg p-3 border border-amber-600/30">
+                    <h5 className="font-semibold text-amber-300 text-sm mb-2">🚗 Andrej Karpathy</h5>
+                    <p className="text-xs text-amber-100 mb-2">Former Tesla AI Director - Neural Networks educator</p>
+                    <a href="https://en.wikipedia.org/wiki/Andrej_Karpathy" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-amber-300 hover:text-amber-200 underline">
+                      Wikipedia →
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               <div className="bg-gray-900/20 rounded-lg p-4 border border-gray-700/30">
                 <h4 className="text-base sm:text-lg font-semibold text-green-300 mb-4 text-center">🚀 Top AI GitHub Repositories</h4>
                 <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
