@@ -1320,6 +1320,15 @@ const AISearchPage: React.FC = () => {
             <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Access {aiEngines.length}+ powerful AI search engines and chat assistants in one place.
             </p>
+            <p className="text-base text-gray-400 max-w-3xl mx-auto leading-relaxed mt-3">
+              Learn more about{' '}
+              <button
+                onClick={() => navigate('/ai-learning')}
+                className="text-purple-400 hover:text-purple-300 underline decoration-purple-400 hover:decoration-purple-300 underline-offset-2 font-medium transition-colors duration-200"
+              >
+                Artificial Intelligence here
+              </button>
+            </p>
           </div>
 
           {/* Smart Search Bar */}
@@ -1336,6 +1345,19 @@ const AISearchPage: React.FC = () => {
               pageKey="ai-search"
               onExternalLinkClick={handleExternalLinkClick}
             />
+
+            {/* Learn more about AI link */}
+            <div className="text-center">
+              <p className="text-base text-gray-400 leading-relaxed">
+                Learn more about{' '}
+                <button
+                  onClick={() => navigate('/ai-learning')}
+                  className="text-purple-400 hover:text-purple-300 underline decoration-purple-400 hover:decoration-purple-300 underline-offset-2 font-medium transition-colors duration-200"
+                >
+                  Artificial Intelligence here
+                </button>
+              </p>
+            </div>
           </div>
 
           {/* AI Engines Grid - Standardized Cards */}

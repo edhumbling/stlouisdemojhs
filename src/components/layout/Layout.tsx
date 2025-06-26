@@ -35,6 +35,7 @@ const Layout: React.FC = () => {
     '/news',
     '/calendar',
     '/ai-search',
+    '/ai-learning',
     '/schedule-visit',
     '/learnhub',
     '/advice-speeches',

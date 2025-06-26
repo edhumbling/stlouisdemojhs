@@ -89,6 +89,7 @@ import DonateMonthly3000Page from './pages/DonateMonthly3000Page';
 import DonateMonthly5000Page from './pages/DonateMonthly5000Page';
 import PTAPage from './pages/PTAPage';
 import DonationThankYouPage from './pages/DonationThankYouPage';
+import AILearningPage from './pages/AILearningPage';
 
 // Note: Scroll position management is now handled by useEnhancedNavigation hook
 
@@ -136,6 +137,7 @@ const App: React.FC = () => {
           <Route path="students-hub" element={<StudentsHubPage />} />
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
+          <Route path="ai-learning" element={<AILearningPage />} />
           <Route path="advice-speeches" element={<AdviceSpeechesPage />} />
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="apply-now" element={<ApplyNowPage />} />
