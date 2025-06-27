@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run sync && vite",
+    "dev:nosync": "vite",
+    "sync": "node scripts/smart-sync.js",
+    "sync:simple": "git pull origin main",
     "build": "vite build",
     "build:clean": "vite build",
     "lint": "eslint .",
