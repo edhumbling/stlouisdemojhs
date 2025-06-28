@@ -242,16 +242,16 @@ const TVETPage: React.FC = () => {
       <div className="min-h-screen bg-black">
         <Header />
 
-        {/* Back Button and Title Section */}
-        <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4 pt-20">
-          <div className="container mx-auto px-4">
+        {/* Back Navigation Bar */}
+        <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4 sticky top-16 z-40">
+          <div className="w-full px-4 sm:px-6">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
                 onClick={handleBack}
                 className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
               >
                 <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span>Back</span>
+                <span>Back to STEM</span>
               </button>
 
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
@@ -262,8 +262,8 @@ const TVETPage: React.FC = () => {
         </div>
 
         {/* Main Content */}
-        <main className="flex-1 py-6 sm:py-8">
-          <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
+        <main className="flex-1 w-full pt-6">
+          <div className="w-full px-4 sm:px-6">
             {/* Hero Section with Header Image */}
             <div className="relative mb-12 rounded-3xl overflow-hidden">
               {/* Background Image */}
