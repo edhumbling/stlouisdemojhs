@@ -202,7 +202,7 @@ const RoboticsPage: React.FC = () => {
                     <p className="text-base leading-relaxed mb-3">
                       <strong className="text-blue-300">Boston Dynamics</strong> is renowned for creating the world's most advanced mobile robots. Their flagship robots include <strong className="text-green-300">Atlas</strong> (humanoid robot with parkour capabilities), <strong className="text-purple-300">Spot</strong> (quadruped robot for industrial inspection), and <strong className="text-yellow-300">Stretch</strong> (warehouse automation robot). Founded in 1992 as a spin-off from MIT, the company has revolutionized robotics with their dynamic movement algorithms and real-time balance control systems.
                     </p>
-                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={() => openVideoModal('fn3KWM1kuAw')}
@@ -235,6 +235,22 @@ const RoboticsPage: React.FC = () => {
                           <p className="text-sm font-semibold text-white">Spot Robot in Action</p>
                         </div>
                       </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('tF4DML7FIWk')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/tF4DML7FIWk/maxresdefault.jpg"
+                          alt="Boston Dynamics New Atlas"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">New Atlas Electric Robot</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -245,7 +261,7 @@ const RoboticsPage: React.FC = () => {
                     <p className="text-base leading-relaxed mb-3">
                       <strong className="text-purple-300">Tesla's Optimus</strong> represents Elon Musk's vision of general-purpose humanoid robots designed to perform dangerous, repetitive, or boring tasks. Standing 5'8" and weighing 125 pounds, Optimus is designed to navigate the human world using Tesla's Full Self-Driving computer and neural networks. The robot aims to revolutionize manufacturing and eventually assist with household tasks, potentially becoming more significant than Tesla's automotive business.
                     </p>
-                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={() => openVideoModal('XiQkeWOFwmk')}
@@ -278,37 +294,263 @@ const RoboticsPage: React.FC = () => {
                           <p className="text-sm font-semibold text-white">Optimus AI Day Demo</p>
                         </div>
                       </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('Nt1XmiDwxhY')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/Nt1XmiDwxhY/maxresdefault.jpg"
+                          alt="Tesla We Robot Event"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">We Robot Event Highlights</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
                   <div>
                     <h4 className="text-xl font-bold text-cyan-300 mb-3 underline decoration-1 underline-offset-2">
-                      Other Major Robotics Companies
+                      Agility Robotics - Digit Humanoid Revolution
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-cyan-300">Agility Robotics</strong> has pioneered bipedal humanoid robots with their flagship <strong className="text-green-300">Digit robot</strong>. Standing 5'9" and weighing 140 pounds, Digit is designed for logistics and warehouse operations, capable of walking, climbing stairs, and manipulating objects in human environments. The company has secured major partnerships with Amazon and Ford for warehouse automation, demonstrating robots that can work alongside humans safely and efficiently.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('HQ1WEiMwWAY')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/HQ1WEiMwWAY/maxresdefault.jpg"
+                          alt="Agility Robotics Digit"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Digit Robot Warehouse Demo</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('_sBBaNYex3E')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/_sBBaNYex3E/maxresdefault.jpg"
+                          alt="Agility Robotics Factory"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Agility Robotics Factory Tour</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-pink-300 mb-3 underline decoration-1 underline-offset-2">
+                      Figure AI - Next-Generation Humanoids
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-pink-300">Figure AI</strong> is developing general-purpose humanoid robots with their <strong className="text-blue-300">Figure-01</strong> and latest <strong className="text-green-300">Helix model</strong>. The company has raised over $675 million from investors including OpenAI, Microsoft, and NVIDIA. Their robots feature advanced AI integration, natural language processing, and the ability to learn complex tasks through demonstration. Figure AI has partnerships with BMW for automotive manufacturing and is pioneering vision-language-action models for humanoid robotics.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('Sq1QZB5baNw')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/Sq1QZB5baNw/maxresdefault.jpg"
+                          alt="Figure AI Robot"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Figure-01 Robot Demonstration</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('Z3yQHYNXPws')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/Z3yQHYNXPws/maxresdefault.jpg"
+                          alt="Figure AI Helix"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Introducing Helix AI Model</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-orange-300 mb-3 underline decoration-1 underline-offset-2">
+                      Honda Robotics - ASIMO Legacy & Beyond
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-orange-300">Honda</strong> pioneered humanoid robotics with <strong className="text-blue-300">ASIMO</strong>, the world's most advanced humanoid robot for over two decades. While ASIMO development has concluded, Honda continues robotics research focusing on practical applications including <strong className="text-green-300">mobility assistance robots</strong>, <strong className="text-purple-300">disaster response systems</strong>, and <strong className="text-yellow-300">avatar robots</strong> for remote presence. Honda's robotics division now emphasizes real-world utility over demonstration, developing robots for elderly care and rehabilitation.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('QdQL11uWWcI')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/QdQL11uWWcI/maxresdefault.jpg"
+                          alt="Honda ASIMO"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">ASIMO Advanced Capabilities</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('ASoCJTYgYB0')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/ASoCJTYgYB0/maxresdefault.jpg"
+                          alt="Honda Avatar Robot"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Honda Avatar Robot System</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-indigo-300 mb-3 underline decoration-1 underline-offset-2">
+                      Unitree Robotics - Quadruped Innovation
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-indigo-300">Unitree Robotics</strong> has revolutionized affordable quadruped robots with their <strong className="text-green-300">Go series</strong> and advanced <strong className="text-blue-300">B2 models</strong>. Starting at under $3,000, Unitree robots offer Boston Dynamics-level capabilities at consumer prices. Their robots feature advanced AI navigation, 4D LiDAR, and can perform complex maneuvers including backflips, dancing, and autonomous navigation. Unitree has democratized robotic dogs for research, security, and entertainment applications worldwide.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('X2UxtKLZnNo')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/X2UxtKLZnNo/maxresdefault.jpg"
+                          alt="Unitree B2 Robot"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Unitree B2 Capabilities</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('yYUuWWnfRsk')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/yYUuWWnfRsk/maxresdefault.jpg"
+                          alt="Unitree Go2 Robot"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Unitree Go2 Advanced Features</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-teal-300 mb-3 underline decoration-1 underline-offset-2">
+                      Industrial Robotics Leaders
                     </h4>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <h5 className="text-lg font-bold text-green-300 mb-2 underline decoration-1 underline-offset-2">
-                          Industrial & Service Robots
+                          Manufacturing Giants
                         </h5>
                         <ul className="space-y-2 text-base">
-                          <li>• <strong className="text-yellow-300">ABB Robotics:</strong> Industrial automation and collaborative robots</li>
-                          <li>• <strong className="text-blue-300">KUKA:</strong> German industrial robotics and automation</li>
-                          <li>• <strong className="text-purple-300">FANUC:</strong> Japanese industrial robot manufacturer</li>
-                          <li>• <strong className="text-red-300">Universal Robots:</strong> Collaborative robot (cobot) pioneers</li>
-                          <li>• <strong className="text-orange-300">iRobot:</strong> Consumer robots (Roomba) and military systems</li>
+                          <li>• <strong className="text-yellow-300">ABB Robotics:</strong> Swiss-Swedish leader in industrial automation with over 500,000 robots installed globally. Pioneers in collaborative robots and AI-powered manufacturing solutions.</li>
+                          <li>• <strong className="text-blue-300">KUKA:</strong> German precision robotics company specializing in automotive manufacturing. Known for orange industrial robots and advanced human-robot collaboration systems.</li>
+                          <li>• <strong className="text-purple-300">FANUC:</strong> Japanese industrial robot manufacturer with the largest installed base worldwide. Leaders in CNC systems and factory automation with distinctive yellow robots.</li>
+                          <li>• <strong className="text-red-300">Universal Robots:</strong> Danish pioneers of collaborative robots (cobots). Revolutionized manufacturing with safe, easy-to-program robots that work alongside humans.</li>
                         </ul>
                       </div>
 
                       <div>
                         <h5 className="text-lg font-bold text-pink-300 mb-2 underline decoration-1 underline-offset-2">
-                          AI & Autonomous Systems
+                          Emerging AI Companies
                         </h5>
                         <ul className="space-y-2 text-base">
-                          <li>• <strong className="text-indigo-300">Waymo:</strong> Autonomous vehicle technology leader</li>
-                          <li>• <strong className="text-teal-300">Agility Robotics:</strong> Bipedal robots for logistics</li>
-                          <li>• <strong className="text-lime-300">Figure AI:</strong> General-purpose humanoid robots</li>
-                          <li>• <strong className="text-amber-300">1X Technologies:</strong> Android workforce robots</li>
-                          <li>• <strong className="text-rose-300">Sanctuary AI:</strong> Human-like intelligence in robots</li>
+                          <li>• <strong className="text-indigo-300">1X Technologies:</strong> Norwegian company developing android workforce robots. Focus on safe, human-like robots for service industries and home assistance.</li>
+                          <li>• <strong className="text-teal-300">Sanctuary AI:</strong> Canadian company creating human-like intelligence in general-purpose robots. Developing Phoenix robots with human-level dexterity and reasoning.</li>
+                          <li>• <strong className="text-lime-300">Apptronik:</strong> Texas-based humanoid robotics company developing Apollo robots for logistics and manufacturing. Focus on practical, deployable humanoid solutions.</li>
+                          <li>• <strong className="text-amber-300">iRobot:</strong> Massachusetts company famous for Roomba vacuum robots. Expanding into military and professional cleaning robots with advanced navigation systems.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-rose-300 mb-3 underline decoration-1 underline-offset-2">
+                      Specialized Robotics Companies
+                    </h4>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div>
+                        <h5 className="text-lg font-bold text-cyan-300 mb-2 underline decoration-1 underline-offset-2">
+                          Autonomous Vehicles
+                        </h5>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-blue-300">Waymo:</strong> Google's self-driving car division with over 20 million autonomous miles driven</li>
+                          <li>• <strong className="text-green-300">Cruise:</strong> GM's autonomous vehicle subsidiary focusing on urban robotaxis</li>
+                          <li>• <strong className="text-purple-300">Aurora:</strong> Self-driving technology for trucking and passenger vehicles</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h5 className="text-lg font-bold text-orange-300 mb-2 underline decoration-1 underline-offset-2">
+                          Medical Robotics
+                        </h5>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-red-300">Intuitive Surgical:</strong> Da Vinci surgical systems leader with 7,000+ installations</li>
+                          <li>• <strong className="text-yellow-300">Stryker:</strong> Orthopedic surgical robots and medical automation</li>
+                          <li>• <strong className="text-pink-300">Medtronic:</strong> Robotic-assisted surgery and medical device automation</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h5 className="text-lg font-bold text-indigo-300 mb-2 underline decoration-1 underline-offset-2">
+                          Service Robotics
+                        </h5>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-teal-300">SoftBank Robotics:</strong> Pepper and NAO social robots for customer service</li>
+                          <li>• <strong className="text-lime-300">Knightscope:</strong> Autonomous security robots for patrol and surveillance</li>
+                          <li>• <strong className="text-amber-300">Savioke:</strong> Relay delivery robots for hotels and healthcare facilities</li>
                         </ul>
                       </div>
                     </div>
@@ -367,6 +609,179 @@ const RoboticsPage: React.FC = () => {
                 <p className="text-base leading-relaxed">
                   Key developments include <strong className="text-blue-300">brain-computer interfaces</strong> for direct robot control, <strong className="text-purple-300">swarm robotics</strong> for coordinated multi-robot systems, and <strong className="text-orange-300">soft robotics</strong> that can safely interact with humans and delicate objects.
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Manufacturing & Industrial Robotics Revolution */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-yellow-400">
+              Manufacturing & Industrial Robotics Revolution
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
+                  Industry 4.0 & Smart Manufacturing
+                </h3>
+
+                <p className="text-base leading-relaxed mb-6">
+                  <strong className="text-yellow-300">Industrial robotics</strong> forms the backbone of modern manufacturing, with over <strong className="text-blue-300">4 million robots</strong> currently operating in factories worldwide. The integration of AI, IoT, and advanced sensors has created <strong className="text-green-300">smart factories</strong> where robots collaborate seamlessly with human workers, adapt to changing production requirements, and optimize efficiency in real-time.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <h4 className="text-xl font-bold text-blue-300 mb-3 underline decoration-1 underline-offset-2">
+                      Automotive Manufacturing Leaders
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      The <strong className="text-blue-300">automotive industry</strong> remains the largest adopter of industrial robots, accounting for 30% of global installations. Companies like <strong className="text-green-300">Tesla</strong>, <strong className="text-purple-300">BMW</strong>, and <strong className="text-orange-300">Toyota</strong> have revolutionized production lines with fully automated assembly systems capable of producing vehicles with minimal human intervention.
+                    </p>
+
+                    <div className="grid sm:grid-cols-2 gap-3 mb-4">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('8_lfxPI5ObM')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/8_lfxPI5ObM/maxresdefault.jpg"
+                          alt="Tesla Factory Robots"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">Tesla Factory Automation</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('qhIBxieLJFE')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/qhIBxieLJFE/maxresdefault.jpg"
+                          alt="BMW Factory Robots"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">BMW Smart Factory</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-green-300 mb-3 underline decoration-1 underline-offset-2">
+                      Electronics & Precision Manufacturing
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-green-300">Electronics manufacturing</strong> requires extreme precision and speed, making it ideal for robotic automation. Companies like <strong className="text-blue-300">Foxconn</strong> (Apple's manufacturer) and <strong className="text-purple-300">Samsung</strong> employ millions of robots for smartphone and computer assembly, achieving tolerances measured in micrometers.
+                    </p>
+
+                    <div className="grid sm:grid-cols-2 gap-3 mb-4">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('Q8u90WLLbBs')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/Q8u90WLLbBs/maxresdefault.jpg"
+                          alt="Electronics Manufacturing"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">Electronics Assembly Robots</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('DKe8ZKmMoQQ')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/DKe8ZKmMoQQ/maxresdefault.jpg"
+                          alt="Precision Manufacturing"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">Precision Robot Assembly</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-purple-300 mb-3 underline decoration-1 underline-offset-2">
+                    Collaborative Robots (Cobots) Revolution
+                  </h4>
+                  <p className="text-base leading-relaxed mb-4">
+                    <strong className="text-purple-300">Collaborative robots</strong> represent the fastest-growing segment of industrial robotics. Unlike traditional industrial robots that operate in safety cages, cobots work directly alongside humans, featuring advanced sensors and AI that enable safe interaction. The cobot market is projected to grow from $1.8 billion to over $12 billion by the end of the decade.
+                  </p>
+
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div>
+                      <h5 className="text-lg font-bold text-cyan-300 mb-2 underline decoration-1 underline-offset-2">
+                        Key Advantages
+                      </h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-blue-300">Safety:</strong> Built-in collision detection and force limiting</li>
+                        <li>• <strong className="text-green-300">Flexibility:</strong> Easy reprogramming for different tasks</li>
+                        <li>• <strong className="text-purple-300">Cost-Effective:</strong> Lower installation and maintenance costs</li>
+                        <li>• <strong className="text-yellow-300">User-Friendly:</strong> Intuitive programming interfaces</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-orange-300 mb-2 underline decoration-1 underline-offset-2">
+                        Leading Applications
+                      </h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-red-300">Assembly:</strong> Precision component installation</li>
+                        <li>• <strong className="text-indigo-300">Quality Control:</strong> Automated inspection and testing</li>
+                        <li>• <strong className="text-teal-300">Packaging:</strong> Flexible packaging and palletizing</li>
+                        <li>• <strong className="text-pink-300">Machine Tending:</strong> Loading and unloading operations</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-lime-300 mb-2 underline decoration-1 underline-offset-2">
+                        Market Leaders
+                      </h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-amber-300">Universal Robots:</strong> 50% market share, UR series</li>
+                        <li>• <strong className="text-rose-300">ABB:</strong> YuMi and GoFa collaborative robots</li>
+                        <li>• <strong className="text-violet-300">KUKA:</strong> LBR iiwa sensitive robotics</li>
+                        <li>• <strong className="text-emerald-300">Fanuc:</strong> CR series collaborative robots</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div
+                    className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 mt-4"
+                    onClick={() => openVideoModal('iom_KcNiQQI')}
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/iom_KcNiQQI/maxresdefault.jpg"
+                      alt="Collaborative Robots"
+                      className="w-full h-40 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <Play size={40} className="text-white" />
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="text-lg font-semibold text-white">Collaborative Robots Working with Humans</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
