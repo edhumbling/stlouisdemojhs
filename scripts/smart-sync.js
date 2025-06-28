@@ -9,6 +9,33 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
 
+const LAST_UPDATE_FILE = '.last-seo-update';
+
+function shouldUpdateSEOToday() {
+  const today = new Date().toISOString().split('T')[0];
+  try {
+    if (fs.existsSync(LAST_UPDATE_FILE)) {
+      const lastUpdate = fs.readFileSync(LAST_UPDATE_FILE, 'utf8').trim();
+      if (lastUpdate === today) {
+        console.log(`ℹ️  SEO files already updated today (${today})`);
+        return false;
+      }
+    }
+  } catch (error) {
+    // File doesn't exist or can't be read, proceed with update
+  }
+  return true;
+}
+
+function recordSEOUpdate() {
+  const today = new Date().toISOString().split('T')[0];
+  try {
+    fs.writeFileSync(LAST_UPDATE_FILE, today);
+  } catch (error) {
+    console.log('⚠️  Could not save last update date');
+  }
+}
+
 console.log('🔄 Smart Sync - Checking for remote updates...\n');
 
 function runCommand(command, silent = false) {
@@ -230,10 +257,35 @@ function main() {
   // Verify SEO files
   const seoStatus = checkSEOFiles();
 
-  // Update SEO files if needed
-  if (seoStatus.allPresent && seoStatus.needsUpdate) {
+  // Update SEO files if needed (only once per day)
+  if (seoStatus.allPresent && seoStatus.needsUpdate && shouldUpdateSEOToday()) {
     console.log('\n🔄 SEO files need updating...');
-    updateSEOFiles();
+
+    // Run the update
+    const updateResult = runCommand('node scripts/update-all-dates.js', true);
+    if (updateResult !== null) {
+      console.log('✅ SEO files updated successfully');
+
+      // Check if there are changes to commit and push
+      const hasChanges = runCommand('git status --porcelain public/robots.txt public/sitemap*.xml', true);
+      if (hasChanges && hasChanges.trim()) {
+        console.log('📝 SEO file changes detected, committing and pushing...');
+        runCommand('git add public/robots.txt public/sitemap*.xml');
+        runCommand('git commit -m "🤖 Auto-update SEO files dates to ' + new Date().toISOString().split('T')[0] + '"');
+
+        // Auto-push to prevent branch divergence
+        const pushResult = runCommand('git push origin main', true);
+        if (pushResult !== null) {
+          console.log('✅ SEO files committed and pushed successfully');
+        } else {
+          console.log('⚠️  SEO files committed locally but push failed');
+          console.log('   Run "git push" manually to sync these changes');
+        }
+      }
+
+      // Record that we updated today
+      recordSEOUpdate();
+    }
   }
 
   console.log('\n🎉 Smart sync completed!');
