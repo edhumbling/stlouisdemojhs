@@ -1147,7 +1147,7 @@ const STEMPage: React.FC = () => {
             </button>
 
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              STEM Resources
+              STEM/TVET Resources
             </h1>
           </div>
         </div>
@@ -1183,23 +1183,36 @@ const STEMPage: React.FC = () => {
             />
           </div>
 
-          {/* STEM Deep Learning Link */}
+          {/* STEM & TVET Learning Links */}
           <div className="text-center mb-8">
-            <p className="text-lg text-gray-300 mb-4">
-              Learn deeply about STEM here
+            <p className="text-lg text-gray-300 mb-6">
+              Learn deeply about STEM & TVET here
             </p>
-            <a
-              href="/stem-deep-learning"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-400/25 hover:scale-105 group"
-              style={{
-                textShadow: '0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.4)',
-                boxShadow: '0 0 20px rgba(255, 255, 0, 0.3), 0 0 40px rgba(255, 255, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.2)'
-              }}
-            >
-              <BookOpen size={20} className="group-hover:rotate-12 transition-transform duration-300" />
-              <span>Explore STEM Definitions & Careers</span>
-              <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="/stem-deep-learning"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 shadow-lg hover:shadow-yellow-400/25 hover:scale-105 group"
+                style={{
+                  textShadow: '0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.4)',
+                  boxShadow: '0 0 20px rgba(255, 255, 0, 0.3), 0 0 40px rgba(255, 255, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.2)'
+                }}
+              >
+                <BookOpen size={20} className="group-hover:rotate-12 transition-transform duration-300" />
+                <span>Explore STEM Definitions & Careers</span>
+              </a>
+
+              <a
+                href="/tvet"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-400 to-green-500 text-black font-bold rounded-xl hover:from-green-300 hover:to-green-400 transition-all duration-300 shadow-lg hover:shadow-green-400/25 hover:scale-105 group"
+                style={{
+                  textShadow: '0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.6), 0 0 30px rgba(0, 255, 0, 0.4)',
+                  boxShadow: '0 0 20px rgba(0, 255, 0, 0.3), 0 0 40px rgba(0, 255, 0, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.2)'
+                }}
+              >
+                <Monitor size={20} className="group-hover:rotate-12 transition-transform duration-300" />
+                <span>Learn about TVET Career, Schools, etc</span>
+              </a>
+            </div>
           </div>
 
           {/* STEM Categories Grid - Apple Style */}
