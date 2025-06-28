@@ -1478,23 +1478,23 @@ const TVETPage: React.FC = () => {
                 <p className="text-lg text-gray-200 mb-6 max-w-3xl mx-auto">
                   Join thousands of Ghanaian youth who are building successful careers through TVET. Whether you're interested in technology, agriculture, business, or creative arts, there's a TVET pathway for you.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-row gap-3 justify-center items-center max-w-2xl mx-auto">
                   <a
                     href="https://ctvet.gov.gh/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-xl hover:from-green-400 hover:to-green-500 transition-all duration-300 shadow-lg hover:shadow-green-400/25 hover:scale-105"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg hover:from-green-400 hover:to-green-500 transition-all duration-300 shadow-lg hover:shadow-green-400/25 hover:scale-105 text-sm"
                   >
-                    <Building size={20} />
-                    <span>Visit CTVET Official Site</span>
+                    <Building size={16} />
+                    <span>CTVET Official Site</span>
                   </a>
                   <a
                     href="https://gtvets.gov.gh/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg hover:shadow-blue-400/25 hover:scale-105"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold rounded-lg hover:from-blue-400 hover:to-blue-500 transition-all duration-300 shadow-lg hover:shadow-blue-400/25 hover:scale-105 text-sm"
                   >
-                    <GraduationCap size={20} />
+                    <GraduationCap size={16} />
                     <span>Ghana TVET Service</span>
                   </a>
                 </div>
