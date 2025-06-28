@@ -99,6 +99,69 @@ const TVETVideo: React.FC<{
   );
 };
 
+// TVETVideoCard component for grid layout
+interface TVETVideoCardProps {
+  src: string;
+  title: string;
+  description: string;
+  gradient: string;
+}
+
+const TVETVideoCard: React.FC<TVETVideoCardProps> = ({ src, title, description, gradient }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  const handleLoad = () => {
+    setIsLoading(false);
+  };
+
+  const handleError = () => {
+    setIsLoading(false);
+    setHasError(true);
+  };
+
+  return (
+    <div className={`bg-gradient-to-br ${gradient} rounded-2xl p-4 sm:p-6 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all duration-300 hover:scale-105`}>
+      <h4 className="text-base sm:text-lg font-bold text-white mb-3 leading-tight">
+        {title}
+      </h4>
+
+      <div className="relative mb-4 rounded-xl overflow-hidden bg-black/20">
+        {isLoading && (
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
+          </div>
+        )}
+
+        {hasError ? (
+          <div className="aspect-video flex items-center justify-center bg-gray-800 text-gray-400">
+            <div className="text-center">
+              <Monitor size={32} className="mx-auto mb-2 opacity-50" />
+              <p className="text-xs">Video unavailable</p>
+            </div>
+          </div>
+        ) : (
+          <iframe
+            src={src}
+            title={title}
+            className="w-full aspect-video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            onLoad={handleLoad}
+            onError={handleError}
+            loading="lazy"
+          ></iframe>
+        )}
+      </div>
+
+      <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">
+        {description}
+      </p>
+    </div>
+  );
+};
+
 const TVETPage: React.FC = () => {
   const navigate = useNavigate();
 
@@ -1185,35 +1248,94 @@ const TVETPage: React.FC = () => {
               </div>
             </section>
 
-            {/* TVET Transformation Video */}
-            <TVETVideo
-              src="https://www.youtube.com/embed/c0gUMPNKEjM"
-              title="🔄 Transformation of TVET in Ghana"
-              description="Explore the role of Ghana TVET Service in transforming technical and vocational education, creating opportunities for youth development and economic growth."
-              icon={<GraduationCap size={20} className="text-white" />}
-              gradient="from-indigo-900 to-indigo-800"
-              note="📺 Graphic Online TV: In-depth discussion on Ghana's TVET transformation and the strategic role of Ghana TVET Service."
-            />
+            {/* TVET Video Grid */}
+            <section className="mb-12">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+                🎬 Latest TVET Videos from Ghana 2024-2025
+              </h3>
 
-            {/* TVET Leadership Video */}
-            <TVETVideo
-              src="https://www.youtube.com/embed/3_usjTp9q1A"
-              title="🎙️ The Seat with David Prah - Deputy Director General Ghana TVET"
-              description="Insightful interview with David Prah, Deputy Director-General of Ghana TVET Service, discussing the future of technical education in Ghana."
-              icon={<Briefcase size={20} className="text-white" />}
-              gradient="from-orange-900 to-orange-800"
-              note="🎯 Leadership Insights: Strategic vision and leadership perspectives on Ghana's TVET development from top officials."
-            />
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {/* Video 1 - GIMI Impact in Ghana */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/5wxXnZKt0DI"
+                  title="🌟 GIMI Impact in Ghana"
+                  description="Social innovation in Technical and Vocational Training through Ghana Education Service and Ghana TVET Service collaboration."
+                  gradient="from-blue-900 to-blue-800"
+                />
 
-            {/* Skills Training Campaign Video */}
-            <TVETVideo
-              src="https://www.youtube.com/embed/pAMO7d6bd4s"
-              title="📢 Ghana TVET Service Skills Training Campaign"
-              description="Ghana TVET Service takes to the streets with awareness campaigns, promoting skills training opportunities and encouraging youth participation in TVET programs."
-              icon={<Star size={20} className="text-white" />}
-              gradient="from-red-900 to-red-800"
-              note="🚀 Community Outreach: Ghana TVET Service's grassroots approach to creating awareness about technical education opportunities."
-            />
+                {/* Video 2 - Ghana TVET Service Bono East */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/bPHovLNyHWs"
+                  title="🏛️ Ghana TVET Service: Bono East Deputy Director"
+                  description="Ghana TVET Service Bono East Deputy Director and staff visit to Nkwabeng Technical Institute and Chief's Palace."
+                  gradient="from-green-900 to-green-800"
+                />
+
+                {/* Video 3 - CTVET English Language */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/Z1trbTX8_Gg"
+                  title="📚 NABPTEX/CTVET 2023 English Language"
+                  description="NABPTEX/CTVET 2023 examination preparation and English Language question analysis for technical education students."
+                  gradient="from-purple-900 to-purple-800"
+                />
+
+                {/* Video 4 - WASSCE Mathematics CTVET */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/DvPqS-GnRaM"
+                  title="🔢 WAEC 2024/WASSCE Mathematics CTVET"
+                  description="WASSCE Mathematics examination preparation with CTVET focus for technical and vocational education students."
+                  gradient="from-orange-900 to-orange-800"
+                />
+
+                {/* Video 5 - NABPTEX Integrated Science */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/x7iHa4yI5Do"
+                  title="🔬 NABPTEX Integrated Science CTVET"
+                  description="NABPTEX/CTVET Integrated Science examination questions and preparation for technical education advancement."
+                  gradient="from-teal-900 to-teal-800"
+                />
+
+                {/* Video 6 - TVET Transformation */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/c0gUMPNKEjM"
+                  title="🔄 Transformation of TVET in Ghana"
+                  description="Explore the role of Ghana TVET Service in transforming technical and vocational education, creating opportunities for youth development."
+                  gradient="from-indigo-900 to-indigo-800"
+                />
+
+                {/* Video 7 - TVET Leadership */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/3_usjTp9q1A"
+                  title="🎙️ The Seat with David Prah - Deputy Director General"
+                  description="Insightful interview with David Prah, Deputy Director-General of Ghana TVET Service, discussing the future of technical education."
+                  gradient="from-pink-900 to-pink-800"
+                />
+
+                {/* Video 8 - Skills Training Campaign */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/pAMO7d6bd4s"
+                  title="📢 Ghana TVET Service Skills Training Campaign"
+                  description="Ghana TVET Service takes to the streets with awareness campaigns, promoting skills training opportunities for youth."
+                  gradient="from-red-900 to-red-800"
+                />
+
+                {/* Video 9 - Ghana TVET Skills Development */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/IFyPl7AlCLk"
+                  title="📊 Ghana TVET Report 2024 - Second Edition"
+                  description="The official Ghana TVET Report showcasing the latest developments, achievements, and future plans for technical education."
+                  gradient="from-cyan-900 to-cyan-800"
+                />
+
+                {/* Video 10 - Youth Skills Competition */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="🏆 Ghana Youth Skills Competition 2025"
+                  description="National youth skills competition showcasing excellence in technical and vocational training across Ghana."
+                  gradient="from-yellow-900 to-yellow-800"
+                />
+              </div>
+            </section>
 
             {/* Call to Action */}
             <section className="text-center">
