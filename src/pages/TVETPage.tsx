@@ -147,6 +147,28 @@ const TVETPage: React.FC = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Technical & Vocational Education Training
               </h2>
+
+              {/* TVET Logos */}
+              <div className="flex justify-center items-center gap-8 sm:gap-12 lg:gap-16 mb-8">
+                <div className="flex flex-col items-center">
+                  <img
+                    src="https://ctvet.gov.gh/wp-content/uploads/2023/08/GSDF-logo.png"
+                    alt="Ghana Skills Development Fund (GSDF)"
+                    className="h-16 sm:h-20 lg:h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                  />
+                  <p className="text-xs sm:text-sm text-gray-400 mt-2 text-center">Ghana Skills Development Fund</p>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <img
+                    src="https://gtvets.gov.gh/wp-content/uploads/2023/01/TVET-LOGO-PNG-272x300.png"
+                    alt="Ghana TVET Service"
+                    className="h-16 sm:h-20 lg:h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                  />
+                  <p className="text-xs sm:text-sm text-gray-400 mt-2 text-center">Ghana TVET Service</p>
+                </div>
+              </div>
+
               <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
                 🚀 Discover practical skills, career opportunities, and professional development through TVET. From hands-on training to industry certifications - your pathway to a successful career starts here.
               </p>
