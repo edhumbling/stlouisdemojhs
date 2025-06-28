@@ -153,7 +153,7 @@ const TVETPage: React.FC = () => {
                 <div className="flex flex-col items-center">
                   <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl shadow-white/20 border border-white/30 hover:shadow-white/40 transition-all duration-300">
                     <img
-                      src="https://ctvet.gov.gh/wp-content/uploads/2022/07/logo-with-name.png"
+                      src="https://ctvet.gov.gh/wp-content/uploads/2022/07/logo-crest-only-1536x1536.png"
                       alt="Commission for Technical and Vocational Education and Training (CTVET)"
                       className="h-16 sm:h-20 lg:h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
                     />
