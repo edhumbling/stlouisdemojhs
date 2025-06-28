@@ -97,7 +97,7 @@ const SpaceExplorationPage: React.FC = () => {
 
       {/* Back Navigation Bar */}
       <div className="bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-900 py-3 sm:py-4 sticky top-16 z-40">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4 sm:px-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -148,8 +148,8 @@ const SpaceExplorationPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-7xl mx-auto">
+      <main className="flex-1 w-full pt-6">
+        <div className="w-full px-4 sm:px-6">
 
           {/* Hero Section */}
           <div className="text-center mb-12">
@@ -1351,7 +1351,7 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
         </div>
-      </div>
+      </main>
 
       {/* Video Modal */}
       {selectedVideo && (
