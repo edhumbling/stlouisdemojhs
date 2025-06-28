@@ -110,6 +110,7 @@ interface TVETVideoCardProps {
 const TVETVideoCard: React.FC<TVETVideoCardProps> = ({ src, title, description, gradient }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleLoad = () => {
     setIsLoading(false);
@@ -120,45 +121,105 @@ const TVETVideoCard: React.FC<TVETVideoCardProps> = ({ src, title, description, 
     setHasError(true);
   };
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div className={`bg-gradient-to-br ${gradient} rounded-2xl p-4 sm:p-6 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all duration-300 hover:scale-105`}>
-      <h4 className="text-base sm:text-lg font-bold text-white mb-3 leading-tight">
-        {title}
-      </h4>
+    <>
+      <div className={`bg-gradient-to-br ${gradient} rounded-2xl p-3 sm:p-4 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-all duration-300 hover:scale-105 cursor-pointer`} onClick={openModal}>
+        <h4 className="text-sm sm:text-base font-bold text-white mb-2 leading-tight line-clamp-2">
+          {title}
+        </h4>
 
-      <div className="relative mb-4 rounded-xl overflow-hidden bg-black/20">
-        {isLoading && (
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
-          </div>
-        )}
-
-        {hasError ? (
-          <div className="aspect-video flex items-center justify-center bg-gray-800 text-gray-400">
-            <div className="text-center">
-              <Monitor size={32} className="mx-auto mb-2 opacity-50" />
-              <p className="text-xs">Video unavailable</p>
+        <div className="relative mb-2 rounded-xl overflow-hidden bg-black/20">
+          {isLoading && (
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
             </div>
-          </div>
-        ) : (
-          <iframe
-            src={src}
-            title={title}
-            className="w-full aspect-video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            onLoad={handleLoad}
-            onError={handleError}
-            loading="lazy"
-          ></iframe>
-        )}
+          )}
+
+          {hasError ? (
+            <div className="aspect-video flex items-center justify-center bg-gray-800 text-gray-400">
+              <div className="text-center">
+                <Monitor size={24} className="mx-auto mb-1 opacity-50" />
+                <p className="text-xs">Video unavailable</p>
+              </div>
+            </div>
+          ) : (
+            <div className="relative">
+              <iframe
+                src={src}
+                title={title}
+                className="w-full aspect-video pointer-events-none"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                onLoad={handleLoad}
+                onError={handleError}
+                loading="lazy"
+              ></iframe>
+              <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className="bg-white/90 rounded-full p-3">
+                  <Play size={24} className="text-black ml-1" />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <p className="text-xs text-gray-300 leading-relaxed line-clamp-2 sm:line-clamp-3">
+          {description}
+        </p>
+
+        <div className="mt-2 text-center">
+          <span className="text-xs text-white/70 bg-white/10 px-2 py-1 rounded-full">
+            Click to view full screen
+          </span>
+        </div>
       </div>
 
-      <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">
-        {description}
-      </p>
-    </div>
+      {/* Full Screen Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4">
+          <div className="relative w-full h-full max-w-6xl max-h-full">
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 bg-white/10 hover:bg-white/20 rounded-full p-2 transition-all duration-300"
+            >
+              <X size={24} className="text-white" />
+            </button>
+
+            {/* Video Container */}
+            <div className="w-full h-full rounded-2xl overflow-hidden bg-black">
+              <iframe
+                src={src}
+                title={title}
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+
+            {/* Video Info */}
+            <div className="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-sm rounded-xl p-4">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                {title}
+              </h3>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                {description}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
