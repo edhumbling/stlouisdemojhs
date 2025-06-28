@@ -1429,6 +1429,296 @@ const RoboticsPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Chinese Robotics Innovation & Leadership */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-red-400">
+              Chinese Robotics Innovation & Global Leadership
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-red-300 mb-4 underline decoration-1 underline-offset-2">
+                  China's Robotics Dominance
+                </h3>
+
+                <p className="text-base leading-relaxed mb-6">
+                  <strong className="text-red-300">China</strong> has emerged as the world's largest robotics market and a global leader in robotics innovation. With over <strong className="text-yellow-300">52% of global robot installations</strong> and the world's most comprehensive robotics ecosystem, China is driving the future of automation across industries from manufacturing and logistics to consumer robotics and artificial intelligence.
+                </p>
+
+                <div className="bg-gradient-to-r from-red-900/30 to-yellow-900/30 rounded-lg p-6 border border-red-600/40 mb-6">
+                  <h4 className="text-xl font-bold text-yellow-300 mb-3">🇨🇳 Market Leadership Statistics</h4>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="text-center">
+                      <p className="text-3xl font-bold text-red-300 mb-2">52%</p>
+                      <p className="text-sm text-gray-200">Global Robot Market Share</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-3xl font-bold text-yellow-300 mb-2">400K+</p>
+                      <p className="text-sm text-gray-200">Industrial Robots Installed Annually</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-3xl font-bold text-orange-300 mb-2">$13.8B</p>
+                      <p className="text-sm text-gray-200">Robotics Market Value</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-orange-300 mb-4 underline decoration-1 underline-offset-2">
+                    Leading Chinese Robotics Companies
+                  </h4>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-blue-300 mb-3 underline decoration-1 underline-offset-2">
+                        UBTECH Robotics - Humanoid Robot Pioneer
+                      </h5>
+                      <p className="text-base leading-relaxed mb-3">
+                        <a href="https://www.ubtrobot.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">UBTECH Robotics</a> is China's leading humanoid robotics company, founded in 2012 in Shenzhen. The company achieved the largest AI funding in history with <strong className="text-yellow-300">$820 million Series C</strong> investment. UBTECH's flagship <strong className="text-green-300">Walker X humanoid robot</strong> and <strong className="text-purple-300">Alpha series</strong> have revolutionized entertainment and service robotics globally.
+                      </p>
+
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('dBSSGaZWJXs')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/dBSSGaZWJXs/maxresdefault.jpg"
+                            alt="UBTECH Walker X Robot"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Walker X Humanoid Robot</p>
+                          </div>
+                        </div>
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('KQ8ABQwqZkM')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/KQ8ABQwqZkM/maxresdefault.jpg"
+                            alt="UBTECH Alpha Robot Performance"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Alpha Robot Performance</p>
+                          </div>
+                        </div>
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('IzXP-kZoYuA')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/IzXP-kZoYuA/maxresdefault.jpg"
+                            alt="UBTECH Walker C Tour Guide"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Walker C Tour Guide</p>
+                          </div>
+                        </div>
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('Sq1QZB5baNw')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/Sq1QZB5baNw/maxresdefault.jpg"
+                            alt="UBTECH Robot Showcase"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">UBTECH Robot Showcase</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-green-300 mb-3 underline decoration-1 underline-offset-2">
+                        SIASUN Robot & Automation - Industrial Robotics Leader
+                      </h5>
+                      <p className="text-base leading-relaxed mb-3">
+                        <a href="https://en.siasun.com/" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline font-bold">SIASUN Robot & Automation</a> is China's largest robotics manufacturer, founded in Shenyang, Liaoning Province. As a spin-off from the Chinese Academy of Sciences' Shenyang Institute of Automation, SIASUN has become a global leader in industrial automation, mobile robots, and intelligent manufacturing systems with over <strong className="text-blue-300">30 years of experience</strong>.
+                      </p>
+
+                      <div className="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                          <h6 className="text-base font-bold text-cyan-300 mb-2">Key Achievements</h6>
+                          <ul className="space-y-1 text-sm">
+                            <li>• <strong className="text-yellow-300">China's First:</strong> Industrial robot manufacturer</li>
+                            <li>• <strong className="text-blue-300">Global Reach:</strong> Operations in 40+ countries</li>
+                            <li>• <strong className="text-green-300">Innovation Hub:</strong> 1,000+ patents and IP rights</li>
+                            <li>• <strong className="text-purple-300">Smart Factory:</strong> World's largest robotic industrial base</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 className="text-base font-bold text-orange-300 mb-2">Product Portfolio</h6>
+                          <ul className="space-y-1 text-sm">
+                            <li>• <strong className="text-red-300">Industrial Robots:</strong> 6-axis articulated robots</li>
+                            <li>• <strong className="text-indigo-300">Mobile Robots:</strong> AGV and logistics automation</li>
+                            <li>• <strong className="text-teal-300">Clean Room Robots:</strong> Semiconductor manufacturing</li>
+                            <li>• <strong className="text-pink-300">Special Purpose:</strong> Welding, painting, assembly</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-purple-300 mb-3 underline decoration-1 underline-offset-2">
+                        Consumer Robotics Dominance
+                      </h5>
+                      <p className="text-base leading-relaxed mb-4">
+                        Chinese companies dominate the global consumer robotics market, particularly in <strong className="text-cyan-300">robotic vacuum cleaners</strong> where they hold over <strong className="text-yellow-300">70% market share</strong> globally. Leading brands have revolutionized home automation with AI-powered cleaning solutions.
+                      </p>
+
+                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://www.ecovacs.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Ecovacs</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">22.22% China market share, DEEBOT series, global leader in robotic cleaning</p>
+                        </div>
+
+                        <div className="bg-orange-900/30 rounded-lg p-4 border border-orange-600/40">
+                          <h6 className="text-base font-bold text-orange-300 mb-2">
+                            <a href="https://www.roborock.com/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">Roborock</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">20.29% China market share, premium robotic vacuums with LiDAR navigation</p>
+                        </div>
+
+                        <div className="bg-gray-900/30 rounded-lg p-4 border border-gray-600/40">
+                          <h6 className="text-base font-bold text-gray-300 mb-2">
+                            <a href="https://www.mi.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 underline">Xiaomi</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Mijia robot vacuums, affordable smart home robotics ecosystem</p>
+                        </div>
+
+                        <div className="bg-green-900/30 rounded-lg p-4 border border-green-600/40">
+                          <h6 className="text-base font-bold text-green-300 mb-2">
+                            <a href="https://www.dreame.tech/" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">Dreame</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">High-performance robotic vacuums with advanced AI and mapping technology</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-cyan-300 mb-4 underline decoration-1 underline-offset-2">
+                    Chinese Research Institutions & Innovation Centers
+                  </h4>
+
+                  <div className="space-y-4">
+                    <div>
+                      <h5 className="text-lg font-bold text-blue-300 mb-3 underline decoration-1 underline-offset-2">
+                        Chinese Academy of Sciences (CAS) Robotics Network
+                      </h5>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <h6 className="text-base font-bold text-yellow-300 mb-2">
+                            <a href="http://english.ia.cas.cn/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 underline">Institute of Automation (CASIA)</a>
+                          </h6>
+                          <p className="text-sm leading-relaxed mb-2">
+                            Located in Beijing, CASIA is China's premier robotics research institute. Home to the <strong className="text-green-300">Brain-inspired Intelligence Research Center</strong> and <strong className="text-purple-300">Intelligent Manufacturing Technology Center</strong>, conducting cutting-edge research in AI robotics, computer vision, and autonomous systems.
+                          </p>
+                          <ul className="space-y-1 text-xs">
+                            <li>• <strong className="text-cyan-300">Research Focus:</strong> Brain-inspired AI, autonomous robots</li>
+                            <li>• <strong className="text-orange-300">Key Projects:</strong> Humanoid robots, service robotics</li>
+                            <li>• <strong className="text-pink-300">Collaborations:</strong> International AI research partnerships</li>
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h6 className="text-base font-bold text-green-300 mb-2">Shenyang Institute of Automation (SIA)</h6>
+                          <p className="text-sm leading-relaxed mb-2">
+                            The birthplace of China's robotics industry, SIA pioneered industrial robotics research in China. Known for developing China's first industrial robot and establishing the foundation for companies like SIASUN. Specializes in <strong className="text-blue-300">underwater robotics</strong>, <strong className="text-red-300">space robotics</strong>, and <strong className="text-yellow-300">manufacturing automation</strong>.
+                          </p>
+                          <ul className="space-y-1 text-xs">
+                            <li>• <strong className="text-indigo-300">Historic Achievement:</strong> China's first industrial robot (1980s)</li>
+                            <li>• <strong className="text-teal-300">Specialization:</strong> Underwater and space robotics</li>
+                            <li>• <strong className="text-amber-300">Industry Impact:</strong> Founded multiple robotics companies</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-purple-300 mb-3 underline decoration-1 underline-offset-2">
+                        Leading Universities in Robotics Research
+                      </h5>
+                      <div className="grid md:grid-cols-3 gap-4">
+                        <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-600/40">
+                          <h6 className="text-base font-bold text-purple-300 mb-2">
+                            <a href="https://www.tsinghua.edu.cn/en/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">Tsinghua University</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">China's MIT, leading AI and robotics research. Home to advanced robotics labs and international collaborations.</p>
+                        </div>
+
+                        <div className="bg-red-900/20 rounded-lg p-4 border border-red-600/40">
+                          <h6 className="text-base font-bold text-red-300 mb-2">
+                            <a href="https://english.pku.edu.cn/" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">Peking University</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Premier research in AI and machine learning for robotics, computer vision, and autonomous systems.</p>
+                        </div>
+
+                        <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://english.bit.edu.cn/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Beijing Institute of Technology</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Specializes in military and defense robotics, autonomous vehicles, and advanced manufacturing systems.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-orange-300 mb-3 underline decoration-1 underline-offset-2">
+                        Emerging Technologies & Future Directions
+                      </h5>
+                      <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 rounded-lg p-6 border border-orange-600/40">
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div>
+                            <h6 className="text-base font-bold text-yellow-300 mb-3">🚀 Next-Generation Developments</h6>
+                            <ul className="space-y-2 text-sm">
+                              <li>• <strong className="text-cyan-300">5G-Enabled Robotics:</strong> Ultra-low latency remote control</li>
+                              <li>• <strong className="text-green-300">AI-Powered Manufacturing:</strong> Lights-out factories</li>
+                              <li>• <strong className="text-purple-300">Swarm Robotics:</strong> Coordinated multi-robot systems</li>
+                              <li>• <strong className="text-blue-300">Soft Robotics:</strong> Bio-inspired flexible robots</li>
+                              <li>• <strong className="text-red-300">Quantum Robotics:</strong> Quantum-enhanced navigation</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <h6 className="text-base font-bold text-pink-300 mb-3">🎯 Strategic Initiatives</h6>
+                            <ul className="space-y-2 text-sm">
+                              <li>• <strong className="text-indigo-300">Made in China 2025:</strong> Robotics as key industry</li>
+                              <li>• <strong className="text-teal-300">Belt and Road:</strong> Global robotics expansion</li>
+                              <li>• <strong className="text-amber-300">Smart City Projects:</strong> Urban robotics integration</li>
+                              <li>• <strong className="text-lime-300">Healthcare Robotics:</strong> Aging population solutions</li>
+                              <li>• <strong className="text-rose-300">Space Exploration:</strong> Lunar and Mars robotics</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Neuralink - Brain-Computer Interface Revolution */}
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-indigo-400">
