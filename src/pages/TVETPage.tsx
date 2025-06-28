@@ -282,28 +282,15 @@ const TVETPage: React.FC = () => {
                   Technical & Vocational Education Training
                 </h2>
 
-                {/* TVET Logos */}
-                <div className="flex justify-center items-center gap-8 sm:gap-12 lg:gap-16 mb-8">
+                {/* TVET Logo */}
+                <div className="flex justify-center items-center mb-8">
                   <div className="flex flex-col items-center">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl shadow-white/20 border border-white/30 hover:shadow-white/40 transition-all duration-300">
-                      <img
-                        src="https://ctvet.gov.gh/favicon.ico"
-                        alt="Commission for Technical and Vocational Education and Training (CTVET)"
-                        className="h-16 sm:h-20 lg:h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <p className="text-xs sm:text-sm text-gray-200 mt-3 text-center font-medium">Commission for Technical and<br />Vocational Education and Training</p>
-                  </div>
-
-                  <div className="flex flex-col items-center">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl shadow-white/20 border border-white/30 hover:shadow-white/40 transition-all duration-300">
-                      <img
-                        src="https://gtvets.gov.gh/wp-content/uploads/2023/01/TVET-LOGO-PNG-272x300.png"
-                        alt="Ghana TVET Service"
-                        className="h-16 sm:h-20 lg:h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <p className="text-xs sm:text-sm text-gray-200 mt-3 text-center font-medium">Ghana TVET Service</p>
+                    <img
+                      src="https://gtvets.gov.gh/wp-content/uploads/2023/01/TVET-LOGO-PNG-272x300.png"
+                      alt="Ghana TVET Service"
+                      className="h-24 sm:h-32 lg:h-40 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                    />
+                    <p className="text-sm sm:text-base text-gray-200 mt-4 text-center font-medium">Ghana TVET Service</p>
                   </div>
                 </div>
 
@@ -317,17 +304,17 @@ const TVETPage: React.FC = () => {
               <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
                 Explore Ghana's comprehensive TVET system - from skills training and technical education to career pathways that drive national development and economic growth.
               </p>
-              <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-sm sm:text-base max-w-4xl mx-auto">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
                   <span className="text-green-300">🏭 Industry Skills</span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
                   <span className="text-blue-300">🎓 Career Pathways</span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
                   <span className="text-purple-300">🔧 Practical Training</span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
                   <span className="text-yellow-300">💼 Job Opportunities</span>
                 </div>
               </div>
