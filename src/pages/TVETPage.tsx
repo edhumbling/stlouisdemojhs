@@ -317,6 +317,134 @@ const TVETPage: React.FC = () => {
               </div>
             </section>
 
+            {/* Commission for Technical and Vocational Education and Training (CTVET) */}
+            <section className="mb-12">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                  🏛️ Commission for Technical and Vocational Education and Training (CTVET)
+                </h3>
+                <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                  CTVET is the apex regulatory body for Ghana's TVET system, established by the Education Regulatory Bodies Act 2020 (Act 1023) to regulate, promote and administer technical and vocational education and training for transformation and innovation for sustainable development.
+                </p>
+              </div>
+
+              {/* CTVET Mandate and Vision */}
+              <div className="mb-8">
+                <h4 className="text-xl sm:text-2xl font-bold text-blue-300 mb-6 text-center">
+                  🎯 CTVET Mandate, Vision & Mission
+                </h4>
+
+                <div className="space-y-6 text-gray-100">
+                  <div>
+                    <h5 className="text-lg font-semibold text-blue-300 mb-3">📋 Mandate</h5>
+                    <p className="text-sm sm:text-base leading-relaxed">
+                      To regulate, promote and administer technical and vocational education and training for transformation and innovation for sustainable development.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h5 className="text-lg font-semibold text-green-300 mb-3">🌟 Vision</h5>
+                    <p className="text-sm sm:text-base leading-relaxed">
+                      The vision of the Commission is to be a world-class leader in coordinating skills development.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h5 className="text-lg font-semibold text-purple-300 mb-3">🚀 Mission</h5>
+                    <p className="text-sm sm:text-base leading-relaxed">
+                      The mission is to coordinate and oversee a TVET system that produces a globally competitive workforce through quality-oriented and demand-driven learning for national development.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTVET Functions */}
+              <div className="mb-8">
+                <h4 className="text-xl sm:text-2xl font-bold text-orange-300 mb-6 text-center">
+                  ⚙️ CTVET Functions & Responsibilities
+                </h4>
+
+                <div className="space-y-4 text-gray-100">
+                  <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-6">
+                    The Education Regulatory Bodies Act 2020 (Act 1023) stipulates comprehensive functions for CTVET to ensure quality TVET delivery across Ghana:
+                  </p>
+
+                  <div className="space-y-3 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-orange-200">Policy Formulation:</strong> Formulate national policies for skills development across the broad spectrum of pre-tertiary and tertiary education, formal, informal and alternative education</p>
+
+                    <p><strong className="text-orange-200">Coordination & Supervision:</strong> Co-ordinate, harmonise and supervise the activities of technical and vocational education and training institutions to meet the requirements of both the formal and informal sectors</p>
+
+                    <p><strong className="text-orange-200">Assessment & Certification:</strong> Develop and implement a national assessment and certification system in the technical and vocational education and training</p>
+
+                    <p><strong className="text-orange-200">Quality Assurance:</strong> Take measures to ensure quality, equitable and inclusive access in the provision of technical and vocational education and training</p>
+
+                    <p><strong className="text-orange-200">Database Management:</strong> Develop and maintain a national database on the technical and vocational education and training sector</p>
+
+                    <p><strong className="text-orange-200">Research & Development:</strong> Facilitate research and development in the technical and vocational education and training system</p>
+
+                    <p><strong className="text-orange-200">Funding Support:</strong> Source for funds to support technical and vocational education and training activities</p>
+
+                    <p><strong className="text-orange-200">Industry Collaboration:</strong> Facilitate collaboration between training institutions and industry to promote industry-led and demand-driven curriculum development, workplace experience learning, and recognition of prior learning</p>
+
+                    <p><strong className="text-orange-200">International Cooperation:</strong> Promote co-operation with international agencies and development partners</p>
+
+                    <p><strong className="text-orange-200">Reporting:</strong> Issue reports on the state of skills development in the country</p>
+
+                    <p><strong className="text-orange-200">Advisory Role:</strong> Advise the Minister on all matters relating to the management and improvement of the technical and vocational education and training system</p>
+
+                    <p><strong className="text-orange-200">Standards Development:</strong> Co-ordinate and promote industry-led occupational standards generation for demand-driven curriculum development and delivery</p>
+
+                    <p><strong className="text-orange-200">Accreditation:</strong> Accredit programmes, institutions, centres, facilitators, assessors and verifiers at the formal, informal, non-formal, technical and vocational education and training institutions to ensure quality delivery</p>
+
+                    <p><strong className="text-orange-200">Framework Implementation:</strong> Collaborate with tertiary institutions and relevant agencies to implement competency-based training programmes on the National Technical and Vocational Education and Training Qualifications Framework</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTVET Core Services */}
+              <div className="mb-8">
+                <h4 className="text-xl sm:text-2xl font-bold text-cyan-300 mb-6 text-center">
+                  🔧 CTVET Core Services
+                </h4>
+
+                <div className="space-y-6 text-gray-100">
+                  <div>
+                    <h5 className="text-lg font-semibold text-cyan-300 mb-3">📝 Registration</h5>
+                    <p className="text-sm sm:text-base leading-relaxed">
+                      CTVET provides comprehensive registration services for TVET institutions, ensuring they meet national standards and requirements for quality education delivery.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h5 className="text-lg font-semibold text-green-300 mb-3">✅ Accreditation</h5>
+                    <p className="text-sm sm:text-base leading-relaxed">
+                      The Commission accredits TVET programmes, institutions, and training providers to ensure they meet established quality standards and deliver competency-based training aligned with industry needs.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h5 className="text-lg font-semibold text-yellow-300 mb-3">📊 Assessment</h5>
+                    <p className="text-sm sm:text-base leading-relaxed">
+                      CTVET develops and implements national assessment systems, conducts examinations, and ensures standardized evaluation of TVET learners across all qualification levels.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h5 className="text-lg font-semibold text-red-300 mb-3">⚖️ Enforcement</h5>
+                    <p className="text-sm sm:text-base leading-relaxed">
+                      The Commission enforces TVET standards and regulations, monitors compliance, and takes corrective measures to maintain quality and integrity in the TVET system.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-sm text-gray-300 italic">
+                  🏛️ CTVET serves as the cornerstone of Ghana's TVET system, ensuring quality, relevance, and accessibility of technical and vocational education for national development and global competitiveness.
+                </p>
+              </div>
+            </section>
+
             {/* Ghana TVET Report Video */}
             <TVETVideo
               src="https://www.youtube.com/embed/IFyPl7AlCLk"
