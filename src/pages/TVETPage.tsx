@@ -860,6 +860,167 @@ const TVETPage: React.FC = () => {
               </div>
             </section>
 
+            {/* Free TVET Schools for JHS Graduates */}
+            <section className="mb-12">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                  🎓 Free TVET Schools for JHS Graduates
+                </h3>
+                <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6">
+                  After completing JHS, students can continue their education at any of these 47 government-sponsored free TVET schools across Ghana. These institutions offer quality technical and vocational training without tuition fees.
+                </p>
+
+                <div className="mb-8">
+                  <a
+                    href="https://ctvet.gov.gh/wp-content/uploads/2021/06/LIST-OF-FREE-TVET-SCHOOLS.xlsx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-xl hover:from-green-400 hover:to-green-500 transition-all duration-300 shadow-lg hover:shadow-green-400/25 hover:scale-105"
+                  >
+                    <BookOpen size={20} />
+                    <span>📥 Download Complete List (Excel)</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Schools by Region */}
+              <div className="space-y-8 text-gray-100">
+                {/* Greater Accra Region */}
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-blue-300 mb-4">
+                    🏙️ Greater Accra Region (6 Schools)
+                  </h4>
+                  <div className="space-y-2 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-blue-200">Accra Tech. Training Centre</strong> - Kokomlemle, Accra</p>
+                    <p><strong className="text-blue-200">Sacred Heart Tech. Institute</strong> - James Town, Accra</p>
+                    <p><strong className="text-blue-200">Ada Tech. Institute</strong> - Ada, Ada East</p>
+                    <p><strong className="text-blue-200">Ashiaman Tech/Voc. Institute</strong> - Ashiaman</p>
+                    <p><strong className="text-blue-200">Teshie Tech. Institute</strong> - Teshie, Ledzokuku-Krowor</p>
+                    <p><strong className="text-blue-200">Tema Tech. Institute</strong> - Tema</p>
+                  </div>
+                </div>
+
+                {/* Ashanti Region */}
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-green-300 mb-4">
+                    🌳 Ashanti Region (4 Schools)
+                  </h4>
+                  <div className="space-y-2 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-green-200">St. Michael Tech/Voc Institute</strong> - Pramso, Bosomtwe</p>
+                    <p><strong className="text-green-200">Kumasi Tech. Institute</strong> - Kumasi</p>
+                    <p><strong className="text-green-200">Methodist Technical Institute</strong> - Kwadaso, Kumasi</p>
+                    <p><strong className="text-green-200">Krobea Asante Tech/Voc School</strong> - Asokore, Sekyere East</p>
+                  </div>
+                </div>
+
+                {/* Eastern Region */}
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-yellow-300 mb-4">
+                    ⛰️ Eastern Region (8 Schools)
+                  </h4>
+                  <div className="space-y-2 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-yellow-200">J.G. Knol Voc. Tech. Institute</strong> - Adukrom Akwapem, Akuapem North</p>
+                    <p><strong className="text-yellow-200">Akwatia Tech. Institute</strong> - Akwatia, Denkyembour</p>
+                    <p><strong className="text-yellow-200">St. Paul's Tech. School</strong> - Kukurantumi, East Akim</p>
+                    <p><strong className="text-yellow-200">Amankwakrom Fisheries Agric. Tech. Institute</strong> - Amankwakrom, Kwahu Afram Plains North</p>
+                    <p><strong className="text-yellow-200">St. Mary's Voc./Tech. Institute</strong> - Adiembra, Kwahu Afram Plains North</p>
+                    <p><strong className="text-yellow-200">Abetifi Tech. Institute</strong> - Abetifi, Kwahu East</p>
+                    <p><strong className="text-yellow-200">St. Joseph's Tech. Institute</strong> - Kwahu-Tafo, Kwahu South</p>
+                    <p><strong className="text-yellow-200">Koforidua Tech. Institute</strong> - Koforidua, New Juaben</p>
+                  </div>
+                </div>
+
+                {/* Volta Region */}
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-purple-300 mb-4">
+                    ⚡ Volta Region (9 Schools)
+                  </h4>
+                  <div className="space-y-2 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-purple-200">Have Tech. Institute</strong> - Have, Afadzto South</p>
+                    <p><strong className="text-purple-200">St. Daniel Comboni Tech/Voc Institute</strong> - Liati, Afadzto South</p>
+                    <p><strong className="text-purple-200">Volta Tech Institute</strong> - Matse, Ho</p>
+                    <p><strong className="text-purple-200">Amedzofe Technical Institute</strong> - Amedzofe, Ho West</p>
+                    <p><strong className="text-purple-200">E.P. Tech./Voc. Institute</strong> - Alavanyo, Hohoe</p>
+                    <p><strong className="text-purple-200">Anlo Tech. Institute</strong> - Anloga, Keta</p>
+                    <p><strong className="text-purple-200">Kpando Tech. Institute</strong> - Kpando</p>
+                    <p><strong className="text-purple-200">C.Y.O.Voc. Tech. Institute</strong> - Sovie, Kpando</p>
+                    <p><strong className="text-purple-200">Comboni Tech/Voc Institute</strong> - Sogakope, South Tongu</p>
+                  </div>
+                </div>
+
+                {/* Central Region */}
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-cyan-300 mb-4">
+                    🏖️ Central Region (3 Schools)
+                  </h4>
+                  <div className="space-y-2 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-cyan-200">Asuansi Tech. Institute</strong> - Asuansi, Abura/Asebu/Kwaman</p>
+                    <p><strong className="text-cyan-200">Enyan-Abaasa Technical Institute</strong> - Enyan-Abaasa, Ajumako/Enyan/Essiam</p>
+                    <p><strong className="text-cyan-200">Cape Coast Tech. Institute</strong> - Cape Coast</p>
+                  </div>
+                </div>
+
+                {/* Brong Ahafo Region */}
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-orange-300 mb-4">
+                    🌾 Brong Ahafo Region (3 Schools)
+                  </h4>
+                  <div className="space-y-2 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-orange-200">Nkoranza Tech Institute</strong> - Nkoranza</p>
+                    <p><strong className="text-orange-200">Sunyani Methodist Technical Institute</strong> - Sunyani</p>
+                    <p><strong className="text-orange-200">Don Bosco Voc./Tech. Institute</strong> - Odumasi, Sunyani West</p>
+                  </div>
+                </div>
+
+                {/* Northern Regions */}
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-red-300 mb-4">
+                    🏜️ Northern Regions (7 Schools)
+                  </h4>
+                  <div className="space-y-2 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-red-200">St. Joseph's Tech. Institute</strong> - Saboba, Northern</p>
+                    <p><strong className="text-red-200">Tamale Technical Institute</strong> - Tamale, Sagnerigu</p>
+                    <p><strong className="text-red-200">Dabokpa Voc/Tech. Institute</strong> - Tamale, Tamale Metro</p>
+                    <p><strong className="text-red-200">Walewale Tech/Voc Institute</strong> - Walewale, West Mampusi (North East)</p>
+                    <p><strong className="text-red-200">Fr. Dogli Memorial Voc.Tech. Institute</strong> - New Ayoma, Jasikan (Oti)</p>
+                    <p><strong className="text-red-200">Buipe Tech/Voc Institute</strong> - Buipe, Central Gonja (Savannah)</p>
+                  </div>
+                </div>
+
+                {/* Upper Regions */}
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-pink-300 mb-4">
+                    🏔️ Upper East & Upper West (6 Schools)
+                  </h4>
+                  <div className="space-y-2 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-pink-200">Bawku Tech. Institute</strong> - Bawku, Upper East</p>
+                    <p><strong className="text-pink-200">Bolga Tech. Institute</strong> - Bolgatanga, Upper East</p>
+                    <p><strong className="text-pink-200">St. Bernadettes Tech/Voc. Institute</strong> - Navrongo, Upper East</p>
+                    <p><strong className="text-pink-200">St. Basilides Voc./Tech. Institute</strong> - Kaleo, Upper West</p>
+                    <p><strong className="text-pink-200">St.John's Voc. Tech. Institute</strong> - Nandom, Upper West</p>
+                    <p><strong className="text-pink-200">Wa Tech. Institute</strong> - Wa, Upper West</p>
+                  </div>
+                </div>
+
+                {/* Western Region */}
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-bold text-indigo-300 mb-4">
+                    🌊 Western Region (2 Schools)
+                  </h4>
+                  <div className="space-y-2 text-sm sm:text-base leading-relaxed">
+                    <p><strong className="text-indigo-200">Kikam Tech. Institute</strong> - Kikam, Ellembelle</p>
+                    <p><strong className="text-indigo-200">Takoradi Tech. Institute</strong> - Takoradi, Sekondi-Takoradi</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center mt-8">
+                <p className="text-sm text-gray-300 italic">
+                  🎯 These 47 free TVET schools provide excellent opportunities for JHS graduates to acquire practical skills and technical knowledge without financial barriers. Each school offers various programmes aligned with regional economic needs and national development priorities.
+                </p>
+              </div>
+            </section>
+
             {/* TVET Career Pathways in Ghana */}
             <section className="mb-12">
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
