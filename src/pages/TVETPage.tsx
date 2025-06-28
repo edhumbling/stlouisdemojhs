@@ -1302,6 +1302,22 @@ const TVETPage: React.FC = () => {
                   description="Ghana TVET Service takes to the streets with awareness campaigns, promoting skills training opportunities for youth."
                   gradient="from-red-900 to-red-800"
                 />
+
+                {/* Video 7 - New TVET Video */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/W53dNVHNRH4"
+                  title="🎓 Ghana TVET Excellence Showcase"
+                  description="Comprehensive showcase of Ghana's TVET excellence, highlighting achievements and innovations in technical and vocational education."
+                  gradient="from-cyan-900 to-cyan-800"
+                />
+
+                {/* Video 8 - Ghana TVET Report */}
+                <TVETVideoCard
+                  src="https://www.youtube.com/embed/IFyPl7AlCLk"
+                  title="📊 Ghana TVET Report 2024 - Second Edition"
+                  description="The official Ghana TVET Report showcasing the latest developments, achievements, and future plans for technical education."
+                  gradient="from-yellow-900 to-yellow-800"
+                />
               </div>
             </section>
 
