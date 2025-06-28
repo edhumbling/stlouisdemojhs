@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen, Zap, Monitor } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Calculator, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen, Zap, Bot } from 'lucide-react';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import useEnhancedNavigation from '../hooks/useEnhancedNavigation';
@@ -13,6 +14,7 @@ const STEMPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentCategoryTitle, setCurrentCategoryTitle] = useState<string | null>(null);
   const { navigateBackWithState, handleInternalStateChange } = useEnhancedNavigation();
+  const navigate = useNavigate();
 
   // Handle initial page loading with shimmer effect
   useEffect(() => {
@@ -50,6 +52,12 @@ const STEMPage: React.FC = () => {
   };
 
   const handleCategoryClick = (category: any) => {
+    // Check if this is a special category with its own route
+    if (category.isSpecial && category.route) {
+      navigate(category.route);
+      return;
+    }
+
     // Store the current category for back navigation
     setCurrentCategoryTitle(category.title);
     setSelectedCategory(category);
@@ -900,6 +908,48 @@ const STEMPage: React.FC = () => {
         { name: "NASA Internship Programs 2025", url: "https://www.nasa.gov/learning-resources/internship-programs/" },
         { name: "NSF Artificial Intelligence Focus", url: "https://www.nsf.gov/focus-areas/artificial-intelligence" }
       ]
+    },
+    {
+      id: 11,
+      title: "Robotics & AI",
+      description: "Robotics competitions, companies & innovation",
+      icon: <Bot className="w-5 h-5" />,
+      color: "#FF6B35",
+      isSpecial: true,
+      route: "/robotics",
+      resources: [
+        { name: "FIRST Robotics Competition", url: "https://www.firstinspires.org/robotics/frc" },
+        { name: "VEX Robotics Competition", url: "https://www.vexrobotics.com/competition" },
+        { name: "Boston Dynamics", url: "https://www.bostondynamics.com/" },
+        { name: "Tesla Optimus Robot", url: "https://www.tesla.com/optimus" },
+        { name: "IEEE Robotics", url: "https://www.ieee-ras.org/" },
+        { name: "RoboCup International", url: "https://www.robocup.org/" },
+        { name: "DARPA Robotics Challenge", url: "https://www.darpa.mil/program/darpa-robotics-challenge" },
+        { name: "NASA Robotics", url: "https://www.nasa.gov/robotics/" },
+        { name: "MIT Robotics", url: "https://www.csail.mit.edu/research/robotics" },
+        { name: "Carnegie Mellon Robotics", url: "https://www.ri.cmu.edu/" }
+      ]
+    },
+    {
+      id: 12,
+      title: "Space Exploration",
+      description: "Space missions, astronomy & cosmic discovery",
+      icon: <Rocket className="w-5 h-5" />,
+      color: "#8B5CF6",
+      isSpecial: true,
+      route: "/space-exploration",
+      resources: [
+        { name: "NASA Space Exploration", url: "https://www.nasa.gov/exploration/" },
+        { name: "SpaceX Missions", url: "https://www.spacex.com/missions/" },
+        { name: "ESA Space Exploration", url: "https://www.esa.int/Science_Exploration" },
+        { name: "Blue Origin", url: "https://www.blueorigin.com/" },
+        { name: "Mars Exploration Program", url: "https://mars.nasa.gov/" },
+        { name: "Hubble Space Telescope", url: "https://hubblesite.org/" },
+        { name: "James Webb Space Telescope", url: "https://www.jwst.nasa.gov/" },
+        { name: "International Space Station", url: "https://www.nasa.gov/mission_pages/station/" },
+        { name: "Artemis Moon Program", url: "https://www.nasa.gov/artemis/" },
+        { name: "Planetary Society", url: "https://www.planetary.org/" }
+      ]
     }
   ];
 
@@ -1209,7 +1259,7 @@ const STEMPage: React.FC = () => {
                   boxShadow: '0 0 15px rgba(0, 255, 0, 0.3), 0 0 30px rgba(0, 255, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.2)'
                 }}
               >
-                <Monitor size={16} className="group-hover:rotate-12 transition-transform duration-300" />
+                <BookOpen size={16} className="group-hover:rotate-12 transition-transform duration-300" />
                 <span>TVET Career & Schools</span>
               </a>
             </div>
