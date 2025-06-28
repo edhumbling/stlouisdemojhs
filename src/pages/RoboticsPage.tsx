@@ -2224,6 +2224,724 @@ const RoboticsPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Robotics Careers & Opportunities */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-green-400">
+              Robotics Careers & Professional Opportunities
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-green-300 mb-4 underline decoration-1 underline-offset-2">
+                  Career Paths in Robotics Engineering
+                </h3>
+
+                <p className="text-base leading-relaxed mb-6">
+                  The robotics industry offers diverse and exciting career opportunities across multiple disciplines. From designing autonomous systems to programming AI algorithms, robotics professionals are shaping the future of technology and automation. With the global robotics market projected to reach <strong className="text-yellow-300">$218 billion by 2030</strong>, career prospects in this field are exceptionally promising.
+                </p>
+
+                <div>
+                  <h4 className="text-xl font-bold text-blue-300 mb-4 underline decoration-1 underline-offset-2">
+                    Core Robotics Engineering Roles
+                  </h4>
+
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-600/40">
+                      <h5 className="text-lg font-bold text-blue-300 mb-3">🤖 Robotics Engineer</h5>
+                      <p className="text-sm text-gray-200 mb-2">Design, build, and test robotic systems and components</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• System integration and testing</li>
+                        <li>• Mechanical design and prototyping</li>
+                        <li>• Control systems development</li>
+                        <li>• Performance optimization</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-600/40">
+                      <h5 className="text-lg font-bold text-purple-300 mb-3">🧠 AI/ML Robotics Engineer</h5>
+                      <p className="text-sm text-gray-200 mb-2">Develop artificial intelligence and machine learning algorithms for robots</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• Computer vision systems</li>
+                        <li>• Neural network development</li>
+                        <li>• Autonomous navigation</li>
+                        <li>• Behavioral programming</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-green-900/30 rounded-lg p-4 border border-green-600/40">
+                      <h5 className="text-lg font-bold text-green-300 mb-3">💻 Software Engineer</h5>
+                      <p className="text-sm text-gray-200 mb-2">Create software systems and applications for robotic platforms</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• Real-time control software</li>
+                        <li>• User interface development</li>
+                        <li>• Simulation and modeling</li>
+                        <li>• System architecture design</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-orange-900/30 rounded-lg p-4 border border-orange-600/40">
+                      <h5 className="text-lg font-bold text-orange-300 mb-3">⚡ Hardware Engineer</h5>
+                      <p className="text-sm text-gray-200 mb-2">Design and develop electronic systems and components</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• Circuit board design</li>
+                        <li>• Sensor integration</li>
+                        <li>• Power systems</li>
+                        <li>• Embedded systems</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-red-900/30 rounded-lg p-4 border border-red-600/40">
+                      <h5 className="text-lg font-bold text-red-300 mb-3">🔧 Mechanical Engineer</h5>
+                      <p className="text-sm text-gray-200 mb-2">Design mechanical systems, actuators, and structural components</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• Kinematic design</li>
+                        <li>• Materials selection</li>
+                        <li>• Manufacturing processes</li>
+                        <li>• Structural analysis</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-cyan-900/30 rounded-lg p-4 border border-cyan-600/40">
+                      <h5 className="text-lg font-bold text-cyan-300 mb-3">👁️ Computer Vision Engineer</h5>
+                      <p className="text-sm text-gray-200 mb-2">Develop visual perception systems for robotic applications</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• Image processing algorithms</li>
+                        <li>• Object recognition</li>
+                        <li>• 3D reconstruction</li>
+                        <li>• Visual SLAM</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
+                    Specialized Robotics Positions
+                  </h4>
+
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div className="bg-indigo-900/30 rounded-lg p-3 border border-indigo-600/40">
+                      <h6 className="text-base font-bold text-indigo-300 mb-2">🎮 Controls Engineer</h6>
+                      <p className="text-xs text-gray-200">Design control algorithms and feedback systems</p>
+                    </div>
+
+                    <div className="bg-teal-900/30 rounded-lg p-3 border border-teal-600/40">
+                      <h6 className="text-base font-bold text-teal-300 mb-2">🔬 Research Scientist</h6>
+                      <p className="text-xs text-gray-200">Conduct advanced research in robotics technologies</p>
+                    </div>
+
+                    <div className="bg-pink-900/30 rounded-lg p-3 border border-pink-600/40">
+                      <h6 className="text-base font-bold text-pink-300 mb-2">🏭 Automation Engineer</h6>
+                      <p className="text-xs text-gray-200">Implement robotic solutions in manufacturing</p>
+                    </div>
+
+                    <div className="bg-amber-900/30 rounded-lg p-3 border border-amber-600/40">
+                      <h6 className="text-base font-bold text-amber-300 mb-2">🛠️ Field Service Engineer</h6>
+                      <p className="text-xs text-gray-200">Maintain and repair robotic systems on-site</p>
+                    </div>
+
+                    <div className="bg-lime-900/30 rounded-lg p-3 border border-lime-600/40">
+                      <h6 className="text-base font-bold text-lime-300 mb-2">📊 Product Manager</h6>
+                      <p className="text-xs text-gray-200">Lead product development and strategy</p>
+                    </div>
+
+                    <div className="bg-rose-900/30 rounded-lg p-3 border border-rose-600/40">
+                      <h6 className="text-base font-bold text-rose-300 mb-2">💼 Sales Engineer</h6>
+                      <p className="text-xs text-gray-200">Technical sales and customer support</p>
+                    </div>
+
+                    <div className="bg-violet-900/30 rounded-lg p-3 border border-violet-600/40">
+                      <h6 className="text-base font-bold text-violet-300 mb-2">🎯 Systems Integrator</h6>
+                      <p className="text-xs text-gray-200">Integrate robotic systems into existing workflows</p>
+                    </div>
+
+                    <div className="bg-emerald-900/30 rounded-lg p-3 border border-emerald-600/40">
+                      <h6 className="text-base font-bold text-emerald-300 mb-2">🔍 Quality Assurance</h6>
+                      <p className="text-xs text-gray-200">Test and validate robotic systems</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-cyan-300 mb-4 underline decoration-1 underline-offset-2">
+                    Leading Robotics Companies - Career Opportunities
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-6">
+                    Explore career opportunities at the world's leading robotics companies. These organizations are at the forefront of robotics innovation and offer exciting career paths for engineers, researchers, and technology professionals.
+                  </p>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-blue-300 mb-3 underline decoration-1 underline-offset-2">
+                        Major Robotics & AI Companies
+                      </h5>
+
+                      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                        <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://bostondynamics.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Boston Dynamics</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">World leader in mobile robotics - Atlas, Spot, Stretch robots</p>
+                        </div>
+
+                        <div className="bg-red-900/20 rounded-lg p-4 border border-red-600/40">
+                          <h6 className="text-base font-bold text-red-300 mb-2">
+                            <a href="https://www.tesla.com/careers/search" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">Tesla</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Optimus humanoid robots, AI & robotics engineering</p>
+                        </div>
+
+                        <div className="bg-green-900/20 rounded-lg p-4 border border-green-600/40">
+                          <h6 className="text-base font-bold text-green-300 mb-2">
+                            <a href="https://www.amazon.jobs/" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">Amazon Robotics</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Warehouse automation, fulfillment robotics, logistics</p>
+                        </div>
+
+                        <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-600/40">
+                          <h6 className="text-base font-bold text-purple-300 mb-2">
+                            <a href="https://www.agilityrobotics.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">Agility Robotics</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Digit humanoid robots for logistics and warehousing</p>
+                        </div>
+
+                        <div className="bg-orange-900/20 rounded-lg p-4 border border-orange-600/40">
+                          <h6 className="text-base font-bold text-orange-300 mb-2">
+                            <a href="https://www.figure.ai/careers" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">Figure AI</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">General-purpose humanoid robots with AI integration</p>
+                        </div>
+
+                        <div className="bg-cyan-900/20 rounded-lg p-4 border border-cyan-600/40">
+                          <h6 className="text-base font-bold text-cyan-300 mb-2">
+                            <a href="https://neuralink.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-200 underline">Neuralink</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Brain-computer interfaces, neural robotics, medical devices</p>
+                        </div>
+
+                        <div className="bg-yellow-900/20 rounded-lg p-4 border border-yellow-600/40">
+                          <h6 className="text-base font-bold text-yellow-300 mb-2">
+                            <a href="https://www.unitree.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 underline">Unitree Robotics</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Quadruped robots, consumer robotics, AI navigation</p>
+                        </div>
+
+                        <div className="bg-indigo-900/20 rounded-lg p-4 border border-indigo-600/40">
+                          <h6 className="text-base font-bold text-indigo-300 mb-2">
+                            <a href="https://www.1x.tech/careers" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-200 underline">1X Technologies</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Android workforce robots, service robotics</p>
+                        </div>
+
+                        <div className="bg-pink-900/20 rounded-lg p-4 border border-pink-600/40">
+                          <h6 className="text-base font-bold text-pink-300 mb-2">
+                            <a href="https://sanctuary.ai/careers" target="_blank" rel="noopener noreferrer" className="hover:text-pink-200 underline">Sanctuary AI</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Human-like intelligence in general-purpose robots</p>
+                        </div>
+
+                        <div className="bg-teal-900/20 rounded-lg p-4 border border-teal-600/40">
+                          <h6 className="text-base font-bold text-teal-300 mb-2">
+                            <a href="https://apptronik.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-teal-200 underline">Apptronik</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Apollo humanoid robots for logistics and manufacturing</p>
+                        </div>
+
+                        <div className="bg-lime-900/20 rounded-lg p-4 border border-lime-600/40">
+                          <h6 className="text-base font-bold text-lime-300 mb-2">
+                            <a href="https://www.irobot.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-lime-200 underline">iRobot</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Roomba vacuum robots, consumer robotics, home automation</p>
+                        </div>
+
+                        <div className="bg-rose-900/20 rounded-lg p-4 border border-rose-600/40">
+                          <h6 className="text-base font-bold text-rose-300 mb-2">
+                            <a href="https://www.ubtrobot.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-rose-200 underline">UBTECH Robotics</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Walker humanoid robots, Alpha series, educational robotics</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-cyan-300 mb-4 underline decoration-1 underline-offset-2">
+                    Leading Robotics Companies - Career Opportunities
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-6">
+                    Explore career opportunities at the world's leading robotics companies. These organizations are at the forefront of robotics innovation and offer exciting career paths for engineers, researchers, and technology professionals.
+                  </p>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-blue-300 mb-3 underline decoration-1 underline-offset-2">
+                        Major Robotics & AI Companies
+                      </h5>
+
+                      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                        <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://bostondynamics.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Boston Dynamics</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">World leader in mobile robotics - Atlas, Spot, Stretch robots</p>
+                        </div>
+
+                        <div className="bg-red-900/20 rounded-lg p-4 border border-red-600/40">
+                          <h6 className="text-base font-bold text-red-300 mb-2">
+                            <a href="https://www.tesla.com/careers/search" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">Tesla</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Optimus humanoid robots, AI & robotics engineering</p>
+                        </div>
+
+                        <div className="bg-green-900/20 rounded-lg p-4 border border-green-600/40">
+                          <h6 className="text-base font-bold text-green-300 mb-2">
+                            <a href="https://www.amazon.jobs/" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">Amazon Robotics</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Warehouse automation, fulfillment robotics, logistics</p>
+                        </div>
+
+                        <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-600/40">
+                          <h6 className="text-base font-bold text-purple-300 mb-2">
+                            <a href="https://www.agilityrobotics.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">Agility Robotics</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Digit humanoid robots for logistics and warehousing</p>
+                        </div>
+
+                        <div className="bg-orange-900/20 rounded-lg p-4 border border-orange-600/40">
+                          <h6 className="text-base font-bold text-orange-300 mb-2">
+                            <a href="https://www.figure.ai/careers" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">Figure AI</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">General-purpose humanoid robots with AI integration</p>
+                        </div>
+
+                        <div className="bg-cyan-900/20 rounded-lg p-4 border border-cyan-600/40">
+                          <h6 className="text-base font-bold text-cyan-300 mb-2">
+                            <a href="https://neuralink.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-200 underline">Neuralink</a>
+                          </h6>
+                          <p className="text-sm text-gray-200">Brain-computer interfaces, neural robotics, medical devices</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-green-300 mb-3 underline decoration-1 underline-offset-2">
+                        Industrial Robotics Companies
+                      </h5>
+
+                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div className="bg-yellow-900/20 rounded-lg p-3 border border-yellow-600/40">
+                          <h6 className="text-base font-bold text-yellow-300 mb-2">
+                            <a href="https://careers.abb/global/en/home" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 underline">ABB Robotics</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Industrial automation, collaborative robots</p>
+                        </div>
+
+                        <div className="bg-orange-900/20 rounded-lg p-3 border border-orange-600/40">
+                          <h6 className="text-base font-bold text-orange-300 mb-2">
+                            <a href="https://www.kuka.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">KUKA</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Automotive robotics, precision manufacturing</p>
+                        </div>
+
+                        <div className="bg-purple-900/20 rounded-lg p-3 border border-purple-600/40">
+                          <h6 className="text-base font-bold text-purple-300 mb-2">
+                            <a href="https://www.fanuc.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">FANUC</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">CNC systems, factory automation</p>
+                        </div>
+
+                        <div className="bg-blue-900/20 rounded-lg p-3 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://www.universal-robots.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Universal Robots</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Collaborative robots, human-robot collaboration</p>
+                        </div>
+
+                        <div className="bg-red-900/20 rounded-lg p-3 border border-red-600/40">
+                          <h6 className="text-base font-bold text-red-300 mb-2">
+                            <a href="https://en.siasun.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">SIASUN Robot</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">China's largest robotics manufacturer</p>
+                        </div>
+
+                        <div className="bg-green-900/20 rounded-lg p-3 border border-green-600/40">
+                          <h6 className="text-base font-bold text-green-300 mb-2">
+                            <a href="https://www.yaskawa.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">Yaskawa</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Motoman robots, servo systems</p>
+                        </div>
+
+                        <div className="bg-indigo-900/20 rounded-lg p-3 border border-indigo-600/40">
+                          <h6 className="text-base font-bold text-indigo-300 mb-2">
+                            <a href="https://www.kawasaki.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-200 underline">Kawasaki Robotics</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Heavy-duty industrial robots</p>
+                        </div>
+
+                        <div className="bg-teal-900/20 rounded-lg p-3 border border-teal-600/40">
+                          <h6 className="text-base font-bold text-teal-300 mb-2">
+                            <a href="https://www.staubli.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-teal-200 underline">Stäubli</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Precision robotics, clean room applications</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-purple-300 mb-3 underline decoration-1 underline-offset-2">
+                        Tech Giants & AI Companies
+                      </h5>
+
+                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div className="bg-blue-900/20 rounded-lg p-3 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://careers.google.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Google/Alphabet</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">AI research, autonomous vehicles, robotics R&D</p>
+                        </div>
+
+                        <div className="bg-gray-900/20 rounded-lg p-3 border border-gray-600/40">
+                          <h6 className="text-base font-bold text-gray-300 mb-2">
+                            <a href="https://careers.apple.com/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 underline">Apple</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Autonomous systems, machine learning, robotics</p>
+                        </div>
+
+                        <div className="bg-blue-900/20 rounded-lg p-3 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://careers.microsoft.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Microsoft</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">AI platforms, robotics development tools</p>
+                        </div>
+
+                        <div className="bg-green-900/20 rounded-lg p-3 border border-green-600/40">
+                          <h6 className="text-base font-bold text-green-300 mb-2">
+                            <a href="https://www.nvidia.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">NVIDIA</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">AI computing, robotics simulation, autonomous systems</p>
+                        </div>
+
+                        <div className="bg-orange-900/20 rounded-lg p-3 border border-orange-600/40">
+                          <h6 className="text-base font-bold text-orange-300 mb-2">
+                            <a href="https://www.metacareers.com/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">Meta (Facebook)</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">VR/AR robotics, AI research, metaverse</p>
+                        </div>
+
+                        <div className="bg-purple-900/20 rounded-lg p-3 border border-purple-600/40">
+                          <h6 className="text-base font-bold text-purple-300 mb-2">
+                            <a href="https://openai.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">OpenAI</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">AI research, robotics applications, AGI development</p>
+                        </div>
+
+                        <div className="bg-red-900/20 rounded-lg p-3 border border-red-600/40">
+                          <h6 className="text-base font-bold text-red-300 mb-2">
+                            <a href="https://www.anthropic.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">Anthropic</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">AI safety, robotics ethics, safe AI systems</p>
+                        </div>
+
+                        <div className="bg-yellow-900/20 rounded-lg p-3 border border-yellow-600/40">
+                          <h6 className="text-base font-bold text-yellow-300 mb-2">
+                            <a href="https://www.deepmind.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 underline">DeepMind</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">AI research, robotics learning, neural networks</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-orange-300 mb-3 underline decoration-1 underline-offset-2">
+                        Aerospace & Defense Robotics
+                      </h5>
+
+                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div className="bg-blue-900/20 rounded-lg p-3 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://www.nasa.gov/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">NASA</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Space robotics, planetary rovers, robotic missions</p>
+                        </div>
+
+                        <div className="bg-gray-900/20 rounded-lg p-3 border border-gray-600/40">
+                          <h6 className="text-base font-bold text-gray-300 mb-2">
+                            <a href="https://www.spacex.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 underline">SpaceX</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Autonomous systems, rocket recovery, space robotics</p>
+                        </div>
+
+                        <div className="bg-blue-900/20 rounded-lg p-3 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://www.blueorigin.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Blue Origin</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Space systems, lunar robotics, autonomous spacecraft</p>
+                        </div>
+
+                        <div className="bg-red-900/20 rounded-lg p-3 border border-red-600/40">
+                          <h6 className="text-base font-bold text-red-300 mb-2">
+                            <a href="https://www.lockheedmartin.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">Lockheed Martin</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Defense robotics, autonomous systems, space technology</p>
+                        </div>
+
+                        <div className="bg-green-900/20 rounded-lg p-3 border border-green-600/40">
+                          <h6 className="text-base font-bold text-green-300 mb-2">
+                            <a href="https://boeing.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">Boeing</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Aerospace robotics, autonomous aircraft, space systems</p>
+                        </div>
+
+                        <div className="bg-purple-900/20 rounded-lg p-3 border border-purple-600/40">
+                          <h6 className="text-base font-bold text-purple-300 mb-2">
+                            <a href="https://www.northropgrumman.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">Northrop Grumman</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Defense systems, autonomous vehicles, space robotics</p>
+                        </div>
+
+                        <div className="bg-orange-900/20 rounded-lg p-3 border border-orange-600/40">
+                          <h6 className="text-base font-bold text-orange-300 mb-2">
+                            <a href="https://www.raytheon.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">Raytheon</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Defense robotics, missile systems, autonomous platforms</p>
+                        </div>
+
+                        <div className="bg-indigo-900/20 rounded-lg p-3 border border-indigo-600/40">
+                          <h6 className="text-base font-bold text-indigo-300 mb-2">
+                            <a href="https://www.generaldynamics.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-200 underline">General Dynamics</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Military robotics, unmanned systems, defense technology</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-red-300 mb-3 underline decoration-1 underline-offset-2">
+                        Automotive & Autonomous Vehicles
+                      </h5>
+
+                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div className="bg-blue-900/20 rounded-lg p-3 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://waymo.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Waymo</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Self-driving cars, autonomous vehicle technology</p>
+                        </div>
+
+                        <div className="bg-green-900/20 rounded-lg p-3 border border-green-600/40">
+                          <h6 className="text-base font-bold text-green-300 mb-2">
+                            <a href="https://getcruise.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">Cruise</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Autonomous vehicles, robotaxi services</p>
+                        </div>
+
+                        <div className="bg-purple-900/20 rounded-lg p-3 border border-purple-600/40">
+                          <h6 className="text-base font-bold text-purple-300 mb-2">
+                            <a href="https://aurora.tech/careers" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">Aurora</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Self-driving technology, trucking automation</p>
+                        </div>
+
+                        <div className="bg-orange-900/20 rounded-lg p-3 border border-orange-600/40">
+                          <h6 className="text-base font-bold text-orange-300 mb-2">
+                            <a href="https://www.ford.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">Ford</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Autonomous vehicles, manufacturing robotics</p>
+                        </div>
+
+                        <div className="bg-red-900/20 rounded-lg p-3 border border-red-600/40">
+                          <h6 className="text-base font-bold text-red-300 mb-2">
+                            <a href="https://www.gm.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">General Motors</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Autonomous driving, manufacturing automation</p>
+                        </div>
+
+                        <div className="bg-yellow-900/20 rounded-lg p-3 border border-yellow-600/40">
+                          <h6 className="text-base font-bold text-yellow-300 mb-2">
+                            <a href="https://www.bmwgroup.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 underline">BMW</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Autonomous driving, production robotics</p>
+                        </div>
+
+                        <div className="bg-indigo-900/20 rounded-lg p-3 border border-indigo-600/40">
+                          <h6 className="text-base font-bold text-indigo-300 mb-2">
+                            <a href="https://www.toyota.com/careers/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-200 underline">Toyota</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Manufacturing robotics, autonomous systems</p>
+                        </div>
+
+                        <div className="bg-teal-900/20 rounded-lg p-3 border border-teal-600/40">
+                          <h6 className="text-base font-bold text-teal-300 mb-2">
+                            <a href="https://www.volkswagen.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-teal-200 underline">Volkswagen</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Autonomous driving, factory automation</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-cyan-300 mb-3 underline decoration-1 underline-offset-2">
+                        Medical & Healthcare Robotics
+                      </h5>
+
+                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div className="bg-blue-900/20 rounded-lg p-3 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://www.intuitive.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Intuitive Surgical</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">da Vinci surgical robots, medical robotics</p>
+                        </div>
+
+                        <div className="bg-green-900/20 rounded-lg p-3 border border-green-600/40">
+                          <h6 className="text-base font-bold text-green-300 mb-2">
+                            <a href="https://www.medtronic.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">Medtronic</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Medical devices, surgical robotics, healthcare AI</p>
+                        </div>
+
+                        <div className="bg-purple-900/20 rounded-lg p-3 border border-purple-600/40">
+                          <h6 className="text-base font-bold text-purple-300 mb-2">
+                            <a href="https://www.stryker.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">Stryker</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Surgical robotics, orthopedic systems</p>
+                        </div>
+
+                        <div className="bg-orange-900/20 rounded-lg p-3 border border-orange-600/40">
+                          <h6 className="text-base font-bold text-orange-300 mb-2">
+                            <a href="https://www.jnj.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">Johnson & Johnson</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Medical robotics, surgical systems</p>
+                        </div>
+
+                        <div className="bg-red-900/20 rounded-lg p-3 border border-red-600/40">
+                          <h6 className="text-base font-bold text-red-300 mb-2">
+                            <a href="https://www.zimmer.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">Zimmer Biomet</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Orthopedic robotics, surgical navigation</p>
+                        </div>
+
+                        <div className="bg-yellow-900/20 rounded-lg p-3 border border-yellow-600/40">
+                          <h6 className="text-base font-bold text-yellow-300 mb-2">
+                            <a href="https://www.philips.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 underline">Philips Healthcare</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Medical imaging, healthcare robotics</p>
+                        </div>
+
+                        <div className="bg-indigo-900/20 rounded-lg p-3 border border-indigo-600/40">
+                          <h6 className="text-base font-bold text-indigo-300 mb-2">
+                            <a href="https://www.siemens-healthineers.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-200 underline">Siemens Healthineers</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Medical technology, diagnostic robotics</p>
+                        </div>
+
+                        <div className="bg-teal-900/20 rounded-lg p-3 border border-teal-600/40">
+                          <h6 className="text-base font-bold text-teal-300 mb-2">
+                            <a href="https://www.gehealthcare.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-teal-200 underline">GE Healthcare</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Medical imaging, healthcare automation</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-pink-300 mb-3 underline decoration-1 underline-offset-2">
+                        Consumer & Service Robotics
+                      </h5>
+
+                      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div className="bg-green-900/20 rounded-lg p-3 border border-green-600/40">
+                          <h6 className="text-base font-bold text-green-300 mb-2">
+                            <a href="https://www.ecovacs.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">Ecovacs</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">DEEBOT vacuum robots, home cleaning automation</p>
+                        </div>
+
+                        <div className="bg-orange-900/20 rounded-lg p-3 border border-orange-600/40">
+                          <h6 className="text-base font-bold text-orange-300 mb-2">
+                            <a href="https://www.roborock.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">Roborock</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Premium robotic vacuums, smart home robotics</p>
+                        </div>
+
+                        <div className="bg-gray-900/20 rounded-lg p-3 border border-gray-600/40">
+                          <h6 className="text-base font-bold text-gray-300 mb-2">
+                            <a href="https://www.mi.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 underline">Xiaomi</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Mijia robots, smart home ecosystem</p>
+                        </div>
+
+                        <div className="bg-blue-900/20 rounded-lg p-3 border border-blue-600/40">
+                          <h6 className="text-base font-bold text-blue-300 mb-2">
+                            <a href="https://www.shark.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Shark</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Robotic vacuums, home cleaning solutions</p>
+                        </div>
+
+                        <div className="bg-purple-900/20 rounded-lg p-3 border border-purple-600/40">
+                          <h6 className="text-base font-bold text-purple-300 mb-2">
+                            <a href="https://www.dyson.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">Dyson</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Robotic vacuums, home automation technology</p>
+                        </div>
+
+                        <div className="bg-red-900/20 rounded-lg p-3 border border-red-600/40">
+                          <h6 className="text-base font-bold text-red-300 mb-2">
+                            <a href="https://www.anki.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">Anki</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Consumer robotics, entertainment robots</p>
+                        </div>
+
+                        <div className="bg-yellow-900/20 rounded-lg p-3 border border-yellow-600/40">
+                          <h6 className="text-base font-bold text-yellow-300 mb-2">
+                            <a href="https://www.sphero.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 underline">Sphero</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Educational robots, STEM robotics</p>
+                        </div>
+
+                        <div className="bg-indigo-900/20 rounded-lg p-3 border border-indigo-600/40">
+                          <h6 className="text-base font-bold text-indigo-300 mb-2">
+                            <a href="https://www.lego.com/careers" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-200 underline">LEGO</a>
+                          </h6>
+                          <p className="text-xs text-gray-200">Educational robotics, MINDSTORMS platform</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-lg p-6 border border-green-600/40 mt-6">
+                      <h5 className="text-xl font-bold text-green-300 mb-3">🚀 Career Growth & Opportunities</h5>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <h6 className="text-base font-bold text-blue-300 mb-3">💰 Salary Ranges (USD)</h6>
+                          <ul className="space-y-2 text-sm">
+                            <li>• <strong className="text-yellow-300">Entry Level:</strong> $70,000 - $95,000</li>
+                            <li>• <strong className="text-green-300">Mid Level:</strong> $95,000 - $140,000</li>
+                            <li>• <strong className="text-orange-300">Senior Level:</strong> $140,000 - $200,000</li>
+                            <li>• <strong className="text-red-300">Principal/Staff:</strong> $200,000 - $300,000+</li>
+                            <li>• <strong className="text-purple-300">Leadership:</strong> $250,000 - $500,000+</li>
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h6 className="text-base font-bold text-cyan-300 mb-3">🎯 Key Skills in Demand</h6>
+                          <ul className="space-y-2 text-sm">
+                            <li>• <strong className="text-indigo-300">Programming:</strong> Python, C++, ROS, MATLAB</li>
+                            <li>• <strong className="text-teal-300">AI/ML:</strong> TensorFlow, PyTorch, Computer Vision</li>
+                            <li>• <strong className="text-pink-300">Hardware:</strong> Embedded systems, sensors, actuators</li>
+                            <li>• <strong className="text-amber-300">Mathematics:</strong> Linear algebra, control theory</li>
+                            <li>• <strong className="text-lime-300">Simulation:</strong> Gazebo, Unity, MATLAB Simulink</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Emerging Technologies & Future Trends */}
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-pink-400">
