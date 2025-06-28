@@ -15,11 +15,14 @@ const RoboticsPage: React.FC = () => {
   };
 
   const openVideoModal = (videoId: string, event: React.MouseEvent) => {
-    // Capture click position for smooth transition
+    // Capture exact click position relative to viewport
     const rect = event.currentTarget.getBoundingClientRect();
+    const clickX = event.clientX || (rect.left + rect.width / 2);
+    const clickY = event.clientY || (rect.top + rect.height / 2);
+
     setClickPosition({
-      x: rect.left + rect.width / 2,
-      y: rect.top + rect.height / 2
+      x: clickX,
+      y: clickY
     });
 
     setVideoLoading(true);
@@ -3450,20 +3453,23 @@ const RoboticsPage: React.FC = () => {
       {/* Video Modal */}
       {selectedVideo && (
         <div
-          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
+          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 p-2 sm:p-4"
           style={{
             animation: 'fadeIn 0.2s ease-out'
           }}
           onClick={closeVideoModal}
         >
           <div
-            className="relative w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl"
+            className="absolute w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl"
             style={{
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)',
               animation: clickPosition
                 ? `scaleFromPoint 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)`
                 : 'scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
               transformOrigin: clickPosition
-                ? `${clickPosition.x}px ${clickPosition.y}px`
+                ? `${((clickPosition.x / window.innerWidth) * 100)}% ${((clickPosition.y / window.innerHeight) * 100)}%`
                 : 'center center'
             }}
             onClick={(e) => e.stopPropagation()}
@@ -3526,22 +3532,22 @@ const RoboticsPage: React.FC = () => {
         @keyframes scaleIn {
           from {
             opacity: 0;
-            transform: scale(0.8);
+            transform: translate(-50%, -50%) scale(0.8);
           }
           to {
             opacity: 1;
-            transform: scale(1);
+            transform: translate(-50%, -50%) scale(1);
           }
         }
 
         @keyframes scaleFromPoint {
           from {
             opacity: 0;
-            transform: scale(0.1);
+            transform: translate(-50%, -50%) scale(0.1);
           }
           to {
             opacity: 1;
-            transform: scale(1);
+            transform: translate(-50%, -50%) scale(1);
           }
         }
 
