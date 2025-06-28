@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowLeft, Bot, Play, X as CloseIcon } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ArrowLeft, Bot, Play, X as CloseIcon, Menu, ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
@@ -9,6 +9,8 @@ const RoboticsPage: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const [videoLoading, setVideoLoading] = useState(false);
   const [clickPosition, setClickPosition] = useState<{ x: number; y: number } | null>(null);
+  const [showNavMenu, setShowNavMenu] = useState(false);
+  const navMenuRef = useRef<HTMLDivElement>(null);
 
   const handleBack = () => {
     navigate('/stem');
@@ -45,6 +47,42 @@ const RoboticsPage: React.FC = () => {
     setVideoLoading(false);
   };
 
+  // Navigation sections
+  const navigationSections = [
+    { id: 'automation', title: 'Industrial Automation', icon: '🏭' },
+    { id: 'autonomous-vehicles', title: 'Autonomous Vehicles', icon: '🚗' },
+    { id: 'robotaxi-2025', title: '2025 Robotaxi Services', icon: '🤖' },
+    { id: 'chinese-av', title: 'Chinese Self-Driving', icon: '🇨🇳' },
+    { id: 'competitions', title: 'Global Competitions', icon: '🏆' },
+    { id: 'careers', title: 'Robotics Careers', icon: '💼' },
+    { id: 'future', title: 'Future Trends', icon: '🚀' }
+  ];
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      setShowNavMenu(false);
+    }
+  };
+
+  // Close navigation menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navMenuRef.current && !navMenuRef.current.contains(event.target as Node)) {
+        setShowNavMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white">
       <SEOHead
@@ -58,20 +96,53 @@ const RoboticsPage: React.FC = () => {
       <Header />
 
       {/* Back Navigation Bar */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 sticky top-16 z-40">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <button
-              onClick={handleBack}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
-            >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-              <span>Back to STEM</span>
-            </button>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={handleBack}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back to STEM</span>
+              </button>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-              Robotics & Automation
-            </h1>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                Robotics & Automation
+              </h1>
+            </div>
+
+            {/* Navigation Menu */}
+            <div className="relative" ref={navMenuRef}>
+              <button
+                onClick={() => setShowNavMenu(!showNavMenu)}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-cyan-700/50 hover:bg-cyan-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-cyan-500/30"
+              >
+                <Menu size={16} className="sm:w-5 sm:h-5" />
+                <span className="hidden sm:inline">Navigate</span>
+                <ChevronDown size={14} className={`transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Dropdown Menu */}
+              {showNavMenu && (
+                <div className="absolute right-0 top-full mt-2 w-64 bg-gray-900/95 backdrop-blur-sm rounded-lg shadow-2xl border border-gray-700/50 py-2 z-50">
+                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-700/50">
+                    Quick Navigation
+                  </div>
+                  {navigationSections.map((section, index) => (
+                    <button
+                      key={section.id}
+                      onClick={() => scrollToSection(section.id)}
+                      className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-purple-600/30 transition-colors duration-200 text-sm"
+                    >
+                      <span className="text-lg">{section.icon}</span>
+                      <span className="text-white font-medium">{section.title}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -112,7 +183,7 @@ const RoboticsPage: React.FC = () => {
           </div>
 
           {/* Industrial Automation Revolution */}
-          <div className="mb-8">
+          <div id="automation" className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-orange-400">
               Industrial Automation Revolution
             </h2>
@@ -492,7 +563,7 @@ const RoboticsPage: React.FC = () => {
           </div>
 
           {/* Autonomous Vehicles & Self-Driving Cars */}
-          <div className="mb-8">
+          <div id="autonomous-vehicles" className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-cyan-400">
               Autonomous Vehicles & Self-Driving Cars Revolution
             </h2>
@@ -837,7 +908,7 @@ const RoboticsPage: React.FC = () => {
                         </div>
                       </div>
 
-                      <div>
+                      <div id="chinese-av">
                         <h6 className="text-lg font-bold text-yellow-300 mb-3 underline decoration-1 underline-offset-2">
                           Chinese Autonomous Driving Technology Videos
                         </h6>
@@ -1033,7 +1104,7 @@ const RoboticsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
+                <div id="robotaxi-2025">
                   <h4 className="text-xl font-bold text-purple-300 mb-4 underline decoration-1 underline-offset-2">
                     2025 Robotaxi Services in Operation
                   </h4>
@@ -1175,7 +1246,7 @@ const RoboticsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-cyan-900/30 to-purple-900/30 rounded-lg p-6 border border-cyan-600/40">
+                <div id="future" className="bg-gradient-to-r from-cyan-900/30 to-purple-900/30 rounded-lg p-6 border border-cyan-600/40">
                   <h4 className="text-xl font-bold text-cyan-300 mb-3">🚀 The Future of Autonomous Transportation</h4>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
@@ -1206,7 +1277,7 @@ const RoboticsPage: React.FC = () => {
           </div>
 
           {/* Global Robotics Competitions */}
-          <div className="mb-8">
+          <div id="competitions" className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-blue-400">
               Global Robotics Competitions
             </h2>
@@ -3350,7 +3421,7 @@ const RoboticsPage: React.FC = () => {
             </h2>
 
             <div className="space-y-6 ml-4">
-              <div>
+              <div id="careers">
                 <h3 className="text-2xl font-bold text-green-300 mb-4 underline decoration-1 underline-offset-2">
                   Career Paths in Robotics Engineering
                 </h3>
