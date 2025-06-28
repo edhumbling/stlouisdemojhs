@@ -278,7 +278,7 @@ const TVETPage: React.FC = () => {
 
               {/* Content */}
               <div className="relative z-10 text-center py-12 sm:py-16">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight underline decoration-2 underline-offset-4">
                   Technical & Vocational Education Training
                 </h2>
 
@@ -323,7 +323,7 @@ const TVETPage: React.FC = () => {
             {/* What is TVET Section */}
             <section className="mb-12">
               <div className="bg-gradient-to-r from-green-900/40 to-green-800/40 rounded-2xl p-6 sm:p-8 border border-green-700/30 backdrop-blur-sm">
-                <h3 className="text-2xl sm:text-3xl font-bold text-green-300 mb-6 flex items-center gap-3">
+                <h3 className="text-2xl sm:text-3xl font-bold text-green-300 mb-6 flex items-center gap-3 underline decoration-2 underline-offset-4">
                   <GraduationCap size={32} className="text-green-400" />
                   What is TVET? 🎯
                 </h3>
@@ -474,7 +474,7 @@ const TVETPage: React.FC = () => {
             {/* Commission for Technical and Vocational Education and Training (CTVET) */}
             <section className="mb-12">
               <div className="text-center mb-8">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 underline decoration-2 underline-offset-4">
                   🏛️ Commission for Technical and Vocational Education and Training (CTVET)
                 </h3>
                 <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -822,7 +822,7 @@ const TVETPage: React.FC = () => {
             {/* Accredited TVET Programmes */}
             <section className="mb-12">
               <div className="text-center mb-8">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 underline decoration-2 underline-offset-4">
                   📋 Accredited TVET Programmes in Ghana
                 </h3>
                 <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -1007,7 +1007,7 @@ const TVETPage: React.FC = () => {
             {/* Free TVET Schools for JHS Graduates */}
             <section className="mb-12">
               <div className="text-center mb-8">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 underline decoration-2 underline-offset-4">
                   🎓 Free TVET Schools for JHS Graduates
                 </h3>
                 <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6">
@@ -1167,7 +1167,7 @@ const TVETPage: React.FC = () => {
 
             {/* TVET Career Pathways in Ghana */}
             <section className="mb-12">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center underline decoration-2 underline-offset-4">
                 🚀 TVET Career Pathways in Ghana
               </h3>
 
@@ -1316,7 +1316,7 @@ const TVETPage: React.FC = () => {
             {/* Discovering Your Path in TVET */}
             <section className="mb-12">
               <div className="text-center mb-8">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 underline decoration-2 underline-offset-4">
                   🧭 Discovering Your Path in TVET
                 </h3>
                 <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -1327,8 +1327,8 @@ const TVETPage: React.FC = () => {
               <div className="space-y-8">
                 {/* Video 1 - Wide Format */}
                 <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-2xl p-6 sm:p-8 border border-blue-700/30 backdrop-blur-sm">
-                  <h4 className="text-xl sm:text-2xl font-bold text-blue-300 mb-4 text-center">
-                    🎯 TVET Career Guidance & Pathways
+                  <h4 className="text-xl sm:text-2xl font-bold text-blue-300 mb-4 text-center underline decoration-2 underline-offset-4">
+                    🎯 TVET Career Guidance & Pathways - Part 1
                   </h4>
 
                   <div className="relative mb-4 rounded-xl overflow-hidden bg-black/20">
@@ -1358,8 +1358,8 @@ const TVETPage: React.FC = () => {
 
                 {/* Video 2 - Wide Format */}
                 <div className="bg-gradient-to-br from-green-900/40 to-green-800/40 rounded-2xl p-6 sm:p-8 border border-green-700/30 backdrop-blur-sm">
-                  <h4 className="text-xl sm:text-2xl font-bold text-green-300 mb-4 text-center">
-                    🚀 Advanced TVET Skills & Innovation
+                  <h4 className="text-xl sm:text-2xl font-bold text-green-300 mb-4 text-center underline decoration-2 underline-offset-4">
+                    🚀 Advanced TVET Skills & Innovation - Part 2
                   </h4>
 
                   <div className="relative mb-4 rounded-xl overflow-hidden bg-black/20">
@@ -1391,7 +1391,7 @@ const TVETPage: React.FC = () => {
 
             {/* TVET Video Grid */}
             <section className="mb-12">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center underline decoration-2 underline-offset-4">
                 🎬 Trending Videos about TVET in Ghana
               </h3>
 
