@@ -840,6 +840,148 @@ const RoboticsPage: React.FC = () => {
                   </div>
                 </div>
 
+                <div>
+                  <h4 className="text-xl font-bold text-purple-300 mb-4 underline decoration-1 underline-offset-2">
+                    2025 Robotaxi Services in Operation
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-6">
+                    <strong className="text-purple-300">2025</strong> marks a pivotal year for autonomous vehicles, with multiple companies launching commercial robotaxi services across major cities. From Tesla's FSD Supervised service in Austin to Waymo's expansion in Los Angeles and Zoox's Las Vegas debut, the robotaxi revolution is finally becoming reality for everyday consumers.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('FhAGUsDbQUI', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/FhAGUsDbQUI/maxresdefault.jpg"
+                        alt="Waymo 2025 San Francisco"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Waymo 2025 San Francisco Experience</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('I-kzcWadOYE', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/I-kzcWadOYE/maxresdefault.jpg"
+                        alt="Tesla Robotaxi 2025 Production"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Tesla Robotaxi 2025 Production Plan</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('Hc7La5njhZ4', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/Hc7La5njhZ4/maxresdefault.jpg"
+                        alt="Tesla Robotaxi Austin Challenges"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Tesla Robotaxi Austin Challenges</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('OA74GfYH86c', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/OA74GfYH86c/maxresdefault.jpg"
+                        alt="Tesla Robotaxi First Passenger Test"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Tesla Robotaxi First Passenger Test</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 rounded-lg p-6 border border-purple-600/40 mb-6">
+                    <h5 className="text-xl font-bold text-purple-300 mb-4">🚗 Current 2025 Robotaxi Operations</h5>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h6 className="text-lg font-bold text-blue-300 mb-3">🇺🇸 United States Services</h6>
+                        <ul className="space-y-2 text-sm">
+                          <li>• <strong className="text-green-300">Tesla Austin:</strong> FSD Supervised service launched June 2025</li>
+                          <li>• <strong className="text-yellow-300">Waymo LA:</strong> Full commercial service across Los Angeles</li>
+                          <li>• <strong className="text-orange-300">Zoox Las Vegas:</strong> Early Rider Program on the Strip</li>
+                          <li>• <strong className="text-cyan-300">Waymo Phoenix:</strong> Largest operational robotaxi fleet</li>
+                          <li>• <strong className="text-pink-300">Waymo SF:</strong> Dense urban autonomous driving</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h6 className="text-lg font-bold text-red-300 mb-3">🌍 Global Expansion</h6>
+                        <ul className="space-y-2 text-sm">
+                          <li>• <strong className="text-indigo-300">Baidu Apollo Go:</strong> 11 Chinese cities operational</li>
+                          <li>• <strong className="text-teal-300">Cruise San Francisco:</strong> Limited commercial service</li>
+                          <li>• <strong className="text-amber-300">Aurora Freight:</strong> Autonomous trucking pilots</li>
+                          <li>• <strong className="text-lime-300">Motional Las Vegas:</strong> Partnership with Lyft</li>
+                          <li>• <strong className="text-rose-300">Argo AI:</strong> Testing in multiple US cities</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg p-6 border border-green-600/40 mb-6">
+                    <h5 className="text-xl font-bold text-green-300 mb-4">📊 2025 Robotaxi Market Statistics</h5>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div>
+                        <h6 className="text-lg font-bold text-yellow-300 mb-2">🚗 Fleet Size</h6>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-blue-300">Waymo:</strong> 700+ vehicles</li>
+                          <li>• <strong className="text-green-300">Tesla:</strong> 1,000+ FSD vehicles</li>
+                          <li>• <strong className="text-purple-300">Baidu:</strong> 500+ Apollo Go vehicles</li>
+                          <li>• <strong className="text-orange-300">Zoox:</strong> 100+ test vehicles</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h6 className="text-lg font-bold text-cyan-300 mb-2">📈 Rides Completed</h6>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-indigo-300">Waymo:</strong> 2M+ rides monthly</li>
+                          <li>• <strong className="text-teal-300">Apollo Go:</strong> 6M+ total rides</li>
+                          <li>• <strong className="text-amber-300">Tesla:</strong> 100K+ test rides</li>
+                          <li>• <strong className="text-pink-300">Total Market:</strong> 10M+ rides in 2025</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h6 className="text-lg font-bold text-red-300 mb-2">💰 Market Value</h6>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-lime-300">Current:</strong> $7.6B global market</li>
+                          <li>• <strong className="text-rose-300">Growth:</strong> 45% YoY increase</li>
+                          <li>• <strong className="text-violet-300">Projection:</strong> $2.1T by 2030</li>
+                          <li>• <strong className="text-emerald-300">Investment:</strong> $50B+ in 2025</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="bg-gradient-to-r from-cyan-900/30 to-purple-900/30 rounded-lg p-6 border border-cyan-600/40">
                   <h4 className="text-xl font-bold text-cyan-300 mb-3">🚀 The Future of Autonomous Transportation</h4>
                   <div className="grid md:grid-cols-2 gap-6">
