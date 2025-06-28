@@ -202,7 +202,7 @@ const RoboticsPage: React.FC = () => {
                     <p className="text-base leading-relaxed mb-3">
                       <a href="https://www.bostondynamics.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">Boston Dynamics</a> is renowned for creating the world's most advanced mobile robots. Their flagship robots include <strong className="text-green-300">Atlas</strong> (humanoid robot with parkour capabilities), <strong className="text-purple-300">Spot</strong> (quadruped robot for industrial inspection), and <strong className="text-yellow-300">Stretch</strong> (warehouse automation robot). Founded in 1992 as a spin-off from MIT, the company has revolutionized robotics with their dynamic movement algorithms and real-time balance control systems.
                     </p>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={() => openVideoModal('fn3KWM1kuAw')}
@@ -251,6 +251,73 @@ const RoboticsPage: React.FC = () => {
                           <p className="text-sm font-semibold text-white">All New Atlas Robot</p>
                         </div>
                       </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('I44_zbEwz_w')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/I44_zbEwz_w/maxresdefault.jpg"
+                          alt="Atlas Walk Run Crawl"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Atlas Walk, Run, Crawl</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('F_7IPm7f1vI')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/F_7IPm7f1vI/maxresdefault.jpg"
+                          alt="Atlas Goes Hands On"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Atlas Goes Hands On</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('XPVC4IyRTG8')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/XPVC4IyRTG8/maxresdefault.jpg"
+                          alt="Spot at Work"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Spot at Work</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('uhND7Mvp3f4')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/uhND7Mvp3f4/maxresdefault.jpg"
+                          alt="Stretch Robot"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Stretch Warehouse Robot</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -261,7 +328,7 @@ const RoboticsPage: React.FC = () => {
                     <p className="text-base leading-relaxed mb-3">
                       <a href="https://www.tesla.com/optimus" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline font-bold">Tesla's Optimus</a> represents Elon Musk's vision of general-purpose humanoid robots designed to perform dangerous, repetitive, or boring tasks. Standing 5'8" and weighing 125 pounds, Optimus is designed to navigate the human world using Tesla's Full Self-Driving computer and neural networks. The robot aims to revolutionize manufacturing and eventually assist with household tasks, potentially becoming more significant than Tesla's automotive business.
                     </p>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={() => openVideoModal('XiQkeWOFwmk')}
@@ -310,6 +377,73 @@ const RoboticsPage: React.FC = () => {
                           <p className="text-sm font-semibold text-white">We Robot Cybercab Unveil</p>
                         </div>
                       </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('M2snk_hwLq8')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/M2snk_hwLq8/maxresdefault.jpg"
+                          alt="Tesla Optimus 2025 Update"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">2025 Optimus Update</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('DrNcXgoFv20')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/DrNcXgoFv20/maxresdefault.jpg"
+                          alt="Optimus Navigating"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Optimus Navigating Around</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('Nt1XmiDwxhY')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/Nt1XmiDwxhY/maxresdefault.jpg"
+                          alt="Tesla Robotaxi Event"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Robotaxi Event Highlights</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('THoGPPOyakU')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/THoGPPOyakU/maxresdefault.jpg"
+                          alt="Optimus Gen 2 Rivals"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Optimus Gen 2 Rivals</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -320,7 +454,7 @@ const RoboticsPage: React.FC = () => {
                     <p className="text-base leading-relaxed mb-3">
                       <a href="https://www.agilityrobotics.com/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline font-bold">Agility Robotics</a> has pioneered bipedal humanoid robots with their flagship <strong className="text-green-300">Digit robot</strong>. Standing 5'9" and weighing 140 pounds, Digit is designed for logistics and warehouse operations, capable of walking, climbing stairs, and manipulating objects in human environments. The company has secured major partnerships with Amazon and Ford for warehouse automation, demonstrating robots that can work alongside humans safely and efficiently.
                     </p>
-                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={() => openVideoModal('HQ1WEiMwWAY')}
@@ -353,6 +487,38 @@ const RoboticsPage: React.FC = () => {
                           <p className="text-sm font-semibold text-white">Agility Robotics Factory Tour</p>
                         </div>
                       </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('q8IdbodRG14')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/q8IdbodRG14/maxresdefault.jpg"
+                          alt="Agility Amazon Partnership"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Amazon Partnership</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('29ECwExc-_M')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/29ECwExc-_M/maxresdefault.jpg"
+                          alt="Digit vs Atlas"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Humanoid Robot Comparison</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -363,7 +529,7 @@ const RoboticsPage: React.FC = () => {
                     <p className="text-base leading-relaxed mb-3">
                       <a href="https://www.figure.ai/" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline font-bold">Figure AI</a> is developing general-purpose humanoid robots with their <strong className="text-blue-300">Figure-01</strong> and latest <strong className="text-green-300">Helix model</strong>. The company has raised over $675 million from investors including OpenAI, Microsoft, and NVIDIA. Their robots feature advanced AI integration, natural language processing, and the ability to learn complex tasks through demonstration. Figure AI has partnerships with BMW for automotive manufacturing and is pioneering vision-language-action models for humanoid robotics.
                     </p>
-                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={() => openVideoModal('Sq1QZB5baNw')}
@@ -378,6 +544,38 @@ const RoboticsPage: React.FC = () => {
                         </div>
                         <div className="absolute bottom-2 left-2 right-2">
                           <p className="text-sm font-semibold text-white">Figure-01 Robot Demonstration</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('0FGtASjXCLI')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/0FGtASjXCLI/maxresdefault.jpg"
+                          alt="Figure AI Conversations"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Full Conversations with AI</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('TAyK9RYzf3I')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/TAyK9RYzf3I/maxresdefault.jpg"
+                          alt="Figure OpenAI Partnership"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">OpenAI Partnership</p>
                         </div>
                       </div>
                       <div
@@ -449,7 +647,7 @@ const RoboticsPage: React.FC = () => {
                     <p className="text-base leading-relaxed mb-3">
                       <a href="https://www.unitree.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline font-bold">Unitree Robotics</a> has revolutionized affordable quadruped robots with their <strong className="text-green-300">Go series</strong> and advanced <strong className="text-blue-300">B2 models</strong>. Starting at under $3,000, Unitree robots offer Boston Dynamics-level capabilities at consumer prices. Their robots feature advanced AI navigation, 4D LiDAR, and can perform complex maneuvers including backflips, dancing, and autonomous navigation. Unitree has democratized robotic dogs for research, security, and entertainment applications worldwide.
                     </p>
-                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                         onClick={() => openVideoModal('X2UxtKLZnNo')}
@@ -480,6 +678,38 @@ const RoboticsPage: React.FC = () => {
                         </div>
                         <div className="absolute bottom-2 left-2 right-2">
                           <p className="text-sm font-semibold text-white">Unitree Go2 Advanced Features</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('47QJhWyHMHM')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/47QJhWyHMHM/maxresdefault.jpg"
+                          alt="Unitree Go1 Backflip"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Go1 Backflip Demo</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('2jvLPxY6JWw')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/2jvLPxY6JWw/maxresdefault.jpg"
+                          alt="Unitree A1 Robot Dog"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">A1 Robot Dog Demo</p>
                         </div>
                       </div>
                     </div>
@@ -1623,8 +1853,7 @@ const RoboticsPage: React.FC = () => {
             <iframe
               src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
               title="Robotics Video"
-              className="w-full h-full"
-              frameBorder="0"
+              className="w-full h-full border-0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
