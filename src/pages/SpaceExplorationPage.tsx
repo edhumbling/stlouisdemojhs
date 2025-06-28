@@ -152,7 +152,7 @@ const SpaceExplorationPage: React.FC = () => {
         <div className="w-full px-4 sm:px-6">
 
           {/* Hero Section */}
-          <div className="text-center mb-12">
+          <div className="mb-12">
             <div className="relative mb-8">
               <img
                 src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
@@ -1363,7 +1363,7 @@ const SpaceExplorationPage: React.FC = () => {
           onClick={closeVideoModal}
         >
           <div
-            className="absolute w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl"
+            className="absolute w-full aspect-video bg-black rounded-lg overflow-hidden shadow-2xl"
             style={{
               left: '50%',
               top: '50%',
