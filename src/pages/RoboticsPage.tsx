@@ -1715,6 +1715,203 @@ const RoboticsPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-red-300 mb-4 underline decoration-1 underline-offset-2">
+                    Fierce Chinese Robotics Competitions
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-6">
+                    China hosts some of the world's most intense and spectacular robotics competitions, featuring high-stakes robot battles, advanced autonomous systems, and cutting-edge engineering. These competitions showcase the fierce competitive spirit and technological prowess of Chinese robotics teams.
+                  </p>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-yellow-300 mb-3 underline decoration-1 underline-offset-2">
+                        RoboMaster - DJI's Ultimate Robot Battle Arena
+                      </h5>
+                      <p className="text-base leading-relaxed mb-4">
+                        <a href="https://www.robomaster.com/en-US" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-200 underline font-bold">RoboMaster</a> is China's premier robotics competition, organized by <strong className="text-blue-300">DJI</strong> since 2015. This intense battlefield competition features teams of robots engaging in strategic combat, requiring advanced engineering, AI programming, and real-time tactical decision-making. Over <strong className="text-green-300">200 universities</strong> from China and internationally compete in this high-stakes tournament.
+                      </p>
+
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('-o_WYEoxWGY')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/-o_WYEoxWGY/maxresdefault.jpg"
+                            alt="RoboMaster 2019 Champion Final"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">2019 Champion Final SJTU vs NEU</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('VRL-xmK0nvw')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/VRL-xmK0nvw/maxresdefault.jpg"
+                            alt="RoboMaster 2022 Grand Finals"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">2022 Grand Finals UW vs TAMU</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('a16aDyN3nfs')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/a16aDyN3nfs/maxresdefault.jpg"
+                            alt="RoboMaster 2017 Finals"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">2017 Finals Robot Battles</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('EpRZWIOaPKU')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/EpRZWIOaPKU/maxresdefault.jpg"
+                            alt="RoboMaster Youth Championship"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Youth Championship 2022</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-orange-300 mb-3 underline decoration-1 underline-offset-2">
+                        Chinese Robot Combat & Fighting Championships
+                      </h5>
+                      <p className="text-base leading-relaxed mb-4">
+                        China's robot fighting scene features intense combat competitions where heavily armored robots battle for supremacy. These competitions showcase advanced engineering, destructive weaponry, and strategic combat tactics in arena-style tournaments.
+                      </p>
+
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('yVTCXe-0798')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/yVTCXe-0798/maxresdefault.jpg"
+                            alt="CMG World Robot Competition"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">CMG Mecha Fighting Series</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('Sq1QZB5baNw')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/Sq1QZB5baNw/maxresdefault.jpg"
+                            alt="Chinese Robot Fighting Arena"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Robot Fighting Arena Battles</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('X2UxtKLZnNo')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/X2UxtKLZnNo/maxresdefault.jpg"
+                            alt="Chinese Robot Combat Championship"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Robot Combat Championship</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={() => openVideoModal('29ECwExc-_M')}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/29ECwExc-_M/maxresdefault.jpg"
+                            alt="Chinese Humanoid Robot Competition"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Humanoid Robot Showdown</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-lg p-6 border border-red-600/40">
+                      <h5 className="text-lg font-bold text-red-300 mb-3">🏆 Competition Highlights & Features</h5>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <h6 className="text-base font-bold text-yellow-300 mb-3">🎯 RoboMaster Competition Features</h6>
+                          <ul className="space-y-2 text-sm">
+                            <li>• <strong className="text-cyan-300">Strategic Combat:</strong> Multi-robot team battles</li>
+                            <li>• <strong className="text-green-300">Advanced AI:</strong> Autonomous and manual control</li>
+                            <li>• <strong className="text-purple-300">Real-time Strategy:</strong> Base defense and attack</li>
+                            <li>• <strong className="text-blue-300">Engineering Excellence:</strong> Custom robot design</li>
+                            <li>• <strong className="text-orange-300">Global Reach:</strong> International university teams</li>
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h6 className="text-base font-bold text-pink-300 mb-3">⚔️ Combat Competition Elements</h6>
+                          <ul className="space-y-2 text-sm">
+                            <li>• <strong className="text-indigo-300">Destructive Weapons:</strong> Spinning discs, hammers, flippers</li>
+                            <li>• <strong className="text-teal-300">Armor Systems:</strong> Advanced protective designs</li>
+                            <li>• <strong className="text-amber-300">Arena Battles:</strong> Enclosed combat environments</li>
+                            <li>• <strong className="text-lime-300">Elimination Rounds:</strong> Tournament-style competition</li>
+                            <li>• <strong className="text-rose-300">Spectacle:</strong> High-energy entertainment value</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
