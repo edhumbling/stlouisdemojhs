@@ -836,6 +836,199 @@ const RoboticsPage: React.FC = () => {
                           </ul>
                         </div>
                       </div>
+
+                      <div>
+                        <h6 className="text-lg font-bold text-yellow-300 mb-3 underline decoration-1 underline-offset-2">
+                          Chinese Autonomous Driving Technology Videos
+                        </h6>
+
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                          <div
+                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                            onClick={(e) => openVideoModal('56yvmC8AdS8', e)}
+                          >
+                            <img
+                              src="https://img.youtube.com/vi/56yvmC8AdS8/maxresdefault.jpg"
+                              alt="China's Latest Driverless Robotaxi"
+                              className="w-full h-32 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                              <Play size={32} className="text-white" />
+                            </div>
+                            <div className="absolute bottom-2 left-2 right-2">
+                              <p className="text-sm font-semibold text-white">China's Latest Driverless Robotaxi</p>
+                            </div>
+                          </div>
+
+                          <div
+                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                            onClick={(e) => openVideoModal('FwABzdr5elM', e)}
+                          >
+                            <img
+                              src="https://img.youtube.com/vi/FwABzdr5elM/maxresdefault.jpg"
+                              alt="Baidu Apollo Go Wuhan Experience"
+                              className="w-full h-32 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                              <Play size={32} className="text-white" />
+                            </div>
+                            <div className="absolute bottom-2 left-2 right-2">
+                              <p className="text-sm font-semibold text-white">Baidu Apollo Go Wuhan Experience</p>
+                            </div>
+                          </div>
+
+                          <div
+                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                            onClick={(e) => openVideoModal('81Pn7MIefqw', e)}
+                          >
+                            <img
+                              src="https://img.youtube.com/vi/81Pn7MIefqw/maxresdefault.jpg"
+                              alt="XPeng XNGP FSD Leader Test"
+                              className="w-full h-32 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                              <Play size={32} className="text-white" />
+                            </div>
+                            <div className="absolute bottom-2 left-2 right-2">
+                              <p className="text-sm font-semibold text-white">XPeng XNGP FSD Leader Test</p>
+                            </div>
+                          </div>
+
+                          <div
+                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                            onClick={(e) => openVideoModal('CFSk-34kgpY', e)}
+                          >
+                            <img
+                              src="https://img.youtube.com/vi/CFSk-34kgpY/maxresdefault.jpg"
+                              alt="BYD God's Eye Self-Driving Test"
+                              className="w-full h-32 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                              <Play size={32} className="text-white" />
+                            </div>
+                            <div className="absolute bottom-2 left-2 right-2">
+                              <p className="text-sm font-semibold text-white">BYD God's Eye Self-Driving Test</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                          <div
+                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                            onClick={(e) => openVideoModal('dtRwMh7dbf4', e)}
+                          >
+                            <img
+                              src="https://img.youtube.com/vi/dtRwMh7dbf4/maxresdefault.jpg"
+                              alt="Amazing Autonomous Taxi Experience China"
+                              className="w-full h-32 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                              <Play size={32} className="text-white" />
+                            </div>
+                            <div className="absolute bottom-2 left-2 right-2">
+                              <p className="text-sm font-semibold text-white">Amazing Autonomous Taxi Experience</p>
+                            </div>
+                          </div>
+
+                          <div
+                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                            onClick={(e) => openVideoModal('lr4W9vb-LI0', e)}
+                          >
+                            <img
+                              src="https://img.youtube.com/vi/lr4W9vb-LI0/maxresdefault.jpg"
+                              alt="XPeng XNGP Vision-Based ADAS"
+                              className="w-full h-32 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                              <Play size={32} className="text-white" />
+                            </div>
+                            <div className="absolute bottom-2 left-2 right-2">
+                              <p className="text-sm font-semibold text-white">XPeng XNGP Vision-Based ADAS</p>
+                            </div>
+                          </div>
+
+                          <div
+                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                            onClick={(e) => openVideoModal('bpyrkHdD2WU', e)}
+                          >
+                            <img
+                              src="https://img.youtube.com/vi/bpyrkHdD2WU/maxresdefault.jpg"
+                              alt="NIO Autopilot Mountain Road Test"
+                              className="w-full h-32 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                              <Play size={32} className="text-white" />
+                            </div>
+                            <div className="absolute bottom-2 left-2 right-2">
+                              <p className="text-sm font-semibold text-white">NIO Autopilot Mountain Road Test</p>
+                            </div>
+                          </div>
+
+                          <div
+                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                            onClick={(e) => openVideoModal('erWmPlG3zac', e)}
+                          >
+                            <img
+                              src="https://img.youtube.com/vi/erWmPlG3zac/maxresdefault.jpg"
+                              alt="BYD Takes on Tesla Autonomous Driving"
+                              className="w-full h-32 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                              <Play size={32} className="text-white" />
+                            </div>
+                            <div className="absolute bottom-2 left-2 right-2">
+                              <p className="text-sm font-semibold text-white">BYD Takes on Tesla Autonomous</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-red-900/30 to-yellow-900/30 rounded-lg p-4 border border-red-600/40 mb-4">
+                          <h6 className="text-lg font-bold text-red-300 mb-2">🚗 Chinese Autonomous Driving Technologies</h6>
+                          <div className="grid md:grid-cols-2 gap-4">
+                            <div>
+                              <h7 className="text-base font-bold text-yellow-300 mb-2">🤖 Baidu Apollo Go</h7>
+                              <ul className="space-y-1 text-xs">
+                                <li>• <strong className="text-blue-300">Cities:</strong> Wuhan, Beijing, Shenzhen, Guangzhou</li>
+                                <li>• <strong className="text-green-300">Fleet:</strong> 500+ robotaxis operational</li>
+                                <li>• <strong className="text-purple-300">Rides:</strong> 6M+ completed rides</li>
+                                <li>• <strong className="text-cyan-300">Technology:</strong> L4 autonomous driving</li>
+                              </ul>
+                            </div>
+
+                            <div>
+                              <h7 className="text-base font-bold text-orange-300 mb-2">⚡ XPeng XNGP</h7>
+                              <ul className="space-y-1 text-xs">
+                                <li>• <strong className="text-indigo-300">System:</strong> Vision-based autonomous driving</li>
+                                <li>• <strong className="text-teal-300">Coverage:</strong> City NGP nationwide rollout</li>
+                                <li>• <strong className="text-amber-300">Features:</strong> Highway and city driving</li>
+                                <li>• <strong className="text-pink-300">Innovation:</strong> LiDAR + camera fusion</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div className="grid md:grid-cols-2 gap-4 mt-4">
+                            <div>
+                              <h7 className="text-base font-bold text-green-300 mb-2">👁️ BYD God's Eye</h7>
+                              <ul className="space-y-1 text-xs">
+                                <li>• <strong className="text-blue-300">Technology:</strong> Advanced LiDAR sensor system</li>
+                                <li>• <strong className="text-purple-300">Coverage:</strong> 21 models with smart driving</li>
+                                <li>• <strong className="text-yellow-300">Features:</strong> Free self-driving system</li>
+                                <li>• <strong className="text-cyan-300">Integration:</strong> DeepSeek AI partnership</li>
+                              </ul>
+                            </div>
+
+                            <div>
+                              <h7 className="text-base font-bold text-blue-300 mb-2">🚙 NIO NOP+</h7>
+                              <ul className="space-y-1 text-xs">
+                                <li>• <strong className="text-red-300">System:</strong> Navigate on Pilot Plus</li>
+                                <li>• <strong className="text-green-300">Capability:</strong> Highway and city autonomous</li>
+                                <li>• <strong className="text-orange-300">Expansion:</strong> Beijing and major cities</li>
+                                <li>• <strong className="text-pink-300">Performance:</strong> Mountain road capability</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
