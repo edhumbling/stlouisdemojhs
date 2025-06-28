@@ -49,13 +49,15 @@ const SpaceExplorationPage: React.FC = () => {
 
   // Navigation sections
   const navigationSections = [
+    { id: 'space-history', title: 'History of Space', icon: '🌌' },
+    { id: 'russian-space', title: 'Russian Space Program', icon: '🇷🇺' },
+    { id: 'chinese-space', title: 'Chinese Space Program', icon: '🇨🇳' },
     { id: 'nasa-missions', title: 'NASA Missions', icon: '🚀' },
     { id: 'private-space', title: 'Private Space Companies', icon: '🏢' },
-    { id: 'space-stations', title: 'Space Stations', icon: '🛰️' },
     { id: 'mars-exploration', title: 'Mars Exploration', icon: '🔴' },
     { id: 'space-telescopes', title: 'Space Telescopes', icon: '🔭' },
-    { id: 'careers', title: 'Space Careers', icon: '👨‍🚀' },
-    { id: 'future', title: 'Future Missions', icon: '🌌' }
+    { id: 'international-agencies', title: 'International Agencies', icon: '🌍' },
+    { id: 'careers', title: 'Space Careers', icon: '👨‍🚀' }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -128,7 +130,7 @@ const SpaceExplorationPage: React.FC = () => {
                   <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-700/50">
                     Quick Navigation
                   </div>
-                  {navigationSections.map((section, index) => (
+                  {navigationSections.map((section) => (
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
@@ -165,6 +167,421 @@ const SpaceExplorationPage: React.FC = () => {
                 <p className="text-lg sm:text-xl text-gray-200 max-w-3xl">
                   Journey through space exploration from NASA missions to private space companies, Mars rovers to space telescopes, and discover your path to the stars.
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* History of Space Exploration Section */}
+          <div id="space-history" className="mb-12">
+            <div className="bg-gradient-to-r from-gray-900/30 to-slate-900/30 rounded-2xl p-6 sm:p-8 border border-gray-600/40">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-300 mb-6 underline decoration-2 underline-offset-4">
+                🌌 History of Space Exploration
+              </h3>
+
+              <p className="text-base sm:text-lg leading-relaxed mb-8 text-gray-200">
+                The journey to the stars began with <strong className="text-blue-300">Sputnik 1</strong> in 1957, sparking the greatest technological race in human history. From the <strong className="text-red-300">Soviet Union's</strong> early victories to <strong className="text-blue-300">America's</strong> moon landing, space exploration has united humanity in our quest to understand the cosmos.
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-xl font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
+                    The Space Race Era (1957-1975)
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    The <strong className="text-yellow-300">Space Race</strong> began when the Soviet Union launched <strong className="text-red-300">Sputnik 1</strong> on October 4, 1957, shocking the world. This basketball-sized satellite orbited Earth every 96 minutes, proving that space travel was possible and launching humanity into the space age.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('bGXhIA0TKvs', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/bGXhIA0TKvs/maxresdefault.jpg"
+                        alt="Sputnik 1 Launch"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Sputnik 1 Launch 1957</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('RQs9_vs5xYs', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/RQs9_vs5xYs/maxresdefault.jpg"
+                        alt="Yuri Gagarin First Human in Space"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Gagarin First Human 1961</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('RMINSD7MmT4', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/RMINSD7MmT4/maxresdefault.jpg"
+                        alt="Apollo 11 Moon Landing"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Apollo 11 Moon Landing</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('9HQfauGJaTs', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/9HQfauGJaTs/maxresdefault.jpg"
+                        alt="Space Race Documentary"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Space Race Documentary</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-4 border border-yellow-600/40 mb-6">
+                    <h5 className="text-lg font-bold text-yellow-300 mb-2">🏆 Space Race Milestones</h5>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-red-300">1957:</strong> Sputnik 1 - First artificial satellite</li>
+                        <li>• <strong className="text-red-300">1961:</strong> Yuri Gagarin - First human in space</li>
+                        <li>• <strong className="text-red-300">1963:</strong> Valentina Tereshkova - First woman in space</li>
+                        <li>• <strong className="text-red-300">1965:</strong> First spacewalk (Alexei Leonov)</li>
+                      </ul>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-blue-300">1969:</strong> Apollo 11 - First moon landing</li>
+                        <li>• <strong className="text-blue-300">1971:</strong> First space station (Salyut 1)</li>
+                        <li>• <strong className="text-blue-300">1975:</strong> Apollo-Soyuz - Space cooperation begins</li>
+                        <li>• <strong className="text-green-300">1981:</strong> Space Shuttle era begins</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-cyan-300 mb-4 underline decoration-1 underline-offset-2">
+                      Apollo Program & Moon Landing Legacy
+                    </h4>
+
+                    <p className="text-base leading-relaxed mb-4">
+                      The <strong className="text-cyan-300">Apollo Program</strong> remains humanity's greatest space achievement. Between 1969 and 1972, <strong className="text-yellow-300">12 astronauts</strong> walked on the Moon across 6 successful missions. <strong className="text-blue-300">Neil Armstrong</strong> and <strong className="text-green-300">Buzz Aldrin</strong> became the first humans to set foot on another world, fulfilling President Kennedy's bold vision.
+                    </p>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={(e) => openVideoModal('wptn5RE2I-k', e)}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/wptn5RE2I-k/maxresdefault.jpg"
+                          alt="Apollo 11 Full Documentary"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Apollo 11 Documentary</p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={(e) => openVideoModal('S9HdPiDJFz0', e)}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/S9HdPiDJFz0/maxresdefault.jpg"
+                          alt="Saturn V Rocket"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Saturn V Rocket</p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={(e) => openVideoModal('cwZb2mqId0A', e)}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/cwZb2mqId0A/maxresdefault.jpg"
+                          alt="Apollo 13 Mission"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Apollo 13 Survival</p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={(e) => openVideoModal('xuCn8ux2gbs', e)}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/xuCn8ux2gbs/maxresdefault.jpg"
+                          alt="Space Shuttle Program"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Space Shuttle Era</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Soviet/Russian Space Program Section */}
+          <div id="russian-space" className="mb-12">
+            <div className="bg-gradient-to-r from-red-900/30 to-rose-900/30 rounded-2xl p-6 sm:p-8 border border-red-600/40">
+              <h3 className="text-2xl sm:text-3xl font-bold text-red-300 mb-6 underline decoration-2 underline-offset-4">
+                🇷🇺 Soviet Union & Russian Space Program
+              </h3>
+
+              <p className="text-base sm:text-lg leading-relaxed mb-8 text-gray-200">
+                The <strong className="text-red-300">Soviet space program</strong> achieved numerous historic firsts, from the first satellite to the first human in space. Today, <strong className="text-blue-300">Roscosmos</strong> continues this legacy with reliable Soyuz spacecraft, Luna missions, and crucial ISS operations, maintaining Russia's position as a major space power.
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-xl font-bold text-rose-300 mb-4 underline decoration-1 underline-offset-2">
+                    Soviet Space Achievements & Roscosmos Today
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    The Soviet Union dominated early space exploration with groundbreaking achievements. <strong className="text-yellow-300">Sergei Korolev</strong>, the chief designer, led missions that put the first satellite, first human, and first woman in space. Modern <a href="https://www.roscosmos.ru/" target="_blank" rel="noopener noreferrer" className="text-rose-300 hover:text-rose-200 underline font-bold">Roscosmos</a> continues with Luna missions and ISS partnerships.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('3N3bBC03x_c', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/3N3bBC03x_c/maxresdefault.jpg"
+                        alt="Soviet Space Program Documentary"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Soviet Space Program</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('06-XcAiydpM', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/06-XcAiydpM/maxresdefault.jpg"
+                        alt="Soyuz Spacecraft"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Soyuz Spacecraft</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('ALMVeqadIlI', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/ALMVeqadIlI/maxresdefault.jpg"
+                        alt="Luna 25 Mission"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Luna 25 Mission</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('Kz1hLVKVz8E', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/Kz1hLVKVz8E/maxresdefault.jpg"
+                        alt="Roscosmos Current Missions"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Roscosmos Today</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-red-900/30 to-pink-900/30 rounded-lg p-4 border border-red-600/40">
+                    <h5 className="text-lg font-bold text-red-300 mb-2">🚀 Russian Space Legacy</h5>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-yellow-300">Soyuz:</strong> Most reliable spacecraft (140+ crewed flights)</li>
+                        <li>• <strong className="text-blue-300">Salyut & Mir:</strong> Pioneered long-duration spaceflight</li>
+                        <li>• <strong className="text-green-300">Luna Program:</strong> First soft moon landing (Luna 9)</li>
+                      </ul>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-purple-300">Venera:</strong> First successful Venus landings</li>
+                        <li>• <strong className="text-orange-300">ISS Partnership:</strong> Critical crew transportation</li>
+                        <li>• <strong className="text-cyan-300">Future Plans:</strong> Luna missions & new space station</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Chinese Space Program Section */}
+          <div id="chinese-space" className="mb-12">
+            <div className="bg-gradient-to-r from-yellow-900/30 to-amber-900/30 rounded-2xl p-6 sm:p-8 border border-yellow-600/40">
+              <h3 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6 underline decoration-2 underline-offset-4">
+                🇨🇳 China National Space Administration (CNSA)
+              </h3>
+
+              <p className="text-base sm:text-lg leading-relaxed mb-8 text-gray-200">
+                <strong className="text-yellow-300">China's space program</strong> has rapidly emerged as a major force in space exploration. From the successful <strong className="text-blue-300">Chang'e lunar missions</strong> to the <strong className="text-green-300">Tiangong space station</strong> and <strong className="text-red-300">Tianwen Mars rover</strong>, China is establishing itself as the third major space power alongside the US and Russia.
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-xl font-bold text-amber-300 mb-4 underline decoration-1 underline-offset-2">
+                    Chang'e Lunar Program & Tiangong Space Station
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    China's <a href="https://www.cnsa.gov.cn/english/" target="_blank" rel="noopener noreferrer" className="text-amber-300 hover:text-amber-200 underline font-bold">Chang'e program</a> has achieved remarkable success, including the first soft landing on the Moon's far side with <strong className="text-blue-300">Chang'e 4</strong> and sample return missions. The <strong className="text-green-300">Tiangong space station</strong> completed construction in 2022, making China the second nation to operate its own space station.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('DoIIwPOtqOY', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/DoIIwPOtqOY/maxresdefault.jpg"
+                        alt="Chang'e 4 Far Side Moon Landing"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Chang'e 4 Far Side</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('3Q4bUDZaXvs', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/3Q4bUDZaXvs/maxresdefault.jpg"
+                        alt="Tiangong Space Station"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Tiangong Space Station</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('3aEWZPahKnk', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/3aEWZPahKnk/maxresdefault.jpg"
+                        alt="Tianwen-1 Mars Mission"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Tianwen-1 Mars</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('YM4C1ZBzDLw', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/YM4C1ZBzDLw/maxresdefault.jpg"
+                        alt="Chang'e 6 Sample Return"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Chang'e 6 Samples</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-yellow-900/30 to-red-900/30 rounded-lg p-4 border border-yellow-600/40">
+                    <h5 className="text-lg font-bold text-yellow-300 mb-2">🌙 Chinese Space Achievements</h5>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-blue-300">Chang'e 4:</strong> First far side moon landing (2019)</li>
+                        <li>• <strong className="text-green-300">Tiangong:</strong> Operational space station (2022)</li>
+                        <li>• <strong className="text-red-300">Tianwen-1:</strong> Successful Mars rover mission</li>
+                      </ul>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-purple-300">Chang'e 5:</strong> Lunar sample return (2020)</li>
+                        <li>• <strong className="text-orange-300">Shenzhou:</strong> Independent crewed spacecraft</li>
+                        <li>• <strong className="text-cyan-300">Future:</strong> Lunar base & Mars sample return</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -677,6 +1094,145 @@ const SpaceExplorationPage: React.FC = () => {
             </div>
           </div>
 
+          {/* International Space Agencies Section */}
+          <div id="international-agencies" className="mb-12">
+            <div className="bg-gradient-to-r from-indigo-900/30 to-violet-900/30 rounded-2xl p-6 sm:p-8 border border-indigo-600/40">
+              <h3 className="text-2xl sm:text-3xl font-bold text-indigo-300 mb-6 underline decoration-2 underline-offset-4">
+                🌍 International Space Agencies & Global Cooperation
+              </h3>
+
+              <p className="text-base sm:text-lg leading-relaxed mb-8 text-gray-200">
+                Space exploration has become a truly <strong className="text-indigo-300">global endeavor</strong>, with agencies from Europe, Japan, India, and other nations contributing to our understanding of the universe. International cooperation through projects like the <strong className="text-blue-300">International Space Station</strong> demonstrates how humanity can work together to achieve extraordinary goals.
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-xl font-bold text-violet-300 mb-4 underline decoration-1 underline-offset-2">
+                    European Space Agency (ESA) & Global Partners
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    The <a href="https://www.esa.int/" target="_blank" rel="noopener noreferrer" className="text-violet-300 hover:text-violet-200 underline font-bold">European Space Agency</a> represents 22 European countries in space exploration. ESA has achieved remarkable success with missions like <strong className="text-blue-300">Rosetta</strong> (comet landing), <strong className="text-green-300">BepiColombo</strong> (Mercury mission), and the <strong className="text-yellow-300">James Webb Space Telescope</strong> partnership with NASA.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('h2I8AoB1xgU', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/h2I8AoB1xgU/maxresdefault.jpg"
+                        alt="ESA Rosetta Comet Mission"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">ESA Rosetta Mission</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('BFuT7tfqNUc', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/BFuT7tfqNUc/maxresdefault.jpg"
+                        alt="JAXA Hayabusa2 Mission"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">JAXA Hayabusa2</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('6PDkZIAaM08', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/6PDkZIAaM08/maxresdefault.jpg"
+                        alt="ISRO Mars Mission"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">ISRO Mars Mission</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('21X5lGlDOfg', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/21X5lGlDOfg/maxresdefault.jpg"
+                        alt="International Space Station"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">ISS Cooperation</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div className="bg-gradient-to-r from-indigo-900/30 to-blue-900/30 rounded-lg p-4 border border-indigo-600/40">
+                      <h5 className="text-lg font-bold text-indigo-300 mb-2">🇪🇺 European Space Agency (ESA)</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-blue-300">22 member states</strong> collaborating in space</li>
+                        <li>• <strong className="text-green-300">Rosetta mission:</strong> First comet landing</li>
+                        <li>• <strong className="text-purple-300">Gaia telescope:</strong> Mapping the Milky Way</li>
+                        <li>• <strong className="text-yellow-300">ExoMars:</strong> Search for life on Mars</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-violet-900/30 to-purple-900/30 rounded-lg p-4 border border-violet-600/40">
+                      <h5 className="text-lg font-bold text-violet-300 mb-2">🇯🇵 Japan Aerospace Exploration Agency (JAXA)</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-orange-300">Hayabusa missions:</strong> Asteroid sample return</li>
+                        <li>• <strong className="text-cyan-300">Kibo module:</strong> Japanese ISS laboratory</li>
+                        <li>• <strong className="text-pink-300">SLIM:</strong> Precision lunar landing technology</li>
+                        <li>• <strong className="text-lime-300">MMX mission:</strong> Mars moon exploration</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 rounded-lg p-4 border border-orange-600/40">
+                      <h5 className="text-lg font-bold text-orange-300 mb-2">🇮🇳 Indian Space Research Organisation (ISRO)</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-red-300">Mars Orbiter Mission:</strong> Lowest-cost Mars mission</li>
+                        <li>• <strong className="text-yellow-300">Chandrayaan:</strong> Lunar exploration program</li>
+                        <li>• <strong className="text-green-300">104 satellites:</strong> Single launch record</li>
+                        <li>• <strong className="text-blue-300">Gaganyaan:</strong> Upcoming crewed mission</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-lg p-4 border border-teal-600/40">
+                      <h5 className="text-lg font-bold text-teal-300 mb-2">🌍 Other Space Agencies</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-purple-300">CSA (Canada):</strong> Canadarm robotics</li>
+                        <li>• <strong className="text-blue-300">KARI (South Korea):</strong> Lunar missions</li>
+                        <li>• <strong className="text-green-300">UAE Space Agency:</strong> Mars Hope probe</li>
+                        <li>• <strong className="text-yellow-300">CONAE (Argentina):</strong> Earth observation</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Space Careers Section */}
           <div id="careers" className="mb-12">
             <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-2xl p-6 sm:p-8 border border-green-600/40">
@@ -870,7 +1426,7 @@ const SpaceExplorationPage: React.FC = () => {
       )}
 
       {/* CSS Animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
