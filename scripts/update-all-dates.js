@@ -31,7 +31,10 @@ function getCurrentDate() {
 
 function getCurrentDateTime() {
   const now = new Date();
-  return now.toISOString(); // Full ISO format for sitemaps
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`; // Simple date format like robots.txt
 }
 
 function updateRobotsDate() {
@@ -76,16 +79,16 @@ function updateSitemapFile(filename) {
     const content = fs.readFileSync(filePath, 'utf8');
     const currentDateTime = getCurrentDateTime();
 
-    // Update all lastmod dates - handles Z, +00:00, and other timezone formats
+    // Update all lastmod dates - both complex timestamps and simple dates
     let updatedContent = content.replace(
       /<lastmod>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?(?:Z|[+-]\d{2}:\d{2})?<\/lastmod>/g,
       `<lastmod>${currentDateTime}</lastmod>`
     );
 
-    // Also update simple date format if present
+    // Update simple date format
     updatedContent = updatedContent.replace(
       /<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g,
-      `<lastmod>${getCurrentDate()}</lastmod>`
+      `<lastmod>${currentDateTime}</lastmod>`
     );
 
     if (content === updatedContent) {
