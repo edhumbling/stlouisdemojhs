@@ -7,17 +7,39 @@ import Header from '../components/layout/Header';
 const RoboticsPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [videoLoading, setVideoLoading] = useState(false);
+  const [clickPosition, setClickPosition] = useState<{ x: number; y: number } | null>(null);
 
   const handleBack = () => {
     navigate('/stem');
   };
 
-  const openVideoModal = (videoId: string) => {
+  const openVideoModal = (videoId: string, event: React.MouseEvent) => {
+    // Capture click position for smooth transition
+    const rect = event.currentTarget.getBoundingClientRect();
+    setClickPosition({
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2
+    });
+
+    setVideoLoading(true);
     setSelectedVideo(videoId);
+
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
   };
 
   const closeVideoModal = () => {
     setSelectedVideo(null);
+    setVideoLoading(false);
+    setClickPosition(null);
+
+    // Restore body scroll
+    document.body.style.overflow = 'unset';
+  };
+
+  const handleVideoLoad = () => {
+    setVideoLoading(false);
   };
 
   return (
@@ -139,7 +161,7 @@ const RoboticsPage: React.FC = () => {
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <div
                       className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={() => openVideoModal('TUx-ljgB-5Q')}
+                      onClick={(e) => openVideoModal('TUx-ljgB-5Q', e)}
                     >
                       <img
                         src="https://img.youtube.com/vi/TUx-ljgB-5Q/maxresdefault.jpg"
@@ -156,7 +178,7 @@ const RoboticsPage: React.FC = () => {
 
                     <div
                       className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={() => openVideoModal('NZTVgExZqoI')}
+                      onClick={(e) => openVideoModal('NZTVgExZqoI', e)}
                     >
                       <img
                         src="https://img.youtube.com/vi/NZTVgExZqoI/maxresdefault.jpg"
@@ -3427,24 +3449,107 @@ const RoboticsPage: React.FC = () => {
 
       {/* Video Modal */}
       {selectedVideo && (
-        <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
-          <div className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden">
+        <div
+          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
+          style={{
+            animation: 'fadeIn 0.2s ease-out'
+          }}
+          onClick={closeVideoModal}
+        >
+          <div
+            className="relative w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl"
+            style={{
+              animation: clickPosition
+                ? `scaleFromPoint 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)`
+                : 'scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
+              transformOrigin: clickPosition
+                ? `${clickPosition.x}px ${clickPosition.y}px`
+                : 'center center'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
             <button
               onClick={closeVideoModal}
-              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 rounded-full p-2 transition-colors"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 bg-black/70 hover:bg-black/90 rounded-full p-2 transition-all duration-200 hover:scale-110"
             >
-              <CloseIcon size={24} className="text-white" />
+              <CloseIcon size={20} className="text-white" />
             </button>
+
+            {/* Shimmer Loading Effect */}
+            {videoLoading && (
+              <div className="absolute inset-0 bg-gray-900 flex items-center justify-center">
+                <div className="w-full h-full relative overflow-hidden">
+                  {/* Shimmer Background */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse"></div>
+
+                  {/* Shimmer Wave */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                    style={{
+                      animation: 'shimmer 1.5s infinite',
+                      transform: 'translateX(-100%)'
+                    }}
+                  ></div>
+
+                  {/* Loading Icon */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex flex-col items-center gap-4">
+                      <div className="w-16 h-16 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
+                      <p className="text-white/80 text-sm font-medium">Loading video...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* YouTube Iframe */}
             <iframe
-              src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
+              src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
               title="Robotics Video"
-              className="w-full h-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              className={`w-full h-full border-0 transition-opacity duration-300 ${videoLoading ? 'opacity-0' : 'opacity-100'}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
+              onLoad={handleVideoLoad}
             />
           </div>
         </div>
       )}
+
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes scaleFromPoint {
+          from {
+            opacity: 0;
+            transform: scale(0.1);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+      `}</style>
     </div>
   );
 };
