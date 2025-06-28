@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run sync && vite",
+    "dev": "vite",
     "dev:nosync": "vite",
     "sync": "node scripts/smart-sync.js",
     "sync:simple": "git pull origin main",
@@ -17,9 +17,7 @@
     "update-robots": "node scripts/update-robots-date.js",
     "update-sitemaps": "node scripts/update-sitemaps-date.js",
     "update-dates": "node scripts/update-all-dates.js",
-    "update-seo": "npm run update-dates && git add public/robots.txt public/sitemap*.xml && git status",
-    "prebuild": "npm run update-dates",
-    "postinstall": "npm run sync"
+    "update-seo": "npm run update-dates && git add public/robots.txt public/sitemap*.xml && git status"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

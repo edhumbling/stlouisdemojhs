@@ -9,33 +9,6 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
 
-const LAST_UPDATE_FILE = '.last-seo-update';
-
-function shouldUpdateSEOToday() {
-  const today = new Date().toISOString().split('T')[0];
-  try {
-    if (fs.existsSync(LAST_UPDATE_FILE)) {
-      const lastUpdate = fs.readFileSync(LAST_UPDATE_FILE, 'utf8').trim();
-      if (lastUpdate === today) {
-        console.log(`ℹ️  SEO files already updated today (${today})`);
-        return false;
-      }
-    }
-  } catch (error) {
-    // File doesn't exist or can't be read, proceed with update
-  }
-  return true;
-}
-
-function recordSEOUpdate() {
-  const today = new Date().toISOString().split('T')[0];
-  try {
-    fs.writeFileSync(LAST_UPDATE_FILE, today);
-  } catch (error) {
-    console.log('⚠️  Could not save last update date');
-  }
-}
-
 console.log('🔄 Smart Sync - Checking for remote updates...\n');
 
 function runCommand(command, silent = false) {
@@ -156,8 +129,6 @@ function checkSEOFiles() {
   ];
 
   let allPresent = true;
-  let needsUpdate = false;
-
   seoFiles.forEach(file => {
     const exists = fs.existsSync(file);
     const icon = exists ? '✅' : '❌';
@@ -175,63 +146,10 @@ function checkSEOFiles() {
       const isToday = lastUpdated === today;
       const icon = isToday ? '🟢' : '🟡';
       console.log(`   ${icon} robots.txt last updated: ${lastUpdated} ${isToday ? '(today)' : '(older)'}`);
-
-      if (!isToday) {
-        needsUpdate = true;
-      }
-    }
-
-    // Check sitemap.xml dates
-    const sitemapContent = fs.readFileSync('public/sitemap.xml', 'utf8');
-    const lastmodMatches = sitemapContent.match(/<lastmod>([^<]+)<\/lastmod>/);
-    if (lastmodMatches) {
-      const sitemapDate = lastmodMatches[1].split('T')[0];
-      const today = new Date().toISOString().split('T')[0];
-      const isToday = sitemapDate === today;
-      const icon = isToday ? '🟢' : '🟡';
-      console.log(`   ${icon} sitemap.xml last updated: ${sitemapDate} ${isToday ? '(today)' : '(older)'}`);
-
-      if (!isToday) {
-        needsUpdate = true;
-      }
     }
   }
 
-  return { allPresent, needsUpdate };
-}
-
-function updateSEOFiles() {
-  console.log('\n🔄 Updating SEO files locally...');
-
-  try {
-    const result = runCommand('node scripts/update-all-dates.js', true);
-    if (result !== null) {
-      console.log('✅ SEO files updated successfully');
-
-      // Check if there are changes to commit
-      const hasChanges = runCommand('git status --porcelain public/robots.txt public/sitemap*.xml', true);
-      if (hasChanges && hasChanges.trim()) {
-        console.log('📝 SEO file changes detected, committing...');
-        runCommand('git add public/robots.txt public/sitemap*.xml');
-        runCommand('git commit -m "🤖 Auto-update SEO files dates to ' + new Date().toISOString().split('T')[0] + '"');
-        console.log('✅ SEO files committed locally');
-
-        // Ask if user wants to push
-        console.log('\n💡 SEO files updated and committed locally');
-        console.log('   Run "git push" to sync these changes to remote');
-      } else {
-        console.log('ℹ️  SEO files were already up to date');
-      }
-
-      return true;
-    } else {
-      console.log('❌ Failed to update SEO files');
-      return false;
-    }
-  } catch (error) {
-    console.log('❌ Error updating SEO files:', error.message);
-    return false;
-  }
+  return allPresent;
 }
 
 function main() {
@@ -255,50 +173,14 @@ function main() {
   }
 
   // Verify SEO files
-  const seoStatus = checkSEOFiles();
-
-  // Update SEO files if needed (only once per day)
-  if (seoStatus.allPresent && seoStatus.needsUpdate && shouldUpdateSEOToday()) {
-    console.log('\n🔄 SEO files need updating...');
-
-    // Run the update
-    const updateResult = runCommand('node scripts/update-all-dates.js', true);
-    if (updateResult !== null) {
-      console.log('✅ SEO files updated successfully');
-
-      // Check if there are changes to commit and push
-      const hasChanges = runCommand('git status --porcelain public/robots.txt public/sitemap*.xml', true);
-      if (hasChanges && hasChanges.trim()) {
-        console.log('📝 SEO file changes detected, committing and pushing...');
-        runCommand('git add public/robots.txt public/sitemap*.xml');
-        runCommand('git commit -m "🤖 Auto-update SEO files dates to ' + new Date().toISOString().split('T')[0] + '"');
-
-        // Auto-push to prevent branch divergence
-        const pushResult = runCommand('git push origin main', true);
-        if (pushResult !== null) {
-          console.log('✅ SEO files committed and pushed successfully');
-        } else {
-          console.log('⚠️  SEO files committed locally but push failed');
-          console.log('   Run "git push" manually to sync these changes');
-        }
-      }
-
-      // Record that we updated today
-      recordSEOUpdate();
-    }
-  }
+  checkSEOFiles();
 
   console.log('\n🎉 Smart sync completed!');
   console.log('🚀 Your local environment is now up to date');
 
   if (hasUpdates) {
-    console.log('\n💡 Tip: SEO files are automatically updated daily');
+    console.log('\n💡 Tip: SEO files are automatically updated daily by GitHub Actions');
     console.log('   Run "npm run sync" anytime to get the latest changes');
-  }
-
-  if (seoStatus.needsUpdate) {
-    console.log('\n🤖 SEO files are now current with today\'s date');
-    console.log('   They will be automatically synced on next push');
   }
 }
 
