@@ -202,42 +202,59 @@ const TVETPage: React.FC = () => {
         {/* Main Content */}
         <main className="flex-1 py-6 sm:py-8">
           <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
-            {/* Hero Section */}
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-3xl mb-6 shadow-2xl">
-                <Wrench size={40} className="text-white" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Technical & Vocational Education Training
-              </h2>
+            {/* Hero Section with Header Image */}
+            <div className="relative mb-12 rounded-3xl overflow-hidden">
+              {/* Background Image */}
+              <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{
+                  backgroundImage: `url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+                }}
+              ></div>
 
-              {/* TVET Logos */}
-              <div className="flex justify-center items-center gap-8 sm:gap-12 lg:gap-16 mb-8">
-                <div className="flex flex-col items-center">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl shadow-white/20 border border-white/30 hover:shadow-white/40 transition-all duration-300">
-                    <img
-                      src="https://ctvet.gov.gh/wp-content/uploads/2022/07/logo-crest-only-1536x1536.png"
-                      alt="Commission for Technical and Vocational Education and Training (CTVET)"
-                      className="h-16 sm:h-20 lg:h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
-                    />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+              {/* Content */}
+              <div className="relative z-10 text-center py-12 sm:py-16">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                  Technical & Vocational Education Training
+                </h2>
+
+                {/* TVET Logos */}
+                <div className="flex justify-center items-center gap-8 sm:gap-12 lg:gap-16 mb-8">
+                  <div className="flex flex-col items-center">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl shadow-white/20 border border-white/30 hover:shadow-white/40 transition-all duration-300">
+                      <img
+                        src="https://ctvet.gov.gh/favicon.ico"
+                        alt="Commission for Technical and Vocational Education and Training (CTVET)"
+                        className="h-16 sm:h-20 lg:h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <p className="text-xs sm:text-sm text-gray-200 mt-3 text-center font-medium">Commission for Technical and<br />Vocational Education and Training</p>
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-3 text-center font-medium">Commission for Technical and<br />Vocational Education and Training</p>
+
+                  <div className="flex flex-col items-center">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl shadow-white/20 border border-white/30 hover:shadow-white/40 transition-all duration-300">
+                      <img
+                        src="https://gtvets.gov.gh/wp-content/uploads/2023/01/TVET-LOGO-PNG-272x300.png"
+                        alt="Ghana TVET Service"
+                        className="h-16 sm:h-20 lg:h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <p className="text-xs sm:text-sm text-gray-200 mt-3 text-center font-medium">Ghana TVET Service</p>
+                  </div>
                 </div>
 
-                <div className="flex flex-col items-center">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl shadow-white/20 border border-white/30 hover:shadow-white/40 transition-all duration-300">
-                    <img
-                      src="https://gtvets.gov.gh/wp-content/uploads/2023/01/TVET-LOGO-PNG-272x300.png"
-                      alt="Ghana TVET Service"
-                      className="h-16 sm:h-20 lg:h-24 w-auto object-contain hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-300 mt-3 text-center font-medium">Ghana TVET Service</p>
-                </div>
+                <p className="text-lg sm:text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed mb-8">
+                  🚀 Discover practical skills, career opportunities, and professional development through TVET. From hands-on training to industry certifications - your pathway to a successful career starts here.
+                </p>
               </div>
+            </div>
 
+            <div className="text-center mb-8">
               <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-                🚀 Discover practical skills, career opportunities, and professional development through TVET. From hands-on training to industry certifications - your pathway to a successful career starts here.
+                Explore Ghana's comprehensive TVET system - from skills training and technical education to career pathways that drive national development and economic growth.
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
@@ -1106,100 +1123,100 @@ const TVETPage: React.FC = () => {
                 🚀 TVET Career Pathways in Ghana
               </h3>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 {/* Engineering & Technology */}
-                <div className="bg-blue-900/40 rounded-xl p-6 border border-blue-700/40 hover:border-blue-500/60 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mb-4">
-                    <Monitor size={24} className="text-white" />
+                <div className="bg-blue-900/40 rounded-xl p-4 sm:p-6 border border-blue-700/40 hover:border-blue-500/60 transition-all duration-300 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                    <Monitor size={20} className="text-white sm:w-6 sm:h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-blue-300 mb-3">Engineering & Technology 🔧</h4>
-                  <ul className="space-y-2 text-sm text-blue-100">
-                    <li>• <strong>Electrical Engineering:</strong> Power systems, electronics</li>
-                    <li>• <strong>Mechanical Engineering:</strong> Manufacturing, automotive</li>
-                    <li>• <strong>Civil Engineering:</strong> Construction, infrastructure</li>
-                    <li>• <strong>Computer Technology:</strong> IT support, programming</li>
-                    <li>• <strong>Telecommunications:</strong> Network systems</li>
-                    <li>• <strong>Renewable Energy:</strong> Solar, wind technology</li>
+                  <h4 className="text-base sm:text-lg font-bold text-blue-300 mb-3">Engineering & Technology 🔧</h4>
+                  <ul className="space-y-1 text-xs sm:text-sm text-blue-100 text-left">
+                    <li>• <strong>Electrical:</strong> Power systems</li>
+                    <li>• <strong>Mechanical:</strong> Manufacturing</li>
+                    <li>• <strong>Civil:</strong> Construction</li>
+                    <li>• <strong>Computer:</strong> IT support</li>
+                    <li>• <strong>Telecom:</strong> Networks</li>
+                    <li>• <strong>Renewable:</strong> Solar, wind</li>
                   </ul>
                 </div>
 
                 {/* Agriculture & Food Technology */}
-                <div className="bg-green-900/40 rounded-xl p-6 border border-green-700/40 hover:border-green-500/60 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center mb-4">
-                    <Building size={24} className="text-white" />
+                <div className="bg-green-900/40 rounded-xl p-4 sm:p-6 border border-green-700/40 hover:border-green-500/60 transition-all duration-300 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                    <Building size={20} className="text-white sm:w-6 sm:h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-green-300 mb-3">Agriculture & Food Technology 🌱</h4>
-                  <ul className="space-y-2 text-sm text-green-100">
-                    <li>• <strong>Agricultural Technology:</strong> Modern farming techniques</li>
-                    <li>• <strong>Food Processing:</strong> Value addition, preservation</li>
-                    <li>• <strong>Animal Husbandry:</strong> Livestock management</li>
-                    <li>• <strong>Aquaculture:</strong> Fish farming, water management</li>
-                    <li>• <strong>Horticulture:</strong> Crop production, gardening</li>
-                    <li>• <strong>Agribusiness:</strong> Farm management, marketing</li>
+                  <h4 className="text-base sm:text-lg font-bold text-green-300 mb-3">Agriculture & Food Technology 🌱</h4>
+                  <ul className="space-y-1 text-xs sm:text-sm text-green-100 text-left">
+                    <li>• <strong>Agricultural:</strong> Modern farming</li>
+                    <li>• <strong>Food Processing:</strong> Value addition</li>
+                    <li>• <strong>Animal Husbandry:</strong> Livestock</li>
+                    <li>• <strong>Aquaculture:</strong> Fish farming</li>
+                    <li>• <strong>Horticulture:</strong> Crop production</li>
+                    <li>• <strong>Agribusiness:</strong> Farm management</li>
                   </ul>
                 </div>
 
                 {/* Business & Entrepreneurship */}
-                <div className="bg-purple-900/40 rounded-xl p-6 border border-purple-700/40 hover:border-purple-500/60 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mb-4">
-                    <Briefcase size={24} className="text-white" />
+                <div className="bg-purple-900/40 rounded-xl p-4 sm:p-6 border border-purple-700/40 hover:border-purple-500/60 transition-all duration-300 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                    <Briefcase size={20} className="text-white sm:w-6 sm:h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-purple-300 mb-3">Business & Entrepreneurship 💼</h4>
-                  <ul className="space-y-2 text-sm text-purple-100">
-                    <li>• <strong>Accounting & Finance:</strong> Bookkeeping, financial management</li>
-                    <li>• <strong>Business Administration:</strong> Management skills</li>
-                    <li>• <strong>Marketing & Sales:</strong> Digital marketing, retail</li>
-                    <li>• <strong>Entrepreneurship:</strong> Business startup skills</li>
-                    <li>• <strong>Supply Chain:</strong> Logistics, procurement</li>
-                    <li>• <strong>E-commerce:</strong> Online business development</li>
+                  <h4 className="text-base sm:text-lg font-bold text-purple-300 mb-3">Business & Entrepreneurship 💼</h4>
+                  <ul className="space-y-1 text-xs sm:text-sm text-purple-100 text-left">
+                    <li>• <strong>Accounting:</strong> Financial management</li>
+                    <li>• <strong>Administration:</strong> Management skills</li>
+                    <li>• <strong>Marketing:</strong> Digital marketing</li>
+                    <li>• <strong>Entrepreneurship:</strong> Business startup</li>
+                    <li>• <strong>Supply Chain:</strong> Logistics</li>
+                    <li>• <strong>E-commerce:</strong> Online business</li>
                   </ul>
                 </div>
 
                 {/* Health & Social Services */}
-                <div className="bg-red-900/40 rounded-xl p-6 border border-red-700/40 hover:border-red-500/60 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mb-4">
-                    <Users size={24} className="text-white" />
+                <div className="bg-red-900/40 rounded-xl p-4 sm:p-6 border border-red-700/40 hover:border-red-500/60 transition-all duration-300 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                    <Users size={20} className="text-white sm:w-6 sm:h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-red-300 mb-3">Health & Social Services 🏥</h4>
-                  <ul className="space-y-2 text-sm text-red-100">
-                    <li>• <strong>Community Health:</strong> Primary healthcare delivery</li>
-                    <li>• <strong>Medical Laboratory:</strong> Diagnostic services</li>
-                    <li>• <strong>Pharmacy Technology:</strong> Drug dispensing</li>
-                    <li>• <strong>Nursing Assistant:</strong> Patient care support</li>
-                    <li>• <strong>Social Work:</strong> Community development</li>
+                  <h4 className="text-base sm:text-lg font-bold text-red-300 mb-3">Health & Social Services 🏥</h4>
+                  <ul className="space-y-1 text-xs sm:text-sm text-red-100 text-left">
+                    <li>• <strong>Community Health:</strong> Primary care</li>
+                    <li>• <strong>Medical Lab:</strong> Diagnostic services</li>
+                    <li>• <strong>Pharmacy:</strong> Drug dispensing</li>
+                    <li>• <strong>Nursing:</strong> Patient care</li>
+                    <li>• <strong>Social Work:</strong> Community dev</li>
                     <li>• <strong>Elderly Care:</strong> Geriatric services</li>
                   </ul>
                 </div>
 
                 {/* Creative Arts & Media */}
-                <div className="bg-yellow-900/40 rounded-xl p-6 border border-yellow-700/40 hover:border-yellow-500/60 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mb-4">
-                    <BookOpen size={24} className="text-white" />
+                <div className="bg-yellow-900/40 rounded-xl p-4 sm:p-6 border border-yellow-700/40 hover:border-yellow-500/60 transition-all duration-300 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                    <BookOpen size={20} className="text-white sm:w-6 sm:h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-yellow-300 mb-3">Creative Arts & Media 🎨</h4>
-                  <ul className="space-y-2 text-sm text-yellow-100">
-                    <li>• <strong>Graphic Design:</strong> Digital design, branding</li>
-                    <li>• <strong>Fashion Design:</strong> Clothing, textile design</li>
-                    <li>• <strong>Photography:</strong> Commercial, event photography</li>
+                  <h4 className="text-base sm:text-lg font-bold text-yellow-300 mb-3">Creative Arts & Media 🎨</h4>
+                  <ul className="space-y-1 text-xs sm:text-sm text-yellow-100 text-left">
+                    <li>• <strong>Graphic Design:</strong> Digital design</li>
+                    <li>• <strong>Fashion Design:</strong> Clothing design</li>
+                    <li>• <strong>Photography:</strong> Commercial photo</li>
                     <li>• <strong>Video Production:</strong> Content creation</li>
                     <li>• <strong>Music Production:</strong> Audio engineering</li>
-                    <li>• <strong>Traditional Crafts:</strong> Kente weaving, pottery</li>
+                    <li>• <strong>Traditional Crafts:</strong> Kente, pottery</li>
                   </ul>
                 </div>
 
                 {/* Hospitality & Tourism */}
-                <div className="bg-cyan-900/40 rounded-xl p-6 border border-cyan-700/40 hover:border-cyan-500/60 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl flex items-center justify-center mb-4">
-                    <MapPin size={24} className="text-white" />
+                <div className="bg-cyan-900/40 rounded-xl p-4 sm:p-6 border border-cyan-700/40 hover:border-cyan-500/60 transition-all duration-300 text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl flex items-center justify-center mb-3 mx-auto">
+                    <MapPin size={20} className="text-white sm:w-6 sm:h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-cyan-300 mb-3">Hospitality & Tourism 🏨</h4>
-                  <ul className="space-y-2 text-sm text-cyan-100">
-                    <li>• <strong>Hotel Management:</strong> Hospitality operations</li>
-                    <li>• <strong>Culinary Arts:</strong> Ghanaian and international cuisine</li>
-                    <li>• <strong>Tourism & Travel:</strong> Tour guiding, travel planning</li>
-                    <li>• <strong>Event Management:</strong> Wedding, corporate events</li>
-                    <li>• <strong>Restaurant Management:</strong> Food service operations</li>
-                    <li>• <strong>Cultural Tourism:</strong> Heritage site management</li>
+                  <h4 className="text-base sm:text-lg font-bold text-cyan-300 mb-3">Hospitality & Tourism 🏨</h4>
+                  <ul className="space-y-1 text-xs sm:text-sm text-cyan-100 text-left">
+                    <li>• <strong>Hotel Management:</strong> Operations</li>
+                    <li>• <strong>Culinary Arts:</strong> Ghanaian cuisine</li>
+                    <li>• <strong>Tourism:</strong> Tour guiding</li>
+                    <li>• <strong>Event Management:</strong> Weddings</li>
+                    <li>• <strong>Restaurant:</strong> Food service</li>
+                    <li>• <strong>Cultural Tourism:</strong> Heritage sites</li>
                   </ul>
                 </div>
               </div>
