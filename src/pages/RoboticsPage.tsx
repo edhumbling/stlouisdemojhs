@@ -491,6 +491,385 @@ const RoboticsPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Autonomous Vehicles & Self-Driving Cars */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-cyan-400">
+              Autonomous Vehicles & Self-Driving Cars Revolution
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-cyan-300 mb-4 underline decoration-1 underline-offset-2">
+                  The History of Autonomous Vehicles
+                </h3>
+
+                <p className="text-base leading-relaxed mb-6">
+                  The dream of <strong className="text-cyan-300">self-driving cars</strong> began long before modern computers existed. From Leonardo da Vinci's self-propelled cart in the Renaissance to today's AI-powered vehicles navigating city streets, autonomous transportation represents one of humanity's most ambitious technological pursuits. The modern era began with the <strong className="text-blue-300">DARPA Grand Challenge</strong> in 2004, which catalyzed the development of today's autonomous vehicle industry worth over <strong className="text-green-300">$100 billion</strong>.
+                </p>
+
+                <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-6 border border-cyan-600/40 mb-6">
+                  <h4 className="text-xl font-bold text-cyan-300 mb-3">🚗 Autonomous Vehicle Timeline</h4>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-yellow-300 mb-3">🏛️ Early Era (1920s-1990s)</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-blue-300">1925:</strong> First radio-controlled car demonstration</li>
+                        <li>• <strong className="text-green-300">1939:</strong> General Motors Futurama exhibit</li>
+                        <li>• <strong className="text-purple-300">1980s:</strong> Carnegie Mellon NavLab project</li>
+                        <li>• <strong className="text-orange-300">1995:</strong> CMU's NavLab 5 drives coast-to-coast</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-pink-300 mb-3">🚀 Modern Era (2000s-Present)</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-indigo-300">2004:</strong> DARPA Grand Challenge begins</li>
+                        <li>• <strong className="text-teal-300">2009:</strong> Google starts self-driving car project</li>
+                        <li>• <strong className="text-amber-300">2016:</strong> Tesla launches Autopilot</li>
+                        <li>• <strong className="text-lime-300">2020s:</strong> Commercial robotaxi services launch</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-blue-300 mb-4 underline decoration-1 underline-offset-2">
+                    American Self-Driving Car Leaders
+                  </h4>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-red-300 mb-3 underline decoration-1 underline-offset-2">
+                        Tesla - Full Self-Driving (FSD) Pioneer
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4">
+                        <a href="https://www.tesla.com/" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline font-bold">Tesla</a> revolutionized the automotive industry with <strong className="text-blue-300">Autopilot</strong> and <strong className="text-green-300">Full Self-Driving (FSD)</strong> technology. With over <strong className="text-yellow-300">6 million vehicles</strong> equipped with Autopilot hardware and billions of miles of real-world driving data, Tesla leads in neural network-based autonomous driving. Their approach uses <strong className="text-purple-300">vision-only systems</strong> powered by custom AI chips and massive data collection from their global fleet.
+                      </p>
+
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('tlThdr3O5Qo', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/tlThdr3O5Qo/maxresdefault.jpg"
+                            alt="Tesla Full Self-Driving Demo"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Tesla Full Self-Driving Demo</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('TUDiG7PcLBs', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/TUDiG7PcLBs/maxresdefault.jpg"
+                            alt="Tesla FSD Supervised"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">FSD Supervised Capabilities</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('P6tAnt1u8SA', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/P6tAnt1u8SA/maxresdefault.jpg"
+                            alt="Tesla FSD Demonstration"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">How Tesla FSD Works</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('aaOB-ErYq6Y', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/aaOB-ErYq6Y/maxresdefault.jpg"
+                            alt="Tesla Autopilot Technology"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Tesla Autopilot Technology</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-green-300 mb-3 underline decoration-1 underline-offset-2">
+                        Waymo - Google's Autonomous Driving Pioneer
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4">
+                        <a href="https://waymo.com/" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline font-bold">Waymo</a>, originally Google's self-driving car project, is the world's most experienced autonomous driving company with over <strong className="text-blue-300">20 million miles</strong> driven autonomously on public roads. Operating commercial robotaxi services in <strong className="text-purple-300">Phoenix, San Francisco, Los Angeles, and Austin</strong>, Waymo uses advanced <strong className="text-yellow-300">LiDAR, cameras, and radar</strong> to achieve Level 4 autonomy. Their Waymo Driver technology represents the gold standard in fully autonomous vehicles.
+                      </p>
+
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('JHgr9SgeicM', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/JHgr9SgeicM/maxresdefault.jpg"
+                            alt="Waymo Real Driverless Car"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Waymo Real Driverless Experience</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('hA_-MkU0Nfw', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/hA_-MkU0Nfw/maxresdefault.jpg"
+                            alt="Waymo Driver Technology"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Sense, Solve, and Go</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('ErgD-ZHVMsQ', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/ErgD-ZHVMsQ/maxresdefault.jpg"
+                            alt="Waymo Safety Technology"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Waymo Safety Showcase</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('mLSnFlE5R8U', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/mLSnFlE5R8U/maxresdefault.jpg"
+                            alt="Waymo Expansion"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Road to More Driverless Cars</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-orange-300 mb-3 underline decoration-1 underline-offset-2">
+                        Zoox - Amazon's Revolutionary Robotaxi
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4">
+                        <a href="https://zoox.com/" target="_blank" rel="noopener noreferrer" className="text-orange-300 hover:text-orange-200 underline font-bold">Zoox</a>, acquired by Amazon for <strong className="text-green-300">$1.3 billion</strong>, represents a radical reimagining of autonomous vehicles. Unlike traditional cars adapted for self-driving, Zoox built the world's first <strong className="text-blue-300">purpose-built robotaxi</strong> from the ground up. Their bidirectional vehicle with <strong className="text-purple-300">four-wheel steering</strong> and <strong className="text-yellow-300">carriage-style seating</strong> can travel up to 75 mph and is designed specifically for urban ride-hailing services.
+                      </p>
+
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('1JgGeIJ_DgQ', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/1JgGeIJ_DgQ/maxresdefault.jpg"
+                            alt="Inside Zoox Driverless Taxi"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Inside Zoox Driverless Taxi</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('0OjZaI-aANE', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/0OjZaI-aANE/maxresdefault.jpg"
+                            alt="Riding in Zoox Robotaxi"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">I Rode in Zoox Robotaxi</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('aaOB-ErYq6Y', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/aaOB-ErYq6Y/maxresdefault.jpg"
+                            alt="Zoox vs Waymo Technology"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Autonomous Driving Technology</p>
+                          </div>
+                        </div>
+
+                        <div
+                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                          onClick={(e) => openVideoModal('JHgr9SgeicM', e)}
+                        >
+                          <img
+                            src="https://img.youtube.com/vi/JHgr9SgeicM/maxresdefault.jpg"
+                            alt="Amazon Zoox Testing"
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Play size={32} className="text-white" />
+                          </div>
+                          <div className="absolute bottom-2 left-2 right-2">
+                            <p className="text-sm font-semibold text-white">Amazon's Self-Driving Future</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-red-300 mb-4 underline decoration-1 underline-offset-2">
+                    Chinese Autonomous Vehicle Giants
+                  </h4>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-yellow-300 mb-3 underline decoration-1 underline-offset-2">
+                        Baidu Apollo - China's Autonomous Driving Platform
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4">
+                        <a href="https://apollo.auto/" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-200 underline font-bold">Baidu Apollo</a> is China's leading autonomous driving platform, operating the world's largest robotaxi fleet with <strong className="text-blue-300">Apollo Go</strong> services in over <strong className="text-green-300">11 Chinese cities</strong>. With over <strong className="text-purple-300">40 million kilometers</strong> of autonomous driving testing, Baidu has achieved Level 4 autonomy and plans to expand globally. Their <strong className="text-cyan-300">6th generation robotaxi</strong> costs 60% less than previous models, making autonomous transportation economically viable.
+                      </p>
+
+                      <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-4 border border-yellow-600/40 mb-4">
+                        <h6 className="text-lg font-bold text-yellow-300 mb-2">🚗 Baidu Apollo Achievements</h6>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <ul className="space-y-1 text-sm">
+                            <li>• <strong className="text-blue-300">Apollo Go:</strong> 6M+ robotaxi rides completed</li>
+                            <li>• <strong className="text-green-300">Global Reach:</strong> Testing in 30+ cities worldwide</li>
+                            <li>• <strong className="text-purple-300">Partnerships:</strong> 200+ ecosystem partners</li>
+                          </ul>
+                          <ul className="space-y-1 text-sm">
+                            <li>• <strong className="text-cyan-300">Technology:</strong> L4 autonomous driving capability</li>
+                            <li>• <strong className="text-orange-300">Cost Reduction:</strong> 60% lower than previous generation</li>
+                            <li>• <strong className="text-pink-300">Safety:</strong> Zero at-fault accidents in commercial operation</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-green-300 mb-3 underline decoration-1 underline-offset-2">
+                        BYD & Xpeng - Electric Vehicle Autonomous Leaders
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4">
+                        <a href="https://www.byd.com/" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline font-bold">BYD</a>, the world's largest EV manufacturer, partners with Baidu Apollo for autonomous driving technology. <a href="https://www.xpeng.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">Xpeng</a> leads in <strong className="text-purple-300">smart EV technology</strong> with advanced driver assistance systems and plans for full autonomy. Both companies represent China's rapid advancement in combining electric vehicles with autonomous driving capabilities.
+                      </p>
+
+                      <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-lg p-4 border border-green-600/40 mb-4">
+                        <h6 className="text-lg font-bold text-green-300 mb-2">🇨🇳 Chinese AV Market Leadership</h6>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <ul className="space-y-1 text-sm">
+                            <li>• <strong className="text-blue-300">Market Size:</strong> $7.6B autonomous vehicle market</li>
+                            <li>• <strong className="text-purple-300">Government Support:</strong> National AI strategy backing</li>
+                            <li>• <strong className="text-yellow-300">Testing Miles:</strong> 1.8M+ miles on US roads</li>
+                          </ul>
+                          <ul className="space-y-1 text-sm">
+                            <li>• <strong className="text-cyan-300">Innovation:</strong> Leading in smart city integration</li>
+                            <li>• <strong className="text-orange-300">Production:</strong> Mass production capabilities</li>
+                            <li>• <strong className="text-pink-300">Global Expansion:</strong> Entering European markets</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-cyan-900/30 to-purple-900/30 rounded-lg p-6 border border-cyan-600/40">
+                  <h4 className="text-xl font-bold text-cyan-300 mb-3">🚀 The Future of Autonomous Transportation</h4>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-yellow-300 mb-3">🔮 Technology Trends</h5>
+                      <ul className="space-y-2 text-sm">
+                        <li>• <strong className="text-blue-300">AI Foundation Models:</strong> Large language models for driving</li>
+                        <li>• <strong className="text-green-300">5G Connectivity:</strong> Vehicle-to-everything communication</li>
+                        <li>• <strong className="text-purple-300">Edge Computing:</strong> Real-time decision making</li>
+                        <li>• <strong className="text-orange-300">Sensor Fusion:</strong> LiDAR, cameras, radar integration</li>
+                        <li>• <strong className="text-red-300">Digital Twins:</strong> Virtual testing environments</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-pink-300 mb-3">📈 Market Projections</h5>
+                      <ul className="space-y-2 text-sm">
+                        <li>• <strong className="text-indigo-300">Market Value:</strong> $2.1 trillion by 2030</li>
+                        <li>• <strong className="text-teal-300">Robotaxi Fleet:</strong> 20M+ vehicles by 2035</li>
+                        <li>• <strong className="text-amber-300">Safety Improvement:</strong> 90% reduction in accidents</li>
+                        <li>• <strong className="text-lime-300">Cost Savings:</strong> 40% lower transportation costs</li>
+                        <li>• <strong className="text-rose-300">Global Adoption:</strong> 50+ cities with AV services</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Global Robotics Competitions */}
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-blue-400">
