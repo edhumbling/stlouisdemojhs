@@ -471,6 +471,329 @@ const SpaceExplorationPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Mars Exploration Section */}
+          <div id="mars-exploration" className="mb-12">
+            <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-2xl p-6 sm:p-8 border border-red-600/40">
+              <h3 className="text-2xl sm:text-3xl font-bold text-red-300 mb-6 underline decoration-2 underline-offset-4">
+                🔴 Mars Exploration & Red Planet Missions
+              </h3>
+
+              <p className="text-base sm:text-lg leading-relaxed mb-8 text-gray-200">
+                <strong className="text-red-300">Mars exploration</strong> represents humanity's next giant leap, with multiple rovers currently exploring the Red Planet and ambitious plans for human missions in the 2030s. From <strong className="text-blue-300">Perseverance</strong> searching for signs of ancient life to <strong className="text-green-300">Ingenuity</strong> achieving powered flight on another world, Mars continues to reveal its secrets.
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-xl font-bold text-orange-300 mb-4 underline decoration-1 underline-offset-2">
+                    Current Mars Missions
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    NASA's <a href="https://mars.nasa.gov/mars2020/" target="_blank" rel="noopener noreferrer" className="text-orange-300 hover:text-orange-200 underline font-bold">Perseverance rover</a> and <strong className="text-green-300">Ingenuity helicopter</strong> are revolutionizing our understanding of Mars. Perseverance is collecting samples for future return to Earth, while Ingenuity has completed over <strong className="text-yellow-300">70 flights</strong>, proving that powered flight is possible on Mars.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('4czjS9h4Fpg', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/4czjS9h4Fpg/maxresdefault.jpg"
+                        alt="Perseverance Mars Landing"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Perseverance Landing</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('GhsZUZmJvaM', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/GhsZUZmJvaM/maxresdefault.jpg"
+                        alt="Ingenuity Mars Helicopter"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Ingenuity First Flight</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('nlnHJoWMjSs', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/nlnHJoWMjSs/maxresdefault.jpg"
+                        alt="Mars Sample Return Mission"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Mars Sample Return</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('M4tdMR5HLtg', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/M4tdMR5HLtg/maxresdefault.jpg"
+                        alt="Curiosity Mars Rover"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Curiosity Discoveries</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-lg p-4 border border-red-600/40">
+                    <h5 className="text-lg font-bold text-red-300 mb-2">🚀 Future Mars Missions</h5>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-blue-300">Mars Sample Return (2028):</strong> Bring Martian samples to Earth</li>
+                        <li>• <strong className="text-green-300">Human Mars Mission (2030s):</strong> First crewed landing</li>
+                        <li>• <strong className="text-purple-300">Mars Base Alpha:</strong> Permanent settlement plans</li>
+                      </ul>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-yellow-300">SpaceX Starship:</strong> Mars colonization vehicle</li>
+                        <li>• <strong className="text-cyan-300">MOXIE Technology:</strong> Oxygen production on Mars</li>
+                        <li>• <strong className="text-pink-300">Terraforming Research:</strong> Long-term habitability</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Space Telescopes Section */}
+          <div id="space-telescopes" className="mb-12">
+            <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 rounded-2xl p-6 sm:p-8 border border-purple-600/40">
+              <h3 className="text-2xl sm:text-3xl font-bold text-purple-300 mb-6 underline decoration-2 underline-offset-4">
+                🔭 Space Telescopes & Cosmic Discovery
+              </h3>
+
+              <p className="text-base sm:text-lg leading-relaxed mb-8 text-gray-200">
+                <strong className="text-purple-300">Space telescopes</strong> are our windows to the universe, revealing distant galaxies, exoplanets, and cosmic phenomena. The <strong className="text-blue-300">James Webb Space Telescope</strong> has revolutionized astronomy with infrared observations, while <strong className="text-green-300">Hubble</strong> continues to amaze us with stunning visible light images after over 30 years in space.
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-xl font-bold text-blue-300 mb-4 underline decoration-1 underline-offset-2">
+                    James Webb Space Telescope - Revolutionary Discoveries
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    The <a href="https://www.jwst.nasa.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">James Webb Space Telescope</a> launched in 2021 and has already transformed our understanding of the universe. With its <strong className="text-yellow-300">6.5-meter golden mirror</strong> and advanced infrared instruments, Webb can see the first galaxies that formed after the Big Bang and study the atmospheres of distant exoplanets.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('7nT7JGZdPtw', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/7nT7JGZdPtw/maxresdefault.jpg"
+                        alt="James Webb First Images"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Webb First Images</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('nmMRMIE3MGw', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/nmMRMIE3MGw/maxresdefault.jpg"
+                        alt="Webb vs Hubble Comparison"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Webb vs Hubble</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('FL_3WeYhzWo', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/FL_3WeYhzWo/maxresdefault.jpg"
+                        alt="Webb Exoplanet Discovery"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Exoplanet Discovery</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('6cUe4oMk69E', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/6cUe4oMk69E/maxresdefault.jpg"
+                        alt="Hubble Greatest Discoveries"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Hubble Discoveries</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Space Careers Section */}
+          <div id="careers" className="mb-12">
+            <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-2xl p-6 sm:p-8 border border-green-600/40">
+              <h3 className="text-2xl sm:text-3xl font-bold text-green-300 mb-6 underline decoration-2 underline-offset-4">
+                👨‍🚀 Space Careers & Astronaut Training
+              </h3>
+
+              <p className="text-base sm:text-lg leading-relaxed mb-8 text-gray-200">
+                The <strong className="text-green-300">space industry</strong> offers diverse career opportunities from astronauts and engineers to mission controllers and planetary scientists. With the growth of commercial space companies, there are more pathways than ever to contribute to space exploration and make your mark on the final frontier.
+              </p>
+
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-xl font-bold text-cyan-300 mb-4 underline decoration-1 underline-offset-2">
+                    Becoming an Astronaut
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    <a href="https://www.nasa.gov/careers/how-to-apply/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline font-bold">NASA astronaut selection</a> is highly competitive, with thousands of applicants for just a few positions. Requirements include a master's degree in STEM, professional experience, and passing rigorous physical and psychological evaluations. International space agencies like <strong className="text-blue-300">ESA</strong>, <strong className="text-purple-300">JAXA</strong>, and <strong className="text-yellow-300">CSA</strong> also recruit astronauts.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-4 border border-cyan-600/40">
+                      <h5 className="text-lg font-bold text-cyan-300 mb-2">🎓 Education Requirements</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-blue-300">Master's degree</strong> in engineering, science, or mathematics</li>
+                        <li>• <strong className="text-green-300">3+ years</strong> professional experience or 1,000+ pilot hours</li>
+                        <li>• <strong className="text-purple-300">Physical fitness</strong> and medical clearance</li>
+                        <li>• <strong className="text-yellow-300">Leadership skills</strong> and teamwork experience</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg p-4 border border-green-600/40">
+                      <h5 className="text-lg font-bold text-green-300 mb-2">🚀 Training Process</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-orange-300">2+ years</strong> basic astronaut training</li>
+                        <li>• <strong className="text-red-300">Mission-specific</strong> training (6-18 months)</li>
+                        <li>• <strong className="text-indigo-300">Survival training</strong> and emergency procedures</li>
+                        <li>• <strong className="text-pink-300">International cooperation</strong> and language skills</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('doN4t5NKW-k', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/doN4t5NKW-k/maxresdefault.jpg"
+                        alt="Astronaut Training"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Astronaut Training</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('Kz1hLVKVz8E', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/Kz1hLVKVz8E/maxresdefault.jpg"
+                        alt="Space Careers Guide"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Space Careers Guide</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('W_E_RoWEP7M', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/W_E_RoWEP7M/maxresdefault.jpg"
+                        alt="NASA Johnson Space Center"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">NASA Johnson Center</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('2Aq_LqkKsWQ', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/2Aq_LqkKsWQ/maxresdefault.jpg"
+                        alt="SpaceX Careers"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">SpaceX Careers</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
