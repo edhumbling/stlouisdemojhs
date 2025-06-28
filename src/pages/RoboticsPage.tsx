@@ -34,7 +34,7 @@ const RoboticsPage: React.FC = () => {
 
       {/* Back Navigation Bar */}
       <div className="bg-gray-900/50 backdrop-blur-sm border-b border-gray-700/50 sticky top-16 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between h-14">
             <button
               onClick={handleBack}
@@ -45,18 +45,18 @@ const RoboticsPage: React.FC = () => {
             </button>
             <div className="flex items-center gap-2 text-gray-400">
               <Bot size={16} />
-              <span className="text-sm">Robotics & AI</span>
+              <span className="text-sm">Robotics & Automation</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="w-full py-8">
 
         {/* Header Section */}
         <div
-          className="relative h-64 sm:h-80 rounded-2xl mb-12 overflow-hidden"
+          className="relative h-64 sm:h-80 mb-12 overflow-hidden"
           style={{
             backgroundImage: 'url(https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
             backgroundSize: 'cover',
@@ -64,7 +64,7 @@ const RoboticsPage: React.FC = () => {
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-          <div className="relative h-full flex items-center justify-start px-8 sm:px-12">
+          <div className="relative h-full flex items-center justify-start px-4 sm:px-8 lg:px-12">
             <div>
               <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4">
                 Robotics and Automation
@@ -77,7 +77,7 @@ const RoboticsPage: React.FC = () => {
         </div>
 
         {/* Word Document Style Content */}
-        <div className="bg-black rounded-2xl p-8 sm:p-12 border border-gray-700/30 backdrop-blur-sm max-w-5xl mx-auto">
+        <div className="bg-black px-4 sm:px-8 lg:px-12 py-8 sm:py-12">
 
           {/* Introduction */}
           <div className="mb-8">
