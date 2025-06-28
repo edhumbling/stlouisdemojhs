@@ -1248,6 +1248,82 @@ const TVETPage: React.FC = () => {
               </div>
             </section>
 
+            {/* Discovering Your Path in TVET */}
+            <section className="mb-12">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                  🧭 Discovering Your Path in TVET
+                </h3>
+                <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                  Explore comprehensive guidance on finding your ideal technical and vocational education pathway. Learn from experts at the African Centre for Technical Training about career opportunities and skills development.
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                {/* Video 1 - Wide Format */}
+                <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/40 rounded-2xl p-6 sm:p-8 border border-blue-700/30 backdrop-blur-sm">
+                  <h4 className="text-xl sm:text-2xl font-bold text-blue-300 mb-4 text-center">
+                    🎯 TVET Career Guidance & Pathways
+                  </h4>
+
+                  <div className="relative mb-4 rounded-xl overflow-hidden bg-black/20">
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
+                    </div>
+
+                    <iframe
+                      src="https://www.youtube.com/embed/9Gu51GWHPnc"
+                      title="TVET Career Guidance & Pathways"
+                      className="w-full aspect-video relative z-10"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      loading="lazy"
+                      onLoad={(e) => {
+                        const shimmer = e.currentTarget.parentElement?.querySelector('.animate-pulse');
+                        if (shimmer) shimmer.style.display = 'none';
+                      }}
+                    ></iframe>
+                  </div>
+
+                  <p className="text-sm sm:text-base text-blue-100 leading-relaxed text-center">
+                    Comprehensive guidance on discovering your ideal TVET career path, featuring expert insights from the African Centre for Technical Training on skills development and career opportunities in technical education.
+                  </p>
+                </div>
+
+                {/* Video 2 - Wide Format */}
+                <div className="bg-gradient-to-br from-green-900/40 to-green-800/40 rounded-2xl p-6 sm:p-8 border border-green-700/30 backdrop-blur-sm">
+                  <h4 className="text-xl sm:text-2xl font-bold text-green-300 mb-4 text-center">
+                    🚀 Advanced TVET Skills & Innovation
+                  </h4>
+
+                  <div className="relative mb-4 rounded-xl overflow-hidden bg-black/20">
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
+                    </div>
+
+                    <iframe
+                      src="https://www.youtube.com/embed/UvdLLctkSg4"
+                      title="Advanced TVET Skills & Innovation"
+                      className="w-full aspect-video relative z-10"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      loading="lazy"
+                      onLoad={(e) => {
+                        const shimmer = e.currentTarget.parentElement?.querySelector('.animate-pulse');
+                        if (shimmer) shimmer.style.display = 'none';
+                      }}
+                    ></iframe>
+                  </div>
+
+                  <p className="text-sm sm:text-base text-green-100 leading-relaxed text-center">
+                    Explore advanced technical skills and innovation opportunities in TVET, showcasing cutting-edge training methods and emerging technologies in technical and vocational education from the African Centre for Technical Training.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* TVET Video Grid */}
             <section className="mb-12">
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
