@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Monitor, BookOpen, Users, Building, Briefcase, GraduationCap, Wrench, MapPin, Star, Play, X } from 'lucide-react';
+import { ArrowLeft, Monitor, BookOpen, Users, Building, Briefcase, GraduationCap, Wrench, MapPin, Star, Play, X, Lightbulb, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEOHead from '../components/seo/SEOHead';
