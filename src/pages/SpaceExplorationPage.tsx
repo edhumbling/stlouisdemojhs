@@ -164,7 +164,7 @@ const SpaceExplorationPage: React.FC = () => {
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
                   🚀 Explore the Universe
                 </h2>
-                <p className="text-lg sm:text-xl text-gray-200 max-w-3xl">
+                <p className="text-lg sm:text-xl text-gray-200">
                   Journey through space exploration from NASA missions to private space companies, Mars rovers to space telescopes, and discover your path to the stars.
                 </p>
               </div>
