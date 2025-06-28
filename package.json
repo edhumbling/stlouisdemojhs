@@ -17,7 +17,9 @@
     "update-robots": "node scripts/update-robots-date.js",
     "update-sitemaps": "node scripts/update-sitemaps-date.js",
     "update-dates": "node scripts/update-all-dates.js",
-    "prebuild": "npm run update-dates"
+    "update-seo": "npm run update-dates && git add public/robots.txt public/sitemap*.xml && git status",
+    "prebuild": "npm run update-dates",
+    "postinstall": "npm run sync"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
