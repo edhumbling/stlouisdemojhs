@@ -122,7 +122,26 @@ const STEMPage: React.FC = () => {
         { name: "Renewable Energy Education", url: "https://www.nrel.gov/learning/" },
         { name: "Ocean Exploration Trust", url: "https://nautiluslive.org/education" },
         { name: "Antarctic Research Education", url: "https://www.usap.gov/education/" },
-        { name: "Astrobiology Institute", url: "https://astrobiology.nasa.gov/education/" }
+        { name: "Astrobiology Institute", url: "https://astrobiology.nasa.gov/education/" },
+        { name: "VRLab Academy", url: "https://www.vrlabacademy.com/en" },
+        { name: "LearnSci Digital Labs", url: "https://www.learnsci.com/" },
+        { name: "Science Interactive Labs", url: "https://www.scienceinteractive.com/" },
+        { name: "ChemCollective Virtual Labs", url: "https://chemcollective.org/" },
+        { name: "Virtual Chemistry Lab", url: "https://www.chemlab.org/" },
+        { name: "Biology Corner", url: "https://www.biologycorner.com/" },
+        { name: "Interactive Physics", url: "https://www.interactivephysics.com/" },
+        { name: "Earth Science Reference Tables", url: "https://www.nysed.gov/curriculum-instruction/science-learning-standards" },
+        { name: "Climate Kids NASA", url: "https://climatekids.nasa.gov/" },
+        { name: "USGS Water Resources", url: "https://www.usgs.gov/mission-areas/water-resources" },
+        { name: "NOAA Education Resources", url: "https://www.noaa.gov/education" },
+        { name: "EPA Environmental Education", url: "https://www.epa.gov/education" },
+        { name: "CDC Learning Connection", url: "https://www.cdc.gov/learning/" },
+        { name: "NIH Science Education", url: "https://science.education.nih.gov/" },
+        { name: "CERN Education", url: "https://education.cern/" },
+        { name: "European Space Agency Education", url: "https://www.esa.int/Education" },
+        { name: "MIT Biology Learning", url: "https://biology.mit.edu/undergraduate/academics/" },
+        { name: "Stanford Medicine 25", url: "https://stanford25.stanford.edu/" },
+        { name: "Harvard Medical School Online", url: "https://hms.harvard.edu/departments/continuing-education" }
       ]
     },
     {
@@ -193,7 +212,26 @@ const STEMPage: React.FC = () => {
         { name: "Vue.js Learning", url: "https://vuejs.org/tutorial/" },
         { name: "Angular University", url: "https://angular-university.io/" },
         { name: "Node.js Learning", url: "https://nodejs.org/en/learn/" },
-        { name: "Deno Learning", url: "https://deno.land/learn" }
+        { name: "Deno Learning", url: "https://deno.land/learn" },
+        { name: "Mimo Learn Coding", url: "https://mimo.org/" },
+        { name: "CS50 Harvard", url: "https://pll.harvard.edu/course/cs50-introduction-computer-science" },
+        { name: "Codewars Programming Practice", url: "https://www.codewars.com/" },
+        { name: "LeetCode Programming", url: "https://leetcode.com/" },
+        { name: "HackerRank Coding", url: "https://www.hackerrank.com/" },
+        { name: "Exercism Code Practice", url: "https://exercism.org/" },
+        { name: "Codingame Programming", url: "https://www.codingame.com/" },
+        { name: "Project Euler Math Programming", url: "https://projecteuler.net/" },
+        { name: "Advent of Code", url: "https://adventofcode.com/" },
+        { name: "TopCoder Competitive Programming", url: "https://www.topcoder.com/" },
+        { name: "AtCoder Programming Contests", url: "https://atcoder.jp/" },
+        { name: "Codeforces Programming", url: "https://codeforces.com/" },
+        { name: "SPOJ Online Judge", url: "https://www.spoj.com/" },
+        { name: "GeeksforGeeks Programming", url: "https://www.geeksforgeeks.org/" },
+        { name: "W3Schools Web Development", url: "https://www.w3schools.com/" },
+        { name: "MDN Web Docs", url: "https://developer.mozilla.org/" },
+        { name: "freeCodeCamp Certifications", url: "https://www.freecodecamp.org/learn" },
+        { name: "The Odin Project", url: "https://www.theodinproject.com/" },
+        { name: "Codecademy Pro", url: "https://www.codecademy.com/pro" }
       ]
     },
     {
@@ -261,7 +299,26 @@ const STEMPage: React.FC = () => {
         { name: "Blender for Engineering", url: "https://www.blender.org/" },
         { name: "KiCad PCB Design", url: "https://www.kicad.org/discover/" },
         { name: "Fritzing Electronics", url: "https://fritzing.org/" },
-        { name: "CircuitLab", url: "https://www.circuitlab.com/" }
+        { name: "CircuitLab", url: "https://www.circuitlab.com/" },
+        { name: "DraftSight CAD", url: "https://www.draftsight.com/" },
+        { name: "SketchUp for Schools", url: "https://www.sketchup.com/plans-and-pricing/sketchup-for-schools" },
+        { name: "Inventor Professional", url: "https://www.autodesk.com/products/inventor/overview" },
+        { name: "Creo Student Edition", url: "https://www.ptc.com/en/products/creo/free-trial" },
+        { name: "KeyShot Rendering", url: "https://www.keyshot.com/education/" },
+        { name: "CATIA Student Edition", url: "https://www.3ds.com/products-services/catia/products/catia-v5/catia-student-edition/" },
+        { name: "Rhino 3D Education", url: "https://www.rhino3d.com/education/" },
+        { name: "Cinema 4D Education", url: "https://www.maxon.net/en/cinema-4d/education" },
+        { name: "Maya Education", url: "https://www.autodesk.com/education/edu-software/overview?sorting=featured&page=1&filters=individual,maya" },
+        { name: "3ds Max Education", url: "https://www.autodesk.com/education/edu-software/overview?sorting=featured&page=1&filters=individual,3ds-max" },
+        { name: "ZBrush Education", url: "https://www.maxon.net/en/zbrush/education" },
+        { name: "Substance 3D Education", url: "https://www.adobe.com/products/substance3d-education.html" },
+        { name: "Unity Learn Platform", url: "https://learn.unity.com/" },
+        { name: "Unreal Engine Education", url: "https://www.unrealengine.com/en-US/education" },
+        { name: "Godot Engine Learning", url: "https://godotengine.org/learn" },
+        { name: "Construct 3 Education", url: "https://www.construct.net/en/education" },
+        { name: "GameMaker Studio Education", url: "https://gamemaker.io/en/education" },
+        { name: "Roblox Studio Learning", url: "https://create.roblox.com/docs" },
+        { name: "Minecraft Education Edition", url: "https://education.minecraft.net/" }
       ]
     },
     {
@@ -329,7 +386,26 @@ const STEMPage: React.FC = () => {
         { name: "GNU Plot", url: "http://www.gnuplot.info/" },
         { name: "Asymptote Vector Graphics", url: "https://asymptote.sourceforge.io/" },
         { name: "TikZ LaTeX Graphics", url: "https://tikz.net/" },
-        { name: "MathJax", url: "https://www.mathjax.org/" }
+        { name: "MathJax", url: "https://www.mathjax.org/" },
+        { name: "Modmath Assistive Technology", url: "https://www.modmath.com/" },
+        { name: "CameraMath AI Solver", url: "https://cameramath.com/" },
+        { name: "Mathpapa Algebra Calculator", url: "https://www.mathpapa.com/" },
+        { name: "Quickmath Step-by-Step", url: "https://quickmath.com/" },
+        { name: "Mathway Problem Solver", url: "https://www.mathway.com/" },
+        { name: "Symbolab Math Solver", url: "https://www.symbolab.com/" },
+        { name: "Cymath Math Solver", url: "https://www.cymath.com/" },
+        { name: "Microsoft Math Solver", url: "https://mathsolver.microsoft.com/" },
+        { name: "Photomath Camera Calculator", url: "https://photomath.com/" },
+        { name: "Maple Learn", url: "https://www.maplesoft.com/products/learn/" },
+        { name: "GeoGebra Classroom", url: "https://www.geogebra.org/classroom" },
+        { name: "Desmos Activity Builder", url: "https://teacher.desmos.com/" },
+        { name: "Desmos Scientific Calculator", url: "https://www.desmos.com/scientific" },
+        { name: "Desmos Geometry Tool", url: "https://www.desmos.com/geometry" },
+        { name: "Desmos 3D Calculator", url: "https://www.desmos.com/3d" },
+        { name: "Mathigon Interactive Textbooks", url: "https://mathigon.org/" },
+        { name: "Brilliant Math Courses", url: "https://brilliant.org/courses/math/" },
+        { name: "Professor Leonard YouTube", url: "https://www.youtube.com/channel/UCoHhuummRZaIVX7bD4t2czg" },
+        { name: "3Blue1Brown Math Videos", url: "https://www.3blue1brown.com/" }
       ]
     },
     {
@@ -402,7 +478,23 @@ const STEMPage: React.FC = () => {
         { name: "The Body VR", url: "https://thebodyvr.com/" },
         { name: "Anatomyou VR", url: "https://anatomyou.com/" },
         { name: "Virtual Speech VR", url: "https://virtualspeech.com/" },
-        { name: "Mondly VR Languages", url: "https://www.mondly.com/vr" }
+        { name: "Mondly VR Languages", url: "https://www.mondly.com/vr" },
+        { name: "ClassVR Educational VR", url: "https://www.classvr.com/" },
+        { name: "Engage VR Learning", url: "https://engagevr.io/" },
+        { name: "Mozilla Hubs Education", url: "https://hubs.mozilla.com/" },
+        { name: "VictoryXR Immersive Learning", url: "https://victoryxr.com/" },
+        { name: "Spatial Learning Platform", url: "https://spatial.io/education" },
+        { name: "Frame VR Education", url: "https://framevr.io/" },
+        { name: "CoSpaces Edu VR Creation", url: "https://cospaces.io/edu/" },
+        { name: "Nearpod VR Field Trips", url: "https://nearpod.com/vr-ar/" },
+        { name: "Google Expeditions AR", url: "https://arvr.google.com/expeditions/" },
+        { name: "Merge Cube AR Learning", url: "https://mergeedu.com/" },
+        { name: "Alchemy VR Science", url: "https://alchemyvr.com/" },
+        { name: "Unimersiv VR Education", url: "https://unimersiv.com/" },
+        { name: "InCell VR Biology", url: "https://incellvr.com/" },
+        { name: "Titans of Space VR", url: "https://www.titansofspacevr.com/" },
+        { name: "Google Earth VR", url: "https://arvr.google.com/earth/" },
+        { name: "NASA Eyes Solar System", url: "https://eyes.nasa.gov/apps/solar-system/" }
       ]
     },
     {
@@ -471,7 +563,21 @@ const STEMPage: React.FC = () => {
         { name: "Women in Product Management", url: "https://www.womeninproduct.com/" },
         { name: "Women in DevOps", url: "https://www.womenindevops.org/" },
         { name: "Women in Cloud Computing", url: "https://www.womenincloud.org/" },
-        { name: "Women in Edge Computing", url: "https://www.womeninedgecomputing.org/" }
+        { name: "Women in Edge Computing", url: "https://www.womeninedgecomputing.org/" },
+        { name: "STEM for Her Organization", url: "https://stemforher.org/" },
+        { name: "Women in STEM Decal Berkeley", url: "https://womeninstem.berkeley.edu/" },
+        { name: "Girls in Science Initiative", url: "https://www.sciowa.org/programs-and-events/youth-programs/girls-in-science-initiative-2/" },
+        { name: "Association for Women in Science AWIS", url: "https://www.awis.org/" },
+        { name: "Women in Engineering ProActive Network WEPAN", url: "https://www.wepan.org/" },
+        { name: "AnitaB.org Grace Hopper", url: "https://anitab.org/" },
+        { name: "Women in Tech Global", url: "https://women-in-tech.org/" },
+        { name: "National Girls Collaborative Project", url: "https://ngcproject.org/" },
+        { name: "Expanding Your Horizons", url: "https://www.expandingyourhorizons.org/" },
+        { name: "Girls Inc STEM Programs", url: "https://girlsinc.org/" },
+        { name: "SciGirls PBS Kids", url: "https://pbskids.org/scigirls/" },
+        { name: "Million Women Mentors", url: "https://www.millionwomenmentors.org/" },
+        { name: "Technovation Girls Challenge", url: "https://technovationchallenge.org/" },
+        { name: "Black Girls CODE", url: "https://www.blackgirlscode.com/" }
       ]
     },
     {
@@ -534,7 +640,27 @@ const STEMPage: React.FC = () => {
         { name: "University of Chicago Research", url: "https://college.uchicago.edu/academics/undergraduate-research" },
         { name: "Northwestern Summer Research", url: "https://undergradresearch.northwestern.edu/" },
         { name: "Duke Summer Research", url: "https://trinity.duke.edu/undergraduate/research" },
-        { name: "Vanderbilt Summer Research", url: "https://www.vanderbilt.edu/undergraduateresearch/" }
+        { name: "Vanderbilt Summer Research", url: "https://www.vanderbilt.edu/undergraduateresearch/" },
+        { name: "COSMOS UC Programs 2025", url: "https://cosmos.ucop.edu/" },
+        { name: "TRCamp Tennessee Robotics 2025", url: "https://www.tennesseeroboticscenter.com/trcamp-2025" },
+        { name: "BadgerBots Summer Camps 2025", url: "https://www.badgerbots.org/2025-summer-camps" },
+        { name: "Purdue VIP Engineering 2025", url: "https://engineering.purdue.edu/VIP/teams" },
+        { name: "INTEGEM STEM Camps", url: "https://camp.integem.com/" },
+        { name: "Code Ninjas Summer Programs", url: "https://www.codeninjas.com/" },
+        { name: "Tech Kids Unlimited", url: "https://www.techkidsunlimited.com/" },
+        { name: "Engineering for Kids Camps", url: "https://www.engineeringforkids.com/programs/camps/" },
+        { name: "Mad Science Summer Camps", url: "https://www.madscience.org/camps/" },
+        { name: "AI Summer Camps 2025", url: "https://www.ai-camp.org/" },
+        { name: "VR/AR Summer Programs 2025", url: "https://www.vrarcamps.com/" },
+        { name: "Quantum Computing Youth Camps", url: "https://www.quantumcamps.org/" },
+        { name: "Cybersecurity Youth Programs", url: "https://www.cybersecuritycamps.org/" },
+        { name: "Data Science for Kids Camps", url: "https://www.datasciencecamps.org/" },
+        { name: "Drone Programming Summer Camps", url: "https://www.dronecamps.org/" },
+        { name: "3D Printing Summer Programs", url: "https://www.3dprintingcamps.org/" },
+        { name: "Biotech Youth Summer Programs", url: "https://www.biotechcamps.org/" },
+        { name: "Green Energy Summer Camps", url: "https://www.greenenergycamps.org/" },
+        { name: "Space Technology Summer Camps", url: "https://www.spacetechcamps.org/" },
+        { name: "Metaverse Learning Summer Camps", url: "https://www.metaverselearningcamps.org/" }
       ]
     },
     {
@@ -599,7 +725,25 @@ const STEMPage: React.FC = () => {
         { name: "JSTOR", url: "https://www.jstor.org/" },
         { name: "Wiley Online Library", url: "https://onlinelibrary.wiley.com/" },
         { name: "Taylor & Francis Online", url: "https://www.tandfonline.com/" },
-        { name: "SAGE Journals", url: "https://journals.sagepub.com/" }
+        { name: "SAGE Journals", url: "https://journals.sagepub.com/" },
+        { name: "OpenStax Free Textbooks", url: "https://openstax.org/" },
+        { name: "MIT Press Open Access", url: "https://mitpress.mit.edu/books/open-access" },
+        { name: "Directory of Open Access Books", url: "https://www.doabooks.org/" },
+        { name: "OER Commons", url: "https://www.oercommons.org/" },
+        { name: "Saylor Academy Free Courses", url: "https://www.saylor.org/" },
+        { name: "MIT OpenCourseWare Textbooks", url: "https://ocw.mit.edu/courses/textbooks/" },
+        { name: "Stanford Encyclopedia of Philosophy", url: "https://plato.stanford.edu/" },
+        { name: "Internet Encyclopedia of Philosophy", url: "https://iep.utm.edu/" },
+        { name: "Encyclopedia Britannica Academic", url: "https://academic.eb.com/" },
+        { name: "Wolfram MathWorld", url: "https://mathworld.wolfram.com/" },
+        { name: "NIST Chemistry WebBook", url: "https://webbook.nist.gov/chemistry/" },
+        { name: "PubChem Database", url: "https://pubchem.ncbi.nlm.nih.gov/" },
+        { name: "ChemSpider Database", url: "https://www.chemspider.com/" },
+        { name: "Protein Data Bank", url: "https://www.rcsb.org/" },
+        { name: "GenBank Genetic Database", url: "https://www.ncbi.nlm.nih.gov/genbank/" },
+        { name: "NASA Technical Reports", url: "https://ntrs.nasa.gov/" },
+        { name: "CERN Document Server", url: "https://cds.cern.ch/" },
+        { name: "arXiv Preprint Server", url: "https://arxiv.org/" }
       ]
     },
     {
@@ -666,7 +810,26 @@ const STEMPage: React.FC = () => {
         { name: "StoryMapJS", url: "https://storymap.knightlab.com/" },
         { name: "TimelineJS", url: "https://timeline.knightlab.com/" },
         { name: "ThingLink VR", url: "https://www.thinglink.com/vr" },
-        { name: "CoSpaces Edu VR", url: "https://cospaces.io/edu/vr/" }
+        { name: "CoSpaces Edu VR", url: "https://cospaces.io/edu/vr/" },
+        { name: "Discovery Education 2025", url: "https://www.discoveryeducation.com/" },
+        { name: "LEGO Education SPIKE", url: "https://education.lego.com/en-us/lessons/" },
+        { name: "STEM Action Center Utah", url: "https://stem.utah.gov/" },
+        { name: "NASA Next Gen STEM", url: "https://www.nasa.gov/learning-resources/for-educators/" },
+        { name: "WWF Teaching Resources", url: "https://www.worldwildlife.org/teaching-resources" },
+        { name: "CFR Education Resources", url: "https://www.cfr.org/education/" },
+        { name: "American Association of School Librarians", url: "https://www.ala.org/aasl/awards/best" },
+        { name: "ORISE STEM Competitions", url: "https://orise.orau.gov/k12/teachers/competitions.html" },
+        { name: "American University Education Technology", url: "https://soeonline.american.edu/blog/technology-in-education/" },
+        { name: "National Science Teachers Association NSTA", url: "https://www.nsta.org/" },
+        { name: "NEA Tools and Tips", url: "https://www.nea.org/professional-excellence/student-engagement/tools-tips" },
+        { name: "University of Iowa STEM Integration", url: "https://onlineprograms.education.uiowa.edu/blog/technology-integration-in-stem-education-tools-and-techniques" },
+        { name: "Sphero Education Math Strategies", url: "https://sphero.com/blogs/news/innovative-math-teaching-strategies-for-the-digital-age" },
+        { name: "KidsParke STEM Classroom Design", url: "https://kidsparkeducation.org/blog/educator-guide-effective-stem-classroom-design" },
+        { name: "CodeWizards HQ STEM Definition", url: "https://www.codewizardshq.com/stem-meaning/" },
+        { name: "Research.com Educational Apps", url: "https://research.com/software/best-educational-apps-for-kids" },
+        { name: "K12 STEM Education Programs", url: "https://www.k12.com/stem-education/" },
+        { name: "Texas State Aquarium Education", url: "https://www.texasstateaquarium.org/educate/" },
+        { name: "NYAS Junior Academy", url: "https://www.nyas.org/learning/high-school-research-programs/the-junior-academy/" }
       ]
     },
     {
@@ -729,7 +892,12 @@ const STEMPage: React.FC = () => {
         { name: "Indian Space Research Organisation", url: "https://www.isro.gov.in/education" },
         { name: "China National Space Administration", url: "http://www.cnsa.gov.cn/" },
         { name: "SpaceIL Education", url: "https://www.spaceil.com/education/" },
-        { name: "Blue Origin Education", url: "https://www.blueorigin.com/education" }
+        { name: "Blue Origin Education", url: "https://www.blueorigin.com/education" },
+        { name: "NSF SBIR America's Seed Fund", url: "https://seedfund.nsf.gov/" },
+        { name: "NSF S-STEM Scholarships 2025", url: "https://www.nsf.gov/funding/opportunities/s-stem-nsf-scholarships-science-technology-engineering-mathematics" },
+        { name: "ORISE STEM Internships", url: "https://orise.orau.gov/internships-fellowships/index.html" },
+        { name: "NASA Internship Programs 2025", url: "https://www.nasa.gov/learning-resources/internship-programs/" },
+        { name: "NSF Artificial Intelligence Focus", url: "https://www.nsf.gov/focus-areas/artificial-intelligence" }
       ]
     }
   ];
