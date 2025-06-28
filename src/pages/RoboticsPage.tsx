@@ -371,6 +371,434 @@ const RoboticsPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Robotics Research & Academic Excellence */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-cyan-400">
+              Leading Robotics Research Institutions
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-blue-300 mb-4 underline decoration-1 underline-offset-2">
+                  Top Universities & Research Labs
+                </h3>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-xl font-bold text-yellow-300 mb-3 underline decoration-1 underline-offset-2">
+                      Massachusetts Institute of Technology (MIT)
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-blue-300">MIT's Computer Science and Artificial Intelligence Laboratory (CSAIL)</strong> is a world leader in robotics research. Notable projects include the <strong className="text-green-300">Cheetah robot</strong> (fastest running robot), <strong className="text-purple-300">Atlas humanoid development</strong> (in partnership with Boston Dynamics), and <strong className="text-yellow-300">soft robotics innovations</strong>. MIT researchers pioneered behavior-based robotics and continue advancing autonomous navigation, manipulation, and human-robot interaction.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-green-300 mb-3 underline decoration-1 underline-offset-2">
+                      Carnegie Mellon University - Robotics Institute
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      The <strong className="text-green-300">Robotics Institute at CMU</strong> is the world's first and largest robotics research organization. Founded in 1979, it has produced groundbreaking work in <strong className="text-blue-300">autonomous vehicles</strong> (DARPA Grand Challenge winners), <strong className="text-purple-300">field robotics</strong>, and <strong className="text-orange-300">machine learning for robotics</strong>. CMU's robots have explored Antarctica, mapped underground mines, and pioneered self-driving car technology.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-purple-300 mb-3 underline decoration-1 underline-offset-2">
+                      Stanford University - Artificial Intelligence Laboratory
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-purple-300">Stanford AI Lab (SAIL)</strong> focuses on human-centered AI and robotics. Their research includes <strong className="text-cyan-300">robotic manipulation</strong>, <strong className="text-red-300">autonomous driving</strong> (Stanford Racing Team), and <strong className="text-yellow-300">surgical robotics</strong>. Stanford developed the first autonomous vehicle to complete the DARPA Grand Challenge and continues leading research in robot learning and perception.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-cyan-300 mb-3 underline decoration-1 underline-offset-2">
+                      Other Leading Institutions
+                    </h4>
+                    <ul className="space-y-2 text-base">
+                      <li>• <strong className="text-blue-300">Georgia Tech:</strong> Humanoid robotics and AI ethics</li>
+                      <li>• <strong className="text-green-300">UC Berkeley:</strong> Robot learning and computer vision</li>
+                      <li>• <strong className="text-purple-300">University of Washington:</strong> Medical robotics and HCI</li>
+                      <li>• <strong className="text-yellow-300">ETH Zurich:</strong> Autonomous systems and drones</li>
+                      <li>• <strong className="text-red-300">University of Tokyo:</strong> Humanoid and service robots</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Robotics Market & Industry Statistics */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-orange-400">
+              Robotics Market & Industry Growth
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-orange-300 mb-4 underline decoration-1 underline-offset-2">
+                  Global Market Statistics
+                </h3>
+
+                <div className="grid md:grid-cols-3 gap-6 mb-6">
+                  <div className="bg-blue-900/30 rounded-xl p-6 border border-blue-600/40">
+                    <h4 className="text-lg font-bold text-blue-300 mb-2">Market Size 2024</h4>
+                    <p className="text-3xl font-bold text-white mb-2">$51.8B</p>
+                    <p className="text-sm text-gray-300">Global robotics market revenue</p>
+                  </div>
+
+                  <div className="bg-green-900/30 rounded-xl p-6 border border-green-600/40">
+                    <h4 className="text-lg font-bold text-green-300 mb-2">Projected 2029</h4>
+                    <p className="text-3xl font-bold text-white mb-2">$73.0B</p>
+                    <p className="text-sm text-gray-300">9.49% annual growth rate</p>
+                  </div>
+
+                  <div className="bg-purple-900/30 rounded-xl p-6 border border-purple-600/40">
+                    <h4 className="text-lg font-bold text-purple-300 mb-2">Industrial Robots</h4>
+                    <p className="text-3xl font-bold text-white mb-2">4M+</p>
+                    <p className="text-sm text-gray-300">Robots working in factories worldwide</p>
+                  </div>
+                </div>
+
+                <p className="text-base leading-relaxed mb-4">
+                  The <strong className="text-blue-300">global robotics industry</strong> is experiencing unprecedented growth, driven by advances in AI, decreasing hardware costs, and increasing demand for automation. <strong className="text-green-300">Industrial robotics</strong> dominates the market, accounting for over 60% of total revenue, while <strong className="text-purple-300">service robotics</strong> is the fastest-growing segment with applications in healthcare, logistics, and consumer markets.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-lg font-bold text-yellow-300 mb-3 underline decoration-1 underline-offset-2">
+                      Key Growth Drivers
+                    </h4>
+                    <ul className="space-y-2 text-base">
+                      <li>• <strong className="text-blue-300">Labor Shortages:</strong> Aging populations in developed countries</li>
+                      <li>• <strong className="text-green-300">Cost Reduction:</strong> 50% decrease in robot prices over 10 years</li>
+                      <li>• <strong className="text-purple-300">AI Advancement:</strong> Machine learning and computer vision breakthroughs</li>
+                      <li>• <strong className="text-orange-300">Pandemic Impact:</strong> Accelerated automation adoption</li>
+                      <li>• <strong className="text-cyan-300">5G Networks:</strong> Enhanced connectivity for remote operations</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="text-lg font-bold text-red-300 mb-3 underline decoration-1 underline-offset-2">
+                      Regional Markets
+                    </h4>
+                    <ul className="space-y-2 text-base">
+                      <li>• <strong className="text-blue-300">Asia-Pacific:</strong> 65% of global robot installations</li>
+                      <li>• <strong className="text-green-300">China:</strong> World's largest robot market (52% share)</li>
+                      <li>• <strong className="text-purple-300">North America:</strong> $8.2B market, 15% growth</li>
+                      <li>• <strong className="text-yellow-300">Europe:</strong> Strong automotive and manufacturing sectors</li>
+                      <li>• <strong className="text-orange-300">Emerging Markets:</strong> Africa, Latin America showing rapid adoption</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Advanced Robotics Applications */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-red-400">
+              Advanced Robotics Applications
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-red-300 mb-4 underline decoration-1 underline-offset-2">
+                  Medical & Healthcare Robotics
+                </h3>
+
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-xl font-bold text-blue-300 mb-3 underline decoration-1 underline-offset-2">
+                      Surgical Robotics Revolution
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-blue-300">Da Vinci Surgical Systems</strong> by Intuitive Surgical have revolutionized minimally invasive surgery. With over 7,000 systems worldwide, these robots enable surgeons to perform complex procedures through tiny incisions with enhanced precision, 3D visualization, and tremor elimination. The system has been used in over 10 million procedures across urology, gynecology, cardiothoracic, and general surgery.
+                    </p>
+
+                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('QYRdaWK7wgY')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/QYRdaWK7wgY/maxresdefault.jpg"
+                          alt="Da Vinci Surgical Robot"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Da Vinci Surgery Demo</p>
+                        </div>
+                      </div>
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('0XdC1HUp-rU')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/0XdC1HUp-rU/maxresdefault.jpg"
+                          alt="Medical Robotics Future"
+                          className="w-full h-32 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={32} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2">
+                          <p className="text-sm font-semibold text-white">Future of Medical Robots</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div>
+                        <h5 className="text-lg font-bold text-green-300 mb-2 underline decoration-1 underline-offset-2">
+                          Rehabilitation Robots
+                        </h5>
+                        <p className="text-sm leading-relaxed">
+                          <strong className="text-green-300">Lokomat</strong> gait training systems, <strong className="text-blue-300">ReWalk</strong> exoskeletons for spinal cord patients, and <strong className="text-purple-300">HAL</strong> (Hybrid Assistive Limb) suits for mobility assistance.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h5 className="text-lg font-bold text-yellow-300 mb-2 underline decoration-1 underline-offset-2">
+                          Pharmacy Automation
+                        </h5>
+                        <p className="text-sm leading-relaxed">
+                          <strong className="text-yellow-300">PillPick</strong> systems, <strong className="text-cyan-300">IV compounding robots</strong>, and automated dispensing systems reducing medication errors by 85% while increasing efficiency.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h5 className="text-lg font-bold text-orange-300 mb-2 underline decoration-1 underline-offset-2">
+                          Elderly Care Robots
+                        </h5>
+                        <p className="text-sm leading-relaxed">
+                          <strong className="text-orange-300">PARO</strong> therapeutic seals, <strong className="text-pink-300">Pepper</strong> companion robots, and <strong className="text-indigo-300">TUG</strong> hospital delivery robots improving patient care and reducing staff workload.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-purple-300 mb-4 underline decoration-1 underline-offset-2">
+                  Military & Defense Applications
+                </h3>
+
+                <div className="space-y-4">
+                  <p className="text-base leading-relaxed mb-4">
+                    <strong className="text-purple-300">Military robotics</strong> represents one of the most advanced and controversial applications of robotic technology. The U.S. Department of Defense has over <strong className="text-red-300">800 active AI projects</strong>, with DARPA leading breakthrough research in autonomous systems, battlefield robotics, and unmanned vehicles.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-lg font-bold text-blue-300 mb-3 underline decoration-1 underline-offset-2">
+                        Unmanned Systems
+                      </h4>
+                      <ul className="space-y-2 text-base">
+                        <li>• <strong className="text-yellow-300">MQ-9 Reaper Drones:</strong> Long-endurance surveillance and strike missions</li>
+                        <li>• <strong className="text-green-300">PackBot:</strong> Explosive ordnance disposal and reconnaissance</li>
+                        <li>• <strong className="text-blue-300">TALON Robots:</strong> Combat engineering and hazardous material handling</li>
+                        <li>• <strong className="text-purple-300">Autonomous Underwater Vehicles:</strong> Naval mine detection and clearance</li>
+                        <li>• <strong className="text-orange-300">Ghost Robotics Dogs:</strong> Perimeter security and patrol operations</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-bold text-red-300 mb-3 underline decoration-1 underline-offset-2">
+                        DARPA Research Projects
+                      </h4>
+                      <ul className="space-y-2 text-base">
+                        <li>• <strong className="text-cyan-300">Squad X:</strong> Human-machine teaming for small units</li>
+                        <li>• <strong className="text-pink-300">Gremlins Program:</strong> Recoverable drone swarms</li>
+                        <li>• <strong className="text-indigo-300">OFFSET:</strong> Urban swarm tactics and technologies</li>
+                        <li>• <strong className="text-teal-300">Robotic Servicing:</strong> Satellite maintenance and repair</li>
+                        <li>• <strong className="text-lime-300">ATLAS Program:</strong> Humanoid robots for disaster response</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-yellow-900/20 border border-yellow-600/40 rounded-lg p-4 mt-4">
+                    <h5 className="text-lg font-bold text-yellow-300 mb-2">⚠️ Ethical Considerations</h5>
+                    <p className="text-sm leading-relaxed text-gray-200">
+                      The development of <strong className="text-red-300">lethal autonomous weapons systems (LAWS)</strong> raises significant ethical concerns. International organizations, including the UN and Red Cross, advocate for regulations on fully autonomous weapons. The debate centers on accountability, proportionality, and the preservation of human control in life-and-death decisions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-green-300 mb-4 underline decoration-1 underline-offset-2">
+                  Space Exploration Robotics
+                </h3>
+
+                <div className="space-y-4">
+                  <p className="text-base leading-relaxed mb-4">
+                    <strong className="text-green-300">Space robotics</strong> enables humanity to explore environments too dangerous or distant for human presence. From Mars rovers to satellite servicing missions, robots serve as our eyes, hands, and tools in the cosmos.
+                  </p>
+
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div>
+                      <h4 className="text-lg font-bold text-red-300 mb-2 underline decoration-1 underline-offset-2">
+                        Mars Exploration
+                      </h4>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-blue-300">Perseverance Rover:</strong> Sample collection and analysis</li>
+                        <li>• <strong className="text-green-300">Ingenuity Helicopter:</strong> First powered flight on Mars</li>
+                        <li>• <strong className="text-purple-300">Curiosity Rover:</strong> 12+ years of geological research</li>
+                        <li>• <strong className="text-yellow-300">Future Missions:</strong> Sample return and human preparation</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-bold text-blue-300 mb-2 underline decoration-1 underline-offset-2">
+                        Orbital Operations
+                      </h4>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-cyan-300">Canadarm2:</strong> ISS assembly and maintenance</li>
+                        <li>• <strong className="text-orange-300">OSAM-1:</strong> Satellite refueling demonstration</li>
+                        <li>• <strong className="text-pink-300">ClearSpace-1:</strong> Space debris removal mission</li>
+                        <li>• <strong className="text-indigo-300">Robotic Refueling:</strong> Extending satellite lifespans</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="text-lg font-bold text-purple-300 mb-2 underline decoration-1 underline-offset-2">
+                        Deep Space Missions
+                      </h4>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-teal-300">Voyager Probes:</strong> 45+ years of exploration</li>
+                        <li>• <strong className="text-lime-300">New Horizons:</strong> Pluto and Kuiper Belt study</li>
+                        <li>• <strong className="text-amber-300">Europa Clipper:</strong> Jupiter moon exploration</li>
+                        <li>• <strong className="text-rose-300">Dragonfly:</strong> Titan helicopter mission</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div
+                    className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 mt-4"
+                    onClick={() => openVideoModal('gm0b_ijaYMQ')}
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/gm0b_ijaYMQ/maxresdefault.jpg"
+                      alt="Mars Perseverance Rover"
+                      className="w-full h-40 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <Play size={40} className="text-white" />
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="text-lg font-semibold text-white">Mars Perseverance Rover: Engineering Marvel</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Emerging Technologies & Future Trends */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-pink-400">
+              Emerging Technologies & Future Trends
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-pink-300 mb-4 underline decoration-1 underline-offset-2">
+                  2024-2025 Breakthrough Technologies
+                </h3>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-xl font-bold text-cyan-300 mb-3 underline decoration-1 underline-offset-2">
+                      Generative AI Integration
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-cyan-300">Large Language Models (LLMs)</strong> are being integrated into robotic systems, enabling natural language interaction and reasoning. <strong className="text-blue-300">Google's RT-2</strong> and <strong className="text-green-300">OpenAI's robotics research</strong> demonstrate robots that can understand complex instructions and adapt to new situations through language-based learning.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-yellow-300 mb-3 underline decoration-1 underline-offset-2">
+                      Neuromorphic Computing
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-yellow-300">Brain-inspired processors</strong> like Intel's Loihi and IBM's TrueNorth enable robots to process sensory information with ultra-low power consumption. This technology promises <strong className="text-purple-300">real-time learning</strong> and <strong className="text-orange-300">adaptive behavior</strong> in resource-constrained environments.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-green-300 mb-3 underline decoration-1 underline-offset-2">
+                      Soft Robotics Revolution
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-green-300">Bio-inspired soft robots</strong> use flexible materials and pneumatic actuators to safely interact with humans and delicate objects. Applications include <strong className="text-blue-300">medical devices</strong>, <strong className="text-purple-300">food handling</strong>, and <strong className="text-red-300">search and rescue operations</strong> in confined spaces.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-orange-300 mb-3 underline decoration-1 underline-offset-2">
+                      Quantum-Enhanced Robotics
+                    </h4>
+                    <p className="text-base leading-relaxed mb-3">
+                      <strong className="text-orange-300">Quantum sensors</strong> and <strong className="text-cyan-300">quantum computing algorithms</strong> are beginning to enhance robot perception and decision-making. Quantum-enhanced navigation, optimization, and machine learning promise exponential improvements in robotic capabilities.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-indigo-300 mb-4 underline decoration-1 underline-offset-2">
+                  Future Predictions (2025-2040)
+                </h3>
+
+                <div className="space-y-4">
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-600/40">
+                      <h4 className="text-lg font-bold text-blue-300 mb-2">2025-2027</h4>
+                      <ul className="space-y-1 text-sm">
+                        <li>• Humanoid robots in factories</li>
+                        <li>• Autonomous delivery widespread</li>
+                        <li>• AI-powered surgical assistants</li>
+                        <li>• Smart home robot integration</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-green-900/30 rounded-lg p-4 border border-green-600/40">
+                      <h4 className="text-lg font-bold text-green-300 mb-2">2028-2032</h4>
+                      <ul className="space-y-1 text-sm">
+                        <li>• General-purpose home robots</li>
+                        <li>• Autonomous construction crews</li>
+                        <li>• Robot teachers and caregivers</li>
+                        <li>• Self-repairing robot systems</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-600/40">
+                      <h4 className="text-lg font-bold text-purple-300 mb-2">2033-2040</h4>
+                      <ul className="space-y-1 text-sm">
+                        <li>• Human-level robot intelligence</li>
+                        <li>• Robots outnumber humans (Musk prediction)</li>
+                        <li>• Fully autonomous cities</li>
+                        <li>• Robot-human hybrid workforces</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-6 border border-purple-600/40 mt-6">
+                    <h4 className="text-xl font-bold text-pink-300 mb-3">🚀 Elon Musk's Bold Prediction</h4>
+                    <p className="text-base leading-relaxed">
+                      Tesla CEO Elon Musk predicts that by <strong className="text-yellow-300">2040</strong>, there will be more <strong className="text-blue-300">humanoid robots than humans</strong> on Earth. With Tesla's Optimus robot potentially costing <strong className="text-green-300">$20,000-$25,000</strong>, Musk envisions a future where robots handle most physical labor, fundamentally transforming the global economy and society.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
