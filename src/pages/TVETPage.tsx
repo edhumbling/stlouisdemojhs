@@ -1449,6 +1449,157 @@ const TVETPage: React.FC = () => {
               </div>
             </section>
 
+            {/* Discovering Your Path in TVET - ACTT Spotlight */}
+            <section className="mb-12">
+              <div className="bg-gradient-to-r from-blue-900/40 to-indigo-900/40 rounded-2xl p-6 sm:p-8 border border-blue-700/30 backdrop-blur-sm">
+                <h3 className="text-2xl sm:text-3xl font-bold text-blue-300 mb-6 text-center underline decoration-2 underline-offset-4">
+                  🎯 Discovering Your Path in TVET
+                </h3>
+
+                <div className="mb-8">
+                  <h4 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                    <Building size={24} className="text-blue-400" />
+                    African Centre for Technical Training (ACTT)
+                  </h4>
+                  <p className="text-base sm:text-lg text-gray-200 leading-relaxed mb-6">
+                    <strong className="text-blue-300">ACTT</strong> is a modern, accredited institute founded in 2022 with a vision to be the leading technical and vocational training institute propelling Africa's industrial development. They are reimagining TVET in Africa for the 21st century and beyond.
+                  </p>
+                </div>
+
+                {/* ACTT's Mission & Work */}
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-blue-800/30 rounded-xl p-6 border border-blue-600/40">
+                    <h5 className="text-lg font-bold text-blue-300 mb-4 flex items-center gap-2">
+                      <Lightbulb size={20} className="text-yellow-400" />
+                      Their Mission
+                    </h5>
+                    <p className="text-sm text-gray-200 leading-relaxed">
+                      To empower African youth with high quality, demand-driven and practice-oriented training of global excellence, and the 21st century business skills required to transform the continent.
+                    </p>
+                  </div>
+
+                  <div className="bg-blue-800/30 rounded-xl p-6 border border-blue-600/40">
+                    <h5 className="text-lg font-bold text-blue-300 mb-4 flex items-center gap-2">
+                      <Users size={20} className="text-green-400" />
+                      Their Approach
+                    </h5>
+                    <p className="text-sm text-gray-200 leading-relaxed">
+                      Small class sizes with 60% practice/workshop based and 40% theory/classroom based learning. They champion diversity by catering to underrepresented groups including women, people with disabilities, and rural communities.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Current Programs */}
+                <div className="mb-8">
+                  <h5 className="text-xl font-bold text-white mb-6 text-center">
+                    🛠️ Current Programs Available
+                  </h5>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {/* Plumbing Systems Design */}
+                    <div className="bg-gradient-to-br from-blue-800/50 to-blue-700/50 rounded-lg p-4 border border-blue-600/40 hover:border-blue-500/60 transition-all duration-300">
+                      <h6 className="font-bold text-blue-300 mb-2">Plumbing Systems Design</h6>
+                      <p className="text-xs text-gray-300 mb-2">6-7 months</p>
+                      <p className="text-sm text-gray-200">Design sustainable plumbing systems for residential and commercial use.</p>
+                    </div>
+
+                    {/* Woodwork and Joinery */}
+                    <div className="bg-gradient-to-br from-green-800/50 to-green-700/50 rounded-lg p-4 border border-green-600/40 hover:border-green-500/60 transition-all duration-300">
+                      <h6 className="font-bold text-green-300 mb-2">Woodwork and Joinery</h6>
+                      <p className="text-xs text-gray-300 mb-2">6-7 months</p>
+                      <p className="text-sm text-gray-200">Modern standards in the design, construction and installation of wood.</p>
+                    </div>
+
+                    {/* Plumbing and Gas Technology */}
+                    <div className="bg-gradient-to-br from-purple-800/50 to-purple-700/50 rounded-lg p-4 border border-purple-600/40 hover:border-purple-500/60 transition-all duration-300">
+                      <h6 className="font-bold text-purple-300 mb-2">Plumbing and Gas Technology</h6>
+                      <p className="text-xs text-gray-300 mb-2">18 months (NC1)</p>
+                      <p className="text-sm text-gray-200">A National Certificate 1 program in plumbing and gas technology.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Upcoming Programs */}
+                <div className="mb-8">
+                  <h5 className="text-xl font-bold text-white mb-6 text-center">
+                    🚀 Upcoming Programs
+                  </h5>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-600/40 text-center">
+                      <p className="text-sm font-semibold text-gray-300">Electrical Systems Design</p>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-600/40 text-center">
+                      <p className="text-sm font-semibold text-gray-300">Masonry & Tile Setting</p>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-600/40 text-center">
+                      <p className="text-sm font-semibold text-gray-300">Welding & Fabrication</p>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-600/40 text-center">
+                      <p className="text-sm font-semibold text-gray-300">Mechanical Engineering Tech</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Features */}
+                <div className="mb-8">
+                  <h5 className="text-xl font-bold text-white mb-6 text-center">
+                    ✨ What Makes ACTT Special
+                  </h5>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <Briefcase size={16} className="text-white" />
+                      </div>
+                      <div>
+                        <h6 className="font-bold text-green-300 mb-1">Entrepreneurship Focus</h6>
+                        <p className="text-sm text-gray-200">Graduates equipped to start their own businesses and hire others.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <Users size={16} className="text-white" />
+                      </div>
+                      <div>
+                        <h6 className="font-bold text-blue-300 mb-1">Industry Linkage</h6>
+                        <p className="text-sm text-gray-200">Job placement on graduation through solid industry partnerships.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <Monitor size={16} className="text-white" />
+                      </div>
+                      <div>
+                        <h6 className="font-bold text-purple-300 mb-1">Modern Technology</h6>
+                        <p className="text-sm text-gray-200">Leveraging technology for end-to-end quality in TVET education.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Visit ACTT Button */}
+                <div className="text-center">
+                  <a
+                    href="https://actt.edu.gh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-indigo-500 transition-all duration-300 shadow-lg hover:shadow-blue-400/25 hover:scale-105"
+                    style={{
+                      textShadow: '0 0 8px rgba(59, 130, 246, 0.8), 0 0 16px rgba(59, 130, 246, 0.6)',
+                      boxShadow: '0 0 15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(59, 130, 246, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.2)'
+                    }}
+                  >
+                    <Building size={20} />
+                    <span>Visit ACTT Website</span>
+                    <ExternalLink size={16} />
+                  </a>
+                  <p className="text-sm text-gray-400 mt-3">
+                    📧 Contact: info@actt.edu.gh | 📞 +233 25 655 6344
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* Call to Action */}
             <section className="text-center">
               <div className="bg-gradient-to-r from-green-900/50 to-green-800/50 rounded-2xl p-8 border border-green-700/30 backdrop-blur-sm">
