@@ -301,23 +301,9 @@ const TVETPage: React.FC = () => {
             </div>
 
             <div className="text-center mb-8">
-              <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
+              <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
                 Explore Ghana's comprehensive TVET system - from skills training and technical education to career pathways that drive national development and economic growth.
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-sm sm:text-base max-w-4xl mx-auto">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
-                  <span className="text-green-300">🏭 Industry Skills</span>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
-                  <span className="text-blue-300">🎓 Career Pathways</span>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
-                  <span className="text-purple-300">🔧 Practical Training</span>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
-                  <span className="text-yellow-300">💼 Job Opportunities</span>
-                </div>
-              </div>
             </div>
 
             {/* What is TVET Section */}
@@ -1170,6 +1156,27 @@ const TVETPage: React.FC = () => {
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center underline decoration-2 underline-offset-4">
                 🚀 TVET Career Pathways in Ghana
               </h3>
+
+              {/* Career Categories Overview */}
+              <div className="text-center mb-8">
+                <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed mb-6">
+                  Discover diverse career opportunities across multiple sectors. Ghana's TVET system offers comprehensive pathways in these key areas:
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-sm sm:text-base max-w-4xl mx-auto mb-8">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
+                    <span className="text-green-300">🏭 Industry Skills</span>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
+                    <span className="text-blue-300">🎓 Career Pathways</span>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
+                    <span className="text-purple-300">🔧 Practical Training</span>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2 sm:px-4 sm:py-2 border border-white/20 text-center">
+                    <span className="text-yellow-300">💼 Job Opportunities</span>
+                  </div>
+                </div>
+              </div>
 
               <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 {/* Engineering & Technology */}
