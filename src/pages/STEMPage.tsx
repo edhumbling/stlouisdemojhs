@@ -911,7 +911,7 @@ const STEMPage: React.FC = () => {
     },
     {
       id: 11,
-      title: "Robotics & AI",
+      title: "Robotics & Automation",
       description: "Robotics competitions, companies & innovation",
       icon: <Bot className="w-5 h-5" />,
       color: "#FF6B35",

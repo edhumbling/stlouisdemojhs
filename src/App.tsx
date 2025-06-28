@@ -16,6 +16,7 @@ import CalendarPage from './pages/CalendarPage';
 import AISearchPage from './pages/AISearchPage';
 import STEMPage from './pages/STEMPage';
 import RoboticsPage from './pages/RoboticsPage';
+import SpaceExplorationPage from './pages/SpaceExplorationPage';
 import TVETPage from './pages/TVETPage';
 import StudentsHubPage from './pages/StudentsHubPage';
 import AdviceSpeechesPage from './pages/AdviceSpeechesPage';
@@ -204,6 +205,7 @@ const App: React.FC = () => {
         {/* Standalone pages without Layout (no header/footer) */}
         <Route path="/stem" element={<STEMPage />} />
         <Route path="/robotics" element={<RoboticsPage />} />
+        <Route path="/space-exploration" element={<SpaceExplorationPage />} />
         <Route path="/tvet" element={<TVETPage />} />
         <Route path="/mayamiles-ai" element={<MayamilesAIPage />} />
         <Route path="/donation-thank-you" element={<DonationThankYouPage />} />
