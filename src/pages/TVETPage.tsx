@@ -484,7 +484,7 @@ const TVETPage: React.FC = () => {
 
               {/* CTVET Mandate and Vision */}
               <div className="mb-8">
-                <h4 className="text-xl sm:text-2xl font-bold text-blue-300 mb-6 text-center">
+                <h4 className="text-xl sm:text-2xl font-bold text-blue-300 mb-6 text-center underline decoration-2 underline-offset-4">
                   🎯 CTVET Mandate, Vision & Mission
                 </h4>
 
@@ -514,7 +514,7 @@ const TVETPage: React.FC = () => {
 
               {/* CTVET Functions */}
               <div className="mb-8">
-                <h4 className="text-xl sm:text-2xl font-bold text-orange-300 mb-6 text-center">
+                <h4 className="text-xl sm:text-2xl font-bold text-orange-300 mb-6 text-center underline decoration-2 underline-offset-4">
                   ⚙️ CTVET Functions & Responsibilities
                 </h4>
 
@@ -557,7 +557,7 @@ const TVETPage: React.FC = () => {
 
               {/* CTVET Core Services */}
               <div className="mb-8">
-                <h4 className="text-xl sm:text-2xl font-bold text-cyan-300 mb-6 text-center">
+                <h4 className="text-xl sm:text-2xl font-bold text-cyan-300 mb-6 text-center underline decoration-2 underline-offset-4">
                   🔧 CTVET Core Services
                 </h4>
 
@@ -832,7 +832,7 @@ const TVETPage: React.FC = () => {
 
               {/* Competency Based Training Programmes */}
               <div className="mb-12">
-                <h4 className="text-xl sm:text-2xl font-bold text-green-300 mb-6 text-center">
+                <h4 className="text-xl sm:text-2xl font-bold text-green-300 mb-6 text-center underline decoration-2 underline-offset-4">
                   🎯 Competency Based Training Programmes
                 </h4>
 
@@ -918,7 +918,7 @@ const TVETPage: React.FC = () => {
 
               {/* Generic Programmes */}
               <div className="mb-12">
-                <h4 className="text-xl sm:text-2xl font-bold text-indigo-300 mb-6 text-center">
+                <h4 className="text-xl sm:text-2xl font-bold text-indigo-300 mb-6 text-center underline decoration-2 underline-offset-4">
                   📚 Generic Programmes (Foundation Skills)
                 </h4>
 
@@ -939,7 +939,7 @@ const TVETPage: React.FC = () => {
 
               {/* Programme Code Interpretation */}
               <div className="mb-12">
-                <h4 className="text-xl sm:text-2xl font-bold text-gray-300 mb-6 text-center">
+                <h4 className="text-xl sm:text-2xl font-bold text-gray-300 mb-6 text-center underline decoration-2 underline-offset-4">
                   🔍 Understanding Programme Codes
                 </h4>
 
@@ -1412,11 +1412,11 @@ const TVETPage: React.FC = () => {
                   gradient="from-green-900 to-green-800"
                 />
 
-                {/* Video 3 - Facebook Live TVET */}
+                {/* Video 3 - Girls in Technical Education */}
                 <TVETVideoCard
-                  src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2Flive%2F%3Fref%3Dwatch_permalink%26v%3D905685824691090&show_text=false&width=560&t=0"
-                  title="📺 Live TVET Discussion Ghana"
-                  description="Live discussion on the future of technical and vocational education in Ghana, featuring key stakeholders and industry experts."
+                  src="https://www.youtube.com/embed/yuD7xgKPmJQ"
+                  title="👩‍🔧 Ghana TVET Service: Girls in Technical Education"
+                  description="Ghana TVET Service backs affirmative action for girls in technical education, promoting gender equality and women's participation in TVET programs."
                   gradient="from-purple-900 to-purple-800"
                 />
 
