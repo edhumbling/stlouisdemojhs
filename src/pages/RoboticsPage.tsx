@@ -67,10 +67,10 @@ const RoboticsPage: React.FC = () => {
           <div className="relative h-full flex items-center justify-start px-8 sm:px-12">
             <div>
               <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4">
-                Robotics & AI
+                Robotics and Automation
               </h1>
               <p className="text-lg sm:text-xl text-gray-200 max-w-2xl">
-                Exploring the Future of Automation, Intelligence, and Human-Robot Collaboration
+                Exploring the Future of Intelligent Automation, Robotic Systems, and Industrial Revolution 4.0
               </p>
             </div>
           </div>
@@ -82,8 +82,388 @@ const RoboticsPage: React.FC = () => {
           {/* Introduction */}
           <div className="mb-8">
             <p className="text-lg sm:text-xl leading-relaxed mb-6">
-              <strong className="text-blue-300">Robotics and Artificial Intelligence</strong> represent the cutting edge of technological innovation, transforming industries from manufacturing and healthcare to space exploration and entertainment. This rapidly evolving field combines mechanical engineering, computer science, and artificial intelligence to create machines that can perceive, think, and act autonomously.
+              <strong className="text-blue-300">Robotics and Automation</strong> represent the driving force behind the Fourth Industrial Revolution, fundamentally transforming how we manufacture, work, and live. From fully automated factories in China producing millions of products daily to Amazon's robotic fulfillment centers processing billions of orders, automation has become the backbone of modern industry. This comprehensive field integrates robotics, artificial intelligence, machine learning, and advanced control systems to create intelligent automated solutions that operate with unprecedented precision, speed, and efficiency.
             </p>
+          </div>
+
+          {/* Industrial Automation Revolution */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-orange-400">
+              Industrial Automation Revolution
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-orange-300 mb-4 underline decoration-1 underline-offset-2">
+                  What is Industrial Automation?
+                </h3>
+
+                <p className="text-base leading-relaxed mb-6">
+                  <strong className="text-orange-300">Industrial Automation</strong> is the use of control systems, computers, robots, and information technologies to handle different processes and machinery in an industry to replace human intervention. It represents the second step beyond mechanization in the scope of industrialization. Modern automation systems integrate <strong className="text-blue-300">Artificial Intelligence</strong>, <strong className="text-green-300">Machine Learning</strong>, <strong className="text-purple-300">Internet of Things (IoT)</strong>, and <strong className="text-yellow-300">Advanced Robotics</strong> to create intelligent manufacturing ecosystems that can adapt, learn, and optimize themselves in real-time.
+                </p>
+
+                <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 rounded-lg p-6 border border-orange-600/40 mb-6">
+                  <h4 className="text-xl font-bold text-orange-300 mb-3">🏭 Types of Industrial Automation</h4>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-yellow-300 mb-3">🔧 Fixed Automation</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-blue-300">High-volume production:</strong> Automotive assembly lines</li>
+                        <li>• <strong className="text-green-300">Dedicated systems:</strong> Chemical processing plants</li>
+                        <li>• <strong className="text-purple-300">Continuous operation:</strong> Oil refineries</li>
+                        <li>• <strong className="text-cyan-300">Low flexibility:</strong> Optimized for specific products</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-pink-300 mb-3">🤖 Flexible Automation</h5>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-indigo-300">Programmable systems:</strong> CNC machines</li>
+                        <li>• <strong className="text-teal-300">Adaptable production:</strong> Multi-product lines</li>
+                        <li>• <strong className="text-amber-300">Quick changeover:</strong> Electronics manufacturing</li>
+                        <li>• <strong className="text-lime-300">AI-driven optimization:</strong> Smart factories</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-blue-300 mb-4 underline decoration-1 underline-offset-2">
+                    Amazon's Automation Empire
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    <a href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">Amazon</a> has revolutionized logistics and fulfillment through massive automation investments. With over <strong className="text-yellow-300">750,000 mobile robots</strong> deployed across their fulfillment centers globally, Amazon processes over <strong className="text-green-300">5 billion packages annually</strong> with unprecedented speed and accuracy. Their automation systems include robotic arms, autonomous mobile robots, AI-powered sorting systems, and predictive analytics that optimize every aspect of the supply chain.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={() => openVideoModal('TUx-ljgB-5Q')}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/TUx-ljgB-5Q/maxresdefault.jpg"
+                        alt="Amazon Warehouse Robots"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Amazon Warehouse Robots</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={() => openVideoModal('NZTVgExZqoI')}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/NZTVgExZqoI/maxresdefault.jpg"
+                        alt="Amazon Robots Universe"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Dazzling Universe of Amazon Robots</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={() => openVideoModal('eBsir9mqGeg')}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/eBsir9mqGeg/maxresdefault.jpg"
+                        alt="Amazon Robotic Fulfillment Center"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">New Robotic Fulfillment Center</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={() => openVideoModal('cLVCGEmkJs0')}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/cLVCGEmkJs0/maxresdefault.jpg"
+                        alt="Amazon Warehouse Mind Blowing"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Mind Blowing Warehouse Automation</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-green-300 mb-4 underline decoration-1 underline-offset-2">
+                    NVIDIA's AI-Powered Manufacturing Revolution
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    <a href="https://www.nvidia.com/" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline font-bold">NVIDIA</a> is transforming manufacturing through AI-powered automation solutions. Their <strong className="text-blue-300">Omniverse platform</strong> enables digital twins of entire factories, while <strong className="text-purple-300">Isaac Sim</strong> provides robotics simulation capabilities. NVIDIA's <strong className="text-yellow-300">Metropolis platform</strong> powers intelligent video analytics for factory monitoring, quality control, and safety systems. Their AI solutions are deployed in automotive, electronics, and heavy industry manufacturing worldwide.
+                  </p>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-cyan-300 mb-3">🏭 NVIDIA Manufacturing Solutions</h5>
+                      <ul className="space-y-2 text-sm">
+                        <li>• <strong className="text-blue-300">Digital Twins:</strong> Virtual factory replicas for optimization</li>
+                        <li>• <strong className="text-green-300">AI Quality Control:</strong> Real-time defect detection</li>
+                        <li>• <strong className="text-purple-300">Predictive Maintenance:</strong> AI-powered equipment monitoring</li>
+                        <li>• <strong className="text-orange-300">Robotic Simulation:</strong> Isaac platform for robot training</li>
+                        <li>• <strong className="text-red-300">Computer Vision:</strong> Automated visual inspection</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-pink-300 mb-3">🤖 Industry Applications</h5>
+                      <ul className="space-y-2 text-sm">
+                        <li>• <strong className="text-indigo-300">Automotive:</strong> BMW, Mercedes-Benz production lines</li>
+                        <li>• <strong className="text-teal-300">Electronics:</strong> Foxconn, TSMC semiconductor fabs</li>
+                        <li>• <strong className="text-amber-300">Aerospace:</strong> Boeing, Airbus manufacturing</li>
+                        <li>• <strong className="text-lime-300">Pharmaceuticals:</strong> Drug manufacturing automation</li>
+                        <li>• <strong className="text-rose-300">Energy:</strong> Solar panel and battery production</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-red-300 mb-4 underline decoration-1 underline-offset-2">
+                    China's "Dark Factories" - Lights-Out Manufacturing
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    China is pioneering the future of manufacturing with <strong className="text-red-300">"Dark Factories"</strong> - fully automated facilities that operate 24/7 without human workers or even lights. These revolutionary manufacturing plants use AI-powered robots, IoT sensors, and machine learning algorithms to produce everything from smartphones to automobiles with unprecedented efficiency. Companies like <strong className="text-blue-300">Foxconn</strong>, <strong className="text-green-300">Xiaomi</strong>, and <strong className="text-purple-300">BYD</strong> have deployed these lights-out factories across China, representing the ultimate evolution of industrial automation.
+                  </p>
+
+                  <div className="bg-gradient-to-r from-red-900/30 to-gray-900/30 rounded-lg p-6 border border-red-600/40 mb-6">
+                    <h5 className="text-lg font-bold text-red-300 mb-3">🌃 Dark Factory Characteristics</h5>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h6 className="text-base font-bold text-yellow-300 mb-2">🤖 Full Automation</h6>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-blue-300">Zero human workers:</strong> Completely unmanned operations</li>
+                          <li>• <strong className="text-green-300">24/7 operation:</strong> Continuous production cycles</li>
+                          <li>• <strong className="text-purple-300">No lighting needed:</strong> Robots work in darkness</li>
+                          <li>• <strong className="text-cyan-300">AI coordination:</strong> Intelligent system orchestration</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h6 className="text-base font-bold text-orange-300 mb-2">📊 Performance Benefits</h6>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-indigo-300">99.9% uptime:</strong> Minimal downtime or breaks</li>
+                          <li>• <strong className="text-teal-300">50% cost reduction:</strong> Lower operational expenses</li>
+                          <li>• <strong className="text-pink-300">Zero defects:</strong> Perfect quality control</li>
+                          <li>• <strong className="text-amber-300">Scalable production:</strong> Instant capacity adjustment</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-purple-300 mb-4 underline decoration-1 underline-offset-2">
+                    Global Automotive Manufacturing Automation
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-4">
+                    The automotive industry leads the world in manufacturing automation, with companies like <strong className="text-blue-300">Tesla</strong>, <strong className="text-green-300">BMW</strong>, <strong className="text-purple-300">Toyota</strong>, and <strong className="text-orange-300">Mercedes-Benz</strong> deploying thousands of robots in their production lines. These automated systems handle everything from welding and painting to final assembly, achieving production rates that would be impossible with human workers alone.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={() => openVideoModal('P7fi4hP_y80')}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/P7fi4hP_y80/maxresdefault.jpg"
+                        alt="BMW Factory Robots"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">BMW Factory Robots Production</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={() => openVideoModal('Fo6pWIi-Ixo')}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/Fo6pWIi-Ixo/maxresdefault.jpg"
+                        alt="BMW AI Production Line"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">BMW AI Production Integration</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={() => openVideoModal('sY5s9TAPA-Q')}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/sY5s9TAPA-Q/maxresdefault.jpg"
+                        alt="Fully Automated Assembly Line"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Fully Automated Assembly Line</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={() => openVideoModal('sjAZGUcjrP8')}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/sjAZGUcjrP8/maxresdefault.jpg"
+                        alt="Car Factory Production Line"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Modern Car Factory Automation</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-cyan-300 mb-4 underline decoration-1 underline-offset-2">
+                    Companies Leading Automation Revolution
+                  </h4>
+
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-600/40">
+                      <h5 className="text-lg font-bold text-blue-300 mb-3">
+                        <a href="https://www.tesla.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Tesla</a>
+                      </h5>
+                      <p className="text-sm text-gray-200 mb-2">Gigafactory automation with advanced robotics</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• <strong className="text-yellow-300">Production:</strong> 2M+ vehicles annually</li>
+                        <li>• <strong className="text-green-300">Automation:</strong> 95% automated assembly</li>
+                        <li>• <strong className="text-purple-300">Innovation:</strong> "Alien Dreadnought" factory concept</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-orange-900/30 rounded-lg p-4 border border-orange-600/40">
+                      <h5 className="text-lg font-bold text-orange-300 mb-3">
+                        <a href="https://www.foxconn.com/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-200 underline">Foxconn</a>
+                      </h5>
+                      <p className="text-sm text-gray-200 mb-2">World's largest electronics manufacturer</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• <strong className="text-blue-300">Robots:</strong> 1M+ industrial robots deployed</li>
+                        <li>• <strong className="text-green-300">Products:</strong> iPhones, iPads, gaming consoles</li>
+                        <li>• <strong className="text-red-300">Facilities:</strong> 30+ automated factories globally</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-green-900/30 rounded-lg p-4 border border-green-600/40">
+                      <h5 className="text-lg font-bold text-green-300 mb-3">
+                        <a href="https://www.samsung.com/" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 underline">Samsung</a>
+                      </h5>
+                      <p className="text-sm text-gray-200 mb-2">Semiconductor and electronics automation leader</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• <strong className="text-cyan-300">Fabs:</strong> Fully automated chip production</li>
+                        <li>• <strong className="text-purple-300">Capacity:</strong> 20M+ smartphones monthly</li>
+                        <li>• <strong className="text-yellow-300">Technology:</strong> AI-driven quality control</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-600/40">
+                      <h5 className="text-lg font-bold text-purple-300 mb-3">
+                        <a href="https://www.mercedes-benz.com/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 underline">Mercedes-Benz</a>
+                      </h5>
+                      <p className="text-sm text-gray-200 mb-2">Luxury automotive manufacturing excellence</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• <strong className="text-orange-300">Factory 56:</strong> Carbon-neutral production</li>
+                        <li>• <strong className="text-blue-300">Flexibility:</strong> Multi-model assembly lines</li>
+                        <li>• <strong className="text-green-300">Quality:</strong> Zero-defect manufacturing</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-red-900/30 rounded-lg p-4 border border-red-600/40">
+                      <h5 className="text-lg font-bold text-red-300 mb-3">
+                        <a href="https://www.toyota.com/" target="_blank" rel="noopener noreferrer" className="hover:text-red-200 underline">Toyota</a>
+                      </h5>
+                      <p className="text-sm text-gray-200 mb-2">Lean manufacturing and automation pioneer</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• <strong className="text-indigo-300">TPS:</strong> Toyota Production System</li>
+                        <li>• <strong className="text-teal-300">Kaizen:</strong> Continuous improvement culture</li>
+                        <li>• <strong className="text-amber-300">Robots:</strong> Human-robot collaboration</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-indigo-900/30 rounded-lg p-4 border border-indigo-600/40">
+                      <h5 className="text-lg font-bold text-indigo-300 mb-3">
+                        <a href="https://www.apple.com/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-200 underline">Apple</a>
+                      </h5>
+                      <p className="text-sm text-gray-200 mb-2">Precision manufacturing and assembly automation</p>
+                      <ul className="space-y-1 text-xs">
+                        <li>• <strong className="text-pink-300">Precision:</strong> Micron-level accuracy</li>
+                        <li>• <strong className="text-lime-300">Innovation:</strong> Custom automation equipment</li>
+                        <li>• <strong className="text-rose-300">Scale:</strong> 200M+ devices annually</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-orange-900/30 to-purple-900/30 rounded-lg p-6 border border-orange-600/40">
+                  <h4 className="text-xl font-bold text-orange-300 mb-3">🚀 The Future of Industrial Automation</h4>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-yellow-300 mb-3">🔮 Emerging Technologies</h5>
+                      <ul className="space-y-2 text-sm">
+                        <li>• <strong className="text-blue-300">Collaborative Robots (Cobots):</strong> Safe human-robot interaction</li>
+                        <li>• <strong className="text-green-300">5G-Enabled Factories:</strong> Ultra-low latency communication</li>
+                        <li>• <strong className="text-purple-300">Digital Twins:</strong> Virtual factory optimization</li>
+                        <li>• <strong className="text-cyan-300">Edge AI:</strong> Real-time decision making</li>
+                        <li>• <strong className="text-red-300">Autonomous Mobile Robots:</strong> Flexible material handling</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-pink-300 mb-3">📈 Industry Impact</h5>
+                      <ul className="space-y-2 text-sm">
+                        <li>• <strong className="text-indigo-300">Productivity:</strong> 30-50% increase in output</li>
+                        <li>• <strong className="text-teal-300">Quality:</strong> 99.9% defect-free production</li>
+                        <li>• <strong className="text-amber-300">Cost Reduction:</strong> 20-40% lower manufacturing costs</li>
+                        <li>• <strong className="text-lime-300">Flexibility:</strong> Rapid product changeover</li>
+                        <li>• <strong className="text-rose-300">Sustainability:</strong> Reduced energy and waste</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Global Robotics Competitions */}
