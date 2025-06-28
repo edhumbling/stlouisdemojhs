@@ -195,7 +195,7 @@ const RoboticsPage: React.FC = () => {
 
                     <div
                       className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={() => openVideoModal('eBsir9mqGeg')}
+                      onClick={(e) => openVideoModal('eBsir9mqGeg', e)}
                     >
                       <img
                         src="https://img.youtube.com/vi/eBsir9mqGeg/maxresdefault.jpg"
@@ -212,7 +212,7 @@ const RoboticsPage: React.FC = () => {
 
                     <div
                       className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={() => openVideoModal('cLVCGEmkJs0')}
+                      onClick={(e) => openVideoModal('cLVCGEmkJs0', e)}
                     >
                       <img
                         src="https://img.youtube.com/vi/cLVCGEmkJs0/maxresdefault.jpg"
@@ -310,7 +310,7 @@ const RoboticsPage: React.FC = () => {
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <div
                       className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={() => openVideoModal('P7fi4hP_y80')}
+                      onClick={(e) => openVideoModal('P7fi4hP_y80', e)}
                     >
                       <img
                         src="https://img.youtube.com/vi/P7fi4hP_y80/maxresdefault.jpg"
