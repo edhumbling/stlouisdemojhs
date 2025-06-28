@@ -537,16 +537,6 @@ const TVETPage: React.FC = () => {
               </div>
             </section>
 
-            {/* Technical Universities Video */}
-            <TVETVideo
-              src="https://www.youtube.com/embed/8K7SD8-cGFE"
-              title="🏛️ Accra Technical University: Leading TVET Excellence"
-              description="Discover Accra Technical University, Ghana's premier technical university, and how it's shaping the future of technical education and innovation."
-              icon={<Building size={20} className="text-white" />}
-              gradient="from-teal-900 to-teal-800"
-              note="🎓 ATU Excellence: Showcasing Ghana's leading technical university and its role in advancing technical education and research."
-            />
-
             {/* National TVET Qualifications Framework */}
             <section className="mb-12">
               <div className="bg-gradient-to-r from-indigo-900/40 to-indigo-800/40 rounded-2xl p-6 sm:p-8 border border-indigo-700/30 backdrop-blur-sm">
