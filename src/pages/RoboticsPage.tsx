@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Bot, ExternalLink, Play, X } from 'lucide-react';
+import { ArrowLeft, Bot, Play, X as CloseIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
@@ -26,7 +26,7 @@ const RoboticsPage: React.FC = () => {
         title="Robotics & AI - Competitions, Companies & Innovation - St. Louis Demo JHS"
         description="Explore the world of robotics and artificial intelligence. Learn about global competitions, leading companies like Boston Dynamics and Tesla, and cutting-edge innovations in robotics technology."
         keywords="robotics, artificial intelligence, AI, Boston Dynamics, Tesla Optimus, robotics competitions, FIRST Robotics, VEX, robot technology, automation"
-        canonicalUrl="https://stlouisdemojhs.com/robotics"
+        canonical="https://stlouisdemojhs.com/robotics"
         ogImage="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
       />
 
@@ -200,7 +200,7 @@ const RoboticsPage: React.FC = () => {
                       Boston Dynamics - Advanced Mobility Robots
                     </h4>
                     <p className="text-base leading-relaxed mb-3">
-                      <strong className="text-blue-300">Boston Dynamics</strong> is renowned for creating the world's most advanced mobile robots. Their flagship robots include <strong className="text-green-300">Atlas</strong> (humanoid robot with parkour capabilities), <strong className="text-purple-300">Spot</strong> (quadruped robot for industrial inspection), and <strong className="text-yellow-300">Stretch</strong> (warehouse automation robot). Founded in 1992 as a spin-off from MIT, the company has revolutionized robotics with their dynamic movement algorithms and real-time balance control systems.
+                      <a href="https://www.bostondynamics.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">Boston Dynamics</a> is renowned for creating the world's most advanced mobile robots. Their flagship robots include <strong className="text-green-300">Atlas</strong> (humanoid robot with parkour capabilities), <strong className="text-purple-300">Spot</strong> (quadruped robot for industrial inspection), and <strong className="text-yellow-300">Stretch</strong> (warehouse automation robot). Founded in 1992 as a spin-off from MIT, the company has revolutionized robotics with their dynamic movement algorithms and real-time balance control systems.
                     </p>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                       <div
@@ -237,10 +237,10 @@ const RoboticsPage: React.FC = () => {
                       </div>
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('tF4DML7FIWk')}
+                        onClick={() => openVideoModal('29ECwExc-_M')}
                       >
                         <img
-                          src="https://img.youtube.com/vi/tF4DML7FIWk/maxresdefault.jpg"
+                          src="https://img.youtube.com/vi/29ECwExc-_M/maxresdefault.jpg"
                           alt="Boston Dynamics New Atlas"
                           className="w-full h-32 object-cover"
                         />
@@ -248,7 +248,7 @@ const RoboticsPage: React.FC = () => {
                           <Play size={32} className="text-white" />
                         </div>
                         <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">New Atlas Electric Robot</p>
+                          <p className="text-sm font-semibold text-white">All New Atlas Robot</p>
                         </div>
                       </div>
                     </div>
@@ -259,7 +259,7 @@ const RoboticsPage: React.FC = () => {
                       Tesla - Optimus Humanoid Robot
                     </h4>
                     <p className="text-base leading-relaxed mb-3">
-                      <strong className="text-purple-300">Tesla's Optimus</strong> represents Elon Musk's vision of general-purpose humanoid robots designed to perform dangerous, repetitive, or boring tasks. Standing 5'8" and weighing 125 pounds, Optimus is designed to navigate the human world using Tesla's Full Self-Driving computer and neural networks. The robot aims to revolutionize manufacturing and eventually assist with household tasks, potentially becoming more significant than Tesla's automotive business.
+                      <a href="https://www.tesla.com/optimus" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline font-bold">Tesla's Optimus</a> represents Elon Musk's vision of general-purpose humanoid robots designed to perform dangerous, repetitive, or boring tasks. Standing 5'8" and weighing 125 pounds, Optimus is designed to navigate the human world using Tesla's Full Self-Driving computer and neural networks. The robot aims to revolutionize manufacturing and eventually assist with household tasks, potentially becoming more significant than Tesla's automotive business.
                     </p>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                       <div
@@ -296,10 +296,10 @@ const RoboticsPage: React.FC = () => {
                       </div>
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('Nt1XmiDwxhY')}
+                        onClick={() => openVideoModal('6v6dbxPlsXs')}
                       >
                         <img
-                          src="https://img.youtube.com/vi/Nt1XmiDwxhY/maxresdefault.jpg"
+                          src="https://img.youtube.com/vi/6v6dbxPlsXs/maxresdefault.jpg"
                           alt="Tesla We Robot Event"
                           className="w-full h-32 object-cover"
                         />
@@ -307,7 +307,7 @@ const RoboticsPage: React.FC = () => {
                           <Play size={32} className="text-white" />
                         </div>
                         <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">We Robot Event Highlights</p>
+                          <p className="text-sm font-semibold text-white">We Robot Cybercab Unveil</p>
                         </div>
                       </div>
                     </div>
@@ -318,7 +318,7 @@ const RoboticsPage: React.FC = () => {
                       Agility Robotics - Digit Humanoid Revolution
                     </h4>
                     <p className="text-base leading-relaxed mb-3">
-                      <strong className="text-cyan-300">Agility Robotics</strong> has pioneered bipedal humanoid robots with their flagship <strong className="text-green-300">Digit robot</strong>. Standing 5'9" and weighing 140 pounds, Digit is designed for logistics and warehouse operations, capable of walking, climbing stairs, and manipulating objects in human environments. The company has secured major partnerships with Amazon and Ford for warehouse automation, demonstrating robots that can work alongside humans safely and efficiently.
+                      <a href="https://www.agilityrobotics.com/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline font-bold">Agility Robotics</a> has pioneered bipedal humanoid robots with their flagship <strong className="text-green-300">Digit robot</strong>. Standing 5'9" and weighing 140 pounds, Digit is designed for logistics and warehouse operations, capable of walking, climbing stairs, and manipulating objects in human environments. The company has secured major partnerships with Amazon and Ford for warehouse automation, demonstrating robots that can work alongside humans safely and efficiently.
                     </p>
                     <div className="grid sm:grid-cols-2 gap-4 mb-4">
                       <div
@@ -361,7 +361,7 @@ const RoboticsPage: React.FC = () => {
                       Figure AI - Next-Generation Humanoids
                     </h4>
                     <p className="text-base leading-relaxed mb-3">
-                      <strong className="text-pink-300">Figure AI</strong> is developing general-purpose humanoid robots with their <strong className="text-blue-300">Figure-01</strong> and latest <strong className="text-green-300">Helix model</strong>. The company has raised over $675 million from investors including OpenAI, Microsoft, and NVIDIA. Their robots feature advanced AI integration, natural language processing, and the ability to learn complex tasks through demonstration. Figure AI has partnerships with BMW for automotive manufacturing and is pioneering vision-language-action models for humanoid robotics.
+                      <a href="https://www.figure.ai/" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline font-bold">Figure AI</a> is developing general-purpose humanoid robots with their <strong className="text-blue-300">Figure-01</strong> and latest <strong className="text-green-300">Helix model</strong>. The company has raised over $675 million from investors including OpenAI, Microsoft, and NVIDIA. Their robots feature advanced AI integration, natural language processing, and the ability to learn complex tasks through demonstration. Figure AI has partnerships with BMW for automotive manufacturing and is pioneering vision-language-action models for humanoid robotics.
                     </p>
                     <div className="grid sm:grid-cols-2 gap-4 mb-4">
                       <div
@@ -447,7 +447,7 @@ const RoboticsPage: React.FC = () => {
                       Unitree Robotics - Quadruped Innovation
                     </h4>
                     <p className="text-base leading-relaxed mb-3">
-                      <strong className="text-indigo-300">Unitree Robotics</strong> has revolutionized affordable quadruped robots with their <strong className="text-green-300">Go series</strong> and advanced <strong className="text-blue-300">B2 models</strong>. Starting at under $3,000, Unitree robots offer Boston Dynamics-level capabilities at consumer prices. Their robots feature advanced AI navigation, 4D LiDAR, and can perform complex maneuvers including backflips, dancing, and autonomous navigation. Unitree has democratized robotic dogs for research, security, and entertainment applications worldwide.
+                      <a href="https://www.unitree.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline font-bold">Unitree Robotics</a> has revolutionized affordable quadruped robots with their <strong className="text-green-300">Go series</strong> and advanced <strong className="text-blue-300">B2 models</strong>. Starting at under $3,000, Unitree robots offer Boston Dynamics-level capabilities at consumer prices. Their robots feature advanced AI navigation, 4D LiDAR, and can perform complex maneuvers including backflips, dancing, and autonomous navigation. Unitree has democratized robotic dogs for research, security, and entertainment applications worldwide.
                     </p>
                     <div className="grid sm:grid-cols-2 gap-4 mb-4">
                       <div
@@ -495,10 +495,10 @@ const RoboticsPage: React.FC = () => {
                           Manufacturing Giants
                         </h5>
                         <ul className="space-y-2 text-base">
-                          <li>• <strong className="text-yellow-300">ABB Robotics:</strong> Swiss-Swedish leader in industrial automation with over 500,000 robots installed globally. Pioneers in collaborative robots and AI-powered manufacturing solutions.</li>
-                          <li>• <strong className="text-blue-300">KUKA:</strong> German precision robotics company specializing in automotive manufacturing. Known for orange industrial robots and advanced human-robot collaboration systems.</li>
-                          <li>• <strong className="text-purple-300">FANUC:</strong> Japanese industrial robot manufacturer with the largest installed base worldwide. Leaders in CNC systems and factory automation with distinctive yellow robots.</li>
-                          <li>• <strong className="text-red-300">Universal Robots:</strong> Danish pioneers of collaborative robots (cobots). Revolutionized manufacturing with safe, easy-to-program robots that work alongside humans.</li>
+                          <li>• <a href="https://new.abb.com/products/robotics" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:text-yellow-200 underline font-bold">ABB Robotics:</a> Swiss-Swedish leader in industrial automation with over 500,000 robots installed globally. Pioneers in collaborative robots and AI-powered manufacturing solutions.</li>
+                          <li>• <a href="https://www.kuka.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">KUKA:</a> German precision robotics company specializing in automotive manufacturing. Known for orange industrial robots and advanced human-robot collaboration systems.</li>
+                          <li>• <a href="https://www.fanuc.com/" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline font-bold">FANUC:</a> Japanese industrial robot manufacturer with the largest installed base worldwide. Leaders in CNC systems and factory automation with distinctive yellow robots.</li>
+                          <li>• <a href="https://www.universal-robots.com/" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline font-bold">Universal Robots:</a> Danish pioneers of collaborative robots (cobots). Revolutionized manufacturing with safe, easy-to-program robots that work alongside humans.</li>
                         </ul>
                       </div>
 
@@ -507,10 +507,10 @@ const RoboticsPage: React.FC = () => {
                           Emerging AI Companies
                         </h5>
                         <ul className="space-y-2 text-base">
-                          <li>• <strong className="text-indigo-300">1X Technologies:</strong> Norwegian company developing android workforce robots. Focus on safe, human-like robots for service industries and home assistance.</li>
-                          <li>• <strong className="text-teal-300">Sanctuary AI:</strong> Canadian company creating human-like intelligence in general-purpose robots. Developing Phoenix robots with human-level dexterity and reasoning.</li>
-                          <li>• <strong className="text-lime-300">Apptronik:</strong> Texas-based humanoid robotics company developing Apollo robots for logistics and manufacturing. Focus on practical, deployable humanoid solutions.</li>
-                          <li>• <strong className="text-amber-300">iRobot:</strong> Massachusetts company famous for Roomba vacuum robots. Expanding into military and professional cleaning robots with advanced navigation systems.</li>
+                          <li>• <a href="https://www.1x.tech/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline font-bold">1X Technologies:</a> Norwegian company developing android workforce robots. Focus on safe, human-like robots for service industries and home assistance.</li>
+                          <li>• <a href="https://sanctuary.ai/" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-teal-200 underline font-bold">Sanctuary AI:</a> Canadian company creating human-like intelligence in general-purpose robots. Developing Phoenix robots with human-level dexterity and reasoning.</li>
+                          <li>• <a href="https://apptronik.com/" target="_blank" rel="noopener noreferrer" className="text-lime-300 hover:text-lime-200 underline font-bold">Apptronik:</a> Texas-based humanoid robotics company developing Apollo robots for logistics and manufacturing. Focus on practical, deployable humanoid solutions.</li>
+                          <li>• <a href="https://www.irobot.com/" target="_blank" rel="noopener noreferrer" className="text-amber-300 hover:text-amber-200 underline font-bold">iRobot:</a> Massachusetts company famous for Roomba vacuum robots. Expanding into military and professional cleaning robots with advanced navigation systems.</li>
                         </ul>
                       </div>
                     </div>
@@ -526,9 +526,9 @@ const RoboticsPage: React.FC = () => {
                           Autonomous Vehicles
                         </h5>
                         <ul className="space-y-1 text-sm">
-                          <li>• <strong className="text-blue-300">Waymo:</strong> Google's self-driving car division with over 20 million autonomous miles driven</li>
-                          <li>• <strong className="text-green-300">Cruise:</strong> GM's autonomous vehicle subsidiary focusing on urban robotaxis</li>
-                          <li>• <strong className="text-purple-300">Aurora:</strong> Self-driving technology for trucking and passenger vehicles</li>
+                          <li>• <a href="https://waymo.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">Waymo:</a> Google's self-driving car division with over 20 million autonomous miles driven</li>
+                          <li>• <a href="https://getcruise.com/" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline font-bold">Cruise:</a> GM's autonomous vehicle subsidiary focusing on urban robotaxis</li>
+                          <li>• <a href="https://aurora.tech/" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline font-bold">Aurora:</a> Self-driving technology for trucking and passenger vehicles</li>
                         </ul>
                       </div>
 
@@ -641,10 +641,10 @@ const RoboticsPage: React.FC = () => {
                     <div className="grid sm:grid-cols-2 gap-3 mb-4">
                       <div
                         className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('8_lfxPI5ObM')}
+                        onClick={() => openVideoModal('39cJQqSVU4I')}
                       >
                         <img
-                          src="https://img.youtube.com/vi/8_lfxPI5ObM/maxresdefault.jpg"
+                          src="https://img.youtube.com/vi/39cJQqSVU4I/maxresdefault.jpg"
                           alt="Tesla Factory Robots"
                           className="w-full h-24 object-cover"
                         />
@@ -652,7 +652,7 @@ const RoboticsPage: React.FC = () => {
                           <Play size={24} className="text-white" />
                         </div>
                         <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Tesla Factory Automation</p>
+                          <p className="text-xs font-semibold text-white">Tesla Giga Texas Factory Tour</p>
                         </div>
                       </div>
                       <div
@@ -895,13 +895,98 @@ const RoboticsPage: React.FC = () => {
 
                   <div>
                     <h4 className="text-lg font-bold text-red-300 mb-3 underline decoration-1 underline-offset-2">
-                      Regional Markets
+                      Regional Markets Distribution
                     </h4>
+
+                    {/* Pie Chart Visualization */}
+                    <div className="mb-6">
+                      <div className="relative w-64 h-64 mx-auto mb-4">
+                        <svg viewBox="0 0 200 200" className="w-full h-full transform -rotate-90">
+                          {/* Asia-Pacific: 65% */}
+                          <circle
+                            cx="100"
+                            cy="100"
+                            r="80"
+                            fill="none"
+                            stroke="#3B82F6"
+                            strokeWidth="20"
+                            strokeDasharray="325 500"
+                            strokeDashoffset="0"
+                            className="opacity-90"
+                          />
+                          {/* North America: 20% */}
+                          <circle
+                            cx="100"
+                            cy="100"
+                            r="80"
+                            fill="none"
+                            stroke="#10B981"
+                            strokeWidth="20"
+                            strokeDasharray="100 500"
+                            strokeDashoffset="-325"
+                            className="opacity-90"
+                          />
+                          {/* Europe: 12% */}
+                          <circle
+                            cx="100"
+                            cy="100"
+                            r="80"
+                            fill="none"
+                            stroke="#8B5CF6"
+                            strokeWidth="20"
+                            strokeDasharray="60 500"
+                            strokeDashoffset="-425"
+                            className="opacity-90"
+                          />
+                          {/* Others: 3% */}
+                          <circle
+                            cx="100"
+                            cy="100"
+                            r="80"
+                            fill="none"
+                            stroke="#F59E0B"
+                            strokeWidth="20"
+                            strokeDasharray="15 500"
+                            strokeDashoffset="-485"
+                            className="opacity-90"
+                          />
+                        </svg>
+
+                        {/* Center Label */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center">
+                            <p className="text-lg font-bold text-white">Global</p>
+                            <p className="text-sm text-gray-300">Robot Market</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Legend */}
+                      <div className="grid grid-cols-2 gap-3 text-sm">
+                        <div className="flex items-center gap-2">
+                          <div className="w-4 h-4 bg-blue-500 rounded"></div>
+                          <span className="text-gray-200">Asia-Pacific (65%)</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-4 h-4 bg-green-500 rounded"></div>
+                          <span className="text-gray-200">North America (20%)</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-4 h-4 bg-purple-500 rounded"></div>
+                          <span className="text-gray-200">Europe (12%)</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-4 h-4 bg-yellow-500 rounded"></div>
+                          <span className="text-gray-200">Others (3%)</span>
+                        </div>
+                      </div>
+                    </div>
+
                     <ul className="space-y-2 text-base">
-                      <li>• <strong className="text-blue-300">Asia-Pacific:</strong> 65% of global robot installations</li>
-                      <li>• <strong className="text-green-300">China:</strong> World's largest robot market (52% share)</li>
-                      <li>• <strong className="text-purple-300">North America:</strong> $8.2B market, 15% growth</li>
-                      <li>• <strong className="text-yellow-300">Europe:</strong> Strong automotive and manufacturing sectors</li>
+                      <li>• <strong className="text-blue-300">Asia-Pacific:</strong> 65% of global robot installations, led by manufacturing automation</li>
+                      <li>• <strong className="text-green-300">China:</strong> World's largest robot market within Asia-Pacific region</li>
+                      <li>• <strong className="text-purple-300">North America:</strong> $8.2B market, 15% annual growth rate</li>
+                      <li>• <strong className="text-yellow-300">Europe:</strong> Strong automotive and precision manufacturing sectors</li>
                       <li>• <strong className="text-orange-300">Emerging Markets:</strong> Africa, Latin America showing rapid adoption</li>
                     </ul>
                   </div>
@@ -1114,6 +1199,314 @@ const RoboticsPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Neuralink - Brain-Computer Interface Revolution */}
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-indigo-400">
+              Neuralink - Brain-Computer Interface Revolution
+            </h2>
+
+            <div className="space-y-6 ml-4">
+              <div>
+                <h3 className="text-2xl font-bold text-indigo-300 mb-4 underline decoration-1 underline-offset-2">
+                  Pioneering Brain Computer Interfaces
+                </h3>
+
+                <p className="text-base leading-relaxed mb-6">
+                  <a href="https://neuralink.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline font-bold">Neuralink Corporation</a> represents one of the most revolutionary advances in neurotechnology and robotics. Founded by <strong className="text-blue-300">Elon Musk</strong> in 2016, Neuralink is developing implantable brain-computer interfaces (BCIs) that create direct communication pathways between the human brain and external devices. The company's mission is to restore autonomy to those with unmet medical needs today and unlock human potential tomorrow.
+                </p>
+
+                <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-lg p-6 border border-indigo-600/40 mb-6">
+                  <h4 className="text-xl font-bold text-purple-300 mb-3">🧠 Revolutionary Technology</h4>
+                  <p className="text-base leading-relaxed">
+                    Neuralink's <strong className="text-cyan-300">N1 Chip</strong> contains over <strong className="text-yellow-300">1,024 electrodes</strong> that can record neural activity from thousands of neurons simultaneously. The chip is surgically implanted using a precision robot that can insert ultra-thin threads (thinner than human hair) into specific brain regions with micrometer accuracy, avoiding blood vessels and minimizing tissue damage.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-cyan-300 mb-4 underline decoration-1 underline-offset-2">
+                    Current Human Trials & Patient Success Stories
+                  </h4>
+
+                  <div className="space-y-4 mb-6">
+                    <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-600/40">
+                      <h5 className="text-lg font-bold text-blue-300 mb-2">Three Successful Human Implants</h5>
+                      <p className="text-base leading-relaxed mb-3">
+                        As of early 2025, <strong className="text-green-300">three patients</strong> have successfully received Neuralink implants through the company's PRIME clinical trial (Precise Robotically Implanted Brain-Computer Interface). The first patient, <strong className="text-yellow-300">Noland Arbaugh</strong>, a quadriplegic, demonstrated remarkable capabilities including playing chess, controlling computers, and even playing video games using only his thoughts.
+                      </p>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-cyan-300">Patient 1 (Noland):</strong> Spinal cord injury, implanted January 2024</li>
+                        <li>• <strong className="text-green-300">Patient 2:</strong> Spinal cord injury, implanted summer 2024</li>
+                        <li>• <strong className="text-purple-300">Patient 3 (Bradford Smith):</strong> ALS patient, implanted early 2025</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-600/40">
+                      <h5 className="text-lg font-bold text-purple-300 mb-2">Breakthrough Capabilities Demonstrated</h5>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-blue-300">Computer Control:</strong> Cursor movement and clicking</li>
+                          <li>• <strong className="text-green-300">Gaming:</strong> Chess, Mario Kart, and other video games</li>
+                          <li>• <strong className="text-yellow-300">Communication:</strong> Typing and text input</li>
+                          <li>• <strong className="text-red-300">Creative Work:</strong> Digital art and design</li>
+                        </ul>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-cyan-300">Video Editing:</strong> YouTube content creation</li>
+                          <li>• <strong className="text-orange-300">AI Integration:</strong> Voice synthesis using patient's own voice</li>
+                          <li>• <strong className="text-pink-300">Multitasking:</strong> Simultaneous control of multiple applications</li>
+                          <li>• <strong className="text-indigo-300">Learning:</strong> Continuous improvement through software updates</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Latest 2025 Videos */}
+                  <div>
+                    <h4 className="text-xl font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
+                      Latest 2025 Demonstrations & Updates
+                    </h4>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('FASMejN_5gs')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/FASMejN_5gs/maxresdefault.jpg"
+                          alt="Neuralink Summer 2025 Update"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">Summer 2025 Update</p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('WGvIbdzUWoA')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/WGvIbdzUWoA/maxresdefault.jpg"
+                          alt="Neuralink New Patient"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">New Human Patient</p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('Sd-VQdhR5c0')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/Sd-VQdhR5c0/maxresdefault.jpg"
+                          alt="Neuralink April 2025 Update"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">April 2025 Update</p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('ZzNHxC96rDE')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/ZzNHxC96rDE/maxresdefault.jpg"
+                          alt="Neuralink Patient Chess Demo"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">Patient Chess Demo</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('5SrpYZum4Nk')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/5SrpYZum4Nk/maxresdefault.jpg"
+                          alt="First Patient Chess Playing"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">Chess with Brain Implant</p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('IbM4-rcujxY')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/IbM4-rcujxY/maxresdefault.jpg"
+                          alt="Patient Experience"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">Patient Experience</p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('YreDYmXTYi4')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/YreDYmXTYi4/maxresdefault.jpg"
+                          alt="Neuralink Show and Tell"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">Show and Tell Demo</p>
+                        </div>
+                      </div>
+
+                      <div
+                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => openVideoModal('rsCul1sp4hQ')}
+                      >
+                        <img
+                          src="https://img.youtube.com/vi/rsCul1sp4hQ/maxresdefault.jpg"
+                          alt="Monkey MindPong"
+                          className="w-full h-24 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Play size={24} className="text-white" />
+                        </div>
+                        <div className="absolute bottom-1 left-1 right-1">
+                          <p className="text-xs font-semibold text-white">Monkey MindPong</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-green-300 mb-4 underline decoration-1 underline-offset-2">
+                    Technical Specifications & Innovation
+                  </h4>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-blue-300 mb-3 underline decoration-1 underline-offset-2">
+                        Hardware Architecture
+                      </h5>
+                      <ul className="space-y-2 text-base">
+                        <li>• <strong className="text-yellow-300">N1 Chip:</strong> 1,024 electrode channels for neural recording</li>
+                        <li>• <strong className="text-green-300">Ultra-thin Threads:</strong> 4-6 μm width, thinner than human hair</li>
+                        <li>• <strong className="text-purple-300">Surgical Robot:</strong> Precision insertion avoiding blood vessels</li>
+                        <li>• <strong className="text-cyan-300">Wireless Communication:</strong> Bluetooth connectivity to external devices</li>
+                        <li>• <strong className="text-orange-300">Battery Life:</strong> All-day operation with wireless charging</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-red-300 mb-3 underline decoration-1 underline-offset-2">
+                        Software & AI Integration
+                      </h5>
+                      <ul className="space-y-2 text-base">
+                        <li>• <strong className="text-indigo-300">Machine Learning:</strong> Real-time neural signal processing</li>
+                        <li>• <strong className="text-teal-300">Adaptive Algorithms:</strong> Continuous learning and improvement</li>
+                        <li>• <strong className="text-pink-300">Signal Decoding:</strong> Intent prediction from neural activity</li>
+                        <li>• <strong className="text-lime-300">Software Updates:</strong> Over-the-air capability improvements</li>
+                        <li>• <strong className="text-amber-300">API Integration:</strong> Compatible with various applications</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-orange-300 mb-4 underline decoration-1 underline-offset-2">
+                    Future Applications & Roadmap
+                  </h4>
+
+                  <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 rounded-lg p-6 border border-orange-600/40">
+                      <h5 className="text-lg font-bold text-orange-300 mb-3">🎯 Expansion Plans</h5>
+                      <p className="text-base leading-relaxed mb-3">
+                        Neuralink plans to implant <strong className="text-yellow-300">20-30 more patients</strong> throughout 2025, expanding trials to include patients with various neurological conditions. The company is also developing applications for <strong className="text-blue-300">vision restoration</strong>, <strong className="text-green-300">hearing restoration</strong>, and <strong className="text-purple-300">motor function recovery</strong>.
+                      </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <div>
+                        <h5 className="text-lg font-bold text-cyan-300 mb-2 underline decoration-1 underline-offset-2">
+                          Medical Applications
+                        </h5>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-blue-300">Paralysis:</strong> Restore movement control</li>
+                          <li>• <strong className="text-green-300">Blindness:</strong> Visual cortex stimulation</li>
+                          <li>• <strong className="text-purple-300">Deafness:</strong> Auditory nerve interfaces</li>
+                          <li>• <strong className="text-yellow-300">Depression:</strong> Mood regulation therapy</li>
+                          <li>• <strong className="text-red-300">Epilepsy:</strong> Seizure prediction and prevention</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h5 className="text-lg font-bold text-pink-300 mb-2 underline decoration-1 underline-offset-2">
+                          Enhancement Applications
+                        </h5>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-indigo-300">Memory:</strong> Enhanced recall and storage</li>
+                          <li>• <strong className="text-teal-300">Learning:</strong> Accelerated skill acquisition</li>
+                          <li>• <strong className="text-orange-300">Communication:</strong> Direct brain-to-brain interfaces</li>
+                          <li>• <strong className="text-lime-300">Computing:</strong> Seamless human-AI collaboration</li>
+                          <li>• <strong className="text-amber-300">Creativity:</strong> Enhanced artistic and musical abilities</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h5 className="text-lg font-bold text-violet-300 mb-2 underline decoration-1 underline-offset-2">
+                          Long-term Vision
+                        </h5>
+                        <ul className="space-y-1 text-sm">
+                          <li>• <strong className="text-emerald-300">Telepathy:</strong> Direct thought transmission</li>
+                          <li>• <strong className="text-rose-300">Digital Immortality:</strong> Consciousness uploading</li>
+                          <li>• <strong className="text-sky-300">Superhuman Intelligence:</strong> AI-human symbiosis</li>
+                          <li>• <strong className="text-fuchsia-300">Virtual Reality:</strong> Direct neural immersion</li>
+                          <li>• <strong className="text-slate-300">Global Brain:</strong> Collective human intelligence</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 rounded-lg p-6 border border-purple-600/40 mt-6">
+                  <h4 className="text-xl font-bold text-purple-300 mb-3">🚀 The Future of Human-Machine Integration</h4>
+                  <p className="text-base leading-relaxed">
+                    Neuralink represents more than just a medical device company—it's pioneering the future of human-machine integration. By creating seamless interfaces between biological and artificial intelligence, Neuralink is laying the foundation for a future where the boundaries between human cognition and artificial intelligence become increasingly blurred, potentially ushering in a new era of enhanced human capabilities and consciousness.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Emerging Technologies & Future Trends */}
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-pink-400">
@@ -1225,7 +1618,7 @@ const RoboticsPage: React.FC = () => {
               onClick={closeVideoModal}
               className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 rounded-full p-2 transition-colors"
             >
-              <X size={24} className="text-white" />
+              <CloseIcon size={24} className="text-white" />
             </button>
             <iframe
               src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
