@@ -386,7 +386,7 @@ const RoboticsPage: React.FC = () => {
                     Companies Leading Automation Revolution
                   </h4>
 
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                  <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6">
                     <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-600/40">
                       <h5 className="text-lg font-bold text-blue-300 mb-3">
                         <a href="https://www.tesla.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 underline">Tesla</a>
@@ -2650,7 +2650,7 @@ const RoboticsPage: React.FC = () => {
                     Core Robotics Engineering Roles
                   </h4>
 
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                  <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6">
                     <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-600/40">
                       <h5 className="text-lg font-bold text-blue-300 mb-3">🤖 Robotics Engineer</h5>
                       <p className="text-sm text-gray-200 mb-2">Design, build, and test robotic systems and components</p>
@@ -2724,7 +2724,7 @@ const RoboticsPage: React.FC = () => {
                     Specialized Robotics Positions
                   </h4>
 
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
                     <div className="bg-indigo-900/30 rounded-lg p-3 border border-indigo-600/40">
                       <h6 className="text-base font-bold text-indigo-300 mb-2">🎮 Controls Engineer</h6>
                       <p className="text-xs text-gray-200">Design control algorithms and feedback systems</p>
