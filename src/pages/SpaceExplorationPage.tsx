@@ -877,10 +877,14 @@ const SpaceExplorationPage: React.FC = () => {
                   </div>
 
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <VideoCard videoId="doN4t5NKW-k" title="Astronaut Training" />
-                    <VideoCard videoId="Kz1hLVKVz8E" title="Space Careers Guide" />
-                    <VideoCard videoId="W_E_RoWEP7M" title="NASA Johnson Center" />
-                    <VideoCard videoId="2Aq_LqkKsWQ" title="SpaceX Careers" />
+                    <VideoCard videoId="VzwjsWmudJg" title="NASA Astronaut Training Pool" />
+                    <VideoCard videoId="Aq_1l316ow8" title="Underwater EVA Training" />
+                    <VideoCard videoId="doN4t5NKW-k" title="Astronaut Selection Process" />
+                    <VideoCard videoId="W_E_RoWEP7M" title="NASA Johnson Space Center" />
+                    <VideoCard videoId="2Aq_LqkKsWQ" title="SpaceX Astronaut Training" />
+                    <VideoCard videoId="Kz1hLVKVz8E" title="Space Careers & Requirements" />
+                    <VideoCard videoId="6v6dbxPlsXs" title="Centrifuge Training Experience" />
+                    <VideoCard videoId="gm0b_ijaYMQ" title="Survival Training Program" />
                   </div>
 
                   <div className="mb-8">
