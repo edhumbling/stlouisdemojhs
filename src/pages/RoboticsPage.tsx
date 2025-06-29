@@ -345,73 +345,10 @@ const RoboticsPage: React.FC = () => {
                   </p>
 
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('P7fi4hP_y80', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/P7fi4hP_y80/maxresdefault.jpg"
-                        alt="BMW Factory Robots"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">BMW Factory Robots Production</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={() => openVideoModal('Fo6pWIi-Ixo')}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/Fo6pWIi-Ixo/maxresdefault.jpg"
-                        alt="BMW AI Production Line"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">BMW AI Production Integration</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={() => openVideoModal('sY5s9TAPA-Q')}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/sY5s9TAPA-Q/maxresdefault.jpg"
-                        alt="Fully Automated Assembly Line"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Fully Automated Assembly Line</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={() => openVideoModal('sjAZGUcjrP8')}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/sjAZGUcjrP8/maxresdefault.jpg"
-                        alt="Car Factory Production Line"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Modern Car Factory Automation</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="P7fi4hP_y80" title="BMW Factory Robots Production" />
+                    <VideoCard videoId="Fo6pWIi-Ixo" title="BMW AI Production Integration" />
+                    <VideoCard videoId="sY5s9TAPA-Q" title="Fully Automated Assembly Line" />
+                    <VideoCard videoId="sjAZGUcjrP8" title="Modern Car Factory Automation" />
                   </div>
                 </div>
 
