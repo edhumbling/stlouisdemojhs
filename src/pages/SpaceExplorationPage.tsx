@@ -222,7 +222,7 @@ const SpaceExplorationPage: React.FC = () => {
                     The <strong className="text-yellow-300">Space Race</strong> began when the Soviet Union launched <strong className="text-red-300">Sputnik 1</strong> on October 4, 1957, shocking the world. This basketball-sized satellite orbited Earth every 96 minutes, proving that space travel was possible and launching humanity into the space age.
                   </p>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="U1xbVFf0_RU" title="Sputnik 1 Launch 1957" />
                     <VideoCard videoId="7iMa03BApcQ" title="Gagarin First Human 1961" />
                     <VideoCard videoId="S9HdPi9Ikhk" title="Apollo 11 Moon Landing" />
@@ -256,7 +256,7 @@ const SpaceExplorationPage: React.FC = () => {
                       The <strong className="text-cyan-300">Apollo Program</strong> remains humanity's greatest space achievement. Between 1969 and 1972, <strong className="text-yellow-300">12 astronauts</strong> walked on the Moon across 6 successful missions. <strong className="text-blue-300">Neil Armstrong</strong> and <strong className="text-green-300">Buzz Aldrin</strong> became the first humans to set foot on another world, fulfilling President Kennedy's bold vision.
                     </p>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                       <VideoCard videoId="S9HdPi9Ikhk" title="Apollo 11 Documentary" />
                       <VideoCard videoId="GNJpoP642wc" title="Saturn V Rocket" />
                       <VideoCard videoId="nOcDftgR5UQ" title="Apollo 13 Survival" />
@@ -289,7 +289,7 @@ const SpaceExplorationPage: React.FC = () => {
                     The Soviet Union dominated early space exploration with groundbreaking achievements. <strong className="text-yellow-300">Sergei Korolev</strong>, the chief designer, led missions that put the first satellite, first human, and first woman in space. Modern <a href="https://www.roscosmos.ru/" target="_blank" rel="noopener noreferrer" className="text-rose-300 hover:text-rose-200 underline font-bold">Roscosmos</a> continues with Luna missions and ISS partnerships.
                   </p>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="09gWHfJ08iY" title="Soviet Space Program" />
                     <VideoCard videoId="EUcv9nYOmvQ" title="Soyuz Spacecraft" />
                     <VideoCard videoId="h9h10mQvKUc" title="Luna 25 Mission" />
@@ -337,7 +337,7 @@ const SpaceExplorationPage: React.FC = () => {
                     China's <a href="https://www.cnsa.gov.cn/english/" target="_blank" rel="noopener noreferrer" className="text-amber-300 hover:text-amber-200 underline font-bold">Chang'e program</a> has achieved remarkable success, including the first soft landing on the Moon's far side with <strong className="text-blue-300">Chang'e 4</strong> and sample return missions. The <strong className="text-green-300">Tiangong space station</strong> completed construction in 2022, making China the second nation to operate its own space station.
                   </p>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="JJi_YEubKCY" title="Chang'e 4 Far Side" />
                     <VideoCard videoId="Q4PhR1i6YSw" title="Tiangong Space Station" />
                     <VideoCard videoId="5fRmwENH9Rs" title="Tianwen-1 Mars" />
@@ -385,7 +385,7 @@ const SpaceExplorationPage: React.FC = () => {
                     The <a href="https://www.nasa.gov/humans-in-space/artemis/" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline font-bold">Artemis Program</a> represents humanity's bold return to the Moon, with plans to establish a sustainable lunar presence by <strong className="text-yellow-300">2028</strong>. <strong className="text-blue-300">Artemis III</strong> will land the first woman and next man on the lunar surface, while <strong className="text-green-300">Artemis Base Camp</strong> will serve as a stepping stone to Mars exploration.
                   </p>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="_T8cn2J13-4" title="Artemis Program Overview" />
                     <VideoCard videoId="Ke6XX8FHOHM" title="Artemis II Mission" />
                     <VideoCard videoId="YGyE1VESSDw" title="Orion Spacecraft" />
@@ -433,7 +433,7 @@ const SpaceExplorationPage: React.FC = () => {
                     <a href="https://www.spacex.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">SpaceX</a>, founded by Elon Musk in 2002, has transformed space exploration with reusable rockets, crewed missions to the ISS, and ambitious plans for Mars colonization. The company's <strong className="text-green-300">Falcon 9</strong> and <strong className="text-purple-300">Falcon Heavy</strong> rockets have dramatically reduced launch costs, while <strong className="text-yellow-300">Starship</strong> promises to make interplanetary travel a reality.
                   </p>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="A0FZIwabctw" title="SpaceX Starship" />
                     <VideoCard videoId="Z4TXCZG_NEY" title="Falcon Heavy Launch" />
                     <VideoCard videoId="xY96v0OIcK4" title="Dragon Crew Mission" />
@@ -507,7 +507,7 @@ const SpaceExplorationPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     <VideoCard videoId="UGdV6e2tgVU" title="New Shepard First Flight" />
                     <VideoCard videoId="FjPv0S3z5tY" title="Jeff Bezos Space Flight" />
                     <VideoCard videoId="CMMSiDf_sqw" title="NS-31 Mission" />
@@ -584,7 +584,7 @@ const SpaceExplorationPage: React.FC = () => {
                     NASA's <a href="https://mars.nasa.gov/mars2020/" target="_blank" rel="noopener noreferrer" className="text-orange-300 hover:text-orange-200 underline font-bold">Perseverance rover</a> and <strong className="text-green-300">Ingenuity helicopter</strong> are revolutionizing our understanding of Mars. Perseverance is collecting samples for future return to Earth, while Ingenuity has completed over <strong className="text-yellow-300">70 flights</strong>, proving that powered flight is possible on Mars.
                   </p>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="4czjS9h4Fpg" title="Perseverance Landing" />
                     <VideoCard videoId="GhsZUZmJvaM" title="Ingenuity First Flight" />
                     <VideoCard videoId="nlnHJoWMjSs" title="Mars Sample Return" />
@@ -643,7 +643,7 @@ const SpaceExplorationPage: React.FC = () => {
                     The <a href="https://www.jwst.nasa.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">James Webb Space Telescope</a> launched in 2021 and has already transformed our understanding of the universe. With its <strong className="text-yellow-300">6.5-meter golden mirror</strong> and advanced infrared instruments, Webb can see the first galaxies that formed after the Big Bang and study the atmospheres of distant exoplanets.
                   </p>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="7nT7JGZdPtw" title="Webb First Images" />
                     <VideoCard videoId="nmMRMIE3MGw" title="Webb vs Hubble" />
                     <VideoCard videoId="FL_3WeYhzWo" title="Exoplanet Discovery" />
@@ -686,7 +686,7 @@ const SpaceExplorationPage: React.FC = () => {
                     The <a href="https://www.esa.int/" target="_blank" rel="noopener noreferrer" className="text-violet-300 hover:text-violet-200 underline font-bold">European Space Agency</a> represents 22 European countries in space exploration. ESA has achieved remarkable success with missions like <strong className="text-blue-300">Rosetta</strong> (comet landing), <strong className="text-green-300">BepiColombo</strong> (Mercury mission), and the <strong className="text-yellow-300">James Webb Space Telescope</strong> partnership with NASA.
                   </p>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="h2I8AoB1xgU" title="ESA Rosetta Mission" />
                     <VideoCard videoId="BFuT7tfqNUc" title="JAXA Hayabusa2" />
                     <VideoCard videoId="6PDkZIAaM08" title="ISRO Mars Mission" />
@@ -784,7 +784,7 @@ const SpaceExplorationPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="doN4t5NKW-k" title="Astronaut Training" />
                     <VideoCard videoId="Kz1hLVKVz8E" title="Space Careers Guide" />
                     <VideoCard videoId="W_E_RoWEP7M" title="NASA Johnson Center" />
