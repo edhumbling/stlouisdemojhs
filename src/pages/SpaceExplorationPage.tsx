@@ -19,8 +19,14 @@ const SpaceExplorationPage: React.FC = () => {
       const newSet = new Set(prev);
       if (newSet.has(videoId)) {
         newSet.delete(videoId);
+        // Restore body scroll when closing video
+        if (newSet.size === 0) {
+          document.body.style.overflow = 'unset';
+        }
       } else {
         newSet.add(videoId);
+        // Prevent body scroll when opening video
+        document.body.style.overflow = 'hidden';
       }
       return newSet;
     });
@@ -64,14 +70,15 @@ const SpaceExplorationPage: React.FC = () => {
     };
   }, []);
 
-  // Video component for inline playback
+  // Video component for full-screen playback
   const VideoCard: React.FC<{ videoId: string; title: string; thumbnail?: string }> = ({ videoId, title, thumbnail }) => {
     const isPlaying = playingVideos.has(videoId);
     const thumbnailUrl = thumbnail || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
     return (
-      <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-        {!isPlaying ? (
+      <>
+        {/* Video Thumbnail */}
+        <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
           <div
             className="relative cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => toggleVideo(videoId)}
@@ -82,7 +89,7 @@ const SpaceExplorationPage: React.FC = () => {
               className="w-full h-32 object-cover"
             />
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/60 transition-colors duration-300">
-              <div className="bg-red-600 rounded-full p-3 shadow-lg">
+              <div className="bg-red-600 rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
                 <Play size={24} className="text-white ml-1" />
               </div>
             </div>
@@ -90,24 +97,47 @@ const SpaceExplorationPage: React.FC = () => {
               <p className="text-sm font-semibold text-white bg-black/70 rounded px-2 py-1">{title}</p>
             </div>
           </div>
-        ) : (
-          <div className="relative">
-            <iframe
-              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
-              title={title}
-              className="w-full h-48 sm:h-56 border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+        </div>
+
+        {/* Full-Screen Video Modal */}
+        {isPlaying && (
+          <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4">
+            {/* Close Button */}
             <button
               onClick={() => toggleVideo(videoId)}
-              className="absolute top-2 right-2 bg-black/70 hover:bg-black/90 rounded-full p-2 transition-colors duration-200"
+              className="absolute top-4 right-4 z-60 bg-black/70 hover:bg-black/90 rounded-full p-3 transition-all duration-200 hover:scale-110"
             >
-              <CloseIcon size={16} className="text-white" />
+              <CloseIcon size={24} className="text-white" />
             </button>
+
+            {/* Video Container */}
+            <div className="w-full h-full max-w-7xl max-h-full flex items-center justify-center">
+              <div className="relative w-full h-full max-h-[90vh] aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                <iframe
+                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&fs=1`}
+                  title={title}
+                  className="w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+
+            {/* Video Title Overlay */}
+            <div className="absolute bottom-4 left-4 right-4 text-center">
+              <p className="text-white text-lg font-semibold bg-black/70 rounded-lg px-4 py-2 inline-block">
+                {title}
+              </p>
+            </div>
+
+            {/* Click outside to close */}
+            <div
+              className="absolute inset-0 -z-10"
+              onClick={() => toggleVideo(videoId)}
+            />
           </div>
         )}
-      </div>
+      </>
     );
   };
 
@@ -434,73 +464,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('A0FZIwabctw', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/A0FZIwabctw/maxresdefault.jpg"
-                        alt="SpaceX Starship"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">SpaceX Starship</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('Z4TXCZG_NEY', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/Z4TXCZG_NEY/maxresdefault.jpg"
-                        alt="Falcon Heavy Launch"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Falcon Heavy Launch</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('xY96v0OIcK4', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/xY96v0OIcK4/maxresdefault.jpg"
-                        alt="Dragon Crew Mission"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Dragon Crew Mission</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('u0-pfzKbh2k', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/u0-pfzKbh2k/maxresdefault.jpg"
-                        alt="Starlink Satellites"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Starlink Satellites</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="A0FZIwabctw" title="SpaceX Starship" />
+                    <VideoCard videoId="Z4TXCZG_NEY" title="Falcon Heavy Launch" />
+                    <VideoCard videoId="xY96v0OIcK4" title="Dragon Crew Mission" />
+                    <VideoCard videoId="u0-pfzKbh2k" title="Starlink Satellites" />
                   </div>
 
                   <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg p-4 border border-blue-600/40 mb-6">
@@ -571,141 +538,14 @@ const SpaceExplorationPage: React.FC = () => {
                   </div>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('GQ98hGUe6FM', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/GQ98hGUe6FM/maxresdefault.jpg"
-                        alt="Blue Origin New Shepard First Flight"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">New Shepard First Flight</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('FjPv0S3z5tY', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/FjPv0S3z5tY/maxresdefault.jpg"
-                        alt="Jeff Bezos Historic Space Flight"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Jeff Bezos Space Flight</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('cSqyRWQooJM', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/cSqyRWQooJM/maxresdefault.jpg"
-                        alt="New Shepard Mission NS-31"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">NS-31 Mission</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('7hRxN_Fg0i4', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/7hRxN_Fg0i4/maxresdefault.jpg"
-                        alt="New Glenn Orbital Rocket"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">New Glenn Rocket</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('d-HgVj0q5_s', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/d-HgVj0q5_s/maxresdefault.jpg"
-                        alt="Blue Origin Space Tourism Experience"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Space Tourism</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('Oe0cF8ZtOAE', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/Oe0cF8ZtOAE/maxresdefault.jpg"
-                        alt="Blue Origin New Glenn First Launch"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">New Glenn First Launch</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('9HQfauGJaTs', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/9HQfauGJaTs/maxresdefault.jpg"
-                        alt="Blue Origin Company Documentary"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Blue Origin Story</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('lyu7v7nWzfo', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/lyu7v7nWzfo/maxresdefault.jpg"
-                        alt="Blue Moon Lunar Lander"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Blue Moon Lander</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="GQ98hGUe6FM" title="New Shepard First Flight" />
+                    <VideoCard videoId="FjPv0S3z5tY" title="Jeff Bezos Space Flight" />
+                    <VideoCard videoId="cSqyRWQooJM" title="NS-31 Mission" />
+                    <VideoCard videoId="7hRxN_Fg0i4" title="New Glenn Rocket" />
+                    <VideoCard videoId="d-HgVj0q5_s" title="Space Tourism" />
+                    <VideoCard videoId="Oe0cF8ZtOAE" title="New Glenn First Launch" />
+                    <VideoCard videoId="9HQfauGJaTs" title="Blue Origin Story" />
+                    <VideoCard videoId="lyu7v7nWzfo" title="Blue Moon Lander" />
                   </div>
 
                   <div className="mb-8">
