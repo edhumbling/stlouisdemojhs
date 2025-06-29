@@ -147,9 +147,9 @@ const GiveFeedbackPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Hero Header Section with Background Image */}
+        {/* Hero Header Section with Background Image - No Gap */}
         <div
-          className="relative h-64 sm:h-80 mb-8 overflow-hidden"
+          className="relative h-48 sm:h-64 md:h-72 overflow-hidden"
           style={{
             backgroundImage: 'url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
             backgroundSize: 'cover',
@@ -159,13 +159,13 @@ const GiveFeedbackPage: React.FC = () => {
           <div className="absolute inset-0 bg-black/60"></div>
           <div className="relative h-full flex items-center justify-center px-3 sm:px-4">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mb-4">
-                <MessageCircle size={32} className="sm:w-10 sm:h-10 text-white" />
+              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mb-3">
+                <MessageCircle size={24} className="sm:w-8 sm:h-8 text-white" />
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
                 Your Voice Matters! 🎯
               </h2>
-              <p className="text-sm sm:text-base text-gray-200 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-gray-200 max-w-xl mx-auto leading-relaxed">
                 Help us improve your learning experience by sharing what you love, what needs improvement, or new ideas you'd like to see implemented.
               </p>
             </div>
@@ -177,33 +177,33 @@ const GiveFeedbackPage: React.FC = () => {
 
           {/* Feedback Form */}
           <div className="max-w-4xl mx-auto">
-            {/* Category Selection */}
-            <div className="mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                <Star className="w-6 h-6 text-yellow-400" />
+            {/* Category Selection - Cute & Compact */}
+            <div className="mb-6">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3 flex items-center gap-2">
+                <Star className="w-5 h-5 text-yellow-400" />
                 Rate Your Experience
               </h3>
-              <p className="text-sm text-gray-400 mb-6">
+              <p className="text-xs sm:text-sm text-gray-400 mb-4">
                 Select an emoji to rate each category from 😍 (love it) to 😡 (hate it):
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3">
                 {categories.map((category) => {
                   const selected = selectedCategories.find(item => item.category === category.name);
 
                   return (
-                    <div key={category.name} className="bg-gray-900/50 rounded-lg p-4 border border-gray-700/50">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="text-lg">{category.icon}</span>
-                        <span className="text-sm sm:text-base font-medium text-white">{category.name}</span>
+                    <div key={category.name} className="bg-gray-900/50 rounded-lg p-2 sm:p-3 border border-gray-700/50 hover:border-gray-600/50 transition-colors">
+                      <div className="flex flex-col items-center gap-1 mb-2">
+                        <span className="text-base sm:text-lg">{category.icon}</span>
+                        <span className="text-xs sm:text-sm font-medium text-white text-center leading-tight">{category.name}</span>
                       </div>
 
-                      <div className="flex gap-1 flex-wrap">
+                      <div className="flex gap-0.5 flex-wrap justify-center">
                         {emojiOptions.map((option) => (
                           <button
                             key={option.emoji}
                             onClick={() => selectEmoji(category.name, option.emoji, option.label, category.icon)}
-                            className={`flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 text-lg ${
+                            className={`flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-md transition-all duration-200 text-sm sm:text-base ${
                               selected?.emoji === option.emoji
                                 ? 'bg-blue-600 text-white shadow-lg scale-110'
                                 : 'bg-gray-800 hover:bg-gray-700 hover:scale-105'
@@ -216,7 +216,7 @@ const GiveFeedbackPage: React.FC = () => {
                       </div>
 
                       {selected && (
-                        <div className="mt-2 text-xs text-gray-400 text-center">
+                        <div className="mt-1 text-xs text-gray-400 text-center truncate">
                           {selected.emojiLabel}
                         </div>
                       )}
@@ -226,28 +226,28 @@ const GiveFeedbackPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Selected Categories Display */}
+            {/* Selected Categories Display - Compact */}
             {selectedCategories.length > 0 && (
-              <div className="mb-8">
-                <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5 text-blue-400" />
+              <div className="mb-6">
+                <h4 className="text-base sm:text-lg font-bold text-white mb-2 flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
                   Your Feedback Summary
                 </h4>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {selectedCategories.map((item) => (
                     <div
                       key={item.category}
-                      className="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium bg-blue-600/20 text-blue-300 border border-blue-500/30"
+                      className="inline-flex items-center gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium bg-blue-600/20 text-blue-300 border border-blue-500/30"
                     >
-                      <span>{item.icon}</span>
-                      <span>{item.category}</span>
+                      <span className="text-sm">{item.icon}</span>
+                      <span className="hidden sm:inline">{item.category}</span>
+                      <span className="sm:hidden">{item.category.split(' ')[0]}</span>
                       <span>{item.emoji}</span>
-                      <span className="text-xs text-gray-400">({item.emojiLabel})</span>
                       <button
                         onClick={() => removeCategory(item.category)}
-                        className="ml-1 hover:bg-white/10 rounded-full p-0.5 transition-colors"
+                        className="ml-0.5 hover:bg-white/10 rounded-full p-0.5 transition-colors"
                       >
-                        <X size={14} />
+                        <X size={12} />
                       </button>
                     </div>
                   ))}
@@ -255,17 +255,17 @@ const GiveFeedbackPage: React.FC = () => {
               </div>
             )}
 
-            {/* Additional Notes */}
-            <div className="mb-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                <Lightbulb className="w-6 h-6 text-yellow-400" />
+            {/* Additional Notes - Compact */}
+            <div className="mb-6">
+              <h3 className="text-base sm:text-lg font-bold text-white mb-3 flex items-center gap-2">
+                <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
                 Additional Ideas & Suggestions
               </h3>
               <textarea
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 placeholder="Share your ideas, suggestions, or any specific feedback you'd like us to know about..."
-                className="w-full h-32 sm:h-40 px-4 py-3 bg-gray-900/50 border border-gray-700/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm sm:text-base"
+                className="w-full h-24 sm:h-32 px-3 py-2 sm:px-4 sm:py-3 bg-gray-900/50 border border-gray-700/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-xs sm:text-sm"
                 maxLength={500}
               />
               <div className="text-right text-xs text-gray-500 mt-1">
@@ -273,12 +273,12 @@ const GiveFeedbackPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit Button - Compact */}
             <div className="text-center">
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting || (selectedCategories.length === 0 && !note.trim())}
-                className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
+                className={`inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-lg transition-all duration-300 ${
                   isSubmitting || (selectedCategories.length === 0 && !note.trim())
                     ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
                     : 'bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-400 hover:to-blue-500 text-white shadow-lg hover:shadow-xl hover:scale-105'
@@ -286,13 +286,14 @@ const GiveFeedbackPage: React.FC = () => {
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                     <span>Sending...</span>
                   </>
                 ) : (
                   <>
-                    <Send size={20} />
-                    <span>Send Feedback via WhatsApp</span>
+                    <Send size={16} className="sm:w-5 sm:h-5" />
+                    <span className="hidden sm:inline">Send Feedback via WhatsApp</span>
+                    <span className="sm:hidden">Send Feedback</span>
                   </>
                 )}
               </button>
