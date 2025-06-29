@@ -519,73 +519,10 @@ const RoboticsPage: React.FC = () => {
                       </p>
 
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('tlThdr3O5Qo', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/tlThdr3O5Qo/maxresdefault.jpg"
-                            alt="Tesla Full Self-Driving Demo"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Tesla Full Self-Driving Demo</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('TUDiG7PcLBs', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/TUDiG7PcLBs/maxresdefault.jpg"
-                            alt="Tesla FSD Supervised"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">FSD Supervised Capabilities</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('P6tAnt1u8SA', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/P6tAnt1u8SA/maxresdefault.jpg"
-                            alt="Tesla FSD Demonstration"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">How Tesla FSD Works</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('aaOB-ErYq6Y', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/aaOB-ErYq6Y/maxresdefault.jpg"
-                            alt="Tesla Autopilot Technology"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Tesla Autopilot Technology</p>
-                          </div>
-                        </div>
+                        <VideoCard videoId="tlThdr3O5Qo" title="Tesla Full Self-Driving Demo" />
+                        <VideoCard videoId="TUDiG7PcLBs" title="FSD Supervised Capabilities" />
+                        <VideoCard videoId="P6tAnt1u8SA" title="How Tesla FSD Works" />
+                        <VideoCard videoId="aaOB-ErYq6Y" title="Tesla Autopilot Technology" />
                       </div>
                     </div>
 
@@ -599,73 +536,10 @@ const RoboticsPage: React.FC = () => {
                       </p>
 
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('JHgr9SgeicM', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/JHgr9SgeicM/maxresdefault.jpg"
-                            alt="Waymo Real Driverless Car"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Waymo Real Driverless Experience</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('hA_-MkU0Nfw', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/hA_-MkU0Nfw/maxresdefault.jpg"
-                            alt="Waymo Driver Technology"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Sense, Solve, and Go</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('ErgD-ZHVMsQ', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/ErgD-ZHVMsQ/maxresdefault.jpg"
-                            alt="Waymo Safety Technology"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Waymo Safety Showcase</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('mLSnFlE5R8U', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/mLSnFlE5R8U/maxresdefault.jpg"
-                            alt="Waymo Expansion"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Road to More Driverless Cars</p>
-                          </div>
-                        </div>
+                        <VideoCard videoId="JHgr9SgeicM" title="Waymo Real Driverless Experience" />
+                        <VideoCard videoId="hA_-MkU0Nfw" title="Sense, Solve, and Go" />
+                        <VideoCard videoId="ErgD-ZHVMsQ" title="Waymo Safety Showcase" />
+                        <VideoCard videoId="mLSnFlE5R8U" title="Road to More Driverless Cars" />
                       </div>
                     </div>
 
@@ -679,73 +553,10 @@ const RoboticsPage: React.FC = () => {
                       </p>
 
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('1JgGeIJ_DgQ', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/1JgGeIJ_DgQ/maxresdefault.jpg"
-                            alt="Inside Zoox Driverless Taxi"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Inside Zoox Driverless Taxi</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('0OjZaI-aANE', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/0OjZaI-aANE/maxresdefault.jpg"
-                            alt="Riding in Zoox Robotaxi"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">I Rode in Zoox Robotaxi</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('aaOB-ErYq6Y', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/aaOB-ErYq6Y/maxresdefault.jpg"
-                            alt="Zoox vs Waymo Technology"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Autonomous Driving Technology</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={(e) => openVideoModal('JHgr9SgeicM', e)}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/JHgr9SgeicM/maxresdefault.jpg"
-                            alt="Amazon Zoox Testing"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Amazon's Self-Driving Future</p>
-                          </div>
-                        </div>
+                        <VideoCard videoId="1JgGeIJ_DgQ" title="Inside Zoox Driverless Taxi" />
+                        <VideoCard videoId="0OjZaI-aANE" title="I Rode in Zoox Robotaxi" />
+                        <VideoCard videoId="aaOB-ErYq6Y" title="Autonomous Driving Technology" />
+                        <VideoCard videoId="JHgr9SgeicM" title="Amazon's Self-Driving Future" />
                       </div>
                     </div>
                   </div>
