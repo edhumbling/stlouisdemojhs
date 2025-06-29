@@ -518,11 +518,16 @@ const RoboticsPage: React.FC = () => {
                         <a href="https://www.tesla.com/" target="_blank" rel="noopener noreferrer" className="text-red-300 hover:text-red-200 underline font-bold">Tesla</a> revolutionized the automotive industry with <strong className="text-blue-300">Autopilot</strong> and <strong className="text-green-300">Full Self-Driving (FSD)</strong> technology. With over <strong className="text-yellow-300">6 million vehicles</strong> equipped with Autopilot hardware and billions of miles of real-world driving data, Tesla leads in neural network-based autonomous driving. Their approach uses <strong className="text-purple-300">vision-only systems</strong> powered by custom AI chips and massive data collection from their global fleet.
                       </p>
 
+                      <p className="text-base leading-relaxed mb-4">
+                        On <strong className="text-yellow-300">June 28, 2025</strong> (Elon Musk's birthday), Tesla achieved a historic milestone by completing the <strong className="text-green-300">world's first fully autonomous vehicle delivery</strong>. A Tesla Model Y drove itself from <strong className="text-blue-300">Gigafactory Texas</strong> to a customer's home approximately <strong className="text-purple-300">30 minutes away</strong>, crossing parking lots, navigating highways, and arriving at the destination with <strong className="text-orange-300">no driver, no remote operator, and no human intervention</strong>. This groundbreaking achievement demonstrates the maturity of Tesla's FSD technology and marks the beginning of a new era in autonomous vehicle deployment.
+                      </p>
+
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                         <VideoCard videoId="tlThdr3O5Qo" title="Tesla Full Self-Driving Demo" />
                         <VideoCard videoId="TUDiG7PcLBs" title="FSD Supervised Capabilities" />
                         <VideoCard videoId="P6tAnt1u8SA" title="How Tesla FSD Works" />
                         <VideoCard videoId="aaOB-ErYq6Y" title="Tesla Autopilot Technology" />
+                        <VideoCard videoId="lUOB4Vr7Y1I" title="First Autonomous Delivery - Gigafactory to Home" />
                       </div>
                     </div>
 
