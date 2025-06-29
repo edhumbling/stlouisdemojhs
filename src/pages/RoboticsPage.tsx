@@ -625,143 +625,17 @@ const RoboticsPage: React.FC = () => {
                         </h6>
 
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                          <div
-                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={(e) => openVideoModal('56yvmC8AdS8', e)}
-                          >
-                            <img
-                              src="https://img.youtube.com/vi/56yvmC8AdS8/maxresdefault.jpg"
-                              alt="China's Latest Driverless Robotaxi"
-                              className="w-full h-32 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                              <Play size={32} className="text-white" />
-                            </div>
-                            <div className="absolute bottom-2 left-2 right-2">
-                              <p className="text-sm font-semibold text-white">China's Latest Driverless Robotaxi</p>
-                            </div>
-                          </div>
-
-                          <div
-                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={(e) => openVideoModal('FwABzdr5elM', e)}
-                          >
-                            <img
-                              src="https://img.youtube.com/vi/FwABzdr5elM/maxresdefault.jpg"
-                              alt="Baidu Apollo Go Wuhan Experience"
-                              className="w-full h-32 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                              <Play size={32} className="text-white" />
-                            </div>
-                            <div className="absolute bottom-2 left-2 right-2">
-                              <p className="text-sm font-semibold text-white">Baidu Apollo Go Wuhan Experience</p>
-                            </div>
-                          </div>
-
-                          <div
-                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={(e) => openVideoModal('81Pn7MIefqw', e)}
-                          >
-                            <img
-                              src="https://img.youtube.com/vi/81Pn7MIefqw/maxresdefault.jpg"
-                              alt="XPeng XNGP FSD Leader Test"
-                              className="w-full h-32 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                              <Play size={32} className="text-white" />
-                            </div>
-                            <div className="absolute bottom-2 left-2 right-2">
-                              <p className="text-sm font-semibold text-white">XPeng XNGP FSD Leader Test</p>
-                            </div>
-                          </div>
-
-                          <div
-                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={(e) => openVideoModal('CFSk-34kgpY', e)}
-                          >
-                            <img
-                              src="https://img.youtube.com/vi/CFSk-34kgpY/maxresdefault.jpg"
-                              alt="BYD God's Eye Self-Driving Test"
-                              className="w-full h-32 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                              <Play size={32} className="text-white" />
-                            </div>
-                            <div className="absolute bottom-2 left-2 right-2">
-                              <p className="text-sm font-semibold text-white">BYD God's Eye Self-Driving Test</p>
-                            </div>
-                          </div>
+                          <VideoCard videoId="56yvmC8AdS8" title="China's Latest Driverless Robotaxi" />
+                          <VideoCard videoId="FwABzdr5elM" title="Baidu Apollo Go Wuhan Experience" />
+                          <VideoCard videoId="81Pn7MIefqw" title="XPeng XNGP FSD Leader Test" />
+                          <VideoCard videoId="CFSk-34kgpY" title="BYD God's Eye Self-Driving Test" />
                         </div>
 
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                          <div
-                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={(e) => openVideoModal('dtRwMh7dbf4', e)}
-                          >
-                            <img
-                              src="https://img.youtube.com/vi/dtRwMh7dbf4/maxresdefault.jpg"
-                              alt="Amazing Autonomous Taxi Experience China"
-                              className="w-full h-32 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                              <Play size={32} className="text-white" />
-                            </div>
-                            <div className="absolute bottom-2 left-2 right-2">
-                              <p className="text-sm font-semibold text-white">Amazing Autonomous Taxi Experience</p>
-                            </div>
-                          </div>
-
-                          <div
-                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={(e) => openVideoModal('lr4W9vb-LI0', e)}
-                          >
-                            <img
-                              src="https://img.youtube.com/vi/lr4W9vb-LI0/maxresdefault.jpg"
-                              alt="XPeng XNGP Vision-Based ADAS"
-                              className="w-full h-32 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                              <Play size={32} className="text-white" />
-                            </div>
-                            <div className="absolute bottom-2 left-2 right-2">
-                              <p className="text-sm font-semibold text-white">XPeng XNGP Vision-Based ADAS</p>
-                            </div>
-                          </div>
-
-                          <div
-                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={(e) => openVideoModal('bpyrkHdD2WU', e)}
-                          >
-                            <img
-                              src="https://img.youtube.com/vi/bpyrkHdD2WU/maxresdefault.jpg"
-                              alt="NIO Autopilot Mountain Road Test"
-                              className="w-full h-32 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                              <Play size={32} className="text-white" />
-                            </div>
-                            <div className="absolute bottom-2 left-2 right-2">
-                              <p className="text-sm font-semibold text-white">NIO Autopilot Mountain Road Test</p>
-                            </div>
-                          </div>
-
-                          <div
-                            className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                            onClick={(e) => openVideoModal('erWmPlG3zac', e)}
-                          >
-                            <img
-                              src="https://img.youtube.com/vi/erWmPlG3zac/maxresdefault.jpg"
-                              alt="BYD Takes on Tesla Autonomous Driving"
-                              className="w-full h-32 object-cover"
-                            />
-                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                              <Play size={32} className="text-white" />
-                            </div>
-                            <div className="absolute bottom-2 left-2 right-2">
-                              <p className="text-sm font-semibold text-white">BYD Takes on Tesla Autonomous</p>
-                            </div>
-                          </div>
+                          <VideoCard videoId="dtRwMh7dbf4" title="Amazing Autonomous Taxi Experience" />
+                          <VideoCard videoId="lr4W9vb-LI0" title="XPeng XNGP Vision-Based ADAS" />
+                          <VideoCard videoId="bpyrkHdD2WU" title="NIO Autopilot Mountain Road Test" />
+                          <VideoCard videoId="erWmPlG3zac" title="BYD Takes on Tesla Autonomous" />
                         </div>
 
                         <div className="bg-gradient-to-r from-red-900/30 to-yellow-900/30 rounded-lg p-4 border border-red-600/40 mb-4">
