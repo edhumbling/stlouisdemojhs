@@ -1597,21 +1597,8 @@ const RoboticsPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div
-                    className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 mt-4"
-                    onClick={() => openVideoModal('gm0b_ijaYMQ')}
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/gm0b_ijaYMQ/maxresdefault.jpg"
-                      alt="Mars Perseverance Rover"
-                      className="w-full h-40 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                      <Play size={40} className="text-white" />
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <p className="text-lg font-semibold text-white">Mars Perseverance Rover: Engineering Marvel</p>
-                    </div>
+                  <div className="mt-4">
+                    <VideoCard videoId="gm0b_ijaYMQ" title="Mars Perseverance Rover: Engineering Marvel" />
                   </div>
                 </div>
               </div>
@@ -1667,70 +1654,10 @@ const RoboticsPage: React.FC = () => {
                       </p>
 
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('dBSSGaZWJXs')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/dBSSGaZWJXs/maxresdefault.jpg"
-                            alt="UBTECH Walker X Robot"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Walker X Humanoid Robot</p>
-                          </div>
-                        </div>
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('KQ8ABQwqZkM')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/KQ8ABQwqZkM/maxresdefault.jpg"
-                            alt="UBTECH Alpha Robot Performance"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Alpha Robot Performance</p>
-                          </div>
-                        </div>
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('IzXP-kZoYuA')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/IzXP-kZoYuA/maxresdefault.jpg"
-                            alt="UBTECH Walker C Tour Guide"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Walker C Tour Guide</p>
-                          </div>
-                        </div>
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('Sq1QZB5baNw')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/Sq1QZB5baNw/maxresdefault.jpg"
-                            alt="UBTECH Robot Showcase"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">UBTECH Robot Showcase</p>
-                          </div>
-                        </div>
+                        <VideoCard videoId="dBSSGaZWJXs" title="Walker X Humanoid Robot" />
+                        <VideoCard videoId="KQ8ABQwqZkM" title="Alpha Robot Performance" />
+                        <VideoCard videoId="IzXP-kZoYuA" title="Walker C Tour Guide" />
+                        <VideoCard videoId="Sq1QZB5baNw" title="UBTECH Robot Showcase" />
                       </div>
                     </div>
 
@@ -1924,73 +1851,10 @@ const RoboticsPage: React.FC = () => {
                       </p>
 
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('-o_WYEoxWGY')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/-o_WYEoxWGY/maxresdefault.jpg"
-                            alt="RoboMaster 2019 Champion Final"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">2019 Champion Final SJTU vs NEU</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('VRL-xmK0nvw')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/VRL-xmK0nvw/maxresdefault.jpg"
-                            alt="RoboMaster 2022 Grand Finals"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">2022 Grand Finals UW vs TAMU</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('a16aDyN3nfs')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/a16aDyN3nfs/maxresdefault.jpg"
-                            alt="RoboMaster 2017 Finals"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">2017 Finals Robot Battles</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('EpRZWIOaPKU')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/EpRZWIOaPKU/maxresdefault.jpg"
-                            alt="RoboMaster Youth Championship"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Youth Championship 2022</p>
-                          </div>
-                        </div>
+                        <VideoCard videoId="-o_WYEoxWGY" title="2019 Champion Final SJTU vs NEU" />
+                        <VideoCard videoId="VRL-xmK0nvw" title="2022 Grand Finals UW vs TAMU" />
+                        <VideoCard videoId="a16aDyN3nfs" title="2017 Finals Robot Battles" />
+                        <VideoCard videoId="EpRZWIOaPKU" title="Youth Championship 2022" />
                       </div>
                     </div>
 
@@ -2003,73 +1867,10 @@ const RoboticsPage: React.FC = () => {
                       </p>
 
                       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('yVTCXe-0798')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/yVTCXe-0798/maxresdefault.jpg"
-                            alt="CMG World Robot Competition"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">CMG Mecha Fighting Series</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('Sq1QZB5baNw')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/Sq1QZB5baNw/maxresdefault.jpg"
-                            alt="Chinese Robot Fighting Arena"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Robot Fighting Arena Battles</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('X2UxtKLZnNo')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/X2UxtKLZnNo/maxresdefault.jpg"
-                            alt="Chinese Robot Combat Championship"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Robot Combat Championship</p>
-                          </div>
-                        </div>
-
-                        <div
-                          className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                          onClick={() => openVideoModal('29ECwExc-_M')}
-                        >
-                          <img
-                            src="https://img.youtube.com/vi/29ECwExc-_M/maxresdefault.jpg"
-                            alt="Chinese Humanoid Robot Competition"
-                            className="w-full h-32 object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                            <Play size={32} className="text-white" />
-                          </div>
-                          <div className="absolute bottom-2 left-2 right-2">
-                            <p className="text-sm font-semibold text-white">Humanoid Robot Showdown</p>
-                          </div>
-                        </div>
+                        <VideoCard videoId="yVTCXe-0798" title="CMG Mecha Fighting Series" />
+                        <VideoCard videoId="Sq1QZB5baNw" title="Robot Fighting Arena Battles" />
+                        <VideoCard videoId="X2UxtKLZnNo" title="Robot Combat Championship" />
+                        <VideoCard videoId="29ECwExc-_M" title="Humanoid Robot Showdown" />
                       </div>
                     </div>
 
@@ -2172,143 +1973,17 @@ const RoboticsPage: React.FC = () => {
                     </h4>
 
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('FASMejN_5gs')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/FASMejN_5gs/maxresdefault.jpg"
-                          alt="Neuralink Summer 2025 Update"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Summer 2025 Update</p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('WGvIbdzUWoA')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/WGvIbdzUWoA/maxresdefault.jpg"
-                          alt="Neuralink New Patient"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">New Human Patient</p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('Sd-VQdhR5c0')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/Sd-VQdhR5c0/maxresdefault.jpg"
-                          alt="Neuralink April 2025 Update"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">April 2025 Update</p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('ZzNHxC96rDE')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/ZzNHxC96rDE/maxresdefault.jpg"
-                          alt="Neuralink Patient Chess Demo"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Patient Chess Demo</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="FASMejN_5gs" title="Summer 2025 Update" />
+                      <VideoCard videoId="WGvIbdzUWoA" title="New Human Patient" />
+                      <VideoCard videoId="Sd-VQdhR5c0" title="April 2025 Update" />
+                      <VideoCard videoId="ZzNHxC96rDE" title="Patient Chess Demo" />
                     </div>
 
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('5SrpYZum4Nk')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/5SrpYZum4Nk/maxresdefault.jpg"
-                          alt="First Patient Chess Playing"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Chess with Brain Implant</p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('IbM4-rcujxY')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/IbM4-rcujxY/maxresdefault.jpg"
-                          alt="Patient Experience"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Patient Experience</p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('YreDYmXTYi4')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/YreDYmXTYi4/maxresdefault.jpg"
-                          alt="Neuralink Show and Tell"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Show and Tell Demo</p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('rsCul1sp4hQ')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/rsCul1sp4hQ/maxresdefault.jpg"
-                          alt="Monkey MindPong"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Monkey MindPong</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="5SrpYZum4Nk" title="Chess with Brain Implant" />
+                      <VideoCard videoId="IbM4-rcujxY" title="Patient Experience" />
+                      <VideoCard videoId="YreDYmXTYi4" title="Show and Tell Demo" />
+                      <VideoCard videoId="rsCul1sp4hQ" title="Monkey MindPong" />
                     </div>
                   </div>
                 </div>
