@@ -121,7 +121,7 @@ const GiveFeedbackPage: React.FC = () => {
         <div
           className="relative h-48 sm:h-64 md:h-72 overflow-hidden"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1684688287578-dxdcmbbbs5ym?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
