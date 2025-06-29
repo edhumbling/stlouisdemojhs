@@ -559,6 +559,98 @@ const SpaceExplorationPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-purple-300 mb-4 underline decoration-1 underline-offset-2">
+                    Virgin Galactic - Pioneering Space Tourism
+                  </h4>
+
+                  <p className="text-base leading-relaxed mb-6 text-gray-200">
+                    <a href="https://www.virgingalactic.com/" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline font-bold">Virgin Galactic</a>, founded by <strong className="text-blue-300">Sir Richard Branson</strong> in 2004, is the world's first commercial spaceline, pioneering accessible space tourism through its revolutionary <strong className="text-yellow-300">SpaceShipTwo</strong> technology. Unlike traditional rocket-powered spacecraft, Virgin Galactic uses an innovative air-launch system where the <strong className="text-green-300">VSS Unity</strong> spacecraft is carried to altitude by the <strong className="text-cyan-300">VMS Eve</strong> mothership before igniting its rocket motor for the final ascent to space.
+                  </p>
+
+                  <div className="mb-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                      alt="Virgin Galactic SpaceShipTwo"
+                      className="w-full h-64 sm:h-80 object-cover rounded-2xl"
+                    />
+                    <div className="text-center mt-2">
+                      <p className="text-sm text-gray-400 italic">Virgin Galactic's VSS Unity represents the future of commercial space tourism</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-cyan-300 mb-3 underline decoration-1 underline-offset-2">
+                        VSS Unity - SpaceShipTwo Technology
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        The <strong className="text-cyan-300">VSS Unity</strong> is Virgin Galactic's second-generation SpaceShipTwo vehicle, designed to carry <strong className="text-yellow-300">six passengers</strong> and <strong className="text-green-300">two pilots</strong> to the edge of space at an altitude of over <strong className="text-purple-300">80 kilometers</strong>. The spacecraft features large windows providing passengers with breathtaking views of Earth's curvature and the blackness of space during approximately <strong className="text-orange-300">4 minutes of weightlessness</strong>.
+                      </p>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        What makes Virgin Galactic unique is its <strong className="text-blue-300">air-launch system</strong>. The VSS Unity is carried to an altitude of 50,000 feet by the twin-fuselage <strong className="text-red-300">VMS Eve</strong> mothership before being released. The spacecraft then ignites its hybrid rocket motor, accelerating to <strong className="text-yellow-300">Mach 3.5</strong> as it climbs to space, providing passengers with a smooth, airplane-like experience rather than the violent acceleration of traditional rockets.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-orange-300 mb-3 underline decoration-1 underline-offset-2">
+                        Historic Achievements & Milestones
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        Virgin Galactic achieved a historic milestone on <strong className="text-green-300">July 11, 2021</strong>, when Sir Richard Branson became the first billionaire founder to fly to space aboard his own spacecraft. This <strong className="text-purple-300">Unity 22</strong> mission marked the beginning of the commercial space tourism era, demonstrating that space travel could be accessible to civilians, not just professional astronauts.
+                      </p>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        Since then, Virgin Galactic has successfully completed multiple commercial flights, including the historic <strong className="text-cyan-300">Galactic 01</strong> mission in June 2023, which carried the first paying customers to space. The company operates from <strong className="text-yellow-300">Spaceport America</strong> in New Mexico, the world's first purpose-built commercial spaceport, designed specifically for horizontal takeoff and landing spacecraft.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-red-300 mb-3 underline decoration-1 underline-offset-2">
+                        Future of Space Tourism
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        Virgin Galactic is developing its next-generation <strong className="text-red-300">Delta-class</strong> spacecraft, designed to fly more frequently with enhanced passenger capacity and improved operational efficiency. These advanced vehicles will enable the company to conduct <strong className="text-blue-300">weekly flights</strong> and significantly reduce the cost of space tourism, making the experience accessible to a broader audience.
+                      </p>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        The company's vision extends beyond tourism to include <strong className="text-green-300">scientific research missions</strong>, <strong className="text-purple-300">astronaut training</strong>, and <strong className="text-orange-300">point-to-point hypersonic travel</strong> on Earth. Virgin Galactic is pioneering a new era where space is no longer the exclusive domain of government agencies but a frontier open to all humanity.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                    <VideoCard videoId="h8T9mVkGh3s" title="VSS Unity First Spaceflight" />
+                    <VideoCard videoId="kmPG0Hqhay8" title="VSS Unity Second Spaceflight" />
+                    <VideoCard videoId="8s-zY86Ec-I" title="First Rocket Powered Flight" />
+                    <VideoCard videoId="M3RXPF_B7As" title="Richard Branson Space Flight" />
+                    <VideoCard videoId="i_Svy8ezVJo" title="First Commercial Flight" />
+                    <VideoCard videoId="4Sz2ro1VeGQ" title="Space Tourism Launch" />
+                    <VideoCard videoId="3bQQ5lxfKGU" title="Unity 25 Return to Flight" />
+                    <VideoCard videoId="BsRSaPxlck0" title="VSS Unity Flight Simulator" />
+                  </div>
+
+                  <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-4 border border-purple-600/40 mb-6">
+                    <h5 className="text-lg font-bold text-purple-300 mb-2">🚀 Virgin Galactic Achievements</h5>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-green-300">First commercial spaceline</strong> to carry paying passengers</li>
+                        <li>• <strong className="text-yellow-300">30+ successful</strong> powered test flights</li>
+                        <li>• <strong className="text-purple-300">600+ future astronauts</strong> with reservations</li>
+                      </ul>
+                      <ul className="space-y-1 text-sm">
+                        <li>• <strong className="text-orange-300">Unique air-launch</strong> system technology</li>
+                        <li>• <strong className="text-cyan-300">Spaceport America</strong> operational base</li>
+                        <li>• <strong className="text-pink-300">Delta-class</strong> next-generation spacecraft</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
