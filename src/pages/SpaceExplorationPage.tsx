@@ -6,9 +6,7 @@ import Header from '../components/layout/Header';
 
 const SpaceExplorationPage: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [videoLoading, setVideoLoading] = useState(false);
-  const [clickPosition, setClickPosition] = useState<{ x: number; y: number } | null>(null);
+  const [playingVideos, setPlayingVideos] = useState<Set<string>>(new Set());
   const [showNavMenu, setShowNavMenu] = useState(false);
   const navMenuRef = useRef<HTMLDivElement>(null);
 
@@ -16,35 +14,16 @@ const SpaceExplorationPage: React.FC = () => {
     navigate('/stem');
   };
 
-  const openVideoModal = (videoId: string, event: React.MouseEvent) => {
-    // Capture exact click position relative to viewport
-    const rect = event.currentTarget.getBoundingClientRect();
-    const clickX = event.clientX || (rect.left + rect.width / 2);
-    const clickY = event.clientY || (rect.top + rect.height / 2);
-
-    setClickPosition({
-      x: clickX,
-      y: clickY
+  const toggleVideo = (videoId: string) => {
+    setPlayingVideos(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(videoId)) {
+        newSet.delete(videoId);
+      } else {
+        newSet.add(videoId);
+      }
+      return newSet;
     });
-
-    setVideoLoading(true);
-    setSelectedVideo(videoId);
-
-    // Prevent body scroll when modal is open
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeVideoModal = () => {
-    setSelectedVideo(null);
-    setVideoLoading(false);
-    setClickPosition(null);
-
-    // Restore body scroll
-    document.body.style.overflow = 'unset';
-  };
-
-  const handleVideoLoad = () => {
-    setVideoLoading(false);
   };
 
   // Navigation sections
@@ -84,6 +63,53 @@ const SpaceExplorationPage: React.FC = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  // Video component for inline playback
+  const VideoCard: React.FC<{ videoId: string; title: string; thumbnail?: string }> = ({ videoId, title, thumbnail }) => {
+    const isPlaying = playingVideos.has(videoId);
+    const thumbnailUrl = thumbnail || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
+    return (
+      <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+        {!isPlaying ? (
+          <div
+            className="relative cursor-pointer hover:scale-105 transition-transform duration-300"
+            onClick={() => toggleVideo(videoId)}
+          >
+            <img
+              src={thumbnailUrl}
+              alt={title}
+              className="w-full h-32 object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/60 transition-colors duration-300">
+              <div className="bg-red-600 rounded-full p-3 shadow-lg">
+                <Play size={24} className="text-white ml-1" />
+              </div>
+            </div>
+            <div className="absolute bottom-2 left-2 right-2">
+              <p className="text-sm font-semibold text-white bg-black/70 rounded px-2 py-1">{title}</p>
+            </div>
+          </div>
+        ) : (
+          <div className="relative">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
+              title={title}
+              className="w-full h-48 sm:h-56 border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+            <button
+              onClick={() => toggleVideo(videoId)}
+              className="absolute top-2 right-2 bg-black/70 hover:bg-black/90 rounded-full p-2 transition-colors duration-200"
+            >
+              <CloseIcon size={16} className="text-white" />
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -197,73 +223,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('bGXhIA0TKvs', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/bGXhIA0TKvs/maxresdefault.jpg"
-                        alt="Sputnik 1 Launch"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Sputnik 1 Launch 1957</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('RQs9_vs5xYs', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/RQs9_vs5xYs/maxresdefault.jpg"
-                        alt="Yuri Gagarin First Human in Space"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Gagarin First Human 1961</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('RMINSD7MmT4', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/RMINSD7MmT4/maxresdefault.jpg"
-                        alt="Apollo 11 Moon Landing"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Apollo 11 Moon Landing</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('9HQfauGJaTs', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/9HQfauGJaTs/maxresdefault.jpg"
-                        alt="Space Race Documentary"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Space Race Documentary</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="bGXhIA0TKvs" title="Sputnik 1 Launch 1957" />
+                    <VideoCard videoId="RQs9_vs5xYs" title="Gagarin First Human 1961" />
+                    <VideoCard videoId="RMINSD7MmT4" title="Apollo 11 Moon Landing" />
+                    <VideoCard videoId="9HQfauGJaTs" title="Space Race Documentary" />
                   </div>
 
                   <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-4 border border-yellow-600/40 mb-6">
@@ -1540,112 +1503,7 @@ const SpaceExplorationPage: React.FC = () => {
         </div>
       </main>
 
-      {/* Video Modal */}
-      {selectedVideo && (
-        <div
-          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 p-2 sm:p-4"
-          style={{
-            animation: 'fadeIn 0.2s ease-out'
-          }}
-          onClick={closeVideoModal}
-        >
-          <div
-            className="absolute w-full aspect-video bg-black rounded-lg overflow-hidden shadow-2xl"
-            style={{
-              left: '50%',
-              top: '50%',
-              transform: 'translate(-50%, -50%)',
-              animation: clickPosition
-                ? `scaleFromPoint 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)`
-                : 'scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
-              transformOrigin: clickPosition
-                ? `${((clickPosition.x / window.innerWidth) * 100)}% ${((clickPosition.y / window.innerHeight) * 100)}%`
-                : 'center center'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={closeVideoModal}
-              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 bg-black/70 hover:bg-black/90 rounded-full p-2 transition-all duration-200 hover:scale-110"
-            >
-              <CloseIcon size={20} className="text-white" />
-            </button>
 
-            {/* Shimmer Loading Effect */}
-            {videoLoading && (
-              <div className="absolute inset-0 bg-gray-900 flex items-center justify-center">
-                <div className="w-full h-full relative overflow-hidden">
-                  {/* Shimmer Background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 animate-pulse"></div>
-
-                  {/* Shimmer Wave */}
-                  <div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                    style={{
-                      animation: 'shimmer 1.5s infinite',
-                      transform: 'translateX(-100%)'
-                    }}
-                  ></div>
-
-                  {/* Loading Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex flex-col items-center gap-4">
-                      <div className="w-16 h-16 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
-                      <p className="text-white/80 text-sm font-medium">Loading space video...</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* YouTube Iframe */}
-            <iframe
-              src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
-              title="Space Exploration Video"
-              className={`w-full h-full border-0 transition-opacity duration-300 ${videoLoading ? 'opacity-0' : 'opacity-100'}`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              onLoad={handleVideoLoad}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* CSS Animations */}
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        @keyframes scaleIn {
-          from {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.8);
-          }
-          to {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-          }
-        }
-
-        @keyframes scaleFromPoint {
-          from {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.1);
-          }
-          to {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-          }
-        }
-
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-      `}</style>
     </div>
   );
 };
