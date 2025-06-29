@@ -957,70 +957,10 @@ const RoboticsPage: React.FC = () => {
                       <a href="https://www.agilityrobotics.com/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline font-bold">Agility Robotics</a> has pioneered bipedal humanoid robots with their flagship <strong className="text-green-300">Digit robot</strong>. Standing 5'9" and weighing 140 pounds, Digit is designed for logistics and warehouse operations, capable of walking, climbing stairs, and manipulating objects in human environments. The company has secured major partnerships with Amazon and Ford for warehouse automation, demonstrating robots that can work alongside humans safely and efficiently.
                     </p>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('HQ1WEiMwWAY')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/HQ1WEiMwWAY/maxresdefault.jpg"
-                          alt="Agility Robotics Digit"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Digit Robot Warehouse Demo</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('_sBBaNYex3E')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/_sBBaNYex3E/maxresdefault.jpg"
-                          alt="Agility Robotics Factory"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Agility Robotics Factory Tour</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('q8IdbodRG14')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/q8IdbodRG14/maxresdefault.jpg"
-                          alt="Agility Amazon Partnership"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Amazon Partnership</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('29ECwExc-_M')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/29ECwExc-_M/maxresdefault.jpg"
-                          alt="Digit vs Atlas"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Humanoid Robot Comparison</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="HQ1WEiMwWAY" title="Digit Robot Warehouse Demo" />
+                      <VideoCard videoId="_sBBaNYex3E" title="Agility Robotics Factory Tour" />
+                      <VideoCard videoId="q8IdbodRG14" title="Amazon Partnership" />
+                      <VideoCard videoId="29ECwExc-_M" title="Humanoid Robot Comparison" />
                     </div>
                   </div>
 
@@ -1032,70 +972,10 @@ const RoboticsPage: React.FC = () => {
                       <a href="https://www.figure.ai/" target="_blank" rel="noopener noreferrer" className="text-pink-300 hover:text-pink-200 underline font-bold">Figure AI</a> is developing general-purpose humanoid robots with their <strong className="text-blue-300">Figure-01</strong> and latest <strong className="text-green-300">Helix model</strong>. The company has raised over $675 million from investors including OpenAI, Microsoft, and NVIDIA. Their robots feature advanced AI integration, natural language processing, and the ability to learn complex tasks through demonstration. Figure AI has partnerships with BMW for automotive manufacturing and is pioneering vision-language-action models for humanoid robotics.
                     </p>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('Sq1QZB5baNw')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/Sq1QZB5baNw/maxresdefault.jpg"
-                          alt="Figure AI Robot"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Figure-01 Robot Demonstration</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('0FGtASjXCLI')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/0FGtASjXCLI/maxresdefault.jpg"
-                          alt="Figure AI Conversations"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Full Conversations with AI</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('TAyK9RYzf3I')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/TAyK9RYzf3I/maxresdefault.jpg"
-                          alt="Figure OpenAI Partnership"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">OpenAI Partnership</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('Z3yQHYNXPws')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/Z3yQHYNXPws/maxresdefault.jpg"
-                          alt="Figure AI Helix"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Introducing Helix AI Model</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="Sq1QZB5baNw" title="Figure-01 Robot Demonstration" />
+                      <VideoCard videoId="0FGtASjXCLI" title="Full Conversations with AI" />
+                      <VideoCard videoId="TAyK9RYzf3I" title="OpenAI Partnership" />
+                      <VideoCard videoId="Z3yQHYNXPws" title="Introducing Helix AI Model" />
                     </div>
                   </div>
 
