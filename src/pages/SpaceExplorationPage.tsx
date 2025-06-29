@@ -19,14 +19,8 @@ const SpaceExplorationPage: React.FC = () => {
       const newSet = new Set(prev);
       if (newSet.has(videoId)) {
         newSet.delete(videoId);
-        // Restore body scroll when closing video
-        if (newSet.size === 0) {
-          document.body.style.overflow = 'unset';
-        }
       } else {
         newSet.add(videoId);
-        // Prevent body scroll when opening video
-        document.body.style.overflow = 'hidden';
       }
       return newSet;
     });
@@ -70,15 +64,14 @@ const SpaceExplorationPage: React.FC = () => {
     };
   }, []);
 
-  // Video component for full-screen playback
+  // Video component for inline YouTube-style playback
   const VideoCard: React.FC<{ videoId: string; title: string; thumbnail?: string }> = ({ videoId, title, thumbnail }) => {
     const isPlaying = playingVideos.has(videoId);
     const thumbnailUrl = thumbnail || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
     return (
-      <>
-        {/* Video Thumbnail */}
-        <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+      <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
+        {!isPlaying ? (
           <div
             className="relative cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => toggleVideo(videoId)}
@@ -86,7 +79,7 @@ const SpaceExplorationPage: React.FC = () => {
             <img
               src={thumbnailUrl}
               alt={title}
-              className="w-full h-32 object-cover"
+              className="w-full aspect-video object-cover"
             />
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/60 transition-colors duration-300">
               <div className="bg-red-600 rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
@@ -97,47 +90,24 @@ const SpaceExplorationPage: React.FC = () => {
               <p className="text-sm font-semibold text-white bg-black/70 rounded px-2 py-1">{title}</p>
             </div>
           </div>
-        </div>
-
-        {/* Full-Screen Video Modal */}
-        {isPlaying && (
-          <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4">
-            {/* Close Button */}
+        ) : (
+          <div className="relative">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
+              title={title}
+              className="w-full aspect-video border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
             <button
               onClick={() => toggleVideo(videoId)}
-              className="absolute top-4 right-4 z-60 bg-black/70 hover:bg-black/90 rounded-full p-3 transition-all duration-200 hover:scale-110"
+              className="absolute top-2 right-2 bg-black/70 hover:bg-black/90 rounded-full p-2 transition-colors duration-200"
             >
-              <CloseIcon size={24} className="text-white" />
+              <CloseIcon size={16} className="text-white" />
             </button>
-
-            {/* Video Container */}
-            <div className="w-full h-full max-w-7xl max-h-full flex items-center justify-center">
-              <div className="relative w-full h-full max-h-[90vh] aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
-                <iframe
-                  src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&fs=1`}
-                  title={title}
-                  className="w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-
-            {/* Video Title Overlay */}
-            <div className="absolute bottom-4 left-4 right-4 text-center">
-              <p className="text-white text-lg font-semibold bg-black/70 rounded-lg px-4 py-2 inline-block">
-                {title}
-              </p>
-            </div>
-
-            {/* Click outside to close */}
-            <div
-              className="absolute inset-0 -z-10"
-              onClick={() => toggleVideo(videoId)}
-            />
           </div>
         )}
-      </>
+      </div>
     );
   };
 
@@ -253,10 +223,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <VideoCard videoId="bGXhIA0TKvs" title="Sputnik 1 Launch 1957" />
-                    <VideoCard videoId="RQs9_vs5xYs" title="Gagarin First Human 1961" />
-                    <VideoCard videoId="RMINSD7MmT4" title="Apollo 11 Moon Landing" />
-                    <VideoCard videoId="9HQfauGJaTs" title="Space Race Documentary" />
+                    <VideoCard videoId="U1xbVFf0_RU" title="Sputnik 1 Launch 1957" />
+                    <VideoCard videoId="7iMa03BApcQ" title="Gagarin First Human 1961" />
+                    <VideoCard videoId="S9HdPi9Ikhk" title="Apollo 11 Moon Landing" />
+                    <VideoCard videoId="IuXj3mxCNd8" title="Space Race Documentary" />
                   </div>
 
                   <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-4 border border-yellow-600/40 mb-6">
@@ -287,10 +257,10 @@ const SpaceExplorationPage: React.FC = () => {
                     </p>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                      <VideoCard videoId="wptn5RE2I-k" title="Apollo 11 Documentary" />
-                      <VideoCard videoId="S9HdPiDJFz0" title="Saturn V Rocket" />
-                      <VideoCard videoId="cwZb2mqId0A" title="Apollo 13 Survival" />
-                      <VideoCard videoId="xuCn8ux2gbs" title="Space Shuttle Era" />
+                      <VideoCard videoId="S9HdPi9Ikhk" title="Apollo 11 Documentary" />
+                      <VideoCard videoId="GNJpoP642wc" title="Saturn V Rocket" />
+                      <VideoCard videoId="nOcDftgR5UQ" title="Apollo 13 Survival" />
+                      <VideoCard videoId="PLQ6V6Stm2U" title="Space Shuttle Era" />
                     </div>
                   </div>
                 </div>
@@ -320,10 +290,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <VideoCard videoId="3N3bBC03x_c" title="Soviet Space Program" />
-                    <VideoCard videoId="06-XcAiydpM" title="Soyuz Spacecraft" />
-                    <VideoCard videoId="ALMVeqadIlI" title="Luna 25 Mission" />
-                    <VideoCard videoId="Kz1hLVKVz8E" title="Roscosmos Today" />
+                    <VideoCard videoId="09gWHfJ08iY" title="Soviet Space Program" />
+                    <VideoCard videoId="EUcv9nYOmvQ" title="Soyuz Spacecraft" />
+                    <VideoCard videoId="PyY4k_r6FN4" title="Luna 25 Mission" />
+                    <VideoCard videoId="b_zv5l2J8MI" title="Roscosmos Today" />
                   </div>
 
                   <div className="bg-gradient-to-r from-red-900/30 to-pink-900/30 rounded-lg p-4 border border-red-600/40">
@@ -368,10 +338,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <VideoCard videoId="DoIIwPOtqOY" title="Chang'e 4 Far Side" />
-                    <VideoCard videoId="3Q4bUDZaXvs" title="Tiangong Space Station" />
-                    <VideoCard videoId="3aEWZPahKnk" title="Tianwen-1 Mars" />
-                    <VideoCard videoId="YM4C1ZBzDLw" title="Chang'e 6 Samples" />
+                    <VideoCard videoId="JJi_YEubKCY" title="Chang'e 4 Far Side" />
+                    <VideoCard videoId="2jtOYQ-Wm8M" title="Tiangong Space Station" />
+                    <VideoCard videoId="jdpecQoEc7A" title="Tianwen-1 Mars" />
+                    <VideoCard videoId="ciXXj0Tj7zk" title="Chang'e 6 Samples" />
                   </div>
 
                   <div className="bg-gradient-to-r from-yellow-900/30 to-red-900/30 rounded-lg p-4 border border-yellow-600/40">
@@ -416,10 +386,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <VideoCard videoId="_T8cn2J13-4" title="Artemis Program Overview" />
-                    <VideoCard videoId="4YKGsgZMoXE" title="Artemis II Mission" />
-                    <VideoCard videoId="vl6jn-DdafM" title="Orion Spacecraft" />
-                    <VideoCard videoId="weNHIyVL5PM" title="Space Launch System" />
+                    <VideoCard videoId="YOG3tAkPpPE" title="Artemis Program Overview" />
+                    <VideoCard videoId="Ke6XX8FHOHM" title="Artemis II Mission" />
+                    <VideoCard videoId="CMLD0Lp0JBg" title="Orion Spacecraft" />
+                    <VideoCard videoId="jrDv0OdMt5s" title="Space Launch System" />
                   </div>
 
                   <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-lg p-4 border border-purple-600/40">
