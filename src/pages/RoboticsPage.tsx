@@ -121,33 +121,33 @@ const RoboticsPage: React.FC = () => {
 
       <Header />
 
-      {/* Back Navigation Bar */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 sticky top-16 z-40">
-        <div className="container mx-auto px-4">
+      {/* Back Navigation Bar - Compact */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-2 sticky top-16 z-40">
+        <div className="w-full px-3 sm:px-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-3">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
               >
-                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <ArrowLeft size={14} />
                 <span>Back to STEM</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                Robotics & Automation
+              <h1 className="text-sm sm:text-base md:text-lg font-bold text-white">
+                🤖 Robotics & Automation
               </h1>
             </div>
 
-            {/* Navigation Menu */}
+            {/* Navigation Menu - Compact */}
             <div className="relative" ref={navMenuRef}>
               <button
                 onClick={() => setShowNavMenu(!showNavMenu)}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-cyan-700/50 hover:bg-cyan-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-cyan-500/30"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-cyan-700/50 hover:bg-cyan-600/70 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-cyan-500/30"
               >
-                <Menu size={16} className="sm:w-5 sm:h-5" />
+                <Menu size={14} />
                 <span className="hidden sm:inline">Navigate</span>
-                <ChevronDown size={14} className={`transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
+                <ChevronDown size={12} className={`transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Dropdown Menu */}
@@ -173,12 +173,12 @@ const RoboticsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="w-full py-8">
+      {/* Main Content - Edge to Edge */}
+      <div className="w-full">
 
-        {/* Header Section */}
+        {/* Header Section - Compact & Cute */}
         <div
-          className="relative h-64 sm:h-80 mb-12 overflow-hidden"
+          className="relative h-48 sm:h-60 mb-6 overflow-hidden"
           style={{
             backgroundImage: 'url(https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
             backgroundSize: 'cover',
@@ -186,50 +186,50 @@ const RoboticsPage: React.FC = () => {
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-          <div className="relative h-full flex items-center justify-start px-4 sm:px-8 lg:px-12">
+          <div className="relative h-full flex items-center justify-start px-3 sm:px-4">
             <div>
-              <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4">
-                Robotics and Automation
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+                🤖 Robotics & Automation
               </h1>
-              <p className="text-lg sm:text-xl text-gray-200 max-w-2xl">
-                Exploring the Future of Intelligent Automation, Robotic Systems, and Industrial Revolution 4.0
+              <p className="text-sm sm:text-base text-gray-200 max-w-xl leading-relaxed">
+                ✨ Exploring the Future of Intelligent Automation, Robotic Systems & Industrial Revolution 4.0
               </p>
             </div>
           </div>
         </div>
 
-        {/* Word Document Style Content */}
-        <div className="bg-black px-4 sm:px-8 lg:px-12 py-8 sm:py-12">
+        {/* Word Document Style Content - Edge to Edge */}
+        <div className="w-full bg-black px-3 sm:px-4 py-6">
 
-          {/* Introduction */}
-          <div className="mb-8">
-            <p className="text-lg sm:text-xl leading-relaxed mb-6">
-              <strong className="text-blue-300">Robotics and Automation</strong> represent the driving force behind the Fourth Industrial Revolution, fundamentally transforming how we manufacture, work, and live. From fully automated factories in China producing millions of products daily to Amazon's robotic fulfillment centers processing billions of orders, automation has become the backbone of modern industry. This comprehensive field integrates robotics, artificial intelligence, machine learning, and advanced control systems to create intelligent automated solutions that operate with unprecedented precision, speed, and efficiency.
+          {/* Introduction - Cute & Compact */}
+          <div className="mb-6">
+            <p className="text-sm sm:text-base leading-relaxed mb-4">
+              <strong className="text-blue-300">🤖 Robotics and Automation</strong> represent the driving force behind the Fourth Industrial Revolution, fundamentally transforming how we manufacture, work, and live. From fully automated factories in China producing millions of products daily to Amazon's robotic fulfillment centers processing billions of orders, automation has become the backbone of modern industry. This comprehensive field integrates robotics, artificial intelligence, machine learning, and advanced control systems to create intelligent automated solutions that operate with unprecedented precision, speed, and efficiency.
             </p>
           </div>
 
-          {/* Industrial Automation Revolution */}
-          <div id="automation" className="mb-8">
-            <h2 className="text-3xl font-bold text-white mb-6 underline decoration-2 underline-offset-4 decoration-orange-400">
-              Industrial Automation Revolution
+          {/* Industrial Automation Revolution - Compact */}
+          <div id="automation" className="mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 underline decoration-2 underline-offset-4 decoration-orange-400">
+              🏭 Industrial Automation Revolution
             </h2>
 
-            <div className="space-y-6 ml-4">
+            <div className="space-y-4 ml-2">
               <div>
-                <h3 className="text-2xl font-bold text-orange-300 mb-4 underline decoration-1 underline-offset-2">
+                <h3 className="text-lg sm:text-xl font-bold text-orange-300 mb-3 underline decoration-1 underline-offset-2">
                   What is Industrial Automation?
                 </h3>
 
-                <p className="text-base leading-relaxed mb-6">
+                <p className="text-sm sm:text-base leading-relaxed mb-4">
                   <strong className="text-orange-300">Industrial Automation</strong> is the use of control systems, computers, robots, and information technologies to handle different processes and machinery in an industry to replace human intervention. It represents the second step beyond mechanization in the scope of industrialization. Modern automation systems integrate <strong className="text-blue-300">Artificial Intelligence</strong>, <strong className="text-green-300">Machine Learning</strong>, <strong className="text-purple-300">Internet of Things (IoT)</strong>, and <strong className="text-yellow-300">Advanced Robotics</strong> to create intelligent manufacturing ecosystems that can adapt, learn, and optimize themselves in real-time.
                 </p>
 
-                <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 rounded-lg p-6 border border-orange-600/40 mb-6">
-                  <h4 className="text-xl font-bold text-orange-300 mb-3">🏭 Types of Industrial Automation</h4>
-                  <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 rounded-lg p-4 border border-orange-600/40 mb-4">
+                  <h4 className="text-base sm:text-lg font-bold text-orange-300 mb-2">🏭 Types of Industrial Automation</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h5 className="text-lg font-bold text-yellow-300 mb-3">🔧 Fixed Automation</h5>
-                      <ul className="space-y-1 text-sm">
+                      <h5 className="text-sm sm:text-base font-bold text-yellow-300 mb-2">🔧 Fixed Automation</h5>
+                      <ul className="space-y-1 text-xs sm:text-sm">
                         <li>• <strong className="text-blue-300">High-volume production:</strong> Automotive assembly lines</li>
                         <li>• <strong className="text-green-300">Dedicated systems:</strong> Chemical processing plants</li>
                         <li>• <strong className="text-purple-300">Continuous operation:</strong> Oil refineries</li>
@@ -238,8 +238,8 @@ const RoboticsPage: React.FC = () => {
                     </div>
 
                     <div>
-                      <h5 className="text-lg font-bold text-pink-300 mb-3">🤖 Flexible Automation</h5>
-                      <ul className="space-y-1 text-sm">
+                      <h5 className="text-sm sm:text-base font-bold text-pink-300 mb-2">🤖 Flexible Automation</h5>
+                      <ul className="space-y-1 text-xs sm:text-sm">
                         <li>• <strong className="text-indigo-300">Programmable systems:</strong> CNC machines</li>
                         <li>• <strong className="text-teal-300">Adaptable production:</strong> Multi-product lines</li>
                         <li>• <strong className="text-amber-300">Quick changeover:</strong> Electronics manufacturing</li>
@@ -250,15 +250,15 @@ const RoboticsPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-bold text-blue-300 mb-4 underline decoration-1 underline-offset-2">
-                    Amazon's Automation Empire
+                  <h4 className="text-base sm:text-lg font-bold text-blue-300 mb-3 underline decoration-1 underline-offset-2">
+                    📦 Amazon's Automation Empire
                   </h4>
 
-                  <p className="text-base leading-relaxed mb-4">
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
                     <a href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">Amazon</a> has revolutionized logistics and fulfillment through massive automation investments. With over <strong className="text-yellow-300">750,000 mobile robots</strong> deployed across their fulfillment centers globally, Amazon processes over <strong className="text-green-300">5 billion packages annually</strong> with unprecedented speed and accuracy. Their automation systems include robotic arms, autonomous mobile robots, AI-powered sorting systems, and predictive analytics that optimize every aspect of the supply chain.
                   </p>
 
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
                     <VideoCard videoId="TUx-ljgB-5Q" title="Amazon Warehouse Robots" />
                     <VideoCard videoId="NZTVgExZqoI" title="Dazzling Universe of Amazon Robots" />
                     <VideoCard videoId="eBsir9mqGeg" title="New Robotic Fulfillment Center" />
@@ -267,18 +267,18 @@ const RoboticsPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-bold text-green-300 mb-4 underline decoration-1 underline-offset-2">
-                    NVIDIA's AI-Powered Manufacturing Revolution
+                  <h4 className="text-base sm:text-lg font-bold text-green-300 mb-3 underline decoration-1 underline-offset-2">
+                    🎯 NVIDIA's AI-Powered Manufacturing Revolution
                   </h4>
 
-                  <p className="text-base leading-relaxed mb-4">
+                  <p className="text-sm sm:text-base leading-relaxed mb-3">
                     <a href="https://www.nvidia.com/" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline font-bold">NVIDIA</a> is transforming manufacturing through AI-powered automation solutions. Their <strong className="text-blue-300">Omniverse platform</strong> enables digital twins of entire factories, while <strong className="text-purple-300">Isaac Sim</strong> provides robotics simulation capabilities. NVIDIA's <strong className="text-yellow-300">Metropolis platform</strong> powers intelligent video analytics for factory monitoring, quality control, and safety systems. Their AI solutions are deployed in automotive, electronics, and heavy industry manufacturing worldwide.
                   </p>
 
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="grid md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <h5 className="text-lg font-bold text-cyan-300 mb-3">🏭 NVIDIA Manufacturing Solutions</h5>
-                      <ul className="space-y-2 text-sm">
+                      <h5 className="text-sm sm:text-base font-bold text-cyan-300 mb-2">🏭 NVIDIA Manufacturing Solutions</h5>
+                      <ul className="space-y-1 text-xs sm:text-sm">
                         <li>• <strong className="text-blue-300">Digital Twins:</strong> Virtual factory replicas for optimization</li>
                         <li>• <strong className="text-green-300">AI Quality Control:</strong> Real-time defect detection</li>
                         <li>• <strong className="text-purple-300">Predictive Maintenance:</strong> AI-powered equipment monitoring</li>
@@ -288,8 +288,8 @@ const RoboticsPage: React.FC = () => {
                     </div>
 
                     <div>
-                      <h5 className="text-lg font-bold text-pink-300 mb-3">🤖 Industry Applications</h5>
-                      <ul className="space-y-2 text-sm">
+                      <h5 className="text-sm sm:text-base font-bold text-pink-300 mb-2">🤖 Industry Applications</h5>
+                      <ul className="space-y-1 text-xs sm:text-sm">
                         <li>• <strong className="text-indigo-300">Automotive:</strong> BMW, Mercedes-Benz production lines</li>
                         <li>• <strong className="text-teal-300">Electronics:</strong> Foxconn, TSMC semiconductor fabs</li>
                         <li>• <strong className="text-amber-300">Aerospace:</strong> Boeing, Airbus manufacturing</li>
