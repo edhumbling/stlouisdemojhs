@@ -223,6 +223,76 @@ const TVETVideoCard: React.FC<TVETVideoCardProps> = ({ src, title, description, 
   );
 };
 
+// VideoCard component for inline playback (like Robotics page)
+interface VideoCardProps {
+  videoId: string;
+  title: string;
+}
+
+const VideoCard: React.FC<VideoCardProps> = ({ videoId, title }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [playingVideos, setPlayingVideos] = useState<Set<string>>(new Set());
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+    setPlayingVideos(prev => new Set(prev).add(videoId));
+  };
+
+  const handleClose = () => {
+    setIsPlaying(false);
+    setPlayingVideos(prev => {
+      const newSet = new Set(prev);
+      newSet.delete(videoId);
+      return newSet;
+    });
+  };
+
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
+  return (
+    <div className="relative group">
+      {!isPlaying ? (
+        <div
+          className="relative cursor-pointer rounded-lg overflow-hidden bg-gray-900 aspect-video"
+          onClick={handlePlay}
+        >
+          <img
+            src={thumbnailUrl}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+              <Play className="w-6 h-6 text-white ml-1" fill="currentColor" />
+            </div>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+            <h3 className="text-white text-sm font-medium line-clamp-2">{title}</h3>
+          </div>
+        </div>
+      ) : (
+        <div className="relative rounded-lg overflow-hidden bg-black aspect-video">
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            title={title}
+            className="w-full h-full"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+          <button
+            onClick={handleClose}
+            className="absolute top-2 right-2 w-8 h-8 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-colors duration-200"
+          >
+            <X className="w-4 h-4 text-white" />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const TVETPage: React.FC = () => {
   const navigate = useNavigate();
 
@@ -1377,8 +1447,8 @@ const TVETPage: React.FC = () => {
             </section>
 
             {/* About African Centre for Technical Training (ACTT) */}
-            <section className="mb-12">
-              <div className="bg-black rounded-2xl p-8 sm:p-12 border border-gray-700/30 backdrop-blur-sm max-w-5xl mx-auto">
+            <section className="w-full bg-black">
+              <div className="w-full px-4 sm:px-6 py-8 sm:py-12">
                 <h3 className="text-3xl sm:text-4xl font-bold text-white mb-8 text-center underline decoration-2 underline-offset-8 decoration-blue-400">
                   About African Centre for Technical Training (ACTT)
                 </h3>
@@ -1571,75 +1641,50 @@ const TVETPage: React.FC = () => {
             </section>
 
             {/* TVET Video Grid */}
-            <section className="mb-12">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center underline decoration-2 underline-offset-4">
-                🎬 Trending Videos about TVET in Ghana
-              </h3>
+            <section className="w-full bg-black py-8 sm:py-12">
+              <div className="w-full px-4 sm:px-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center underline decoration-2 underline-offset-4">
+                  🎬 Trending Videos about TVET in Ghana
+                </h3>
 
-              <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                {/* Video 1 - Facebook TVET Video */}
-                <TVETVideoCard
-                  src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D165539088833419&show_text=false&width=560&t=0"
-                  title="🎯 Ghana TVET Service Official Update"
-                  description="Official update from Ghana TVET Service showcasing the latest developments in technical and vocational education training across Ghana."
-                  gradient="from-blue-900 to-blue-800"
-                />
+                {/* Facebook Videos Section */}
+                <div className="mb-8">
+                  <h4 className="text-xl font-bold text-blue-300 mb-4 underline decoration-1 underline-offset-2">
+                    📘 Official Ghana TVET Service Updates
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    {/* Video 1 - Facebook TVET Video */}
+                    <TVETVideoCard
+                      src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D165539088833419&show_text=false&width=560&t=0"
+                      title="🎯 Ghana TVET Service Official Update"
+                      description="Official update from Ghana TVET Service showcasing the latest developments in technical and vocational education training across Ghana."
+                      gradient="from-blue-900 to-blue-800"
+                    />
 
-                {/* Video 2 - Facebook TVET Video */}
-                <TVETVideoCard
-                  src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D325650865196223&show_text=false&width=560&t=0"
-                  title="🏛️ TVET Institutional Development"
-                  description="Comprehensive coverage of TVET institutional development and capacity building initiatives in Ghana's technical education sector."
-                  gradient="from-green-900 to-green-800"
-                />
+                    {/* Video 2 - Facebook TVET Video */}
+                    <TVETVideoCard
+                      src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D325650865196223&show_text=false&width=560&t=0"
+                      title="🏛️ TVET Institutional Development"
+                      description="Comprehensive coverage of TVET institutional development and capacity building initiatives in Ghana's technical education sector."
+                      gradient="from-green-900 to-green-800"
+                    />
+                  </div>
+                </div>
 
-                {/* Video 3 - Girls in Technical Education */}
-                <TVETVideoCard
-                  src="https://www.youtube.com/embed/yuD7xgKPmJQ"
-                  title="👩‍🔧 Ghana TVET Service: Girls in Technical Education"
-                  description="Ghana TVET Service backs affirmative action for girls in technical education, promoting gender equality and women's participation in TVET programs."
-                  gradient="from-purple-900 to-purple-800"
-                />
-
-                {/* Video 4 - TVET Transformation */}
-                <TVETVideoCard
-                  src="https://www.youtube.com/embed/c0gUMPNKEjM"
-                  title="🔄 Transformation of TVET in Ghana"
-                  description="Explore the role of Ghana TVET Service in transforming technical and vocational education, creating opportunities for youth development."
-                  gradient="from-indigo-900 to-indigo-800"
-                />
-
-                {/* Video 5 - TVET Leadership */}
-                <TVETVideoCard
-                  src="https://www.youtube.com/embed/3_usjTp9q1A"
-                  title="🎙️ The Seat with David Prah - Deputy Director General"
-                  description="Insightful interview with David Prah, Deputy Director-General of Ghana TVET Service, discussing the future of technical education."
-                  gradient="from-pink-900 to-pink-800"
-                />
-
-                {/* Video 6 - Skills Training Campaign */}
-                <TVETVideoCard
-                  src="https://www.youtube.com/embed/pAMO7d6bd4s"
-                  title="📢 Ghana TVET Service Skills Training Campaign"
-                  description="Ghana TVET Service takes to the streets with awareness campaigns, promoting skills training opportunities for youth."
-                  gradient="from-red-900 to-red-800"
-                />
-
-                {/* Video 7 - New TVET Video */}
-                <TVETVideoCard
-                  src="https://www.youtube.com/embed/W53dNVHNRH4"
-                  title="🎓 Ghana TVET Excellence Showcase"
-                  description="Comprehensive showcase of Ghana's TVET excellence, highlighting achievements and innovations in technical and vocational education."
-                  gradient="from-cyan-900 to-cyan-800"
-                />
-
-                {/* Video 8 - Ghana TVET Report */}
-                <TVETVideoCard
-                  src="https://www.youtube.com/embed/IFyPl7AlCLk"
-                  title="📊 Ghana TVET Report 2024 - Second Edition"
-                  description="The official Ghana TVET Report showcasing the latest developments, achievements, and future plans for technical education."
-                  gradient="from-yellow-900 to-yellow-800"
-                />
+                {/* YouTube Videos Section with Inline Playback */}
+                <div>
+                  <h4 className="text-xl font-bold text-red-300 mb-4 underline decoration-1 underline-offset-2">
+                    🎥 TVET Educational Content & Insights
+                  </h4>
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <VideoCard videoId="yuD7xgKPmJQ" title="👩‍🔧 Girls in Technical Education" />
+                    <VideoCard videoId="c0gUMPNKEjM" title="🔄 Transformation of TVET in Ghana" />
+                    <VideoCard videoId="3_usjTp9q1A" title="🎙️ Deputy Director General Interview" />
+                    <VideoCard videoId="pAMO7d6bd4s" title="📢 Skills Training Campaign" />
+                    <VideoCard videoId="W53dNVHNRH4" title="🎓 Ghana TVET Excellence Showcase" />
+                    <VideoCard videoId="IFyPl7AlCLk" title="📊 Ghana TVET Report 2024" />
+                  </div>
+                </div>
               </div>
             </section>
 
