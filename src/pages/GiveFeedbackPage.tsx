@@ -83,34 +83,36 @@ const GiveFeedbackPage: React.FC = () => {
         image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
       />
 
-      {/* Hide Footer with CSS */}
+      {/* Hide Footer with CSS and Scrollbar Styling */}
       <style>{`
         footer { display: none !important; }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
       `}</style>
 
       <div className="min-h-screen bg-black text-white">
         <Header />
 
-        {/* Back Navigation Bar - Stuck to Header */}
-        <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40 -mt-0">
-          <div className="w-full px-2 sm:px-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
-                <button
-                  onClick={handleBack}
-                  className="inline-flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
-                >
-                  <ArrowLeft size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                  <span className="hidden xs:inline sm:hidden md:inline">Back</span>
-                  <span className="hidden sm:inline md:hidden">Home</span>
-                  <span className="hidden md:inline">Back to Home</span>
-                </button>
+        {/* Back Bar - Same as AI Page */}
+        <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={handleBack}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
 
-                <h1 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-bold text-white truncate">
-                  <span className="hidden sm:inline">💬 Give Feedback</span>
-                  <span className="sm:hidden">💬 Feedback</span>
-                </h1>
-              </div>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                💬 Give Feedback
+              </h1>
             </div>
           </div>
         </div>
@@ -144,35 +146,38 @@ const GiveFeedbackPage: React.FC = () => {
         <div className="w-full px-4 sm:px-6 py-8">
           <div className="max-w-2xl mx-auto">
 
-            {/* Simple Horizontal Emoji Selection */}
+            {/* Cute Scrollable Emoji Selection */}
             <div className="mb-8 text-center">
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
                 How do you feel about our website? 😊
               </h3>
-              <p className="text-sm text-gray-400 mb-6">
+              <p className="text-xs sm:text-sm text-gray-400 mb-4">
                 Select an emoji that best describes your experience:
               </p>
 
-              <div className="flex justify-center gap-3 sm:gap-4 mb-4">
-                {emojiOptions.map((option) => (
-                  <button
-                    key={option.emoji}
-                    onClick={() => selectEmoji(option.emoji, option.label)}
-                    className={`flex flex-col items-center gap-2 p-4 sm:p-6 rounded-xl transition-all duration-200 ${
-                      selectedEmoji?.emoji === option.emoji
-                        ? 'bg-blue-600 text-white shadow-lg scale-110'
-                        : 'bg-gray-900/50 hover:bg-gray-800 hover:scale-105'
-                    }`}
-                    title={option.label}
-                  >
-                    <span className="text-2xl sm:text-3xl">{option.emoji}</span>
-                    <span className="text-xs sm:text-sm font-medium">{option.label}</span>
-                  </button>
-                ))}
+              {/* Mobile: Horizontal Scrollable, Desktop: Centered Row */}
+              <div className="mb-4">
+                <div className="flex sm:justify-center gap-2 sm:gap-3 overflow-x-auto pb-2 px-4 sm:px-0 scrollbar-hide">
+                  {emojiOptions.map((option) => (
+                    <button
+                      key={option.emoji}
+                      onClick={() => selectEmoji(option.emoji, option.label)}
+                      className={`flex-shrink-0 flex flex-col items-center gap-1 sm:gap-2 p-3 sm:p-4 rounded-xl transition-all duration-200 min-w-[70px] sm:min-w-[80px] ${
+                        selectedEmoji?.emoji === option.emoji
+                          ? 'bg-blue-600 text-white shadow-lg scale-105 sm:scale-110'
+                          : 'bg-gray-900/50 hover:bg-gray-800 hover:scale-105'
+                      }`}
+                      title={option.label}
+                    >
+                      <span className="text-xl sm:text-2xl">{option.emoji}</span>
+                      <span className="text-xs font-medium text-center leading-tight">{option.label}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {selectedEmoji && (
-                <div className="text-center text-blue-300 font-medium">
+                <div className="text-center text-blue-300 font-medium text-sm">
                   You selected: {selectedEmoji.emoji} {selectedEmoji.emojiLabel}
                 </div>
               )}
