@@ -257,73 +257,10 @@ const SpaceExplorationPage: React.FC = () => {
                     </p>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={(e) => openVideoModal('wptn5RE2I-k', e)}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/wptn5RE2I-k/maxresdefault.jpg"
-                          alt="Apollo 11 Full Documentary"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Apollo 11 Documentary</p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={(e) => openVideoModal('S9HdPiDJFz0', e)}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/S9HdPiDJFz0/maxresdefault.jpg"
-                          alt="Saturn V Rocket"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Saturn V Rocket</p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={(e) => openVideoModal('cwZb2mqId0A', e)}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/cwZb2mqId0A/maxresdefault.jpg"
-                          alt="Apollo 13 Mission"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Apollo 13 Survival</p>
-                        </div>
-                      </div>
-
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={(e) => openVideoModal('xuCn8ux2gbs', e)}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/xuCn8ux2gbs/maxresdefault.jpg"
-                          alt="Space Shuttle Program"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Space Shuttle Era</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="wptn5RE2I-k" title="Apollo 11 Documentary" />
+                      <VideoCard videoId="S9HdPiDJFz0" title="Saturn V Rocket" />
+                      <VideoCard videoId="cwZb2mqId0A" title="Apollo 13 Survival" />
+                      <VideoCard videoId="xuCn8ux2gbs" title="Space Shuttle Era" />
                     </div>
                   </div>
                 </div>
@@ -353,73 +290,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('3N3bBC03x_c', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/3N3bBC03x_c/maxresdefault.jpg"
-                        alt="Soviet Space Program Documentary"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Soviet Space Program</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('06-XcAiydpM', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/06-XcAiydpM/maxresdefault.jpg"
-                        alt="Soyuz Spacecraft"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Soyuz Spacecraft</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('ALMVeqadIlI', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/ALMVeqadIlI/maxresdefault.jpg"
-                        alt="Luna 25 Mission"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Luna 25 Mission</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('Kz1hLVKVz8E', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/Kz1hLVKVz8E/maxresdefault.jpg"
-                        alt="Roscosmos Current Missions"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Roscosmos Today</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="3N3bBC03x_c" title="Soviet Space Program" />
+                    <VideoCard videoId="06-XcAiydpM" title="Soyuz Spacecraft" />
+                    <VideoCard videoId="ALMVeqadIlI" title="Luna 25 Mission" />
+                    <VideoCard videoId="Kz1hLVKVz8E" title="Roscosmos Today" />
                   </div>
 
                   <div className="bg-gradient-to-r from-red-900/30 to-pink-900/30 rounded-lg p-4 border border-red-600/40">
@@ -464,73 +338,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('DoIIwPOtqOY', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/DoIIwPOtqOY/maxresdefault.jpg"
-                        alt="Chang'e 4 Far Side Moon Landing"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Chang'e 4 Far Side</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('3Q4bUDZaXvs', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/3Q4bUDZaXvs/maxresdefault.jpg"
-                        alt="Tiangong Space Station"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Tiangong Space Station</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('3aEWZPahKnk', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/3aEWZPahKnk/maxresdefault.jpg"
-                        alt="Tianwen-1 Mars Mission"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Tianwen-1 Mars</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('YM4C1ZBzDLw', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/YM4C1ZBzDLw/maxresdefault.jpg"
-                        alt="Chang'e 6 Sample Return"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Chang'e 6 Samples</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="DoIIwPOtqOY" title="Chang'e 4 Far Side" />
+                    <VideoCard videoId="3Q4bUDZaXvs" title="Tiangong Space Station" />
+                    <VideoCard videoId="3aEWZPahKnk" title="Tianwen-1 Mars" />
+                    <VideoCard videoId="YM4C1ZBzDLw" title="Chang'e 6 Samples" />
                   </div>
 
                   <div className="bg-gradient-to-r from-yellow-900/30 to-red-900/30 rounded-lg p-4 border border-yellow-600/40">
@@ -575,73 +386,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('_T8cn2J13-4', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/_T8cn2J13-4/maxresdefault.jpg"
-                        alt="Artemis Program Overview"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Artemis Program Overview</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('4YKGsgZMoXE', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/4YKGsgZMoXE/maxresdefault.jpg"
-                        alt="Artemis II Mission"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Artemis II Mission</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('vl6jn-DdafM', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/vl6jn-DdafM/maxresdefault.jpg"
-                        alt="Orion Spacecraft"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Orion Spacecraft</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('weNHIyVL5PM', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/weNHIyVL5PM/maxresdefault.jpg"
-                        alt="Space Launch System"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Space Launch System</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="_T8cn2J13-4" title="Artemis Program Overview" />
+                    <VideoCard videoId="4YKGsgZMoXE" title="Artemis II Mission" />
+                    <VideoCard videoId="vl6jn-DdafM" title="Orion Spacecraft" />
+                    <VideoCard videoId="weNHIyVL5PM" title="Space Launch System" />
                   </div>
 
                   <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-lg p-4 border border-purple-600/40">
