@@ -201,26 +201,28 @@ const GiveFeedbackPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit Button - Super Small & Cute */}
             <div className="text-center">
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting || (!selectedEmoji && !note.trim())}
-                className={`inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
-                  isSubmitting || (!selectedEmoji && !note.trim())
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
+                  isSubmitting
+                    ? 'bg-green-600 text-white cursor-wait'
+                    : (!selectedEmoji && !note.trim())
                     ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-400 hover:to-blue-500 text-white shadow-lg hover:shadow-xl hover:scale-105'
+                    : 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white shadow-md hover:shadow-lg hover:scale-105'
                 }`}
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                     <span>Sending...</span>
                   </>
                 ) : (
                   <>
-                    <Send size={20} />
-                    <span>Send Feedback via WhatsApp</span>
+                    <Send size={14} />
+                    <span>Send Feedback</span>
                   </>
                 )}
               </button>
