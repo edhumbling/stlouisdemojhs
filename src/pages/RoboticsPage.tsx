@@ -699,73 +699,10 @@ const RoboticsPage: React.FC = () => {
                   </p>
 
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('FhAGUsDbQUI', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/FhAGUsDbQUI/maxresdefault.jpg"
-                        alt="Waymo 2025 San Francisco"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Waymo 2025 San Francisco Experience</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('I-kzcWadOYE', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/I-kzcWadOYE/maxresdefault.jpg"
-                        alt="Tesla Robotaxi 2025 Production"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Tesla Robotaxi 2025 Production Plan</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('Hc7La5njhZ4', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/Hc7La5njhZ4/maxresdefault.jpg"
-                        alt="Tesla Robotaxi Austin Challenges"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Tesla Robotaxi Austin Challenges</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('OA74GfYH86c', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/OA74GfYH86c/maxresdefault.jpg"
-                        alt="Tesla Robotaxi First Passenger Test"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Tesla Robotaxi First Passenger Test</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="FhAGUsDbQUI" title="Waymo 2025 San Francisco Experience" />
+                    <VideoCard videoId="I-kzcWadOYE" title="Tesla Robotaxi 2025 Production Plan" />
+                    <VideoCard videoId="Hc7La5njhZ4" title="Tesla Robotaxi Austin Challenges" />
+                    <VideoCard videoId="OA74GfYH86c" title="Tesla Robotaxi First Passenger Test" />
                   </div>
 
                   <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 rounded-lg p-6 border border-purple-600/40 mb-6">
@@ -978,121 +915,16 @@ const RoboticsPage: React.FC = () => {
                       <a href="https://www.bostondynamics.com/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200 underline font-bold">Boston Dynamics</a> is renowned for creating the world's most advanced mobile robots. Their flagship robots include <strong className="text-green-300">Atlas</strong> (humanoid robot with parkour capabilities), <strong className="text-purple-300">Spot</strong> (quadruped robot for industrial inspection), and <strong className="text-yellow-300">Stretch</strong> (warehouse automation robot). Founded in 1992 as a spin-off from MIT, the company has revolutionized robotics with their dynamic movement algorithms and real-time balance control systems.
                     </p>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('fn3KWM1kuAw')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/fn3KWM1kuAw/maxresdefault.jpg"
-                          alt="Boston Dynamics Atlas Robot"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Atlas Robot Parkour</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('wlkCQXHEgjA')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/wlkCQXHEgjA/maxresdefault.jpg"
-                          alt="Boston Dynamics Spot Robot"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Spot Robot in Action</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('29ECwExc-_M')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/29ECwExc-_M/maxresdefault.jpg"
-                          alt="Boston Dynamics New Atlas"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">All New Atlas Robot</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('I44_zbEwz_w')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/I44_zbEwz_w/maxresdefault.jpg"
-                          alt="Atlas Walk Run Crawl"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Atlas Walk, Run, Crawl</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="fn3KWM1kuAw" title="Atlas Robot Parkour" />
+                      <VideoCard videoId="wlkCQXHEgjA" title="Spot Robot in Action" />
+                      <VideoCard videoId="29ECwExc-_M" title="All New Atlas Robot" />
+                      <VideoCard videoId="I44_zbEwz_w" title="Atlas Walk, Run, Crawl" />
                     </div>
 
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('F_7IPm7f1vI')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/F_7IPm7f1vI/maxresdefault.jpg"
-                          alt="Atlas Goes Hands On"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Atlas Goes Hands On</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('XPVC4IyRTG8')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/XPVC4IyRTG8/maxresdefault.jpg"
-                          alt="Spot at Work"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Spot at Work</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('uhND7Mvp3f4')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/uhND7Mvp3f4/maxresdefault.jpg"
-                          alt="Stretch Robot"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Stretch Warehouse Robot</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="F_7IPm7f1vI" title="Atlas Goes Hands On" />
+                      <VideoCard videoId="XPVC4IyRTG8" title="Spot at Work" />
+                      <VideoCard videoId="uhND7Mvp3f4" title="Stretch Warehouse Robot" />
                     </div>
                   </div>
 
@@ -1104,121 +936,16 @@ const RoboticsPage: React.FC = () => {
                       <a href="https://www.tesla.com/optimus" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 underline font-bold">Tesla's Optimus</a> represents Elon Musk's vision of general-purpose humanoid robots designed to perform dangerous, repetitive, or boring tasks. Standing 5'8" and weighing 125 pounds, Optimus is designed to navigate the human world using Tesla's Full Self-Driving computer and neural networks. The robot aims to revolutionize manufacturing and eventually assist with household tasks, potentially becoming more significant than Tesla's automotive business.
                     </p>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('XiQkeWOFwmk')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/XiQkeWOFwmk/maxresdefault.jpg"
-                          alt="Tesla Optimus Robot"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Tesla Optimus Gen 2</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('cpraXaw7dyc')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/cpraXaw7dyc/maxresdefault.jpg"
-                          alt="Tesla AI Day Optimus"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Optimus AI Day Demo</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('6v6dbxPlsXs')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/6v6dbxPlsXs/maxresdefault.jpg"
-                          alt="Tesla We Robot Event"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">We Robot Cybercab Unveil</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('M2snk_hwLq8')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/M2snk_hwLq8/maxresdefault.jpg"
-                          alt="Tesla Optimus 2025 Update"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">2025 Optimus Update</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="XiQkeWOFwmk" title="Tesla Optimus Gen 2" />
+                      <VideoCard videoId="cpraXaw7dyc" title="Optimus AI Day Demo" />
+                      <VideoCard videoId="6v6dbxPlsXs" title="We Robot Cybercab Unveil" />
+                      <VideoCard videoId="M2snk_hwLq8" title="2025 Optimus Update" />
                     </div>
 
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('DrNcXgoFv20')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/DrNcXgoFv20/maxresdefault.jpg"
-                          alt="Optimus Navigating"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Optimus Navigating Around</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('Nt1XmiDwxhY')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/Nt1XmiDwxhY/maxresdefault.jpg"
-                          alt="Tesla Robotaxi Event"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Robotaxi Event Highlights</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('THoGPPOyakU')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/THoGPPOyakU/maxresdefault.jpg"
-                          alt="Optimus Gen 2 Rivals"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Optimus Gen 2 Rivals</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="DrNcXgoFv20" title="Optimus Navigating Around" />
+                      <VideoCard videoId="Nt1XmiDwxhY" title="Robotaxi Event Highlights" />
+                      <VideoCard videoId="THoGPPOyakU" title="Optimus Gen 2 Rivals" />
                     </div>
                   </div>
 
