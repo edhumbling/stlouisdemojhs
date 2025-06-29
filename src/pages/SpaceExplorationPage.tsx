@@ -153,7 +153,7 @@ const SpaceExplorationPage: React.FC = () => {
 
       {/* Back Navigation Bar */}
       <div className="bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
-        <div className="w-full px-3 sm:px-4">
+        <div className="w-full px-2 sm:px-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
               <button
@@ -233,7 +233,7 @@ const SpaceExplorationPage: React.FC = () => {
 
           {/* History of Space Exploration Section */}
           <div id="space-history" className="mb-8">
-            <div className="bg-gradient-to-r from-gray-900/30 to-slate-900/30 p-4 sm:p-6 border-y border-gray-600/40">
+            <div className="bg-gradient-to-r from-gray-900/30 to-slate-900/30 px-3 py-4 sm:px-4 sm:py-6 border-y border-gray-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-300 mb-6 underline decoration-2 underline-offset-4">
                 🌌 History of Space Exploration
               </h3>
@@ -300,7 +300,7 @@ const SpaceExplorationPage: React.FC = () => {
 
           {/* Soviet/Russian Space Program Section */}
           <div id="russian-space" className="mb-8">
-            <div className="bg-gradient-to-r from-red-900/30 to-rose-900/30 p-4 sm:p-6 border-y border-red-600/40">
+            <div className="bg-gradient-to-r from-red-900/30 to-rose-900/30 px-3 py-4 sm:px-4 sm:py-6 border-y border-red-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-red-300 mb-6 underline decoration-2 underline-offset-4">
                 🇷🇺 Soviet Union & Russian Space Program
               </h3>
@@ -348,7 +348,7 @@ const SpaceExplorationPage: React.FC = () => {
 
           {/* Chinese Space Program Section */}
           <div id="chinese-space" className="mb-8">
-            <div className="bg-gradient-to-r from-yellow-900/30 to-amber-900/30 p-4 sm:p-6 border-y border-yellow-600/40">
+            <div className="bg-gradient-to-r from-yellow-900/30 to-amber-900/30 px-3 py-4 sm:px-4 sm:py-6 border-y border-yellow-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6 underline decoration-2 underline-offset-4">
                 🇨🇳 China National Space Administration (CNSA)
               </h3>
@@ -396,7 +396,7 @@ const SpaceExplorationPage: React.FC = () => {
 
           {/* NASA Missions Section */}
           <div id="nasa-missions" className="mb-8">
-            <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 p-4 sm:p-6 border-y border-blue-600/40">
+            <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 px-3 py-4 sm:px-4 sm:py-6 border-y border-blue-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-blue-300 mb-6 underline decoration-2 underline-offset-4">
                 🚀 NASA Missions & Programs
               </h3>
@@ -444,7 +444,7 @@ const SpaceExplorationPage: React.FC = () => {
 
           {/* Private Space Companies Section */}
           <div id="private-space" className="mb-8">
-            <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 p-4 sm:p-6 border-y border-orange-600/40">
+            <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 px-3 py-4 sm:px-4 sm:py-6 border-y border-orange-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-orange-300 mb-6 underline decoration-2 underline-offset-4">
                 🏢 Private Space Companies Revolution
               </h3>
@@ -595,7 +595,7 @@ const SpaceExplorationPage: React.FC = () => {
 
           {/* Mars Exploration Section */}
           <div id="mars-exploration" className="mb-8">
-            <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 p-4 sm:p-6 border-y border-red-600/40">
+            <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 px-3 py-4 sm:px-4 sm:py-6 border-y border-red-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-red-300 mb-6 underline decoration-2 underline-offset-4">
                 🔴 Mars Exploration & Red Planet Missions
               </h3>
@@ -654,7 +654,7 @@ const SpaceExplorationPage: React.FC = () => {
 
           {/* Space Telescopes Section */}
           <div id="space-telescopes" className="mb-8">
-            <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 p-4 sm:p-6 border-y border-purple-600/40">
+            <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 px-3 py-4 sm:px-4 sm:py-6 border-y border-purple-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-purple-300 mb-6 underline decoration-2 underline-offset-4">
                 🔭 Space Telescopes & Cosmic Discovery
               </h3>
@@ -697,7 +697,7 @@ const SpaceExplorationPage: React.FC = () => {
 
           {/* International Space Agencies Section */}
           <div id="international-agencies" className="mb-8">
-            <div className="bg-gradient-to-r from-indigo-900/30 to-violet-900/30 p-4 sm:p-6 border-y border-indigo-600/40">
+            <div className="bg-gradient-to-r from-indigo-900/30 to-violet-900/30 px-3 py-4 sm:px-4 sm:py-6 border-y border-indigo-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-indigo-300 mb-6 underline decoration-2 underline-offset-4">
                 🌍 International Space Agencies & Global Cooperation
               </h3>
@@ -773,7 +773,7 @@ const SpaceExplorationPage: React.FC = () => {
 
           {/* Space Careers Section */}
           <div id="careers" className="mb-8">
-            <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 p-4 sm:p-6 border-y border-green-600/40">
+            <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 px-3 py-4 sm:px-4 sm:py-6 border-y border-green-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-green-300 mb-6 underline decoration-2 underline-offset-4">
                 👨‍🚀 Space Careers & Astronaut Training
               </h3>
@@ -815,73 +815,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </div>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('doN4t5NKW-k', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/doN4t5NKW-k/maxresdefault.jpg"
-                        alt="Astronaut Training"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Astronaut Training</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('Kz1hLVKVz8E', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/Kz1hLVKVz8E/maxresdefault.jpg"
-                        alt="Space Careers Guide"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Space Careers Guide</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('W_E_RoWEP7M', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/W_E_RoWEP7M/maxresdefault.jpg"
-                        alt="NASA Johnson Space Center"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">NASA Johnson Center</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('2Aq_LqkKsWQ', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/2Aq_LqkKsWQ/maxresdefault.jpg"
-                        alt="SpaceX Careers"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">SpaceX Careers</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="doN4t5NKW-k" title="Astronaut Training" />
+                    <VideoCard videoId="Kz1hLVKVz8E" title="Space Careers Guide" />
+                    <VideoCard videoId="W_E_RoWEP7M" title="NASA Johnson Center" />
+                    <VideoCard videoId="2Aq_LqkKsWQ" title="SpaceX Careers" />
                   </div>
 
                   <div className="mb-8">
