@@ -121,33 +121,33 @@ const RoboticsPage: React.FC = () => {
 
       <Header />
 
-      {/* Back Navigation Bar - Compact */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-2 sticky top-16 z-40">
-        <div className="w-full px-3 sm:px-4">
+      {/* Back Navigation Bar - Mobile Compact, Desktop Normal */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
+        <div className="w-full px-3 sm:px-4 md:px-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-purple-700/50 hover:bg-purple-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-purple-500/30 flex-shrink-0"
               >
-                <ArrowLeft size={14} />
+                <ArrowLeft size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
                 <span>Back to STEM</span>
               </button>
 
-              <h1 className="text-sm sm:text-base md:text-lg font-bold text-white">
+              <h1 className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
                 🤖 Robotics & Automation
               </h1>
             </div>
 
-            {/* Navigation Menu - Compact */}
+            {/* Navigation Menu - Mobile Compact, Desktop Normal */}
             <div className="relative" ref={navMenuRef}>
               <button
                 onClick={() => setShowNavMenu(!showNavMenu)}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-cyan-700/50 hover:bg-cyan-600/70 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-cyan-500/30"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-cyan-700/50 hover:bg-cyan-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-cyan-500/30"
               >
-                <Menu size={14} />
+                <Menu size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
                 <span className="hidden sm:inline">Navigate</span>
-                <ChevronDown size={12} className={`transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
+                <ChevronDown size={12} className={`sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Dropdown Menu */}
