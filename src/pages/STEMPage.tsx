@@ -68,6 +68,48 @@ const STEMPage: React.FC = () => {
   // STEM Resources organized like Students Hub
   const stemCategories = [
     {
+      id: 11,
+      title: "Robotics & Automation",
+      description: "Robotics competitions, companies & innovation",
+      icon: <Bot className="w-5 h-5" />,
+      color: "#FF6B35",
+      isSpecial: true,
+      route: "/robotics",
+      resources: [
+        { name: "FIRST Robotics Competition", url: "https://www.firstinspires.org/robotics/frc" },
+        { name: "VEX Robotics Competition", url: "https://www.vexrobotics.com/competition" },
+        { name: "Boston Dynamics", url: "https://www.bostondynamics.com/" },
+        { name: "Tesla Optimus Robot", url: "https://www.tesla.com/optimus" },
+        { name: "IEEE Robotics", url: "https://www.ieee-ras.org/" },
+        { name: "RoboCup International", url: "https://www.robocup.org/" },
+        { name: "DARPA Robotics Challenge", url: "https://www.darpa.mil/program/darpa-robotics-challenge" },
+        { name: "NASA Robotics", url: "https://www.nasa.gov/robotics/" },
+        { name: "MIT Robotics", url: "https://www.csail.mit.edu/research/robotics" },
+        { name: "Carnegie Mellon Robotics", url: "https://www.ri.cmu.edu/" }
+      ]
+    },
+    {
+      id: 12,
+      title: "Space Exploration",
+      description: "Space missions, astronomy & cosmic discovery",
+      icon: <Rocket className="w-5 h-5" />,
+      color: "#8B5CF6",
+      isSpecial: true,
+      route: "/space-exploration",
+      resources: [
+        { name: "NASA Space Exploration", url: "https://www.nasa.gov/exploration/" },
+        { name: "SpaceX Missions", url: "https://www.spacex.com/missions/" },
+        { name: "ESA Space Exploration", url: "https://www.esa.int/Science_Exploration" },
+        { name: "Blue Origin", url: "https://www.blueorigin.com/" },
+        { name: "Mars Exploration Program", url: "https://mars.nasa.gov/" },
+        { name: "Hubble Space Telescope", url: "https://hubblesite.org/" },
+        { name: "James Webb Space Telescope", url: "https://www.jwst.nasa.gov/" },
+        { name: "International Space Station", url: "https://www.nasa.gov/mission_pages/station/" },
+        { name: "Artemis Moon Program", url: "https://www.nasa.gov/artemis/" },
+        { name: "Planetary Society", url: "https://www.planetary.org/" }
+      ]
+    },
+    {
       id: 1,
       title: "Science Websites",
       description: "Interactive science learning platforms",
@@ -908,48 +950,6 @@ const STEMPage: React.FC = () => {
         { name: "NASA Internship Programs 2025", url: "https://www.nasa.gov/learning-resources/internship-programs/" },
         { name: "NSF Artificial Intelligence Focus", url: "https://www.nsf.gov/focus-areas/artificial-intelligence" }
       ]
-    },
-    {
-      id: 11,
-      title: "Robotics & Automation",
-      description: "Robotics competitions, companies & innovation",
-      icon: <Bot className="w-5 h-5" />,
-      color: "#FF6B35",
-      isSpecial: true,
-      route: "/robotics",
-      resources: [
-        { name: "FIRST Robotics Competition", url: "https://www.firstinspires.org/robotics/frc" },
-        { name: "VEX Robotics Competition", url: "https://www.vexrobotics.com/competition" },
-        { name: "Boston Dynamics", url: "https://www.bostondynamics.com/" },
-        { name: "Tesla Optimus Robot", url: "https://www.tesla.com/optimus" },
-        { name: "IEEE Robotics", url: "https://www.ieee-ras.org/" },
-        { name: "RoboCup International", url: "https://www.robocup.org/" },
-        { name: "DARPA Robotics Challenge", url: "https://www.darpa.mil/program/darpa-robotics-challenge" },
-        { name: "NASA Robotics", url: "https://www.nasa.gov/robotics/" },
-        { name: "MIT Robotics", url: "https://www.csail.mit.edu/research/robotics" },
-        { name: "Carnegie Mellon Robotics", url: "https://www.ri.cmu.edu/" }
-      ]
-    },
-    {
-      id: 12,
-      title: "Space Exploration",
-      description: "Space missions, astronomy & cosmic discovery",
-      icon: <Rocket className="w-5 h-5" />,
-      color: "#8B5CF6",
-      isSpecial: true,
-      route: "/space-exploration",
-      resources: [
-        { name: "NASA Space Exploration", url: "https://www.nasa.gov/exploration/" },
-        { name: "SpaceX Missions", url: "https://www.spacex.com/missions/" },
-        { name: "ESA Space Exploration", url: "https://www.esa.int/Science_Exploration" },
-        { name: "Blue Origin", url: "https://www.blueorigin.com/" },
-        { name: "Mars Exploration Program", url: "https://mars.nasa.gov/" },
-        { name: "Hubble Space Telescope", url: "https://hubblesite.org/" },
-        { name: "James Webb Space Telescope", url: "https://www.jwst.nasa.gov/" },
-        { name: "International Space Station", url: "https://www.nasa.gov/mission_pages/station/" },
-        { name: "Artemis Moon Program", url: "https://www.nasa.gov/artemis/" },
-        { name: "Planetary Society", url: "https://www.planetary.org/" }
-      ]
     }
   ];
 
@@ -1276,7 +1276,15 @@ const STEMPage: React.FC = () => {
                 className="group"
               >
                 <div
-                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 cursor-pointer"
+                  className={`w-full backdrop-blur-sm rounded-2xl p-3 sm:p-4 transition-all duration-200 cursor-pointer ${
+                    category.isSpecial
+                      ? 'bg-gray-800/70 border-2 border-red-500/60 hover:border-red-400/80 hover:bg-gray-700/80 shadow-lg hover:shadow-red-500/25'
+                      : 'bg-gray-800/50 border border-gray-600/30 hover:border-gray-500/50 hover:shadow-lg hover:bg-gray-700/60'
+                  }`}
+                  style={category.isSpecial ? {
+                    boxShadow: '0 0 20px rgba(239, 68, 68, 0.3), 0 0 40px rgba(239, 68, 68, 0.2), inset 0 0 20px rgba(239, 68, 68, 0.1)',
+                    animation: 'redNeonPulse 2s ease-in-out infinite alternate'
+                  } : {}}
                   onClick={() => handleCategoryClick(category)}
                   data-category-title={category.title}
                 >
@@ -1289,7 +1297,14 @@ const STEMPage: React.FC = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-white mb-1 leading-tight group-hover:text-blue-400 transition-colors">
+                  <h3 className={`text-sm sm:text-base font-semibold mb-1 leading-tight transition-colors ${
+                    category.isSpecial
+                      ? 'text-red-300 group-hover:text-red-200 font-bold'
+                      : 'text-white group-hover:text-blue-400'
+                  }`}
+                  style={category.isSpecial ? {
+                    textShadow: '0 0 10px rgba(239, 68, 68, 0.6), 0 0 20px rgba(239, 68, 68, 0.4)'
+                  } : {}}>
                     {category.title}
                   </h3>
 
@@ -1345,6 +1360,18 @@ const STEMPage: React.FC = () => {
         </div>
       </main>
     </div>
+
+    {/* CSS for red neon pulse animation */}
+    <style>{`
+      @keyframes redNeonPulse {
+        0% {
+          box-shadow: 0 0 20px rgba(239, 68, 68, 0.3), 0 0 40px rgba(239, 68, 68, 0.2), inset 0 0 20px rgba(239, 68, 68, 0.1) !important;
+        }
+        100% {
+          box-shadow: 0 0 30px rgba(239, 68, 68, 0.5), 0 0 60px rgba(239, 68, 68, 0.3), inset 0 0 30px rgba(239, 68, 68, 0.15) !important;
+        }
+      }
+    `}</style>
     </>
   );
 };
