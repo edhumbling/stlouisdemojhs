@@ -986,39 +986,9 @@ const RoboticsPage: React.FC = () => {
                     <p className="text-base leading-relaxed mb-3">
                       <strong className="text-orange-300">Honda</strong> pioneered humanoid robotics with <strong className="text-blue-300">ASIMO</strong>, the world's most advanced humanoid robot for over two decades. While ASIMO development has concluded, Honda continues robotics research focusing on practical applications including <strong className="text-green-300">mobility assistance robots</strong>, <strong className="text-purple-300">disaster response systems</strong>, and <strong className="text-yellow-300">avatar robots</strong> for remote presence. Honda's robotics division now emphasizes real-world utility over demonstration, developing robots for elderly care and rehabilitation.
                     </p>
-                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('QdQL11uWWcI')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/QdQL11uWWcI/maxresdefault.jpg"
-                          alt="Honda ASIMO"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">ASIMO Advanced Capabilities</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('ASoCJTYgYB0')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/ASoCJTYgYB0/maxresdefault.jpg"
-                          alt="Honda Avatar Robot"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Honda Avatar Robot System</p>
-                        </div>
-                      </div>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <VideoCard videoId="QdQL11uWWcI" title="ASIMO Advanced Capabilities" />
+                      <VideoCard videoId="ASoCJTYgYB0" title="Honda Avatar Robot System" />
                     </div>
                   </div>
 
@@ -1030,70 +1000,10 @@ const RoboticsPage: React.FC = () => {
                       <a href="https://www.unitree.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:text-indigo-200 underline font-bold">Unitree Robotics</a> has revolutionized affordable quadruped robots with their <strong className="text-green-300">Go series</strong> and advanced <strong className="text-blue-300">B2 models</strong>. Starting at under $3,000, Unitree robots offer Boston Dynamics-level capabilities at consumer prices. Their robots feature advanced AI navigation, 4D LiDAR, and can perform complex maneuvers including backflips, dancing, and autonomous navigation. Unitree has democratized robotic dogs for research, security, and entertainment applications worldwide.
                     </p>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('X2UxtKLZnNo')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/X2UxtKLZnNo/maxresdefault.jpg"
-                          alt="Unitree B2 Robot"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Unitree B2 Capabilities</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('yYUuWWnfRsk')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/yYUuWWnfRsk/maxresdefault.jpg"
-                          alt="Unitree Go2 Robot"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Unitree Go2 Advanced Features</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('47QJhWyHMHM')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/47QJhWyHMHM/maxresdefault.jpg"
-                          alt="Unitree Go1 Backflip"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Go1 Backflip Demo</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('2jvLPxY6JWw')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/2jvLPxY6JWw/maxresdefault.jpg"
-                          alt="Unitree A1 Robot Dog"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">A1 Robot Dog Demo</p>
-                        </div>
-                      </div>
+                      <VideoCard videoId="X2UxtKLZnNo" title="Unitree B2 Capabilities" />
+                      <VideoCard videoId="yYUuWWnfRsk" title="Unitree Go2 Advanced Features" />
+                      <VideoCard videoId="47QJhWyHMHM" title="Go1 Backflip Demo" />
+                      <VideoCard videoId="2jvLPxY6JWw" title="A1 Robot Dog Demo" />
                     </div>
                   </div>
 
@@ -1250,39 +1160,9 @@ const RoboticsPage: React.FC = () => {
                       The <strong className="text-blue-300">automotive industry</strong> remains the largest adopter of industrial robots, accounting for 30% of global installations. Companies like <strong className="text-green-300">Tesla</strong>, <strong className="text-purple-300">BMW</strong>, and <strong className="text-orange-300">Toyota</strong> have revolutionized production lines with fully automated assembly systems capable of producing vehicles with minimal human intervention.
                     </p>
 
-                    <div className="grid sm:grid-cols-2 gap-3 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('39cJQqSVU4I')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/39cJQqSVU4I/maxresdefault.jpg"
-                          alt="Tesla Factory Robots"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Tesla Giga Texas Factory Tour</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('qhIBxieLJFE')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/qhIBxieLJFE/maxresdefault.jpg"
-                          alt="BMW Factory Robots"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">BMW Smart Factory</p>
-                        </div>
-                      </div>
+                    <div className="grid grid-cols-2 gap-3 mb-4">
+                      <VideoCard videoId="39cJQqSVU4I" title="Tesla Giga Texas Factory Tour" />
+                      <VideoCard videoId="qhIBxieLJFE" title="BMW Smart Factory" />
                     </div>
                   </div>
 
@@ -1294,39 +1174,9 @@ const RoboticsPage: React.FC = () => {
                       <strong className="text-green-300">Electronics manufacturing</strong> requires extreme precision and speed, making it ideal for robotic automation. Companies like <strong className="text-blue-300">Foxconn</strong> (Apple's manufacturer) and <strong className="text-purple-300">Samsung</strong> employ millions of robots for smartphone and computer assembly, achieving tolerances measured in micrometers.
                     </p>
 
-                    <div className="grid sm:grid-cols-2 gap-3 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('Q8u90WLLbBs')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/Q8u90WLLbBs/maxresdefault.jpg"
-                          alt="Electronics Manufacturing"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Electronics Assembly Robots</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('DKe8ZKmMoQQ')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/DKe8ZKmMoQQ/maxresdefault.jpg"
-                          alt="Precision Manufacturing"
-                          className="w-full h-24 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={24} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-1 left-1 right-1">
-                          <p className="text-xs font-semibold text-white">Precision Robot Assembly</p>
-                        </div>
-                      </div>
+                    <div className="grid grid-cols-2 gap-3 mb-4">
+                      <VideoCard videoId="Q8u90WLLbBs" title="Electronics Assembly Robots" />
+                      <VideoCard videoId="DKe8ZKmMoQQ" title="Precision Robot Assembly" />
                     </div>
                   </div>
                 </div>
@@ -1377,21 +1227,8 @@ const RoboticsPage: React.FC = () => {
                     </div>
                   </div>
 
-                  <div
-                    className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 mt-4"
-                    onClick={() => openVideoModal('iom_KcNiQQI')}
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/iom_KcNiQQI/maxresdefault.jpg"
-                      alt="Collaborative Robots"
-                      className="w-full h-40 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                      <Play size={40} className="text-white" />
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <p className="text-lg font-semibold text-white">Collaborative Robots Working with Humans</p>
-                    </div>
+                  <div className="mt-4">
+                    <VideoCard videoId="iom_KcNiQQI" title="Collaborative Robots Working with Humans" />
                   </div>
                 </div>
               </div>
@@ -1628,39 +1465,9 @@ const RoboticsPage: React.FC = () => {
                       <strong className="text-blue-300">Da Vinci Surgical Systems</strong> by Intuitive Surgical have revolutionized minimally invasive surgery. With over 7,000 systems worldwide, these robots enable surgeons to perform complex procedures through tiny incisions with enhanced precision, 3D visualization, and tremor elimination. The system has been used in over 10 million procedures across urology, gynecology, cardiothoracic, and general surgery.
                     </p>
 
-                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('QYRdaWK7wgY')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/QYRdaWK7wgY/maxresdefault.jpg"
-                          alt="Da Vinci Surgical Robot"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Da Vinci Surgery Demo</p>
-                        </div>
-                      </div>
-                      <div
-                        className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                        onClick={() => openVideoModal('0XdC1HUp-rU')}
-                      >
-                        <img
-                          src="https://img.youtube.com/vi/0XdC1HUp-rU/maxresdefault.jpg"
-                          alt="Medical Robotics Future"
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                          <Play size={32} className="text-white" />
-                        </div>
-                        <div className="absolute bottom-2 left-2 right-2">
-                          <p className="text-sm font-semibold text-white">Future of Medical Robots</p>
-                        </div>
-                      </div>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <VideoCard videoId="QYRdaWK7wgY" title="Da Vinci Surgery Demo" />
+                      <VideoCard videoId="0XdC1HUp-rU" title="Future of Medical Robots" />
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-4">
