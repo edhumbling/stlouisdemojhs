@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Send, MessageCircle, Star, ThumbsUp, ThumbsDown, Lightbulb, X, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Send, MessageCircle, Star, Lightbulb, X, AlertCircle, ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
 
 interface FeedbackItem {
   category: string;
-  satisfaction: 'satisfied' | 'dissatisfied';
+  emoji: string;
+  emojiLabel: string;
   icon: string;
 }
 
@@ -36,25 +37,26 @@ const GiveFeedbackPage: React.FC = () => {
     { name: 'Overall Experience', icon: '⭐' }
   ];
 
-  const toggleCategory = (categoryName: string, satisfaction: 'satisfied' | 'dissatisfied', icon: string) => {
+  const emojiOptions = [
+    { emoji: '😍', label: 'Love it' },
+    { emoji: '😊', label: 'Satisfied' },
+    { emoji: '😐', label: 'Neutral' },
+    { emoji: '😞', label: 'Dissatisfied' },
+    { emoji: '😡', label: 'Hate it' }
+  ];
+
+  const selectEmoji = (categoryName: string, emoji: string, emojiLabel: string, icon: string) => {
     setSelectedCategories(prev => {
       const existingIndex = prev.findIndex(item => item.category === categoryName);
-      
+
       if (existingIndex >= 0) {
-        // If category exists, update satisfaction or remove if same
-        const existing = prev[existingIndex];
-        if (existing.satisfaction === satisfaction) {
-          // Remove if clicking same satisfaction level
-          return prev.filter((_, index) => index !== existingIndex);
-        } else {
-          // Update satisfaction level
-          const updated = [...prev];
-          updated[existingIndex] = { category: categoryName, satisfaction, icon };
-          return updated;
-        }
+        // Update existing category
+        const updated = [...prev];
+        updated[existingIndex] = { category: categoryName, emoji, emojiLabel, icon };
+        return updated;
       } else {
         // Add new category
-        return [...prev, { category: categoryName, satisfaction, icon }];
+        return [...prev, { category: categoryName, emoji, emojiLabel, icon }];
       }
     });
   };
@@ -73,12 +75,11 @@ const GiveFeedbackPage: React.FC = () => {
 
     // Prepare feedback message
     let message = "Hey Emmanuel, I have feedback from St. Louis Demo JHS website:\n\n";
-    
+
     if (selectedCategories.length > 0) {
       message += "📊 CATEGORY FEEDBACK:\n";
       selectedCategories.forEach(item => {
-        const emoji = item.satisfaction === 'satisfied' ? '😊' : '😞';
-        message += `${item.icon} ${item.category}: ${emoji} ${item.satisfaction.toUpperCase()}\n`;
+        message += `${item.icon} ${item.category}: ${item.emoji} ${item.emojiLabel.toUpperCase()}\n`;
       });
       message += "\n";
     }
@@ -99,7 +100,7 @@ const GiveFeedbackPage: React.FC = () => {
 
     // Show success message
     setShowSuccess(true);
-    
+
     // Reset form after delay
     setTimeout(() => {
       setSelectedCategories([]);
@@ -116,45 +117,63 @@ const GiveFeedbackPage: React.FC = () => {
         description="Share your feedback, ideas, and suggestions to help us improve the St. Louis Demo JHS website. Your input matters and helps us create a better learning experience."
         keywords="feedback, suggestions, ideas, student feedback, website improvement, user experience, St. Louis Demo JHS"
         canonical="https://stlouisdemojhs.com/givefeedback"
-        ogImage="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+        image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
       />
-      
+
       <div className="min-h-screen bg-black text-white">
         <Header />
 
         {/* Back Navigation Bar */}
         <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
-          <div className="w-full px-3 sm:px-4 md:px-6">
-            <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-              <button
-                onClick={handleBack}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
-              >
-                <ArrowLeft size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                <span>Back</span>
-              </button>
+          <div className="w-full px-2 sm:px-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
+                <button
+                  onClick={handleBack}
+                  className="inline-flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-green-500/30 flex-shrink-0"
+                >
+                  <ArrowLeft size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                  <span className="hidden xs:inline sm:hidden md:inline">Back</span>
+                  <span className="hidden sm:inline md:hidden">Home</span>
+                  <span className="hidden md:inline">Back to Home</span>
+                </button>
 
-              <h1 className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                💬 Give Feedback
-              </h1>
+                <h1 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-bold text-white truncate">
+                  <span className="hidden sm:inline">💬 Give Feedback</span>
+                  <span className="sm:hidden">💬 Feedback</span>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Header Section with Background Image */}
+        <div
+          className="relative h-64 sm:h-80 mb-8 overflow-hidden"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="relative h-full flex items-center justify-center px-3 sm:px-4">
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mb-4">
+                <MessageCircle size={32} className="sm:w-10 sm:h-10 text-white" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
+                Your Voice Matters! 🎯
+              </h2>
+              <p className="text-sm sm:text-base text-gray-200 max-w-2xl mx-auto leading-relaxed">
+                Help us improve your learning experience by sharing what you love, what needs improvement, or new ideas you'd like to see implemented.
+              </p>
             </div>
           </div>
         </div>
 
         {/* Main Content */}
         <div className="w-full px-3 sm:px-4 py-6 sm:py-8">
-          {/* Header Section */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mb-4">
-              <MessageCircle size={32} className="sm:w-10 sm:h-10 text-white" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
-              Your Voice Matters! 🎯
-            </h2>
-            <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Help us improve your learning experience by sharing what you love, what needs improvement, or new ideas you'd like to see implemented.
-            </p>
-          </div>
 
           {/* Feedback Form */}
           <div className="max-w-4xl mx-auto">
@@ -165,47 +184,42 @@ const GiveFeedbackPage: React.FC = () => {
                 Rate Your Experience
               </h3>
               <p className="text-sm text-gray-400 mb-6">
-                Click 😊 if you're satisfied or 😞 if you're dissatisfied with each category:
+                Select an emoji to rate each category from 😍 (love it) to 😡 (hate it):
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {categories.map((category) => {
                   const selected = selectedCategories.find(item => item.category === category.name);
-                  
+
                   return (
                     <div key={category.name} className="bg-gray-900/50 rounded-lg p-4 border border-gray-700/50">
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center gap-2">
-                          <span className="text-lg">{category.icon}</span>
-                          <span className="text-sm sm:text-base font-medium text-white">{category.name}</span>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-lg">{category.icon}</span>
+                        <span className="text-sm sm:text-base font-medium text-white">{category.name}</span>
+                      </div>
+
+                      <div className="flex gap-1 flex-wrap">
+                        {emojiOptions.map((option) => (
+                          <button
+                            key={option.emoji}
+                            onClick={() => selectEmoji(category.name, option.emoji, option.label, category.icon)}
+                            className={`flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 text-lg ${
+                              selected?.emoji === option.emoji
+                                ? 'bg-blue-600 text-white shadow-lg scale-110'
+                                : 'bg-gray-800 hover:bg-gray-700 hover:scale-105'
+                            }`}
+                            title={option.label}
+                          >
+                            {option.emoji}
+                          </button>
+                        ))}
+                      </div>
+
+                      {selected && (
+                        <div className="mt-2 text-xs text-gray-400 text-center">
+                          {selected.emojiLabel}
                         </div>
-                      </div>
-                      
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => toggleCategory(category.name, 'satisfied', category.icon)}
-                          className={`flex-1 flex items-center justify-center gap-1 py-2 px-3 rounded-md transition-all duration-200 text-sm ${
-                            selected?.satisfaction === 'satisfied'
-                              ? 'bg-green-600 text-white shadow-lg'
-                              : 'bg-gray-800 hover:bg-gray-700 text-gray-300'
-                          }`}
-                        >
-                          <ThumbsUp size={16} />
-                          <span>😊</span>
-                        </button>
-                        
-                        <button
-                          onClick={() => toggleCategory(category.name, 'dissatisfied', category.icon)}
-                          className={`flex-1 flex items-center justify-center gap-1 py-2 px-3 rounded-md transition-all duration-200 text-sm ${
-                            selected?.satisfaction === 'dissatisfied'
-                              ? 'bg-red-600 text-white shadow-lg'
-                              : 'bg-gray-800 hover:bg-gray-700 text-gray-300'
-                          }`}
-                        >
-                          <ThumbsDown size={16} />
-                          <span>😞</span>
-                        </button>
-                      </div>
+                      )}
                     </div>
                   );
                 })}
@@ -223,15 +237,12 @@ const GiveFeedbackPage: React.FC = () => {
                   {selectedCategories.map((item) => (
                     <div
                       key={item.category}
-                      className={`inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium ${
-                        item.satisfaction === 'satisfied'
-                          ? 'bg-green-600/20 text-green-300 border border-green-500/30'
-                          : 'bg-red-600/20 text-red-300 border border-red-500/30'
-                      }`}
+                      className="inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium bg-blue-600/20 text-blue-300 border border-blue-500/30"
                     >
                       <span>{item.icon}</span>
                       <span>{item.category}</span>
-                      <span>{item.satisfaction === 'satisfied' ? '😊' : '😞'}</span>
+                      <span>{item.emoji}</span>
+                      <span className="text-xs text-gray-400">({item.emojiLabel})</span>
                       <button
                         onClick={() => removeCategory(item.category)}
                         className="ml-1 hover:bg-white/10 rounded-full p-0.5 transition-colors"
