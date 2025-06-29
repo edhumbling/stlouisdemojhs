@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, Rocket, Play, X as CloseIcon, Menu, ChevronDown } from 'lucide-react';
+import { ArrowLeft, Play, X as CloseIcon, Menu, ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
@@ -96,20 +96,23 @@ const SpaceExplorationPage: React.FC = () => {
       <Header />
 
       {/* Back Navigation Bar */}
-      <div className="bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-900 py-3 sm:py-4 sticky top-16 z-40">
-        <div className="w-full px-4 sm:px-6">
+      <div className="bg-gradient-to-r from-blue-900 via-indigo-800 to-purple-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
+        <div className="w-full px-3 sm:px-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
+                className="inline-flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-blue-700/50 hover:bg-blue-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-blue-500/30 flex-shrink-0"
               >
-                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-                <span>Back to STEM</span>
+                <ArrowLeft size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                <span className="hidden xs:inline sm:hidden md:inline">Back</span>
+                <span className="hidden sm:inline md:hidden">STEM</span>
+                <span className="hidden md:inline">Back to STEM</span>
               </button>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                Space Exploration
+              <h1 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-bold text-white truncate">
+                <span className="hidden sm:inline">🚀 Space Exploration</span>
+                <span className="sm:hidden">🚀 Space</span>
               </h1>
             </div>
 
@@ -117,11 +120,12 @@ const SpaceExplorationPage: React.FC = () => {
             <div className="relative" ref={navMenuRef}>
               <button
                 onClick={() => setShowNavMenu(!showNavMenu)}
-                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-cyan-700/50 hover:bg-cyan-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-cyan-500/30"
+                className="inline-flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-cyan-700/50 hover:bg-cyan-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-cyan-500/30"
               >
-                <Menu size={16} className="sm:w-5 sm:h-5" />
-                <span className="hidden sm:inline">Navigate</span>
-                <ChevronDown size={14} className={`transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
+                <Menu size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                <span className="hidden sm:inline md:hidden">Nav</span>
+                <span className="hidden md:inline">Navigate</span>
+                <ChevronDown size={12} className={`sm:w-3 sm:h-3 md:w-4 md:h-4 transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Dropdown Menu */}
@@ -148,23 +152,23 @@ const SpaceExplorationPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 w-full pt-6">
-        <div className="w-full px-4 sm:px-6">
+      <main className="flex-1 w-full">
+        <div className="w-full">
 
           {/* Hero Section */}
-          <div className="mb-12">
-            <div className="relative mb-8">
+          <div className="mb-8">
+            <div className="relative mb-6">
               <img
                 src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                 alt="Space Exploration"
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-2xl"
+                className="w-full h-64 sm:h-80 lg:h-96 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-2xl"></div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-4">
                   🚀 Explore the Universe
                 </h2>
-                <p className="text-lg sm:text-xl text-gray-200">
+                <p className="text-sm sm:text-lg md:text-xl text-gray-200">
                   Journey through space exploration from NASA missions to private space companies, Mars rovers to space telescopes, and discover your path to the stars.
                 </p>
               </div>
@@ -172,8 +176,8 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
           {/* History of Space Exploration Section */}
-          <div id="space-history" className="mb-12">
-            <div className="bg-gradient-to-r from-gray-900/30 to-slate-900/30 rounded-2xl p-6 sm:p-8 border border-gray-600/40">
+          <div id="space-history" className="mb-8">
+            <div className="bg-gradient-to-r from-gray-900/30 to-slate-900/30 p-4 sm:p-6 border-y border-gray-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-300 mb-6 underline decoration-2 underline-offset-4">
                 🌌 History of Space Exploration
               </h3>
@@ -365,8 +369,8 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
           {/* Soviet/Russian Space Program Section */}
-          <div id="russian-space" className="mb-12">
-            <div className="bg-gradient-to-r from-red-900/30 to-rose-900/30 rounded-2xl p-6 sm:p-8 border border-red-600/40">
+          <div id="russian-space" className="mb-8">
+            <div className="bg-gradient-to-r from-red-900/30 to-rose-900/30 p-4 sm:p-6 border-y border-red-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-red-300 mb-6 underline decoration-2 underline-offset-4">
                 🇷🇺 Soviet Union & Russian Space Program
               </h3>
@@ -476,8 +480,8 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
           {/* Chinese Space Program Section */}
-          <div id="chinese-space" className="mb-12">
-            <div className="bg-gradient-to-r from-yellow-900/30 to-amber-900/30 rounded-2xl p-6 sm:p-8 border border-yellow-600/40">
+          <div id="chinese-space" className="mb-8">
+            <div className="bg-gradient-to-r from-yellow-900/30 to-amber-900/30 p-4 sm:p-6 border-y border-yellow-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-yellow-300 mb-6 underline decoration-2 underline-offset-4">
                 🇨🇳 China National Space Administration (CNSA)
               </h3>
@@ -587,8 +591,8 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
           {/* NASA Missions Section */}
-          <div id="nasa-missions" className="mb-12">
-            <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-2xl p-6 sm:p-8 border border-blue-600/40">
+          <div id="nasa-missions" className="mb-8">
+            <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 p-4 sm:p-6 border-y border-blue-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-blue-300 mb-6 underline decoration-2 underline-offset-4">
                 🚀 NASA Missions & Programs
               </h3>
@@ -698,8 +702,8 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
           {/* Private Space Companies Section */}
-          <div id="private-space" className="mb-12">
-            <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 rounded-2xl p-6 sm:p-8 border border-orange-600/40">
+          <div id="private-space" className="mb-8">
+            <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 p-4 sm:p-6 border-y border-orange-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-orange-300 mb-6 underline decoration-2 underline-offset-4">
                 🏢 Private Space Companies Revolution
               </h3>
@@ -1039,8 +1043,8 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
           {/* Mars Exploration Section */}
-          <div id="mars-exploration" className="mb-12">
-            <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-2xl p-6 sm:p-8 border border-red-600/40">
+          <div id="mars-exploration" className="mb-8">
+            <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 p-4 sm:p-6 border-y border-red-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-red-300 mb-6 underline decoration-2 underline-offset-4">
                 🔴 Mars Exploration & Red Planet Missions
               </h3>
@@ -1161,8 +1165,8 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
           {/* Space Telescopes Section */}
-          <div id="space-telescopes" className="mb-12">
-            <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 rounded-2xl p-6 sm:p-8 border border-purple-600/40">
+          <div id="space-telescopes" className="mb-8">
+            <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 p-4 sm:p-6 border-y border-purple-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-purple-300 mb-6 underline decoration-2 underline-offset-4">
                 🔭 Space Telescopes & Cosmic Discovery
               </h3>
@@ -1267,8 +1271,8 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
           {/* International Space Agencies Section */}
-          <div id="international-agencies" className="mb-12">
-            <div className="bg-gradient-to-r from-indigo-900/30 to-violet-900/30 rounded-2xl p-6 sm:p-8 border border-indigo-600/40">
+          <div id="international-agencies" className="mb-8">
+            <div className="bg-gradient-to-r from-indigo-900/30 to-violet-900/30 p-4 sm:p-6 border-y border-indigo-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-indigo-300 mb-6 underline decoration-2 underline-offset-4">
                 🌍 International Space Agencies & Global Cooperation
               </h3>
@@ -1406,8 +1410,8 @@ const SpaceExplorationPage: React.FC = () => {
           </div>
 
           {/* Space Careers Section */}
-          <div id="careers" className="mb-12">
-            <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-2xl p-6 sm:p-8 border border-green-600/40">
+          <div id="careers" className="mb-8">
+            <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 p-4 sm:p-6 border-y border-green-600/40">
               <h3 className="text-2xl sm:text-3xl font-bold text-green-300 mb-6 underline decoration-2 underline-offset-4">
                 👨‍🚀 Space Careers & Astronaut Training
               </h3>
