@@ -438,6 +438,14 @@ const SpaceExplorationPage: React.FC = () => {
                     <VideoCard videoId="Z4TXCZG_NEY" title="Falcon Heavy Launch" />
                     <VideoCard videoId="xY96v0OIcK4" title="Dragon Crew Mission" />
                     <VideoCard videoId="u0-pfzKbh2k" title="Starlink Satellites" />
+                    <VideoCard videoId="hI9HQfCAw64" title="Starship Flight Test 5" />
+                    <VideoCard videoId="IDYt1l_7UvU" title="Crew-9 Re-Entry" />
+                    <VideoCard videoId="yf8uN4VGCCs" title="Crew-10 Launch" />
+                    <VideoCard videoId="_4TT_1e6rkM" title="Axiom Mission 4" />
+                    <VideoCard videoId="wbSwFU6tY1c" title="Falcon Heavy Europa Clipper" />
+                    <VideoCard videoId="L8u-doZ2n0M" title="Starship IFT-6 Test" />
+                    <VideoCard videoId="921VbEMAwwY" title="Crew Dragon Docking" />
+                    <VideoCard videoId="ANv5UfZsvZQ" title="Starlink Deployment" />
                   </div>
 
                   <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-lg p-4 border border-blue-600/40 mb-6">
