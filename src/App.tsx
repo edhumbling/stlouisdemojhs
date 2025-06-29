@@ -48,6 +48,7 @@ import PayPalDonatePage from './pages/PayPalDonatePage';
 import DonateUSBankPage from './pages/DonateUSBankPage';
 import DonateUKBankPage from './pages/DonateUKBankPage';
 import DonateEuroBankPage from './pages/DonateEuroBankPage';
+import GiveFeedbackPage from './pages/GiveFeedbackPage';
 import SHSDatabasePage from './pages/SHSDatabasePage';
 import SHSPdfViewerPage from './pages/SHSPdfViewerPage';
 import ResultsPlacementPage from './pages/ResultsPlacementPage';
@@ -135,6 +136,7 @@ const App: React.FC = () => {
           <Route path="career-reel-resources" element={<CareerReelResourcesPage />} />
           <Route path="money-smart-links" element={<MoneySmartLinksPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="givefeedback" element={<GiveFeedbackPage />} />
           <Route path="news" element={<NewsPage />} />
 
           <Route path="stem-deep-learning" element={<StemDeepLearningPage />} />
