@@ -897,6 +897,202 @@ const SpaceExplorationPage: React.FC = () => {
                       <p className="text-sm text-gray-400 italic">An astronaut conducting a spacewalk outside the International Space Station, representing the pinnacle of human space exploration careers</p>
                     </div>
                   </div>
+
+                  {/* Space Industry Employers Section */}
+                  <div className="space-y-8">
+                    <div>
+                      <h4 className="text-xl font-bold text-orange-300 mb-4 underline decoration-1 underline-offset-2">
+                        🏢 Major Space Industry Employers
+                      </h4>
+
+                      <p className="text-base leading-relaxed mb-6 text-gray-200">
+                        The space industry offers diverse career opportunities across government agencies, aerospace contractors, commercial space companies, and emerging startups. Here's a comprehensive list of major employers actively hiring for space-related positions.
+                      </p>
+
+                      <div className="space-y-6">
+                        {/* Government Space Agencies */}
+                        <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-lg p-4 border border-blue-600/40">
+                          <h5 className="text-lg font-bold text-blue-300 mb-3">🏛️ Government Space Agencies</h5>
+                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            <div className="space-y-1">
+                              <a href="https://www.nasa.gov/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• NASA (USA)</a>
+                              <a href="https://www.esa.int/About_Us/Careers_at_ESA" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• ESA (Europe)</a>
+                              <a href="https://global.jaxa.jp/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• JAXA (Japan)</a>
+                              <a href="https://www.isro.gov.in/careers.html" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• ISRO (India)</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.asc-csa.gc.ca/eng/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• CSA (Canada)</a>
+                              <a href="http://www.cnsa.gov.cn/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• CNSA (China)</a>
+                              <a href="https://www.roscosmos.ru/" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• Roscosmos (Russia)</a>
+                              <a href="https://cnes.fr/en/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• CNES (France)</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.dlr.de/en/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• DLR (Germany)</a>
+                              <a href="https://www.gov.uk/government/organisations/uk-space-agency" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• UK Space Agency</a>
+                              <a href="https://www.spaceforce.com/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-blue-300 hover:text-blue-200 hover:underline font-medium">• U.S. Space Force</a>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Major Aerospace Contractors */}
+                        <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-4 border border-purple-600/40">
+                          <h5 className="text-lg font-bold text-purple-300 mb-3">🏭 Major Aerospace Contractors</h5>
+                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            <div className="space-y-1">
+                              <a href="https://jobs.boeing.com/" target="_blank" rel="noopener noreferrer" className="block text-sm text-purple-300 hover:text-purple-200 hover:underline font-medium">• Boeing Defense & Space</a>
+                              <a href="https://www.lockheedmartinjobs.com/" target="_blank" rel="noopener noreferrer" className="block text-sm text-purple-300 hover:text-purple-200 hover:underline font-medium">• Lockheed Martin Space</a>
+                              <a href="https://www.northropgrumman.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-purple-300 hover:text-purple-200 hover:underline font-medium">• Northrop Grumman</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://careers.rtx.com/" target="_blank" rel="noopener noreferrer" className="block text-sm text-purple-300 hover:text-purple-200 hover:underline font-medium">• Raytheon Technologies</a>
+                              <a href="https://gdmissionsystems.com/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-purple-300 hover:text-purple-200 hover:underline font-medium">• General Dynamics</a>
+                              <a href="https://www.l3harris.com/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-purple-300 hover:text-purple-200 hover:underline font-medium">• L3Harris Technologies</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.rocket.com/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-purple-300 hover:text-purple-200 hover:underline font-medium">• Aerojet Rocketdyne</a>
+                              <a href="https://www.ulalaunch.com/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-purple-300 hover:text-purple-200 hover:underline font-medium">• United Launch Alliance</a>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Commercial Space Companies */}
+                        <div className="bg-gradient-to-r from-green-900/30 to-teal-900/30 rounded-lg p-4 border border-green-600/40">
+                          <h5 className="text-lg font-bold text-green-300 mb-3">🚀 Commercial Space Companies</h5>
+                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            <div className="space-y-1">
+                              <a href="https://www.spacex.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• SpaceX</a>
+                              <a href="https://www.blueorigin.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Blue Origin</a>
+                              <a href="https://www.virgingalactic.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Virgin Galactic</a>
+                              <a href="https://www.rocketlabusa.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Rocket Lab</a>
+                              <a href="https://www.relativityspace.com/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Relativity Space</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.axiomspace.com/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Axiom Space</a>
+                              <a href="https://sierraspace.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Sierra Space</a>
+                              <a href="https://fireflyspace.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Firefly Aerospace</a>
+                              <a href="https://astra.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Astra Space</a>
+                              <a href="https://momentus.space/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Momentus</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://astroscale.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Astroscale</a>
+                              <a href="https://redwirespace.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Redwire Space</a>
+                              <a href="https://www.capellaspace.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Capella Space</a>
+                              <a href="https://www.intuitivemachines.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Intuitive Machines</a>
+                              <a href="https://www.astrobotic.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-green-300 hover:text-green-200 hover:underline font-medium">• Astrobotic Technology</a>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Satellite & Telecommunications */}
+                        <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-4 border border-yellow-600/40">
+                          <h5 className="text-lg font-bold text-yellow-300 mb-3">📡 Satellite & Telecommunications</h5>
+                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            <div className="space-y-1">
+                              <a href="https://www.planet.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• Planet Labs</a>
+                              <a href="https://www.maxar.com/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• Maxar Technologies</a>
+                              <a href="https://www.intelsat.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• Intelsat</a>
+                              <a href="https://www.ses.com/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• SES</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.eutelsat.com/en/careers.html" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• Eutelsat</a>
+                              <a href="https://careers.viasat.com/" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• Viasat</a>
+                              <a href="https://www.iridium.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• Iridium Communications</a>
+                              <a href="https://oneweb.net/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• OneWeb</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.ball.com/aerospace/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• Ball Aerospace</a>
+                              <a href="https://www.thalesaleniaspace.com/en" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• Thales Alenia Space</a>
+                              <a href="https://www.airbus.com/en/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-yellow-300 hover:text-yellow-200 hover:underline font-medium">• Airbus Defence & Space</a>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Research & Academia */}
+                        <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-4 border border-cyan-600/40">
+                          <h5 className="text-lg font-bold text-cyan-300 mb-3">🔬 Research & Academia</h5>
+                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            <div className="space-y-1">
+                              <a href="https://www.jpl.nasa.gov/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-cyan-300 hover:text-cyan-200 hover:underline font-medium">• JPL (Caltech)</a>
+                              <a href="https://www.ll.mit.edu/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-cyan-300 hover:text-cyan-200 hover:underline font-medium">• MIT Lincoln Laboratory</a>
+                              <a href="https://www.jhuapl.edu/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-cyan-300 hover:text-cyan-200 hover:underline font-medium">• Johns Hopkins APL</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.swri.org/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-cyan-300 hover:text-cyan-200 hover:underline font-medium">• Southwest Research Institute</a>
+                              <a href="https://www.aerospace.org/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-cyan-300 hover:text-cyan-200 hover:underline font-medium">• The Aerospace Corporation</a>
+                              <a href="https://www.mitre.org/careers" target="_blank" rel="noopener noreferrer" className="block text-sm text-cyan-300 hover:text-cyan-200 hover:underline font-medium">• MITRE Corporation</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.spacescience.org/careers.php" target="_blank" rel="noopener noreferrer" className="block text-sm text-cyan-300 hover:text-cyan-200 hover:underline font-medium">• Space Science Institute</a>
+                              <a href="https://careers.cern/" target="_blank" rel="noopener noreferrer" className="block text-sm text-cyan-300 hover:text-cyan-200 hover:underline font-medium">• CERN</a>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Space Technology & Software */}
+                        <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-lg p-4 border border-indigo-600/40">
+                          <h5 className="text-lg font-bold text-indigo-300 mb-3">💻 Space Technology & Software</h5>
+                          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            <div className="space-y-1">
+                              <a href="https://aws.amazon.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-indigo-300 hover:text-indigo-200 hover:underline font-medium">• AWS Aerospace</a>
+                              <a href="https://careers.microsoft.com/" target="_blank" rel="noopener noreferrer" className="block text-sm text-indigo-300 hover:text-indigo-200 hover:underline font-medium">• Microsoft Space</a>
+                              <a href="https://careers.google.com/" target="_blank" rel="noopener noreferrer" className="block text-sm text-indigo-300 hover:text-indigo-200 hover:underline font-medium">• Google Cloud Space</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.palantir.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-indigo-300 hover:text-indigo-200 hover:underline font-medium">• Palantir Technologies</a>
+                              <a href="https://www.ibm.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-indigo-300 hover:text-indigo-200 hover:underline font-medium">• IBM Space & Defense</a>
+                              <a href="https://www.nvidia.com/en-us/about-nvidia/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-indigo-300 hover:text-indigo-200 hover:underline font-medium">• NVIDIA Space</a>
+                            </div>
+                            <div className="space-y-1">
+                              <a href="https://www.honeybeerobotics.com/careers/" target="_blank" rel="noopener noreferrer" className="block text-sm text-indigo-300 hover:text-indigo-200 hover:underline font-medium">• Honeybee Robotics</a>
+                              <a href="https://www.anduril.com/open-roles/" target="_blank" rel="noopener noreferrer" className="block text-sm text-indigo-300 hover:text-indigo-200 hover:underline font-medium">• Anduril Industries</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 p-4 bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-lg border border-gray-600/40">
+                        <h5 className="text-lg font-bold text-white mb-2">💼 Common Space Industry Roles</h5>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+                          <div>
+                            <strong className="text-blue-300">Engineering:</strong>
+                            <ul className="text-gray-300 mt-1 space-y-1">
+                              <li>• Aerospace Engineers</li>
+                              <li>• Systems Engineers</li>
+                              <li>• Software Engineers</li>
+                              <li>• Propulsion Engineers</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <strong className="text-green-300">Operations:</strong>
+                            <ul className="text-gray-300 mt-1 space-y-1">
+                              <li>• Mission Operations</li>
+                              <li>• Flight Controllers</li>
+                              <li>• Launch Operations</li>
+                              <li>• Satellite Operations</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <strong className="text-purple-300">Science:</strong>
+                            <ul className="text-gray-300 mt-1 space-y-1">
+                              <li>• Planetary Scientists</li>
+                              <li>• Astrophysicists</li>
+                              <li>• Materials Scientists</li>
+                              <li>• Data Scientists</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <strong className="text-orange-300">Business:</strong>
+                            <ul className="text-gray-300 mt-1 space-y-1">
+                              <li>• Program Managers</li>
+                              <li>• Business Development</li>
+                              <li>• Sales Engineers</li>
+                              <li>• Financial Analysts</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
