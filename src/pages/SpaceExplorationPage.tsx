@@ -807,28 +807,69 @@ const SpaceExplorationPage: React.FC = () => {
 
                 <div>
                   <h4 className="text-xl font-bold text-green-300 mb-4 underline decoration-1 underline-offset-2">
-                    Blue Origin - Gradual Path to Space
+                    Blue Origin - Pioneering Accessible Space Travel
                   </h4>
 
-                  <p className="text-base leading-relaxed mb-4">
-                    <a href="https://www.blueorigin.com/" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline font-bold">Blue Origin</a>, founded by Jeff Bezos, focuses on making space accessible through reusable rockets and space tourism. Their <strong className="text-blue-300">New Shepard</strong> suborbital vehicle has successfully flown paying customers to space, while <strong className="text-purple-300">New Glenn</strong> orbital rocket aims to compete with SpaceX's Falcon 9.
+                  <p className="text-base leading-relaxed mb-6 text-gray-200">
+                    <a href="https://www.blueorigin.com/" target="_blank" rel="noopener noreferrer" className="text-green-300 hover:text-green-200 underline font-bold">Blue Origin</a>, founded by <strong className="text-blue-300">Jeff Bezos</strong> in 2000, embodies the vision of enabling millions of people to live and work in space for the benefit of Earth. With the company motto <strong className="text-yellow-300">"Gradatim Ferociter"</strong> (Step by Step, Ferociously), Blue Origin has methodically built a comprehensive space infrastructure spanning suborbital tourism, orbital launch capabilities, and lunar exploration systems.
                   </p>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  <div className="mb-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                      alt="Blue Origin Rocket Launch"
+                      className="w-full h-64 sm:h-80 object-cover rounded-2xl"
+                    />
+                    <div className="text-center mt-2">
+                      <p className="text-sm text-gray-400 italic">Blue Origin's reusable rocket technology represents the future of sustainable space exploration</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-cyan-300 mb-3 underline decoration-1 underline-offset-2">
+                        New Shepard - Suborbital Space Tourism Pioneer
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        Named after <strong className="text-blue-300">Alan Shepard</strong>, America's first astronaut, the <strong className="text-green-300">New Shepard</strong> system has revolutionized space tourism through its fully reusable design. The vehicle consists of a pressurized crew capsule and a reusable booster that lands vertically after each flight. Since its first crewed flight in July 2021, New Shepard has successfully transported <strong className="text-yellow-300">over 30 people</strong> to space, including Jeff Bezos himself, making space accessible to civilians for the first time in history.
+                      </p>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        Each <strong className="text-purple-300">11-minute flight</strong> takes passengers beyond the <strong className="text-cyan-300">Kármán line</strong> at 100 kilometers altitude, providing approximately <strong className="text-orange-300">4 minutes of weightlessness</strong> and breathtaking views of Earth's curvature. The crew capsule features the largest windows ever flown in space, offering passengers an unparalleled view of our planet and the cosmos beyond.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-purple-300 mb-3 underline decoration-1 underline-offset-2">
+                        New Glenn - Orbital Launch Revolution
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        <strong className="text-purple-300">New Glenn</strong>, named after <strong className="text-blue-300">John Glenn</strong>, the first American to orbit Earth, represents Blue Origin's ambitious entry into the orbital launch market. This massive <strong className="text-yellow-300">98-meter tall</strong> rocket features a reusable first stage designed for <strong className="text-green-300">25 missions</strong>, significantly reducing launch costs. With its <strong className="text-cyan-300">3.85-meter payload fairing</strong>, New Glenn can deliver up to <strong className="text-orange-300">45 metric tons</strong> to low Earth orbit.
+                      </p>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        The rocket's first stage is powered by <strong className="text-red-300">seven BE-4 engines</strong>, each producing 550,000 pounds of thrust using liquid oxygen and liquefied natural gas. After its historic first successful orbital flight in January 2025, New Glenn is positioned to compete directly with SpaceX's Falcon Heavy and support major satellite deployments, space station missions, and deep space exploration.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     <div
                       className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                       onClick={(e) => openVideoModal('GQ98hGUe6FM', e)}
                     >
                       <img
                         src="https://img.youtube.com/vi/GQ98hGUe6FM/maxresdefault.jpg"
-                        alt="Blue Origin New Shepard"
+                        alt="Blue Origin New Shepard First Flight"
                         className="w-full h-32 object-cover"
                       />
                       <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                         <Play size={32} className="text-white" />
                       </div>
                       <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">New Shepard Flight</p>
+                        <p className="text-sm font-semibold text-white">New Shepard First Flight</p>
                       </div>
                     </div>
 
@@ -838,7 +879,7 @@ const SpaceExplorationPage: React.FC = () => {
                     >
                       <img
                         src="https://img.youtube.com/vi/FjPv0S3z5tY/maxresdefault.jpg"
-                        alt="Jeff Bezos Space Flight"
+                        alt="Jeff Bezos Historic Space Flight"
                         className="w-full h-32 object-cover"
                       />
                       <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -851,11 +892,28 @@ const SpaceExplorationPage: React.FC = () => {
 
                     <div
                       className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('cSqyRWQooJM', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/cSqyRWQooJM/maxresdefault.jpg"
+                        alt="New Shepard Mission NS-31"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">NS-31 Mission</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                       onClick={(e) => openVideoModal('7hRxN_Fg0i4', e)}
                     >
                       <img
                         src="https://img.youtube.com/vi/7hRxN_Fg0i4/maxresdefault.jpg"
-                        alt="Blue Origin New Glenn"
+                        alt="New Glenn Orbital Rocket"
                         className="w-full h-32 object-cover"
                       />
                       <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -872,7 +930,7 @@ const SpaceExplorationPage: React.FC = () => {
                     >
                       <img
                         src="https://img.youtube.com/vi/d-HgVj0q5_s/maxresdefault.jpg"
-                        alt="Blue Origin Space Tourism"
+                        alt="Blue Origin Space Tourism Experience"
                         className="w-full h-32 object-cover"
                       />
                       <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -881,6 +939,98 @@ const SpaceExplorationPage: React.FC = () => {
                       <div className="absolute bottom-2 left-2 right-2">
                         <p className="text-sm font-semibold text-white">Space Tourism</p>
                       </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('Oe0cF8ZtOAE', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/Oe0cF8ZtOAE/maxresdefault.jpg"
+                        alt="Blue Origin New Glenn First Launch"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">New Glenn First Launch</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('9HQfauGJaTs', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/9HQfauGJaTs/maxresdefault.jpg"
+                        alt="Blue Origin Company Documentary"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Blue Origin Story</p>
+                      </div>
+                    </div>
+
+                    <div
+                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                      onClick={(e) => openVideoModal('lyu7v7nWzfo', e)}
+                    >
+                      <img
+                        src="https://img.youtube.com/vi/lyu7v7nWzfo/maxresdefault.jpg"
+                        alt="Blue Moon Lunar Lander"
+                        className="w-full h-32 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <Play size={32} className="text-white" />
+                      </div>
+                      <div className="absolute bottom-2 left-2 right-2">
+                        <p className="text-sm font-semibold text-white">Blue Moon Lander</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mb-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                      alt="Earth from Space"
+                      className="w-full h-64 sm:h-80 object-cover rounded-2xl"
+                    />
+                    <div className="text-center mt-2">
+                      <p className="text-sm text-gray-400 italic">The view that Blue Origin passengers experience during their suborbital journey</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div>
+                      <h5 className="text-lg font-bold text-orange-300 mb-3 underline decoration-1 underline-offset-2">
+                        Blue Moon - Lunar Exploration Program
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        <strong className="text-orange-300">Blue Moon</strong> represents Blue Origin's ambitious lunar exploration program, designed to support NASA's <strong className="text-blue-300">Artemis missions</strong> and establish a sustainable presence on the Moon. The Blue Moon lander can deliver <strong className="text-yellow-300">3.6 metric tons</strong> to the lunar surface and features advanced life support systems, scientific instruments, and the capability to support extended lunar missions.
+                      </p>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        As part of NASA's <strong className="text-purple-300">Human Landing System</strong> program, Blue Moon will play a crucial role in returning astronauts to the lunar surface for the first time since Apollo 17 in 1972. The lander incorporates Blue Origin's proven <strong className="text-green-300">BE-7 engines</strong> and advanced guidance systems to ensure precise and safe lunar landings.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h5 className="text-lg font-bold text-red-300 mb-3 underline decoration-1 underline-offset-2">
+                        Orbital Reef - Commercial Space Station
+                      </h5>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        <strong className="text-red-300">Orbital Reef</strong> is Blue Origin's vision for a commercial space station that will serve as a <strong className="text-cyan-300">"mixed-use business park"</strong> in low Earth orbit. Developed in partnership with <strong className="text-blue-300">Sierra Space</strong>, this facility will provide research laboratories, manufacturing capabilities, and tourist accommodations in a single integrated platform.
+                      </p>
+
+                      <p className="text-base leading-relaxed mb-4 text-gray-200">
+                        The station will feature <strong className="text-yellow-300">830 cubic meters</strong> of usable volume, nearly equivalent to the International Space Station, and will support up to <strong className="text-green-300">10 people</strong> simultaneously. Orbital Reef represents the future of commercial space operations, enabling everything from pharmaceutical research to space manufacturing and tourism.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -976,6 +1126,17 @@ const SpaceExplorationPage: React.FC = () => {
                       <div className="absolute bottom-2 left-2 right-2">
                         <p className="text-sm font-semibold text-white">Curiosity Discoveries</p>
                       </div>
+                    </div>
+                  </div>
+
+                  <div className="mb-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
+                      alt="Mars Surface Landscape"
+                      className="w-full h-64 sm:h-80 object-cover rounded-2xl"
+                    />
+                    <div className="text-center mt-2">
+                      <p className="text-sm text-gray-400 italic">The Martian landscape as captured by NASA's rovers, revealing the Red Planet's ancient geological history</p>
                     </div>
                   </div>
 
@@ -1087,6 +1248,17 @@ const SpaceExplorationPage: React.FC = () => {
                       <div className="absolute bottom-2 left-2 right-2">
                         <p className="text-sm font-semibold text-white">Hubble Discoveries</p>
                       </div>
+                    </div>
+                  </div>
+
+                  <div className="mb-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1502134249126-9f3755a50d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                      alt="Deep Space Galaxy"
+                      className="w-full h-64 sm:h-80 object-cover rounded-2xl"
+                    />
+                    <div className="text-center mt-2">
+                      <p className="text-sm text-gray-400 italic">A stunning deep space galaxy captured by the Hubble Space Telescope, showcasing the universe's incredible beauty and complexity</p>
                     </div>
                   </div>
                 </div>
@@ -1343,6 +1515,17 @@ const SpaceExplorationPage: React.FC = () => {
                       <div className="absolute bottom-2 left-2 right-2">
                         <p className="text-sm font-semibold text-white">SpaceX Careers</p>
                       </div>
+                    </div>
+                  </div>
+
+                  <div className="mb-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                      alt="Astronaut in Space"
+                      className="w-full h-64 sm:h-80 object-cover rounded-2xl"
+                    />
+                    <div className="text-center mt-2">
+                      <p className="text-sm text-gray-400 italic">An astronaut conducting a spacewalk outside the International Space Station, representing the pinnacle of human space exploration careers</p>
                     </div>
                   </div>
                 </div>
