@@ -615,73 +615,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('4czjS9h4Fpg', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/4czjS9h4Fpg/maxresdefault.jpg"
-                        alt="Perseverance Mars Landing"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Perseverance Landing</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('GhsZUZmJvaM', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/GhsZUZmJvaM/maxresdefault.jpg"
-                        alt="Ingenuity Mars Helicopter"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Ingenuity First Flight</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('nlnHJoWMjSs', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/nlnHJoWMjSs/maxresdefault.jpg"
-                        alt="Mars Sample Return Mission"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Mars Sample Return</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('M4tdMR5HLtg', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/M4tdMR5HLtg/maxresdefault.jpg"
-                        alt="Curiosity Mars Rover"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Curiosity Discoveries</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="4czjS9h4Fpg" title="Perseverance Landing" />
+                    <VideoCard videoId="GhsZUZmJvaM" title="Ingenuity First Flight" />
+                    <VideoCard videoId="nlnHJoWMjSs" title="Mars Sample Return" />
+                    <VideoCard videoId="M4tdMR5HLtg" title="Curiosity Discoveries" />
                   </div>
 
                   <div className="mb-8">
@@ -737,73 +674,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('7nT7JGZdPtw', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/7nT7JGZdPtw/maxresdefault.jpg"
-                        alt="James Webb First Images"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Webb First Images</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('nmMRMIE3MGw', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/nmMRMIE3MGw/maxresdefault.jpg"
-                        alt="Webb vs Hubble Comparison"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Webb vs Hubble</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('FL_3WeYhzWo', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/FL_3WeYhzWo/maxresdefault.jpg"
-                        alt="Webb Exoplanet Discovery"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Exoplanet Discovery</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('6cUe4oMk69E', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/6cUe4oMk69E/maxresdefault.jpg"
-                        alt="Hubble Greatest Discoveries"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">Hubble Discoveries</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="7nT7JGZdPtw" title="Webb First Images" />
+                    <VideoCard videoId="nmMRMIE3MGw" title="Webb vs Hubble" />
+                    <VideoCard videoId="FL_3WeYhzWo" title="Exoplanet Discovery" />
+                    <VideoCard videoId="6cUe4oMk69E" title="Hubble Discoveries" />
                   </div>
 
                   <div className="mb-8">
@@ -843,73 +717,10 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('h2I8AoB1xgU', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/h2I8AoB1xgU/maxresdefault.jpg"
-                        alt="ESA Rosetta Comet Mission"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">ESA Rosetta Mission</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('BFuT7tfqNUc', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/BFuT7tfqNUc/maxresdefault.jpg"
-                        alt="JAXA Hayabusa2 Mission"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">JAXA Hayabusa2</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('6PDkZIAaM08', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/6PDkZIAaM08/maxresdefault.jpg"
-                        alt="ISRO Mars Mission"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">ISRO Mars Mission</p>
-                      </div>
-                    </div>
-
-                    <div
-                      className="relative bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
-                      onClick={(e) => openVideoModal('21X5lGlDOfg', e)}
-                    >
-                      <img
-                        src="https://img.youtube.com/vi/21X5lGlDOfg/maxresdefault.jpg"
-                        alt="International Space Station"
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <Play size={32} className="text-white" />
-                      </div>
-                      <div className="absolute bottom-2 left-2 right-2">
-                        <p className="text-sm font-semibold text-white">ISS Cooperation</p>
-                      </div>
-                    </div>
+                    <VideoCard videoId="h2I8AoB1xgU" title="ESA Rosetta Mission" />
+                    <VideoCard videoId="BFuT7tfqNUc" title="JAXA Hayabusa2" />
+                    <VideoCard videoId="6PDkZIAaM08" title="ISRO Mars Mission" />
+                    <VideoCard videoId="21X5lGlDOfg" title="ISS Cooperation" />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
