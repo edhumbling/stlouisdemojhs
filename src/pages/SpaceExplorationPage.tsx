@@ -292,7 +292,7 @@ const SpaceExplorationPage: React.FC = () => {
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="09gWHfJ08iY" title="Soviet Space Program" />
                     <VideoCard videoId="EUcv9nYOmvQ" title="Soyuz Spacecraft" />
-                    <VideoCard videoId="PyY4k_r6FN4" title="Luna 25 Mission" />
+                    <VideoCard videoId="h9h10mQvKUc" title="Luna 25 Mission" />
                     <VideoCard videoId="b_zv5l2J8MI" title="Roscosmos Today" />
                   </div>
 
@@ -339,9 +339,9 @@ const SpaceExplorationPage: React.FC = () => {
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <VideoCard videoId="JJi_YEubKCY" title="Chang'e 4 Far Side" />
-                    <VideoCard videoId="2jtOYQ-Wm8M" title="Tiangong Space Station" />
-                    <VideoCard videoId="jdpecQoEc7A" title="Tianwen-1 Mars" />
-                    <VideoCard videoId="ciXXj0Tj7zk" title="Chang'e 6 Samples" />
+                    <VideoCard videoId="Q4PhR1i6YSw" title="Tiangong Space Station" />
+                    <VideoCard videoId="5fRmwENH9Rs" title="Tianwen-1 Mars" />
+                    <VideoCard videoId="9wNPwYXHJok" title="Chang'e 6 Samples" />
                   </div>
 
                   <div className="bg-gradient-to-r from-yellow-900/30 to-red-900/30 rounded-lg p-4 border border-yellow-600/40">
@@ -386,9 +386,9 @@ const SpaceExplorationPage: React.FC = () => {
                   </p>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <VideoCard videoId="YOG3tAkPpPE" title="Artemis Program Overview" />
+                    <VideoCard videoId="_T8cn2J13-4" title="Artemis Program Overview" />
                     <VideoCard videoId="Ke6XX8FHOHM" title="Artemis II Mission" />
-                    <VideoCard videoId="CMLD0Lp0JBg" title="Orion Spacecraft" />
+                    <VideoCard videoId="YGyE1VESSDw" title="Orion Spacecraft" />
                     <VideoCard videoId="jrDv0OdMt5s" title="Space Launch System" />
                   </div>
 
@@ -508,14 +508,14 @@ const SpaceExplorationPage: React.FC = () => {
                   </div>
 
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                    <VideoCard videoId="GQ98hGUe6FM" title="New Shepard First Flight" />
+                    <VideoCard videoId="UGdV6e2tgVU" title="New Shepard First Flight" />
                     <VideoCard videoId="FjPv0S3z5tY" title="Jeff Bezos Space Flight" />
-                    <VideoCard videoId="cSqyRWQooJM" title="NS-31 Mission" />
+                    <VideoCard videoId="CMMSiDf_sqw" title="NS-31 Mission" />
                     <VideoCard videoId="7hRxN_Fg0i4" title="New Glenn Rocket" />
-                    <VideoCard videoId="d-HgVj0q5_s" title="Space Tourism" />
-                    <VideoCard videoId="Oe0cF8ZtOAE" title="New Glenn First Launch" />
-                    <VideoCard videoId="9HQfauGJaTs" title="Blue Origin Story" />
-                    <VideoCard videoId="lyu7v7nWzfo" title="Blue Moon Lander" />
+                    <VideoCard videoId="FSlITfIpSpI" title="Space Tourism" />
+                    <VideoCard videoId="wcD8a9f8Ni0" title="New Glenn First Launch" />
+                    <VideoCard videoId="DcWqzZ3I2cY" title="Blue Origin Story" />
+                    <VideoCard videoId="hmk1oHzvNKA" title="Blue Moon Lander" />
                   </div>
 
                   <div className="mb-8">
