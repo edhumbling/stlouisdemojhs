@@ -33,7 +33,7 @@ npm run update-dates
 The scripts run automatically:
 
 1. **On every build** - `prebuild` script ensures fresh dates before deployment
-2. **Daily at 00:01 UTC** - GitHub Action keeps files current
+2. **Monthly on 1st day at 00:01 UTC** - GitHub Action keeps files current (12 times per year)
 3. **On every push to main** - Ensures dates are fresh on deployments
 
 ## 📋 Files Updated
@@ -73,7 +73,7 @@ The scripts run automatically:
 - Non-destructive updates (only changes dates)
 
 ### GitHub Action
-- Runs daily to keep dates current
+- Runs monthly (1st day) to keep dates current
 - Only commits if changes are made
 - Comprehensive logging for monitoring
 

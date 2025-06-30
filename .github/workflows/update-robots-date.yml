@@ -1,9 +1,9 @@
 name: Update SEO Files Dates
 
 on:
-  # Run daily at 00:01 UTC (keeps all SEO files fresh)
+  # Run monthly on the 1st day at 00:01 UTC (keeps all SEO files fresh)
   schedule:
-    - cron: '1 0 * * *'
+    - cron: '1 0 1 * *'
 
   # Allow manual trigger
   workflow_dispatch:
