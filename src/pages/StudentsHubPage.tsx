@@ -3217,17 +3217,17 @@ const StudentsHubPage: React.FC = () => {
         title="Students Hub | Digital Learning Resources & Educational Tools - St. Louis Demonstration JHS"
         description="Students Hub - Your ultimate learning companion at St. Louis Demonstration JHS. Access curated educational resources, STEM tools, study guides, scholarship opportunities, and interactive learning materials designed specifically for junior high school success."
         keywords="students hub, digital learning, educational resources, STEM tools, study materials, JHS resources, online learning, educational technology, student portal, learning platform"
-        image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
+        image="https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881"
         url="/students-hub"
         type="website"
         structuredData={studentsHubStructuredData}
         pageType="students-hub"
         useGalleryImages={false}
         socialImagePreferences={{
-          facebook: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
-          twitter: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
-          linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
-          whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
+          facebook: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881",
+          twitter: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881",
+          linkedin: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881",
+          whatsapp: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881"
         }}
       />
       <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">

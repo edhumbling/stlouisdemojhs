@@ -103,16 +103,16 @@ const AboutPage: React.FC = () => {
         title="About Us | St. Louis Demonstration JHS"
         description="Learn about St. Louis Demonstration Junior High School - our rich history since 1977, educational mission, core values, and unwavering commitment to providing quality junior high school education that shapes future leaders in Ghana."
         keywords="about St. Louis Demonstration JHS, school history, mission vision values, educational philosophy, Ghana JHS, school leadership, academic excellence"
-        image="https://ik.imagekit.io/edhumbling/500961895_1280873750548377_8614276957752557317_n.jpg?updatedAt=1750578385825"
+        image="https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg"
         url="/about"
         type="website"
         pageType="about"
         useGalleryImages={false}
         socialImagePreferences={{
-          facebook: "https://ik.imagekit.io/edhumbling/500961895_1280873750548377_8614276957752557317_n.jpg?updatedAt=1750578385825",
-          twitter: "https://ik.imagekit.io/edhumbling/500961895_1280873750548377_8614276957752557317_n.jpg?updatedAt=1750578385825",
-          linkedin: "https://ik.imagekit.io/edhumbling/500961895_1280873750548377_8614276957752557317_n.jpg?updatedAt=1750578385825",
-          whatsapp: "https://ik.imagekit.io/edhumbling/500961895_1280873750548377_8614276957752557317_n.jpg?updatedAt=1750578385825"
+          facebook: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg",
+          twitter: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg",
+          linkedin: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg",
+          whatsapp: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg"
         }}
       />
       {/* Back Button and Title Section */}

@@ -1176,11 +1176,18 @@ const STEMPage: React.FC = () => {
         title="STEM Education | Science, Technology, Engineering & Mathematics Resources - St. Louis Demonstration JHS"
         description="STEM Education - Ignite your passion for Science, Technology, Engineering, and Mathematics at St. Louis Demonstration JHS. Explore hands-on experiments, coding tutorials, engineering challenges, and mathematical problem-solving tools designed to inspire the next generation of innovators."
         keywords="STEM education, science resources, technology learning, engineering tools, mathematics resources, JHS STEM, educational technology, science experiments, coding for kids"
+        image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K"
         url="/stem"
         type="website"
         structuredData={stemStructuredData}
         pageType="stem"
-        useGalleryImages={true}
+        useGalleryImages={false}
+        socialImagePreferences={{
+          facebook: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K",
+          twitter: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K",
+          linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K",
+          whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K"
+        }}
       />
       <div className="min-h-screen bg-black">
       <Header />

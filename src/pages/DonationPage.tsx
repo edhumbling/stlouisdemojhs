@@ -374,16 +374,16 @@ const DonationPage: React.FC = () => {
         title="Donate | Support Our Educational Mission & Student Development - St. Louis Demonstration JHS"
         description="Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students. Every contribution makes a difference in shaping young minds for Ghana's future."
         keywords="donate, support education, school donation, Ghana education support, educational funding, school development, student support, charitable giving"
-        image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
+        image="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png"
         url="/donate"
         type="website"
         pageType="donation"
         useGalleryImages={false}
         socialImagePreferences={{
-          facebook: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z",
-          twitter: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z",
-          linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z",
-          whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
+          facebook: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png",
+          twitter: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png",
+          linkedin: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png",
+          whatsapp: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png"
         }}
       />
       {/* Silver Shimmer Loading Screen */}
@@ -1251,7 +1251,7 @@ const DonationPage: React.FC = () => {
         url="https://stlouisdemojhs.com/donate"
         title="Donate | Support Our Educational Mission & Student Development - St. Louis Demonstration JHS"
         description="Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students. Every contribution makes a difference in shaping young minds for Ghana's future."
-        image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
+        image="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png"
       />
     </>
   );

@@ -30,10 +30,17 @@ const GalleryPage: React.FC = () => {
         title="Gallery | School Life Photos & Campus Memories - St. Louis Demonstration JHS"
         description="Gallery - Explore the vibrant life at St. Louis Demonstration JHS through our comprehensive photo gallery. Witness our students' academic achievements, campus events, modern facilities, and the dynamic learning environment that makes our school special."
         keywords="St. Louis Demonstration JHS gallery, school photos, campus life, student activities, academic achievements, school events, facilities, Ghana JHS"
+        image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3"
         url="/gallery"
         type="website"
         pageType="gallery"
-        useGalleryImages={true}
+        useGalleryImages={false}
+        socialImagePreferences={{
+          facebook: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3",
+          twitter: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3",
+          linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3",
+          whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3"
+        }}
       />
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">

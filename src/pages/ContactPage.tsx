@@ -162,10 +162,17 @@ St. Louis Demonstration J.H.S Website System
         title="Contact Us | Get in Touch & Visit Our Campus - St. Louis Demonstration JHS"
         description="Contact Us - Connect with St. Louis Demonstration JHS, Ghana's leading junior high school. Find our location, contact information, admission details, and schedule a visit to experience our exceptional educational environment firsthand."
         keywords="contact St. Louis Demonstration JHS, school contact information, admission inquiry, visit campus, phone email address, Kumasi Ghana school"
+        image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO"
         url="/contact"
         type="website"
         pageType="contact"
-        useGalleryImages={true}
+        useGalleryImages={false}
+        socialImagePreferences={{
+          facebook: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO",
+          twitter: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO",
+          linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO",
+          whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO"
+        }}
       />
       {/* Back Button and Title Section - Dark Aero */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4 relative">
