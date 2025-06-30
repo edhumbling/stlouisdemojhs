@@ -180,7 +180,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   description,
   keywords = "St. Louis Demonstration JHS, junior high school Ghana, quality education Ghana, JHS Ghana, secondary education, academic excellence, STEM education, student resources, Ghana education",
   image = "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
-  url = "https://stlouisdemojhs.com",
+  url = "/",
   type = "website",
   author = "St. Louis Demonstration JHS",
   publishedTime,
