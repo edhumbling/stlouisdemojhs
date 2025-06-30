@@ -94,10 +94,17 @@ const NewsPage: React.FC = () => {
         title="News & Updates | Latest School Announcements & Events - St. Louis Demonstration JHS"
         description="News & Updates - Stay informed with the latest news, announcements, and updates from St. Louis Demonstration JHS. Read about school events, achievements, academic milestones, and important information for students and parents."
         keywords="school news, updates, announcements, events, achievements, academic news, school blog, Ghana JHS news, student achievements"
+        image="https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7318.HEIC?updatedAt=1748688793115"
         url="/news"
         type="website"
         pageType="news"
-        useGalleryImages={true}
+        useGalleryImages={false}
+        socialImagePreferences={{
+          facebook: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7318.HEIC?updatedAt=1748688793115",
+          twitter: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7318.HEIC?updatedAt=1748688793115",
+          linkedin: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7318.HEIC?updatedAt=1748688793115",
+          whatsapp: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7318.HEIC?updatedAt=1748688793115"
+        }}
       />
       {/* Back Button and Title Section - Below Header */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">

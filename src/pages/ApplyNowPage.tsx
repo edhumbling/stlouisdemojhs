@@ -180,10 +180,17 @@ const ApplyNowPage: React.FC = () => {
         title="Apply Now | Start Your Application & Join Our School Community - St. Louis Demonstration JHS"
         description="Apply Now - Apply for admission to St. Louis Demonstration JHS, Ghana's premier junior high school. Complete your application online and join our community of academic excellence with 48+ years of educational leadership."
         keywords="apply now, school application, admission form, enroll, St. Louis Demonstration JHS application, Ghana JHS admission, school enrollment"
+        image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
         url="/apply-now"
         type="website"
         pageType="admissions"
-        useGalleryImages={true}
+        useGalleryImages={false}
+        socialImagePreferences={{
+          facebook: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+          twitter: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+          linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
+          whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
+        }}
       />
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">

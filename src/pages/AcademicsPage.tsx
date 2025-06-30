@@ -158,10 +158,17 @@ const AcademicsPage: React.FC = () => {
         title="Academic Excellence | St. Louis Demonstration JHS"
         description="Discover our comprehensive academic programs at St. Louis Demonstration JHS. From core subjects to specialized courses, we offer rigorous curriculum designed to challenge and inspire students while building strong foundations for future success."
         keywords="academic programs, curriculum, subjects, BECE preparation, core academic, STEM education, creative arts, Ghana JHS academics"
+        image="https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg"
         url="/academics"
         type="website"
         pageType="academics"
-        useGalleryImages={true}
+        useGalleryImages={false}
+        socialImagePreferences={{
+          facebook: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg",
+          twitter: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg",
+          linkedin: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg",
+          whatsapp: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg"
+        }}
       />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4 pt-20">
