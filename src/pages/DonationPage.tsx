@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Heart, ArrowLeft, BookOpen } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
+import SocialMediaDebugger from '../components/debug/SocialMediaDebugger';
 import { useDeviceDetection } from '../hooks/useDeviceDetection';
 
 const DonationPage: React.FC = () => {
@@ -371,12 +372,19 @@ const DonationPage: React.FC = () => {
     <>
       <SEOHead
         title="Donate | Support Our Educational Mission & Student Development - St. Louis Demonstration JHS"
-        description="Donate - Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students. Every contribution makes a difference in shaping young minds."
+        description="Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students. Every contribution makes a difference in shaping young minds for Ghana's future."
         keywords="donate, support education, school donation, Ghana education support, educational funding, school development, student support, charitable giving"
+        image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
         url="/donate"
         type="website"
         pageType="donation"
-        useGalleryImages={true}
+        useGalleryImages={false}
+        socialImagePreferences={{
+          facebook: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z",
+          twitter: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z",
+          linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z",
+          whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
+        }}
       />
       {/* Silver Shimmer Loading Screen */}
       {isLoading && (
@@ -1237,6 +1245,14 @@ const DonationPage: React.FC = () => {
         </div>
       </motion.section>
       </motion.div>
+
+      {/* Social Media Debug Tool - Temporarily enabled for testing */}
+      <SocialMediaDebugger
+        url="https://stlouisdemojhs.com/donate"
+        title="Donate | Support Our Educational Mission & Student Development - St. Louis Demonstration JHS"
+        description="Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students. Every contribution makes a difference in shaping young minds for Ghana's future."
+        image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MqO2sszQQOhZkrEnRa2dswxvNMHPcmT9p0b6z"
+      />
     </>
   );
 };

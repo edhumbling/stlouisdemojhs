@@ -286,11 +286,25 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
   const finalStructuredData = structuredData || defaultStructuredData;
 
-  // Get optimized images for different social networks
+  // Get optimized images for different social networks with cache busting
+  const cacheVersion = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+  const addCacheBuster = (imageUrl: string) => {
+    if (imageUrl.includes('?')) {
+      return `${imageUrl}&v=${cacheVersion}`;
+    }
+    return `${imageUrl}?v=${cacheVersion}`;
+  };
+
   const facebookImage = useGalleryImages ? getOptimalSocialImage(pageType, 'facebook', image, socialImagePreferences) : image;
   const twitterImage = useGalleryImages ? getOptimalSocialImage(pageType, 'twitter', image, socialImagePreferences) : image;
   const linkedinImage = useGalleryImages ? getOptimalSocialImage(pageType, 'linkedin', image, socialImagePreferences) : image;
   const whatsappImage = useGalleryImages ? getOptimalSocialImage(pageType, 'whatsapp', image, socialImagePreferences) : image;
+
+  // Add cache busting to images for better social media refresh
+  const finalFacebookImage = addCacheBuster(facebookImage);
+  const finalTwitterImage = addCacheBuster(twitterImage);
+  const finalLinkedinImage = addCacheBuster(linkedinImage);
+  const finalWhatsappImage = addCacheBuster(whatsappImage);
 
   // Generate current date for publish time
   const currentDate = new Date().toISOString();
@@ -349,8 +363,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={finalDescription} />
-      <meta property="og:image" content={facebookImage} />
-      <meta property="og:image:secure_url" content={facebookImage} />
+      <meta property="og:image" content={finalFacebookImage} />
+      <meta property="og:image:secure_url" content={finalFacebookImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={title} />
@@ -361,11 +375,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:updated_time" content={finalModifiedTime} />
 
       {/* Standard image meta tag for broader compatibility */}
-      <meta name="image" property="og:image" content={facebookImage} />
+      <meta name="image" property="og:image" content={finalFacebookImage} />
 
       {/* Additional Open Graph images for different networks */}
-      <meta property="og:image" content={linkedinImage} />
-      <meta property="og:image" content={whatsappImage} />
+      <meta property="og:image" content={finalLinkedinImage} />
+      <meta property="og:image" content={finalWhatsappImage} />
 
       {/* Article specific Open Graph tags */}
       {type === 'article' && (
@@ -384,7 +398,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={finalDescription} />
-      <meta name="twitter:image" content={twitterImage} />
+      <meta name="twitter:image" content={finalTwitterImage} />
       <meta name="twitter:image:alt" content={title} />
       <meta name="twitter:site" content="@stlouisdemojhs" />
       <meta name="twitter:creator" content="@stlouisdemojhs" />
