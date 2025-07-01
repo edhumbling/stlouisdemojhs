@@ -206,27 +206,101 @@ const FinancialLiteracyPage: React.FC = () => {
             Whether you're earning your first allowance, working a part-time job, or planning for university expenses, these financial literacy skills will empower you to take control of your financial destiny and build wealth over time.
           </p>
 
-          {/* Featured Financial Literacy PDF */}
+          {/* Financial Literacy Library */}
           <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30 mb-8">
-            <h3 className="text-xl font-bold mb-4 text-yellow-300">📚 Essential Reading: The Richest Man in Babylon</h3>
-            <p className="text-gray-300 mb-4">
-              Start your financial education with this timeless classic that teaches fundamental money principles through ancient Babylonian parables. This free PDF contains the foundational wisdom that has helped millions build wealth.
+            <h3 className="text-xl font-bold mb-4 text-yellow-300">📚 Complete Financial Literacy Library</h3>
+            <p className="text-gray-300 mb-6">
+              Access our comprehensive collection of premium financial education books and resources. Each book opens in a dedicated viewer for the best reading experience.
             </p>
-            <div className="bg-black/50 rounded-lg p-4 border border-yellow-500/20">
-              <iframe
-                src="https://thediamondsmine.com/files/Ebooks/Clason-RichestManInBabylon.pdf"
-                className="w-full h-96 rounded border-0"
-                title="The Richest Man in Babylon - Free PDF"
-              />
-              <div className="mt-3 text-center">
-                <a
-                  href="https://thediamondsmine.com/files/Ebooks/Clason-RichestManInBabylon.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
-                >
-                  📖 Open Full PDF
-                </a>
+
+            {/* Financial Books Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Classic Financial Wisdom */}
+              <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/20">
+                <h4 className="text-lg font-semibold text-yellow-200 mb-3">📖 Classic Wisdom</h4>
+                <div className="space-y-2">
+                  <button
+                    onClick={() => navigate('/financial-library/richest-man-babylon')}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-white">The Richest Man in Babylon</div>
+                    <div className="text-sm text-gray-300">George Clason</div>
+                  </button>
+                  <button
+                    onClick={() => navigate('/financial-library/rich-dad-poor-dad')}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-white">Rich Dad Poor Dad</div>
+                    <div className="text-sm text-gray-300">Robert Kiyosaki</div>
+                  </button>
+                  <button
+                    onClick={() => navigate('/financial-library/millionaire-next-door')}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-white">The Millionaire Next Door</div>
+                    <div className="text-sm text-gray-300">Stanley & Danko</div>
+                  </button>
+                </div>
+              </div>
+
+              {/* Modern Strategies */}
+              <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/20">
+                <h4 className="text-lg font-semibold text-yellow-200 mb-3">💡 Modern Strategies</h4>
+                <div className="space-y-2">
+                  <button
+                    onClick={() => navigate('/financial-library/psychology-of-money')}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-white">The Psychology of Money</div>
+                    <div className="text-sm text-gray-300">Morgan Housel</div>
+                  </button>
+                  <button
+                    onClick={() => navigate('/financial-library/total-money-makeover')}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-white">The Total Money Makeover</div>
+                    <div className="text-sm text-gray-300">Dave Ramsey</div>
+                  </button>
+                  <button
+                    onClick={() => navigate('/financial-library/if-you-can')}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-white">If You Can</div>
+                    <div className="text-sm text-gray-300">William Bernstein</div>
+                  </button>
+                </div>
+              </div>
+
+              {/* Government Resources */}
+              <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/20">
+                <h4 className="text-lg font-semibold text-yellow-200 mb-3">🏛️ Official Resources</h4>
+                <div className="space-y-2">
+                  <button
+                    onClick={() => navigate('/financial-library/practical-money-skills')}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-white">Practical Money Skills</div>
+                    <div className="text-sm text-gray-300">Visa Foundation</div>
+                  </button>
+                  <a
+                    href="https://www.fdic.gov/consumer-resource-center/money-smart-young-people"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-white">FDIC Money Smart</div>
+                    <div className="text-sm text-gray-300">Government Resource</div>
+                  </a>
+                  <a
+                    href="https://www.federalreserve.gov/pubs/bulletin/2004/autumn04_fined.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-white">Building Wealth Guide</div>
+                    <div className="text-sm text-gray-300">Federal Reserve</div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -398,30 +472,7 @@ const FinancialLiteracyPage: React.FC = () => {
             />
           </div>
 
-          {/* If You Can PDF Resource */}
-          <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30">
-            <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 Advanced Reading: If You Can - How Millennials Can Get Rich Slowly</h4>
-            <p className="text-gray-300 mb-4">
-              This excellent 15-page PDF by William Bernstein provides practical investment advice specifically for young people. Learn how to build wealth through simple, proven strategies.
-            </p>
-            <div className="bg-black/50 rounded-lg p-4 border border-yellow-500/20">
-              <iframe
-                src="https://www.etf.com/docs/IfYouCan.pdf"
-                className="w-full h-96 rounded border-0"
-                title="If You Can - How Millennials Can Get Rich Slowly"
-              />
-              <div className="mt-3 text-center">
-                <a
-                  href="https://www.etf.com/docs/IfYouCan.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
-                >
-                  📖 Open Full PDF
-                </a>
-              </div>
-            </div>
-          </div>
+
         </section>
 
         {/* Banking Fundamentals Section */}
@@ -881,215 +932,7 @@ const FinancialLiteracyPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Additional Premium PDF Resources */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {/* The Psychology of Money PDF */}
-            <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30">
-              <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 The Psychology of Money - Morgan Housel</h4>
-              <p className="text-gray-300 mb-4">
-                Understand the behavioral aspects of money management. This bestselling book reveals how psychology affects financial decisions and wealth building.
-              </p>
-              <div className="bg-black/50 rounded-lg p-4 border border-yellow-500/20">
-                <iframe
-                  src="https://inspiredbyislam.wordpress.com/wp-content/uploads/2022/08/the-psychology-of-money-timeless-lessons-on-wealth-greed-and-happiness-morgan-housel-z-lib.org_.pdf"
-                  className="w-full h-64 rounded border-0"
-                  title="The Psychology of Money - Morgan Housel"
-                />
-                <div className="mt-3 text-center">
-                  <a
-                    href="https://inspiredbyislam.wordpress.com/wp-content/uploads/2022/08/the-psychology-of-money-timeless-lessons-on-wealth-greed-and-happiness-morgan-housel-z-lib.org_.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
-                  >
-                    📖 Open Full PDF
-                  </a>
-                </div>
-              </div>
-            </div>
 
-            {/* Practical Money Skills PDF */}
-            <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30">
-              <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 Practical Money Skills - Visa Foundation</h4>
-              <p className="text-gray-300 mb-4">
-                Professional financial education curriculum from Visa. Comprehensive lessons on budgeting, saving, credit, and financial planning for students.
-              </p>
-              <div className="bg-black/50 rounded-lg p-4 border border-yellow-500/20">
-                <iframe
-                  src="https://usa.visa.com/dam/VCOM/download/corporate/media/PMSFL_Everyone_070214.pdf"
-                  className="w-full h-64 rounded border-0"
-                  title="Practical Money Skills - Visa Foundation"
-                />
-                <div className="mt-3 text-center">
-                  <a
-                    href="https://usa.visa.com/dam/VCOM/download/corporate/media/PMSFL_Everyone_070214.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
-                  >
-                    📖 Open Full PDF
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* More Popular Financial Books */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {/* Rich Dad Poor Dad PDF */}
-            <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30">
-              <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 Rich Dad Poor Dad - Robert Kiyosaki</h4>
-              <p className="text-gray-300 mb-4">
-                The #1 personal finance book of all time. Learn what the rich teach their kids about money that the poor and middle class do not.
-              </p>
-              <div className="bg-black/50 rounded-lg p-4 border border-yellow-500/20">
-                <iframe
-                  src="https://archive.org/download/rich-dad-poor-dad_bongotweet/rich-dad-poor-dad.pdf"
-                  className="w-full h-64 rounded border-0"
-                  title="Rich Dad Poor Dad - Robert Kiyosaki"
-                />
-                <div className="mt-3 text-center">
-                  <a
-                    href="https://archive.org/download/rich-dad-poor-dad_bongotweet/rich-dad-poor-dad.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
-                  >
-                    📖 Open Full PDF
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* The Total Money Makeover PDF */}
-            <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30">
-              <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 The Total Money Makeover - Dave Ramsey</h4>
-              <p className="text-gray-300 mb-4">
-                A proven plan for financial fitness. Learn Dave Ramsey's step-by-step approach to getting out of debt and building wealth.
-              </p>
-              <div className="bg-black/50 rounded-lg p-4 border border-yellow-500/20">
-                <iframe
-                  src="https://archive.org/download/the-total-money-makeover-a-proven-plan-for-financial-fitness_202102/The%20Total%20Money%20Makeover%20A%20Proven%20Plan%20For%20Financial%20Fitness.pdf"
-                  className="w-full h-64 rounded border-0"
-                  title="The Total Money Makeover - Dave Ramsey"
-                />
-                <div className="mt-3 text-center">
-                  <a
-                    href="https://archive.org/download/the-total-money-makeover-a-proven-plan-for-financial-fitness_202102/The%20Total%20Money%20Makeover%20A%20Proven%20Plan%20For%20Financial%20Fitness.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
-                  >
-                    📖 Open Full PDF
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Federal Reserve Building Wealth PDF */}
-          <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30 mb-8">
-            <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 Building Wealth: A Beginner's Guide - Federal Reserve Bank</h4>
-            <p className="text-gray-300 mb-4">
-              Official Federal Reserve guide to building wealth and securing your financial future. Learn investment strategies, retirement planning, and wealth-building techniques from the central bank.
-            </p>
-            <div className="text-center">
-              <a
-                href="https://www.federalreserve.gov/pubs/bulletin/2004/autumn04_fined.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
-              >
-                🏛️ Access Federal Reserve Building Wealth Guide
-              </a>
-            </div>
-          </div>
-
-          {/* The Millionaire Next Door PDF */}
-          <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30 mb-8">
-            <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 The Millionaire Next Door - Thomas Stanley & William Danko</h4>
-            <p className="text-gray-300 mb-4">
-              Discover the surprising secrets of America's wealthy. This groundbreaking research reveals how ordinary people build extraordinary wealth through simple habits and smart financial decisions.
-            </p>
-            <div className="bg-black/50 rounded-lg p-4 border border-yellow-500/20">
-              <iframe
-                src="https://archive.org/download/StanleyThomasJDankoWilliamDTheMillionaireNextDoorTheSurprisingSecretsOfAmericasWealthy/Stanley%2C%20Thomas%20J%20%26%20Danko%2C%20William%20D%20-%20The%20Millionaire%20Next%20Door%20-%20The%20Surprising%20Secrets%20of%20America%27s%20Wealthy.pdf"
-                className="w-full h-96 rounded border-0"
-                title="The Millionaire Next Door - Thomas Stanley & William Danko"
-              />
-              <div className="mt-3 text-center">
-                <a
-                  href="https://archive.org/download/StanleyThomasJDankoWilliamDTheMillionaireNextDoorTheSurprisingSecretsOfAmericasWealthy/Stanley%2C%20Thomas%20J%20%26%20Danko%2C%20William%20D%20-%20The%20Millionaire%20Next%20Door%20-%20The%20Surprising%20Secrets%20of%20America%27s%20Wealthy.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
-                >
-                  📖 Open Full PDF
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Complete PDF Library Summary */}
-          <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30 mb-8">
-            <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 Complete Financial Literacy PDF Library</h4>
-            <p className="text-gray-300 mb-4">
-              You now have access to 7 premium financial education resources worth hundreds of dollars - completely free! These books represent the best financial wisdom from experts, bestselling authors, and government institutions.
-            </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <h5 className="font-semibold text-yellow-200 mb-2">📖 Classic Financial Wisdom</h5>
-                <ul className="text-sm text-gray-300 space-y-1">
-                  <li>• The Richest Man in Babylon (George Clason)</li>
-                  <li>• Rich Dad Poor Dad (Robert Kiyosaki)</li>
-                  <li>• The Millionaire Next Door (Stanley & Danko)</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-semibold text-yellow-200 mb-2">🏛️ Government & Institutional Resources</h5>
-                <ul className="text-sm text-gray-300 space-y-1">
-                  <li>• FDIC Money Smart for Young People</li>
-                  <li>• Federal Reserve Building Wealth Guide</li>
-                  <li>• Practical Money Skills (Visa Foundation)</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-semibold text-yellow-200 mb-2">💡 Modern Financial Strategies</h5>
-                <ul className="text-sm text-gray-300 space-y-1">
-                  <li>• The Psychology of Money (Morgan Housel)</li>
-                  <li>• If You Can (William Bernstein)</li>
-                  <li>• The Total Money Makeover (Dave Ramsey)</li>
-                </ul>
-              </div>
-              <div>
-                <h5 className="font-semibold text-yellow-200 mb-2">🎯 What You'll Learn</h5>
-                <ul className="text-sm text-gray-300 space-y-1">
-                  <li>• Budgeting and saving strategies</li>
-                  <li>• Investment and wealth building</li>
-                  <li>• Psychology of money decisions</li>
-                  <li>• Debt management and credit</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* FDIC Money Smart PDF Resource */}
-          <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30">
-            <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 Government Resource: FDIC Money Smart for Young People</h4>
-            <p className="text-gray-300 mb-4">
-              Access the official FDIC financial education curriculum designed specifically for young people. This comprehensive resource covers all aspects of personal finance with interactive activities and practical exercises.
-            </p>
-            <div className="text-center">
-              <a
-                href="https://www.fdic.gov/consumer-resource-center/money-smart-young-people"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
-              >
-                🏛️ Access FDIC Money Smart Resources
-              </a>
-            </div>
-          </div>
         </section>
 
       </div>
