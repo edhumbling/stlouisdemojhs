@@ -237,7 +237,7 @@ const FinancialLiteracyPage: React.FC = () => {
             </p>
 
             {/* Financial Books Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {/* Classic Financial Wisdom */}
               <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/20">
                 <h4 className="text-lg font-semibold text-yellow-200 mb-3">📖 Classic Wisdom</h4>
@@ -557,7 +557,7 @@ const FinancialLiteracyPage: React.FC = () => {
               {/* Mindset & Success */}
               <div className="bg-black/30 rounded-lg p-4 border border-red-500/20 md:col-span-2 lg:col-span-4">
                 <h4 className="text-lg font-semibold text-red-200 mb-3">🧠 Mindset & Success</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
                   <button
                     onClick={() => handleBookNavigation('think-and-grow-rich', 'Think and Grow Rich')}
                     disabled={loadingBook === 'think-and-grow-rich'}
@@ -618,7 +618,7 @@ const FinancialLiteracyPage: React.FC = () => {
               {/* Entrepreneurship & Business */}
               <div className="bg-black/30 rounded-lg p-4 border border-purple-500/20 md:col-span-2 lg:col-span-4">
                 <h4 className="text-lg font-semibold text-purple-200 mb-3">🚀 Entrepreneurship & Business</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-2">
+                <div className="grid grid-cols-2 lg:grid-cols-5 gap-2">
                   <button
                     onClick={() => handleBookNavigation('four-hour-workweek', 'The 4-Hour Workweek')}
                     disabled={loadingBook === 'four-hour-workweek'}
@@ -795,7 +795,7 @@ const FinancialLiteracyPage: React.FC = () => {
             <li><strong>Track and adjust:</strong> Monitor your spending and adjust as needed</li>
           </ol>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-6">
             <VideoCard
               videoId="sNocjsSSRkE"
               title="Budgeting for Teens - Practical Guide"
@@ -816,7 +816,7 @@ const FinancialLiteracyPage: React.FC = () => {
             Saving money is the cornerstone of financial security. It provides a safety net for emergencies and helps you achieve your financial goals. The key is to start early and be consistent.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
             <VideoCard
               videoId="cnW_HDIBmz4"
               title="Why and how to save - Khan Academy"
@@ -893,7 +893,7 @@ const FinancialLiteracyPage: React.FC = () => {
             Understanding how banks work and choosing the right banking products is essential for managing your money safely and efficiently. Learn about different types of accounts, fees, and banking services.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
             <VideoCard
               videoId="baoufhsGoIk"
               title="Banking Basics: What is a Bank Account? | Financial Literacy"
@@ -929,7 +929,7 @@ const FinancialLiteracyPage: React.FC = () => {
           </div>
 
           <h4 className="text-xl font-semibold mb-4 text-yellow-300">Banking in Ghana: What Students Need to Know</h4>
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-2 gap-6 mb-6">
             <div className="bg-gray-900/50 p-4 rounded-lg border border-yellow-500/20">
               <h5 className="font-semibold text-yellow-200 mb-3">Major Banks in Ghana</h5>
               <ul className="text-sm text-gray-300 space-y-1">
@@ -963,7 +963,7 @@ const FinancialLiteracyPage: React.FC = () => {
             Understanding credit and debt is crucial for your financial future. Good credit opens doors to better loan rates, while poor credit can limit your opportunities. Learn how to build and maintain good credit while avoiding debt traps.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
             <VideoCard
               videoId="nziW3yg9Bvc"
               title="What is Social Security? A Simple Explanation for Beginners"
@@ -976,7 +976,7 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/20 mb-6">
             <h4 className="text-xl font-semibold mb-4 text-yellow-300">Building Good Credit Habits</h4>
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               <div>
                 <h5 className="font-semibold text-yellow-200 mb-2">✅ Do These Things</h5>
                 <ul className="text-sm text-gray-300 space-y-1">
@@ -1026,7 +1026,7 @@ const FinancialLiteracyPage: React.FC = () => {
             Investing is how you make your money work for you. While saving preserves your money, investing helps it grow over time. Starting early gives you a huge advantage due to compound interest.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
             <VideoCard
               videoId="BaLGOmLiB5k"
               title="Types of Sustainable Investing | Intro to ESG Course"
@@ -1068,7 +1068,7 @@ const FinancialLiteracyPage: React.FC = () => {
           </div>
 
           <h4 className="text-xl font-semibold mb-4 text-yellow-300">Investment Principles for Young People</h4>
-          <div className="grid md:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
             <div className="bg-gray-900/50 p-4 rounded-lg border border-yellow-500/20 text-center">
               <div className="text-2xl mb-2">⏰</div>
               <h5 className="font-semibold text-yellow-200 mb-2">Start Early</h5>
@@ -1096,7 +1096,7 @@ const FinancialLiteracyPage: React.FC = () => {
             Entrepreneurship is a powerful way to build wealth and gain financial independence. Many successful businesses were started by teenagers. Learn the basics of starting and running a business while you're still in school.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
             <VideoCard
               videoId="s2DIOOV1z3s"
               title="My Budgeting System for 2025: How I Manage My Money"
@@ -1109,7 +1109,7 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/20 mb-6">
             <h4 className="text-xl font-semibold mb-4 text-yellow-300">Business Ideas for Students in Ghana</h4>
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               <div>
                 <h5 className="font-semibold text-yellow-200 mb-2">💻 Digital Services</h5>
                 <ul className="text-sm text-gray-300 space-y-1">
@@ -1174,7 +1174,7 @@ const FinancialLiteracyPage: React.FC = () => {
             Setting clear financial goals gives direction to your money management efforts. Whether you're saving for a new phone, university fees, or long-term wealth building, having specific goals helps you stay motivated and focused.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
             <VideoCard
               videoId="qDVNOA0HU-0"
               title="ETFs vs Mutual Funds | Jill on Money"
@@ -1219,7 +1219,7 @@ const FinancialLiteracyPage: React.FC = () => {
           </div>
 
           <h4 className="text-xl font-semibold mb-4 text-yellow-300">SMART Goal Setting Framework</h4>
-          <div className="grid md:grid-cols-5 gap-3 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
             <div className="bg-gray-900/50 p-3 rounded-lg border border-yellow-500/20 text-center">
               <div className="text-lg font-bold text-yellow-400 mb-1">S</div>
               <div className="text-xs text-gray-300">Specific</div>
@@ -1252,7 +1252,7 @@ const FinancialLiteracyPage: React.FC = () => {
             Understanding Ghana's financial system is crucial for making informed financial decisions. Learn about local banking, investment opportunities, government programs, and economic factors that affect your money.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-2 gap-6 mb-8">
             <VideoCard
               videoId="_qEmKVNcC60"
               title="Career Possibilities - Financial Planning Careers"
@@ -1265,7 +1265,7 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/20 mb-6">
             <h4 className="text-xl font-semibold mb-4 text-yellow-300">Key Financial Institutions in Ghana</h4>
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               <div>
                 <h5 className="font-semibold text-yellow-200 mb-2">🏛️ Regulatory Bodies</h5>
                 <ul className="text-sm text-gray-300 space-y-1">
