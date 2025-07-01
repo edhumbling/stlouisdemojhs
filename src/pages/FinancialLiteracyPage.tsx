@@ -21,24 +21,12 @@ const FinancialLiteracyPage: React.FC = () => {
   const [showNavMenu, setShowNavMenu] = useState(false);
   const [loadingBook, setLoadingBook] = useState<string | null>(null);
   const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
   const [pdfLoading, setPdfLoading] = useState(false);
   const navMenuRef = useRef<HTMLDivElement>(null);
 
   const handleBack = () => {
     navigate('/');
   };
-
-  // Mobile detection
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   // Financial books data for the four featured books
   const featuredBooks: Record<string, FinancialBook> = {
@@ -680,70 +668,25 @@ const FinancialLiteracyPage: React.FC = () => {
               </div>
             )}
 
-            {isMobile ? (
-              /* Google Docs Viewer for Mobile PDFs */
-              <div className="w-full h-full bg-white">
-                <iframe
-                  src={getGooglePdfViewerUrl(selectedBook.url)}
-                  className="w-full h-full border-0"
-                  title={`${selectedBook.title} - Mobile PDF Viewer`}
-                  style={{
-                    height: 'calc(100vh - 80px)',
-                    minHeight: '600px'
-                  }}
-                  loading="lazy"
-                  onLoad={handlePdfLoad}
-                  onError={handlePdfError}
-                />
-              </div>
-            ) : (
-              /* Native PDF Viewer for Desktop */
-              <div className="w-full h-full bg-white">
-                <object
-                  data={selectedBook.url}
-                  type="application/pdf"
-                  className="w-full h-full"
-                  style={{
-                    height: 'calc(100vh - 80px)',
-                    minHeight: '600px'
-                  }}
-                  onLoad={handlePdfLoad}
-                  onError={handlePdfError}
-                >
-                  {/* Fallback to Google Viewer for browsers that don't support object tag */}
-                  <iframe
-                    src={getGooglePdfViewerUrl(selectedBook.url)}
-                    className="w-full h-full border-0"
-                    title={selectedBook.title}
-                    style={{
-                      height: 'calc(100vh - 80px)',
-                      minHeight: '600px'
-                    }}
-                    onLoad={handlePdfLoad}
-                    onError={handlePdfError}
-                  >
-                    {/* Final fallback message */}
-                    <div className="flex items-center justify-center w-full h-full bg-gray-50">
-                      <div className="text-center max-w-md px-6">
-                        <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <Book className="w-8 h-8 text-yellow-600" />
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
-                        <p className="text-gray-600 mb-6">
-                          Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
-                        </p>
-                        <button
-                          onClick={() => window.location.reload()}
-                          className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-                        >
-                          Refresh Page
-                        </button>
-                      </div>
-                    </div>
-                  </iframe>
-                </object>
-              </div>
-            )}
+            {/* Always use Google Docs Viewer for better compatibility and no double scroll */}
+            <div className="w-full h-full bg-white overflow-hidden">
+              <iframe
+                src={getGooglePdfViewerUrl(selectedBook.url)}
+                className="w-full h-full border-0 block"
+                title={`${selectedBook.title} - PDF Viewer`}
+                style={{
+                  height: 'calc(100vh - 80px)',
+                  minHeight: '600px',
+                  overflow: 'hidden'
+                }}
+                loading="lazy"
+                onLoad={handlePdfLoad}
+                onError={handlePdfError}
+                scrolling="no"
+                frameBorder="0"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       )}
