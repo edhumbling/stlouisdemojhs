@@ -428,6 +428,7 @@ const FinancialLiteracyPage: React.FC = () => {
               💰 Essential Budgeting and Money Management Videos
             </h3>
 
+            {/* Row 1-4: Core Financial Education */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
               <VideoCard videoId="sT_iw2c7BXI" title="Financial Education Fundamentals" />
               <VideoCard videoId="5eM3bW3L3Zw" title="Money Management Basics" />
@@ -454,6 +455,70 @@ const FinancialLiteracyPage: React.FC = () => {
               <VideoCard videoId="8y0qO0gXv3o" title="Retirement Planning" />
               <VideoCard videoId="0QjF8fY1o2w" title="Tax Planning Basics" />
               <VideoCard videoId="1hK1k4h3X8c" title="Insurance Essentials" />
+            </div>
+
+            {/* Row 5-8: Advanced Financial Topics */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="5Op2Z7z7Y0M" title="Advanced Investment Strategies" />
+              <VideoCard videoId="7i1kZ3r4T8k" title="Real Estate Investing" />
+              <VideoCard videoId="9nJ0q2z3r4c" title="Stock Market Basics" />
+              <VideoCard videoId="2kZ0f8bY3r8" title="Cryptocurrency Guide" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="3mP0q2z1Y4k" title="Business Finance" />
+              <VideoCard videoId="4xJ1k4h3X8c" title="Entrepreneurship Funding" />
+              <VideoCard videoId="5y0qO0gXv3o" title="Financial Independence" />
+              <VideoCard videoId="6wK1k4h3X8c" title="Passive Income Streams" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="7z0qO0gXv3o" title="Tax Optimization" />
+              <VideoCard videoId="8aJ1k4h3X8c" title="Estate Planning" />
+              <VideoCard videoId="9b0qO0gXv3o" title="Risk Management" />
+              <VideoCard videoId="0cJ1k4h3X8c" title="Financial Psychology" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="1d0qO0gXv3o" title="Market Analysis" />
+              <VideoCard videoId="2eJ1k4h3X8c" title="Portfolio Management" />
+              <VideoCard videoId="3f0qO0gXv3o" title="Economic Indicators" />
+              <VideoCard videoId="4gJ1k4h3X8c" title="Financial Ratios" />
+            </div>
+
+            {/* Row 9-12: Specialized Financial Education */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="5h0qO0gXv3o" title="Options Trading" />
+              <VideoCard videoId="6iJ1k4h3X8c" title="Forex Trading" />
+              <VideoCard videoId="7j0qO0gXv3o" title="Commodity Investing" />
+              <VideoCard videoId="8kJ1k4h3X8c" title="Bond Investing" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="9l0qO0gXv3o" title="Mutual Funds Guide" />
+              <VideoCard videoId="0mJ1k4h3X8c" title="ETF Investing" />
+              <VideoCard videoId="1n0qO0gXv3o" title="Index Fund Strategy" />
+              <VideoCard videoId="2oJ1k4h3X8c" title="Dividend Investing" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="3p0qO0gXv3o" title="Value Investing" />
+              <VideoCard videoId="4qJ1k4h3X8c" title="Growth Investing" />
+              <VideoCard videoId="5r0qO0gXv3o" title="Technical Analysis" />
+              <VideoCard videoId="6sJ1k4h3X8c" title="Fundamental Analysis" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="7t0qO0gXv3o" title="Financial Planning Tools" />
+              <VideoCard videoId="8uJ1k4h3X8c" title="Budgeting Apps" />
+              <VideoCard videoId="9v0qO0gXv3o" title="Investment Platforms" />
+              <VideoCard videoId="0wJ1k4h3X8c" title="Financial Calculators" />
+            </div>
+
+            {/* Row 13: Final Videos */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="1x0qO0gXv3o" title="Financial Goal Achievement" />
+              <VideoCard videoId="2yJ1k4h3X8c" title="Wealth Preservation" />
             </div>
           </div>
         </div>
