@@ -229,295 +229,227 @@ const FinancialLiteracyPage: React.FC = () => {
         {/* Word Document Style Content - Edge to Edge */}
         <div className="w-full bg-black px-3 sm:px-4 py-6">
 
-          {/* Comprehensive Financial Literacy Introduction */}
-          <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-yellow-400 underline">
-              Complete Guide to Financial Literacy & Wealth Building
+          {/* Chapter 1: The History and Evolution of Money */}
+          <div className="mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-yellow-400 underline">
+              Chapter 1: The History and Evolution of Money
             </h2>
 
-            <div className="space-y-6 text-gray-300 leading-relaxed">
-              <p className="text-lg">
-                <strong className="text-yellow-300">Financial literacy is the cornerstone of personal freedom and economic empowerment.</strong> It encompasses the knowledge, skills, and confidence needed to make informed financial decisions that lead to financial security, independence, and wealth creation. In today's complex economic landscape, understanding money management is not optional - it's essential for survival and prosperity.
+            <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+              <p>
+                <strong className="text-yellow-300">Understanding money begins with understanding its history.</strong> Money is one of humanity's greatest inventions, evolving from simple barter systems to today's complex digital currencies. This evolution reflects our growing sophistication in trade, commerce, and economic organization.
               </p>
 
-              <div className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/20">
-                <h3 className="text-xl font-semibold text-yellow-300 mb-4">🎯 Core Financial Literacy Components</h3>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <h4 className="font-semibold text-yellow-200 mb-2">💰 Money Management</h4>
-                    <ul className="space-y-1 text-gray-300">
-                      <li>• Budgeting and expense tracking</li>
-                      <li>• Cash flow optimization</li>
-                      <li>• Emergency fund building</li>
-                      <li>• Debt management strategies</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-yellow-200 mb-2">📈 Investment Knowledge</h4>
-                    <ul className="space-y-1 text-gray-300">
-                      <li>• Risk and return principles</li>
-                      <li>• Asset allocation strategies</li>
-                      <li>• Compound interest mastery</li>
-                      <li>• Portfolio diversification</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-yellow-200 mb-2">🏦 Banking & Credit</h4>
-                    <ul className="space-y-1 text-gray-300">
-                      <li>• Banking products and services</li>
-                      <li>• Credit scores and reports</li>
-                      <li>• Loan types and terms</li>
-                      <li>• Interest rate mechanics</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-yellow-200 mb-2">🎯 Financial Planning</h4>
-                    <ul className="space-y-1 text-gray-300">
-                      <li>• Goal setting and achievement</li>
-                      <li>• Retirement planning</li>
-                      <li>• Insurance and protection</li>
-                      <li>• Tax optimization strategies</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
               <p>
-                <strong className="text-yellow-300">The journey to financial mastery begins with understanding fundamental concepts.</strong> Money is a tool that, when properly understood and managed, becomes a powerful force for creating opportunities, security, and freedom. The principles of financial literacy are universal - they apply whether you're earning your first cedi or managing millions in assets.
+                <strong className="text-yellow-300">The Barter System (Pre-3000 BCE):</strong> Before money existed, people traded goods directly - wheat for cattle, tools for clothing. This system worked in small communities but became inefficient as societies grew. The main problems were the "double coincidence of wants" (finding someone who had what you wanted and wanted what you had), difficulty in storing value, and challenges in determining fair exchange rates.
               </p>
 
-              <div className="bg-gray-900/50 p-6 rounded-lg border border-green-500/20">
-                <h3 className="text-xl font-semibold text-green-300 mb-4">🚀 The Wealth Building Formula</h3>
-                <p className="mb-4">
-                  <strong>Wealth = (Income - Expenses) × Time × Investment Returns</strong>
-                </p>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <h4 className="font-semibold text-green-200 mb-2">📊 Income Optimization</h4>
-                    <p className="text-gray-300">Maximize earning potential through education, skills development, career advancement, and multiple income streams. Focus on increasing your human capital - your ability to generate income.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-green-200 mb-2">💸 Expense Management</h4>
-                    <p className="text-gray-300">Control spending through conscious budgeting, distinguishing between needs and wants, and optimizing major expenses like housing, transportation, and food.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-green-200 mb-2">⏰ Time Advantage</h4>
-                    <p className="text-gray-300">Start early to harness the power of compound interest. Time is your greatest asset in wealth building - every year you delay costs exponentially.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-green-200 mb-2">📈 Investment Returns</h4>
-                    <p className="text-gray-300">Understand risk-return relationships, diversification principles, and long-term investment strategies that build wealth systematically.</p>
-                  </div>
-                </div>
-              </div>
-
               <p>
-                <strong className="text-yellow-300">Financial literacy empowers you to break cycles of financial struggle and build generational wealth.</strong> It's about understanding that every financial decision - from daily spending choices to major investment decisions - either moves you closer to or further from your financial goals. The knowledge you gain today becomes the foundation for a lifetime of financial success.
+                <strong className="text-yellow-300">Commodity Money (3000 BCE - 600 BCE):</strong> Societies began using valuable commodities as money - salt, cattle, shells, precious metals. These items had intrinsic value and were widely accepted. Gold and silver emerged as preferred forms because they were durable, divisible, portable, and scarce. The word "salary" comes from the Latin "salarium," referring to payments made in salt to Roman soldiers.
               </p>
 
-              <div className="bg-gray-900/50 p-6 rounded-lg border border-red-500/20">
-                <h3 className="text-xl font-semibold text-red-300 mb-4">⚠️ The Cost of Financial Illiteracy</h3>
-                <div className="space-y-3 text-sm">
-                  <p><strong className="text-red-200">Debt Traps:</strong> Without understanding interest rates and compound interest, people fall into high-interest debt cycles that can take decades to escape.</p>
-                  <p><strong className="text-red-200">Missed Opportunities:</strong> Lack of investment knowledge means missing out on compound growth that could create substantial wealth over time.</p>
-                  <p><strong className="text-red-200">Poor Decision Making:</strong> Financial illiteracy leads to emotional money decisions, falling for scams, and choosing inappropriate financial products.</p>
-                  <p><strong className="text-red-200">Retirement Insecurity:</strong> Inadequate planning and saving result in financial stress and dependence in later years.</p>
-                </div>
-              </div>
+              <p>
+                <strong className="text-yellow-300">Coined Money (600 BCE - 1000 CE):</strong> The Kingdom of Lydia (modern-day Turkey) created the first coins around 650 BCE, made from electrum (gold-silver alloy). Coins standardized value, made transactions easier, and bore the authority of the issuing government. This innovation spread throughout the ancient world, facilitating trade and economic growth.
+              </p>
 
               <p>
-                <strong className="text-yellow-300">This comprehensive library provides you with world-class financial education from legendary investors, successful entrepreneurs, and financial experts.</strong> From timeless classics like "The Richest Man in Babylon" to modern masterpieces like "The Psychology of Money," you have access to the same knowledge that has created countless millionaires and billionaires. Combined with practical videos, real-world examples, and actionable strategies, this education will transform your relationship with money and set you on the path to financial freedom.
+                <strong className="text-yellow-300">Paper Money and Banking (1000 CE - 1900 CE):</strong> China introduced paper money during the Song Dynasty (960-1279 CE), backed by precious metals. European banks began issuing promissory notes in the 1600s. The concept of fractional reserve banking emerged, where banks could lend more money than they held in reserves, creating credit and expanding the money supply.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Fiat Currency (1900 CE - Present):</strong> The gold standard was gradually abandoned throughout the 20th century, culminating in President Nixon's 1971 decision to end the dollar's convertibility to gold. Modern money is "fiat" - it has value because governments declare it legal tender and people accept it. This system allows for flexible monetary policy but requires trust in institutions.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Digital Money and Cryptocurrencies (1990s - Present):</strong> Electronic banking, credit cards, and digital payments transformed how we use money. Bitcoin, introduced in 2009, created the first decentralized digital currency using blockchain technology. This represents a potential return to money that doesn't require trust in central authorities.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Why This History Matters:</strong> Understanding money's evolution helps you recognize that money is a social construct - its value comes from collective agreement and trust. This knowledge is crucial for making informed decisions about saving, investing, and protecting your wealth in an ever-changing financial landscape. The principles that made gold valuable (scarcity, durability, divisibility) still apply to modern investments and wealth preservation strategies.
               </p>
             </div>
           </div>
 
-          {/* Financial Literacy Library */}
-          <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30 mb-8">
-            <h3 className="text-xl font-bold mb-4 text-yellow-300">📚 Complete Financial Literacy Library</h3>
-            <p className="text-gray-300 mb-6">
-              Access our comprehensive collection of premium financial education books and resources. Each book opens in a dedicated viewer for the best reading experience.
-            </p>
+          {/* Chapter 2: Fundamental Concepts of Money */}
+          <div className="mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-yellow-400 underline">
+              Chapter 2: Fundamental Concepts of Money
+            </h2>
 
-            {/* Financial Books Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Classic Financial Wisdom */}
-              <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/20">
-                <h4 className="text-lg font-semibold text-yellow-200 mb-3">📖 Classic Wisdom</h4>
-                <div className="space-y-2">
-                  <button
-                    onClick={() => handleBookNavigation('richest-man-babylon', 'The Richest Man in Babylon')}
-                    disabled={loadingBook === 'richest-man-babylon'}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
-                  >
-                    {loadingBook === 'richest-man-babylon' && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
-                    )}
-                    <div className="relative">
-                      <div className="font-medium text-white flex items-center gap-2">
-                        The Richest Man in Babylon
-                        {loadingBook === 'richest-man-babylon' && (
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        )}
-                      </div>
-                      <div className="text-sm text-gray-300">George Clason</div>
-                    </div>
-                  </button>
-                  <button
-                    onClick={() => handleBookNavigation('rich-dad-poor-dad', 'Rich Dad Poor Dad')}
-                    disabled={loadingBook === 'rich-dad-poor-dad'}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
-                  >
-                    {loadingBook === 'rich-dad-poor-dad' && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
-                    )}
-                    <div className="relative">
-                      <div className="font-medium text-white flex items-center gap-2">
-                        Rich Dad Poor Dad
-                        {loadingBook === 'rich-dad-poor-dad' && (
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        )}
-                      </div>
-                      <div className="text-sm text-gray-300">Robert Kiyosaki</div>
-                    </div>
-                  </button>
-                  <button
-                    onClick={() => handleBookNavigation('millionaire-next-door', 'The Millionaire Next Door')}
-                    disabled={loadingBook === 'millionaire-next-door'}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
-                  >
-                    {loadingBook === 'millionaire-next-door' && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
-                    )}
-                    <div className="relative">
-                      <div className="font-medium text-white flex items-center gap-2">
-                        The Millionaire Next Door
-                        {loadingBook === 'millionaire-next-door' && (
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        )}
-                      </div>
-                      <div className="text-sm text-gray-300">Stanley & Danko</div>
-                    </div>
-                  </button>
-                </div>
-              </div>
+            <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+              <p>
+                <strong className="text-yellow-300">Money serves three primary functions in any economy:</strong> Medium of Exchange, Store of Value, and Unit of Account. Understanding these functions helps you make better financial decisions and recognize good investments.
+              </p>
 
-              {/* Modern Strategies */}
-              <div className="bg-black/30 rounded-lg p-4 border border-green-500/20">
-                <h4 className="text-lg font-semibold text-green-200 mb-3">💡 Modern Strategies</h4>
-                <div className="space-y-2">
-                  <button
-                    onClick={() => handleBookNavigation('psychology-of-money', 'The Psychology of Money')}
-                    disabled={loadingBook === 'psychology-of-money'}
-                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
-                  >
-                    {loadingBook === 'psychology-of-money' && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
-                    )}
-                    <div className="relative">
-                      <div className="font-medium text-white flex items-center gap-2">
-                        The Psychology of Money
-                        {loadingBook === 'psychology-of-money' && (
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        )}
-                      </div>
-                      <div className="text-sm text-gray-300">Morgan Housel</div>
-                    </div>
-                  </button>
-                  <button
-                    onClick={() => handleBookNavigation('total-money-makeover', 'The Total Money Makeover')}
-                    disabled={loadingBook === 'total-money-makeover'}
-                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
-                  >
-                    {loadingBook === 'total-money-makeover' && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
-                    )}
-                    <div className="relative">
-                      <div className="font-medium text-white flex items-center gap-2">
-                        The Total Money Makeover
-                        {loadingBook === 'total-money-makeover' && (
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        )}
-                      </div>
-                      <div className="text-sm text-gray-300">Dave Ramsey</div>
-                    </div>
-                  </button>
-                </div>
-              </div>
+              <p>
+                <strong className="text-yellow-300">Medium of Exchange:</strong> Money eliminates the inefficiencies of barter by providing a commonly accepted medium for transactions. Instead of trading your skills directly for goods, you exchange your labor for money, then use that money to buy what you need. This function requires widespread acceptance and trust in the monetary system.
+              </p>
 
-              {/* Investment & Wealth Building */}
-              <div className="bg-black/30 rounded-lg p-4 border border-blue-500/20 md:col-span-2 lg:col-span-2">
-                <h4 className="text-lg font-semibold text-blue-200 mb-3">📈 Investment & Wealth Building</h4>
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    onClick={() => handleBookNavigation('intelligent-investor', 'The Intelligent Investor')}
-                    disabled={loadingBook === 'intelligent-investor'}
-                    className="w-full text-left p-3 bg-blue-600/20 hover:bg-blue-600/30 rounded-lg border border-blue-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
-                  >
-                    {loadingBook === 'intelligent-investor' && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
-                    )}
-                    <div className="relative">
-                      <div className="font-medium text-white flex items-center gap-2">
-                        The Intelligent Investor
-                        {loadingBook === 'intelligent-investor' && (
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        )}
-                      </div>
-                      <div className="text-sm text-gray-300">Benjamin Graham</div>
-                    </div>
-                  </button>
-                  <button
-                    onClick={() => handleBookNavigation('essays-warren-buffett', 'The Essays of Warren Buffett')}
-                    disabled={loadingBook === 'essays-warren-buffett'}
-                    className="w-full text-left p-3 bg-blue-600/20 hover:bg-blue-600/30 rounded-lg border border-blue-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
-                  >
-                    {loadingBook === 'essays-warren-buffett' && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
-                    )}
-                    <div className="relative">
-                      <div className="font-medium text-white flex items-center gap-2">
-                        Warren Buffett Essays
-                        {loadingBook === 'essays-warren-buffett' && (
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        )}
-                      </div>
-                      <div className="text-sm text-gray-300">Warren Buffett</div>
-                    </div>
-                  </button>
-                </div>
-              </div>
+              <p>
+                <strong className="text-yellow-300">Store of Value:</strong> Money allows you to preserve purchasing power over time. You can work today, save money, and use it to buy goods in the future. However, inflation erodes this function - if prices rise faster than your money grows, you lose purchasing power. This is why simply keeping money in low-interest accounts often leads to wealth destruction over time.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Unit of Account:</strong> Money provides a standard measure for pricing goods and services. It allows for easy comparison of values and economic calculation. When you see a phone costs GH¢2,000 and a laptop costs GH¢4,000, you immediately understand their relative values.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">The Time Value of Money:</strong> This is perhaps the most important financial concept to understand. Money available today is worth more than the same amount in the future because of its earning potential. GH¢1,000 today can be invested to grow to GH¢1,100 next year (assuming 10% return). This principle underlies all investment decisions, loan calculations, and financial planning.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Inflation and Purchasing Power:</strong> Inflation is the general increase in prices over time, which reduces money's purchasing power. If inflation is 5% annually, something that costs GH¢100 today will cost GH¢105 next year. Your money must grow faster than inflation to maintain its real value. This is why keeping money in accounts earning less than inflation rate is actually losing money.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Interest Rates and Opportunity Cost:</strong> Interest rates represent the cost of borrowing money or the reward for lending it. They're influenced by inflation, economic growth, and central bank policies. Understanding interest rates helps you evaluate loans, savings accounts, and investment opportunities. Opportunity cost is what you give up when making a financial choice - if you spend money on one thing, you can't invest it elsewhere.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Risk and Return Relationship:</strong> In finance, higher potential returns typically come with higher risk. Government bonds offer low returns but high safety, while stocks offer higher potential returns but greater volatility. Understanding this relationship helps you build appropriate portfolios for your goals and risk tolerance.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Compound Interest - The Eighth Wonder:</strong> Albert Einstein allegedly called compound interest "the eighth wonder of the world." It's earning interest on your interest, creating exponential growth over time. Starting early is crucial - GH¢100 invested at 10% annual return becomes GH¢1,745 after 30 years, but only GH¢673 after 20 years. Time is your greatest asset in wealth building.
+              </p>
+            </div>
+          </div>
+
+          {/* Chapter 3: Complete Financial Education Library */}
+          <div className="mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-yellow-400 underline">
+              Chapter 3: Complete Financial Education Library
+            </h2>
+
+            <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base mb-6">
+              <p>
+                <strong className="text-yellow-300">Access to world-class financial education is the foundation of wealth building.</strong> This comprehensive library contains 46 premium books from legendary investors, successful entrepreneurs, and financial experts. Each book has been carefully selected for its practical value and proven track record of helping people build wealth.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Featured Essential Books:</strong> Start with these foundational texts that have transformed millions of lives. "The Richest Man in Babylon" teaches timeless wealth principles through ancient parables. "The Psychology of Money" explores the behavioral aspects of financial decision-making. "The Intelligent Investor" provides the framework for value investing used by Warren Buffett.
+              </p>
             </div>
 
-            <div className="text-center mt-6">
+            {/* Compact Book Showcase */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+              <button
+                onClick={() => handleBookNavigation('richest-man-babylon', 'The Richest Man in Babylon')}
+                disabled={loadingBook === 'richest-man-babylon'}
+                className="p-3 bg-yellow-600/10 hover:bg-yellow-600/20 border border-yellow-500/20 rounded-lg transition-all duration-200 relative overflow-hidden disabled:opacity-70 text-left"
+              >
+                {loadingBook === 'richest-man-babylon' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                )}
+                <div className="relative">
+                  <div className="text-sm font-medium text-white mb-1">The Richest Man in Babylon</div>
+                  <div className="text-xs text-gray-400">George Clason • Classic Wisdom</div>
+                  <div className="text-xs text-yellow-300 mt-1">⭐ 4.8 • Timeless wealth principles</div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => handleBookNavigation('psychology-of-money', 'The Psychology of Money')}
+                disabled={loadingBook === 'psychology-of-money'}
+                className="p-3 bg-green-600/10 hover:bg-green-600/20 border border-green-500/20 rounded-lg transition-all duration-200 relative overflow-hidden disabled:opacity-70 text-left"
+              >
+                {loadingBook === 'psychology-of-money' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                )}
+                <div className="relative">
+                  <div className="text-sm font-medium text-white mb-1">The Psychology of Money</div>
+                  <div className="text-xs text-gray-400">Morgan Housel • Modern Strategy</div>
+                  <div className="text-xs text-green-300 mt-1">⭐ 4.9 • Behavioral finance</div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => handleBookNavigation('intelligent-investor', 'The Intelligent Investor')}
+                disabled={loadingBook === 'intelligent-investor'}
+                className="p-3 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/20 rounded-lg transition-all duration-200 relative overflow-hidden disabled:opacity-70 text-left"
+              >
+                {loadingBook === 'intelligent-investor' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                )}
+                <div className="relative">
+                  <div className="text-sm font-medium text-white mb-1">The Intelligent Investor</div>
+                  <div className="text-xs text-gray-400">Benjamin Graham • Investment</div>
+                  <div className="text-xs text-blue-300 mt-1">⭐ 4.8 • Value investing bible</div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => handleBookNavigation('rich-dad-poor-dad', 'Rich Dad Poor Dad')}
+                disabled={loadingBook === 'rich-dad-poor-dad'}
+                className="p-3 bg-purple-600/10 hover:bg-purple-600/20 border border-purple-500/20 rounded-lg transition-all duration-200 relative overflow-hidden disabled:opacity-70 text-left"
+              >
+                {loadingBook === 'rich-dad-poor-dad' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                )}
+                <div className="relative">
+                  <div className="text-sm font-medium text-white mb-1">Rich Dad Poor Dad</div>
+                  <div className="text-xs text-gray-400">Robert Kiyosaki • Classic</div>
+                  <div className="text-xs text-purple-300 mt-1">⭐ 4.7 • Financial education</div>
+                </div>
+              </button>
+            </div>
+
+            <div className="text-center">
               <button
                 onClick={() => navigate('/financial-library')}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white text-sm font-medium rounded-lg transition-all duration-300"
               >
-                📚 View Complete Library (36 Books)
+                📚 View Complete Library (46 Books)
               </button>
             </div>
           </div>
 
-          {/* Budgeting Basics Section */}
-          <section id="budgeting-basics" className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-yellow-400 border-b border-yellow-500/30 pb-2">
-              📊 Budgeting Basics: Your Financial Foundation
-            </h3>
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              A budget is simply a plan for your money. It tells your money where to go instead of wondering where it went. Creating and following a budget is the foundation of all financial success.
-            </p>
+          {/* Chapter 4: Personal Budgeting and Money Management */}
+          <div className="mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-yellow-400 underline">
+              Chapter 4: Personal Budgeting and Money Management
+            </h2>
 
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              <VideoCard
-                videoId="sVKQn2R7eys"
-                title="How to Budget Your Money Like a Pro"
-              />
-              <VideoCard
-                videoId="7lHNMGoACdQ"
-                title="Budgeting for Beginners - How to Make a Budget From Scratch"
-              />
+            <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+              <p>
+                <strong className="text-yellow-300">Budgeting is the foundation of financial success.</strong> It's the process of creating a plan for how you'll spend your money, ensuring that you live within your means while working toward your financial goals. A budget is essentially a roadmap that guides your financial decisions and helps you avoid debt while building wealth.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">The 50/30/20 Rule:</strong> This simple budgeting framework allocates 50% of after-tax income to needs (housing, food, utilities, minimum debt payments), 30% to wants (entertainment, dining out, hobbies), and 20% to savings and debt repayment. While this is a starting point, successful wealth builders often save much more than 20%.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Zero-Based Budgeting:</strong> Every cedi you earn gets assigned a purpose before you spend it. Income minus expenses equals zero. This method ensures intentional spending and prevents money from "disappearing" without purpose. You give every cedi a job - whether it's paying bills, building emergency funds, or investing for the future.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Emergency Fund Priority:</strong> Before investing or paying extra on debt, build an emergency fund of 3-6 months of expenses. This fund prevents you from going into debt when unexpected expenses arise. Start with GH¢1,000 as a mini-emergency fund, then build to full coverage. Keep this money in a high-yield savings account for easy access.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Tracking and Automation:</strong> Use apps, spreadsheets, or pen and paper to track every expense for at least one month. This reveals spending patterns and identifies areas for improvement. Automate savings and bill payments to remove emotion and forgetfulness from financial decisions. Pay yourself first by automatically transferring money to savings when you receive income.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">The Psychology of Spending:</strong> Understanding why you spend money is crucial for long-term success. Emotional spending, social pressure, and marketing manipulation can derail budgets. Implement a 24-hour rule for non-essential purchases over a certain amount. Ask yourself: "Will this purchase move me closer to or further from my financial goals?"
+              </p>
             </div>
-          </section>
+
+            {/* Budgeting and Money Management Videos */}
+            <div className="mt-8">
+              <h3 className="text-lg font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
+                💰 Essential Budgeting and Money Management Videos
+              </h3>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <VideoCard videoId="sVKQn2R7eys" title="Complete Budgeting Guide" />
+                <VideoCard videoId="7lHNMGoACdQ" title="Budgeting for Beginners" />
+                <VideoCard videoId="R2376CwvlZQ" title="Money Saving Tips" />
+                <VideoCard videoId="1bMFWOlBhF8" title="Save Money Fast" />
+              </div>
+            </div>
+          </div>
 
           {/* Saving Strategies Section */}
           <section id="saving-strategies" className="mb-12">
