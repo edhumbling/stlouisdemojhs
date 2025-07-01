@@ -218,7 +218,7 @@ const FinancialLiteracyPage: React.FC = () => {
             </p>
 
             {/* Financial Books Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {/* Classic Financial Wisdom */}
               <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/20">
                 <h4 className="text-lg font-semibold text-yellow-200 mb-3">📖 Classic Wisdom</h4>
@@ -275,6 +275,24 @@ const FinancialLiteracyPage: React.FC = () => {
                         )}
                       </div>
                       <div className="text-sm text-gray-300">Stanley & Danko</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('your-money-or-your-life', 'Your Money or Your Life')}
+                    disabled={loadingBook === 'your-money-or-your-life'}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'your-money-or-your-life' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Your Money or Your Life
+                        {loadingBook === 'your-money-or-your-life' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Vicki Robin & Joe Dominguez</div>
                     </div>
                   </button>
                 </div>
@@ -341,6 +359,49 @@ const FinancialLiteracyPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Investment & Wealth Building */}
+              <div className="bg-black/30 rounded-lg p-4 border border-green-500/20">
+                <h4 className="text-lg font-semibold text-green-200 mb-3">📈 Investment & Wealth</h4>
+                <div className="space-y-2">
+                  <button
+                    onClick={() => handleBookNavigation('intelligent-investor', 'The Intelligent Investor')}
+                    disabled={loadingBook === 'intelligent-investor'}
+                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'intelligent-investor' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        The Intelligent Investor
+                        {loadingBook === 'intelligent-investor' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Benjamin Graham</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('automatic-millionaire', 'The Automatic Millionaire')}
+                    disabled={loadingBook === 'automatic-millionaire'}
+                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'automatic-millionaire' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        The Automatic Millionaire
+                        {loadingBook === 'automatic-millionaire' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">David Bach</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
               {/* Government Resources */}
               <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/20">
                 <h4 className="text-lg font-semibold text-yellow-200 mb-3">🏛️ Official Resources</h4>
@@ -381,6 +442,67 @@ const FinancialLiteracyPage: React.FC = () => {
                     <div className="font-medium text-white">Building Wealth Guide</div>
                     <div className="text-sm text-gray-300">Federal Reserve</div>
                   </a>
+                </div>
+              </div>
+
+              {/* Mindset & Success */}
+              <div className="bg-black/30 rounded-lg p-4 border border-red-500/20 md:col-span-2 lg:col-span-4">
+                <h4 className="text-lg font-semibold text-red-200 mb-3">🧠 Mindset & Success</h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+                  <button
+                    onClick={() => handleBookNavigation('think-and-grow-rich', 'Think and Grow Rich')}
+                    disabled={loadingBook === 'think-and-grow-rich'}
+                    className="w-full text-left p-3 bg-red-600/20 hover:bg-red-600/30 rounded-lg border border-red-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'think-and-grow-rich' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Think and Grow Rich
+                        {loadingBook === 'think-and-grow-rich' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Napoleon Hill</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('compound-effect', 'The Compound Effect')}
+                    disabled={loadingBook === 'compound-effect'}
+                    className="w-full text-left p-3 bg-red-600/20 hover:bg-red-600/30 rounded-lg border border-red-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'compound-effect' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        The Compound Effect
+                        {loadingBook === 'compound-effect' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Darren Hardy</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('atomic-habits', 'Atomic Habits')}
+                    disabled={loadingBook === 'atomic-habits'}
+                    className="w-full text-left p-3 bg-red-600/20 hover:bg-red-600/30 rounded-lg border border-red-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'atomic-habits' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Atomic Habits
+                        {loadingBook === 'atomic-habits' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">James Clear</div>
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>

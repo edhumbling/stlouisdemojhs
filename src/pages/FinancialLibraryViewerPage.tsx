@@ -88,6 +88,60 @@ const FinancialLibraryViewerPage: React.FC = () => {
       url: 'https://usa.visa.com/dam/VCOM/download/corporate/media/PMSFL_Everyone_070214.pdf',
       category: 'Government & Institutional Resources',
       color: '#8b5cf6'
+    },
+    'your-money-or-your-life': {
+      id: 'your-money-or-your-life',
+      title: 'Your Money or Your Life',
+      author: 'Vicki Robin & Joe Dominguez',
+      description: 'Transform your relationship with money and achieve financial independence. This groundbreaking book provides a proven program for financial freedom.',
+      url: 'https://archive.org/download/your-money-or-your-life-9-steps-to-transforming-your-relationship-with-money-and-achieving-financial-independence-revised-and-updated-for-the-21st-century/Your%20Money%20or%20Your%20Life_%209%20Steps%20to%20Transforming%20Your%20Relationship%20with%20Money%20and%20Achieving%20Financial%20Independence%20-%20Revised%20and%20Updated%20for%20the%2021st%20Century.pdf',
+      category: 'Classic Financial Wisdom',
+      color: '#f59e0b'
+    },
+    'intelligent-investor': {
+      id: 'intelligent-investor',
+      title: 'The Intelligent Investor',
+      author: 'Benjamin Graham',
+      description: 'The definitive book on value investing. Warren Buffett calls this "by far the best book on investing ever written." Learn the principles of sound investment.',
+      url: 'https://archive.org/download/thirumala/TheIntelligentInvestor.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
+    },
+    'think-and-grow-rich': {
+      id: 'think-and-grow-rich',
+      title: 'Think and Grow Rich',
+      author: 'Napoleon Hill',
+      description: 'The classic guide to wealth and success. Based on 25 years of research into the lives of successful people, this book reveals the secrets of achievement.',
+      url: 'https://archive.org/download/think-and-grow-rich/think-and-grow-rich.pdf',
+      category: 'Mindset & Success',
+      color: '#dc2626'
+    },
+    'compound-effect': {
+      id: 'compound-effect',
+      title: 'The Compound Effect',
+      author: 'Darren Hardy',
+      description: 'Discover how small, smart choices compound into remarkable results. Learn the principle that can transform your life and finances through consistent action.',
+      url: 'https://archive.org/download/sheikh-yameen-100-best-selling-self-help-books_202107/The%20Compound%20Effect%20-%20Darren%20hardy.pdf',
+      category: 'Mindset & Success',
+      color: '#dc2626'
+    },
+    'atomic-habits': {
+      id: 'atomic-habits',
+      title: 'Atomic Habits',
+      author: 'James Clear',
+      description: 'An easy and proven way to build good habits and break bad ones. Learn how tiny changes can lead to remarkable financial and life improvements.',
+      url: 'https://archive.org/download/atomic-habits-pdfdrive/Atomic%20habits%20%28%20PDFDrive%20%29.pdf',
+      category: 'Mindset & Success',
+      color: '#dc2626'
+    },
+    'automatic-millionaire': {
+      id: 'automatic-millionaire',
+      title: 'The Automatic Millionaire',
+      author: 'David Bach',
+      description: 'A powerful one-step plan to live and finish rich. Learn how to automate your finances and build wealth without budgeting or discipline.',
+      url: 'https://archive.org/download/the-automatic-millionaire-a-powerful-one-step-plan-to-live-and-finish-rich/The%20Automatic%20Millionaire_%20A%20Powerful%20One-Step%20Plan%20to%20Live%20and%20Finish%20Rich.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
     }
   };
 
