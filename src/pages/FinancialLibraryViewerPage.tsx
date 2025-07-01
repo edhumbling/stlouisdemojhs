@@ -367,6 +367,7 @@ const FinancialLibraryViewerPage: React.FC = () => {
   };
 
   const handlePdfError = () => {
+    console.error('PDF loading failed');
     setPdfLoaded(false);
     setIsLoading(false);
   };
@@ -378,6 +379,18 @@ const FinancialLibraryViewerPage: React.FC = () => {
       setShowHeader(true);
     };
   }, [setShowHeader]);
+
+  // Auto-hide loading after timeout
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isLoading) {
+        setIsLoading(false);
+        console.log('PDF loading timeout - hiding loader');
+      }
+    }, 10000); // 10 second timeout
+
+    return () => clearTimeout(timer);
+  }, [isLoading]);
 
   // Prevent body scroll
   useEffect(() => {
@@ -500,64 +513,25 @@ const FinancialLibraryViewerPage: React.FC = () => {
         {/* Show shimmer loader while loading */}
         {isLoading && (
           <div className="absolute inset-0 z-10">
-            <SilverShimmerLoader />
+            <ShimmerLoader variant="silver" height="h-full" />
           </div>
         )}
 
         {/* PDF Content */}
         <div className={`w-full h-full transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-          {isMobile ? (
-            /* Google Docs Viewer for Mobile PDFs */
-            <div className="w-full h-full bg-white">
-              <iframe
-                src={getGooglePdfViewerUrl(selectedBook.url)}
-                className="w-full h-full border-0"
-                title={`${selectedBook.title} - Mobile PDF Viewer`}
-                loading="lazy"
-                onLoad={handlePdfLoad}
-                onError={handlePdfError}
-              />
-            </div>
-          ) : (
-            /* Native PDF Viewer for Desktop */
-            <div className="w-full h-full bg-white">
-              <object
-                data={selectedBook.url}
-                type="application/pdf"
-                className="w-full h-full"
-                onLoad={handlePdfLoad}
-                onError={handlePdfError}
-              >
-                {/* Fallback to Google Viewer for browsers that don't support object tag */}
-                <iframe
-                  src={getGooglePdfViewerUrl(selectedBook.url)}
-                  className="w-full h-full border-0"
-                  title={selectedBook.title}
-                  onLoad={handlePdfLoad}
-                  onError={handlePdfError}
-                >
-                  {/* Final fallback message */}
-                  <div className="flex items-center justify-center w-full h-full bg-gray-50">
-                    <div className="text-center max-w-md px-6">
-                      <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <FileText className="w-8 h-8 text-yellow-600" />
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
-                      <p className="text-gray-600 mb-6">
-                        Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
-                      </p>
-                      <button
-                        onClick={() => window.location.reload()}
-                        className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-                      >
-                        Refresh Page
-                      </button>
-                    </div>
-                  </div>
-                </iframe>
-              </object>
-            </div>
-          )}
+          {/* Always use Google Docs Viewer for better compatibility */}
+          <div className="w-full h-full bg-white">
+            <iframe
+              src={getGooglePdfViewerUrl(selectedBook.url)}
+              className="w-full h-full border-0"
+              title={`${selectedBook.title} - PDF Viewer`}
+              loading="lazy"
+              onLoad={handlePdfLoad}
+              onError={handlePdfError}
+              allow="fullscreen"
+              sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+            />
+          </div>
         </div>
 
         {/* Loading indicator overlay for additional feedback */}
