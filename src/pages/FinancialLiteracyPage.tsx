@@ -89,6 +89,10 @@ const FinancialLiteracyPage: React.FC = () => {
     { id: 'banking-fundamentals', title: 'Banking Fundamentals', icon: '🏦' },
     { id: 'credit-debt', title: 'Credit & Debt Management', icon: '💳' },
     { id: 'investing-basics', title: 'Investing for Beginners', icon: '📈' },
+    { id: 'advanced-investing', title: 'Advanced Investment Strategies', icon: '🎯' },
+    { id: 'finance-mastery', title: 'Personal Finance Mastery', icon: '💪' },
+    { id: 'crypto-modern', title: 'Cryptocurrency & Modern Finance', icon: '₿' },
+    { id: 'fire-movement', title: 'FIRE Movement', icon: '🔥' },
     { id: 'entrepreneurship', title: 'Teen Entrepreneurship', icon: '🚀' },
     { id: 'financial-goals', title: 'Setting Financial Goals', icon: '🎯' },
     { id: 'ghana-finance', title: 'Ghana Financial System', icon: '🇬🇭' }
@@ -220,14 +224,107 @@ const FinancialLiteracyPage: React.FC = () => {
         {/* Word Document Style Content - Edge to Edge */}
         <div className="w-full bg-black px-3 sm:px-4 py-6">
 
-          {/* Introduction Section */}
-          <div className="mb-6">
-          <p className="text-lg text-gray-300 leading-relaxed mb-6">
-            Financial literacy is one of the most important life skills you can develop as a student. Understanding how to manage money, save for the future, and make smart financial decisions will set you up for success throughout your life. This comprehensive guide will teach you everything you need to know about personal finance, from basic budgeting to advanced investing concepts.
-          </p>
-          <p className="text-lg text-gray-300 leading-relaxed mb-8">
-            Whether you're earning your first allowance, working a part-time job, or planning for university expenses, these financial literacy skills will empower you to take control of your financial destiny and build wealth over time.
-          </p>
+          {/* Comprehensive Financial Literacy Introduction */}
+          <div className="mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-yellow-400 underline">
+              Complete Guide to Financial Literacy & Wealth Building
+            </h2>
+
+            <div className="space-y-6 text-gray-300 leading-relaxed">
+              <p className="text-lg">
+                <strong className="text-yellow-300">Financial literacy is the cornerstone of personal freedom and economic empowerment.</strong> It encompasses the knowledge, skills, and confidence needed to make informed financial decisions that lead to financial security, independence, and wealth creation. In today's complex economic landscape, understanding money management is not optional—it's essential for survival and prosperity.
+              </p>
+
+              <div className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/20">
+                <h3 className="text-xl font-semibold text-yellow-300 mb-4">🎯 Core Financial Literacy Components</h3>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <h4 className="font-semibold text-yellow-200 mb-2">💰 Money Management</h4>
+                    <ul className="space-y-1 text-gray-300">
+                      <li>• Budgeting and expense tracking</li>
+                      <li>• Cash flow optimization</li>
+                      <li>• Emergency fund building</li>
+                      <li>• Debt management strategies</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-yellow-200 mb-2">📈 Investment Knowledge</h4>
+                    <ul className="space-y-1 text-gray-300">
+                      <li>• Risk and return principles</li>
+                      <li>• Asset allocation strategies</li>
+                      <li>• Compound interest mastery</li>
+                      <li>• Portfolio diversification</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-yellow-200 mb-2">🏦 Banking & Credit</h4>
+                    <ul className="space-y-1 text-gray-300">
+                      <li>• Banking products and services</li>
+                      <li>• Credit scores and reports</li>
+                      <li>• Loan types and terms</li>
+                      <li>• Interest rate mechanics</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-yellow-200 mb-2">🎯 Financial Planning</h4>
+                    <ul className="space-y-1 text-gray-300">
+                      <li>• Goal setting and achievement</li>
+                      <li>• Retirement planning</li>
+                      <li>• Insurance and protection</li>
+                      <li>• Tax optimization strategies</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <p>
+                <strong className="text-yellow-300">The journey to financial mastery begins with understanding fundamental concepts.</strong> Money is a tool that, when properly understood and managed, becomes a powerful force for creating opportunities, security, and freedom. The principles of financial literacy are universal—they apply whether you're earning your first cedi or managing millions in assets.
+              </p>
+
+              <div className="bg-gray-900/50 p-6 rounded-lg border border-green-500/20">
+                <h3 className="text-xl font-semibold text-green-300 mb-4">🚀 The Wealth Building Formula</h3>
+                <p className="mb-4">
+                  <strong>Wealth = (Income - Expenses) × Time × Investment Returns</strong>
+                </p>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <h4 className="font-semibold text-green-200 mb-2">📊 Income Optimization</h4>
+                    <p className="text-gray-300">Maximize earning potential through education, skills development, career advancement, and multiple income streams. Focus on increasing your human capital—your ability to generate income.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-green-200 mb-2">💸 Expense Management</h4>
+                    <p className="text-gray-300">Control spending through conscious budgeting, distinguishing between needs and wants, and optimizing major expenses like housing, transportation, and food.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-green-200 mb-2">⏰ Time Advantage</h4>
+                    <p className="text-gray-300">Start early to harness the power of compound interest. Time is your greatest asset in wealth building—every year you delay costs exponentially.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-green-200 mb-2">📈 Investment Returns</h4>
+                    <p className="text-gray-300">Understand risk-return relationships, diversification principles, and long-term investment strategies that build wealth systematically.</p>
+                  </div>
+                </div>
+              </div>
+
+              <p>
+                <strong className="text-yellow-300">Financial literacy empowers you to break cycles of financial struggle and build generational wealth.</strong> It's about understanding that every financial decision—from daily spending choices to major investment decisions—either moves you closer to or further from your financial goals. The knowledge you gain today becomes the foundation for a lifetime of financial success.
+              </p>
+
+              <div className="bg-gray-900/50 p-6 rounded-lg border border-red-500/20">
+                <h3 className="text-xl font-semibold text-red-300 mb-4">⚠️ The Cost of Financial Illiteracy</h3>
+                <div className="space-y-3 text-sm">
+                  <p><strong className="text-red-200">Debt Traps:</strong> Without understanding interest rates and compound interest, people fall into high-interest debt cycles that can take decades to escape.</p>
+                  <p><strong className="text-red-200">Missed Opportunities:</strong> Lack of investment knowledge means missing out on compound growth that could create substantial wealth over time.</p>
+                  <p><strong className="text-red-200">Poor Decision Making:</strong> Financial illiteracy leads to emotional money decisions, falling for scams, and choosing inappropriate financial products.</p>
+                  <p><strong className="text-red-200">Retirement Insecurity:</strong> Inadequate planning and saving result in financial stress and dependence in later years.</p>
+                </div>
+              </div>
+
+              <p>
+                <strong className="text-yellow-300">This comprehensive library provides you with world-class financial education from legendary investors, successful entrepreneurs, and financial experts.</strong> From timeless classics like "The Richest Man in Babylon" to modern masterpieces like "The Psychology of Money," you have access to the same knowledge that has created countless millionaires and billionaires. Combined with practical videos, real-world examples, and actionable strategies, this education will transform your relationship with money and set you on the path to financial freedom.
+              </p>
+            </div>
+          </div>
 
           {/* Financial Literacy Library */}
           <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30 mb-8">
@@ -1509,6 +1606,229 @@ const FinancialLiteracyPage: React.FC = () => {
               Start your financial journey today, and your future self will thank you!
             </p>
           </div>
+
+          {/* Advanced Investment Strategies Section */}
+          <section id="advanced-investing" className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-yellow-400 border-b border-yellow-500/30 pb-2">
+              🎯 Advanced Investment Strategies
+            </h3>
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              Take your investment knowledge to the next level with advanced strategies from world-class investors and financial experts. Learn sophisticated techniques for building and managing investment portfolios.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              <VideoCard
+                videoId="T71ibcZAX3I"
+                title="Warren Buffett's Investment Strategy Explained"
+              />
+              <VideoCard
+                videoId="gFQNPmLKj1k"
+                title="Ray Dalio: How to Build the Perfect Portfolio"
+              />
+              <VideoCard
+                videoId="PHe0bXAIuk0"
+                title="The Psychology of Investing - Behavioral Finance"
+              />
+              <VideoCard
+                videoId="AecvTErBQY8"
+                title="Index Fund Investing vs Active Management"
+              />
+            </div>
+
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/20 mb-6">
+              <h4 className="text-xl font-semibold mb-4 text-yellow-300">Advanced Investment Concepts</h4>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <h5 className="font-semibold text-yellow-200 mb-2">📊 Portfolio Theory</h5>
+                  <ul className="text-sm text-gray-300 space-y-1">
+                    <li>• Modern Portfolio Theory</li>
+                    <li>• Asset allocation models</li>
+                    <li>• Risk-adjusted returns</li>
+                    <li>• Correlation and diversification</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="font-semibold text-yellow-200 mb-2">🎯 Investment Strategies</h5>
+                  <ul className="text-sm text-gray-300 space-y-1">
+                    <li>• Value investing principles</li>
+                    <li>• Growth investing strategies</li>
+                    <li>• Dollar-cost averaging</li>
+                    <li>• Rebalancing techniques</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Personal Finance Mastery Section */}
+          <section id="finance-mastery" className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-yellow-400 border-b border-yellow-500/30 pb-2">
+              💪 Personal Finance Mastery
+            </h3>
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              Master the essential skills of personal finance with expert guidance from top financial educators. Learn practical strategies that you can implement immediately.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              <VideoCard
+                videoId="HQzoZfc3GwQ"
+                title="Two Cents: How to Adult - Personal Finance"
+              />
+              <VideoCard
+                videoId="R2376CwvlZQ"
+                title="Khan Academy: Personal Finance Basics"
+              />
+              <VideoCard
+                videoId="1bMFWOlBhF8"
+                title="The Complete Guide to Emergency Funds"
+              />
+              <VideoCard
+                videoId="eikbQPldhPY"
+                title="How to Pay Off Debt Fast - Debt Snowball Method"
+              />
+            </div>
+
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-green-500/20 mb-6">
+              <h4 className="text-xl font-semibold mb-4 text-green-300">Personal Finance Milestones</h4>
+              <div className="space-y-4">
+                <div className="border-l-4 border-green-500 pl-4">
+                  <h5 className="font-semibold text-green-400 mb-2">🎯 Foundation (Ages 16-25)</h5>
+                  <ul className="text-gray-300 text-sm space-y-1">
+                    <li>• Build emergency fund (GH₵1,000-5,000)</li>
+                    <li>• Establish good credit habits</li>
+                    <li>• Learn budgeting and saving</li>
+                    <li>• Start investing early</li>
+                  </ul>
+                </div>
+                <div className="border-l-4 border-blue-500 pl-4">
+                  <h5 className="font-semibold text-blue-400 mb-2">🚀 Growth (Ages 25-40)</h5>
+                  <ul className="text-gray-300 text-sm space-y-1">
+                    <li>• Maximize income potential</li>
+                    <li>• Build substantial investment portfolio</li>
+                    <li>• Consider real estate investment</li>
+                    <li>• Plan for major life goals</li>
+                  </ul>
+                </div>
+                <div className="border-l-4 border-purple-500 pl-4">
+                  <h5 className="font-semibold text-purple-400 mb-2">💎 Wealth Building (Ages 40+)</h5>
+                  <ul className="text-gray-300 text-sm space-y-1">
+                    <li>• Focus on wealth preservation</li>
+                    <li>• Advanced tax strategies</li>
+                    <li>• Estate planning</li>
+                    <li>• Financial independence</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Cryptocurrency & Modern Finance Section */}
+          <section id="crypto-modern" className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-yellow-400 border-b border-yellow-500/30 pb-2">
+              ₿ Cryptocurrency & Modern Finance
+            </h3>
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              Understand the new world of digital finance, cryptocurrency, and modern financial technologies. Learn how to navigate this evolving landscape safely and profitably.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              <VideoCard
+                videoId="VYWc9dFqROI"
+                title="Cryptocurrency Explained Simply"
+              />
+              <VideoCard
+                videoId="bBC-nXj3Ng4"
+                title="Bitcoin vs Traditional Investing"
+              />
+              <VideoCard
+                videoId="jhaNkF2GNsw"
+                title="DeFi Explained: Decentralized Finance"
+              />
+              <VideoCard
+                videoId="1YyAzVmP9xQ"
+                title="How to Invest in Crypto Safely"
+              />
+            </div>
+
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-blue-500/20 mb-6">
+              <h4 className="text-xl font-semibold mb-4 text-blue-300">⚠️ Crypto Investment Guidelines</h4>
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <h5 className="font-semibold text-blue-200 mb-2">✅ Smart Practices</h5>
+                  <ul className="text-gray-300 space-y-1">
+                    <li>• Only invest what you can afford to lose</li>
+                    <li>• Research thoroughly before investing</li>
+                    <li>• Use reputable exchanges</li>
+                    <li>• Understand the technology</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="font-semibold text-red-200 mb-2">❌ Avoid These Mistakes</h5>
+                  <ul className="text-gray-300 space-y-1">
+                    <li>• FOMO (Fear of Missing Out) investing</li>
+                    <li>• Putting all money in crypto</li>
+                    <li>• Following social media hype</li>
+                    <li>• Ignoring security practices</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Financial Independence & Early Retirement Section */}
+          <section id="fire-movement" className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-yellow-400 border-b border-yellow-500/30 pb-2">
+              🔥 FIRE Movement: Financial Independence & Early Retirement
+            </h3>
+            <p className="text-lg text-gray-300 leading-relaxed mb-6">
+              Learn about the FIRE (Financial Independence, Retire Early) movement and how young people are achieving financial freedom decades before traditional retirement age.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6 mb-8">
+              <VideoCard
+                videoId="eikbQPldhPY"
+                title="How to Retire Early - FIRE Movement Explained"
+              />
+              <VideoCard
+                videoId="T71ibcZAX3I"
+                title="Living Below Your Means - Extreme Saving"
+              />
+              <VideoCard
+                videoId="gFQNPmLKj1k"
+                title="Building Multiple Income Streams"
+              />
+              <VideoCard
+                videoId="PHe0bXAIuk0"
+                title="The 4% Rule for Early Retirement"
+              />
+            </div>
+
+            <div className="bg-gray-900/50 p-6 rounded-lg border border-orange-500/20 mb-6">
+              <h4 className="text-xl font-semibold mb-4 text-orange-300">🔥 FIRE Strategy Breakdown</h4>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <h5 className="font-semibold text-orange-200 mb-2">💰 Lean FIRE</h5>
+                  <p className="text-gray-300 text-sm mb-2">Target: GH₵250,000 - 500,000</p>
+                  <ul className="text-gray-300 text-sm space-y-1">
+                    <li>• Minimalist lifestyle</li>
+                    <li>• Lower expenses</li>
+                    <li>• Geographic arbitrage</li>
+                    <li>• Simple living</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="font-semibold text-orange-200 mb-2">🏆 Fat FIRE</h5>
+                  <p className="text-gray-300 text-sm mb-2">Target: GH₵1,000,000+</p>
+                  <ul className="text-gray-300 text-sm space-y-1">
+                    <li>• Maintain current lifestyle</li>
+                    <li>• Higher income required</li>
+                    <li>• More investment capital</li>
+                    <li>• Luxury in retirement</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
 
 
         </section>
