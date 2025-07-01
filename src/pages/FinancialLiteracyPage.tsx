@@ -141,7 +141,7 @@ const FinancialLiteracyPage: React.FC = () => {
       <Header />
 
       {/* Back Navigation Bar - Sticks directly to header */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40 -mt-16">
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
         <div className="w-full px-3 sm:px-4 md:px-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
@@ -192,6 +192,28 @@ const FinancialLiteracyPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Header Image Section - Money & Finance */}
+      <div
+        className="relative h-48 sm:h-60 md:h-72 overflow-hidden"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+        <div className="relative h-full flex items-end justify-start px-3 sm:px-4 pb-6 sm:pb-8">
+          <div>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+              💰 Financial Literacy & Wealth Building
+            </h1>
+            <p className="text-sm sm:text-base text-gray-200 max-w-xl leading-relaxed">
+              ✨ Master Money Management, Investment Strategies & Build Lasting Wealth Through Education
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content - Edge to Edge */}
       <div className="w-full">
 
@@ -200,9 +222,6 @@ const FinancialLiteracyPage: React.FC = () => {
 
           {/* Introduction Section */}
           <div className="mb-6">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-yellow-400">
-            Master Your Financial Future
-          </h2>
           <p className="text-lg text-gray-300 leading-relaxed mb-6">
             Financial literacy is one of the most important life skills you can develop as a student. Understanding how to manage money, save for the future, and make smart financial decisions will set you up for success throughout your life. This comprehensive guide will teach you everything you need to know about personal finance, from basic budgeting to advanced investing concepts.
           </p>
