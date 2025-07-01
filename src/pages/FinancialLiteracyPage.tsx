@@ -232,7 +232,7 @@ const FinancialLiteracyPage: React.FC = () => {
 
             <div className="space-y-6 text-gray-300 leading-relaxed">
               <p className="text-lg">
-                <strong className="text-yellow-300">Financial literacy is the cornerstone of personal freedom and economic empowerment.</strong> It encompasses the knowledge, skills, and confidence needed to make informed financial decisions that lead to financial security, independence, and wealth creation. In today's complex economic landscape, understanding money management is not optional—it's essential for survival and prosperity.
+                <strong className="text-yellow-300">Financial literacy is the cornerstone of personal freedom and economic empowerment.</strong> It encompasses the knowledge, skills, and confidence needed to make informed financial decisions that lead to financial security, independence, and wealth creation. In today's complex economic landscape, understanding money management is not optional - it's essential for survival and prosperity.
               </p>
 
               <div className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/20">
@@ -278,7 +278,7 @@ const FinancialLiteracyPage: React.FC = () => {
               </div>
 
               <p>
-                <strong className="text-yellow-300">The journey to financial mastery begins with understanding fundamental concepts.</strong> Money is a tool that, when properly understood and managed, becomes a powerful force for creating opportunities, security, and freedom. The principles of financial literacy are universal—they apply whether you're earning your first cedi or managing millions in assets.
+                <strong className="text-yellow-300">The journey to financial mastery begins with understanding fundamental concepts.</strong> Money is a tool that, when properly understood and managed, becomes a powerful force for creating opportunities, security, and freedom. The principles of financial literacy are universal - they apply whether you're earning your first cedi or managing millions in assets.
               </p>
 
               <div className="bg-gray-900/50 p-6 rounded-lg border border-green-500/20">
@@ -289,7 +289,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
                     <h4 className="font-semibold text-green-200 mb-2">📊 Income Optimization</h4>
-                    <p className="text-gray-300">Maximize earning potential through education, skills development, career advancement, and multiple income streams. Focus on increasing your human capital—your ability to generate income.</p>
+                    <p className="text-gray-300">Maximize earning potential through education, skills development, career advancement, and multiple income streams. Focus on increasing your human capital - your ability to generate income.</p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-green-200 mb-2">💸 Expense Management</h4>
@@ -297,7 +297,7 @@ const FinancialLiteracyPage: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-green-200 mb-2">⏰ Time Advantage</h4>
-                    <p className="text-gray-300">Start early to harness the power of compound interest. Time is your greatest asset in wealth building—every year you delay costs exponentially.</p>
+                    <p className="text-gray-300">Start early to harness the power of compound interest. Time is your greatest asset in wealth building - every year you delay costs exponentially.</p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-green-200 mb-2">📈 Investment Returns</h4>
@@ -307,7 +307,7 @@ const FinancialLiteracyPage: React.FC = () => {
               </div>
 
               <p>
-                <strong className="text-yellow-300">Financial literacy empowers you to break cycles of financial struggle and build generational wealth.</strong> It's about understanding that every financial decision—from daily spending choices to major investment decisions—either moves you closer to or further from your financial goals. The knowledge you gain today becomes the foundation for a lifetime of financial success.
+                <strong className="text-yellow-300">Financial literacy empowers you to break cycles of financial struggle and build generational wealth.</strong> It's about understanding that every financial decision - from daily spending choices to major investment decisions - either moves you closer to or further from your financial goals. The knowledge you gain today becomes the foundation for a lifetime of financial success.
               </p>
 
               <div className="bg-gray-900/50 p-6 rounded-lg border border-red-500/20">
