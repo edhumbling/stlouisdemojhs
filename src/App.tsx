@@ -96,6 +96,7 @@ import DonationThankYouPage from './pages/DonationThankYouPage';
 import AILearningPage from './pages/AILearningPage';
 import StemDeepLearningPage from './pages/StemDeepLearningPage';
 import FinancialLiteracyPage from './pages/FinancialLiteracyPage';
+import FinancialLibraryPage from './pages/FinancialLibraryPage';
 import FinancialLibraryViewerPage from './pages/FinancialLibraryViewerPage';
 
 // Note: Scroll position management is now handled by useEnhancedNavigation hook
@@ -148,6 +149,7 @@ const App: React.FC = () => {
           <Route path="ai-search" element={<AISearchPage />} />
           <Route path="ai" element={<AILearningPage />} />
           <Route path="financialliteracy" element={<FinancialLiteracyPage />} />
+          <Route path="financial-library" element={<FinancialLibraryPage />} />
           <Route path="financial-library/:bookId" element={<FinancialLibraryViewerPage />} />
           <Route path="advice-speeches" element={<AdviceSpeechesPage />} />
           <Route path="gallery" element={<GalleryPage />} />
