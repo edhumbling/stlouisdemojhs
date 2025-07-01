@@ -8,10 +8,19 @@ const FinancialLiteracyPage: React.FC = () => {
   const navigate = useNavigate();
   const [playingVideos, setPlayingVideos] = useState<Set<string>>(new Set());
   const [showNavMenu, setShowNavMenu] = useState(false);
+  const [loadingBook, setLoadingBook] = useState<string | null>(null);
   const navMenuRef = useRef<HTMLDivElement>(null);
 
   const handleBack = () => {
     navigate('/');
+  };
+
+  const handleBookNavigation = (bookId: string, bookTitle: string) => {
+    setLoadingBook(bookId);
+    // Add a small delay to show the loading effect
+    setTimeout(() => {
+      navigate(`/financial-library/${bookId}`);
+    }, 500);
   };
 
   const toggleVideo = (videoId: string) => {
@@ -220,25 +229,58 @@ const FinancialLiteracyPage: React.FC = () => {
                 <h4 className="text-lg font-semibold text-yellow-200 mb-3">📖 Classic Wisdom</h4>
                 <div className="space-y-2">
                   <button
-                    onClick={() => navigate('/financial-library/richest-man-babylon')}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                    onClick={() => handleBookNavigation('richest-man-babylon', 'The Richest Man in Babylon')}
+                    disabled={loadingBook === 'richest-man-babylon'}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
                   >
-                    <div className="font-medium text-white">The Richest Man in Babylon</div>
-                    <div className="text-sm text-gray-300">George Clason</div>
+                    {loadingBook === 'richest-man-babylon' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        The Richest Man in Babylon
+                        {loadingBook === 'richest-man-babylon' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">George Clason</div>
+                    </div>
                   </button>
                   <button
-                    onClick={() => navigate('/financial-library/rich-dad-poor-dad')}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                    onClick={() => handleBookNavigation('rich-dad-poor-dad', 'Rich Dad Poor Dad')}
+                    disabled={loadingBook === 'rich-dad-poor-dad'}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
                   >
-                    <div className="font-medium text-white">Rich Dad Poor Dad</div>
-                    <div className="text-sm text-gray-300">Robert Kiyosaki</div>
+                    {loadingBook === 'rich-dad-poor-dad' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Rich Dad Poor Dad
+                        {loadingBook === 'rich-dad-poor-dad' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Robert Kiyosaki</div>
+                    </div>
                   </button>
                   <button
-                    onClick={() => navigate('/financial-library/millionaire-next-door')}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                    onClick={() => handleBookNavigation('millionaire-next-door', 'The Millionaire Next Door')}
+                    disabled={loadingBook === 'millionaire-next-door'}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
                   >
-                    <div className="font-medium text-white">The Millionaire Next Door</div>
-                    <div className="text-sm text-gray-300">Stanley & Danko</div>
+                    {loadingBook === 'millionaire-next-door' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        The Millionaire Next Door
+                        {loadingBook === 'millionaire-next-door' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Stanley & Danko</div>
+                    </div>
                   </button>
                 </div>
               </div>
@@ -248,25 +290,58 @@ const FinancialLiteracyPage: React.FC = () => {
                 <h4 className="text-lg font-semibold text-yellow-200 mb-3">💡 Modern Strategies</h4>
                 <div className="space-y-2">
                   <button
-                    onClick={() => navigate('/financial-library/psychology-of-money')}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                    onClick={() => handleBookNavigation('psychology-of-money', 'The Psychology of Money')}
+                    disabled={loadingBook === 'psychology-of-money'}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
                   >
-                    <div className="font-medium text-white">The Psychology of Money</div>
-                    <div className="text-sm text-gray-300">Morgan Housel</div>
+                    {loadingBook === 'psychology-of-money' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        The Psychology of Money
+                        {loadingBook === 'psychology-of-money' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Morgan Housel</div>
+                    </div>
                   </button>
                   <button
-                    onClick={() => navigate('/financial-library/total-money-makeover')}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                    onClick={() => handleBookNavigation('total-money-makeover', 'The Total Money Makeover')}
+                    disabled={loadingBook === 'total-money-makeover'}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
                   >
-                    <div className="font-medium text-white">The Total Money Makeover</div>
-                    <div className="text-sm text-gray-300">Dave Ramsey</div>
+                    {loadingBook === 'total-money-makeover' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        The Total Money Makeover
+                        {loadingBook === 'total-money-makeover' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Dave Ramsey</div>
+                    </div>
                   </button>
                   <button
-                    onClick={() => navigate('/financial-library/if-you-can')}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                    onClick={() => handleBookNavigation('if-you-can', 'If You Can')}
+                    disabled={loadingBook === 'if-you-can'}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
                   >
-                    <div className="font-medium text-white">If You Can</div>
-                    <div className="text-sm text-gray-300">William Bernstein</div>
+                    {loadingBook === 'if-you-can' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        If You Can
+                        {loadingBook === 'if-you-can' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">William Bernstein</div>
+                    </div>
                   </button>
                 </div>
               </div>
@@ -276,11 +351,22 @@ const FinancialLiteracyPage: React.FC = () => {
                 <h4 className="text-lg font-semibold text-yellow-200 mb-3">🏛️ Official Resources</h4>
                 <div className="space-y-2">
                   <button
-                    onClick={() => navigate('/financial-library/practical-money-skills')}
-                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                    onClick={() => handleBookNavigation('practical-money-skills', 'Practical Money Skills')}
+                    disabled={loadingBook === 'practical-money-skills'}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
                   >
-                    <div className="font-medium text-white">Practical Money Skills</div>
-                    <div className="text-sm text-gray-300">Visa Foundation</div>
+                    {loadingBook === 'practical-money-skills' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Practical Money Skills
+                        {loadingBook === 'practical-money-skills' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Visa Foundation</div>
+                    </div>
                   </button>
                   <a
                     href="https://www.fdic.gov/consumer-resource-center/money-smart-young-people"

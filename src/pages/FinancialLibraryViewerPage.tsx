@@ -3,6 +3,7 @@ import { ArrowLeft, Download, ExternalLink, FileText } from 'lucide-react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import SEOHead from '../components/seo/SEOHead';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface FinancialBook {
   id: string;
@@ -19,6 +20,8 @@ const FinancialLibraryViewerPage: React.FC = () => {
   const { bookId } = useParams<{ bookId: string }>();
   const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [pdfLoaded, setPdfLoaded] = useState(false);
   const { setShowHeader } = useHeader();
 
   // Financial books database
@@ -116,11 +119,32 @@ const FinancialLibraryViewerPage: React.FC = () => {
   useEffect(() => {
     if (bookId && financialBooks[bookId]) {
       setSelectedBook(financialBooks[bookId]);
+      // Reset loading states when book changes
+      setIsLoading(true);
+      setPdfLoaded(false);
+
+      // Initial loading timer
+      const loadingTimer = setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
+
+      return () => clearTimeout(loadingTimer);
     } else {
       // Redirect to financial literacy page if book not found
       navigate('/financialliteracy');
     }
   }, [bookId, navigate]);
+
+  // Handle PDF load events
+  const handlePdfLoad = () => {
+    setPdfLoaded(true);
+    setIsLoading(false);
+  };
+
+  const handlePdfError = () => {
+    setPdfLoaded(false);
+    setIsLoading(false);
+  };
 
   // Control header visibility
   useEffect(() => {
@@ -137,6 +161,52 @@ const FinancialLibraryViewerPage: React.FC = () => {
       document.body.style.overflow = 'unset';
     };
   }, []);
+
+  // Silver shimmer loading component
+  const SilverShimmerLoader = () => (
+    <div className="w-full h-full bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 relative overflow-hidden">
+      {/* Animated silver shimmer effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent transform -skew-x-12 animate-shimmer"></div>
+
+      {/* Content placeholder */}
+      <div className="flex flex-col items-center justify-center h-full p-8">
+        <div className="w-20 h-20 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full mb-6 animate-pulse shadow-lg"></div>
+
+        <div className="text-center space-y-4">
+          <div className="h-6 bg-gradient-to-r from-gray-300 to-gray-400 rounded-lg w-64 animate-pulse"></div>
+          <div className="h-4 bg-gradient-to-r from-gray-300 to-gray-400 rounded-lg w-48 animate-pulse"></div>
+          <div className="h-4 bg-gradient-to-r from-gray-300 to-gray-400 rounded-lg w-56 animate-pulse"></div>
+        </div>
+
+        {/* Loading text */}
+        <div className="mt-8 text-center">
+          <div className="text-lg font-semibold text-gray-600 mb-2">Loading {selectedBook?.title}</div>
+          <div className="text-sm text-gray-500">Preparing your reading experience...</div>
+        </div>
+
+        {/* Loading dots animation */}
+        <div className="flex space-x-2 mt-6">
+          <div className="w-3 h-3 bg-gray-400 rounded-full animate-bounce"></div>
+          <div className="w-3 h-3 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+          <div className="w-3 h-3 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+        </div>
+      </div>
+
+      {/* Additional shimmer lines for document effect */}
+      <div className="absolute top-20 left-8 right-8 space-y-3">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="h-3 bg-gradient-to-r from-gray-300 to-gray-400 rounded animate-pulse"
+            style={{
+              width: `${Math.random() * 40 + 60}%`,
+              animationDelay: `${i * 0.1}s`
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
 
   if (!selectedBook) {
     return null;
@@ -200,52 +270,78 @@ const FinancialLibraryViewerPage: React.FC = () => {
         </div>
       </div>
 
-      {/* PDF Viewer */}
+      {/* PDF Viewer with Loading States */}
       <div className="flex-1 relative">
-        {isMobile ? (
-          /* Google Docs Viewer for Mobile PDFs */
-          <div className="w-full h-full bg-white">
-            <iframe
-              src={getGooglePdfViewerUrl(selectedBook.url)}
-              className="w-full h-full border-0"
-              title={`${selectedBook.title} - Mobile PDF Viewer`}
-              loading="lazy"
-            />
+        {/* Show shimmer loader while loading */}
+        {isLoading && (
+          <div className="absolute inset-0 z-10">
+            <SilverShimmerLoader />
           </div>
-        ) : (
-          /* Native PDF Viewer for Desktop */
-          <div className="w-full h-full bg-white">
-            <object
-              data={selectedBook.url}
-              type="application/pdf"
-              className="w-full h-full"
-            >
-              {/* Fallback to Google Viewer for browsers that don't support object tag */}
+        )}
+
+        {/* PDF Content */}
+        <div className={`w-full h-full transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+          {isMobile ? (
+            /* Google Docs Viewer for Mobile PDFs */
+            <div className="w-full h-full bg-white">
               <iframe
                 src={getGooglePdfViewerUrl(selectedBook.url)}
                 className="w-full h-full border-0"
-                title={selectedBook.title}
+                title={`${selectedBook.title} - Mobile PDF Viewer`}
+                loading="lazy"
+                onLoad={handlePdfLoad}
+                onError={handlePdfError}
+              />
+            </div>
+          ) : (
+            /* Native PDF Viewer for Desktop */
+            <div className="w-full h-full bg-white">
+              <object
+                data={selectedBook.url}
+                type="application/pdf"
+                className="w-full h-full"
+                onLoad={handlePdfLoad}
+                onError={handlePdfError}
               >
-                {/* Final fallback message */}
-                <div className="flex items-center justify-center w-full h-full bg-gray-50">
-                  <div className="text-center max-w-md px-6">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <FileText className="w-8 h-8 text-yellow-600" />
+                {/* Fallback to Google Viewer for browsers that don't support object tag */}
+                <iframe
+                  src={getGooglePdfViewerUrl(selectedBook.url)}
+                  className="w-full h-full border-0"
+                  title={selectedBook.title}
+                  onLoad={handlePdfLoad}
+                  onError={handlePdfError}
+                >
+                  {/* Final fallback message */}
+                  <div className="flex items-center justify-center w-full h-full bg-gray-50">
+                    <div className="text-center max-w-md px-6">
+                      <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <FileText className="w-8 h-8 text-yellow-600" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
+                      <p className="text-gray-600 mb-6">
+                        Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
+                      </p>
+                      <button
+                        onClick={() => window.location.reload()}
+                        className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+                      >
+                        Refresh Page
+                      </button>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
-                    <p className="text-gray-600 mb-6">
-                      Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
-                    </p>
-                    <button
-                      onClick={() => window.location.reload()}
-                      className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-                    >
-                      Refresh Page
-                    </button>
                   </div>
-                </div>
-              </iframe>
-            </object>
+                </iframe>
+              </object>
+            </div>
+          )}
+        </div>
+
+        {/* Loading indicator overlay for additional feedback */}
+        {isLoading && (
+          <div className="absolute bottom-4 right-4 z-20">
+            <div className="bg-black/70 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+              <span className="text-sm">Loading PDF...</span>
+            </div>
           </div>
         )}
       </div>
