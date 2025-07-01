@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Heart, ArrowLeft, BookOpen } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
-import SocialMediaDebugger from '../components/debug/SocialMediaDebugger';
 import { useDeviceDetection } from '../hooks/useDeviceDetection';
 
 const DonationPage: React.FC = () => {
@@ -1245,14 +1244,6 @@ const DonationPage: React.FC = () => {
         </div>
       </motion.section>
       </motion.div>
-
-      {/* Social Media Debug Tool - Temporarily enabled for testing */}
-      <SocialMediaDebugger
-        url="https://stlouisdemojhs.com/donate"
-        title="Donate | Support Our Educational Mission & Student Development - St. Louis Demonstration JHS"
-        description="Support quality education at St. Louis Demonstration JHS with your generous donation. Help us provide better facilities, resources, and opportunities for our students. Every contribution makes a difference in shaping young minds for Ghana's future."
-        image="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png"
-      />
     </>
   );
 };
