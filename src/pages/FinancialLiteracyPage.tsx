@@ -136,39 +136,34 @@ const FinancialLiteracyPage: React.FC = () => {
 
       <Header />
 
-      {/* Back Navigation Bar - LearnHub Style - Sticks directly to header */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 sticky top-16 z-40 -mt-1">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <button
-              onClick={handleBack}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
-            >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-              <span>Back</span>
-            </button>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
-                💰 Financial Literacy & Wealth Building
-              </h1>
-              <p className="text-sm text-yellow-200 truncate">
-                Complete guide to financial freedom and wealth creation
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Back Navigation Bar - Space Exploration Style */}
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
+        <div className="w-full px-2 sm:px-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
+              <button
+                onClick={handleBack}
+                className="inline-flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                <span className="hidden xs:inline sm:hidden md:inline">Back</span>
+                <span className="hidden sm:inline md:hidden">Home</span>
+                <span className="hidden md:inline">Back to Home</span>
+              </button>
 
-      {/* Navigation Menu Section */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 border-t border-yellow-700/30">
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex justify-end">
+              <h1 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-bold text-white truncate">
+                <span className="hidden sm:inline">💰 Financial Literacy & Wealth Building</span>
+                <span className="sm:hidden">💰 Finance</span>
+              </h1>
+            </div>
+
+            {/* Navigation Menu */}
             <div className="relative" ref={navMenuRef}>
               <button
                 onClick={() => setShowNavMenu(!showNavMenu)}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-yellow-500/30"
+                className="inline-flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-yellow-500/30"
               >
-                <Menu size={14} className="sm:w-4 sm:h-4" />
+                <Menu size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
                 <span className="hidden sm:inline">Navigate</span>
                 <ChevronDown size={12} className={`sm:w-3.5 sm:h-3.5 transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
               </button>
