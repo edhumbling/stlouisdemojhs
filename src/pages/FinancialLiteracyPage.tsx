@@ -124,7 +124,7 @@ const FinancialLiteracyPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white -mt-16 pt-16">
+    <div className="min-h-screen bg-black text-white">
       <SEOHead
         title="Financial Literacy for Students | Complete Money Management Guide - St. Louis Demonstration JHS"
         description="Master financial literacy with our comprehensive guide for students. Learn budgeting, saving, banking, investing, and money management skills essential for financial success in Ghana and beyond."
