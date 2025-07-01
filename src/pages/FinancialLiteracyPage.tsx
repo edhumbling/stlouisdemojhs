@@ -1832,7 +1832,6 @@ const FinancialLiteracyPage: React.FC = () => {
 
         </div>
       </div>
-    </div>
   );
 };
 
