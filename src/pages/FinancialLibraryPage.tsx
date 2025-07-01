@@ -359,6 +359,108 @@ const FinancialLibraryPage: React.FC = () => {
       pages: 304,
       description: 'The decentralized alternative to central banking.',
       topics: ['Bitcoin', 'Monetary Theory', 'Digital Currency', 'Economic History']
+    },
+
+    // Additional Popular Financial Books
+    {
+      id: 'money-master-the-game',
+      title: 'MONEY Master the Game',
+      author: 'Tony Robbins',
+      category: 'modern',
+      rating: 4.0,
+      pages: 688,
+      description: '7 simple steps to financial freedom from the world\'s top financial experts.',
+      topics: ['Financial Freedom', 'Investment Strategy', 'Wealth Building', 'Financial Planning']
+    },
+    {
+      id: 'millionaire-fastlane',
+      title: 'The Millionaire Fastlane',
+      author: 'M.J. DeMarco',
+      category: 'business',
+      rating: 4.3,
+      pages: 337,
+      description: 'Crack the code to wealth and live rich for a lifetime through entrepreneurship.',
+      topics: ['Entrepreneurship', 'Wealth Creation', 'Business Strategy', 'Financial Independence']
+    },
+    {
+      id: 'die-with-zero',
+      title: 'Die with Zero',
+      author: 'Bill Perkins',
+      category: 'modern',
+      rating: 3.9,
+      pages: 256,
+      description: 'Getting all you can from your money and your life through optimal spending.',
+      topics: ['Life Optimization', 'Spending Strategy', 'Experience Economy', 'Financial Philosophy']
+    },
+    {
+      id: 'broke-millennial',
+      title: 'Broke Millennial',
+      author: 'Erin Lowry',
+      category: 'modern',
+      rating: 3.9,
+      pages: 272,
+      description: 'Stop scraping by and get your financial life together with practical advice for young adults.',
+      topics: ['Young Adult Finance', 'Budgeting', 'Debt Management', 'Financial Basics']
+    },
+    {
+      id: 'secrets-millionaire-mind',
+      title: 'Secrets of the Millionaire Mind',
+      author: 'T. Harv Eker',
+      category: 'mindset',
+      rating: 4.2,
+      pages: 224,
+      description: 'Mastering the inner game of wealth through mindset transformation.',
+      topics: ['Wealth Mindset', 'Money Psychology', 'Success Principles', 'Mental Programming']
+    },
+    {
+      id: 'wealthy-barber',
+      title: 'The Wealthy Barber',
+      author: 'David Chilton',
+      category: 'classic',
+      rating: 4.0,
+      pages: 224,
+      description: 'Common sense guide to successful financial planning told through engaging stories.',
+      topics: ['Financial Planning', 'Saving Strategies', 'Investment Basics', 'Retirement Planning']
+    },
+    {
+      id: 'four-pillars-investing',
+      title: 'The Four Pillars of Investing',
+      author: 'William J. Bernstein',
+      category: 'investing',
+      rating: 4.2,
+      pages: 384,
+      description: 'Lessons for building a winning portfolio based on theory, history, psychology, and business.',
+      topics: ['Portfolio Theory', 'Investment History', 'Behavioral Finance', 'Asset Allocation']
+    },
+    {
+      id: 'you-need-budget',
+      title: 'You Need a Budget',
+      author: 'Jesse Mecham',
+      category: 'modern',
+      rating: 4.1,
+      pages: 272,
+      description: 'The proven system for breaking the paycheck-to-paycheck cycle and building wealth.',
+      topics: ['Budgeting System', 'Financial Control', 'Debt Elimination', 'Money Management']
+    },
+    {
+      id: 'millionaire-mind',
+      title: 'The Millionaire Mind',
+      author: 'Thomas J. Stanley',
+      category: 'classic',
+      rating: 4.2,
+      pages: 416,
+      description: 'What makes the wealthy different - their habits, strategies, and mindset.',
+      topics: ['Wealth Psychology', 'Success Habits', 'Millionaire Behavior', 'Financial Mindset']
+    },
+    {
+      id: 'almanack-naval-ravikant',
+      title: 'The Almanack of Naval Ravikant',
+      author: 'Eric Jorgenson',
+      category: 'modern',
+      rating: 4.4,
+      pages: 242,
+      description: 'A guide to wealth and happiness from Silicon Valley\'s most successful angel investor.',
+      topics: ['Wealth Creation', 'Happiness', 'Decision Making', 'Life Philosophy']
     }
   ];
 
