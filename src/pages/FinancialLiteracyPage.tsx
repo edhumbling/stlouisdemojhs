@@ -429,10 +429,31 @@ const FinancialLiteracyPage: React.FC = () => {
             </h3>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="sVKQn2R7eys" title="Complete Budgeting Guide" />
-              <VideoCard videoId="7lHNMGoACdQ" title="Budgeting for Beginners" />
-              <VideoCard videoId="R2376CwvlZQ" title="Money Saving Tips" />
-              <VideoCard videoId="1bMFWOlBhF8" title="Save Money Fast" />
+              <VideoCard videoId="sT_iw2c7BXI" title="Financial Education Fundamentals" />
+              <VideoCard videoId="5eM3bW3L3Zw" title="Money Management Basics" />
+              <VideoCard videoId="4L6-2Y3vZr8" title="Personal Finance Strategy" />
+              <VideoCard videoId="O0JKn0JBRYQ" title="Wealth Building Principles" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="8JMPgR3mO_k" title="Investment Fundamentals" />
+              <VideoCard videoId="9x0_3cU3e0c" title="Budgeting Mastery" />
+              <VideoCard videoId="5wWKN9sF0eE" title="Financial Planning Guide" />
+              <VideoCard videoId="7Zu0lxn7R8E" title="Money Mindset Training" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="2mIikP-7P9k" title="Saving Strategies" />
+              <VideoCard videoId="6W0MZq4Tk2k" title="Debt Management" />
+              <VideoCard videoId="Zt6XNlirMTQ" title="Financial Goals Setting" />
+              <VideoCard videoId="4gM-Ai3vT0A" title="Emergency Fund Building" />
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <VideoCard videoId="3B1sI2eZ1Y4" title="Credit Score Improvement" />
+              <VideoCard videoId="8y0qO0gXv3o" title="Retirement Planning" />
+              <VideoCard videoId="0QjF8fY1o2w" title="Tax Planning Basics" />
+              <VideoCard videoId="1hK1k4h3X8c" title="Insurance Essentials" />
             </div>
           </div>
         </div>
