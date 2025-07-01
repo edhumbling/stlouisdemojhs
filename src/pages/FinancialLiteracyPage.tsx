@@ -1133,7 +1133,7 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <h4 className="text-xl font-semibold mb-4 text-yellow-300">Emergency Fund: Your Financial Safety Net</h4>
           <p className="text-gray-300 mb-4">
-            An emergency fund is money set aside for unexpected expenses like medical bills, car repairs, or temporary loss of income. As a student, aim to save at least GH₵500-1000 for emergencies.
+            An emergency fund is money set aside for unexpected expenses like medical bills, car repairs, or temporary loss of income. As a student, aim to save at least GH¢500-1000 for emergencies.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -1459,7 +1459,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 <ul className="text-gray-300 text-sm space-y-1">
                   <li>• New smartphone or laptop</li>
                   <li>• School trip or excursion</li>
-                  <li>• Emergency fund (GH₵500-1000)</li>
+                  <li>• Emergency fund (GH¢500-1000)</li>
                   <li>• Birthday or holiday gifts</li>
                 </ul>
               </div>
@@ -1694,7 +1694,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 <div className="border-l-4 border-green-500 pl-4">
                   <h5 className="font-semibold text-green-400 mb-2">🎯 Foundation (Ages 16-25)</h5>
                   <ul className="text-gray-300 text-sm space-y-1">
-                    <li>• Build emergency fund (GH₵1,000-5,000)</li>
+                    <li>• Build emergency fund (GH¢1,000-5,000)</li>
                     <li>• Establish good credit habits</li>
                     <li>• Learn budgeting and saving</li>
                     <li>• Start investing early</li>
@@ -1808,7 +1808,7 @@ const FinancialLiteracyPage: React.FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <h5 className="font-semibold text-orange-200 mb-2">💰 Lean FIRE</h5>
-                  <p className="text-gray-300 text-sm mb-2">Target: GH₵250,000 - 500,000</p>
+                  <p className="text-gray-300 text-sm mb-2">Target: GH¢250,000 - 500,000</p>
                   <ul className="text-gray-300 text-sm space-y-1">
                     <li>• Minimalist lifestyle</li>
                     <li>• Lower expenses</li>
@@ -1818,7 +1818,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 </div>
                 <div>
                   <h5 className="font-semibold text-orange-200 mb-2">🏆 Fat FIRE</h5>
-                  <p className="text-gray-300 text-sm mb-2">Target: GH₵1,000,000+</p>
+                  <p className="text-gray-300 text-sm mb-2">Target: GH¢1,000,000+</p>
                   <ul className="text-gray-300 text-sm space-y-1">
                     <li>• Maintain current lifestyle</li>
                     <li>• Higher income required</li>
