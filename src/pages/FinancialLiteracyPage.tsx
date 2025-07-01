@@ -137,7 +137,7 @@ const FinancialLiteracyPage: React.FC = () => {
       <Header />
 
       {/* Back Navigation Bar - Space Exploration Style */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40 -mt-4">
         <div className="w-full px-2 sm:px-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
