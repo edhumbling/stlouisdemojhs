@@ -140,59 +140,51 @@ const FinancialLiteracyPage: React.FC = () => {
 
       <Header />
 
-      {/* Back Bar - Stuck to header */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 sticky top-16 z-40 border-b border-yellow-700/30">
-        <div className="px-4 sm:px-6 lg:px-8">
+      {/* Back Navigation Bar - Mobile Compact, Desktop Normal */}
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
+        <div className="w-full px-3 sm:px-4 md:px-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
               <button
                 onClick={handleBack}
-                className="flex items-center gap-2 text-yellow-100 hover:text-white transition-colors duration-200 group"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
               >
-                <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-200" />
-                <span className="font-medium">Back</span>
+                <ArrowLeft size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                <span>Back</span>
               </button>
 
-              <div className="flex items-center gap-3">
-                <div className="bg-yellow-600/20 p-2 rounded-lg border border-yellow-500/30">
-                  <DollarSign size={24} className="text-yellow-400" />
-                </div>
-                <div>
-                  <h1 className="text-lg sm:text-xl font-bold text-white">Financial Literacy</h1>
-                  <p className="text-xs sm:text-sm text-yellow-200">Master Money Management Skills</p>
-                </div>
-              </div>
+              <h1 className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
+                💰 Financial Literacy
+              </h1>
             </div>
 
-            {/* Navigation Menu Button */}
+            {/* Navigation Menu - Mobile Compact, Desktop Normal */}
             <div className="relative" ref={navMenuRef}>
               <button
                 onClick={() => setShowNavMenu(!showNavMenu)}
-                className="flex items-center gap-2 bg-yellow-600/20 hover:bg-yellow-600/30 px-3 py-2 rounded-lg border border-yellow-500/30 transition-colors duration-200"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-yellow-500/30"
               >
-                <Menu size={18} className="text-yellow-400" />
-                <span className="text-sm font-medium text-yellow-100 hidden sm:inline">Navigate</span>
-                <ChevronDown size={16} className={`text-yellow-400 transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
+                <Menu size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                <span className="hidden sm:inline">Navigate</span>
+                <ChevronDown size={12} className={`sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
               </button>
 
-              {/* Navigation Dropdown */}
+              {/* Dropdown Menu */}
               {showNavMenu && (
-                <div className="absolute right-0 top-full mt-2 w-64 bg-gray-900/95 backdrop-blur-sm border border-yellow-500/30 rounded-lg shadow-xl z-50">
-                  <div className="p-2">
-                    <div className="text-xs font-semibold text-yellow-400 px-3 py-2 border-b border-yellow-500/20 mb-2">
-                      Quick Navigation
-                    </div>
-                    {navigationSections.map((section) => (
-                      <button
-                        key={section.id}
-                        onClick={() => scrollToSection(section.id)}
-                        className="w-full flex items-center gap-3 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-yellow-600/20 rounded-md transition-colors duration-200"
-                      >
-                        <span className="text-lg">{section.icon}</span>
-                        <span>{section.title}</span>
-                      </button>
-                    ))}
+                <div className="absolute right-0 top-full mt-2 w-64 bg-gray-900/95 backdrop-blur-sm rounded-lg shadow-2xl border border-gray-700/50 py-2 z-50">
+                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-700/50">
+                    Quick Navigation
                   </div>
+                  {navigationSections.map((section, index) => (
+                    <button
+                      key={section.id}
+                      onClick={() => scrollToSection(section.id)}
+                      className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-yellow-600/30 transition-colors duration-200 text-sm"
+                    >
+                      <span className="text-lg">{section.icon}</span>
+                      <span className="text-white font-medium">{section.title}</span>
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
@@ -200,11 +192,14 @@ const FinancialLiteracyPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content - Edge to edge, no containers, no gaps */}
-      <div className="px-4 sm:px-6 lg:px-8">
+      {/* Main Content - Edge to Edge */}
+      <div className="w-full">
 
-        {/* Introduction Section */}
-        <div className="mb-12 pt-8">
+        {/* Word Document Style Content - Edge to Edge */}
+        <div className="w-full bg-black px-3 sm:px-4 py-6">
+
+          {/* Introduction Section */}
+          <div className="mb-6">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-yellow-400">
             Master Your Financial Future
           </h2>
@@ -1021,6 +1016,7 @@ const FinancialLiteracyPage: React.FC = () => {
 
         </section>
 
+        </div>
       </div>
     </div>
   );
