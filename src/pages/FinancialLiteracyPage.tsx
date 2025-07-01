@@ -148,33 +148,41 @@ const FinancialLiteracyPage: React.FC = () => {
 
       <Header />
 
-      {/* Back Navigation Bar - Sticks directly to header */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
-        <div className="w-full px-3 sm:px-4 md:px-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-              <button
-                onClick={handleBack}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
-              >
-                <ArrowLeft size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                <span>Back</span>
-              </button>
-
-              <h1 className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                💰 Financial Literacy
+      {/* Back Navigation Bar - LearnHub Style */}
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 sticky top-16 z-40">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                💰 Financial Literacy & Wealth Building
               </h1>
+              <p className="text-sm text-yellow-200 truncate">
+                Complete guide to financial freedom and wealth creation
+              </p>
             </div>
+          </div>
+        </div>
+      </div>
 
-            {/* Navigation Menu - Mobile Compact, Desktop Normal */}
+      {/* Navigation Menu Section */}
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 border-t border-yellow-700/30">
+        <div className="container mx-auto px-4 py-2">
+          <div className="flex justify-end">
             <div className="relative" ref={navMenuRef}>
               <button
                 onClick={() => setShowNavMenu(!showNavMenu)}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-yellow-500/30"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-yellow-500/30"
               >
-                <Menu size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                <Menu size={14} className="sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline">Navigate</span>
-                <ChevronDown size={12} className={`sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
+                <ChevronDown size={12} className={`sm:w-3.5 sm:h-3.5 transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Dropdown Menu */}
@@ -451,100 +459,161 @@ const FinancialLiteracyPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Saving Strategies Section */}
-          <section id="saving-strategies" className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-yellow-400 border-b border-yellow-500/30 pb-2">
-              💰 Saving Strategies: Building Your Financial Security
-            </h3>
-            <p className="text-lg text-gray-300 leading-relaxed mb-6">
-              Saving money is the foundation of financial security. Learn proven strategies to save more money and build wealth over time.
-            </p>
+          {/* Chapter 5: Investment Fundamentals and Wealth Building */}
+          <div className="mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-yellow-400 underline">
+              Chapter 5: Investment Fundamentals and Wealth Building
+            </h2>
 
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              <VideoCard
-                videoId="R2376CwvlZQ"
-                title="10 Money Saving Tips That Actually Work"
-              />
-              <VideoCard
-                videoId="1bMFWOlBhF8"
-                title="How to Save Money Fast - 20 Money Saving Tips"
-              />
+            <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+              <p>
+                <strong className="text-yellow-300">Investing is how you build long-term wealth.</strong> While saving preserves money, investing grows it. The key principle is that money invested in productive assets (stocks, bonds, real estate, businesses) tends to grow faster than inflation over time, increasing your purchasing power and building wealth.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Compound Interest - The Eighth Wonder:</strong> When you invest, you earn returns on your original investment plus returns on your previous returns. This compounding effect becomes more powerful over time. GH¢1,000 invested at 10% annual return becomes GH¢2,594 after 10 years, GH¢6,727 after 20 years, and GH¢17,449 after 30 years - without adding any more money.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Risk and Return Relationship:</strong> Generally, higher potential returns come with higher risk. Government bonds are safe but offer low returns (3-5%). Stocks are riskier but historically return 8-10% annually. Real estate, commodities, and businesses offer different risk-return profiles. Diversification across asset classes reduces overall portfolio risk.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Dollar-Cost Averaging:</strong> Instead of trying to time the market, invest a fixed amount regularly regardless of market conditions. This strategy reduces the impact of market volatility and removes emotion from investing decisions. Many successful investors use this approach through automatic monthly investments.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Index Fund Investing:</strong> Index funds own small pieces of hundreds or thousands of companies, providing instant diversification at low cost. They consistently outperform most actively managed funds over long periods. Warren Buffett recommends index funds for most investors because they're simple, low-cost, and effective.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Starting Early Advantage:</strong> Time is your greatest asset in investing. Someone who invests GH¢2,000 annually from age 20-30 (GH¢20,000 total) will have more money at retirement than someone who invests GH¢2,000 annually from age 30-65 (GH¢70,000 total), assuming 10% returns. Start investing as soon as you have an emergency fund, even with small amounts.
+              </p>
             </div>
 
-            <h4 className="text-xl font-semibold mb-4 text-yellow-300">Emergency Fund: Your Financial Safety Net</h4>
-            <p className="text-gray-300 mb-4">
-              An emergency fund is money set aside for unexpected expenses like medical bills, car repairs, or temporary loss of income. As a student, aim to save at least GH¢500-1000 for emergencies.
-            </p>
+            {/* Investment Education Videos */}
+            <div className="mt-8">
+              <h3 className="text-lg font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
+                📈 Essential Investment Education Videos
+              </h3>
 
-            <div className="bg-gray-900/50 p-6 rounded-lg border border-green-500/20 mb-6">
-              <h4 className="text-lg font-semibold text-green-300 mb-4">💡 Smart Saving Strategies for Students</h4>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <h5 className="font-semibold text-green-200 mb-2">🎯 The 50/30/20 Rule</h5>
-                  <ul className="space-y-1 text-gray-300">
-                    <li>• 50% for needs (food, transport)</li>
-                    <li>• 30% for wants (entertainment)</li>
-                    <li>• 20% for savings and debt</li>
-                  </ul>
-                </div>
-                <div>
-                  <h5 className="font-semibold text-green-200 mb-2">💰 Automatic Savings</h5>
-                  <ul className="space-y-1 text-gray-300">
-                    <li>• Set up automatic transfers</li>
-                    <li>• Save before you spend</li>
-                    <li>• Use mobile banking apps</li>
-                  </ul>
-                </div>
-                <div>
-                  <h5 className="font-semibold text-green-200 mb-2">🏆 Challenge Yourself</h5>
-                  <ul className="space-y-1 text-gray-300">
-                    <li>• 52-week savings challenge</li>
-                    <li>• Round-up savings</li>
-                    <li>• No-spend days/weeks</li>
-                  </ul>
-                </div>
-                <div>
-                  <h5 className="font-semibold text-green-200 mb-2">📱 Use Technology</h5>
-                  <ul className="space-y-1 text-gray-300">
-                    <li>• Savings apps and tools</li>
-                    <li>• Expense tracking apps</li>
-                    <li>• Goal-based savings</li>
-                  </ul>
-                </div>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <VideoCard videoId="T71ibcZAX3I" title="Warren Buffett Investment Strategy" />
+                <VideoCard videoId="gFQNPmLKj1k" title="Ray Dalio Perfect Portfolio" />
+                <VideoCard videoId="VYWc9dFqROI" title="Investing for Beginners" />
+                <VideoCard videoId="bBC-nXj3Ng4" title="Stock Market Basics" />
+              </div>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <VideoCard videoId="eikbQPldhPY" title="Index Fund Investing" />
+                <VideoCard videoId="T71ibcZAX3I" title="Compound Interest Power" />
+                <VideoCard videoId="HQzoZfc3GwQ" title="Dollar-Cost Averaging" />
+                <VideoCard videoId="R2376CwvlZQ" title="Portfolio Diversification" />
               </div>
             </div>
+          </div>
 
-            <div className="bg-gray-900/50 p-6 rounded-lg border border-yellow-500/20 mb-6">
-              <h4 className="text-lg font-semibold text-yellow-300 mb-4">🎯 Student Savings Goals</h4>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center p-3 bg-black/30 rounded-lg">
-                  <div>
-                    <h5 className="font-semibold text-yellow-200">Short-term (1-6 months)</h5>
-                    <p className="text-gray-300 text-sm">Emergency fund (GH¢500-1000)</p>
-                  </div>
-                  <div className="text-yellow-400 font-bold">Priority: High</div>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-black/30 rounded-lg">
-                  <div>
-                    <h5 className="font-semibold text-green-200">Medium-term (6 months - 2 years)</h5>
-                    <p className="text-gray-300 text-sm">University fees, laptop, skills training</p>
-                  </div>
-                  <div className="text-green-400 font-bold">Priority: Medium</div>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-black/30 rounded-lg">
-                  <div>
-                    <h5 className="font-semibold text-blue-200">Long-term (2+ years)</h5>
-                    <p className="text-gray-300 text-sm">Business startup, investment capital</p>
-                  </div>
-                  <div className="text-blue-400 font-bold">Priority: Future</div>
-                </div>
+          {/* Chapter 6: Entrepreneurship and Business Finance */}
+          <div className="mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-yellow-400 underline">
+              Chapter 6: Entrepreneurship and Business Finance
+            </h2>
+
+            <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+              <p>
+                <strong className="text-yellow-300">Entrepreneurship is one of the fastest paths to wealth creation.</strong> While traditional employment provides steady income, business ownership offers unlimited earning potential and the ability to build assets that generate passive income. Understanding business finance is crucial whether you plan to start your own business or invest in others.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Business Models and Revenue Streams:</strong> Successful businesses solve problems for customers and get paid for that value. Revenue models include one-time sales, subscriptions, licensing, advertising, and commissions. The best businesses have multiple revenue streams and recurring income that provides predictable cash flow.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Cash Flow Management:</strong> Cash flow is the lifeblood of any business. You can be profitable on paper but fail if you run out of cash. Understanding the difference between profit and cash flow, managing accounts receivable and payable, and maintaining adequate working capital are essential business skills.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Scaling and Systems:</strong> Small businesses often fail because they depend entirely on the owner. Successful entrepreneurs build systems and processes that allow the business to operate without their constant involvement. This creates a valuable asset that can be sold or provide passive income.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Investment and Funding:</strong> Understanding how to raise capital, whether through personal savings, loans, investors, or crowdfunding, is crucial for business growth. Each funding source has different costs, requirements, and implications for business ownership and control.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Financial Statements and Analysis:</strong> Every business owner must understand basic financial statements: income statement (profit and loss), balance sheet (assets and liabilities), and cash flow statement. These documents tell the story of business performance and guide decision-making.
+              </p>
+            </div>
+
+            {/* Entrepreneurship Videos */}
+            <div className="mt-8">
+              <h3 className="text-lg font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
+                🚀 Entrepreneurship and Business Finance Videos
+              </h3>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <VideoCard videoId="ZoqgAy3h4OM" title="How to Start a Business" />
+                <VideoCard videoId="llKvV8_T95M" title="Business Plan Essentials" />
+                <VideoCard videoId="yP7c5VGD8Js" title="Cash Flow Management" />
+                <VideoCard videoId="WEDIj9JBTC8" title="Scaling Your Business" />
               </div>
             </div>
-          </section>
+          </div>
 
-          {/* Banking Fundamentals Section */}
-          <section id="banking-fundamentals" className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-yellow-400 border-b border-yellow-500/30 pb-2">
+          {/* Chapter 7: Financial Goals and Ghana-Specific Finance */}
+          <div className="mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-yellow-400 underline">
+              Chapter 7: Financial Goals and Ghana-Specific Finance
+            </h2>
+
+            <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+              <p>
+                <strong className="text-yellow-300">Setting clear financial goals is essential for success.</strong> Without specific targets, it's impossible to measure progress or stay motivated. Financial goals should be SMART: Specific, Measurable, Achievable, Relevant, and Time-bound. Whether you want to buy a house, start a business, or achieve financial independence, clear goals guide your decisions.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Ghana's Economic Landscape:</strong> Understanding Ghana's economy helps you make better financial decisions. The Ghana cedi's relationship with major currencies, inflation rates, interest rates set by the Bank of Ghana, and economic policies all affect your financial planning. Stay informed about economic trends that impact your money.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Local Investment Opportunities:</strong> Ghana offers unique investment opportunities including government bonds, treasury bills, mutual funds, real estate, agriculture, and small businesses. The Ghana Stock Exchange provides access to local companies. Understanding these options helps you build a diversified portfolio suited to the local economy.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Banking and Financial Services:</strong> Ghana's banking sector offers various services including savings accounts, current accounts, fixed deposits, loans, and mobile money services. Compare different banks and their offerings to find the best fit for your needs. Mobile money has revolutionized financial services in Ghana, making transactions easier and more accessible.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Education and Career Investment:</strong> In Ghana's developing economy, education and skills development are among the best investments you can make. Technical and vocational education, university degrees, professional certifications, and entrepreneurship skills all increase your earning potential and career opportunities.
+              </p>
+
+              <p>
+                <strong className="text-yellow-300">Building Generational Wealth:</strong> Think beyond your own lifetime. Building wealth that benefits your children and grandchildren requires long-term thinking, proper estate planning, and teaching financial literacy to the next generation. This creates a positive cycle that lifts entire families out of poverty.
+              </p>
+            </div>
+
+            {/* Ghana Finance Videos */}
+            <div className="mt-8">
+              <h3 className="text-lg font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
+                �🇭 Ghana-Specific Financial Education Videos
+              </h3>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <VideoCard videoId="dQw4w9WgXcQ" title="Ghana Banking System" />
+                <VideoCard videoId="dQw4w9WgXcQ" title="Mobile Money in Ghana" />
+                <VideoCard videoId="dQw4w9WgXcQ" title="Ghana Stock Exchange" />
+                <VideoCard videoId="dQw4w9WgXcQ" title="Real Estate in Ghana" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FinancialLiteracyPage;
               🏦 Banking Fundamentals: Managing Your Money Safely
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed mb-6">

@@ -498,22 +498,24 @@ const FinancialLibraryPage: React.FC = () => {
 
       <Header />
 
-      {/* Back Navigation Bar */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
-        <div className="w-full px-3 sm:px-4 md:px-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
-              <button
-                onClick={handleBack}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-md hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
-              >
-                <ArrowLeft size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                <span>Back to Financial Literacy</span>
-              </button>
-
-              <h1 className="text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                📚 Financial Library
+      {/* Back Navigation Bar - LearnHub Style */}
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 sticky top-16 z-40">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <button
+              onClick={handleBack}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </button>
+            <div className="flex-1 min-w-0">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                📚 Complete Financial Education Library
               </h1>
+              <p className="text-sm text-yellow-200 truncate">
+                46 premium books from legendary investors and financial experts
+              </p>
             </div>
           </div>
         </div>
@@ -578,85 +580,83 @@ const FinancialLibraryPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Books Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Books Grid - Compact Design with 2-Grid Mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
           {filteredBooks.map((book) => (
             <div
               key={book.id}
-              className="bg-gray-900/50 rounded-lg border border-gray-700/30 overflow-hidden hover:border-yellow-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-500/10"
+              className="bg-gray-900/50 rounded-lg border border-gray-700/30 overflow-hidden hover:border-yellow-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/10"
             >
-              {/* Book Header */}
-              <div className="p-6 pb-4">
-                <div className="flex items-start justify-between mb-3">
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold text-white mb-1 line-clamp-2">
+              {/* Compact Book Content */}
+              <div className="p-3 sm:p-4">
+                <div className="flex items-start justify-between mb-2">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm sm:text-base font-bold text-white mb-1 line-clamp-2 leading-tight">
                       {book.title}
                     </h3>
-                    <p className="text-gray-400 text-sm flex items-center gap-1">
-                      <User size={14} />
-                      {book.author}
+                    <p className="text-gray-400 text-xs sm:text-sm flex items-center gap-1 mb-2">
+                      <User size={10} className="sm:w-3 sm:h-3 flex-shrink-0" />
+                      <span className="truncate">{book.author}</span>
                     </p>
                   </div>
-                  <div className="flex items-center gap-1 text-yellow-400 text-sm">
-                    <Star size={14} fill="currentColor" />
+                  <div className="flex items-center gap-1 text-yellow-400 text-xs ml-2">
+                    <Star size={10} fill="currentColor" />
                     {book.rating}
                   </div>
                 </div>
 
-                <p className="text-gray-300 text-sm mb-4 line-clamp-3">
+                <p className="text-gray-300 text-xs sm:text-sm mb-3 line-clamp-2 leading-relaxed">
                   {book.description}
                 </p>
 
-                {/* Book Stats */}
-                <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
+                {/* Compact Book Stats */}
+                <div className="flex items-center justify-between text-xs text-gray-400 mb-3">
                   <div className="flex items-center gap-1">
-                    <Book size={12} />
-                    {book.pages} pages
+                    <Book size={10} />
+                    <span>{book.pages}p</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Clock size={12} />
-                    {Math.ceil(book.pages / 250)} hrs read
+                    <Clock size={10} />
+                    <span>{Math.ceil(book.pages / 250)}h</span>
                   </div>
                 </div>
 
-                {/* Topics Tags */}
-                <div className="flex flex-wrap gap-1 mb-4">
-                  {book.topics.slice(0, 3).map((topic, index) => (
+                {/* Compact Topics */}
+                <div className="flex flex-wrap gap-1 mb-3">
+                  {book.topics.slice(0, 2).map((topic, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded-md"
+                      className="px-1.5 py-0.5 bg-gray-800/50 text-gray-300 text-xs rounded"
                     >
                       {topic}
                     </span>
                   ))}
-                  {book.topics.length > 3 && (
-                    <span className="px-2 py-1 bg-gray-800/50 text-gray-400 text-xs rounded-md">
-                      +{book.topics.length - 3} more
+                  {book.topics.length > 2 && (
+                    <span className="px-1.5 py-0.5 bg-gray-800/50 text-gray-400 text-xs rounded">
+                      +{book.topics.length - 2}
                     </span>
                   )}
                 </div>
-              </div>
 
-              {/* Action Button */}
-              <div className="px-6 pb-6">
+                {/* Compact Action Button */}
                 <button
                   onClick={() => handleBookNavigation(book.id, book.title)}
                   disabled={loadingBook === book.id}
-                  className="w-full py-3 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white font-semibold rounded-lg transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+                  className="w-full py-2 sm:py-2.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs sm:text-sm font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
                 >
                   {loadingBook === book.id && (
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
                   )}
-                  <div className="relative flex items-center justify-center gap-2">
+                  <div className="relative flex items-center justify-center gap-1.5">
                     {loadingBook === book.id ? (
                       <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        Opening...
+                        <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        <span>Opening...</span>
                       </>
                     ) : (
                       <>
-                        <Book size={16} />
-                        Read Book
+                        <Book size={12} />
+                        <span>Read Book</span>
                       </>
                     )}
                   </div>

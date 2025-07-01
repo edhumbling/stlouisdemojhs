@@ -322,7 +322,7 @@ const FinancialLibraryViewerPage: React.FC = () => {
   };
 
   const handleBack = () => {
-    navigate('/financialliteracy');
+    navigate('/financial-library');
   };
 
   // Detect mobile device
@@ -355,8 +355,8 @@ const FinancialLibraryViewerPage: React.FC = () => {
 
       return () => clearTimeout(loadingTimer);
     } else {
-      // Redirect to financial literacy page if book not found
-      navigate('/financialliteracy');
+      // Redirect to financial library page if book not found
+      navigate('/financial-library');
     }
   }, [bookId, navigate]);
 
