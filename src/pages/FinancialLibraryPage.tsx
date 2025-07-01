@@ -1,19 +1,59 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, Search, Book, Star, Clock, User } from 'lucide-react';
+import { ArrowLeft, Search, Book, Star, Clock, User, X, Download, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
+
+interface FinancialBook {
+  id: string;
+  title: string;
+  author: string;
+  category: string;
+  rating: number;
+  pages: number;
+  description: string;
+  topics: string[];
+  url?: string;
+}
 
 const FinancialLibraryPage: React.FC = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [loadingBook, setLoadingBook] = useState<string | null>(null);
+  const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleBack = () => {
     navigate('/financialliteracy');
   };
 
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Handle book opening in modal (like dream-hive-resources)
+  const openBook = (book: FinancialBook, event?: React.MouseEvent) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setSelectedBook(book);
+  };
+
+  // Google PDF Viewer URL helper
+  const getGooglePdfViewerUrl = (pdfUrl: string) => {
+    return `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
+  };
+
+  // Legacy navigation function (keeping for compatibility)
   const handleBookNavigation = (bookId: string, title: string) => {
     setLoadingBook(bookId);
     setTimeout(() => {
@@ -34,7 +74,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.8,
       pages: 194,
       description: 'Timeless financial wisdom through ancient Babylonian parables. Learn the fundamental principles of wealth building.',
-      topics: ['Saving', 'Investing', 'Wealth Building', 'Financial Discipline']
+      topics: ['Saving', 'Investing', 'Wealth Building', 'Financial Discipline'],
+      url: 'https://thediamondsmine.com/files/Ebooks/Clason-RichestManInBabylon.pdf'
     },
     {
       id: 'rich-dad-poor-dad',
@@ -44,7 +85,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.7,
       pages: 336,
       description: 'Revolutionary perspective on money and investing. Challenges conventional wisdom about wealth.',
-      topics: ['Financial Education', 'Assets vs Liabilities', 'Passive Income', 'Mindset']
+      topics: ['Financial Education', 'Assets vs Liabilities', 'Passive Income', 'Mindset'],
+      url: 'https://archive.org/download/rich-dad-poor-dad_bongotweet/rich-dad-poor-dad.pdf'
     },
     {
       id: 'millionaire-next-door',
@@ -54,7 +96,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.6,
       pages: 272,
       description: 'Research-based insights into the habits and characteristics of wealthy Americans.',
-      topics: ['Wealth Accumulation', 'Frugality', 'Financial Habits', 'Millionaire Mindset']
+      topics: ['Wealth Accumulation', 'Frugality', 'Financial Habits', 'Millionaire Mindset'],
+      url: 'https://archive.org/download/StanleyThomasJDankoWilliamDTheMillionaireNextDoorTheSurprisingSecretsOfAmericasWealthy/Stanley%2C%20Thomas%20J%20%26%20Danko%2C%20William%20D%20-%20The%20Millionaire%20Next%20Door%20-%20The%20Surprising%20Secrets%20of%20America%27s%20Wealthy.pdf'
     },
     {
       id: 'think-grow-rich',
@@ -64,7 +107,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.7,
       pages: 320,
       description: 'Classic success philosophy based on interviews with successful individuals.',
-      topics: ['Success Principles', 'Mindset', 'Goal Setting', 'Wealth Creation']
+      topics: ['Success Principles', 'Mindset', 'Goal Setting', 'Wealth Creation'],
+      url: 'https://archive.org/download/think-and-grow-rich/think-and-grow-rich.pdf'
     },
 
     // Modern Financial Strategies
@@ -76,7 +120,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.9,
       pages: 256,
       description: 'Explores the behavioral aspects of money management and financial decision-making.',
-      topics: ['Behavioral Finance', 'Money Psychology', 'Investment Behavior', 'Financial Decisions']
+      topics: ['Behavioral Finance', 'Money Psychology', 'Investment Behavior', 'Financial Decisions'],
+      url: 'https://inspiredbyislam.wordpress.com/wp-content/uploads/2022/08/the-psychology-of-money-timeless-lessons-on-wealth-greed-and-happiness-morgan-housel-z-lib.org_.pdf'
     },
     {
       id: 'total-money-makeover',
@@ -86,7 +131,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.6,
       pages: 272,
       description: 'Step-by-step plan for financial fitness and debt elimination.',
-      topics: ['Debt Elimination', 'Budgeting', 'Emergency Fund', 'Financial Planning']
+      topics: ['Debt Elimination', 'Budgeting', 'Emergency Fund', 'Financial Planning'],
+      url: 'https://archive.org/download/the-total-money-makeover-a-proven-plan-for-financial-fitness_202102/The%20Total%20Money%20Makeover%20A%20Proven%20Plan%20For%20Financial%20Fitness.pdf'
     },
     {
       id: 'automatic-millionaire',
@@ -118,7 +164,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.8,
       pages: 640,
       description: 'The definitive book on value investing by Warren Buffett\'s mentor.',
-      topics: ['Value Investing', 'Market Analysis', 'Risk Management', 'Investment Strategy']
+      topics: ['Value Investing', 'Market Analysis', 'Risk Management', 'Investment Strategy'],
+      url: 'https://archive.org/download/thirumala/TheIntelligentInvestor.pdf'
     },
     {
       id: 'essays-warren-buffett',
@@ -641,7 +688,7 @@ const FinancialLibraryPage: React.FC = () => {
 
                 {/* Compact Action Button */}
                 <button
-                  onClick={() => handleBookNavigation(book.id, book.title)}
+                  onClick={(e) => book.url ? openBook(book, e) : handleBookNavigation(book.id, book.title)}
                   disabled={loadingBook === book.id}
                   className="w-full py-2 sm:py-2.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs sm:text-sm font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
                 >
@@ -708,6 +755,108 @@ const FinancialLibraryPage: React.FC = () => {
         </div>
 
       </div>
+
+      {/* PDF Modal Viewer - Same pattern as dream-hive-resources */}
+      {selectedBook && (
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex flex-col">
+          {/* Modal Header */}
+          <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 px-3 sm:px-4 flex-shrink-0">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
+                <button
+                  onClick={() => setSelectedBook(null)}
+                  className="inline-flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
+                >
+                  <X size={14} className="sm:w-4 sm:h-4" />
+                  <span className="hidden sm:inline">Close</span>
+                </button>
+
+                <div className="flex-1 min-w-0">
+                  <h1 className="text-sm sm:text-lg md:text-xl font-bold text-white truncate">
+                    {selectedBook.title}
+                  </h1>
+                  <p className="text-xs sm:text-sm text-yellow-200 truncate">
+                    by {selectedBook.author}
+                  </p>
+                </div>
+              </div>
+
+              {/* Download/External Link Button */}
+              <a
+                href={selectedBook.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 bg-yellow-600/80 hover:bg-yellow-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
+              >
+                <Download size={14} />
+                <span className="hidden sm:inline">Download</span>
+              </a>
+            </div>
+          </div>
+
+          {/* PDF Content Viewer */}
+          <div className="w-full h-full pt-0 relative flex-1">
+            {isMobile ? (
+              /* Google Docs Viewer for Mobile PDFs */
+              <div className="w-full h-full bg-white">
+                <iframe
+                  src={getGooglePdfViewerUrl(selectedBook.url!)}
+                  className="w-full h-full border-0"
+                  title={`${selectedBook.title} - Mobile PDF Viewer`}
+                  style={{
+                    height: 'calc(100vh - 80px)',
+                    minHeight: '600px'
+                  }}
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              /* Native PDF Viewer for Desktop */
+              <div className="w-full h-full bg-white">
+                <object
+                  data={selectedBook.url}
+                  type="application/pdf"
+                  className="w-full h-full"
+                  style={{
+                    height: 'calc(100vh - 80px)',
+                    minHeight: '600px'
+                  }}
+                >
+                  {/* Fallback to Google Viewer for browsers that don't support object tag */}
+                  <iframe
+                    src={getGooglePdfViewerUrl(selectedBook.url!)}
+                    className="w-full h-full border-0"
+                    title={selectedBook.title}
+                    style={{
+                      height: 'calc(100vh - 80px)',
+                      minHeight: '600px'
+                    }}
+                  >
+                    {/* Final fallback message */}
+                    <div className="flex items-center justify-center w-full h-full bg-gray-50">
+                      <div className="text-center max-w-md px-6">
+                        <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Book className="w-8 h-8 text-yellow-600" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
+                        <p className="text-gray-600 mb-6">
+                          Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
+                        </p>
+                        <button
+                          onClick={() => window.location.reload()}
+                          className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+                        >
+                          Refresh Page
+                        </button>
+                      </div>
+                    </div>
+                  </iframe>
+                </object>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
