@@ -429,13 +429,31 @@ const FinancialLiteracyPage: React.FC = () => {
                       <div className="text-sm text-gray-300">Robert Kiyosaki</div>
                     </div>
                   </button>
+                  <button
+                    onClick={() => handleBookNavigation('simple-dollar-guide', 'Everything You Need to Know About Personal Finance')}
+                    disabled={loadingBook === 'simple-dollar-guide'}
+                    className="w-full text-left p-3 bg-yellow-600/20 hover:bg-yellow-600/30 rounded-lg border border-yellow-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'simple-dollar-guide' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Simple Dollar Guide
+                        {loadingBook === 'simple-dollar-guide' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Trent Hamm</div>
+                    </div>
+                  </button>
                 </div>
               </div>
 
               {/* Investment & Wealth Building */}
-              <div className="bg-black/30 rounded-lg p-4 border border-green-500/20">
-                <h4 className="text-lg font-semibold text-green-200 mb-3">📈 Investment & Wealth</h4>
-                <div className="space-y-2">
+              <div className="bg-black/30 rounded-lg p-4 border border-green-500/20 md:col-span-2 lg:col-span-4">
+                <h4 className="text-lg font-semibold text-green-200 mb-3">📈 Investment & Wealth Building</h4>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
                   <button
                     onClick={() => handleBookNavigation('intelligent-investor', 'The Intelligent Investor')}
                     disabled={loadingBook === 'intelligent-investor'}
@@ -506,6 +524,157 @@ const FinancialLiteracyPage: React.FC = () => {
                         )}
                       </div>
                       <div className="text-sm text-gray-300">Burton Malkiel</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('dhandho-investor', 'The Dhandho Investor')}
+                    disabled={loadingBook === 'dhandho-investor'}
+                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'dhandho-investor' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        The Dhandho Investor
+                        {loadingBook === 'dhandho-investor' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Mohnish Pabrai</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('little-book-value-investing', 'The Little Book of Value Investing')}
+                    disabled={loadingBook === 'little-book-value-investing'}
+                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'little-book-value-investing' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Value Investing
+                        {loadingBook === 'little-book-value-investing' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Christopher Browne</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('little-book-bull-moves', 'The Little Book of Bull Moves')}
+                    disabled={loadingBook === 'little-book-bull-moves'}
+                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'little-book-bull-moves' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Bull Moves Bear Markets
+                        {loadingBook === 'little-book-bull-moves' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Peter Schiff</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('little-book-beats-market', 'The Little Book That Still Beats the Market')}
+                    disabled={loadingBook === 'little-book-beats-market'}
+                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'little-book-beats-market' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Beats the Market
+                        {loadingBook === 'little-book-beats-market' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Joel Greenblatt</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('essays-warren-buffett', 'The Essays of Warren Buffett')}
+                    disabled={loadingBook === 'essays-warren-buffett'}
+                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'essays-warren-buffett' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Warren Buffett Essays
+                        {loadingBook === 'essays-warren-buffett' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Warren Buffett</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('coffeehouse-investor', 'The Coffeehouse Investor')}
+                    disabled={loadingBook === 'coffeehouse-investor'}
+                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'coffeehouse-investor' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Coffeehouse Investor
+                        {loadingBook === 'coffeehouse-investor' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Bill Schultheis</div>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => handleBookNavigation('lazy-persons-investing', 'The Lazy Person\'s Guide to Investing')}
+                    disabled={loadingBook === 'lazy-persons-investing'}
+                    className="w-full text-left p-3 bg-green-600/20 hover:bg-green-600/30 rounded-lg border border-green-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'lazy-persons-investing' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        Lazy Person's Investing
+                        {loadingBook === 'lazy-persons-investing' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Paul Farrell</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              {/* Economic Education - NEW SECTION */}
+              <div className="bg-black/30 rounded-lg p-4 border border-blue-500/20">
+                <h4 className="text-lg font-semibold text-blue-200 mb-3">🌍 Economic Education</h4>
+                <div className="space-y-2">
+                  <button
+                    onClick={() => handleBookNavigation('how-economy-grows', 'How an Economy Grows and Why It Crashes')}
+                    disabled={loadingBook === 'how-economy-grows'}
+                    className="w-full text-left p-3 bg-blue-600/20 hover:bg-blue-600/30 rounded-lg border border-blue-500/30 transition-all duration-200 relative overflow-hidden disabled:opacity-70"
+                  >
+                    {loadingBook === 'how-economy-grows' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                    )}
+                    <div className="relative">
+                      <div className="font-medium text-white flex items-center gap-2">
+                        How an Economy Grows
+                        {loadingBook === 'how-economy-grows' && (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        )}
+                      </div>
+                      <div className="text-sm text-gray-300">Peter & Andrew Schiff</div>
                     </div>
                   </button>
                 </div>

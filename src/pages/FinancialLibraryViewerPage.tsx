@@ -232,6 +232,87 @@ const FinancialLibraryViewerPage: React.FC = () => {
       url: 'https://archive.org/download/the-millionaire-fastlane-140113153049-phpapp01/the-millionaire-fastlane.pdf',
       category: 'Entrepreneurship & Business',
       color: '#7c3aed'
+    },
+    'simple-dollar-guide': {
+      id: 'simple-dollar-guide',
+      title: 'Everything You Need to Know About Personal Finance',
+      author: 'Trent Hamm (The Simple Dollar)',
+      description: 'A comprehensive one-page guide to personal finance covering budgeting, saving, investing, and building wealth. Perfect for beginners.',
+      url: 'https://archive.org/download/EverythingYouEverReallyNeededToKnowAboutPersonalFinanceOnJustOne/OnePage.pdf',
+      category: 'Modern Financial Strategies',
+      color: '#10b981'
+    },
+    'dhandho-investor': {
+      id: 'dhandho-investor',
+      title: 'The Dhandho Investor',
+      author: 'Mohnish Pabrai',
+      description: 'The low-risk value method to high returns. Learn the investment philosophy that has made fortunes for generations of Indian businessmen.',
+      url: 'https://archive.org/download/dhandhoinvestorl00pabr_0/dhandhoinvestorl00pabr_0.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
+    },
+    'little-book-value-investing': {
+      id: 'little-book-value-investing',
+      title: 'The Little Book of Value Investing',
+      author: 'Christopher H. Browne',
+      description: 'A proven approach for finding undervalued stocks. Learn the time-tested strategies of value investing from a Wall Street veteran.',
+      url: 'https://archive.org/download/littlebookofvalu0000brow/littlebookofvalu0000brow.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
+    },
+    'little-book-bull-moves': {
+      id: 'little-book-bull-moves',
+      title: 'The Little Book of Bull Moves',
+      author: 'Peter D. Schiff',
+      description: 'How to keep your portfolio up when the market is down. Learn contrarian investment strategies for bear markets.',
+      url: 'https://archive.org/download/pdfy-EC7QAM3D1KofSGi9/Peter%20Schiff%20-%20The%20Little%20Book%20of%20Bull%20Moves%20in%20Bear%20Markets.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
+    },
+    'how-economy-grows': {
+      id: 'how-economy-grows',
+      title: 'How an Economy Grows and Why It Crashes',
+      author: 'Peter D. Schiff & Andrew J. Schiff',
+      description: 'An illustrated guide to economics using humor and simple examples. Understand how economies work and why they sometimes fail.',
+      url: 'https://ia601405.us.archive.org/14/items/how-an-economy-grows-and-why-it-crashes-by-schiff/How%20an%20Economy%20Grows%20and%20Why%20It%20Crashes%20by%20Schiff.pdf',
+      category: 'Economic Education',
+      color: '#0ea5e9'
+    },
+    'little-book-beats-market': {
+      id: 'little-book-beats-market',
+      title: 'The Little Book That Still Beats the Market',
+      author: 'Joel Greenblatt',
+      description: 'A simple formula for finding great investments. Learn the magic formula that has consistently beaten the market.',
+      url: 'https://archive.org/download/littlebookthatst0000gree/littlebookthatst0000gree.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
+    },
+    'essays-warren-buffett': {
+      id: 'essays-warren-buffett',
+      title: 'The Essays of Warren Buffett',
+      author: 'Warren Buffett & Lawrence Cunningham',
+      description: 'Lessons for corporate America from the Oracle of Omaha. Direct wisdom from Warren Buffett\'s annual letters to shareholders.',
+      url: 'https://archive.org/download/pdfy-Ey8vCqxHzf5bXMbi/The+Essays+Of+Warren+Buffett+-+Lessons+For+Corporate+America.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
+    },
+    'coffeehouse-investor': {
+      id: 'coffeehouse-investor',
+      title: 'The Coffeehouse Investor',
+      author: 'Bill Schultheis',
+      description: 'How to build wealth, ignore Wall Street, and get on with your life. A simple approach to investing that works.',
+      url: 'https://archive.org/download/coffeehouseinves0000schu_r0y5/coffeehouseinves0000schu_r0y5.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
+    },
+    'lazy-persons-investing': {
+      id: 'lazy-persons-investing',
+      title: 'The Lazy Person\'s Guide to Investing',
+      author: 'Paul B. Farrell',
+      description: 'A book for procrastinators, the financially challenged, and everyone who worries about dealing with their money.',
+      url: 'https://archive.org/download/lazypersonsguide0000farr/lazypersonsguide0000farr.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
     }
   };
 
