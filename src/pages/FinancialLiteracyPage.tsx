@@ -1606,6 +1606,7 @@ const FinancialLiteracyPage: React.FC = () => {
               Start your financial journey today, and your future self will thank you!
             </p>
           </div>
+        </section>
 
           {/* Advanced Investment Strategies Section */}
           <section id="advanced-investing" className="mb-12">
