@@ -3,6 +3,7 @@ import { ArrowLeft, Play, Menu, ChevronDown, X, Download, Book } from 'lucide-re
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface FinancialBook {
   id: string;
@@ -21,6 +22,7 @@ const FinancialLiteracyPage: React.FC = () => {
   const [loadingBook, setLoadingBook] = useState<string | null>(null);
   const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(false);
   const navMenuRef = useRef<HTMLDivElement>(null);
 
   const handleBack = () => {
@@ -87,7 +89,18 @@ const FinancialLiteracyPage: React.FC = () => {
     const book = featuredBooks[bookId];
     if (book) {
       setSelectedBook(book);
+      setPdfLoading(true);
     }
+  };
+
+  // Handle PDF load events
+  const handlePdfLoad = () => {
+    setPdfLoading(false);
+  };
+
+  const handlePdfError = () => {
+    console.error('PDF loading failed');
+    setPdfLoading(false);
   };
 
   // Google PDF Viewer URL helper
@@ -646,6 +659,27 @@ const FinancialLiteracyPage: React.FC = () => {
 
           {/* PDF Content Viewer */}
           <div className="w-full h-full pt-0 relative flex-1">
+            {/* Silver Shimmer Loading Overlay */}
+            {pdfLoading && (
+              <div className="absolute inset-0 z-10">
+                <ShimmerLoader
+                  variant="silver"
+                  width="w-full"
+                  height="h-full"
+                  className="rounded-none"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-yellow-600/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                      <Book className="w-8 h-8 text-yellow-300 animate-pulse" />
+                    </div>
+                    <p className="text-white font-medium text-lg mb-2">Loading PDF...</p>
+                    <p className="text-yellow-200 text-sm">Please wait while we prepare your book</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {isMobile ? (
               /* Google Docs Viewer for Mobile PDFs */
               <div className="w-full h-full bg-white">
@@ -658,6 +692,8 @@ const FinancialLiteracyPage: React.FC = () => {
                     minHeight: '600px'
                   }}
                   loading="lazy"
+                  onLoad={handlePdfLoad}
+                  onError={handlePdfError}
                 />
               </div>
             ) : (
@@ -671,6 +707,8 @@ const FinancialLiteracyPage: React.FC = () => {
                     height: 'calc(100vh - 80px)',
                     minHeight: '600px'
                   }}
+                  onLoad={handlePdfLoad}
+                  onError={handlePdfError}
                 >
                   {/* Fallback to Google Viewer for browsers that don't support object tag */}
                   <iframe
@@ -681,6 +719,8 @@ const FinancialLiteracyPage: React.FC = () => {
                       height: 'calc(100vh - 80px)',
                       minHeight: '600px'
                     }}
+                    onLoad={handlePdfLoad}
+                    onError={handlePdfError}
                   >
                     {/* Final fallback message */}
                     <div className="flex items-center justify-center w-full h-full bg-gray-50">
