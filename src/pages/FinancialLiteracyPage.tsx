@@ -136,8 +136,8 @@ const FinancialLiteracyPage: React.FC = () => {
 
       <Header />
 
-      {/* Back Navigation Bar - Space Exploration Style */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40 -mt-4">
+      {/* Back Navigation Bar */}
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40">
         <div className="w-full px-2 sm:px-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
@@ -164,20 +164,25 @@ const FinancialLiteracyPage: React.FC = () => {
                 className="inline-flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base backdrop-blur-sm border border-yellow-500/30"
               >
                 <Menu size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                <span className="hidden sm:inline">Navigate</span>
-                <ChevronDown size={12} className={`sm:w-3.5 sm:h-3.5 transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
+                <span className="hidden sm:inline md:hidden">Nav</span>
+                <span className="hidden md:inline">Navigate</span>
+                <ChevronDown size={12} className={`sm:w-3 sm:h-3 md:w-4 md:h-4 transition-transform duration-200 ${showNavMenu ? 'rotate-180' : ''}`} />
               </button>
 
+              {/* Dropdown Menu */}
               {showNavMenu && (
-                <div className="absolute right-0 top-full mt-2 w-48 sm:w-56 bg-gray-900 border border-yellow-500/30 rounded-lg shadow-xl z-50 overflow-hidden">
+                <div className="absolute right-0 top-full mt-2 w-64 bg-gray-900/95 backdrop-blur-sm rounded-lg shadow-2xl border border-gray-700/50 py-2 z-50">
+                  <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-700/50">
+                    Quick Navigation
+                  </div>
                   {navItems.map((item) => (
                     <button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      className="w-full text-left px-4 py-3 hover:bg-yellow-600/20 transition-colors duration-200 flex items-center gap-3 text-sm text-gray-300 hover:text-white border-b border-gray-700/50 last:border-b-0"
+                      className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-yellow-600/30 transition-colors duration-200 text-sm"
                     >
                       <span className="text-lg">{item.icon}</span>
-                      <span>{item.label}</span>
+                      <span className="text-white font-medium">{item.label}</span>
                     </button>
                   ))}
                 </div>
