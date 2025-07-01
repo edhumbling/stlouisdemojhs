@@ -131,7 +131,7 @@ const FinancialLiteracyPage: React.FC = () => {
 
       <Header />
 
-      {/* Back Bar - Same style as robotics page */}
+      {/* Back Bar - Stuck to header */}
       <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 sticky top-16 z-40 border-b border-yellow-700/30">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -191,20 +191,45 @@ const FinancialLiteracyPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content - Edge to edge, no containers */}
-      <div className="px-4 sm:px-6 lg:px-8 py-8">
+      {/* Main Content - Edge to edge, no containers, no gaps */}
+      <div className="px-4 sm:px-6 lg:px-8">
 
         {/* Introduction Section */}
-        <div className="mb-12">
+        <div className="mb-12 pt-8">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-yellow-400">
             Master Your Financial Future
           </h2>
           <p className="text-lg text-gray-300 leading-relaxed mb-6">
             Financial literacy is one of the most important life skills you can develop as a student. Understanding how to manage money, save for the future, and make smart financial decisions will set you up for success throughout your life. This comprehensive guide will teach you everything you need to know about personal finance, from basic budgeting to advanced investing concepts.
           </p>
-          <p className="text-lg text-gray-300 leading-relaxed">
+          <p className="text-lg text-gray-300 leading-relaxed mb-8">
             Whether you're earning your first allowance, working a part-time job, or planning for university expenses, these financial literacy skills will empower you to take control of your financial destiny and build wealth over time.
           </p>
+
+          {/* Featured Financial Literacy PDF */}
+          <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30 mb-8">
+            <h3 className="text-xl font-bold mb-4 text-yellow-300">📚 Essential Reading: The Richest Man in Babylon</h3>
+            <p className="text-gray-300 mb-4">
+              Start your financial education with this timeless classic that teaches fundamental money principles through ancient Babylonian parables. This free PDF contains the foundational wisdom that has helped millions build wealth.
+            </p>
+            <div className="bg-black/50 rounded-lg p-4 border border-yellow-500/20">
+              <iframe
+                src="https://thediamondsmine.com/files/Ebooks/Clason-RichestManInBabylon.pdf"
+                className="w-full h-96 rounded border-0"
+                title="The Richest Man in Babylon - Free PDF"
+              />
+              <div className="mt-3 text-center">
+                <a
+                  href="https://thediamondsmine.com/files/Ebooks/Clason-RichestManInBabylon.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
+                >
+                  📖 Open Full PDF
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Why Financial Literacy Matters */}
@@ -255,8 +280,8 @@ const FinancialLiteracyPage: React.FC = () => {
               title="Budgeting and the 50:30:20 rule - Khan Academy"
             />
             <VideoCard
-              videoId="gDMguO9wdM0"
-              title="What is a Budget? - YNAB Kids"
+              videoId="eDB8YWeEkxA"
+              title="Essential Life Skills for Teens | A Simple Budget"
             />
           </div>
 
@@ -289,12 +314,12 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-6">
             <VideoCard
-              videoId="NiPGJhkz8bU"
-              title="Teen Budget Challenge - Real Life Example"
+              videoId="sNocjsSSRkE"
+              title="Budgeting for Teens - Practical Guide"
             />
             <VideoCard
-              videoId="WEDIj9JBTC8"
-              title="Budgeting Apps for Students"
+              videoId="olyeIM3V8HE"
+              title="Budgeting Activities for Students"
             />
           </div>
         </section>
@@ -310,12 +335,12 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <VideoCard
-              videoId="8ZdLXELdF9s"
-              title="How to Save Money as a Teenager"
+              videoId="cnW_HDIBmz4"
+              title="Why and how to save - Khan Academy"
             />
             <VideoCard
-              videoId="1VebOTuVYJk"
-              title="The Power of Compound Interest"
+              videoId="ouvbeb2wSGA"
+              title="Financial Literacy In 63 Minutes - Complete Course"
             />
           </div>
 
@@ -362,15 +387,40 @@ const FinancialLiteracyPage: React.FC = () => {
             An emergency fund is money set aside for unexpected expenses like medical bills, car repairs, or temporary loss of income. As a student, aim to save at least GH₵500-1000 for emergencies.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
             <VideoCard
               videoId="nzIAe8WSSqE"
               title="Short, Medium and Long Term Financial Goals - Khan Academy"
             />
             <VideoCard
-              videoId="1qXojLzGq80"
-              title="What is a Money Market Account? - Simple Explanation"
+              videoId="B-vu01ZS6pg"
+              title="Games That Can Teach You About Money! - Two Cents"
             />
+          </div>
+
+          {/* If You Can PDF Resource */}
+          <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30">
+            <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 Advanced Reading: If You Can - How Millennials Can Get Rich Slowly</h4>
+            <p className="text-gray-300 mb-4">
+              This excellent 15-page PDF by William Bernstein provides practical investment advice specifically for young people. Learn how to build wealth through simple, proven strategies.
+            </p>
+            <div className="bg-black/50 rounded-lg p-4 border border-yellow-500/20">
+              <iframe
+                src="https://www.etf.com/docs/IfYouCan.pdf"
+                className="w-full h-96 rounded border-0"
+                title="If You Can - How Millennials Can Get Rich Slowly"
+              />
+              <div className="mt-3 text-center">
+                <a
+                  href="https://www.etf.com/docs/IfYouCan.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
+                >
+                  📖 Open Full PDF
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -385,12 +435,12 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <VideoCard
-              videoId="HdHlfiOAJyE"
-              title="Banking Basics for Teenagers"
+              videoId="baoufhsGoIk"
+              title="Banking Basics: What is a Bank Account? | Financial Literacy"
             />
             <VideoCard
-              videoId="LKxOamnP8J4"
-              title="How to Choose Your First Bank Account"
+              videoId="5dMpNccHbVk"
+              title="The Best Board Games for Teaching Kids About Money"
             />
           </div>
 
@@ -455,12 +505,12 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <VideoCard
-              videoId="LKxOamnP8J4"
-              title="Credit Scores Explained for Beginners"
+              videoId="nziW3yg9Bvc"
+              title="What is Social Security? A Simple Explanation for Beginners"
             />
             <VideoCard
-              videoId="gDMguO9wdM0"
-              title="How to Build Credit as a Student"
+              videoId="aHhu6JKfhBs"
+              title="Cost Of Living Is TOO EXPENSIVE… How is everyone making it"
             />
           </div>
 
@@ -518,12 +568,12 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <VideoCard
-              videoId="nzIAe8WSSqE"
-              title="Investing Basics for Teenagers"
+              videoId="BaLGOmLiB5k"
+              title="Types of Sustainable Investing | Intro to ESG Course"
             />
             <VideoCard
-              videoId="1qXojLzGq80"
-              title="The Power of Compound Interest"
+              videoId="fjruHJV9L34"
+              title="FHSA EXPLAINED: Saving For Your First Home in Canada"
             />
           </div>
 
@@ -588,12 +638,12 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <VideoCard
-              videoId="LKxOamnP8J4"
-              title="Teen Entrepreneurs: How to Start a Business"
+              videoId="s2DIOOV1z3s"
+              title="My Budgeting System for 2025: How I Manage My Money"
             />
             <VideoCard
-              videoId="gDMguO9wdM0"
-              title="Business Ideas for Students"
+              videoId="03YBi5do1Ks"
+              title="Buying a House at 18 - Real Estate Investing As a Teen"
             />
           </div>
 
@@ -666,12 +716,12 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <VideoCard
-              videoId="nzIAe8WSSqE"
-              title="Short, Medium and Long Term Financial Goals - Khan Academy"
+              videoId="qDVNOA0HU-0"
+              title="ETFs vs Mutual Funds | Jill on Money"
             />
             <VideoCard
-              videoId="1qXojLzGq80"
-              title="How to Set SMART Financial Goals"
+              videoId="jTW777ENc3c"
+              title="Financial Education for Young People"
             />
           </div>
 
@@ -744,12 +794,12 @@ const FinancialLiteracyPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <VideoCard
-              videoId="LKxOamnP8J4"
-              title="Banking in Ghana: A Student's Guide"
+              videoId="_qEmKVNcC60"
+              title="Career Possibilities - Financial Planning Careers"
             />
             <VideoCard
-              videoId="gDMguO9wdM0"
-              title="Ghana Stock Exchange for Beginners"
+              videoId="Q5rQ2r-Ggx0"
+              title="Personal Finance Education for Students"
             />
           </div>
 
@@ -822,13 +872,31 @@ const FinancialLiteracyPage: React.FC = () => {
             </ol>
           </div>
 
-          <div className="text-center">
+          <div className="text-center mb-8">
             <p className="text-lg text-yellow-300 font-semibold mb-4">
               "The best time to plant a tree was 20 years ago. The second best time is now."
             </p>
             <p className="text-gray-300">
               Start your financial journey today, and your future self will thank you!
             </p>
+          </div>
+
+          {/* FDIC Money Smart PDF Resource */}
+          <div className="bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30">
+            <h4 className="text-xl font-bold mb-4 text-yellow-300">📚 Government Resource: FDIC Money Smart for Young People</h4>
+            <p className="text-gray-300 mb-4">
+              Access the official FDIC financial education curriculum designed specifically for young people. This comprehensive resource covers all aspects of personal finance with interactive activities and practical exercises.
+            </p>
+            <div className="text-center">
+              <a
+                href="https://www.fdic.gov/consumer-resource-center/money-smart-young-people"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
+              >
+                🏛️ Access FDIC Money Smart Resources
+              </a>
+            </div>
           </div>
         </section>
 

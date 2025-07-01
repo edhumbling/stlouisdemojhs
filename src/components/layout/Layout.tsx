@@ -73,6 +73,7 @@ const Layout: React.FC = () => {
     '/subject/computing-ict',
     '/subject/creative-arts-design',
     '/subject/music',
+    '/financialliteracy',
     ...((location.pathname.startsWith('/shs-database/pdf/')) ? [location.pathname] : []),
   ];
   const shouldShowFooter = !noFooterPages.includes(location.pathname) && showFooter;
