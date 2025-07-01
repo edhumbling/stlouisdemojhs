@@ -148,9 +148,6 @@ const App: React.FC = () => {
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
           <Route path="ai" element={<AILearningPage />} />
-          <Route path="financialliteracy" element={<FinancialLiteracyPage />} />
-          <Route path="financial-library" element={<FinancialLibraryPage />} />
-          <Route path="financial-library/:bookId" element={<FinancialLibraryViewerPage />} />
           <Route path="advice-speeches" element={<AdviceSpeechesPage />} />
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="apply-now" element={<ApplyNowPage />} />
@@ -217,6 +214,11 @@ const App: React.FC = () => {
         <Route path="/tvet" element={<TVETPage />} />
         <Route path="/mayamiles-ai" element={<MayamilesAIPage />} />
         <Route path="/donation-thank-you" element={<DonationThankYouPage />} />
+
+        {/* Financial Education Pages - No Footer */}
+        <Route path="/financialliteracy" element={<FinancialLiteracyPage />} />
+        <Route path="/financial-library" element={<FinancialLibraryPage />} />
+        <Route path="/financial-library/:bookId" element={<FinancialLibraryViewerPage />} />
 
         {/* Monthly Donation Pages - No Header/Footer */}
         <Route path="/donate-monthly-10" element={<DonateMonthly10Page />} />

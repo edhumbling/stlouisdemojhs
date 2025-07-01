@@ -192,6 +192,26 @@ const FinancialLiteracyPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Header Image Section */}
+      <div className="relative h-48 sm:h-60 md:h-72 overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          alt="Financial literacy and wealth building"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white px-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">
+              💰 Financial Literacy & Wealth Building
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto">
+              Master the fundamentals of money management, investing, and wealth creation with comprehensive education and premium resources
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="w-full bg-black px-3 sm:px-4 py-6">
 
