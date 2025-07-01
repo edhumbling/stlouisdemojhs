@@ -91,7 +91,7 @@ const FinancialLiteracyPage: React.FC = () => {
     { id: 'investing-basics', title: 'Investing for Beginners', icon: '📈' },
     { id: 'advanced-investing', title: 'Advanced Investment Strategies', icon: '🎯' },
     { id: 'finance-mastery', title: 'Personal Finance Mastery', icon: '💪' },
-    { id: 'crypto-modern', title: 'Cryptocurrency & Modern Finance', icon: '₿' },
+    { id: 'crypto-modern', title: 'Cryptocurrency & Modern Finance', icon: '🪙' },
     { id: 'fire-movement', title: 'FIRE Movement', icon: '🔥' },
     { id: 'entrepreneurship', title: 'Teen Entrepreneurship', icon: '🚀' },
     { id: 'financial-goals', title: 'Setting Financial Goals', icon: '🎯' },
@@ -1726,7 +1726,7 @@ const FinancialLiteracyPage: React.FC = () => {
           {/* Cryptocurrency & Modern Finance Section */}
           <section id="crypto-modern" className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-yellow-400 border-b border-yellow-500/30 pb-2">
-              ₿ Cryptocurrency & Modern Finance
+              🪙 Cryptocurrency & Modern Finance
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed mb-6">
               Understand the new world of digital finance, cryptocurrency, and modern financial technologies. Learn how to navigate this evolving landscape safely and profitably.
