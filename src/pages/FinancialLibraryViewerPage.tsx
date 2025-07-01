@@ -142,6 +142,96 @@ const FinancialLibraryViewerPage: React.FC = () => {
       url: 'https://archive.org/download/the-automatic-millionaire-a-powerful-one-step-plan-to-live-and-finish-rich/The%20Automatic%20Millionaire_%20A%20Powerful%20One-Step%20Plan%20to%20Live%20and%20Finish%20Rich.pdf',
       category: 'Investment & Wealth Building',
       color: '#059669'
+    },
+    'little-book-common-sense-investing': {
+      id: 'little-book-common-sense-investing',
+      title: 'The Little Book of Common Sense Investing',
+      author: 'John C. Bogle',
+      description: 'The classic guide to getting smart about the market. Learn the only way to guarantee your fair share of stock market returns through index investing.',
+      url: 'https://archive.org/download/littlebookofcomm0000bogl_o5f9/littlebookofcomm0000bogl_o5f9.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
+    },
+    'random-walk-wall-street': {
+      id: 'random-walk-wall-street',
+      title: 'A Random Walk Down Wall Street',
+      author: 'Burton Malkiel',
+      description: 'The time-tested strategy for successful investing. Learn why a blindfolded monkey throwing darts can select a portfolio as well as the experts.',
+      url: 'https://archive.org/download/randomwalkdownwa0000malk_n9g7/randomwalkdownwa0000malk_n9g7.pdf',
+      category: 'Investment & Wealth Building',
+      color: '#059669'
+    },
+    'wealthy-barber': {
+      id: 'wealthy-barber',
+      title: 'The Wealthy Barber',
+      author: 'David Chilton',
+      description: 'The common sense guide to successful financial planning. Learn financial wisdom through an entertaining story format that makes complex concepts simple.',
+      url: 'https://archive.org/download/wealthybarbereve00chil_0/wealthybarbereve00chil_0.pdf',
+      category: 'Classic Financial Wisdom',
+      color: '#f59e0b'
+    },
+    'science-getting-rich': {
+      id: 'science-getting-rich',
+      title: 'The Science of Getting Rich',
+      author: 'Wallace D. Wattles',
+      description: 'The classic 1910 guide to wealth creation. Learn the scientific approach to getting rich through right thinking and definite action.',
+      url: 'https://archive.org/download/TheScienceOfGettingRich.pdf/the_science_of_getting_rich.pdf',
+      category: 'Classic Financial Wisdom',
+      color: '#f59e0b'
+    },
+    'cashflow-quadrant': {
+      id: 'cashflow-quadrant',
+      title: 'The Cashflow Quadrant',
+      author: 'Robert Kiyosaki',
+      description: 'Rich Dad\'s guide to financial freedom. Learn the four different ways people make money and how to move from employee to investor.',
+      url: 'https://archive.org/download/rich-dad-poor-dad_bongotweet/rich-dad-poor-dad.pdf',
+      category: 'Modern Financial Strategies',
+      color: '#10b981'
+    },
+    'four-hour-workweek': {
+      id: 'four-hour-workweek',
+      title: 'The 4-Hour Workweek',
+      author: 'Tim Ferriss',
+      description: 'Escape 9-5, live anywhere, and join the new rich. Learn how to eliminate, automate, and liberate yourself to create the lifestyle you want.',
+      url: 'https://archive.org/download/FERRISSTimothyThe4HourWorkweek/FERRISS_Timothy_-_The_4-Hour_Workweek.pdf',
+      category: 'Entrepreneurship & Business',
+      color: '#7c3aed'
+    },
+    'lean-startup': {
+      id: 'lean-startup',
+      title: 'The Lean Startup',
+      author: 'Eric Ries',
+      description: 'How constant innovation creates radically successful businesses. Learn the methodology for developing businesses and products through validated learning.',
+      url: 'https://archive.org/download/TheLeanStartupErickRies/The%20Lean%20Startup%20-%20Erick%20Ries.pdf',
+      category: 'Entrepreneurship & Business',
+      color: '#7c3aed'
+    },
+    'e-myth-revisited': {
+      id: 'e-myth-revisited',
+      title: 'The E-Myth Revisited',
+      author: 'Michael E. Gerber',
+      description: 'Why most small businesses don\'t work and what to do about it. Learn the entrepreneurial myth and how to build a business that works without you.',
+      url: 'https://archive.org/download/TheEMythRevisitedMichaelE.Gerber/The%20E-Myth%20Revisited%20-%20Michael%20E.%20Gerber.pdf',
+      category: 'Entrepreneurship & Business',
+      color: '#7c3aed'
+    },
+    'zero-to-one': {
+      id: 'zero-to-one',
+      title: 'Zero to One',
+      author: 'Peter Thiel',
+      description: 'Notes on startups, or how to build the future. Learn how to build companies that create new things and go from zero to one.',
+      url: 'https://archive.org/download/zero-to-one-peter-thiel-and-blake-masters/zero-to-one-peter-thiel-and-blake-masters.pdf',
+      category: 'Entrepreneurship & Business',
+      color: '#7c3aed'
+    },
+    'millionaire-fastlane': {
+      id: 'millionaire-fastlane',
+      title: 'The Millionaire Fastlane',
+      author: 'MJ DeMarco',
+      description: 'Crack the code to wealth and live rich for a lifetime. Learn the fastlane to millions through entrepreneurship and business ownership.',
+      url: 'https://archive.org/download/the-millionaire-fastlane-140113153049-phpapp01/the-millionaire-fastlane.pdf',
+      category: 'Entrepreneurship & Business',
+      color: '#7c3aed'
     }
   };
 
