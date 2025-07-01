@@ -141,7 +141,7 @@ const FinancialLiteracyPage: React.FC = () => {
       <Header />
 
       {/* Back Navigation Bar - Sticks directly to header */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40 border-t-0">
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-2 sm:py-3 md:py-4 sticky top-16 z-40 -mt-16">
         <div className="w-full px-3 sm:px-4 md:px-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 sm:gap-4 md:gap-6">
