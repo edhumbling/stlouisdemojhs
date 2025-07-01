@@ -609,9 +609,9 @@ const FinancialLiteracyPage: React.FC = () => {
 
       {/* PDF Modal Viewer - Same pattern as dream-hive-resources */}
       {selectedBook && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex flex-col">
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex flex-col h-screen w-screen">
           {/* Modal Header */}
-          <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 px-3 sm:px-4 flex-shrink-0">
+          <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 px-3 sm:px-4 flex-shrink-0 h-auto">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
                 <button
@@ -645,8 +645,8 @@ const FinancialLiteracyPage: React.FC = () => {
             </div>
           </div>
 
-          {/* PDF Content Viewer */}
-          <div className="w-full h-full pt-0 relative flex-1">
+          {/* PDF Content Viewer - Fill remaining space exactly */}
+          <div className="flex-1 relative overflow-hidden">
             {/* Silver Shimmer Loading Overlay */}
             {pdfLoading && (
               <div className="absolute inset-0 z-10">
@@ -669,15 +669,18 @@ const FinancialLiteracyPage: React.FC = () => {
             )}
 
             {/* Always use Google Docs Viewer for better compatibility and no double scroll */}
-            <div className="w-full h-full bg-white overflow-hidden">
+            <div className="w-full h-full bg-white">
               <iframe
                 src={getGooglePdfViewerUrl(selectedBook.url)}
                 className="w-full h-full border-0 block"
                 title={`${selectedBook.title} - PDF Viewer`}
                 style={{
-                  height: 'calc(100vh - 80px)',
-                  minHeight: '600px',
-                  overflow: 'hidden'
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  margin: 0,
+                  padding: 0,
+                  display: 'block'
                 }}
                 loading="lazy"
                 onLoad={handlePdfLoad}
