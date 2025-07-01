@@ -136,8 +136,8 @@ const FinancialLiteracyPage: React.FC = () => {
 
       <Header />
 
-      {/* Back Navigation Bar - LearnHub Style */}
-      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 sticky top-16 z-40">
+      {/* Back Navigation Bar - LearnHub Style - Sticks directly to header */}
+      <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 sticky top-16 z-40 -mt-1">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
