@@ -447,6 +447,16 @@ const Hero: React.FC = () => {
               </Link>
 
               <Link
+                to="/financialliteracy"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(202,138,4,0.5)] hover:shadow-[0_0_20px_rgba(202,138,4,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              >
+                <span className="relative z-10 whitespace-nowrap">Learn Financial Literacy</span>
+                <span className="absolute inset-0 bg-yellow-500 opacity-30 rounded-lg"></span>
+              </Link>
+
+              <Link
                 to="/partner"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
