@@ -76,6 +76,22 @@ const FinancialLibraryPage: React.FC = () => {
     return `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true&page=1&view=FitH&toolbar=1&t=${timestamp}`;
   };
 
+  // Handle book click for modal opening
+  const handleBookClick = (book: FinancialBook) => {
+    if (!book.url) return;
+
+    setLoadingBook(book.id);
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setSelectedBook(book);
+      setLoadingBook(null);
+
+      // Scroll to top of main page before opening modal
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 800);
+  };
+
   // Legacy navigation function (keeping for compatibility)
   const handleBookNavigation = (bookId: string, title: string) => {
     setLoadingBook(bookId);
@@ -811,6 +827,88 @@ const FinancialLibraryPage: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Books Grid - Compact Design with 2-Grid Mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+          {displayedBooks.map((book) => (
+            <div
+              key={book.id}
+              className="bg-gray-900/50 border border-gray-700/50 rounded-lg p-3 sm:p-4 hover:border-yellow-500/50 transition-all duration-300 cursor-pointer group relative"
+              onClick={() => handleBookClick(book)}
+            >
+              {/* Loading Overlay */}
+              {loadingBook === book.id && (
+                <div className="absolute inset-0 bg-black/80 rounded-lg flex items-center justify-center z-10">
+                  <ShimmerLoader className="w-8 h-8" />
+                </div>
+              )}
+
+              {/* Book Content */}
+              <div className="space-y-2 sm:space-y-3">
+                {/* Title and Author */}
+                <div>
+                  <h3 className="font-bold text-white text-sm sm:text-base leading-tight group-hover:text-yellow-400 transition-colors duration-200 line-clamp-2">
+                    {book.title}
+                  </h3>
+                  <p className="text-gray-400 text-xs sm:text-sm mt-1 line-clamp-1">
+                    {book.author}
+                  </p>
+                </div>
+
+                {/* Rating and Pages */}
+                <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center">
+                    <Star className="w-3 h-3 text-yellow-500 mr-1" fill="currentColor" />
+                    <span className="text-gray-300">{book.rating}</span>
+                  </div>
+                  <div className="flex items-center text-gray-400">
+                    <Clock className="w-3 h-3 mr-1" />
+                    <span>{book.pages}p</span>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-300 text-xs leading-relaxed line-clamp-2">
+                  {book.description}
+                </p>
+
+                {/* Topics */}
+                <div className="flex flex-wrap gap-1">
+                  {book.topics.slice(0, 2).map((topic, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 bg-gray-800/50 text-gray-300 text-xs rounded-md"
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                  {book.topics.length > 2 && (
+                    <span className="px-2 py-1 bg-gray-800/50 text-gray-400 text-xs rounded-md">
+                      +{book.topics.length - 2}
+                    </span>
+                  )}
+                </div>
+
+                {/* View Button */}
+                <button
+                  className="w-full mt-3 px-3 py-2 bg-yellow-600 hover:bg-yellow-700 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                  disabled={!book.url}
+                >
+                  {book.url ? 'View Book' : 'Coming Soon'}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* No Results Message */}
+        {displayedBooks.length === 0 && (
+          <div className="text-center py-12">
+            <Book className="w-16 h-16 text-gray-600 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-gray-400 mb-2">No books found</h3>
+            <p className="text-gray-500">Try adjusting your search or category filter.</p>
+          </div>
+        )}
 
       </div>
 
