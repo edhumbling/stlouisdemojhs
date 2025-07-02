@@ -667,11 +667,11 @@ const FinancialLiteracyPage: React.FC = () => {
 
       </div>
 
-      {/* PDF Modal Viewer - Exact copy from dream-hive-resources */}
+      {/* PDF Modal Viewer - Fixed scrollbar positioning */}
       {selectedBook && (
-        <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
-          {/* Header */}
-          <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-4 sm:py-5 shadow-2xl border-b border-yellow-700/50">
+        <div className="fixed inset-0 z-[9999] bg-black flex flex-col" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
+          {/* Header - Fixed height */}
+          <div className="flex-shrink-0 bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-4 sm:py-5 shadow-2xl border-b border-yellow-700/50">
             <div className="container mx-auto px-4">
               <div className="flex items-center gap-4 sm:gap-6">
                 <button
@@ -705,8 +705,8 @@ const FinancialLiteracyPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Content Viewer - Enhanced PDF with Shimmer Loading */}
-          <div className="w-full h-full pt-20 sm:pt-24 relative">
+          {/* Content Viewer - Flex-1 to fill remaining space exactly */}
+          <div className="flex-1 relative overflow-hidden">
             {/* Shimmer Loading Overlay */}
             {isLoading && (
               <div className="absolute inset-0 z-10">
@@ -736,8 +736,8 @@ const FinancialLiteracyPage: React.FC = () => {
                   className="w-full h-full border-0"
                   title={`${selectedBook.title} - Mobile PDF Viewer`}
                   style={{
-                    height: 'calc(100vh - 96px)',
-                    minHeight: '600px'
+                    width: '100%',
+                    height: '100%'
                   }}
                   loading="lazy"
                 />
@@ -750,8 +750,8 @@ const FinancialLiteracyPage: React.FC = () => {
                   type="application/pdf"
                   className="w-full h-full"
                   style={{
-                    height: 'calc(100vh - 96px)',
-                    minHeight: '600px'
+                    width: '100%',
+                    height: '100%'
                   }}
                 >
                   {/* Fallback to Google Viewer for browsers that don't support object tag */}
@@ -760,8 +760,8 @@ const FinancialLiteracyPage: React.FC = () => {
                     className="w-full h-full border-0"
                     title={selectedBook.title}
                     style={{
-                      height: 'calc(100vh - 96px)',
-                      minHeight: '600px'
+                      width: '100%',
+                      height: '100%'
                     }}
                   >
                     {/* Final fallback message */}
