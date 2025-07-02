@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import SmartSearchBar, { SearchableItem } from '../components/common/SmartSearchBar';
 
 interface FinancialBook {
   id: string;
