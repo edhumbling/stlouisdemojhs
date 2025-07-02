@@ -165,7 +165,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.5,
       pages: 256,
       description: 'Simple system for building wealth through automation.',
-      topics: ['Automatic Investing', 'Pay Yourself First', 'Compound Interest', 'Wealth Building']
+      topics: ['Automatic Investing', 'Pay Yourself First', 'Compound Interest', 'Wealth Building'],
+      url: 'https://archive.org/download/the-automatic-millionaire-a-powerful-one-step-plan-to-live-and-finish-rich/The%20Automatic%20Millionaire%20A%20Powerful%20One-Step%20Plan%20to%20Live%20and%20Finish%20Rich.pdf'
     },
     {
       id: 'i-will-teach-you-rich',
@@ -175,7 +176,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.6,
       pages: 352,
       description: 'Practical 6-week program for young adults to manage money effectively.',
-      topics: ['Personal Finance', 'Banking', 'Investing', 'Automation']
+      topics: ['Personal Finance', 'Banking', 'Investing', 'Automation'],
+      url: 'https://archive.org/download/i-will-teach-you-to-be-rich-second-edition-no-guilt-no-excuses-no-bs-just-a-6-week-program-that-works/I%20Will%20Teach%20You%20to%20Be%20Rich%2C%20Second%20Edition%20No%20Guilt.%20No%20Excuses.%20No%20BS.%20Just%20a%206-Week%20Program%20That%20Works.pdf'
     },
 
     // Investment & Wealth Building
@@ -198,7 +200,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.7,
       pages: 352,
       description: 'Collection of Berkshire Hathaway shareholder letters with investment wisdom.',
-      topics: ['Investment Philosophy', 'Business Analysis', 'Long-term Investing', 'Value Creation']
+      topics: ['Investment Philosophy', 'Business Analysis', 'Long-term Investing', 'Value Creation'],
+      url: 'https://archive.org/download/the-essays-of-warren-buffett-lessons-for-corporate-america/The%20Essays%20of%20Warren%20Buffett%20Lessons%20for%20Corporate%20America.pdf'
     },
     {
       id: 'common-stocks-uncommon-profits',
@@ -208,7 +211,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.6,
       pages: 288,
       description: 'Growth investing principles and company analysis techniques.',
-      topics: ['Growth Investing', 'Company Analysis', 'Stock Selection', 'Investment Research']
+      topics: ['Growth Investing', 'Company Analysis', 'Stock Selection', 'Investment Research'],
+      url: 'https://archive.org/download/common-stocks-and-uncommon-profits-and-other-writings/Common%20Stocks%20and%20Uncommon%20Profits%20and%20Other%20Writings.pdf'
     },
     {
       id: 'random-walk-wall-street',
@@ -218,7 +222,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.5,
       pages: 448,
       description: 'Comprehensive guide to investing with focus on index funds and market efficiency.',
-      topics: ['Index Investing', 'Market Efficiency', 'Portfolio Theory', 'Investment Strategy']
+      topics: ['Index Investing', 'Market Efficiency', 'Portfolio Theory', 'Investment Strategy'],
+      url: 'https://archive.org/download/a-random-walk-down-wall-street-the-time-tested-strategy-for-successful-investing/A%20Random%20Walk%20Down%20Wall%20Street%20The%20Time-Tested%20Strategy%20for%20Successful%20Investing.pdf'
     },
 
     // Entrepreneurship & Business
@@ -230,7 +235,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.4,
       pages: 336,
       description: 'Revolutionary approach to building successful businesses through validated learning.',
-      topics: ['Entrepreneurship', 'Innovation', 'Business Strategy', 'Startup Methodology']
+      topics: ['Entrepreneurship', 'Innovation', 'Business Strategy', 'Startup Methodology'],
+      url: 'https://archive.org/download/the-lean-startup-how-todays-entrepreneurs-use-continuous-innovation-to-create-radically-successful-businesses/The%20Lean%20Startup%20How%20Today%27s%20Entrepreneurs%20Use%20Continuous%20Innovation%20to%20Create%20Radically%20Successful%20Businesses.pdf'
     },
     {
       id: 'zero-to-one',
@@ -240,7 +246,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.3,
       pages: 224,
       description: 'Insights on building companies that create new things and monopolistic advantages.',
-      topics: ['Innovation', 'Monopoly', 'Technology', 'Business Building']
+      topics: ['Innovation', 'Monopoly', 'Technology', 'Business Building'],
+      url: 'https://archive.org/download/zero-to-one-notes-on-startups-or-how-to-build-the-future/Zero%20to%20One%20Notes%20on%20Startups%2C%20or%20How%20to%20Build%20the%20Future.pdf'
     },
     {
       id: 'good-to-great',
@@ -250,7 +257,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.5,
       pages: 320,
       description: 'Research-based insights into what makes companies achieve sustained excellence.',
-      topics: ['Leadership', 'Business Excellence', 'Company Culture', 'Strategic Planning']
+      topics: ['Leadership', 'Business Excellence', 'Company Culture', 'Strategic Planning'],
+      url: 'https://archive.org/download/good-to-great-why-some-companies-make-the-leap-and-others-dont/Good%20to%20Great%20Why%20Some%20Companies%20Make%20the%20Leap...and%20Others%20Don%27t.pdf'
     },
     {
       id: 'cashflow-quadrant',
@@ -260,7 +268,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.4,
       pages: 368,
       description: 'Guide to financial freedom through understanding different income sources.',
-      topics: ['Financial Freedom', 'Passive Income', 'Business Ownership', 'Investment']
+      topics: ['Financial Freedom', 'Passive Income', 'Business Ownership', 'Investment'],
+      url: 'https://archive.org/download/rich-dads-cashflow-quadrant-guide-to-financial-freedom/Rich%20Dad%27s%20CASHFLOW%20Quadrant%20Guide%20to%20Financial%20Freedom.pdf'
     },
 
     // Personal Development & Mindset
@@ -272,7 +281,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.6,
       pages: 176,
       description: 'How small, smart choices compound into remarkable results over time.',
-      topics: ['Habits', 'Success Principles', 'Personal Development', 'Goal Achievement']
+      topics: ['Habits', 'Success Principles', 'Personal Development', 'Goal Achievement'],
+      url: 'https://archive.org/download/the-compound-effect-darren-hardy/The%20Compound%20Effect%20-%20Darren%20Hardy.pdf'
     },
     {
       id: 'atomic-habits',
@@ -282,7 +292,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.8,
       pages: 320,
       description: 'Proven framework for improving every day through tiny changes.',
-      topics: ['Habit Formation', 'Behavior Change', 'Personal Growth', 'Productivity']
+      topics: ['Habit Formation', 'Behavior Change', 'Personal Growth', 'Productivity'],
+      url: 'https://archive.org/download/atomic-habits-an-easy-proven-way-to-build-good-habits-break-bad-ones/Atomic%20Habits%20An%20Easy%20%26%20Proven%20Way%20to%20Build%20Good%20Habits%20%26%20Break%20Bad%20Ones.pdf'
     },
     {
       id: 'mindset',
@@ -292,7 +303,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.5,
       pages: 276,
       description: 'How a simple idea about the brain can help you love challenges and transform your life.',
-      topics: ['Growth Mindset', 'Psychology', 'Learning', 'Success']
+      topics: ['Growth Mindset', 'Psychology', 'Learning', 'Success'],
+      url: 'https://archive.org/download/mindset-the-new-psychology-of-success/Mindset%20The%20New%20Psychology%20of%20Success.pdf'
     },
     {
       id: 'power-of-now',
@@ -302,7 +314,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.4,
       pages: 236,
       description: 'Spiritual guide to enlightenment and living in the present moment.',
-      topics: ['Mindfulness', 'Spirituality', 'Present Moment', 'Inner Peace']
+      topics: ['Mindfulness', 'Spirituality', 'Present Moment', 'Inner Peace'],
+      url: 'https://archive.org/download/the-power-of-now-a-guide-to-spiritual-enlightenment/The%20Power%20of%20Now%20A%20Guide%20to%20Spiritual%20Enlightenment.pdf'
     },
 
     // Advanced Investment Strategies
@@ -314,7 +327,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.7,
       pages: 768,
       description: 'Classic text on fundamental analysis and value investing principles.',
-      topics: ['Fundamental Analysis', 'Value Investing', 'Security Valuation', 'Financial Analysis']
+      topics: ['Fundamental Analysis', 'Value Investing', 'Security Valuation', 'Financial Analysis'],
+      url: 'https://archive.org/download/security-analysis-sixth-edition-foreword-by-warren-buffett/Security%20Analysis%20Sixth%20Edition%2C%20Foreword%20by%20Warren%20Buffett.pdf'
     },
     {
       id: 'one-up-wall-street',
@@ -324,7 +338,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.6,
       pages: 304,
       description: 'How to use what you already know to make money in the market.',
-      topics: ['Stock Picking', 'Investment Strategy', 'Market Analysis', 'Individual Investing']
+      topics: ['Stock Picking', 'Investment Strategy', 'Market Analysis', 'Individual Investing'],
+      url: 'https://archive.org/download/one-up-on-wall-street-how-to-use-what-you-already-know-to-make-money-in-the-market/One%20Up%20On%20Wall%20Street%20How%20to%20Use%20What%20You%20Already%20Know%20to%20Make%20Money%20in%20the%20Market.pdf'
     },
     {
       id: 'little-book-common-sense',
@@ -334,7 +349,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.5,
       pages: 216,
       description: 'The only way to guarantee your fair share of stock market returns.',
-      topics: ['Index Funds', 'Long-term Investing', 'Cost Management', 'Market Returns']
+      topics: ['Index Funds', 'Long-term Investing', 'Cost Management', 'Market Returns'],
+      url: 'https://archive.org/download/the-little-book-of-common-sense-investing-the-only-way-to-guarantee-your-fair-share-of-stock-market-returns/The%20Little%20Book%20of%20Common%20Sense%20Investing%20The%20Only%20Way%20to%20Guarantee%20Your%20Fair%20Share%20of%20Stock%20Market%20Returns.pdf'
     },
     {
       id: 'margin-of-safety',
@@ -344,7 +360,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.8,
       pages: 256,
       description: 'Risk-averse value investing strategies for the thoughtful investor.',
-      topics: ['Risk Management', 'Value Investing', 'Market Psychology', 'Investment Philosophy']
+      topics: ['Risk Management', 'Value Investing', 'Market Psychology', 'Investment Philosophy'],
+      url: 'https://archive.org/download/margin-of-safety-risk-averse-value-investing-strategies-for-the-thoughtful-investor/Margin%20of%20Safety%20Risk-Averse%20Value%20Investing%20Strategies%20for%20the%20Thoughtful%20Investor.pdf'
     },
 
     // Money Management & Budgeting
@@ -356,7 +373,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.4,
       pages: 368,
       description: 'Nine-step program for transforming your relationship with money.',
-      topics: ['Financial Independence', 'Life Values', 'Money Management', 'Frugal Living']
+      topics: ['Financial Independence', 'Life Values', 'Money Management', 'Frugal Living'],
+      url: 'https://archive.org/download/your-money-or-your-life-9-steps-to-transforming-your-relationship-with-money-and-achieving-financial-independence/Your%20Money%20or%20Your%20Life%209%20Steps%20to%20Transforming%20Your%20Relationship%20with%20Money%20and%20Achieving%20Financial%20Independence.pdf'
     },
     {
       id: 'barefoot-investor',
@@ -366,7 +384,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.6,
       pages: 272,
       description: 'Simple step-by-step plan to financial freedom.',
-      topics: ['Financial Planning', 'Budgeting', 'Investment Strategy', 'Debt Management']
+      topics: ['Financial Planning', 'Budgeting', 'Investment Strategy', 'Debt Management'],
+      url: 'https://archive.org/download/the-barefoot-investor-the-only-money-guide-youll-ever-need/The%20Barefoot%20Investor%20The%20Only%20Money%20Guide%20You%27ll%20Ever%20Need.pdf'
     },
     {
       id: 'simple-path-wealth',
@@ -376,7 +395,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.7,
       pages: 286,
       description: 'Your road map to financial independence and a rich, free life.',
-      topics: ['Financial Independence', 'Index Investing', 'Wealth Building', 'FIRE Movement']
+      topics: ['Financial Independence', 'Index Investing', 'Wealth Building', 'FIRE Movement'],
+      url: 'https://archive.org/download/the-simple-path-to-wealth-your-road-map-to-financial-independence-and-a-rich-free-life/The%20Simple%20Path%20to%20Wealth%20Your%20road%20map%20to%20financial%20independence%20and%20a%20rich%2C%20free%20life.pdf'
     },
     {
       id: 'bogleheads-guide',
@@ -386,7 +406,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.5,
       pages: 352,
       description: 'Time-tested strategies for building wealth through index fund investing.',
-      topics: ['Index Investing', 'Asset Allocation', 'Portfolio Management', 'Long-term Strategy']
+      topics: ['Index Investing', 'Asset Allocation', 'Portfolio Management', 'Long-term Strategy'],
+      url: 'https://archive.org/download/the-bogleheads-guide-to-investing/The%20Bogleheads%27%20Guide%20to%20Investing.pdf'
     },
 
     // Real Estate & Alternative Investments
@@ -398,7 +419,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.4,
       pages: 336,
       description: 'Anyone can learn to invest wisely in real estate and build wealth.',
-      topics: ['Real Estate Investing', 'Property Investment', 'Wealth Building', 'Passive Income']
+      topics: ['Real Estate Investing', 'Property Investment', 'Wealth Building', 'Passive Income'],
+      url: 'https://archive.org/download/the-millionaire-real-estate-investor/The%20Millionaire%20Real%20Estate%20Investor.pdf'
     },
     {
       id: 'book-on-rental-property',
@@ -408,7 +430,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.5,
       pages: 416,
       description: 'How to create wealth and passive income through rental properties.',
-      topics: ['Rental Properties', 'Real Estate Analysis', 'Property Management', 'Cash Flow']
+      topics: ['Rental Properties', 'Real Estate Analysis', 'Property Management', 'Cash Flow'],
+      url: 'https://archive.org/download/the-book-on-rental-property-investing-how-to-create-wealth-and-passive-income-through-rental-properties/The%20Book%20on%20Rental%20Property%20Investing%20How%20to%20Create%20Wealth%20and%20Passive%20Income%20Through%20Rental%20Properties.pdf'
     },
     {
       id: 'cryptocurrency-investing',
@@ -418,7 +441,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.2,
       pages: 384,
       description: 'Your guide to digital currency investment strategies.',
-      topics: ['Cryptocurrency', 'Blockchain', 'Digital Assets', 'Alternative Investing']
+      topics: ['Cryptocurrency', 'Blockchain', 'Digital Assets', 'Alternative Investing'],
+      url: 'https://archive.org/download/cryptocurrency-investing-for-dummies/Cryptocurrency%20Investing%20For%20Dummies.pdf'
     },
     {
       id: 'bitcoin-standard',
@@ -428,7 +452,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.3,
       pages: 304,
       description: 'The decentralized alternative to central banking.',
-      topics: ['Bitcoin', 'Monetary Theory', 'Digital Currency', 'Economic History']
+      topics: ['Bitcoin', 'Monetary Theory', 'Digital Currency', 'Economic History'],
+      url: 'https://archive.org/download/the-bitcoin-standard-the-decentralized-alternative-to-central-banking/The%20Bitcoin%20Standard%20The%20Decentralized%20Alternative%20to%20Central%20Banking.pdf'
     },
 
     // Additional Popular Financial Books
@@ -440,7 +465,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.0,
       pages: 688,
       description: '7 simple steps to financial freedom from the world\'s top financial experts.',
-      topics: ['Financial Freedom', 'Investment Strategy', 'Wealth Building', 'Financial Planning']
+      topics: ['Financial Freedom', 'Investment Strategy', 'Wealth Building', 'Financial Planning'],
+      url: 'https://archive.org/download/money-master-the-game-7-simple-steps-to-financial-freedom/MONEY%20Master%20the%20Game%207%20Simple%20Steps%20to%20Financial%20Freedom.pdf'
     },
     {
       id: 'millionaire-fastlane',
@@ -450,7 +476,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.3,
       pages: 337,
       description: 'Crack the code to wealth and live rich for a lifetime through entrepreneurship.',
-      topics: ['Entrepreneurship', 'Wealth Creation', 'Business Strategy', 'Financial Independence']
+      topics: ['Entrepreneurship', 'Wealth Creation', 'Business Strategy', 'Financial Independence'],
+      url: 'https://archive.org/download/the-millionaire-fastlane-crack-the-code-to-wealth-and-live-rich-for-a-lifetime/The%20Millionaire%20Fastlane%20Crack%20the%20Code%20to%20Wealth%20and%20Live%20Rich%20for%20a%20Lifetime.pdf'
     },
     {
       id: 'die-with-zero',
@@ -460,7 +487,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 3.9,
       pages: 256,
       description: 'Getting all you can from your money and your life through optimal spending.',
-      topics: ['Life Optimization', 'Spending Strategy', 'Experience Economy', 'Financial Philosophy']
+      topics: ['Life Optimization', 'Spending Strategy', 'Experience Economy', 'Financial Philosophy'],
+      url: 'https://archive.org/download/die-with-zero-getting-all-you-can-from-your-money-and-your-life/Die%20with%20Zero%20Getting%20All%20You%20Can%20from%20Your%20Money%20and%20Your%20Life.pdf'
     },
     {
       id: 'broke-millennial',
@@ -470,7 +498,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 3.9,
       pages: 272,
       description: 'Stop scraping by and get your financial life together with practical advice for young adults.',
-      topics: ['Young Adult Finance', 'Budgeting', 'Debt Management', 'Financial Basics']
+      topics: ['Young Adult Finance', 'Budgeting', 'Debt Management', 'Financial Basics'],
+      url: 'https://archive.org/download/broke-millennial-stop-scraping-by-and-get-your-financial-life-together/Broke%20Millennial%20Stop%20Scraping%20By%20and%20Get%20Your%20Financial%20Life%20Together.pdf'
     },
     {
       id: 'secrets-millionaire-mind',
@@ -480,7 +509,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.2,
       pages: 224,
       description: 'Mastering the inner game of wealth through mindset transformation.',
-      topics: ['Wealth Mindset', 'Money Psychology', 'Success Principles', 'Mental Programming']
+      topics: ['Wealth Mindset', 'Money Psychology', 'Success Principles', 'Mental Programming'],
+      url: 'https://archive.org/download/secrets-of-the-millionaire-mind-mastering-the-inner-game-of-wealth/Secrets%20of%20the%20Millionaire%20Mind%20Mastering%20the%20Inner%20Game%20of%20Wealth.pdf'
     },
     {
       id: 'wealthy-barber',
@@ -490,7 +520,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.0,
       pages: 224,
       description: 'Common sense guide to successful financial planning told through engaging stories.',
-      topics: ['Financial Planning', 'Saving Strategies', 'Investment Basics', 'Retirement Planning']
+      topics: ['Financial Planning', 'Saving Strategies', 'Investment Basics', 'Retirement Planning'],
+      url: 'https://archive.org/download/the-wealthy-barber-the-common-sense-guide-to-successful-financial-planning/The%20Wealthy%20Barber%20The%20Common%20Sense%20Guide%20to%20Successful%20Financial%20Planning.pdf'
     },
     {
       id: 'four-pillars-investing',
@@ -500,7 +531,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.2,
       pages: 384,
       description: 'Lessons for building a winning portfolio based on theory, history, psychology, and business.',
-      topics: ['Portfolio Theory', 'Investment History', 'Behavioral Finance', 'Asset Allocation']
+      topics: ['Portfolio Theory', 'Investment History', 'Behavioral Finance', 'Asset Allocation'],
+      url: 'https://archive.org/download/the-four-pillars-of-investing-lessons-for-building-a-winning-portfolio/The%20Four%20Pillars%20of%20Investing%20Lessons%20for%20Building%20a%20Winning%20Portfolio.pdf'
     },
     {
       id: 'you-need-budget',
@@ -510,7 +542,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.1,
       pages: 272,
       description: 'The proven system for breaking the paycheck-to-paycheck cycle and building wealth.',
-      topics: ['Budgeting System', 'Financial Control', 'Debt Elimination', 'Money Management']
+      topics: ['Budgeting System', 'Financial Control', 'Debt Elimination', 'Money Management'],
+      url: 'https://archive.org/download/you-need-a-budget-the-proven-system-for-breaking-the-paycheck-to-paycheck-cycle/You%20Need%20a%20Budget%20The%20Proven%20System%20for%20Breaking%20the%20Paycheck-to-Paycheck%20Cycle.pdf'
     },
     {
       id: 'millionaire-mind',
@@ -520,7 +553,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.2,
       pages: 416,
       description: 'What makes the wealthy different - their habits, strategies, and mindset.',
-      topics: ['Wealth Psychology', 'Success Habits', 'Millionaire Behavior', 'Financial Mindset']
+      topics: ['Wealth Psychology', 'Success Habits', 'Millionaire Behavior', 'Financial Mindset'],
+      url: 'https://archive.org/download/the-millionaire-mind/The%20Millionaire%20Mind.pdf'
     },
     {
       id: 'almanack-naval-ravikant',
@@ -530,7 +564,8 @@ const FinancialLibraryPage: React.FC = () => {
       rating: 4.4,
       pages: 242,
       description: 'A guide to wealth and happiness from Silicon Valley\'s most successful angel investor.',
-      topics: ['Wealth Creation', 'Happiness', 'Decision Making', 'Life Philosophy']
+      topics: ['Wealth Creation', 'Happiness', 'Decision Making', 'Life Philosophy'],
+      url: 'https://archive.org/download/the-almanack-of-naval-ravikant-a-guide-to-wealth-and-happiness/The%20Almanack%20of%20Naval%20Ravikant%20A%20Guide%20to%20Wealth%20and%20Happiness.pdf'
     }
   ];
 
