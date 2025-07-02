@@ -3,6 +3,7 @@ import { ArrowLeft, Search, Book, Star, Clock, User, X, Download, ExternalLink }
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface FinancialBook {
   id: string;
@@ -23,6 +24,7 @@ const FinancialLibraryPage: React.FC = () => {
   const [loadingBook, setLoadingBook] = useState<string | null>(null);
   const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleBack = () => {
     navigate('/financialliteracy');
@@ -46,6 +48,12 @@ const FinancialLibraryPage: React.FC = () => {
       event.stopPropagation();
     }
     setSelectedBook(book);
+    setIsLoading(true);
+
+    // Simulate loading time like dream-hive-resources
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
   };
 
   // Google PDF Viewer URL helper
@@ -686,45 +694,29 @@ const FinancialLibraryPage: React.FC = () => {
                   )}
                 </div>
 
-                {/* Compact Action Buttons */}
-                <div className="flex gap-2">
-                  {/* Quick View Button (Modal) */}
-                  {book.url && (
-                    <button
-                      onClick={(e) => openBook(book, e)}
-                      className="flex-1 py-2 sm:py-2.5 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm font-medium rounded transition-all duration-200"
-                    >
-                      <div className="flex items-center justify-center gap-1.5">
-                        <Book size={12} />
-                        <span>Quick View</span>
-                      </div>
-                    </button>
+                {/* Single View Book Button */}
+                <button
+                  onClick={(e) => book.url ? openBook(book, e) : handleBookNavigation(book.id, book.title)}
+                  disabled={loadingBook === book.id}
+                  className="w-full py-2 sm:py-2.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs sm:text-sm font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+                >
+                  {loadingBook === book.id && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
                   )}
-
-                  {/* Full Page Button */}
-                  <button
-                    onClick={() => handleBookNavigation(book.id, book.title)}
-                    disabled={loadingBook === book.id}
-                    className="flex-1 py-2 sm:py-2.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs sm:text-sm font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
-                  >
-                    {loadingBook === book.id && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                  <div className="relative flex items-center justify-center gap-1.5">
+                    {loadingBook === book.id ? (
+                      <>
+                        <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        <span>Opening...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Book size={12} />
+                        <span>View Book</span>
+                      </>
                     )}
-                    <div className="relative flex items-center justify-center gap-1.5">
-                      {loadingBook === book.id ? (
-                        <>
-                          <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                          <span>Opening...</span>
-                        </>
-                      ) : (
-                        <>
-                          <ExternalLink size={12} />
-                          <span>Full Page</span>
-                        </>
-                      )}
-                    </div>
-                  </button>
-                </div>
+                  </div>
+                </button>
               </div>
             </div>
           ))}
@@ -810,8 +802,29 @@ const FinancialLibraryPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Content Viewer - Enhanced PDF */}
+          {/* Content Viewer - Enhanced PDF with Shimmer Loading */}
           <div className="w-full h-full pt-20 sm:pt-24 relative">
+            {/* Shimmer Loading Overlay */}
+            {isLoading && (
+              <div className="absolute inset-0 z-10">
+                <ShimmerLoader
+                  variant="silver"
+                  width="w-full"
+                  height="h-full"
+                  className="rounded-none"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-yellow-600/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                      <Book className="w-8 h-8 text-yellow-300 animate-pulse" />
+                    </div>
+                    <p className="text-white font-medium text-lg mb-2">Loading PDF...</p>
+                    <p className="text-yellow-200 text-sm">Please wait while we prepare your book</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {isMobile ? (
               /* Google Docs Viewer for Mobile PDFs */
               <div className="w-full h-full bg-white">

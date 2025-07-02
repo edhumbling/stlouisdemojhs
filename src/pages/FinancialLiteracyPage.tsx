@@ -3,6 +3,7 @@ import { ArrowLeft, Play, Menu, ChevronDown, X, Download, Book } from 'lucide-re
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
+import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface FinancialBook {
   id: string;
@@ -21,6 +22,7 @@ const FinancialLiteracyPage: React.FC = () => {
   const [loadingBook, setLoadingBook] = useState<string | null>(null);
   const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navMenuRef = useRef<HTMLDivElement>(null);
 
   const handleBack = () => {
@@ -87,6 +89,12 @@ const FinancialLiteracyPage: React.FC = () => {
     const book = featuredBooks[bookId];
     if (book) {
       setSelectedBook(book);
+      setIsLoading(true);
+
+      // Simulate loading time like dream-hive-resources
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
     }
   };
 
@@ -404,84 +412,112 @@ const FinancialLiteracyPage: React.FC = () => {
               <div className="text-sm font-medium text-white mb-1">The Richest Man in Babylon</div>
               <div className="text-xs text-gray-400 mb-2">George Clason • Classic Wisdom</div>
               <div className="text-xs text-yellow-300 mb-3">⭐ 4.8 • Timeless wealth principles</div>
-              <div className="flex gap-2">
-                <button
-                  onClick={(e) => openBook('richest-man-babylon', e)}
-                  className="flex-1 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded transition-all duration-200"
-                >
-                  Quick View
-                </button>
-                <button
-                  onClick={() => handleBookNavigation('richest-man-babylon', 'The Richest Man in Babylon')}
-                  disabled={loadingBook === 'richest-man-babylon'}
-                  className="flex-1 py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
-                >
-                  {loadingBook === 'richest-man-babylon' ? 'Opening...' : 'Full Page'}
-                </button>
-              </div>
+              <button
+                onClick={(e) => openBook('richest-man-babylon', e)}
+                disabled={loadingBook === 'richest-man-babylon'}
+                className="w-full py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+              >
+                {loadingBook === 'richest-man-babylon' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                )}
+                <div className="relative flex items-center justify-center gap-1.5">
+                  {loadingBook === 'richest-man-babylon' ? (
+                    <>
+                      <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <span>Opening...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Book size={12} />
+                      <span>View Book</span>
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
 
             <div className="p-3 bg-green-600/10 border border-green-500/20 rounded-lg">
               <div className="text-sm font-medium text-white mb-1">The Psychology of Money</div>
               <div className="text-xs text-gray-400 mb-2">Morgan Housel • Modern Strategy</div>
               <div className="text-xs text-green-300 mb-3">⭐ 4.9 • Behavioral finance</div>
-              <div className="flex gap-2">
-                <button
-                  onClick={(e) => openBook('psychology-of-money', e)}
-                  className="flex-1 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded transition-all duration-200"
-                >
-                  Quick View
-                </button>
-                <button
-                  onClick={() => handleBookNavigation('psychology-of-money', 'The Psychology of Money')}
-                  disabled={loadingBook === 'psychology-of-money'}
-                  className="flex-1 py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
-                >
-                  {loadingBook === 'psychology-of-money' ? 'Opening...' : 'Full Page'}
-                </button>
-              </div>
+              <button
+                onClick={(e) => openBook('psychology-of-money', e)}
+                disabled={loadingBook === 'psychology-of-money'}
+                className="w-full py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+              >
+                {loadingBook === 'psychology-of-money' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                )}
+                <div className="relative flex items-center justify-center gap-1.5">
+                  {loadingBook === 'psychology-of-money' ? (
+                    <>
+                      <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <span>Opening...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Book size={12} />
+                      <span>View Book</span>
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
 
             <div className="p-3 bg-blue-600/10 border border-blue-500/20 rounded-lg">
               <div className="text-sm font-medium text-white mb-1">The Intelligent Investor</div>
               <div className="text-xs text-gray-400 mb-2">Benjamin Graham • Investment</div>
               <div className="text-xs text-blue-300 mb-3">⭐ 4.8 • Value investing bible</div>
-              <div className="flex gap-2">
-                <button
-                  onClick={(e) => openBook('intelligent-investor', e)}
-                  className="flex-1 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded transition-all duration-200"
-                >
-                  Quick View
-                </button>
-                <button
-                  onClick={() => handleBookNavigation('intelligent-investor', 'The Intelligent Investor')}
-                  disabled={loadingBook === 'intelligent-investor'}
-                  className="flex-1 py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
-                >
-                  {loadingBook === 'intelligent-investor' ? 'Opening...' : 'Full Page'}
-                </button>
-              </div>
+              <button
+                onClick={(e) => openBook('intelligent-investor', e)}
+                disabled={loadingBook === 'intelligent-investor'}
+                className="w-full py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+              >
+                {loadingBook === 'intelligent-investor' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                )}
+                <div className="relative flex items-center justify-center gap-1.5">
+                  {loadingBook === 'intelligent-investor' ? (
+                    <>
+                      <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <span>Opening...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Book size={12} />
+                      <span>View Book</span>
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
 
             <div className="p-3 bg-purple-600/10 border border-purple-500/20 rounded-lg">
               <div className="text-sm font-medium text-white mb-1">Rich Dad Poor Dad</div>
               <div className="text-xs text-gray-400 mb-2">Robert Kiyosaki • Classic</div>
               <div className="text-xs text-purple-300 mb-3">⭐ 4.7 • Financial education</div>
-              <div className="flex gap-2">
-                <button
-                  onClick={(e) => openBook('rich-dad-poor-dad', e)}
-                  className="flex-1 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded transition-all duration-200"
-                >
-                  Quick View
-                </button>
-                <button
-                  onClick={() => handleBookNavigation('rich-dad-poor-dad', 'Rich Dad Poor Dad')}
-                  disabled={loadingBook === 'rich-dad-poor-dad'}
-                  className="flex-1 py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
-                >
-                  {loadingBook === 'rich-dad-poor-dad' ? 'Opening...' : 'Full Page'}
-                </button>
-              </div>
+              <button
+                onClick={(e) => openBook('rich-dad-poor-dad', e)}
+                disabled={loadingBook === 'rich-dad-poor-dad'}
+                className="w-full py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+              >
+                {loadingBook === 'rich-dad-poor-dad' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
+                )}
+                <div className="relative flex items-center justify-center gap-1.5">
+                  {loadingBook === 'rich-dad-poor-dad' ? (
+                    <>
+                      <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <span>Opening...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Book size={12} />
+                      <span>View Book</span>
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
           </div>
 
@@ -668,8 +704,29 @@ const FinancialLiteracyPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Content Viewer - Enhanced PDF */}
+          {/* Content Viewer - Enhanced PDF with Shimmer Loading */}
           <div className="w-full h-full pt-20 sm:pt-24 relative">
+            {/* Shimmer Loading Overlay */}
+            {isLoading && (
+              <div className="absolute inset-0 z-10">
+                <ShimmerLoader
+                  variant="silver"
+                  width="w-full"
+                  height="h-full"
+                  className="rounded-none"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-yellow-600/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                      <Book className="w-8 h-8 text-yellow-300 animate-pulse" />
+                    </div>
+                    <p className="text-white font-medium text-lg mb-2">Loading PDF...</p>
+                    <p className="text-yellow-200 text-sm">Please wait while we prepare your book</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {isMobile ? (
               /* Google Docs Viewer for Mobile PDFs */
               <div className="w-full h-full bg-white">
