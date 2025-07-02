@@ -56,9 +56,10 @@ const FinancialLibraryPage: React.FC = () => {
     }, 1500);
   };
 
-  // Google PDF Viewer URL helper
+  // Google PDF Viewer URL helper - Always start from top
   const getGooglePdfViewerUrl = (pdfUrl: string) => {
-    return `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
+    const timestamp = Date.now();
+    return `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true&page=1&view=FitH&toolbar=1&t=${timestamp}`;
   };
 
   // Legacy navigation function (keeping for compatibility)
@@ -843,7 +844,7 @@ const FinancialLibraryPage: React.FC = () => {
               /* Native PDF Viewer for Desktop */
               <div className="w-full h-full bg-white">
                 <object
-                  data={selectedBook.url}
+                  data={`${selectedBook.url}#page=1&view=FitH&toolbar=1&t=${Date.now()}`}
                   type="application/pdf"
                   className="w-full h-full"
                   style={{
