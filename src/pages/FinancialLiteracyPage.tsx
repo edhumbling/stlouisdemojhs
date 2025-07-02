@@ -88,14 +88,24 @@ const FinancialLiteracyPage: React.FC = () => {
     }
     const book = featuredBooks[bookId];
     if (book) {
+      // Scroll main page to top before opening modal
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
       setSelectedBook(book);
       setIsLoading(true);
-
-      // Simulate loading time like dream-hive-resources
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1500);
     }
+  };
+
+  // Handle PDF load completion
+  const handlePdfLoad = () => {
+    // Wait a bit longer to ensure PDF is fully rendered
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+  };
+
+  const handlePdfError = () => {
+    setIsLoading(false);
   };
 
   // Google PDF Viewer URL helper - Always start from top
@@ -742,6 +752,8 @@ const FinancialLiteracyPage: React.FC = () => {
                 }}
                 loading="lazy"
                 scrolling="auto"
+                onLoad={handlePdfLoad}
+                onError={handlePdfError}
               />
             ) : (
               /* Native PDF Viewer for Desktop - Internal scroll only */
@@ -755,6 +767,8 @@ const FinancialLiteracyPage: React.FC = () => {
                   border: 'none',
                   overflow: 'hidden'
                 }}
+                onLoad={handlePdfLoad}
+                onError={handlePdfError}
               >
                 {/* Fallback to Google Viewer for browsers that don't support object tag */}
                 <iframe
@@ -768,6 +782,8 @@ const FinancialLiteracyPage: React.FC = () => {
                     overflow: 'hidden'
                   }}
                   scrolling="auto"
+                  onLoad={handlePdfLoad}
+                  onError={handlePdfError}
                 >
                   {/* Final fallback message */}
                   <div className="flex items-center justify-center w-full h-full bg-gray-50">
