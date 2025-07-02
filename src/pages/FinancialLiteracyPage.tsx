@@ -729,62 +729,66 @@ const FinancialLiteracyPage: React.FC = () => {
             )}
 
             {isMobile ? (
-              /* Google Docs Viewer for Mobile PDFs */
-              <div className="w-full h-full bg-white">
+              /* Google Docs Viewer for Mobile PDFs - Internal scroll only */
+              <iframe
+                src={getGooglePdfViewerUrl(selectedBook.url)}
+                className="w-full h-full border-0 bg-white"
+                title={`${selectedBook.title} - Mobile PDF Viewer`}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  overflow: 'hidden'
+                }}
+                loading="lazy"
+                scrolling="auto"
+              />
+            ) : (
+              /* Native PDF Viewer for Desktop - Internal scroll only */
+              <object
+                data={`${selectedBook.url}#page=1&view=FitH&toolbar=1&t=${Date.now()}`}
+                type="application/pdf"
+                className="w-full h-full bg-white"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  overflow: 'hidden'
+                }}
+              >
+                {/* Fallback to Google Viewer for browsers that don't support object tag */}
                 <iframe
                   src={getGooglePdfViewerUrl(selectedBook.url)}
-                  className="w-full h-full border-0"
-                  title={`${selectedBook.title} - Mobile PDF Viewer`}
+                  className="w-full h-full border-0 bg-white"
+                  title={selectedBook.title}
                   style={{
                     width: '100%',
-                    height: '100%'
+                    height: '100%',
+                    border: 'none',
+                    overflow: 'hidden'
                   }}
-                  loading="lazy"
-                />
-              </div>
-            ) : (
-              /* Native PDF Viewer for Desktop */
-              <div className="w-full h-full bg-white">
-                <object
-                  data={`${selectedBook.url}#page=1&view=FitH&toolbar=1&t=${Date.now()}`}
-                  type="application/pdf"
-                  className="w-full h-full"
-                  style={{
-                    width: '100%',
-                    height: '100%'
-                  }}
+                  scrolling="auto"
                 >
-                  {/* Fallback to Google Viewer for browsers that don't support object tag */}
-                  <iframe
-                    src={getGooglePdfViewerUrl(selectedBook.url)}
-                    className="w-full h-full border-0"
-                    title={selectedBook.title}
-                    style={{
-                      width: '100%',
-                      height: '100%'
-                    }}
-                  >
-                    {/* Final fallback message */}
-                    <div className="flex items-center justify-center w-full h-full bg-gray-50">
-                      <div className="text-center max-w-md px-6">
-                        <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <ArrowLeft className="w-8 h-8 text-yellow-600 rotate-180" />
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
-                        <p className="text-gray-600 mb-6">
-                          Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
-                        </p>
-                        <button
-                          onClick={() => window.location.reload()}
-                          className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-                        >
-                          Refresh Page
-                        </button>
+                  {/* Final fallback message */}
+                  <div className="flex items-center justify-center w-full h-full bg-gray-50">
+                    <div className="text-center max-w-md px-6">
+                      <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <ArrowLeft className="w-8 h-8 text-yellow-600 rotate-180" />
                       </div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
+                      <p className="text-gray-600 mb-6">
+                        Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
+                      </p>
+                      <button
+                        onClick={() => window.location.reload()}
+                        className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+                      >
+                        Refresh Page
+                      </button>
                     </div>
-                  </iframe>
-                </object>
-              </div>
+                  </div>
+                </iframe>
+              </object>
             )}
           </div>
         </div>
