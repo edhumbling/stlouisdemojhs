@@ -19,12 +19,12 @@ interface FinancialBook {
 
 const FinancialLibraryPage: React.FC = () => {
   const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [loadingBook, setLoadingBook] = useState<string | null>(null);
   const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
 
   const handleBack = () => {
     navigate('/financialliteracy');
@@ -596,13 +596,48 @@ const FinancialLibraryPage: React.FC = () => {
     { id: 'crypto', name: 'Cryptocurrency', count: financialBooks.filter(book => book.category === 'crypto').length }
   ];
 
-  const filteredBooks = financialBooks.filter(book => {
-    const matchesSearch = book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         book.topics.some(topic => topic.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesCategory = selectedCategory === 'all' || book.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  // Smart Search Setup
+  const searchableItems: SearchableItem[] = financialBooks.map(book => ({
+    id: book.id,
+    title: book.title,
+    description: book.description,
+    category: book.category,
+    level: '', // Not used for books
+    type: book.format || 'pdf',
+    url: book.url || '',
+    tags: book.topics,
+    searchableText: `${book.title} ${book.author} ${book.description} ${book.topics.join(' ')}`,
+    metadata: {
+      author: book.author,
+      rating: book.rating,
+      pages: book.pages,
+      format: book.format || 'pdf'
+    }
+  }));
+
+  // Category options for smart search
+  const categoryOptions = categories.map(cat => ({
+    value: cat.id,
+    label: cat.name,
+    count: cat.count
+  }));
+
+  // Type options for smart search (based on file formats)
+  const typeOptions = [
+    { value: 'pdf', label: 'PDF Books', count: financialBooks.filter(book => !book.format || book.format === 'pdf').length },
+    { value: 'epub', label: 'EPUB Books', count: financialBooks.filter(book => book.format === 'epub').length },
+    { value: 'mobi', label: 'MOBI Books', count: financialBooks.filter(book => book.format === 'mobi').length }
+  ];
+
+  // Handle search results from SmartSearchBar
+  const handleSearchResults = (results: SearchableItem[]) => {
+    setSearchResults(results);
+  };
+
+  // Get books to display (either search results or all books)
+  const displayedBooks = searchResults.length > 0
+    ? financialBooks.filter(book => searchResults.some(result => result.id === book.id))
+    : financialBooks.filter(book => selectedCategory === 'all' || book.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -668,43 +703,24 @@ const FinancialLibraryPage: React.FC = () => {
       {/* Main Content */}
       <div className="w-full bg-black px-3 sm:px-4 py-6">
 
-        {/* Search and Filter Section */}
+        {/* Smart Search Bar */}
         <div className="mb-8">
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
-            {/* Search Bar */}
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              <input
-                type="text"
-                placeholder="Search books, authors, or topics..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-gray-900/50 border border-gray-700/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500/50 focus:ring-1 focus:ring-yellow-500/50"
-              />
-            </div>
-          </div>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  selectedCategory === category.id
-                    ? 'bg-yellow-600 text-white shadow-lg'
-                    : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 hover:text-white'
-                }`}
-              >
-                {category.name} ({category.count})
-              </button>
-            ))}
-          </div>
+          <SmartSearchBar
+            items={searchableItems}
+            onSearchResults={handleSearchResults}
+            placeholder={`Search ${financialBooks.length}+ financial books...`}
+            accentColor="green"
+            categories={categoryOptions}
+            types={typeOptions}
+            enableIntentDetection={true}
+            className="mb-6"
+            pageKey="financial-library"
+          />
         </div>
 
         {/* Books Grid - Compact Design with 2-Grid Mobile */}
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-          {filteredBooks.map((book) => (
+          {displayedBooks.map((book) => (
             <div
               key={book.id}
               className="bg-gray-900/50 rounded-lg border border-gray-700/30 overflow-hidden hover:border-yellow-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/10"
