@@ -3,7 +3,6 @@ import { ArrowLeft, Play, Menu, ChevronDown, X, Download, Book } from 'lucide-re
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
-import ShimmerLoader from '../components/common/ShimmerLoader';
 
 interface FinancialBook {
   id: string;
@@ -21,12 +20,23 @@ const FinancialLiteracyPage: React.FC = () => {
   const [showNavMenu, setShowNavMenu] = useState(false);
   const [loadingBook, setLoadingBook] = useState<string | null>(null);
   const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
-  const [pdfLoading, setPdfLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navMenuRef = useRef<HTMLDivElement>(null);
 
   const handleBack = () => {
     navigate('/');
   };
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Financial books data for the four featured books
   const featuredBooks: Record<string, FinancialBook> = {
@@ -77,18 +87,7 @@ const FinancialLiteracyPage: React.FC = () => {
     const book = featuredBooks[bookId];
     if (book) {
       setSelectedBook(book);
-      setPdfLoading(true);
     }
-  };
-
-  // Handle PDF load events
-  const handlePdfLoad = () => {
-    setPdfLoading(false);
-  };
-
-  const handlePdfError = () => {
-    console.error('PDF loading failed');
-    setPdfLoading(false);
   };
 
   // Google PDF Viewer URL helper
@@ -631,100 +630,104 @@ const FinancialLiteracyPage: React.FC = () => {
 
       </div>
 
-      {/* PDF Modal Viewer - Quick View Modal */}
+      {/* PDF Modal Viewer - Exact copy from dream-hive-resources */}
       {selectedBook && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex flex-col">
-          {/* Modal Header */}
-          <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 px-3 sm:px-4 flex-shrink-0">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
+        <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
+          {/* Header */}
+          <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-4 sm:py-5 shadow-2xl border-b border-yellow-700/50">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center gap-4 sm:gap-6">
                 <button
+                  type="button"
                   onClick={() => setSelectedBook(null)}
-                  className="inline-flex items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-md sm:rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm backdrop-blur-sm border border-yellow-500/30"
                 >
-                  <X size={14} className="sm:w-4 sm:h-4" />
-                  <span className="hidden sm:inline">Close</span>
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>Back</span>
                 </button>
 
                 <div className="flex-1 min-w-0">
-                  <h1 className="text-sm sm:text-lg md:text-xl font-bold text-white truncate">
+                  <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
                     {selectedBook.title}
                   </h1>
-                  <p className="text-xs sm:text-sm text-yellow-200 truncate">
-                    by {selectedBook.author} • Quick View
+                  <p className="text-sm text-yellow-200 truncate">
+                    by {selectedBook.author}
                   </p>
                 </div>
-              </div>
 
-              {/* Action Buttons */}
-              <div className="flex items-center gap-2">
                 <a
                   href={selectedBook.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-2 bg-yellow-600/80 hover:bg-yellow-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-600/80 hover:bg-yellow-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm"
                 >
-                  <Download size={14} />
+                  <Download className="w-4 h-4" />
                   <span className="hidden sm:inline">Download</span>
                 </a>
-
-                <button
-                  onClick={() => {
-                    setSelectedBook(null);
-                    handleBookNavigation(selectedBook.id, selectedBook.title);
-                  }}
-                  className="inline-flex items-center gap-2 px-3 py-2 bg-green-600/80 hover:bg-green-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm"
-                >
-                  <ExternalLink size={14} />
-                  <span className="hidden sm:inline">Full Page</span>
-                </button>
               </div>
             </div>
           </div>
 
-          {/* PDF Content Viewer - Proper scroll boundaries */}
-          <div className="flex-1 relative overflow-hidden" style={{ height: 'calc(100vh - 80px)' }}>
-            {/* Silver Shimmer Loading Overlay */}
-            {pdfLoading && (
-              <div className="absolute inset-0 z-10">
-                <ShimmerLoader
-                  variant="silver"
-                  width="w-full"
-                  height="h-full"
-                  className="rounded-none"
+          {/* Content Viewer - Enhanced PDF */}
+          <div className="w-full h-full pt-20 sm:pt-24 relative">
+            {isMobile ? (
+              /* Google Docs Viewer for Mobile PDFs */
+              <div className="w-full h-full bg-white">
+                <iframe
+                  src={getGooglePdfViewerUrl(selectedBook.url)}
+                  className="w-full h-full border-0"
+                  title={`${selectedBook.title} - Mobile PDF Viewer`}
+                  style={{
+                    height: 'calc(100vh - 96px)',
+                    minHeight: '600px'
+                  }}
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-yellow-600/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
-                      <Book className="w-8 h-8 text-yellow-300 animate-pulse" />
+              </div>
+            ) : (
+              /* Native PDF Viewer for Desktop */
+              <div className="w-full h-full bg-white">
+                <object
+                  data={selectedBook.url}
+                  type="application/pdf"
+                  className="w-full h-full"
+                  style={{
+                    height: 'calc(100vh - 96px)',
+                    minHeight: '600px'
+                  }}
+                >
+                  {/* Fallback to Google Viewer for browsers that don't support object tag */}
+                  <iframe
+                    src={getGooglePdfViewerUrl(selectedBook.url)}
+                    className="w-full h-full border-0"
+                    title={selectedBook.title}
+                    style={{
+                      height: 'calc(100vh - 96px)',
+                      minHeight: '600px'
+                    }}
+                  >
+                    {/* Final fallback message */}
+                    <div className="flex items-center justify-center w-full h-full bg-gray-50">
+                      <div className="text-center max-w-md px-6">
+                        <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <ArrowLeft className="w-8 h-8 text-yellow-600 rotate-180" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-4">PDF Viewer Not Available</h3>
+                        <p className="text-gray-600 mb-6">
+                          Your browser doesn't support PDF viewing. Please try refreshing the page or use a different browser.
+                        </p>
+                        <button
+                          onClick={() => window.location.reload()}
+                          className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+                        >
+                          Refresh Page
+                        </button>
+                      </div>
                     </div>
-                    <p className="text-white font-medium text-lg mb-2">Loading PDF...</p>
-                    <p className="text-yellow-200 text-sm">Please wait while we prepare your book</p>
-                  </div>
-                </div>
+                  </iframe>
+                </object>
               </div>
             )}
-
-            {/* PDF Viewer with proper scroll boundaries */}
-            <div className="w-full h-full bg-white overflow-auto">
-              <iframe
-                src={getGooglePdfViewerUrl(selectedBook.url)}
-                className="w-full h-full border-0 block"
-                title={`${selectedBook.title} - PDF Viewer`}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  border: 'none',
-                  margin: 0,
-                  padding: 0,
-                  display: 'block'
-                }}
-                loading="lazy"
-                onLoad={handlePdfLoad}
-                onError={handlePdfError}
-                allowFullScreen
-              />
-            </div>
           </div>
         </div>
       )}
