@@ -687,29 +687,45 @@ const FinancialLibraryPage: React.FC = () => {
                   )}
                 </div>
 
-                {/* Compact Action Button */}
-                <button
-                  onClick={(e) => book.url ? openBook(book, e) : handleBookNavigation(book.id, book.title)}
-                  disabled={loadingBook === book.id}
-                  className="w-full py-2 sm:py-2.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs sm:text-sm font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
-                >
-                  {loadingBook === book.id && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
-                  )}
-                  <div className="relative flex items-center justify-center gap-1.5">
-                    {loadingBook === book.id ? (
-                      <>
-                        <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        <span>Opening...</span>
-                      </>
-                    ) : (
-                      <>
+                {/* Compact Action Buttons */}
+                <div className="flex gap-2">
+                  {/* Quick View Button (Modal) */}
+                  {book.url && (
+                    <button
+                      onClick={(e) => openBook(book, e)}
+                      className="flex-1 py-2 sm:py-2.5 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm font-medium rounded transition-all duration-200"
+                    >
+                      <div className="flex items-center justify-center gap-1.5">
                         <Book size={12} />
-                        <span>Read Book</span>
-                      </>
+                        <span>Quick View</span>
+                      </div>
+                    </button>
+                  )}
+
+                  {/* Full Page Button */}
+                  <button
+                    onClick={() => handleBookNavigation(book.id, book.title)}
+                    disabled={loadingBook === book.id}
+                    className="flex-1 py-2 sm:py-2.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs sm:text-sm font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+                  >
+                    {loadingBook === book.id && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
                     )}
-                  </div>
-                </button>
+                    <div className="relative flex items-center justify-center gap-1.5">
+                      {loadingBook === book.id ? (
+                        <>
+                          <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                          <span>Opening...</span>
+                        </>
+                      ) : (
+                        <>
+                          <ExternalLink size={12} />
+                          <span>Full Page</span>
+                        </>
+                      )}
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -757,11 +773,11 @@ const FinancialLibraryPage: React.FC = () => {
 
       </div>
 
-      {/* PDF Modal Viewer - Same pattern as dream-hive-resources */}
+      {/* PDF Modal Viewer - Quick View Modal */}
       {selectedBook && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex flex-col h-screen w-screen">
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex flex-col">
           {/* Modal Header */}
-          <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 px-3 sm:px-4 flex-shrink-0 h-auto">
+          <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 px-3 sm:px-4 flex-shrink-0">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
                 <button
@@ -777,26 +793,39 @@ const FinancialLibraryPage: React.FC = () => {
                     {selectedBook.title}
                   </h1>
                   <p className="text-xs sm:text-sm text-yellow-200 truncate">
-                    by {selectedBook.author}
+                    by {selectedBook.author} • Quick View
                   </p>
                 </div>
               </div>
 
-              {/* Download/External Link Button */}
-              <a
-                href={selectedBook.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 bg-yellow-600/80 hover:bg-yellow-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
-              >
-                <Download size={14} />
-                <span className="hidden sm:inline">Download</span>
-              </a>
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2">
+                <a
+                  href={selectedBook.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-yellow-600/80 hover:bg-yellow-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm"
+                >
+                  <Download size={14} />
+                  <span className="hidden sm:inline">Download</span>
+                </a>
+
+                <button
+                  onClick={() => {
+                    setSelectedBook(null);
+                    handleBookNavigation(selectedBook.id, selectedBook.title);
+                  }}
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-green-600/80 hover:bg-green-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm"
+                >
+                  <ExternalLink size={14} />
+                  <span className="hidden sm:inline">Full Page</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* PDF Content Viewer - Fill remaining space exactly */}
-          <div className="flex-1 relative overflow-hidden">
+          {/* PDF Content Viewer - Proper scroll boundaries */}
+          <div className="flex-1 relative overflow-hidden" style={{ height: 'calc(100vh - 80px)' }}>
             {/* Silver Shimmer Loading Overlay */}
             {pdfLoading && (
               <div className="absolute inset-0 z-10">
@@ -818,8 +847,8 @@ const FinancialLibraryPage: React.FC = () => {
               </div>
             )}
 
-            {/* Always use Google Docs Viewer for better compatibility and no double scroll */}
-            <div className="w-full h-full bg-white">
+            {/* PDF Viewer with proper scroll boundaries */}
+            <div className="w-full h-full bg-white overflow-auto">
               <iframe
                 src={getGooglePdfViewerUrl(selectedBook.url!)}
                 className="w-full h-full border-0 block"
@@ -835,8 +864,6 @@ const FinancialLibraryPage: React.FC = () => {
                 loading="lazy"
                 onLoad={handlePdfLoad}
                 onError={handlePdfError}
-                scrolling="no"
-                frameBorder="0"
                 allowFullScreen
               />
             </div>

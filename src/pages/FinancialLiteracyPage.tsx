@@ -401,65 +401,89 @@ const FinancialLiteracyPage: React.FC = () => {
 
           {/* Compact Book Showcase */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-            <button
-              onClick={(e) => openBook('richest-man-babylon', e)}
-              disabled={loadingBook === 'richest-man-babylon'}
-              className="p-3 bg-yellow-600/10 hover:bg-yellow-600/20 border border-yellow-500/20 rounded-lg transition-all duration-200 relative overflow-hidden disabled:opacity-70 text-left"
-            >
-              {loadingBook === 'richest-man-babylon' && (
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer"></div>
-              )}
-              <div className="relative">
-                <div className="text-sm font-medium text-white mb-1">The Richest Man in Babylon</div>
-                <div className="text-xs text-gray-400">George Clason • Classic Wisdom</div>
-                <div className="text-xs text-yellow-300 mt-1">⭐ 4.8 • Timeless wealth principles</div>
+            <div className="p-3 bg-yellow-600/10 border border-yellow-500/20 rounded-lg">
+              <div className="text-sm font-medium text-white mb-1">The Richest Man in Babylon</div>
+              <div className="text-xs text-gray-400 mb-2">George Clason • Classic Wisdom</div>
+              <div className="text-xs text-yellow-300 mb-3">⭐ 4.8 • Timeless wealth principles</div>
+              <div className="flex gap-2">
+                <button
+                  onClick={(e) => openBook('richest-man-babylon', e)}
+                  className="flex-1 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded transition-all duration-200"
+                >
+                  Quick View
+                </button>
+                <button
+                  onClick={() => handleBookNavigation('richest-man-babylon', 'The Richest Man in Babylon')}
+                  disabled={loadingBook === 'richest-man-babylon'}
+                  className="flex-1 py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+                >
+                  {loadingBook === 'richest-man-babylon' ? 'Opening...' : 'Full Page'}
+                </button>
               </div>
-            </button>
+            </div>
 
-            <button
-              onClick={(e) => openBook('psychology-of-money', e)}
-              disabled={loadingBook === 'psychology-of-money'}
-              className="p-3 bg-green-600/10 hover:bg-green-600/20 border border-green-500/20 rounded-lg transition-all duration-200 relative overflow-hidden disabled:opacity-70 text-left"
-            >
-              {loadingBook === 'psychology-of-money' && (
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer"></div>
-              )}
-              <div className="relative">
-                <div className="text-sm font-medium text-white mb-1">The Psychology of Money</div>
-                <div className="text-xs text-gray-400">Morgan Housel • Modern Strategy</div>
-                <div className="text-xs text-green-300 mt-1">⭐ 4.9 • Behavioral finance</div>
+            <div className="p-3 bg-green-600/10 border border-green-500/20 rounded-lg">
+              <div className="text-sm font-medium text-white mb-1">The Psychology of Money</div>
+              <div className="text-xs text-gray-400 mb-2">Morgan Housel • Modern Strategy</div>
+              <div className="text-xs text-green-300 mb-3">⭐ 4.9 • Behavioral finance</div>
+              <div className="flex gap-2">
+                <button
+                  onClick={(e) => openBook('psychology-of-money', e)}
+                  className="flex-1 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded transition-all duration-200"
+                >
+                  Quick View
+                </button>
+                <button
+                  onClick={() => handleBookNavigation('psychology-of-money', 'The Psychology of Money')}
+                  disabled={loadingBook === 'psychology-of-money'}
+                  className="flex-1 py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+                >
+                  {loadingBook === 'psychology-of-money' ? 'Opening...' : 'Full Page'}
+                </button>
               </div>
-            </button>
+            </div>
 
-            <button
-              onClick={(e) => openBook('intelligent-investor', e)}
-              disabled={loadingBook === 'intelligent-investor'}
-              className="p-3 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/20 rounded-lg transition-all duration-200 relative overflow-hidden disabled:opacity-70 text-left"
-            >
-              {loadingBook === 'intelligent-investor' && (
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer"></div>
-              )}
-              <div className="relative">
-                <div className="text-sm font-medium text-white mb-1">The Intelligent Investor</div>
-                <div className="text-xs text-gray-400">Benjamin Graham • Investment</div>
-                <div className="text-xs text-blue-300 mt-1">⭐ 4.8 • Value investing bible</div>
+            <div className="p-3 bg-blue-600/10 border border-blue-500/20 rounded-lg">
+              <div className="text-sm font-medium text-white mb-1">The Intelligent Investor</div>
+              <div className="text-xs text-gray-400 mb-2">Benjamin Graham • Investment</div>
+              <div className="text-xs text-blue-300 mb-3">⭐ 4.8 • Value investing bible</div>
+              <div className="flex gap-2">
+                <button
+                  onClick={(e) => openBook('intelligent-investor', e)}
+                  className="flex-1 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded transition-all duration-200"
+                >
+                  Quick View
+                </button>
+                <button
+                  onClick={() => handleBookNavigation('intelligent-investor', 'The Intelligent Investor')}
+                  disabled={loadingBook === 'intelligent-investor'}
+                  className="flex-1 py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+                >
+                  {loadingBook === 'intelligent-investor' ? 'Opening...' : 'Full Page'}
+                </button>
               </div>
-            </button>
+            </div>
 
-            <button
-              onClick={(e) => openBook('rich-dad-poor-dad', e)}
-              disabled={loadingBook === 'rich-dad-poor-dad'}
-              className="p-3 bg-purple-600/10 hover:bg-purple-600/20 border border-purple-500/20 rounded-lg transition-all duration-200 relative overflow-hidden disabled:opacity-70 text-left"
-            >
-              {loadingBook === 'rich-dad-poor-dad' && (
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 animate-shimmer"></div>
-              )}
-              <div className="relative">
-                <div className="text-sm font-medium text-white mb-1">Rich Dad Poor Dad</div>
-                <div className="text-xs text-gray-400">Robert Kiyosaki • Classic</div>
-                <div className="text-xs text-purple-300 mt-1">⭐ 4.7 • Financial education</div>
+            <div className="p-3 bg-purple-600/10 border border-purple-500/20 rounded-lg">
+              <div className="text-sm font-medium text-white mb-1">Rich Dad Poor Dad</div>
+              <div className="text-xs text-gray-400 mb-2">Robert Kiyosaki • Classic</div>
+              <div className="text-xs text-purple-300 mb-3">⭐ 4.7 • Financial education</div>
+              <div className="flex gap-2">
+                <button
+                  onClick={(e) => openBook('rich-dad-poor-dad', e)}
+                  className="flex-1 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded transition-all duration-200"
+                >
+                  Quick View
+                </button>
+                <button
+                  onClick={() => handleBookNavigation('rich-dad-poor-dad', 'Rich Dad Poor Dad')}
+                  disabled={loadingBook === 'rich-dad-poor-dad'}
+                  className="flex-1 py-1.5 bg-yellow-600 hover:bg-yellow-700 disabled:bg-yellow-600/50 text-white text-xs font-medium rounded transition-all duration-200 relative overflow-hidden disabled:cursor-not-allowed"
+                >
+                  {loadingBook === 'rich-dad-poor-dad' ? 'Opening...' : 'Full Page'}
+                </button>
               </div>
-            </button>
+            </div>
           </div>
 
           <div className="text-center">
@@ -607,11 +631,11 @@ const FinancialLiteracyPage: React.FC = () => {
 
       </div>
 
-      {/* PDF Modal Viewer - Same pattern as dream-hive-resources */}
+      {/* PDF Modal Viewer - Quick View Modal */}
       {selectedBook && (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex flex-col h-screen w-screen">
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex flex-col">
           {/* Modal Header */}
-          <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 px-3 sm:px-4 flex-shrink-0 h-auto">
+          <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 px-3 sm:px-4 flex-shrink-0">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
                 <button
@@ -627,26 +651,39 @@ const FinancialLiteracyPage: React.FC = () => {
                     {selectedBook.title}
                   </h1>
                   <p className="text-xs sm:text-sm text-yellow-200 truncate">
-                    by {selectedBook.author}
+                    by {selectedBook.author} • Quick View
                   </p>
                 </div>
               </div>
 
-              {/* Download/External Link Button */}
-              <a
-                href={selectedBook.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 bg-yellow-600/80 hover:bg-yellow-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm ml-auto"
-              >
-                <Download size={14} />
-                <span className="hidden sm:inline">Download</span>
-              </a>
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2">
+                <a
+                  href={selectedBook.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-yellow-600/80 hover:bg-yellow-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm"
+                >
+                  <Download size={14} />
+                  <span className="hidden sm:inline">Download</span>
+                </a>
+
+                <button
+                  onClick={() => {
+                    setSelectedBook(null);
+                    handleBookNavigation(selectedBook.id, selectedBook.title);
+                  }}
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-green-600/80 hover:bg-green-500/90 text-white font-medium rounded-lg shadow-lg transition-all duration-300 text-sm"
+                >
+                  <ExternalLink size={14} />
+                  <span className="hidden sm:inline">Full Page</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* PDF Content Viewer - Fill remaining space exactly */}
-          <div className="flex-1 relative overflow-hidden">
+          {/* PDF Content Viewer - Proper scroll boundaries */}
+          <div className="flex-1 relative overflow-hidden" style={{ height: 'calc(100vh - 80px)' }}>
             {/* Silver Shimmer Loading Overlay */}
             {pdfLoading && (
               <div className="absolute inset-0 z-10">
@@ -668,8 +705,8 @@ const FinancialLiteracyPage: React.FC = () => {
               </div>
             )}
 
-            {/* Always use Google Docs Viewer for better compatibility and no double scroll */}
-            <div className="w-full h-full bg-white">
+            {/* PDF Viewer with proper scroll boundaries */}
+            <div className="w-full h-full bg-white overflow-auto">
               <iframe
                 src={getGooglePdfViewerUrl(selectedBook.url)}
                 className="w-full h-full border-0 block"
@@ -685,8 +722,6 @@ const FinancialLiteracyPage: React.FC = () => {
                 loading="lazy"
                 onLoad={handlePdfLoad}
                 onError={handlePdfError}
-                scrolling="no"
-                frameBorder="0"
                 allowFullScreen
               />
             </div>
