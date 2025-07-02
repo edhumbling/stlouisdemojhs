@@ -98,14 +98,17 @@ const FinancialLiteracyPage: React.FC = () => {
 
   // Handle PDF load completion
   const handlePdfLoad = () => {
-    // Wait a bit longer to ensure PDF is fully rendered
+    // Wait longer to ensure PDF is fully rendered
     setTimeout(() => {
       setIsLoading(false);
-    }, 800);
+    }, 2000);
   };
 
   const handlePdfError = () => {
-    setIsLoading(false);
+    // Don't hide loading immediately on error - give more time
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
   };
 
   // Google PDF Viewer URL helper - Always start from top
