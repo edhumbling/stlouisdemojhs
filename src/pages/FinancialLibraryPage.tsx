@@ -805,16 +805,7 @@ const FinancialLibraryPage: React.FC = () => {
           ))}
         </div>
 
-        {/* No Results Message */}
-        {filteredBooks.length === 0 && (
-          <div className="text-center py-12">
-            <div className="text-gray-400 mb-4">
-              <Book size={48} className="mx-auto mb-4 opacity-50" />
-              <h3 className="text-xl font-semibold mb-2">No books found</h3>
-              <p>Try adjusting your search terms or category filter.</p>
-            </div>
-          </div>
-        )}
+
 
         {/* Library Stats */}
         <div className="mt-12 bg-gradient-to-r from-yellow-900/50 to-yellow-800/50 p-6 rounded-lg border border-yellow-500/30">
