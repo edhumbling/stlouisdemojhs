@@ -644,7 +644,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 </button>
               </motion.div>
 
-              {/* Entrepreneurship Card */}
+              {/* Investment Fundamentals Card */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -653,45 +653,39 @@ const FinancialLiteracyPage: React.FC = () => {
               >
                 <button
                   onClick={() => {
-                    const entrepreneurshipSection = document.getElementById('entrepreneurship');
-                    if (entrepreneurshipSection) {
-                      entrepreneurshipSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                    }
+                    window.open('https://drive.google.com/file/d/1wehgmwts4fLxPkVIgjXSDeXNOPMtzFIP/preview', '_blank');
                   }}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-red-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-violet-500/5 to-indigo-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-2xl">🚀</span>
-                      <span className="text-xs font-medium text-purple-400 bg-purple-400/20 px-2 py-1 rounded-full">
-                        Business
+                      <span className="text-2xl">💰</span>
+                      <span className="text-xs font-medium text-yellow-400 bg-yellow-400/20 px-2 py-1 rounded-full">
+                        Financial Literacy
                       </span>
                     </div>
 
                     <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-purple-300 transition-colors duration-200">
-                      Entrepreneurship
+                      Investment Fundamentals
                     </h3>
 
                     <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
-                      Learn how to start and grow a business, from idea validation to funding and scaling your venture.
+                      Introduction to investing and growing your wealth over time
                     </p>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-purple-400 font-medium">Scroll to Learn</span>
-                      <span className="text-gray-400">Business</span>
+                      <span className="text-purple-400 font-medium">Resource</span>
+                      <span className="text-gray-400">🔗</span>
                     </div>
                   </div>
                 </button>
               </motion.div>
 
-              {/* Financial Goals Card */}
+              {/* Credit and Debt Management Card */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -700,39 +694,33 @@ const FinancialLiteracyPage: React.FC = () => {
               >
                 <button
                   onClick={() => {
-                    const goalsSection = document.getElementById('financial-goals');
-                    if (goalsSection) {
-                      goalsSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                    }
+                    window.open('https://drive.google.com/file/d/1tDhpCsr36husIUKf-OIfUWZZ6GuuAGEh/preview', '_blank');
                   }}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-yellow-500/5 to-red-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-amber-500/5 to-yellow-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-2xl">🎯</span>
-                      <span className="text-xs font-medium text-orange-400 bg-orange-400/20 px-2 py-1 rounded-full">
-                        Goals
+                      <span className="text-2xl">💰</span>
+                      <span className="text-xs font-medium text-yellow-400 bg-yellow-400/20 px-2 py-1 rounded-full">
+                        Financial Literacy
                       </span>
                     </div>
 
                     <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-orange-300 transition-colors duration-200">
-                      Financial Goals
+                      Credit and Debt Management
                     </h3>
 
                     <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
-                      Set and achieve your financial objectives with proven goal-setting strategies and tracking methods.
+                      Understanding credit scores, loans, and responsible debt management
                     </p>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-orange-400 font-medium">Scroll to Learn</span>
-                      <span className="text-gray-400">Planning</span>
+                      <span className="text-orange-400 font-medium">Resource</span>
+                      <span className="text-gray-400">🔗</span>
                     </div>
                   </div>
                 </button>
