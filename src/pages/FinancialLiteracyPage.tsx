@@ -726,7 +726,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 </button>
               </motion.div>
 
-              {/* Budgeting Mastery Card */}
+              {/* Financial Planning for Students Card */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -735,39 +735,33 @@ const FinancialLiteracyPage: React.FC = () => {
               >
                 <button
                   onClick={() => {
-                    const budgetingSection = document.getElementById('money-concepts');
-                    if (budgetingSection) {
-                      budgetingSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                    }
+                    window.open('https://drive.google.com/file/d/11M0ZPnV5OLqRPoqPBoDDcuAJFE11u6QC/preview', '_blank');
                   }}
-                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-teal-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-cyan-500/5 to-blue-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-pink-500/5 to-rose-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-2xl">💳</span>
-                      <span className="text-xs font-medium text-teal-400 bg-teal-400/20 px-2 py-1 rounded-full">
-                        Budgeting
+                      <span className="text-2xl">💰</span>
+                      <span className="text-xs font-medium text-yellow-400 bg-yellow-400/20 px-2 py-1 rounded-full">
+                        Financial Literacy
                       </span>
                     </div>
 
-                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-teal-300 transition-colors duration-200">
-                      Budgeting Mastery
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-red-300 transition-colors duration-200">
+                      Financial Planning for Students
                     </h3>
 
                     <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
-                      Master the art of budgeting with proven techniques to track expenses and maximize your savings.
+                      Money management strategies specifically designed for students
                     </p>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-teal-400 font-medium">Scroll to Learn</span>
-                      <span className="text-gray-400">Money Management</span>
+                      <span className="text-red-400 font-medium">Resource</span>
+                      <span className="text-gray-400">🔗</span>
                     </div>
                   </div>
                 </button>
