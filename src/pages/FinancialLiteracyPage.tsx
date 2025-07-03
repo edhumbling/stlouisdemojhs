@@ -562,7 +562,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 </button>
               </motion.div>
 
-              {/* Money Smart Links Card */}
+              {/* Personal Finance Basics Card */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -571,35 +571,33 @@ const FinancialLiteracyPage: React.FC = () => {
               >
                 <button
                   onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                    navigate('/money-smart-links');
+                    window.open('https://drive.google.com/file/d/1Sg8I986nRXGfk3Ir1Eyx6aDyw6F4E6lz/preview', '_blank');
                   }}
-                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-green-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
-                  {/* Special white glass glow for Money Smart Links card */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 via-white/10 to-white/5 opacity-60 group-hover:opacity-80 transition-opacity duration-300 backdrop-blur-sm" />
-                  <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-white/30 via-white/20 to-white/30 opacity-40 group-hover:opacity-60 transition-opacity duration-300 blur-sm -z-10" />
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-green-500/5 to-teal-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-2xl">💰</span>
-                      <span className="text-xs font-medium text-green-400 bg-green-400/20 px-2 py-1 rounded-full">
-                        Interactive
+                      <span className="text-xs font-medium text-yellow-400 bg-yellow-400/20 px-2 py-1 rounded-full">
+                        Financial Literacy
                       </span>
                     </div>
 
-                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-green-300 transition-colors duration-200">
-                      Money Smart Links
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-emerald-300 transition-colors duration-200">
+                      Personal Finance Basics
                     </h3>
 
                     <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
-                      Curated collection of financial tools, calculators, and educational resources for smart money management.
+                      Essential guide to managing your money and building financial security
                     </p>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-green-400 font-medium">100+ Resources</span>
-                      <span className="text-gray-400">Tools & Guides</span>
+                      <span className="text-emerald-400 font-medium">Resource</span>
+                      <span className="text-gray-400">🔗</span>
                     </div>
                   </div>
                 </button>
