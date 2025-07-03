@@ -16,6 +16,15 @@ interface FinancialBook {
   color: string;
 }
 
+interface FinancialResource {
+  id: number;
+  title: string;
+  description: string;
+  url: string;
+  embedStrategy?: 'iframe' | 'smart';
+  isInternal?: boolean;
+}
+
 const FinancialLiteracyPage: React.FC = () => {
   const navigate = useNavigate();
   const [showNavMenu, setShowNavMenu] = useState(false);
@@ -24,6 +33,12 @@ const FinancialLiteracyPage: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navMenuRef = useRef<HTMLDivElement>(null);
+
+  // Resource modal state
+  const [selectedResource, setSelectedResource] = useState<FinancialResource | null>(null);
+  const [resourceLoading, setResourceLoading] = useState(false);
+  const [iframeError, setIframeError] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const handleBack = () => {
     navigate('/');
@@ -78,6 +93,89 @@ const FinancialLiteracyPage: React.FC = () => {
       category: 'Classic Financial Wisdom',
       color: '#f59e0b'
     }
+  };
+
+  // Financial Literacy Resources (matching LearnHub page)
+  const financialResources: FinancialResource[] = [
+    {
+      id: 8,
+      title: "Khan Academy Financial Literacy",
+      description: "Learn personal finance and money management",
+      url: "https://www.khanacademy.org/college-careers-more/financial-literacy",
+      embedStrategy: 'smart'
+    },
+    {
+      id: 28,
+      title: "Personal Finance Basics",
+      description: "Essential guide to managing your money and building financial security",
+      url: "https://drive.google.com/file/d/1Sg8I986nRXGfk3Ir1Eyx6aDyw6F4E6lz/preview",
+      embedStrategy: 'iframe'
+    },
+    {
+      id: 29,
+      title: "Budgeting and Saving",
+      description: "Learn how to create budgets and develop smart saving habits",
+      url: "https://drive.google.com/file/d/1dwEaBuMyCFvmt0D8go44SpZTxq-PiJUN/preview",
+      embedStrategy: 'iframe'
+    },
+    {
+      id: 30,
+      title: "Investment Fundamentals",
+      description: "Introduction to investing and growing your wealth over time",
+      url: "https://drive.google.com/file/d/1wehgmwts4fLxPkVIgjXSDeXNOPMtzFIP/preview",
+      embedStrategy: 'iframe'
+    },
+    {
+      id: 31,
+      title: "Credit and Debt Management",
+      description: "Understanding credit scores, loans, and responsible debt management",
+      url: "https://drive.google.com/file/d/1tDhpCsr36husIUKf-OIfUWZZ6GuuAGEh/preview",
+      embedStrategy: 'iframe'
+    },
+    {
+      id: 32,
+      title: "Financial Planning for Students",
+      description: "Money management strategies specifically designed for students",
+      url: "https://drive.google.com/file/d/11M0ZPnV5OLqRPoqPBoDDcuAJFE11u6QC/preview",
+      embedStrategy: 'iframe'
+    },
+    {
+      id: 33,
+      title: "Money Smart Links",
+      description: "300+ comprehensive financial education websites and resources directory",
+      url: "/money-smart-links",
+      isInternal: true
+    }
+  ];
+
+  // Handle resource click (matching LearnHub behavior)
+  const handleResourceClick = (resource: FinancialResource) => {
+    if (resource.isInternal) {
+      navigate(resource.url);
+    } else {
+      // Handle embedded resources (iframe or smart)
+      setResourceLoading(true);
+      setIframeError(false);
+      setSelectedResource(resource);
+    }
+  };
+
+  // Handle iframe load
+  const handleIframeLoad = () => {
+    setResourceLoading(false);
+  };
+
+  // Handle iframe error
+  const handleIframeResourceError = () => {
+    setResourceLoading(false);
+    setIframeError(true);
+  };
+
+  // Close resource modal
+  const closeResourceModal = () => {
+    setSelectedResource(null);
+    setResourceLoading(false);
+    setIframeError(false);
   };
 
   // Handle book opening in modal
@@ -529,9 +627,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 className="group"
               >
                 <button
-                  onClick={() => {
-                    window.open('https://www.khanacademy.org/college-careers-more/financial-literacy', '_blank');
-                  }}
+                  onClick={() => handleResourceClick(financialResources[0])}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-green-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
@@ -570,9 +666,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 className="group"
               >
                 <button
-                  onClick={() => {
-                    window.open('https://drive.google.com/file/d/1Sg8I986nRXGfk3Ir1Eyx6aDyw6F4E6lz/preview', '_blank');
-                  }}
+                  onClick={() => handleResourceClick(financialResources[1])}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
@@ -611,9 +705,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 className="group"
               >
                 <button
-                  onClick={() => {
-                    window.open('https://drive.google.com/file/d/1dwEaBuMyCFvmt0D8go44SpZTxq-PiJUN/preview', '_blank');
-                  }}
+                  onClick={() => handleResourceClick(financialResources[2])}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
@@ -652,9 +744,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 className="group"
               >
                 <button
-                  onClick={() => {
-                    window.open('https://drive.google.com/file/d/1wehgmwts4fLxPkVIgjXSDeXNOPMtzFIP/preview', '_blank');
-                  }}
+                  onClick={() => handleResourceClick(financialResources[3])}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
@@ -693,9 +783,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 className="group"
               >
                 <button
-                  onClick={() => {
-                    window.open('https://drive.google.com/file/d/1tDhpCsr36husIUKf-OIfUWZZ6GuuAGEh/preview', '_blank');
-                  }}
+                  onClick={() => handleResourceClick(financialResources[4])}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
@@ -734,9 +822,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 className="group"
               >
                 <button
-                  onClick={() => {
-                    window.open('https://drive.google.com/file/d/11M0ZPnV5OLqRPoqPBoDDcuAJFE11u6QC/preview', '_blank');
-                  }}
+                  onClick={() => handleResourceClick(financialResources[5])}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-red-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
@@ -775,10 +861,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 className="group"
               >
                 <button
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                    navigate('/money-smart-links');
-                  }}
+                  onClick={() => handleResourceClick(financialResources[6])}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Special white glass glow for Money Smart Links card */}
@@ -943,6 +1026,74 @@ const FinancialLiteracyPage: React.FC = () => {
                   </div>
                 </iframe>
               </object>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Resource Modal - Matching LearnHub behavior */}
+      {selectedResource && (
+        <div className="fixed inset-0 z-[9999] bg-black flex flex-col">
+          {/* Header */}
+          <div className="flex-shrink-0 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 shadow-2xl border-b border-purple-700/50">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center justify-between">
+                <button
+                  onClick={closeResourceModal}
+                  className="flex items-center gap-2 text-white hover:text-purple-200 transition-colors duration-200 group"
+                >
+                  <ArrowLeft className="w-5 h-5 group-hover:translate-x-[-2px] transition-transform duration-200" />
+                  <span className="font-medium">Back to Financial Literacy</span>
+                </button>
+                <div className="flex-1 mx-4 min-w-0">
+                  <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                    {selectedResource.title}
+                  </h1>
+                  <p className="text-sm text-purple-200 truncate">
+                    {selectedResource.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Full-Screen Iframe Container */}
+          <div className="h-[calc(100vh-80px)] bg-black flex items-center justify-center relative">
+            {resourceLoading && (
+              <div className="absolute inset-0 bg-black flex items-center justify-center z-10">
+                <ShimmerLoader />
+              </div>
+            )}
+
+            {iframeError ? (
+              <div className="text-center text-white p-8">
+                <h3 className="text-xl font-bold mb-4">Unable to load resource</h3>
+                <p className="text-gray-300 mb-6">This resource couldn't be loaded in the embedded viewer.</p>
+                <button
+                  onClick={() => window.open(selectedResource.url, '_blank')}
+                  className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors duration-200"
+                >
+                  Open in New Tab
+                </button>
+              </div>
+            ) : (
+              <iframe
+                ref={iframeRef}
+                src={selectedResource.url}
+                className="w-full h-full border-0"
+                onLoad={handleIframeLoad}
+                onError={handleIframeResourceError}
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals"
+                referrerPolicy="no-referrer"
+                loading="eager"
+                title={selectedResource.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  outline: 'none'
+                }}
+              />
             )}
           </div>
         </div>
