@@ -36,7 +36,7 @@ const MoneySmartLinksPage: React.FC = () => {
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {
-    navigate('/students-hub');
+    navigate('/financial-literacy');
   };
 
   const handleVideoBack = () => {
