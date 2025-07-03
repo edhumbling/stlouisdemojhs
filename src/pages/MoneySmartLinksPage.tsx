@@ -36,7 +36,11 @@ const MoneySmartLinksPage: React.FC = () => {
   const { setShowHeader } = useHeader();
 
   const handleBack = () => {
-    navigate('/financialliteracy');
+    navigate('/financialliteracy', {
+      state: {
+        scrollToSection: 'financial-resources-section'
+      }
+    });
   };
 
   const handleVideoBack = () => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Book, Menu as MenuIcon, ChevronDown as ChevronDownIcon, Download as DownloadIcon } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
@@ -27,6 +27,7 @@ interface FinancialResource {
 
 const FinancialLiteracyPage: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [showNavMenu, setShowNavMenu] = useState(false);
   const [loadingBook, setLoadingBook] = useState<string | null>(null);
   const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
@@ -43,6 +44,23 @@ const FinancialLiteracyPage: React.FC = () => {
   const handleBack = () => {
     navigate('/');
   };
+
+  // Handle scroll restoration when returning from Money Smart Links
+  useEffect(() => {
+    const state = location.state as { scrollToSection?: string } | null;
+    if (state?.scrollToSection) {
+      // Small delay to ensure the page is fully rendered
+      setTimeout(() => {
+        const element = document.getElementById(state.scrollToSection!);
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 300);
+    }
+  }, [location.state]);
 
   // Mobile detection
   useEffect(() => {
@@ -626,7 +644,7 @@ const FinancialLiteracyPage: React.FC = () => {
           </div>
 
           {/* Financial Learning Resources Cards */}
-          <div className="mt-8">
+          <div className="mt-8" id="financial-resources-section">
             <h3 className="text-lg font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
               💰 Essential Financial Learning Resources
             </h3>
