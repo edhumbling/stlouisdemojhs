@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, Menu, ChevronDown, X, Download, Book } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SEOHead from '../components/seo/SEOHead';
 import Header from '../components/layout/Header';
 import ShimmerLoader from '../components/common/ShimmerLoader';
@@ -17,7 +18,6 @@ interface FinancialBook {
 
 const FinancialLiteracyPage: React.FC = () => {
   const navigate = useNavigate();
-  const [playingVideos, setPlayingVideos] = useState<Set<string>>(new Set());
   const [showNavMenu, setShowNavMenu] = useState(false);
   const [loadingBook, setLoadingBook] = useState<string | null>(null);
   const [selectedBook, setSelectedBook] = useState<FinancialBook | null>(null);
@@ -117,18 +117,6 @@ const FinancialLiteracyPage: React.FC = () => {
     return `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true&page=1&view=FitH&toolbar=1&t=${timestamp}`;
   };
 
-  const toggleVideo = (videoId: string) => {
-    setPlayingVideos(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(videoId)) {
-        newSet.delete(videoId);
-      } else {
-        newSet.add(videoId);
-      }
-      return newSet;
-    });
-  };
-
   // Legacy navigation function (keeping for compatibility)
   const handleBookNavigation = (bookId: string, title: string) => {
     setLoadingBook(bookId);
@@ -137,58 +125,6 @@ const FinancialLiteracyPage: React.FC = () => {
         state: { title }
       });
     }, 500);
-  };
-
-  // Video component for inline YouTube-style playback
-  const VideoCard: React.FC<{ videoId: string; title: string; thumbnail?: string }> = ({ videoId, title, thumbnail }) => {
-    const isPlaying = playingVideos.has(videoId);
-    const thumbnailUrl = thumbnail || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-
-    return (
-      <div className="relative bg-gray-800 rounded-lg overflow-hidden group">
-        {!isPlaying ? (
-          <div
-            className="relative cursor-pointer hover:scale-105 transition-transform duration-300"
-            onClick={() => toggleVideo(videoId)}
-          >
-            <img
-              src={thumbnailUrl}
-              alt={title}
-              className="w-full h-48 object-cover"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-              }}
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-30 transition-all duration-300">
-              <div className="bg-red-600 rounded-full p-3 group-hover:scale-110 transition-transform duration-300">
-                <Play className="w-6 h-6 text-white ml-1" fill="white" />
-              </div>
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-              <h3 className="text-white font-semibold text-sm">{title}</h3>
-            </div>
-          </div>
-        ) : (
-          <div className="relative">
-            <iframe
-              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-              title={title}
-              className="w-full h-48"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-            <button
-              onClick={() => toggleVideo(videoId)}
-              className="absolute top-2 right-2 bg-black bg-opacity-50 text-white p-1 rounded hover:bg-opacity-75 transition-all duration-200"
-            >
-              ✕
-            </button>
-          </div>
-        )}
-      </div>
-    );
   };
 
   // Navigation menu items
@@ -577,103 +513,286 @@ const FinancialLiteracyPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Budgeting and Money Management Videos */}
+          {/* Financial Learning Resources Cards */}
           <div className="mt-8">
             <h3 className="text-lg font-bold text-yellow-300 mb-4 underline decoration-1 underline-offset-2">
-              💰 Essential Budgeting and Money Management Videos
+              💰 Essential Financial Learning Resources
             </h3>
 
-            {/* Row 1-4: Core Financial Education */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="sT_iw2c7BXI" title="Financial Education Fundamentals" />
-              <VideoCard videoId="5eM3bW3L3Zw" title="Money Management Basics" />
-              <VideoCard videoId="4L6-2Y3vZr8" title="Personal Finance Strategy" />
-              <VideoCard videoId="O0JKn0JBRYQ" title="Wealth Building Principles" />
-            </div>
+            {/* Auto-scrolling Cards Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+              {/* Financial Library Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0 * 0.05 }}
+                className="group"
+              >
+                <button
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                    navigate('/financial-library');
+                  }}
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-yellow-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                >
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-orange-500/5 to-red-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="8JMPgR3mO_k" title="Investment Fundamentals" />
-              <VideoCard videoId="9x0_3cU3e0c" title="Budgeting Mastery" />
-              <VideoCard videoId="5wWKN9sF0eE" title="Financial Planning Guide" />
-              <VideoCard videoId="7Zu0lxn7R8E" title="Money Mindset Training" />
-            </div>
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-2xl">📚</span>
+                      <span className="text-xs font-medium text-yellow-400 bg-yellow-400/20 px-2 py-1 rounded-full">
+                        Premium Books
+                      </span>
+                    </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="2mIikP-7P9k" title="Saving Strategies" />
-              <VideoCard videoId="6W0MZq4Tk2k" title="Debt Management" />
-              <VideoCard videoId="Zt6XNlirMTQ" title="Financial Goals Setting" />
-              <VideoCard videoId="4gM-Ai3vT0A" title="Emergency Fund Building" />
-            </div>
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-yellow-300 transition-colors duration-200">
+                      Financial Library
+                    </h3>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="3B1sI2eZ1Y4" title="Credit Score Improvement" />
-              <VideoCard videoId="8y0qO0gXv3o" title="Retirement Planning" />
-              <VideoCard videoId="0QjF8fY1o2w" title="Tax Planning Basics" />
-              <VideoCard videoId="1hK1k4h3X8c" title="Insurance Essentials" />
-            </div>
+                    <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
+                      Access 41+ premium financial books from legendary investors and experts. Learn from the best minds in finance.
+                    </p>
 
-            {/* Row 5-8: Advanced Financial Topics */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="5Op2Z7z7Y0M" title="Advanced Investment Strategies" />
-              <VideoCard videoId="7i1kZ3r4T8k" title="Real Estate Investing" />
-              <VideoCard videoId="9nJ0q2z3r4c" title="Stock Market Basics" />
-              <VideoCard videoId="2kZ0f8bY3r8" title="Cryptocurrency Guide" />
-            </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-yellow-400 font-medium">41+ Books</span>
+                      <span className="text-gray-400">PDF, EPUB, MOBI</span>
+                    </div>
+                  </div>
+                </button>
+              </motion.div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="3mP0q2z1Y4k" title="Business Finance" />
-              <VideoCard videoId="4xJ1k4h3X8c" title="Entrepreneurship Funding" />
-              <VideoCard videoId="5y0qO0gXv3o" title="Financial Independence" />
-              <VideoCard videoId="6wK1k4h3X8c" title="Passive Income Streams" />
-            </div>
+              {/* Money Smart Links Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 1 * 0.05 }}
+                className="group"
+              >
+                <button
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                    navigate('/money-smart-links');
+                  }}
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-green-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                >
+                  {/* Special white glass glow for Money Smart Links card */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 via-white/10 to-white/5 opacity-60 group-hover:opacity-80 transition-opacity duration-300 backdrop-blur-sm" />
+                  <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-white/30 via-white/20 to-white/30 opacity-40 group-hover:opacity-60 transition-opacity duration-300 blur-sm -z-10" />
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="7z0qO0gXv3o" title="Tax Optimization" />
-              <VideoCard videoId="8aJ1k4h3X8c" title="Estate Planning" />
-              <VideoCard videoId="9b0qO0gXv3o" title="Risk Management" />
-              <VideoCard videoId="0cJ1k4h3X8c" title="Financial Psychology" />
-            </div>
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-2xl">💰</span>
+                      <span className="text-xs font-medium text-green-400 bg-green-400/20 px-2 py-1 rounded-full">
+                        Interactive
+                      </span>
+                    </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="1d0qO0gXv3o" title="Market Analysis" />
-              <VideoCard videoId="2eJ1k4h3X8c" title="Portfolio Management" />
-              <VideoCard videoId="3f0qO0gXv3o" title="Economic Indicators" />
-              <VideoCard videoId="4gJ1k4h3X8c" title="Financial Ratios" />
-            </div>
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-green-300 transition-colors duration-200">
+                      Money Smart Links
+                    </h3>
 
-            {/* Row 9-12: Specialized Financial Education */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="5h0qO0gXv3o" title="Options Trading" />
-              <VideoCard videoId="6iJ1k4h3X8c" title="Forex Trading" />
-              <VideoCard videoId="7j0qO0gXv3o" title="Commodity Investing" />
-              <VideoCard videoId="8kJ1k4h3X8c" title="Bond Investing" />
-            </div>
+                    <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
+                      Curated collection of financial tools, calculators, and educational resources for smart money management.
+                    </p>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="9l0qO0gXv3o" title="Mutual Funds Guide" />
-              <VideoCard videoId="0mJ1k4h3X8c" title="ETF Investing" />
-              <VideoCard videoId="1n0qO0gXv3o" title="Index Fund Strategy" />
-              <VideoCard videoId="2oJ1k4h3X8c" title="Dividend Investing" />
-            </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-green-400 font-medium">100+ Resources</span>
+                      <span className="text-gray-400">Tools & Guides</span>
+                    </div>
+                  </div>
+                </button>
+              </motion.div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="3p0qO0gXv3o" title="Value Investing" />
-              <VideoCard videoId="4qJ1k4h3X8c" title="Growth Investing" />
-              <VideoCard videoId="5r0qO0gXv3o" title="Technical Analysis" />
-              <VideoCard videoId="6sJ1k4h3X8c" title="Fundamental Analysis" />
-            </div>
+              {/* Investment Basics Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 2 * 0.05 }}
+                className="group"
+              >
+                <button
+                  onClick={() => {
+                    const investmentSection = document.getElementById('investment-fundamentals');
+                    if (investmentSection) {
+                      investmentSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }
+                  }}
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                >
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-indigo-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="7t0qO0gXv3o" title="Financial Planning Tools" />
-              <VideoCard videoId="8uJ1k4h3X8c" title="Budgeting Apps" />
-              <VideoCard videoId="9v0qO0gXv3o" title="Investment Platforms" />
-              <VideoCard videoId="0wJ1k4h3X8c" title="Financial Calculators" />
-            </div>
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-2xl">📈</span>
+                      <span className="text-xs font-medium text-blue-400 bg-blue-400/20 px-2 py-1 rounded-full">
+                        Learn
+                      </span>
+                    </div>
 
-            {/* Row 13: Final Videos */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <VideoCard videoId="1x0qO0gXv3o" title="Financial Goal Achievement" />
-              <VideoCard videoId="2yJ1k4h3X8c" title="Wealth Preservation" />
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-blue-300 transition-colors duration-200">
+                      Investment Fundamentals
+                    </h3>
+
+                    <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
+                      Master the basics of investing, from stocks and bonds to portfolio diversification and risk management.
+                    </p>
+
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-blue-400 font-medium">Scroll to Learn</span>
+                      <span className="text-gray-400">Fundamentals</span>
+                    </div>
+                  </div>
+                </button>
+              </motion.div>
+
+              {/* Entrepreneurship Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 3 * 0.05 }}
+                className="group"
+              >
+                <button
+                  onClick={() => {
+                    const entrepreneurshipSection = document.getElementById('entrepreneurship');
+                    if (entrepreneurshipSection) {
+                      entrepreneurshipSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }
+                  }}
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                >
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-red-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-2xl">🚀</span>
+                      <span className="text-xs font-medium text-purple-400 bg-purple-400/20 px-2 py-1 rounded-full">
+                        Business
+                      </span>
+                    </div>
+
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-purple-300 transition-colors duration-200">
+                      Entrepreneurship
+                    </h3>
+
+                    <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
+                      Learn how to start and grow a business, from idea validation to funding and scaling your venture.
+                    </p>
+
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-purple-400 font-medium">Scroll to Learn</span>
+                      <span className="text-gray-400">Business</span>
+                    </div>
+                  </div>
+                </button>
+              </motion.div>
+
+              {/* Financial Goals Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 4 * 0.05 }}
+                className="group"
+              >
+                <button
+                  onClick={() => {
+                    const goalsSection = document.getElementById('financial-goals');
+                    if (goalsSection) {
+                      goalsSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }
+                  }}
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-orange-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                >
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-yellow-500/5 to-red-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-2xl">🎯</span>
+                      <span className="text-xs font-medium text-orange-400 bg-orange-400/20 px-2 py-1 rounded-full">
+                        Goals
+                      </span>
+                    </div>
+
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-orange-300 transition-colors duration-200">
+                      Financial Goals
+                    </h3>
+
+                    <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
+                      Set and achieve your financial objectives with proven goal-setting strategies and tracking methods.
+                    </p>
+
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-orange-400 font-medium">Scroll to Learn</span>
+                      <span className="text-gray-400">Planning</span>
+                    </div>
+                  </div>
+                </button>
+              </motion.div>
+
+              {/* Budgeting Mastery Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 5 * 0.05 }}
+                className="group"
+              >
+                <button
+                  onClick={() => {
+                    const budgetingSection = document.getElementById('money-concepts');
+                    if (budgetingSection) {
+                      budgetingSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    }
+                  }}
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-teal-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                >
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-cyan-500/5 to-blue-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-2xl">💳</span>
+                      <span className="text-xs font-medium text-teal-400 bg-teal-400/20 px-2 py-1 rounded-full">
+                        Budgeting
+                      </span>
+                    </div>
+
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-teal-300 transition-colors duration-200">
+                      Budgeting Mastery
+                    </h3>
+
+                    <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
+                      Master the art of budgeting with proven techniques to track expenses and maximize your savings.
+                    </p>
+
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-teal-400 font-medium">Scroll to Learn</span>
+                      <span className="text-gray-400">Money Management</span>
+                    </div>
+                  </div>
+                </button>
+              </motion.div>
             </div>
           </div>
         </div>
