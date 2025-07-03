@@ -603,7 +603,7 @@ const FinancialLiteracyPage: React.FC = () => {
                 </button>
               </motion.div>
 
-              {/* Investment Basics Card */}
+              {/* Budgeting and Saving Card */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -612,39 +612,33 @@ const FinancialLiteracyPage: React.FC = () => {
               >
                 <button
                   onClick={() => {
-                    const investmentSection = document.getElementById('investment-fundamentals');
-                    if (investmentSection) {
-                      investmentSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                    }
+                    window.open('https://drive.google.com/file/d/1dwEaBuMyCFvmt0D8go44SpZTxq-PiJUN/preview', '_blank');
                   }}
                   className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-indigo-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-sky-500/5 to-cyan-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-2xl">📈</span>
-                      <span className="text-xs font-medium text-blue-400 bg-blue-400/20 px-2 py-1 rounded-full">
-                        Learn
+                      <span className="text-2xl">💰</span>
+                      <span className="text-xs font-medium text-yellow-400 bg-yellow-400/20 px-2 py-1 rounded-full">
+                        Financial Literacy
                       </span>
                     </div>
 
                     <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-blue-300 transition-colors duration-200">
-                      Investment Fundamentals
+                      Budgeting and Saving
                     </h3>
 
                     <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
-                      Master the basics of investing, from stocks and bonds to portfolio diversification and risk management.
+                      Learn how to create budgets and develop smart saving habits
                     </p>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-blue-400 font-medium">Scroll to Learn</span>
-                      <span className="text-gray-400">Fundamentals</span>
+                      <span className="text-blue-400 font-medium">Resource</span>
+                      <span className="text-gray-400">🔗</span>
                     </div>
                   </div>
                 </button>
