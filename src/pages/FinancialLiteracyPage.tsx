@@ -151,9 +151,13 @@ const FinancialLiteracyPage: React.FC = () => {
   // Handle resource click (matching LearnHub behavior)
   const handleResourceClick = (resource: FinancialResource) => {
     if (resource.isInternal) {
+      // Scroll to top before navigating internally
+      window.scrollTo({ top: 0, behavior: 'instant' });
       navigate(resource.url);
     } else {
       // Handle embedded resources (iframe or smart)
+      // Scroll to top before opening modal
+      window.scrollTo({ top: 0, behavior: 'instant' });
       setResourceLoading(true);
       setIframeError(false);
       setSelectedResource(resource);
@@ -163,6 +167,16 @@ const FinancialLiteracyPage: React.FC = () => {
   // Handle iframe load
   const handleIframeLoad = () => {
     setResourceLoading(false);
+
+    // Try to scroll iframe content to top (if same-origin allows)
+    try {
+      if (iframeRef.current?.contentWindow) {
+        iframeRef.current.contentWindow.scrollTo(0, 0);
+      }
+    } catch (error) {
+      // Cross-origin restriction - this is expected for external sites
+      console.log('Cross-origin iframe - cannot control scroll position');
+    }
   };
 
   // Handle iframe error
@@ -1033,32 +1047,29 @@ const FinancialLiteracyPage: React.FC = () => {
 
       {/* Resource Modal - Matching LearnHub behavior */}
       {selectedResource && (
-        <div className="fixed inset-0 z-[9999] bg-black flex flex-col">
-          {/* Header */}
-          <div className="flex-shrink-0 bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 shadow-2xl border-b border-purple-700/50">
+        <div className="fixed inset-0 z-[9999] bg-black flex flex-col" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
+          {/* Header - Compact like original back bars */}
+          <div className="flex-shrink-0 bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 shadow-2xl border-b border-yellow-700/50">
             <div className="container mx-auto px-4">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4 sm:gap-6">
                 <button
                   onClick={closeResourceModal}
-                  className="flex items-center gap-2 text-white hover:text-purple-200 transition-colors duration-200 group"
+                  className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-yellow-700/50 hover:bg-yellow-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-yellow-500/30 flex-shrink-0"
                 >
-                  <ArrowLeft className="w-5 h-5 group-hover:translate-x-[-2px] transition-transform duration-200" />
-                  <span className="font-medium">Back to Financial Literacy</span>
+                  <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                  <span>Back to Financial Literacy</span>
                 </button>
-                <div className="flex-1 mx-4 min-w-0">
-                  <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white truncate">
+                <div className="flex-1 min-w-0">
+                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white truncate">
                     {selectedResource.title}
                   </h1>
-                  <p className="text-sm text-purple-200 truncate">
-                    {selectedResource.description}
-                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Full-Screen Iframe Container */}
-          <div className="h-[calc(100vh-80px)] bg-black flex items-center justify-center relative">
+          {/* Full-Screen Iframe Container - No excess space */}
+          <div className="flex-1 bg-white relative overflow-hidden">
             {resourceLoading && (
               <div className="absolute inset-0 bg-black flex items-center justify-center z-10">
                 <ShimmerLoader />
@@ -1066,15 +1077,17 @@ const FinancialLiteracyPage: React.FC = () => {
             )}
 
             {iframeError ? (
-              <div className="text-center text-white p-8">
-                <h3 className="text-xl font-bold mb-4">Unable to load resource</h3>
-                <p className="text-gray-300 mb-6">This resource couldn't be loaded in the embedded viewer.</p>
-                <button
-                  onClick={() => window.open(selectedResource.url, '_blank')}
-                  className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors duration-200"
-                >
-                  Open in New Tab
-                </button>
+              <div className="absolute inset-0 bg-black flex items-center justify-center">
+                <div className="text-center text-white p-8">
+                  <h3 className="text-xl font-bold mb-4">Unable to load resource</h3>
+                  <p className="text-gray-300 mb-6">This resource couldn't be loaded in the embedded viewer.</p>
+                  <button
+                    onClick={() => window.open(selectedResource.url, '_blank')}
+                    className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg transition-colors duration-200"
+                  >
+                    Open in New Tab
+                  </button>
+                </div>
               </div>
             ) : (
               <iframe
@@ -1091,7 +1104,8 @@ const FinancialLiteracyPage: React.FC = () => {
                   width: '100%',
                   height: '100%',
                   border: 'none',
-                  outline: 'none'
+                  outline: 'none',
+                  display: 'block'
                 }}
               />
             )}
