@@ -521,7 +521,7 @@ const FinancialLiteracyPage: React.FC = () => {
 
             {/* Auto-scrolling Cards Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-              {/* Financial Library Card */}
+              {/* Khan Academy Financial Literacy Card */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -530,34 +530,33 @@ const FinancialLiteracyPage: React.FC = () => {
               >
                 <button
                   onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                    navigate('/financial-library');
+                    window.open('https://www.khanacademy.org/college-careers-more/financial-literacy', '_blank');
                   }}
-                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-yellow-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-green-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
                 >
                   {/* Background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-orange-500/5 to-red-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-emerald-500/5 to-teal-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
 
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-2xl">📚</span>
+                      <span className="text-2xl">💰</span>
                       <span className="text-xs font-medium text-yellow-400 bg-yellow-400/20 px-2 py-1 rounded-full">
-                        Premium Books
+                        Financial Literacy
                       </span>
                     </div>
 
-                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-yellow-300 transition-colors duration-200">
-                      Financial Library
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-green-300 transition-colors duration-200">
+                      Khan Academy Financial Literacy
                     </h3>
 
                     <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
-                      Access 41+ premium financial books from legendary investors and experts. Learn from the best minds in finance.
+                      Learn personal finance and money management
                     </p>
 
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-yellow-400 font-medium">41+ Books</span>
-                      <span className="text-gray-400">PDF, EPUB, MOBI</span>
+                      <span className="text-green-400 font-medium">Resource</span>
+                      <span className="text-gray-400">🔗</span>
                     </div>
                   </div>
                 </button>
