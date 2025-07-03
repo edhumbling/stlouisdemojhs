@@ -3314,6 +3314,16 @@ const StudentsHubPage: React.FC = () => {
                 >
                   Financial Literacy
                 </button>
+                {' '}and{' '}
+                <button
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                    navigate('/financialliteracy');
+                  }}
+                  className="underline text-yellow-400 hover:text-yellow-300 transition-colors duration-200 font-medium"
+                >
+                  wealth building
+                </button>
               </p>
             </div>
           </div>
