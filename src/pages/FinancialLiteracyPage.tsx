@@ -766,6 +766,49 @@ const FinancialLiteracyPage: React.FC = () => {
                   </div>
                 </button>
               </motion.div>
+
+              {/* Money Smart Links Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 6 * 0.05 }}
+                className="group"
+              >
+                <button
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                    navigate('/money-smart-links');
+                  }}
+                  className="w-full h-[200px] bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/20 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 hover:bg-white/10 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                >
+                  {/* Special white glass glow for Money Smart Links card */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 via-white/10 to-white/5 opacity-60 group-hover:opacity-80 transition-opacity duration-300 backdrop-blur-sm" />
+                  <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-white/30 via-white/20 to-white/30 opacity-40 group-hover:opacity-60 transition-opacity duration-300 blur-sm -z-10" />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-2xl">🌐</span>
+                      <span className="text-xs font-medium text-yellow-400 bg-yellow-400/20 px-2 py-1 rounded-full">
+                        Financial Literacy
+                      </span>
+                    </div>
+
+                    <h3 className="text-white font-bold text-sm sm:text-base mb-2 group-hover:text-emerald-300 transition-colors duration-200">
+                      Money Smart Links
+                    </h3>
+
+                    <p className="text-gray-300 text-xs leading-relaxed mb-3 flex-1">
+                      300+ comprehensive financial education websites and resources directory
+                    </p>
+
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-emerald-400 font-medium">Resource</span>
+                      <span className="text-gray-400">🔗</span>
+                    </div>
+                  </div>
+                </button>
+              </motion.div>
             </div>
           </div>
         </div>
