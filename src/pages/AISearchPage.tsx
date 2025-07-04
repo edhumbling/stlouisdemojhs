@@ -535,7 +535,8 @@ const AISearchPage: React.FC = () => {
       icon: <img src="https://playground.liquid.ai/favicon.ico" alt="Liquid AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/06b6d4/ffffff?text=LA'; }} />,
       color: 'from-cyan-500 to-blue-600',
       glowColor: '#06b6d4',
-      hasWhiteBackground: true
+      hasWhiteBackground: true,
+      openExternally: true
     },
     {
       id: 'gizai',
