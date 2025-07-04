@@ -528,6 +528,16 @@ const AISearchPage: React.FC = () => {
       hasWhiteBackground: true
     },
     {
+      id: 'liquid-ai',
+      name: 'Liquid AI Playground',
+      url: 'https://playground.liquid.ai/chat?model=cm648lmn1000008js1hxh1ir5',
+      description: 'Advanced AI playground with cutting-edge liquid neural networks and reasoning models',
+      icon: <img src="https://playground.liquid.ai/favicon.ico" alt="Liquid AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/06b6d4/ffffff?text=LA'; }} />,
+      color: 'from-cyan-500 to-blue-600',
+      glowColor: '#06b6d4',
+      hasWhiteBackground: true
+    },
+    {
       id: 'gizai',
       name: 'GizAI',
       url: 'https://www.giz.ai/',
