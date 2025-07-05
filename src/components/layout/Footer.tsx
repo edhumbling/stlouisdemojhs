@@ -175,6 +175,19 @@ const Footer: React.FC = () => {
                     <span className="absolute inset-0 -m-0.5 bg-green-300/15 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.5s' }}></span>
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/shop"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className="relative inline-block text-xs sm:text-sm group"
+                  >
+                    <span className="relative z-10 text-indigo-300 group-hover:text-indigo-200 transition-colors font-medium">
+                      Alumni Shop
+                    </span>
+                    <span className="absolute inset-0 -m-1 bg-indigo-400/20 blur-md animate-pulse rounded-lg group-hover:bg-indigo-400/30 transition-colors"></span>
+                    <span className="absolute inset-0 -m-0.5 bg-indigo-300/15 blur-sm animate-pulse rounded-lg" style={{ animationDelay: '0.7s' }}></span>
+                  </Link>
+                </li>
               </ul>
             </div>
 
