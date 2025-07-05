@@ -397,6 +397,49 @@ const AlumniPage: React.FC = () => {
 
       <SectionDivider position="bottom" />
 
+      {/* Alumni Shop Reminder Section */}
+      <section className="py-6 sm:py-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/80 via-purple-900/80 to-indigo-900/80"></div>
+        <div className="w-full px-3 sm:px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <div className="glass-card rounded-xl p-4 sm:p-6 shadow-lg border border-indigo-400/30 bg-indigo-500/10">
+              <div className="flex items-center justify-center mb-3">
+                <span className="text-2xl sm:text-3xl mr-2">🛍️</span>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+                  Alumni Shop Now Open!
+                </h2>
+              </div>
+              <p className="text-sm sm:text-base text-gray-200 mb-4 leading-relaxed">
+                Show your school pride with official St. Louis Demo JHS merchandise!
+                Get t-shirts, hoodies, mugs, and more to represent your alma mater.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-2 justify-center items-center">
+                <a
+                  href="https://stlouisdemojhs-shop.fourthwall.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.7)] transition-all duration-300 text-sm"
+                >
+                  <span className="mr-2">🛒</span>
+                  Shop Now
+                </a>
+                <span className="text-xs text-gray-400">
+                  Support your school • Worldwide shipping available
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <SectionDivider position="bottom" />
+
       {/* Alumni Stats - Mobile-Friendly Dark Aero */}
       <section className="py-6 sm:py-8 md:py-12 relative overflow-hidden">
         {/* Optimized School Background Image */}
