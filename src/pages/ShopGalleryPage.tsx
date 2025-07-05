@@ -48,6 +48,18 @@ const shopItems = [
     src: 'https://ik.imagekit.io/humbling/3500fe16-8e70-46a2-a53b-78404ab65d1d.jpg',
     alt: 'St. Louis Demo JHS Official Merchandise - Item 7',
     category: 'Merchandise'
+  },
+  {
+    id: 8,
+    src: 'https://ik.imagekit.io/humbling/7dbcf22a-ecad-4643-a702-58affa5c7f4c.webp',
+    alt: 'St. Louis Demo JHS Official Merchandise - Item 8',
+    category: 'Merchandise'
+  },
+  {
+    id: 9,
+    src: 'https://ik.imagekit.io/humbling/4e7ea482-08d5-46a8-9894-9b0fd11238f2.jpg',
+    alt: 'St. Louis Demo JHS Official Merchandise - Item 9',
+    category: 'Merchandise'
   }
 ];
 
