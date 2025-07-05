@@ -46,7 +46,7 @@ const ShopGalleryPage: React.FC = () => {
         title="Alumni Shop Gallery | Official St. Louis Demo JHS Merchandise - Show Your School Pride"
         description="Alumni Shop Gallery - Browse our collection of official St. Louis Demonstration JHS merchandise. T-shirts, hoodies, mugs, and more to show your school pride. Support your alma mater with quality branded items."
         keywords="St. Louis Demo JHS shop, alumni merchandise, school branded items, t-shirts, hoodies, mugs, school pride, alumni shop"
-        url="/shop-gallery"
+        url="/shop"
         type="website"
         pageType="shop"
         useGalleryImages={false}
