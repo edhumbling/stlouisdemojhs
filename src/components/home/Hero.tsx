@@ -466,6 +466,17 @@ const Hero: React.FC = () => {
                 <span className="absolute inset-0 bg-cyan-500 opacity-30 rounded-lg"></span>
               </Link>
 
+              <a
+                href="https://stlouisdemojhs-shop.fourthwall.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              >
+                <span className="relative z-10 whitespace-nowrap">Alumni Shop</span>
+                <span className="absolute inset-0 bg-indigo-500 opacity-30 rounded-lg"></span>
+              </a>
+
               <Link
                 to="/donate"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
