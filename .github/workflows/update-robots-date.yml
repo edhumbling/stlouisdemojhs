@@ -8,10 +8,6 @@ on:
   # Allow manual trigger
   workflow_dispatch:
 
-  # Run on every push to main (ensures dates are current on deployments)
-  push:
-    branches: [ main ]
-
 jobs:
   update-seo-dates:
     runs-on: ubuntu-latest
