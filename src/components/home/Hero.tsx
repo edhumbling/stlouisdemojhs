@@ -18,16 +18,16 @@ const Hero: React.FC = () => {
   // Smart device detection
   const deviceInfo = useDeviceDetection();
 
-  // Helper function for button styling based on device - Enhanced for cute mobile buttons
+  // Helper function for button styling based on device - Cute small mobile buttons
   const getButtonClasses = (baseColor: string, hoverColor: string, shadowColor: string) => {
     const baseClasses = `inline-flex items-center justify-center font-bold transition-all duration-300 relative overflow-hidden flex-shrink-0`;
     const colorClasses = `bg-${baseColor} hover:bg-${hoverColor} text-white shadow-[0_0_15px_${shadowColor}] hover:shadow-[0_0_20px_${shadowColor}]`;
 
     if (deviceInfo.type === 'tablet') {
-      return `${baseClasses} ${colorClasses} px-5 py-2.5 rounded-xl ${getTabletTextSizes(deviceInfo)?.button || 'text-sm'}`;
+      return `${baseClasses} ${colorClasses} px-5 py-2.5 rounded-lg ${getTabletTextSizes(deviceInfo)?.button || 'text-sm'}`;
     } else if (deviceInfo.type === 'mobile') {
-      // Cute mobile styling: more rounded, better padding, slightly larger text
-      return `${baseClasses} ${colorClasses} px-3 py-2 rounded-xl text-sm hover:scale-105`;
+      // Cute small mobile styling: compact and adorable
+      return `${baseClasses} ${colorClasses} px-2 py-1 rounded-lg text-xs`;
     } else {
       return `${baseClasses} ${colorClasses} px-4 py-2 rounded-lg text-sm`;
     }
