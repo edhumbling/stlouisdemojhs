@@ -18,17 +18,18 @@ const Hero: React.FC = () => {
   // Smart device detection
   const deviceInfo = useDeviceDetection();
 
-  // Helper function for button styling based on device
+  // Helper function for button styling based on device - Enhanced for cute mobile buttons
   const getButtonClasses = (baseColor: string, hoverColor: string, shadowColor: string) => {
-    const baseClasses = `inline-flex items-center justify-center font-bold rounded-lg transition-all duration-300 relative overflow-hidden flex-shrink-0`;
+    const baseClasses = `inline-flex items-center justify-center font-bold transition-all duration-300 relative overflow-hidden flex-shrink-0`;
     const colorClasses = `bg-${baseColor} hover:bg-${hoverColor} text-white shadow-[0_0_15px_${shadowColor}] hover:shadow-[0_0_20px_${shadowColor}]`;
 
     if (deviceInfo.type === 'tablet') {
-      return `${baseClasses} ${colorClasses} px-5 py-2.5 ${getTabletTextSizes(deviceInfo)?.button || 'text-sm'}`;
+      return `${baseClasses} ${colorClasses} px-5 py-2.5 rounded-xl ${getTabletTextSizes(deviceInfo)?.button || 'text-sm'}`;
     } else if (deviceInfo.type === 'mobile') {
-      return `${baseClasses} ${colorClasses} px-2 py-1.5 text-xs`;
+      // Cute mobile styling: more rounded, better padding, slightly larger text
+      return `${baseClasses} ${colorClasses} px-3 py-2 rounded-xl text-sm hover:scale-105`;
     } else {
-      return `${baseClasses} ${colorClasses} px-4 py-2 text-sm`;
+      return `${baseClasses} ${colorClasses} px-4 py-2 rounded-lg text-sm`;
     }
   };
 
@@ -409,7 +410,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/schedule-visit"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(34,197,94,0.5)] hover:shadow-[0_0_20px_rgba(34,197,94,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                className={getButtonClasses('green-600', 'green-700', 'rgba(34,197,94,0.5)')}
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Visit Us</span>
@@ -419,7 +420,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/apply-now"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(234,88,12,0.5)] hover:shadow-[0_0_20px_rgba(234,88,12,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                className={getButtonClasses('orange-600', 'orange-700', 'rgba(234,88,12,0.5)')}
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Apply</span>
@@ -429,7 +430,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/news"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                className={getButtonClasses('purple-600', 'purple-700', 'rgba(147,51,234,0.5)')}
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Latest News</span>
@@ -439,7 +440,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/mayamiles-ai"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(16,185,129,0.5)] hover:shadow-[0_0_20px_rgba(16,185,129,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                className={getButtonClasses('emerald-600', 'emerald-700', 'rgba(16,185,129,0.5)')}
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Learn with AI</span>
@@ -449,7 +450,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/financialliteracy"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(202,138,4,0.5)] hover:shadow-[0_0_20px_rgba(202,138,4,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                className={getButtonClasses('yellow-600', 'yellow-700', 'rgba(202,138,4,0.5)')}
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Learn Financial Literacy</span>
@@ -459,7 +460,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/partner"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                className={getButtonClasses('cyan-600', 'cyan-700', 'rgba(6,182,212,0.5)')}
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Partner with Us</span>
@@ -469,7 +470,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/shop"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                className={getButtonClasses('indigo-600', 'indigo-700', 'rgba(99,102,241,0.5)')}
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Alumni Shop</span>
@@ -479,7 +480,7 @@ const Hero: React.FC = () => {
               <Link
                 to="/donate"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
-                className="inline-flex items-center justify-center px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 xl:px-4 xl:py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-[0_0_15px_rgba(239,68,68,0.5)] hover:shadow-[0_0_20px_rgba(239,68,68,0.7)] transition-all duration-300 text-xs sm:text-sm md:text-base lg:text-lg xl:text-sm relative overflow-hidden flex-shrink-0"
+                className={getButtonClasses('red-600', 'red-700', 'rgba(239,68,68,0.5)')}
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               >
                 <span className="relative z-10 whitespace-nowrap">Donate</span>
