@@ -18,18 +18,23 @@ const Hero: React.FC = () => {
   // Smart device detection
   const deviceInfo = useDeviceDetection();
 
-  // Helper function for button styling based on device - Cute small mobile buttons
+  // Helper function for button styling based on device - Cute small mobile buttons with no layout shift
   const getButtonClasses = (baseColor: string, hoverColor: string, shadowColor: string) => {
+    // Mobile-first approach to prevent layout shift - start with mobile styles
     const baseClasses = `inline-flex items-center justify-center font-bold transition-all duration-300 relative overflow-hidden flex-shrink-0`;
     const colorClasses = `bg-${baseColor} hover:bg-${hoverColor} text-white shadow-[0_0_15px_${shadowColor}] hover:shadow-[0_0_20px_${shadowColor}]`;
 
+    // Default to mobile styles to prevent stretching, then enhance for larger screens
+    const mobileStyles = `px-2 py-1 rounded-lg text-xs`;
+    const tabletStyles = `md:px-5 md:py-2.5 md:text-sm`;
+    const desktopStyles = `lg:px-4 lg:py-2 lg:text-sm`;
+
     if (deviceInfo.type === 'tablet') {
-      return `${baseClasses} ${colorClasses} px-5 py-2.5 rounded-lg ${getTabletTextSizes(deviceInfo)?.button || 'text-sm'}`;
+      return `${baseClasses} ${colorClasses} ${mobileStyles} ${tabletStyles}`;
     } else if (deviceInfo.type === 'mobile') {
-      // Cute small mobile styling: compact and adorable
-      return `${baseClasses} ${colorClasses} px-2 py-1 rounded-lg text-xs`;
+      return `${baseClasses} ${colorClasses} ${mobileStyles}`;
     } else {
-      return `${baseClasses} ${colorClasses} px-4 py-2 rounded-lg text-sm`;
+      return `${baseClasses} ${colorClasses} ${mobileStyles} ${tabletStyles} ${desktopStyles}`;
     }
   };
 
@@ -389,14 +394,8 @@ const Hero: React.FC = () => {
               Powering the Next Generation of Ghana's Brightest and Skilled Workforce of the future since 1977
             </p>
 
-            {/* Deep Color Glowing Buttons - Smart Device Detection Layout */}
-            <div className={`flex flex-wrap max-w-full ${
-              deviceInfo.type === 'tablet'
-                ? 'gap-3'
-                : deviceInfo.type === 'mobile'
-                ? 'gap-2'
-                : 'gap-4'
-            }`}>
+            {/* Deep Color Glowing Buttons - Mobile-first responsive layout to prevent shift */}
+            <div className="flex flex-wrap max-w-full gap-2 md:gap-3 lg:gap-4">
               <Link
                 to="/about"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
