@@ -213,7 +213,21 @@ const careersData: Record<string, Career[]> = {
     { name: 'Blood Bank Supervisor', description: 'Oversee blood collection, testing, and storage operations. Blood bank supervisors ensure safety protocols and quality control in blood banking facilities.' },
     { name: 'Boat Builder', description: 'Construct and repair boats and marine vessels. Boat builders work with various materials and techniques to create seaworthy watercraft.' },
     { name: 'Body Shop Estimator', description: 'Assess vehicle damage and estimate repair costs for auto body work. Body shop estimators provide accurate cost estimates for insurance and customer purposes.' },
-    { name: 'Boiler Operator', description: 'Operate and maintain boiler systems in industrial and commercial facilities. Boiler operators ensure safe and efficient heating and power generation.' }
+    { name: 'Boiler Operator', description: 'Operate and maintain boiler systems in industrial and commercial facilities. Boiler operators ensure safe and efficient heating and power generation.' },
+    { name: 'Bookbinder', description: 'Bind books and other printed materials using traditional and modern techniques. Bookbinders create durable and attractive finished products for publishers and customers.' },
+    { name: 'Booking Agent', description: 'Arrange performances and appearances for entertainers and speakers. Booking agents negotiate contracts and coordinate schedules for their clients.' },
+    { name: 'Border Security Agent', description: 'Monitor international borders and enforce immigration laws. Border security agents inspect travelers and cargo to maintain national security.' },
+    { name: 'Bowling Instructor', description: 'Teach bowling techniques and skills to players of all levels. Bowling instructors help students improve their game and enjoy the sport.' },
+    { name: 'Brand Ambassador', description: 'Represent companies and promote products at events and in public. Brand ambassadors create positive brand awareness and customer engagement.' },
+    { name: 'Bread Baker', description: 'Specialize in baking various types of bread and baked goods. Bread bakers master traditional and artisanal baking techniques for quality products.' },
+    { name: 'Breakfast Cook', description: 'Prepare breakfast items in restaurants and food service establishments. Breakfast cooks specialize in morning meal preparation and service.' },
+    { name: 'Bridge Operator', description: 'Control movable bridges to allow boat traffic to pass. Bridge operators coordinate with marine and vehicle traffic to ensure safe passage.' },
+    { name: 'Broadcast Engineer', description: 'Maintain and operate broadcasting equipment for radio and television stations. Broadcast engineers ensure quality signal transmission and equipment functionality.' },
+    { name: 'Brokerage Clerk', description: 'Process securities transactions and maintain trading records. Brokerage clerks support financial advisors and traders in investment operations.' },
+    { name: 'Budget Coordinator', description: 'Assist in budget planning and financial management for organizations. Budget coordinators help track expenses and ensure fiscal responsibility.' },
+    { name: 'Building Contractor', description: 'Manage construction projects from planning to completion. Building contractors coordinate trades, materials, and schedules for successful project delivery.' },
+    { name: 'Building Engineer', description: 'Maintain and operate building systems including HVAC, electrical, and plumbing. Building engineers ensure optimal building performance and occupant comfort.' },
+    { name: 'Bulk Food Handler', description: 'Process and package bulk food products in manufacturing facilities. Bulk food handlers ensure food safety and quality in production environments.' }
   ],
   C: [
     { name: 'Carpenter', description: 'Build and repair wooden structures, furniture, and fixtures. Carpenters work on construction projects, custom furniture, and home renovations using various woodworking tools and techniques.' },
@@ -258,7 +272,35 @@ const careersData: Record<string, Career[]> = {
     { name: 'City Planner', description: 'Design and organize urban development projects and land use policies. City planners work with communities to create sustainable and functional urban environments.' },
     { name: 'Claims Adjuster', description: 'Investigate insurance claims and determine coverage and compensation amounts. Claims adjusters interview claimants, inspect damage, and negotiate settlements.' },
     { name: 'Cleaning Service Worker', description: 'Maintain cleanliness in residential and commercial buildings. Cleaning service workers perform various cleaning tasks and use specialized equipment and products.' },
-    { name: 'Clinical Laboratory Technician', description: 'Perform medical tests on blood, tissue, and other body fluids. Clinical laboratory technicians use sophisticated equipment to help diagnose diseases and monitor health.' }
+    { name: 'Clinical Laboratory Technician', description: 'Perform medical tests on blood, tissue, and other body fluids. Clinical laboratory technicians use sophisticated equipment to help diagnose diseases and monitor health.' },
+    { name: 'Clock Repairer', description: 'Repair and maintain clocks and timepieces. Clock repairers work with mechanical and electronic timing devices to restore proper function.' },
+    { name: 'Closet Organizer', description: 'Design and organize storage spaces for homes and businesses. Closet organizers help clients maximize space efficiency and organization.' },
+    { name: 'Cloud Computing Specialist', description: 'Manage and implement cloud-based computing solutions. Cloud computing specialists help organizations migrate to and optimize cloud technologies.' },
+    { name: 'Coach Driver', description: 'Operate passenger coaches and tour buses for transportation services. Coach drivers provide safe and comfortable travel experiences for passengers.' },
+    { name: 'Coal Miner', description: 'Extract coal from underground mines and surface operations. Coal miners operate heavy equipment and follow safety protocols in mining environments.' },
+    { name: 'Coast Guard Officer', description: 'Serve in maritime law enforcement and rescue operations. Coast Guard officers protect waterways and assist mariners in distress.' },
+    { name: 'Coating Technician', description: 'Apply protective and decorative coatings to various surfaces and materials. Coating technicians work in manufacturing and industrial applications.' },
+    { name: 'Coffee Roaster', description: 'Roast coffee beans to achieve desired flavor profiles. Coffee roasters combine art and science to create quality coffee products.' },
+    { name: 'Coin Dealer', description: 'Buy, sell, and appraise coins and currency for collectors. Coin dealers have expertise in numismatics and precious metals markets.' },
+    { name: 'Cold Storage Manager', description: 'Oversee refrigerated storage facilities and temperature-controlled environments. Cold storage managers ensure proper preservation of perishable goods.' },
+    { name: 'College Admissions Counselor', description: 'Guide prospective students through college application processes. College admissions counselors help students find suitable educational opportunities.' },
+    { name: 'Color Consultant', description: 'Advise clients on color schemes for interior design and branding. Color consultants use color theory to create appealing and effective color combinations.' },
+    { name: 'Combat Medic', description: 'Provide medical care in military combat situations. Combat medics are trained to treat injuries under dangerous and challenging conditions.' },
+    { name: 'Commercial Diver', description: 'Perform underwater work for construction, inspection, and repair projects. Commercial divers work in challenging underwater environments for various industries.' },
+    { name: 'Commercial Pilot', description: 'Fly aircraft for cargo transport, charter flights, and commercial aviation. Commercial pilots transport passengers and goods safely and efficiently.' },
+    { name: 'Community Health Worker', description: 'Provide health education and basic care in community settings. Community health workers bridge gaps between healthcare systems and underserved populations.' },
+    { name: 'Compliance Officer', description: 'Ensure organizations follow laws, regulations, and internal policies. Compliance officers monitor adherence to legal and ethical standards.' },
+    { name: 'Computer Hardware Engineer', description: 'Design and develop computer components and systems. Computer hardware engineers create processors, memory devices, and other computing hardware.' },
+    { name: 'Computer Support Specialist', description: 'Provide technical assistance and troubleshooting for computer users. Computer support specialists help resolve hardware and software issues.' },
+    { name: 'Concrete Finisher', description: 'Smooth and finish concrete surfaces in construction projects. Concrete finishers ensure proper texture and appearance of concrete installations.' },
+    { name: 'Conference Planner', description: 'Organize and coordinate professional conferences and meetings. Conference planners manage logistics, speakers, and attendee experiences.' },
+    { name: 'Conservation Scientist', description: 'Protect and manage natural resources and ecosystems. Conservation scientists work to preserve biodiversity and environmental sustainability.' },
+    { name: 'Construction Estimator', description: 'Calculate costs and materials needed for construction projects. Construction estimators provide accurate project budgets and resource planning.' },
+    { name: 'Construction Foreman', description: 'Supervise construction crews and ensure project quality and safety. Construction foremen coordinate work activities and maintain construction standards.' },
+    { name: 'Consumer Advocate', description: 'Represent consumer interests and rights in various industries. Consumer advocates work to protect consumers from unfair practices and policies.' },
+    { name: 'Content Creator', description: 'Develop engaging content for digital platforms and media. Content creators produce videos, articles, and multimedia content for online audiences.' },
+    { name: 'Contract Negotiator', description: 'Negotiate terms and conditions for business contracts and agreements. Contract negotiators ensure favorable terms and legal compliance.' },
+    { name: 'Convenience Store Manager', description: 'Oversee daily operations of convenience stores and retail outlets. Convenience store managers manage inventory, staff, and customer service.' }
   ],
   D: [
     { name: 'Doctor', description: 'Diagnose and treat illnesses, injuries, and medical conditions. Doctors examine patients, prescribe medications, and provide medical care across various specialties and healthcare settings.' },
@@ -275,7 +317,21 @@ const careersData: Record<string, Career[]> = {
     { name: 'Drone Pilot', description: 'Operate unmanned aerial vehicles for various commercial and recreational purposes. Drone pilots capture aerial footage, conduct inspections, and perform specialized missions.' },
     { name: 'Database Administrator', description: 'Manage and maintain computer databases for organizations. Database administrators ensure data security, performance, and accessibility while troubleshooting technical issues.' },
     { name: 'Dance Instructor', description: 'Teach various dance styles and techniques to students of all ages. Dance instructors choreograph routines, provide technique instruction, and prepare students for performances.' },
-    { name: 'Daycare Provider', description: 'Care for children in daycare facilities or home-based settings. Daycare providers supervise activities, ensure safety, and support early childhood development.' }
+    { name: 'Daycare Provider', description: 'Care for children in daycare facilities or home-based settings. Daycare providers supervise activities, ensure safety, and support early childhood development.' },
+    { name: 'Debt Collector', description: 'Contact debtors to collect overdue payments and negotiate payment plans. Debt collectors work to recover outstanding debts for creditors and collection agencies.' },
+    { name: 'Deck Hand', description: 'Assist with ship operations and maintenance on boats and vessels. Deck hands perform various tasks to support maritime operations and vessel safety.' },
+    { name: 'Demolition Worker', description: 'Safely tear down buildings and structures using specialized equipment. Demolition workers follow safety protocols to clear sites for new construction.' },
+    { name: 'Dental Assistant', description: 'Support dentists during procedures and help with patient care. Dental assistants prepare instruments, take X-rays, and provide chairside assistance.' },
+    { name: 'Dental Hygienist', description: 'Clean teeth and provide preventive dental care to patients. Dental hygienists educate patients about oral health and perform routine cleanings.' },
+    { name: 'Department Store Manager', description: 'Oversee retail department operations including sales, inventory, and staff. Department store managers ensure efficient operations and customer satisfaction.' },
+    { name: 'Desktop Publisher', description: 'Design and layout printed materials using computer software. Desktop publishers create brochures, newsletters, and other publications.' },
+    { name: 'Development Coordinator', description: 'Support fundraising and development activities for nonprofit organizations. Development coordinators help secure funding and donor relationships.' },
+    { name: 'Diagnostic Medical Sonographer', description: 'Use ultrasound equipment to create images for medical diagnosis. Diagnostic medical sonographers help doctors diagnose medical conditions.' },
+    { name: 'Diamond Cutter', description: 'Cut and shape diamonds and precious stones for jewelry. Diamond cutters use precision tools and techniques to create beautiful gemstones.' },
+    { name: 'Digital Marketing Specialist', description: 'Develop and implement online marketing strategies and campaigns. Digital marketing specialists use various digital channels to reach target audiences.' },
+    { name: 'Dining Room Manager', description: 'Oversee restaurant dining room operations and customer service. Dining room managers ensure smooth service and positive dining experiences.' },
+    { name: 'Diplomatic Security Agent', description: 'Provide security for diplomatic personnel and facilities. Diplomatic security agents protect embassies, consulates, and diplomatic missions.' },
+    { name: 'Disability Services Coordinator', description: 'Help individuals with disabilities access services and accommodations. Disability services coordinators advocate for accessibility and inclusion.' }
   ],
   E: [
     { name: 'Engineer', description: 'Design, build, and maintain various systems, structures, and technologies. Engineers work in multiple specialties including mechanical, electrical, software, and environmental engineering.' },
@@ -292,7 +348,21 @@ const careersData: Record<string, Career[]> = {
     { name: 'Exercise Physiologist', description: 'Design fitness and rehabilitation programs based on scientific principles. Exercise physiologists help people improve health through customized exercise and wellness programs.' },
     { name: 'Exterminator', description: 'Control and eliminate pest infestations in residential and commercial properties. Exterminators use various methods to safely remove insects, rodents, and other unwanted pests.' },
     { name: 'Emergency Dispatcher', description: 'Receive and coordinate emergency calls for police, fire, and medical services. Emergency dispatchers quickly assess situations and deploy appropriate emergency response teams.' },
-    { name: 'Equipment Operator', description: 'Operate heavy machinery and equipment for construction, mining, and industrial projects. Equipment operators require specialized training to safely handle complex machinery.' }
+    { name: 'Equipment Operator', description: 'Operate heavy machinery and equipment for construction, mining, and industrial projects. Equipment operators require specialized training to safely handle complex machinery.' },
+    { name: 'Escape Room Designer', description: 'Create immersive puzzle experiences and escape room challenges. Escape room designers combine creativity with problem-solving to design engaging entertainment.' },
+    { name: 'Estate Planner', description: 'Help clients plan for the transfer of assets and wealth. Estate planners provide legal and financial advice for inheritance and legacy planning.' },
+    { name: 'Ethical Hacker', description: 'Test computer systems for security vulnerabilities using authorized hacking techniques. Ethical hackers help organizations improve their cybersecurity defenses.' },
+    { name: 'Ethnomusicologist', description: 'Study music in cultural and social contexts around the world. Ethnomusicologists research musical traditions and their cultural significance.' },
+    { name: 'Event Coordinator', description: 'Assist with planning and executing events and special occasions. Event coordinators handle logistics and ensure successful event implementation.' },
+    { name: 'Evidence Technician', description: 'Collect and process physical evidence for law enforcement investigations. Evidence technicians maintain chain of custody and preserve evidence integrity.' },
+    { name: 'Executive Assistant', description: 'Provide high-level administrative support to executives and senior management. Executive assistants manage schedules, communications, and special projects.' },
+    { name: 'Executive Chef', description: 'Lead kitchen operations and menu development in restaurants and food service. Executive chefs oversee culinary teams and maintain food quality standards.' },
+    { name: 'Exercise Equipment Technician', description: 'Repair and maintain fitness equipment in gyms and health clubs. Exercise equipment technicians ensure safe and functional exercise machines.' },
+    { name: 'Exhibit Designer', description: 'Create displays and exhibitions for museums, trade shows, and events. Exhibit designers combine artistic vision with practical display solutions.' },
+    { name: 'Export Specialist', description: 'Manage international shipping and export documentation. Export specialists ensure compliance with international trade regulations and customs requirements.' },
+    { name: 'Eye Bank Technician', description: 'Process and preserve donated eye tissue for transplantation. Eye bank technicians help restore sight through corneal transplant procedures.' },
+    { name: 'Elevator Technician', description: 'Install, maintain, and repair elevators and escalators. Elevator technicians ensure safe vertical transportation in buildings and facilities.' },
+    { name: 'Emergency Management Director', description: 'Plan and coordinate emergency response and disaster preparedness programs. Emergency management directors help communities prepare for and respond to emergencies.' }
   ]
   // More letters will be added progressively
 };
@@ -367,7 +437,7 @@ const CareersListPage: React.FC = () => {
         keywords="careers, career guide, job options, career exploration, student careers, career planning, job descriptions"
         url="/careers-list"
         type="website"
-        pageType="educational"
+        pageType="students-hub"
       />
 
       {/* Back Button Bar */}
