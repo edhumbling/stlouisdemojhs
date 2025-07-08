@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Briefcase, X } from 'lucide-react';
+import { ArrowLeft, Briefcase, X, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
@@ -46,6 +46,7 @@ const CareersListPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedLetter, setSelectedLetter] = useState<string>('A');
   const [selectedCareer, setSelectedCareer] = useState<Career | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Hide footer on this page
   useEffect(() => {
@@ -69,11 +70,30 @@ const CareersListPage: React.FC = () => {
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   const availableLetters = Object.keys(careersData);
 
+  // Smart search filtering
+  const filteredCareers = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return careersData[selectedLetter] || [];
+    }
+
+    const query = searchQuery.toLowerCase();
+    const allCareers = Object.values(careersData).flat();
+    return allCareers.filter(career =>
+      career.name.toLowerCase().includes(query) ||
+      career.description.toLowerCase().includes(query)
+    );
+  }, [searchQuery, selectedLetter]);
+
   const handleLetterClick = (letter: string) => {
     if (availableLetters.includes(letter)) {
       setSelectedLetter(letter);
       setSelectedCareer(null);
+      setSearchQuery(''); // Clear search when selecting letter
     }
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
   };
 
   const handleCareerClick = (career: Career) => {
@@ -119,8 +139,24 @@ const CareersListPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Smart Search Bar */}
+      <div className="bg-gradient-to-r from-gray-800 to-gray-900 py-4 sticky top-16 z-30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-md mx-auto relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <input
+              type="text"
+              placeholder="Search careers..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className="w-full pl-10 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* A-Z Navigation */}
-      <div className="bg-gradient-to-r from-gray-900 to-black py-4 sm:py-6 sticky top-16 z-30">
+      <div className="bg-gradient-to-r from-gray-900 to-black py-4 sm:py-6 sticky top-28 z-20">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-1 sm:gap-2">
             {alphabet.map((letter) => (
@@ -131,7 +167,7 @@ const CareersListPage: React.FC = () => {
                 className={`
                   w-8 h-8 sm:w-10 sm:h-10 rounded-lg font-bold text-sm sm:text-base transition-all duration-300
                   ${availableLetters.includes(letter)
-                    ? selectedLetter === letter
+                    ? selectedLetter === letter && !searchQuery
                       ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
                       : 'bg-gray-700 hover:bg-gray-600 text-white hover:shadow-lg'
                     : 'bg-gray-800 text-gray-500 cursor-not-allowed'
@@ -145,37 +181,46 @@ const CareersListPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Careers List */}
+      {/* Careers List - Raw Document Style */}
       <div className="container mx-auto px-4 py-6 sm:py-8">
         <motion.div
-          key={selectedLetter}
+          key={searchQuery ? 'search' : selectedLetter}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center">
-            Careers Starting with "{selectedLetter}"
+          <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center">
+            {searchQuery ? `Search Results for "${searchQuery}"` : `Careers Starting with "${selectedLetter}"`}
           </h2>
-          
-          {careersData[selectedLetter] ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-4xl mx-auto">
-              {careersData[selectedLetter].map((career, index) => (
-                <motion.button
-                  key={career.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  onClick={() => handleCareerClick(career)}
-                  className="text-left p-4 bg-gray-800/50 hover:bg-gray-700/70 rounded-lg border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
-                >
-                  <h3 className="font-semibold text-white text-base sm:text-lg mb-1">
-                    {career.name}
-                  </h3>
-                  <p className="text-gray-300 text-sm line-clamp-2">
-                    {career.description.substring(0, 100)}...
-                  </p>
-                </motion.button>
-              ))}
+
+          {filteredCareers.length > 0 ? (
+            <div className="max-w-6xl mx-auto">
+              {/* Raw document style layout - 2 columns on mobile, more on larger screens */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3 text-left">
+                {filteredCareers.map((career, index) => (
+                  <motion.button
+                    key={career.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2, delay: index * 0.02 }}
+                    onClick={() => handleCareerClick(career)}
+                    className="text-left hover:bg-gray-800/30 p-2 rounded transition-colors duration-200 group"
+                  >
+                    <h3 className="text-white text-sm sm:text-base font-normal underline decoration-gray-500 hover:decoration-blue-400 transition-colors duration-200 group-hover:text-blue-300 leading-relaxed">
+                      {career.name}
+                    </h3>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+          ) : searchQuery ? (
+            <div className="text-center py-12">
+              <p className="text-gray-400 text-lg">
+                No careers found for "{searchQuery}"
+              </p>
+              <p className="text-gray-500 text-sm mt-2">
+                Try a different search term or browse by letter.
+              </p>
             </div>
           ) : (
             <div className="text-center py-12">
