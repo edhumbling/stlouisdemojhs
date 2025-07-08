@@ -795,6 +795,71 @@ const careersData: Record<string, Career[]> = {
     { name: 'Kinesiologist', description: 'Study human movement and develop programs to improve physical performance and prevent injury. Kinesiologists optimize human movement and health.' },
     { name: 'Kernel Developer', description: 'Develop operating system kernels and low-level system software. Kernel developers create the foundation that runs all computer systems.' },
     { name: 'Knowledge Management Specialist', description: 'Design systems and processes to capture, organize, and share organizational knowledge. Knowledge specialists preserve and distribute institutional wisdom.' }
+  ],
+  L: [
+    { name: 'Language Model Engineer', description: 'Develop and train large language models and natural language processing systems. LLM engineers create AI that understands and generates human language.' },
+    { name: 'Low-Code Platform Developer', description: 'Create visual development platforms that enable non-programmers to build applications. Low-code developers democratize software development.' },
+    { name: 'Longevity Researcher', description: 'Study aging processes and develop interventions to extend healthy human lifespan. Longevity researchers work on the science of aging and life extension.' },
+    { name: 'Logistics Optimization Analyst', description: 'Use AI and data analytics to optimize supply chain and delivery operations. Logistics analysts improve efficiency in global commerce.' },
+    { name: 'Live Streaming Producer', description: 'Manage and produce live video content for social media and entertainment platforms. Live streaming producers create engaging real-time content.' },
+    { name: 'Legal Technology Consultant', description: 'Help law firms implement technology solutions for case management and legal research. Legal tech consultants modernize legal practice.' },
+    { name: 'Learning Experience Designer', description: 'Create engaging educational experiences using technology and pedagogical principles. LX designers revolutionize how people learn.' },
+    { name: 'Location Intelligence Analyst', description: 'Analyze geographic and location data to provide business insights and recommendations. Location analysts use spatial data for decision making.' },
+    { name: 'Lunar Habitat Engineer', description: 'Design living and working spaces for future lunar colonies and space settlements. Lunar engineers prepare for human expansion beyond Earth.' },
+    { name: 'Lab-Grown Meat Scientist', description: 'Develop cellular agriculture technologies to produce meat without animal farming. Lab meat scientists create sustainable protein alternatives.' },
+    { name: 'Lifestyle Medicine Practitioner', description: 'Focus on preventing and treating disease through lifestyle interventions and behavior change. Lifestyle medicine practitioners promote holistic health.' },
+    { name: 'Light Field Display Engineer', description: 'Develop advanced display technologies that create realistic 3D visual experiences. Light field engineers create next-generation visual interfaces.' },
+    { name: 'Liquid Biopsy Technician', description: 'Perform blood tests that detect cancer and other diseases through circulating biomarkers. Liquid biopsy technicians enable early disease detection.' },
+    { name: 'Localization Engineer', description: 'Adapt software and content for different languages and cultural markets. Localization engineers enable global technology adoption.' },
+    { name: 'Loss Prevention Analyst', description: 'Use data analytics and AI to prevent fraud, theft, and other business losses. Loss prevention analysts protect organizational assets.' }
+  ],
+  M: [
+    { name: 'Machine Learning Engineer', description: 'Design and implement machine learning systems and algorithms. ML engineers create AI solutions that learn and improve from data.' },
+    { name: 'Metaverse Architect', description: 'Design virtual worlds and immersive digital environments. Metaverse architects build the infrastructure of virtual reality spaces.' },
+    { name: 'Microbiome Researcher', description: 'Study the role of microorganisms in human health and develop microbiome-based therapies. Microbiome researchers advance personalized medicine.' },
+    { name: 'Mobile App Security Specialist', description: 'Protect mobile applications from security threats and vulnerabilities. Mobile security specialists ensure safe app experiences.' },
+    { name: 'Molecular Data Storage Engineer', description: 'Develop DNA-based data storage systems for long-term information preservation. Molecular storage engineers create biological computing solutions.' },
+    { name: 'Mental Health Technology Developer', description: 'Create digital mental health solutions and therapeutic applications. Mental health tech developers improve access to psychological care.' },
+    { name: 'Mars Mission Planner', description: 'Plan and coordinate human missions to Mars and other planets. Mars planners prepare for interplanetary exploration and colonization.' },
+    { name: 'Micro-Mobility Coordinator', description: 'Manage bike-sharing, scooter-sharing, and other small vehicle transportation systems. Micro-mobility coordinators optimize urban transportation.' },
+    { name: 'Molecular Gastronomy Chef', description: 'Use scientific techniques to create innovative culinary experiences. Molecular chefs combine chemistry with cooking for unique dining.' },
+    { name: 'Mixed Reality Developer', description: 'Create applications that blend physical and digital worlds. Mixed reality developers build immersive hybrid experiences.' }
+  ],
+  N: [
+    { name: 'Nanotechnology Engineer', description: 'Develop materials and devices at the molecular and atomic scale. Nanotechnology engineers create revolutionary microscopic innovations.' },
+    { name: 'Neural Interface Designer', description: 'Create brain-computer interfaces that allow direct neural control of devices. Neural interface designers enable thought-controlled technology.' },
+    { name: 'Network Security Analyst', description: 'Protect computer networks from cyber attacks and security breaches. Network security analysts defend digital infrastructure.' },
+    { name: 'Natural Language Processing Engineer', description: 'Develop AI systems that understand and generate human language. NLP engineers create conversational AI and language technologies.' },
+    { name: 'Neuromarketing Researcher', description: 'Study brain responses to marketing stimuli to optimize advertising effectiveness. Neuromarketing researchers use neuroscience for marketing insights.' },
+    { name: 'Nuclear Fusion Engineer', description: 'Work on developing fusion power as a clean energy source. Fusion engineers pursue unlimited clean energy through nuclear fusion.' },
+    { name: 'Nutrition Data Scientist', description: 'Analyze nutritional data to develop personalized diet recommendations. Nutrition data scientists use AI for optimal health outcomes.' },
+    { name: 'No-Code Platform Developer', description: 'Create visual development tools that enable non-technical users to build applications. No-code developers democratize software creation.' },
+    { name: 'Neurofeedback Therapist', description: 'Use brain monitoring technology to help patients improve mental health and cognitive function. Neurofeedback therapists combine neuroscience with therapy.' },
+    { name: 'Next-Generation Sequencing Technician', description: 'Operate advanced DNA sequencing equipment for genomic research and medical diagnostics. NGS technicians enable precision medicine.' }
+  ],
+  O: [
+    { name: 'Orbital Debris Analyst', description: 'Track and analyze space junk to protect satellites and spacecraft. Orbital debris analysts ensure safe space operations.' },
+    { name: 'Optimization Algorithm Engineer', description: 'Develop algorithms that find optimal solutions to complex problems. Optimization engineers create efficient problem-solving systems.' },
+    { name: 'Ocean Thermal Energy Engineer', description: 'Harness temperature differences in ocean water to generate clean energy. Ocean thermal engineers develop marine renewable energy.' },
+    { name: 'Omnichannel Experience Designer', description: 'Create seamless customer experiences across all digital and physical touchpoints. Omnichannel designers unify customer journeys.' },
+    { name: 'Organ-on-Chip Developer', description: 'Create microfluidic devices that simulate human organ function for drug testing. Organ-chip developers revolutionize pharmaceutical research.' },
+    { name: 'Online Community Manager', description: 'Build and manage digital communities around brands, products, or causes. Community managers foster engagement and loyalty online.' },
+    { name: 'Optical Computing Engineer', description: 'Develop computers that use light instead of electricity for processing. Optical computing engineers create ultra-fast computing systems.' },
+    { name: 'Operations Research Analyst', description: 'Use mathematical and analytical methods to solve complex business problems. Operations researchers optimize organizational efficiency.' },
+    { name: 'Outdoor Adventure Technology Developer', description: 'Create technology solutions for outdoor recreation and adventure sports. Adventure tech developers enhance outdoor experiences.' },
+    { name: 'Organizational Psychology Consultant', description: 'Apply psychological principles to improve workplace culture and employee performance. Org psychology consultants optimize human resources.' }
+  ],
+  P: [
+    { name: 'Precision Agriculture Specialist', description: 'Use technology and data to optimize farming practices and crop yields. Precision agriculture specialists revolutionize food production.' },
+    { name: 'Personalized Medicine Researcher', description: 'Develop medical treatments tailored to individual genetic profiles. Personalized medicine researchers advance targeted healthcare.' },
+    { name: 'Podcast Producer', description: 'Create and manage audio content for podcast platforms and digital media. Podcast producers shape the future of audio entertainment.' },
+    { name: 'Privacy Engineer', description: 'Design systems and processes that protect user privacy and personal data. Privacy engineers ensure ethical data handling.' },
+    { name: 'Predictive Analytics Specialist', description: 'Use machine learning to forecast future trends and behaviors. Predictive analytics specialists enable data-driven decision making.' },
+    { name: 'Plant-Based Protein Developer', description: 'Create alternative protein sources from plants for sustainable food production. Plant protein developers address global nutrition needs.' },
+    { name: 'Prompt Engineer', description: 'Design and optimize prompts for AI language models to achieve desired outputs. Prompt engineers maximize AI system effectiveness.' },
+    { name: 'Photonic Engineer', description: 'Develop technologies that use light particles for computing and communication. Photonic engineers create next-generation optical systems.' },
+    { name: 'Personal Data Analyst', description: 'Help individuals understand and optimize their personal data for health and productivity. Personal data analysts enable self-optimization.' },
+    { name: 'Planetary Protection Officer', description: 'Ensure space missions do not contaminate other planets or bring alien life to Earth. Planetary protection officers safeguard planetary ecosystems.' }
   ]
   // More letters will be added progressively
 };
