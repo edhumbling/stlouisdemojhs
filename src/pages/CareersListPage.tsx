@@ -690,7 +690,21 @@ const careersData: Record<string, Career[]> = {
     { name: 'Golf Instructor', description: 'Teach golf techniques and skills to players of all levels. Golf instructors help students improve their game and enjoy the sport.' },
     { name: 'Groundskeeper', description: 'Maintain outdoor areas including parks, sports fields, and institutional grounds. Groundskeepers ensure attractive and functional outdoor spaces.' },
     { name: 'Guest Services Manager', description: 'Oversee customer service operations in hospitality settings. Guest services managers ensure positive experiences for hotel and resort guests.' },
-    { name: 'Guitar Teacher', description: 'Provide guitar instruction to students of various skill levels. Guitar teachers help students learn techniques, music theory, and performance skills.' }
+    { name: 'Guitar Teacher', description: 'Provide guitar instruction to students of various skill levels. Guitar teachers help students learn techniques, music theory, and performance skills.' },
+    { name: 'Growth Hacker', description: 'Use data-driven strategies and creative marketing to rapidly grow businesses and user bases. Growth hackers combine analytics, creativity, and technology for explosive growth.' },
+    { name: 'Genomics Data Analyst', description: 'Analyze genetic data to identify patterns and insights for personalized medicine. Genomics analysts advance precision healthcare through genetic research.' },
+    { name: 'Green Technology Engineer', description: 'Develop sustainable technologies and renewable energy solutions. Green tech engineers create innovations that protect the environment while meeting human needs.' },
+    { name: 'Gaming Experience Designer', description: 'Create immersive and engaging user experiences for video games and interactive entertainment. Gaming UX designers optimize player engagement and satisfaction.' },
+    { name: 'Gig Economy Platform Manager', description: 'Manage freelance and gig work platforms that connect independent workers with clients. Platform managers facilitate the future of flexible work.' },
+    { name: 'Geospatial Data Scientist', description: 'Analyze location-based data using GIS technology and spatial analytics. Geospatial scientists provide insights for urban planning and environmental monitoring.' },
+    { name: 'Generative AI Engineer', description: 'Develop AI systems that can create original content including text, images, and code. Generative AI engineers build creative artificial intelligence applications.' },
+    { name: 'Global Remote Work Coordinator', description: 'Manage distributed teams and remote work operations across different time zones and cultures. Remote coordinators enable effective global collaboration.' },
+    { name: 'Green Finance Analyst', description: 'Evaluate environmental impact and sustainability factors in investment decisions. Green finance analysts drive capital toward sustainable projects.' },
+    { name: 'Gamification Specialist', description: 'Apply game design principles to non-gaming contexts to increase engagement and motivation. Gamification specialists make work and learning more engaging.' },
+    { name: 'Genetic Counselor', description: 'Help individuals understand genetic test results and make informed decisions about their health. Genetic counselors bridge genetics and patient care.' },
+    { name: 'Global Supply Chain Analyst', description: 'Optimize international supply chains using data analytics and technology. Supply chain analysts ensure efficient global commerce and logistics.' },
+    { name: 'Green Building Consultant', description: 'Advise on sustainable construction practices and environmental building standards. Green building consultants promote eco-friendly architecture.' },
+    { name: 'Gesture Recognition Engineer', description: 'Develop systems that interpret human gestures for computer interaction. Gesture recognition engineers create intuitive human-computer interfaces.' }
   ],
   H: [
     { name: 'Hair Stylist', description: 'Cut, color, and style hair for clients in salons and spas. Hair stylists help clients achieve desired looks and maintain healthy hair.' },
@@ -702,7 +716,21 @@ const careersData: Record<string, Career[]> = {
     { name: 'Hospital Administrator', description: 'Manage healthcare facility operations and administrative functions. Hospital administrators ensure efficient healthcare delivery and compliance.' },
     { name: 'HVAC Technician', description: 'Install and repair heating, ventilation, and air conditioning systems. HVAC technicians maintain climate control systems in buildings.' },
     { name: 'Hydrologist', description: 'Study water resources and water cycle processes. Hydrologists work on water management, flood control, and environmental protection.' },
-    { name: 'Heavy Equipment Operator', description: 'Operate large machinery for construction and industrial projects. Heavy equipment operators work with bulldozers, cranes, and excavators.' }
+    { name: 'Heavy Equipment Operator', description: 'Operate large machinery for construction and industrial projects. Heavy equipment operators work with bulldozers, cranes, and excavators.' },
+    { name: 'Holographic Display Engineer', description: 'Develop holographic projection systems and 3D display technologies. Holographic engineers create the visual interfaces of the future.' },
+    { name: 'Health Data Scientist', description: 'Analyze healthcare data to improve patient outcomes and medical research. Health data scientists use big data to advance medical knowledge.' },
+    { name: 'Hybrid Work Consultant', description: 'Help organizations design effective hybrid work models combining remote and in-office work. Hybrid consultants optimize flexible work arrangements.' },
+    { name: 'Haptic Technology Developer', description: 'Create touch-based feedback systems for virtual and augmented reality applications. Haptic developers make digital experiences feel real.' },
+    { name: 'Hydrogen Energy Engineer', description: 'Develop hydrogen fuel cell technology and clean energy systems. Hydrogen engineers work on the next generation of clean energy solutions.' },
+    { name: 'Human-AI Interaction Designer', description: 'Design interfaces and experiences for human-AI collaboration. HAI designers create seamless partnerships between humans and artificial intelligence.' },
+    { name: 'Health Technology Entrepreneur', description: 'Launch startups focused on digital health solutions and medical technology innovations. Health tech entrepreneurs revolutionize healthcare delivery.' },
+    { name: 'Hyperloop Engineer', description: 'Develop high-speed transportation systems using vacuum tube technology. Hyperloop engineers create the future of ultra-fast ground transportation.' },
+    { name: 'Home Automation Specialist', description: 'Design and install smart home systems and IoT devices. Home automation specialists create intelligent living environments.' },
+    { name: 'Healthcare AI Specialist', description: 'Develop artificial intelligence applications for medical diagnosis and treatment. Healthcare AI specialists improve patient care through intelligent technology.' },
+    { name: 'Humanitarian Technology Coordinator', description: 'Use technology to address global humanitarian challenges and disaster response. Humanitarian tech coordinators leverage innovation for social good.' },
+    { name: 'Hydroponic Systems Engineer', description: 'Design soil-less growing systems for sustainable agriculture. Hydroponic engineers create efficient food production methods for urban environments.' },
+    { name: 'Human Performance Analyst', description: 'Use data and technology to optimize human performance in sports and workplace settings. Performance analysts enhance human capabilities through science.' },
+    { name: 'Holistic Wellness Coach', description: 'Integrate technology with traditional wellness practices to promote overall health. Holistic coaches combine ancient wisdom with modern tools.' }
   ],
   I: [
     { name: 'Interior Designer', description: 'Plan and design interior spaces for homes and businesses. Interior designers create functional and aesthetically pleasing environments.' },
@@ -714,7 +742,21 @@ const careersData: Record<string, Career[]> = {
     { name: 'Investment Banker', description: 'Provide financial services for corporations and governments. Investment bankers help with mergers, acquisitions, and capital raising.' },
     { name: 'Interpreter', description: 'Translate spoken language in real-time for various settings. Interpreters facilitate communication between people who speak different languages.' },
     { name: 'Inventory Manager', description: 'Oversee stock levels and supply chain operations. Inventory managers ensure adequate product availability while minimizing costs.' },
-    { name: 'Ice Cream Maker', description: 'Create and produce ice cream and frozen desserts. Ice cream makers develop flavors and manage production processes.' }
+    { name: 'Ice Cream Maker', description: 'Create and produce ice cream and frozen desserts. Ice cream makers develop flavors and manage production processes.' },
+    { name: 'IoT Solutions Architect', description: 'Design Internet of Things ecosystems and connected device networks. IoT architects create smart environments and intelligent systems.' },
+    { name: 'Immersive Experience Designer', description: 'Create virtual and augmented reality experiences for entertainment, education, and training. Immersive designers build the metaverse.' },
+    { name: 'Impact Investment Analyst', description: 'Evaluate investments that generate positive social and environmental impact alongside financial returns. Impact analysts drive sustainable investing.' },
+    { name: 'Intelligent Automation Engineer', description: 'Develop AI-powered automation systems that can learn and adapt. Intelligent automation engineers create self-improving robotic processes.' },
+    { name: 'Innovation Lab Manager', description: 'Lead corporate innovation labs and experimental technology projects. Innovation managers foster creativity and breakthrough thinking.' },
+    { name: 'Influencer Marketing Manager', description: 'Develop and execute marketing campaigns using social media influencers and content creators. Influencer managers leverage personal brands for marketing.' },
+    { name: 'Indoor Farming Technician', description: 'Operate vertical farms and controlled environment agriculture systems. Indoor farming technicians grow food in urban environments using technology.' },
+    { name: 'Identity Verification Specialist', description: 'Develop and manage digital identity verification systems for online security. Identity specialists protect against fraud and identity theft.' },
+    { name: 'Inclusive Design Researcher', description: 'Study and design products that are accessible to people with diverse abilities and backgrounds. Inclusive researchers promote universal design.' },
+    { name: 'Intelligent Transportation Engineer', description: 'Develop smart transportation systems and autonomous vehicle infrastructure. Intelligent transport engineers create the future of mobility.' },
+    { name: 'Information Security Analyst', description: 'Protect organizational data and systems from cyber threats and security breaches. InfoSec analysts defend against digital attacks.' },
+    { name: 'Interactive Media Developer', description: 'Create engaging digital content and interactive experiences for web and mobile platforms. Interactive developers build dynamic user experiences.' },
+    { name: 'Industrial IoT Specialist', description: 'Implement Internet of Things solutions in manufacturing and industrial settings. Industrial IoT specialists optimize production through connectivity.' },
+    { name: 'Intellectual Property Strategist', description: 'Develop IP strategies for technology companies and innovation-driven organizations. IP strategists protect and monetize intellectual assets.' }
   ],
   J: [
     { name: 'Journalist', description: 'Research, write, and report news stories for various media outlets. Journalists investigate events and communicate information to the public.' },
@@ -726,7 +768,33 @@ const careersData: Record<string, Career[]> = {
     { name: 'Jockey', description: 'Ride horses in competitive racing events. Jockeys require exceptional riding skills and physical fitness for horse racing.' },
     { name: 'Juvenile Counselor', description: 'Work with young people in correctional or treatment facilities. Juvenile counselors provide guidance and rehabilitation services.' },
     { name: 'Justice of the Peace', description: 'Perform civil ceremonies and handle minor legal matters. Justices of the peace officiate weddings and resolve small disputes.' },
-    { name: 'Janitorial Supervisor', description: 'Oversee cleaning staff and facility maintenance operations. Janitorial supervisors ensure quality cleaning standards and staff coordination.' }
+    { name: 'Janitorial Supervisor', description: 'Oversee cleaning staff and facility maintenance operations. Janitorial supervisors ensure quality cleaning standards and staff coordination.' },
+    { name: 'Journey Mapping Specialist', description: 'Analyze and optimize customer journeys across digital and physical touchpoints. Journey specialists improve customer experience through data-driven insights.' },
+    { name: 'Jetpack Engineer', description: 'Develop personal flying devices and aerial mobility solutions. Jetpack engineers create individual transportation for the future.' },
+    { name: 'Job Displacement Counselor', description: 'Help workers transition to new careers as automation changes the job market. Displacement counselors guide workforce transformation.' },
+    { name: 'Judicial Technology Specialist', description: 'Implement technology solutions in court systems and legal proceedings. Judicial tech specialists modernize the justice system.' },
+    { name: 'Joint Venture Coordinator', description: 'Manage strategic partnerships and collaborative business ventures. JV coordinators facilitate successful business alliances.' },
+    { name: 'Just-in-Time Manufacturing Coordinator', description: 'Optimize production schedules and supply chains for lean manufacturing. JIT coordinators minimize waste and maximize efficiency.' },
+    { name: 'Juvenile Justice Technology Coordinator', description: 'Implement technology solutions in juvenile justice systems and rehabilitation programs. Juvenile tech coordinators improve youth outcomes.' },
+    { name: 'JavaScript Framework Developer', description: 'Create and maintain JavaScript frameworks and libraries for web development. Framework developers build tools that power modern web applications.' },
+    { name: 'Job Automation Analyst', description: 'Study which jobs can be automated and help organizations implement workforce automation. Automation analysts guide the future of work.' },
+    { name: 'Journalism Innovation Manager', description: 'Develop new technologies and methods for digital journalism and news delivery. Journalism innovators transform how news is created and consumed.' },
+    { name: 'Joint Reality Developer', description: 'Create shared virtual and augmented reality experiences for multiple users. Joint reality developers build collaborative virtual worlds.' },
+    { name: 'Justice Data Analyst', description: 'Analyze criminal justice data to improve law enforcement and judicial outcomes. Justice analysts use data to promote fair and effective justice.' },
+    { name: 'Junk DNA Researcher', description: 'Study non-coding DNA sequences to understand their role in genetics and evolution. Junk DNA researchers explore the hidden functions of genetic material.' },
+    { name: 'Jet Propulsion Engineer', description: 'Design advanced propulsion systems for aircraft and spacecraft. Jet propulsion engineers create the engines that power flight and space exploration.' }
+  ],
+  K: [
+    { name: 'Knowledge Engineer', description: 'Design and build knowledge-based systems and expert systems using AI. Knowledge engineers capture human expertise and encode it into intelligent systems.' },
+    { name: 'Kubernetes Administrator', description: 'Manage containerized applications and orchestration platforms. Kubernetes admins ensure scalable and reliable cloud-native applications.' },
+    { name: 'Kinetic Energy Engineer', description: 'Develop systems that harness motion and movement to generate clean energy. Kinetic engineers create innovative renewable energy solutions.' },
+    { name: 'Key Performance Indicator Analyst', description: 'Design and monitor KPIs that measure business success and organizational performance. KPI analysts drive data-driven decision making.' },
+    { name: 'Kitchen Automation Engineer', description: 'Develop robotic and automated systems for commercial food preparation. Kitchen automation engineers revolutionize food service through technology.' },
+    { name: 'Knowledge Graph Developer', description: 'Build semantic networks and knowledge graphs that connect information intelligently. Knowledge graph developers create smart information systems.' },
+    { name: 'Keyless Entry Systems Designer', description: 'Develop secure access control systems using biometrics and digital authentication. Keyless designers create convenient and secure entry solutions.' },
+    { name: 'Kinesiologist', description: 'Study human movement and develop programs to improve physical performance and prevent injury. Kinesiologists optimize human movement and health.' },
+    { name: 'Kernel Developer', description: 'Develop operating system kernels and low-level system software. Kernel developers create the foundation that runs all computer systems.' },
+    { name: 'Knowledge Management Specialist', description: 'Design systems and processes to capture, organize, and share organizational knowledge. Knowledge specialists preserve and distribute institutional wisdom.' }
   ]
   // More letters will be added progressively
 };
