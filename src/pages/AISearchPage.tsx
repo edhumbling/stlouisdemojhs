@@ -539,6 +539,17 @@ const AISearchPage: React.FC = () => {
       openExternally: true
     },
     {
+      id: 'supermemory-opensearch',
+      name: 'SuperMemory OpenSearch',
+      url: 'https://opensearch.supermemory.ai',
+      description: 'Advanced AI-powered search and memory system for intelligent information retrieval',
+      icon: <img src="https://opensearch.supermemory.ai/favicon.ico" alt="SuperMemory" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=SM'; }} />,
+      color: 'from-violet-500 to-purple-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
       id: 'gizai',
       name: 'GizAI',
       url: 'https://www.giz.ai/',
