@@ -283,7 +283,21 @@ const careersData: Record<string, Career[]> = {
     { name: 'Budget Coordinator', description: 'Assist in budget planning and financial management for organizations. Budget coordinators help track expenses and ensure fiscal responsibility.' },
     { name: 'Building Contractor', description: 'Manage construction projects from planning to completion. Building contractors coordinate trades, materials, and schedules for successful project delivery.' },
     { name: 'Building Engineer', description: 'Maintain and operate building systems including HVAC, electrical, and plumbing. Building engineers ensure optimal building performance and occupant comfort.' },
-    { name: 'Bulk Food Handler', description: 'Process and package bulk food products in manufacturing facilities. Bulk food handlers ensure food safety and quality in production environments.' }
+    { name: 'Bulk Food Handler', description: 'Process and package bulk food products in manufacturing facilities. Bulk food handlers ensure food safety and quality in production environments.' },
+    { name: 'Business Continuity Planner', description: 'Develop strategies to maintain business operations during disruptions. Business continuity planners create emergency response and recovery plans.' },
+    { name: 'Business Ethics Officer', description: 'Ensure organizations maintain ethical standards and practices. Business ethics officers develop policies and investigate ethical violations.' },
+    { name: 'Business Intelligence Developer', description: 'Create systems and tools for business data analysis and reporting. BI developers help organizations make data-driven decisions.' },
+    { name: 'Business Loan Officer', description: 'Evaluate and approve business loan applications for financial institutions. Business loan officers assess creditworthiness and risk factors.' },
+    { name: 'Business Operations Manager', description: 'Oversee daily business operations and improve organizational efficiency. Business operations managers coordinate various departments and processes.' },
+    { name: 'Business Systems Analyst', description: 'Analyze business processes and recommend technology solutions. Business systems analysts bridge the gap between business needs and IT solutions.' },
+    { name: 'Butcher Shop Owner', description: 'Operate retail meat shops and manage all aspects of the business. Butcher shop owners handle purchasing, processing, and customer service.' },
+    { name: 'Buyer Assistant', description: 'Support purchasing managers in procurement activities and vendor relations. Buyer assistants help with research, documentation, and order processing.' },
+    { name: 'Bakery Assistant', description: 'Support bakers with food preparation and bakery operations. Bakery assistants help with mixing, baking, and customer service in bakeries.' },
+    { name: 'Ballet Dancer', description: 'Perform classical ballet in theaters and dance companies. Ballet dancers require extensive training and physical conditioning for professional performance.' },
+    { name: 'Band Director', description: 'Lead musical ensembles and teach instrumental music. Band directors conduct rehearsals, plan concerts, and develop musicians\' skills.' },
+    { name: 'Bank Branch Manager', description: 'Oversee bank branch operations including staff, customer service, and sales goals. Bank branch managers ensure efficient banking services.' },
+    { name: 'Bank Security Officer', description: 'Provide security services for banking facilities and protect assets. Bank security officers monitor for suspicious activity and ensure safety.' },
+    { name: 'Bankruptcy Paralegal', description: 'Assist bankruptcy attorneys with legal documentation and case preparation. Bankruptcy paralegals help clients navigate debt relief processes.' }
   ],
   C: [
     { name: 'Carpenter', description: 'Build and repair wooden structures, furniture, and fixtures. Carpenters work on construction projects, custom furniture, and home renovations using various woodworking tools and techniques.' },
