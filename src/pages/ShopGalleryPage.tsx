@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ShoppingBag, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -119,6 +119,22 @@ const shopItems = [
 
 const ShopGalleryPage: React.FC = () => {
   const navigate = useNavigate();
+
+  // Hide footer on this page
+  useEffect(() => {
+    const footer = document.querySelector('footer');
+    if (footer) {
+      footer.style.display = 'none';
+    }
+
+    // Show footer again when leaving the page
+    return () => {
+      const footer = document.querySelector('footer');
+      if (footer) {
+        footer.style.display = '';
+      }
+    };
+  }, []);
 
   const handleBack = useCallback(() => {
     navigate(-1);
