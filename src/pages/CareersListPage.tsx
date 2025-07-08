@@ -674,9 +674,7 @@ const careersData: Record<string, Career[]> = {
     { name: 'Functional Programming Specialist', description: 'Develop software using functional programming paradigms for more reliable and maintainable code. Functional programmers create robust software systems.' },
     { name: 'Financial Data Scientist', description: 'Apply data science techniques to financial markets and investment strategies. Financial data scientists use AI for trading and risk management.' },
     { name: 'Future Mobility Planner', description: 'Design transportation systems for autonomous vehicles and smart cities. Future mobility planners create the transportation infrastructure of tomorrow.' }
-  ]
-  // More letters will be added progressively
-};
+  ],
   G: [
     { name: 'Graphic Designer', description: 'Create visual designs for print and digital media. Graphic designers combine typography, images, and color to communicate messages effectively.' },
     { name: 'Game Developer', description: 'Design and program video games for various platforms. Game developers create interactive entertainment experiences using programming and creative skills.' },
