@@ -752,6 +752,117 @@ const AILearningPage: React.FC = () => {
           </div>
         </section>
 
+        {/* Google AI Journey - Edge to Edge */}
+        <section className="w-full bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 py-8 sm:py-12">
+          <div className="px-4 sm:px-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center p-1">
+                <img
+                  src="https://www.google.com/favicon.ico"
+                  alt="Google"
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyLjU2IDEyLjI1QzIyLjU2IDExLjQ3IDIyLjQ5IDEwLjcyIDIyLjM2IDEwSDEyVjE0LjI2SDE3LjkyQzE3LjY2IDE1LjYgMTYuOTIgMTYuNzQgMTUuODQgMTcuNVYyMC4yNkgxOS4zNkMyMS4wOSAxOC42MyAyMi41NiAxNS42NyAyMi41NiAxMi4yNVoiIGZpbGw9IiM0Mjg1RjQiLz4KPHBhdGggZD0iTTEyIDI0QzE1LjI0IDI0IDE3LjkyIDIyLjkyIDE5LjM2IDIwLjI2TDE1Ljg0IDE3LjVDMTQuNzYgMTguMjQgMTMuNDYgMTguNzIgMTIgMTguNzJDOC44NyAxOC43MiA2LjIyIDE3LjA5IDUuMjcgMTQuNjZIMi4xOFYxNy40MkMzLjYxIDIwLjI1IDcuNTYgMjQgMTIgMjRaIiBmaWxsPSIjMzRBODUzIi8+CjxwYXRoIGQ9Ik01LjI3IDE0LjY2QzUuMDIgMTMuOTIgNC44OCAxMy4xMyA0Ljg4IDEyLjI1QzQuODggMTEuMzcgNS4wMiAxMC41OCA1LjI3IDkuODRWNy4wOEgyLjE4QzEuNDMgOC41NSAxIDEwLjMzIDEgMTIuMjVDMSAxNC4xNyAxLjQzIDE1Ljk1IDIuMTggMTcuNDJMNS4yNyAxNC42NloiIGZpbGw9IiNGQkJDMDQiLz4KPHBhdGggZD0iTTEyIDUuNzhDMTMuNjIgNS43OCAxNS4wNiA2LjM0IDE2LjE5IDcuNDJMMTkuMzYgNC4yNkMxNy45MiAyLjkyIDE1LjI0IDIgMTIgMkM3LjU2IDIgMy42MSA1Ljc1IDIuMTggNy4wOEw1LjI3IDkuODRDNi4yMiA3LjQxIDguODcgNS43OCAxMiA1Ljc4WiIgZmlsbD0iI0VBNDMzNSIvPgo8L3N2Zz4K';
+                  }}
+                />
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">Learn Google's AI Journey 🚀</h3>
+            </div>
+
+            <div className="space-y-6">
+              {/* Overview */}
+              <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700/30">
+                <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
+                  <strong className="text-blue-300">Discover Google's AI Evolution!</strong> Explore how Google transformed from a search engine into the world's leading AI powerhouse. From PageRank to Transformers, from DeepMind to Gemini - witness the incredible journey that shaped modern artificial intelligence. 🌟✨
+                </p>
+              </div>
+
+              {/* Google AI Journey Card */}
+              <div className="bg-gradient-to-r from-blue-800/30 to-indigo-800/30 rounded-lg p-6 border border-blue-600/30">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center p-2">
+                      <img
+                        src="https://www.google.com/favicon.ico"
+                        alt="Google AI Journey"
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyLjU2IDEyLjI1QzIyLjU2IDExLjQ3IDIyLjQ5IDEwLjcyIDIyLjM2IDEwSDEyVjE0LjI2SDE3LjkyQzE3LjY2IDE1LjYgMTYuOTIgMTYuNzQgMTUuODQgMTcuNVYyMC4yNkgxOS4zNkMyMS4wOSAxOC42MyAyMi41NiAxNS42NyAyMi41NiAxMi4yNVoiIGZpbGw9IiM0Mjg1RjQiLz4KPHBhdGggZD0iTTEyIDI0QzE1LjI0IDI0IDE3LjkyIDIyLjkyIDE5LjM2IDIwLjI2TDE1Ljg0IDE3LjVDMTQuNzYgMTguMjQgMTMuNDYgMTguNzIgMTIgMTguNzJDOC44NyAxOC43MiA2LjIyIDE3LjA5IDUuMjcgMTQuNjZIMi4xOFYxNy40MkMzLjYxIDIwLjI1IDcuNTYgMjQgMTIgMjRaIiBmaWxsPSIjMzRBODUzIi8+CjxwYXRoIGQ9Ik01LjI3IDE0LjY2QzUuMDIgMTMuOTIgNC44OCAxMy4xMyA0Ljg4IDEyLjI1QzQuODggMTEuMzcgNS4wMiAxMC41OCA1LjI3IDkuODRWNy4wOEgyLjE4QzEuNDMgOC41NSAxIDEwLjMzIDEgMTIuMjVDMSAxNC4xNyAxLjQzIDE1Ljk1IDIuMTggMTcuNDJMNS4yNyAxNC42NloiIGZpbGw9IiNGQkJDMDQiLz4KPHBhdGggZD0iTTEyIDUuNzhDMTMuNjIgNS43OCAxNS4wNiA2LjM0IDE2LjE5IDcuNDJMMTkuMzYgNC4yNkMxNy45MiAyLjkyIDE1LjI0IDIgMTIgMkM3LjU2IDIgMy42MSA1Ljc1IDIuMTggNy4wOEw1LjI3IDkuODRDNi4yMiA3LjQxIDguODcgNS43OCAxMiA1Ljc4WiIgZmlsbD0iI0VBNDMzNSIvPgo8L3N2Zz4K';
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex-1">
+                    <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-2">Google's AI Journey: From Search to Superintelligence</h4>
+                    <p className="text-sm sm:text-base text-blue-100 mb-4 leading-relaxed">
+                      Explore Google's remarkable transformation from a Stanford research project to the world's AI leader. Discover breakthrough moments, revolutionary technologies, and the visionary minds behind innovations like TensorFlow, Transformers, AlphaGo, and Gemini that changed everything.
+                    </p>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                      <div className="bg-blue-700/30 rounded-lg p-2 text-center">
+                        <div className="text-xs font-semibold text-blue-300">🔍 Search Revolution</div>
+                      </div>
+                      <div className="bg-indigo-700/30 rounded-lg p-2 text-center">
+                        <div className="text-xs font-semibold text-indigo-300">🧠 DeepMind Acquisition</div>
+                      </div>
+                      <div className="bg-purple-700/30 rounded-lg p-2 text-center">
+                        <div className="text-xs font-semibold text-purple-300">⚡ Transformer Architecture</div>
+                      </div>
+                      <div className="bg-cyan-700/30 rounded-lg p-2 text-center">
+                        <div className="text-xs font-semibold text-cyan-300">🌟 Gemini Era</div>
+                      </div>
+                    </div>
+
+                    <a
+                      href="https://ai.google/our-ai-journey/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-indigo-500 transition-all duration-300 shadow-lg hover:shadow-blue-400/25 hover:scale-105 text-sm sm:text-base"
+                    >
+                      <span>Explore Google's AI Journey</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Key Milestones */}
+              <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-lg p-4 border border-indigo-700/30">
+                <h5 className="font-semibold text-indigo-300 text-sm mb-3">🌟 Key Milestones in Google's AI Journey</h5>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="flex items-start gap-2">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-xs text-blue-100"><strong>1998:</strong> PageRank algorithm revolutionizes web search</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-2 h-2 bg-indigo-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-xs text-indigo-100"><strong>2014:</strong> DeepMind acquisition brings world-class AI research</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-xs text-purple-100"><strong>2017:</strong> "Attention is All You Need" - Transformer revolution</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-xs text-cyan-100"><strong>2023:</strong> Gemini launch - multimodal AI breakthrough</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Why This Matters */}
+              <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-lg p-4 border border-green-700/30">
+                <h5 className="font-semibold text-green-300 text-sm mb-3">💡 Why Google's AI Journey Matters for Students</h5>
+                <p className="text-xs text-green-100 leading-relaxed">
+                  Understanding Google's AI evolution provides invaluable insights into how breakthrough technologies emerge, scale, and transform entire industries. From their research methodology to their approach to AI safety and ethics, Google's journey offers a masterclass in innovation, strategic thinking, and responsible AI development that every aspiring technologist should study.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Machine Learning Deep Dive - Edge to Edge */}
         <section className="w-full bg-gray-800 py-8 sm:py-12">
           <div className="px-4 sm:px-6">
