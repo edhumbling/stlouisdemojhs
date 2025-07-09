@@ -3372,6 +3372,107 @@ const AILearningPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Google AI Skills Learning Section */}
+              <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-lg p-6 border border-blue-700/30">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center p-1">
+                    <img
+                      src="https://www.google.com/favicon.ico"
+                      alt="Google"
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyLjU2IDEyLjI1QzIyLjU2IDExLjQ3IDIyLjQ5IDEwLjcyIDIyLjM2IDEwSDEyVjE0LjI2SDE3LjkyQzE3LjY2IDE1LjYgMTYuOTIgMTYuNzQgMTUuODQgMTcuNVYyMC4yNkgxOS4zNkMyMS4wOSAxOC42MyAyMi41NiAxNS42NyAyMi41NiAxMi4yNVoiIGZpbGw9IiM0Mjg1RjQiLz4KPHBhdGggZD0iTTEyIDI0QzE1LjI0IDI0IDE3LjkyIDIyLjkyIDE5LjM2IDIwLjI2TDE1Ljg0IDE3LjVDMTQuNzYgMTguMjQgMTMuNDYgMTguNzIgMTIgMTguNzJDOC44NyAxOC43MiA2LjIyIDE3LjA5IDUuMjcgMTQuNjZIMi4xOFYxNy40MkMzLjYxIDIwLjI1IDcuNTYgMjQgMTIgMjRaIiBmaWxsPSIjMzRBODUzIi8+CjxwYXRoIGQ9Ik01LjI3IDE0LjY2QzUuMDIgMTMuOTIgNC44OCAxMy4xMyA0Ljg4IDEyLjI1QzQuODggMTEuMzcgNS4wMiAxMC41OCA1LjI3IDkuODRWNy4wOEgyLjE4QzEuNDMgOC41NSAxIDEwLjMzIDEgMTIuMjVDMSAxNC4xNyAxLjQzIDE1Ljk1IDIuMTggMTcuNDJMNS4yNyAxNC42NloiIGZpbGw9IiNGQkJDMDQiLz4KPHBhdGggZD0iTTEyIDUuNzhDMTMuNjIgNS43OCAxNS4wNiA2LjM0IDE2LjE5IDcuNDJMMTkuMzYgNC4yNkMxNy45MiAyLjkyIDE1LjI0IDIgMTIgMkM3LjU2IDIgMy42MSA1Ljc1IDIuMTggNy4wOEw1LjI3IDkuODRDNi4yMiA3LjQxIDguODcgNS43OCAxMiA1Ljc4WiIgZmlsbD0iI0VBNDMzNSIvPgo8L3N2Zz4K';
+                      }}
+                    />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Learn AI Skills with Google 🎓</h3>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Overview */}
+                  <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700/30">
+                    <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
+                      <strong className="text-blue-300">Master AI with Google's Official Training!</strong> Access comprehensive AI courses, certifications, and hands-on learning experiences designed by Google's AI experts. 🚀✨
+                    </p>
+                  </div>
+
+                  {/* Google AI Skills Card */}
+                  <div className="bg-gradient-to-r from-blue-800/30 to-indigo-800/30 rounded-lg p-6 border border-blue-600/30">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center p-2">
+                          <img
+                            src="https://www.google.com/favicon.ico"
+                            alt="Google AI"
+                            className="w-full h-full object-contain"
+                            onError={(e) => {
+                              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIyLjU2IDEyLjI1QzIyLjU2IDExLjQ3IDIyLjQ5IDEwLjcyIDIyLjM2IDEwSDEyVjE0LjI2SDE3LjkyQzE3LjY2IDE1LjYgMTYuOTIgMTYuNzQgMTUuODQgMTcuNVYyMC4yNkgxOS4zNkMyMS4wOSAxOC42MyAyMi41NiAxNS42NyAyMi41NiAxMi4yNVoiIGZpbGw9IiM0Mjg1RjQiLz4KPHBhdGggZD0iTTEyIDI0QzE1LjI0IDI0IDE3LjkyIDIyLjkyIDE5LjM2IDIwLjI2TDE1Ljg0IDE3LjVDMTQuNzYgMTguMjQgMTMuNDYgMTguNzIgMTIgMTguNzJDOC44NyAxOC43MiA2LjIyIDE3LjA5IDUuMjcgMTQuNjZIMi4xOFYxNy40MkMzLjYxIDIwLjI1IDcuNTYgMjQgMTIgMjRaIiBmaWxsPSIjMzRBODUzIi8+CjxwYXRoIGQ9Ik01LjI3IDE0LjY2QzUuMDIgMTMuOTIgNC44OCAxMy4xMyA0Ljg4IDEyLjI1QzQuODggMTEuMzcgNS4wMiAxMC41OCA1LjI3IDkuODRWNy4wOEgyLjE4QzEuNDMgOC41NSAxIDEwLjMzIDEgMTIuMjVDMSAxNC4xNyAxLjQzIDE1Ljk1IDIuMTggMTcuNDJMNS4yNyAxNC42NloiIGZpbGw9IiNGQkJDMDQiLz4KPHBhdGggZD0iTTEyIDUuNzhDMTMuNjIgNS43OCAxNS4wNiA2LjM0IDE2LjE5IDcuNDJMMTkuMzYgNC4yNkMxNy45MiAyLjkyIDE1LjI0IDIgMTIgMkM3LjU2IDIgMy42MSA1Ljc1IDIuMTggNy4wOEw1LjI3IDkuODRDNi4yMiA3LjQxIDguODcgNS43OCAxMiA1Ljc4WiIgZmlsbD0iI0VBNDMzNSIvPgo8L3N2Zz4K';
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="flex-1">
+                        <h4 className="text-lg sm:text-xl font-bold text-blue-300 mb-2">Google AI Skills Platform</h4>
+                        <p className="text-sm sm:text-base text-blue-100 mb-4 leading-relaxed">
+                          Comprehensive AI learning platform featuring courses on machine learning, generative AI, TensorFlow, and more. Learn from Google's AI researchers and engineers with hands-on projects and industry-recognized certifications.
+                        </p>
+
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                          <div className="bg-blue-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-blue-300">🤖 Machine Learning</div>
+                          </div>
+                          <div className="bg-indigo-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-indigo-300">✨ Generative AI</div>
+                          </div>
+                          <div className="bg-purple-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-purple-300">🔧 TensorFlow</div>
+                          </div>
+                          <div className="bg-cyan-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-cyan-300">📜 Certificates</div>
+                          </div>
+                        </div>
+
+                        <a
+                          href="https://ai.google/learn-ai-skills/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-indigo-500 transition-all duration-300 shadow-lg hover:shadow-blue-400/25 hover:scale-105 text-sm sm:text-base"
+                        >
+                          <span>Start Learning with Google AI</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Benefits */}
+                  <div className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-lg p-4 border border-green-700/30">
+                    <h5 className="font-semibold text-green-300 text-sm mb-3">🌟 Why Choose Google AI Skills?</h5>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-green-100"><strong>Expert-Led:</strong> Learn from Google's AI pioneers and researchers</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-blue-100"><strong>Hands-On:</strong> Real projects with Google's AI tools and platforms</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-purple-100"><strong>Industry-Recognized:</strong> Certificates valued by top employers</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-cyan-100"><strong>Free Access:</strong> Many courses available at no cost</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div className="text-center">
                 <div className="inline-flex items-center gap-4 p-4 sm:p-6 bg-gradient-to-r from-green-600 to-cyan-600 rounded-2xl">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-2xl flex items-center justify-center">
