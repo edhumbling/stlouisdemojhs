@@ -578,7 +578,7 @@ const StaffResourcesPage: React.FC = () => {
                       >
                         <button
                           onClick={() => openResource(resource.id, categoryName)}
-                          className="w-full h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative overflow-hidden group flex flex-col"
+                          className="w-full min-h-[200px] bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 border border-gray-600/30 hover:border-blue-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 hover:bg-gray-700/60 active:scale-[0.98] text-left relative group flex flex-col"
                         >
                           {/* Background Gradient */}
                           <div
@@ -605,17 +605,17 @@ const StaffResourcesPage: React.FC = () => {
                           </div>
 
                           {/* Content */}
-                          <div className="flex-1 flex flex-col space-y-1 overflow-hidden">
+                          <div className="flex-1 flex flex-col space-y-2">
                             {/* Title */}
-                            <h3 className="font-semibold text-gray-900 text-base sm:text-lg truncate" title={resource.customTitle ? resource.customTitle() : resource.title}>
+                            <h3 className="font-semibold text-white text-base sm:text-lg line-clamp-2" title={resource.customTitle ? resource.customTitle() : resource.title}>
                               {resource.customTitle ? resource.customTitle() : resource.title}
                             </h3>
                             {/* Subtitle */}
                             {resource.subtitle && (
-                              <p className="text-xs text-gray-600 truncate" title={resource.subtitle}>{resource.subtitle}</p>
+                              <p className="text-sm text-gray-300 line-clamp-1" title={resource.subtitle}>{resource.subtitle}</p>
                             )}
                             {/* Description */}
-                            <p className="text-xs text-gray-400 leading-relaxed break-words flex-1">
+                            <p className="text-sm text-gray-400 leading-relaxed line-clamp-3 flex-1">
                               {resource.description}
                             </p>
                             {/* Action Footer */}
