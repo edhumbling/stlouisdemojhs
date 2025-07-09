@@ -240,6 +240,16 @@ const StaffResourcesPage: React.FC = () => {
         url: 'https://demo.exa.ai/answer',
         icon: Zap,
         color: 'from-amber-500 to-amber-600'
+      },
+      {
+        id: 'chatgpt-for-educators',
+        title: 'ChatGPT for Educators',
+        subtitle: 'OpenAI Education Newsletter',
+        description: 'Official newsletter from OpenAI with the latest updates, tips, and best practices for using ChatGPT in education',
+        url: 'https://edunewsletter.openai.com/',
+        icon: Bot,
+        color: 'from-green-500 to-green-600',
+        openInNewTab: true
       }
     ],
     "🎓 Professional Development": [
