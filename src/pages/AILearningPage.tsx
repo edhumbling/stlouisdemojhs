@@ -3008,26 +3008,70 @@ const AILearningPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Mary Meeker Report */}
+              {/* AI Trends Reports */}
               <div className="bg-gradient-to-r from-amber-900/30 to-yellow-900/30 rounded-lg p-6 border border-amber-700/30">
-                <h4 className="text-lg sm:text-xl font-bold text-amber-300 mb-4">📊 Essential Reading: Mary Meeker's AI Trends Report</h4>
+                <h4 className="text-lg sm:text-xl font-bold text-amber-300 mb-4">📊 Essential Reading: AI Trends & Decision Reports</h4>
                 <div className="space-y-4">
                   <p className="text-sm sm:text-base text-amber-100 leading-relaxed">
-                    For the most comprehensive analysis of AI trends, competition, and global implications, read Mary Meeker's authoritative "Trends of Artificial Intelligence" report - the definitive guide to understanding the AI landscape.
+                    Stay ahead with the most comprehensive analysis of AI trends, competition, and strategic implications from leading technology analysts and industry experts.
                   </p>
 
-                  <div className="bg-amber-800/30 rounded-lg p-4 border border-amber-600/30 text-center">
-                    <h5 className="font-semibold text-amber-300 text-sm mb-3">🔗 Get the Full Report</h5>
-                    <a
-                      href="https://www.bondcap.com/report/tai/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm"
-                    >
-                      📈 Read Mary Meeker's AI Trends Report
-                    </a>
-                    <p className="text-xs text-amber-200 mt-2">
-                      Deep dive into AI investment trends, competitive dynamics, and future predictions from one of the world's top technology analysts.
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {/* Mary Meeker Report */}
+                    <div className="bg-amber-800/30 rounded-lg p-4 border border-amber-600/30">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-8 h-8 bg-amber-600 rounded-lg flex items-center justify-center">
+                          <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <h5 className="font-semibold text-amber-300 text-sm">Mary Meeker's AI Trends</h5>
+                      </div>
+                      <p className="text-xs text-amber-100 mb-3 leading-relaxed">
+                        Comprehensive analysis of AI investment trends, competitive dynamics, and future predictions from one of the world's top technology analysts.
+                      </p>
+                      <a
+                        href="https://www.bondcap.com/report/tai/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm w-full justify-center"
+                      >
+                        📈 Read Full Report
+                      </a>
+                    </div>
+
+                    {/* Microsoft AI Decision Brief */}
+                    <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-600/30">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center p-1">
+                          <img
+                            src="https://www.microsoft.com/favicon.ico"
+                            alt="Microsoft"
+                            className="w-full h-full object-contain"
+                            onError={(e) => {
+                              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiBmaWxsPSIjRjI1MDIyIi8+CjxyZWN0IHg9IjEzIiB3aWR0aD0iMTEiIGhlaWdodD0iMTEiIGZpbGw9IiM3RkJBMDAiLz4KPHJlY3QgeT0iMTMiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMSIgZmlsbD0iIzAwQTRFRiIvPgo8cmVjdCB4PSIxMyIgeT0iMTMiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMSIgZmlsbD0iI0ZGQjkwMCIvPgo8L3N2Zz4K';
+                            }}
+                          />
+                        </div>
+                        <h5 className="font-semibold text-blue-300 text-sm">Microsoft AI Decision Brief</h5>
+                      </div>
+                      <p className="text-xs text-blue-100 mb-3 leading-relaxed">
+                        Strategic insights and decision-making guidance for AI adoption in business. Microsoft's expert analysis on AI implementation, ROI, and enterprise transformation.
+                      </p>
+                      <a
+                        href="https://info.microsoft.com/ww-landing-ai-decision-brief.html?lcid=en-us"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm w-full justify-center"
+                      >
+                        🧭 Get Decision Brief
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-r from-yellow-800/30 to-amber-800/30 rounded-lg p-4 border border-yellow-600/30">
+                    <p className="text-xs text-yellow-100 text-center">
+                      💡 <strong>Pro Tip:</strong> Read both reports for comprehensive insights - Mary Meeker for market trends and Microsoft for strategic implementation guidance!
                     </p>
                   </div>
                 </div>
