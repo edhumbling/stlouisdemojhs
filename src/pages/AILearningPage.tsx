@@ -3473,6 +3473,137 @@ const AILearningPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Microsoft AI Skills Navigator Section */}
+              <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-6 border border-cyan-700/30">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center p-1">
+                    <img
+                      src="https://www.microsoft.com/favicon.ico"
+                      alt="Microsoft"
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiBmaWxsPSIjRjI1MDIyIi8+CjxyZWN0IHg9IjEzIiB3aWR0aD0iMTEiIGhlaWdodD0iMTEiIGZpbGw9IiM3RkJBMDAiLz4KPHJlY3QgeT0iMTMiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMSIgZmlsbD0iIzAwQTRFRiIvPgo8cmVjdCB4PSIxMyIgeT0iMTMiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMSIgZmlsbD0iI0ZGQjkwMCIvPgo8L3N2Zz4K';
+                      }}
+                    />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Microsoft AI Skills Navigator 🧭</h3>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Overview */}
+                  <div className="bg-cyan-900/20 rounded-lg p-4 border border-cyan-700/30">
+                    <p className="text-sm sm:text-base text-cyan-100 leading-relaxed">
+                      <strong className="text-cyan-300">Navigate Your AI Career with Microsoft!</strong> Discover personalized learning paths, skill assessments, and career guidance powered by Microsoft's AI expertise and Azure cloud platform. 🚀✨
+                    </p>
+                  </div>
+
+                  {/* Microsoft AI Skills Navigator Card */}
+                  <div className="bg-gradient-to-r from-cyan-800/30 to-blue-800/30 rounded-lg p-6 border border-cyan-600/30">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center p-2">
+                          <img
+                            src="https://www.microsoft.com/favicon.ico"
+                            alt="Microsoft AI"
+                            className="w-full h-full object-contain"
+                            onError={(e) => {
+                              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiBmaWxsPSIjRjI1MDIyIi8+CjxyZWN0IHg9IjEzIiB3aWR0aD0iMTEiIGhlaWdodD0iMTEiIGZpbGw9IiM3RkJBMDAiLz4KPHJlY3QgeT0iMTMiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMSIgZmlsbD0iIzAwQTRFRiIvPgo8cmVjdCB4PSIxMyIgeT0iMTMiIHdpZHRoPSIxMSIgaGVpZ2h0PSIxMSIgZmlsbD0iI0ZGQjkwMCIvPgo8L3N2Zz4K';
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="flex-1">
+                        <h4 className="text-lg sm:text-xl font-bold text-cyan-300 mb-2">AI Skills Navigator Platform</h4>
+                        <p className="text-sm sm:text-base text-cyan-100 mb-4 leading-relaxed">
+                          Personalized AI learning journey with skill assessments, curated learning paths, and career guidance. Master Azure AI services, Microsoft Copilot, and enterprise AI solutions with hands-on labs and real-world projects.
+                        </p>
+
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                          <div className="bg-cyan-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-cyan-300">🧭 Career Paths</div>
+                          </div>
+                          <div className="bg-blue-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-blue-300">☁️ Azure AI</div>
+                          </div>
+                          <div className="bg-indigo-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-indigo-300">🤖 Copilot</div>
+                          </div>
+                          <div className="bg-purple-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-purple-300">📊 Assessments</div>
+                          </div>
+                        </div>
+
+                        <a
+                          href="https://aiskillsnavigator.microsoft.com/en-us?wt.mc_id=aihub_aisn_webpage_cnl"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg hover:shadow-cyan-400/25 hover:scale-105 text-sm sm:text-base"
+                        >
+                          <span>Navigate AI Skills with Microsoft</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Benefits */}
+                  <div className="bg-gradient-to-r from-blue-900/30 to-indigo-900/30 rounded-lg p-4 border border-blue-700/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-3">🌟 Why Choose Microsoft AI Skills Navigator?</h5>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-cyan-100"><strong>Personalized:</strong> AI-powered skill assessments and custom learning paths</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-blue-100"><strong>Enterprise-Ready:</strong> Learn Azure AI, Copilot, and business AI solutions</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-indigo-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-indigo-100"><strong>Career Guidance:</strong> Navigate AI career paths with industry insights</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-purple-100"><strong>Hands-On Labs:</strong> Practice with real Microsoft AI tools and services</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Combined Learning Platforms Call-to-Action */}
+              <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-6 border border-purple-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-4 text-center flex items-center justify-center gap-2">
+                  🚀 Start Your AI Learning Journey Today!
+                </h4>
+                <p className="text-sm sm:text-base text-purple-100 leading-relaxed mb-6 text-center">
+                  Choose your preferred learning platform or explore both! Google and Microsoft offer complementary AI education experiences that will accelerate your AI expertise. 🌟
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="https://ai.google/learn-ai-skills/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-xl hover:from-blue-400 hover:to-indigo-500 transition-all duration-300 shadow-lg hover:shadow-blue-400/25 hover:scale-105 text-sm sm:text-base"
+                  >
+                    <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4" />
+                    <span>Google AI Skills</span>
+                  </a>
+                  <a
+                    href="https://aiskillsnavigator.microsoft.com/en-us?wt.mc_id=aihub_aisn_webpage_cnl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg hover:shadow-cyan-400/25 hover:scale-105 text-sm sm:text-base"
+                  >
+                    <img src="https://www.microsoft.com/favicon.ico" alt="Microsoft" className="w-4 h-4" />
+                    <span>Microsoft AI Navigator</span>
+                  </a>
+                </div>
+              </div>
+
               <div className="text-center">
                 <div className="inline-flex items-center gap-4 p-4 sm:p-6 bg-gradient-to-r from-green-600 to-cyan-600 rounded-2xl">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-2xl flex items-center justify-center">
