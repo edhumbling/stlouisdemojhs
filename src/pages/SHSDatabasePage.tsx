@@ -47,9 +47,16 @@ const PDF_LINKS = [
     icon: <FileText className="w-6 h-6" />
   },
   {
+    id: 'public-schools-register',
+    title: '2025 Second Cycle Public Schools Register',
+    url: 'https://drive.google.com/file/d/1AWbIePBjKeo60qkbLa42h5cOEentBLlI/view?usp=sharing',
+    color: '#7C3AED', // Violet
+    icon: <FileText className="w-6 h-6" />
+  },
+  {
     id: 'cssps',
-    title: 'Download SHS CSSPS School Selection Form',
-    url: 'https://drive.google.com/file/d/1sIP0gii3xFqtvpP87kMgxojlZrEqhNhe/view?pli=1',
+    title: 'Download SHS CSSPS School Selection Form 2025',
+    url: 'https://ik.imagekit.io/humbling/872956808-Cssps-2025-Form.pdf?updatedAt=1752110315636',
     color: '#EF4444', // Red
     icon: <FileText className="w-6 h-6" />
   },
