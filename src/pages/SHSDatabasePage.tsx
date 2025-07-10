@@ -2,65 +2,19 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, FileText } from 'lucide-react';
 import SEOHead from '../components/seo/SEOHead';
+import { PDF_LINKS } from '../data/shsData';
 
-const PDF_LINKS = [
-  {
-    id: 'ges-register',
-    title: 'GES SHS Selection Register 2025 (Official)',
-    url: 'https://ges.gov.gh/wp-content/uploads/2024/12/GES-SHS-Selection-Register-2025.pdf',
-    color: '#059669', // Emerald
-    icon: <FileText className="w-6 h-6" />
-  },
-  {
-    id: 'a',
-    title: 'Category A SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-A-SHS-School-Selection-List-2023-2024.pdf',
-    color: '#3B82F6', // Blue
-    icon: <FileText className="w-6 h-6" />
-  },
-  {
-    id: 'b',
-    title: 'Category B SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-B-SHS-School-Selection-List-2023-2024.pdf',
-    color: '#10B981', // Green
-    icon: <FileText className="w-6 h-6" />
-  },
-  {
-    id: 'c',
-    title: 'Category C SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-C-SHS-School-Selection-List-2023-2024.pdf',
-    color: '#F59E0B', // Amber
-    icon: <FileText className="w-6 h-6" />
-  },
-  {
-    id: 'd',
-    title: 'Category D SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-D-SHS-School-Selection-List-2023-2024.pdf',
-    color: '#8B5CF6', // Purple
-    icon: <FileText className="w-6 h-6" />
-  },
-  {
-    id: 'special',
-    title: 'Special Boarding SHS School Selection List PDF',
-    url: 'https://golearnershub.com/wp-content/uploads/2023/08/Special-Boarding-SHS-School-Selection-List-2023-2024.pdf',
-    color: '#EC4899', // Pink
-    icon: <FileText className="w-6 h-6" />
-  },
-  {
-    id: 'public-schools-register',
-    title: '2025 Second Cycle Public Schools Register',
-    url: 'https://drive.google.com/file/d/1AWbIePBjKeo60qkbLa42h5cOEentBLlI/view?usp=sharing',
-    color: '#7C3AED', // Violet
-    icon: <FileText className="w-6 h-6" />
-  },
-  {
-    id: 'cssps',
-    title: 'Download SHS CSSPS School Selection Form 2025',
-    url: 'https://ik.imagekit.io/humbling/872956808-Cssps-2025-Form.pdf?updatedAt=1752110315636',
-    color: '#EF4444', // Red
-    icon: <FileText className="w-6 h-6" />
-  },
-];
+// Color mapping for PDF cards
+const PDF_COLORS: { [key: string]: string } = {
+  'cssps-2025': '#EF4444', // Red
+  'public-schools-register-2025': '#7C3AED', // Violet
+  'ges-register-2025': '#059669', // Emerald
+  'a': '#3B82F6', // Blue
+  'b': '#10B981', // Green
+  'c': '#F59E0B', // Amber
+  'd': '#8B5CF6', // Purple
+  'special': '#EC4899', // Pink
+};
 
 const SHSDatabasePage: React.FC = () => {
   const navigate = useNavigate();
@@ -252,36 +206,39 @@ const SHSDatabasePage: React.FC = () => {
 
       {/* PDF Cards */}
       <div className="w-full max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 px-4 pb-12">
-        {PDF_LINKS.map((pdf) => (
-          <div
-            key={pdf.id}
-            className="group relative bg-white/90 rounded-xl shadow-lg p-4 sm:p-6 flex flex-col items-center justify-between hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
-            style={{
-              border: `1px solid ${pdf.color}20`,
-              background: `linear-gradient(135deg, ${pdf.color}10, white)`
-            }}
-          >
-            {/* Icon */}
+        {PDF_LINKS.map((pdf) => {
+          const color = PDF_COLORS[pdf.id] || '#6B7280'; // Default gray if color not found
+          return (
             <div
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 sm:mb-4 flex items-center justify-center text-white"
-              style={{ backgroundColor: pdf.color }}
+              key={pdf.id}
+              className="group relative bg-white/90 rounded-xl shadow-lg p-4 sm:p-6 flex flex-col items-center justify-between hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+              style={{
+                border: `1px solid ${color}20`,
+                background: `linear-gradient(135deg, ${color}10, white)`
+              }}
             >
-              {pdf.icon}
+              {/* Icon */}
+              <div
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 sm:mb-4 flex items-center justify-center text-white"
+                style={{ backgroundColor: color }}
+              >
+                <FileText className="w-6 h-6" />
+              </div>
+
+              {/* Title */}
+              <h2 className="text-sm sm:text-lg font-bold text-gray-800 mb-2 sm:mb-3 text-center">{pdf.title}</h2>
+
+              {/* View Button */}
+              <button
+                className="mt-2 px-3 sm:px-5 py-1.5 sm:py-2 text-white rounded-lg font-semibold shadow hover:shadow-lg transition-all duration-200 text-sm sm:text-base"
+                style={{ backgroundColor: color }}
+                onClick={() => navigate(`/shs-database/pdf/${pdf.id}`)}
+              >
+                View PDF
+              </button>
             </div>
-
-            {/* Title */}
-            <h2 className="text-sm sm:text-lg font-bold text-gray-800 mb-2 sm:mb-3 text-center">{pdf.title}</h2>
-
-            {/* View Button */}
-            <button
-              className="mt-2 px-3 sm:px-5 py-1.5 sm:py-2 text-white rounded-lg font-semibold shadow hover:shadow-lg transition-all duration-200 text-sm sm:text-base"
-              style={{ backgroundColor: pdf.color }}
-              onClick={() => navigate(`/shs-database/pdf/${pdf.id}`)}
-            >
-              View PDF
-            </button>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
