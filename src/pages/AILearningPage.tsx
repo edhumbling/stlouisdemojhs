@@ -3838,13 +3838,108 @@ const AILearningPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Anthropic Academy Section */}
+              <div className="bg-gradient-to-r from-purple-900/30 to-indigo-900/30 rounded-lg p-6 border border-purple-700/30">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-lg flex items-center justify-center p-1">
+                    <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#8B5CF6"/>
+                      <path d="M2 17L12 22L22 17" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 12L12 17L22 12" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Anthropic Academy 🎓</h3>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Overview */}
+                  <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-700/30">
+                    <p className="text-sm sm:text-base text-purple-100 leading-relaxed">
+                      <strong className="text-purple-300">Learn AI Safety & Ethics with Anthropic!</strong> Discover responsible AI development, constitutional AI principles, and safety-first approaches from the creators of Claude. Master the future of safe, beneficial artificial intelligence. 🛡️✨
+                    </p>
+                  </div>
+
+                  {/* Anthropic Academy Card */}
+                  <div className="bg-gradient-to-r from-purple-800/30 to-indigo-800/30 rounded-lg p-6 border border-purple-600/30">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center p-2">
+                          <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#8B5CF6"/>
+                            <path d="M2 17L12 22L22 17" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </div>
+                      </div>
+
+                      <div className="flex-1">
+                        <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-2">Anthropic Academy: AI Safety & Ethics</h4>
+                        <p className="text-sm sm:text-base text-purple-100 mb-4 leading-relaxed">
+                          Comprehensive learning platform focused on responsible AI development, constitutional AI principles, and AI safety research. Learn from Anthropic's pioneering work in building helpful, harmless, and honest AI systems like Claude.
+                        </p>
+
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                          <div className="bg-purple-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-purple-300">🛡️ AI Safety</div>
+                          </div>
+                          <div className="bg-indigo-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-indigo-300">⚖️ AI Ethics</div>
+                          </div>
+                          <div className="bg-violet-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-violet-300">📜 Constitutional AI</div>
+                          </div>
+                          <div className="bg-pink-700/30 rounded-lg p-2 text-center">
+                            <div className="text-xs font-semibold text-pink-300">🤖 Claude Insights</div>
+                          </div>
+                        </div>
+
+                        <a
+                          href="https://www.anthropic.com/learn"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold rounded-xl hover:from-purple-400 hover:to-indigo-500 transition-all duration-300 shadow-lg hover:shadow-purple-400/25 hover:scale-105 text-sm sm:text-base"
+                        >
+                          <span>Learn with Anthropic Academy</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Benefits */}
+                  <div className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-lg p-4 border border-indigo-700/30">
+                    <h5 className="font-semibold text-indigo-300 text-sm mb-3">🌟 Why Choose Anthropic Academy?</h5>
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-purple-100"><strong>Safety-First:</strong> Learn responsible AI development and deployment practices</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-indigo-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-indigo-100"><strong>Constitutional AI:</strong> Understand Anthropic's breakthrough approach to AI alignment</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-violet-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-violet-100"><strong>Research Insights:</strong> Access cutting-edge AI safety and ethics research</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-xs text-pink-100"><strong>Claude Expertise:</strong> Learn from the team behind one of the world's safest AI assistants</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Combined Learning Platforms Call-to-Action */}
-              <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-lg p-6 border border-purple-700/30">
-                <h4 className="text-lg sm:text-xl font-bold text-purple-300 mb-4 text-center flex items-center justify-center gap-2">
+              <div className="bg-gradient-to-r from-slate-900/30 to-gray-900/30 rounded-lg p-6 border border-slate-700/30">
+                <h4 className="text-lg sm:text-xl font-bold text-slate-300 mb-4 text-center flex items-center justify-center gap-2">
                   🚀 Start Your AI Learning Journey Today!
                 </h4>
-                <p className="text-sm sm:text-base text-purple-100 leading-relaxed mb-6 text-center">
-                  Choose your preferred learning platform or explore both! Google and Microsoft offer complementary AI education experiences that will accelerate your AI expertise. 🌟
+                <p className="text-sm sm:text-base text-slate-100 leading-relaxed mb-6 text-center">
+                  Choose your preferred learning platform or explore all three! Google, Microsoft, and Anthropic offer complementary AI education experiences covering technical skills, enterprise solutions, and AI safety. 🌟
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
@@ -3865,6 +3960,35 @@ const AILearningPage: React.FC = () => {
                     <img src="https://www.microsoft.com/favicon.ico" alt="Microsoft" className="w-4 h-4" />
                     <span>Microsoft AI Navigator</span>
                   </a>
+                  <a
+                    href="https://www.anthropic.com/learn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-bold rounded-xl hover:from-purple-400 hover:to-indigo-500 transition-all duration-300 shadow-lg hover:shadow-purple-400/25 hover:scale-105 text-sm sm:text-base"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                      <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                      <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    </svg>
+                    <span>Anthropic Academy</span>
+                  </a>
+                </div>
+
+                {/* Platform Comparison */}
+                <div className="mt-6 grid sm:grid-cols-3 gap-4">
+                  <div className="bg-blue-900/20 rounded-lg p-3 border border-blue-700/30 text-center">
+                    <h6 className="font-semibold text-blue-300 text-xs mb-2">🔬 Google AI Skills</h6>
+                    <p className="text-xs text-blue-100">Research-focused • TensorFlow • Generative AI • Academic approach</p>
+                  </div>
+                  <div className="bg-cyan-900/20 rounded-lg p-3 border border-cyan-700/30 text-center">
+                    <h6 className="font-semibold text-cyan-300 text-xs mb-2">💼 Microsoft AI Navigator</h6>
+                    <p className="text-xs text-cyan-100">Enterprise-focused • Azure AI • Copilot • Business applications</p>
+                  </div>
+                  <div className="bg-purple-900/20 rounded-lg p-3 border border-purple-700/30 text-center">
+                    <h6 className="font-semibold text-purple-300 text-xs mb-2">🛡️ Anthropic Academy</h6>
+                    <p className="text-xs text-purple-100">Safety-focused • AI Ethics • Constitutional AI • Responsible development</p>
+                  </div>
                 </div>
               </div>
 
