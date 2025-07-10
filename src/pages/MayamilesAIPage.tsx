@@ -93,6 +93,40 @@ const MayamilesAIPage: React.FC = () => {
         </div>
       </div>
 
+      {/* AI Search Tools Section */}
+      <div className="py-6 sm:py-8">
+        <div className="container mx-auto px-4 text-center">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 sm:p-8 border border-blue-200/50 shadow-lg max-w-2xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
+                <Brain className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
+                Explore More AI Tools! 🔍✨
+              </h2>
+            </div>
+
+            <p className="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed">
+              Discover a world of AI-powered search tools and assistants beyond MayaMiles!
+              From research helpers to creative companions - find the perfect AI tool for every task! 🚀
+            </p>
+
+            <button
+              onClick={() => navigate('/ai-search')}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:from-blue-400 hover:to-indigo-500 transition-all duration-300 transform hover:scale-105 text-base sm:text-lg group"
+            >
+              <Globe className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+              <span>Browse AI Search Tools</span>
+              <Zap className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+            </button>
+
+            <div className="mt-4 text-xs text-gray-500">
+              💡 Tip: Each AI tool has unique strengths - try different ones for different tasks!
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <main className="flex-1 py-4 sm:py-6">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
