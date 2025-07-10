@@ -514,7 +514,51 @@ Primus Interparis
             }}
           />
         </div>
+
+        {/* System Status Indicator - Extreme Footer */}
+        <div className="absolute bottom-0 left-0 right-0 bg-black/80 backdrop-blur-sm border-t border-green-500/30 z-20">
+          <div className="container mx-auto px-4 py-2">
+            <a
+              href="https://status.stlouisdemojhs.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 text-xs text-gray-300 hover:text-white transition-colors group"
+            >
+              <div className="relative">
+                {/* Main green dot */}
+                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                {/* Pulsing glow effect */}
+                <div className="absolute inset-0 w-2 h-2 bg-green-400 rounded-full animate-ping opacity-75"></div>
+                {/* Buzzing glow effect */}
+                <div
+                  className="absolute inset-0 w-2 h-2 bg-green-400 rounded-full opacity-60"
+                  style={{
+                    animation: 'buzz 0.8s ease-in-out infinite alternate',
+                    filter: 'blur(1px)'
+                  }}
+                ></div>
+              </div>
+              <span className="font-medium group-hover:underline">
+                Status: All Systems are operational
+              </span>
+            </a>
+          </div>
+        </div>
       </div>
+
+      {/* Custom CSS for buzzing effect */}
+      <style jsx>{`
+        @keyframes buzz {
+          0% {
+            transform: scale(1);
+            opacity: 0.6;
+          }
+          100% {
+            transform: scale(1.3);
+            opacity: 0.3;
+          }
+        }
+      `}</style>
     </footer>
   );
 };
