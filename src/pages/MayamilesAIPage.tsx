@@ -93,36 +93,20 @@ const MayamilesAIPage: React.FC = () => {
         </div>
       </div>
 
-      {/* AI Search Tools Section */}
-      <div className="py-6 sm:py-8">
-        <div className="container mx-auto px-4 text-center">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 sm:p-8 border border-blue-200/50 shadow-lg max-w-2xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
-                <Brain className="w-6 h-6 text-white" />
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
-                Explore More AI Tools! 🔍✨
-              </h2>
-            </div>
-
-            <p className="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed">
-              Discover a world of AI-powered search tools and assistants beyond MayaMiles!
-              From research helpers to creative companions - find the perfect AI tool for every task! 🚀
-            </p>
-
+      {/* Compact Announcement Bar */}
+      <div className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border-b border-amber-400/30 py-2">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center gap-4 text-center">
+            <span className="text-amber-200 text-sm font-medium">
+              🔍 Discover more AI tools beyond MayaMiles!
+            </span>
             <button
               onClick={() => navigate('/ai-search')}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl hover:from-blue-400 hover:to-indigo-500 transition-all duration-300 transform hover:scale-105 text-base sm:text-lg group"
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold rounded-full text-xs hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
-              <Globe className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-              <span>Browse AI Search Tools</span>
-              <Zap className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+              <Zap className="w-3 h-3" />
+              <span>Explore Now</span>
             </button>
-
-            <div className="mt-4 text-xs text-gray-500">
-              💡 Tip: Each AI tool has unique strengths - try different ones for different tasks!
-            </div>
           </div>
         </div>
       </div>
@@ -393,6 +377,35 @@ const MayamilesAIPage: React.FC = () => {
             <p className="text-xs text-gray-500">
               MayaMiles AI is powered by <strong className="text-gray-400">Sesame AI Inc</strong>
             </p>
+          </motion.div>
+
+          {/* Cute AI Tools Card - Bottom */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="flex justify-center py-8"
+          >
+            <div className="bg-black/40 backdrop-blur-md rounded-xl p-4 border-2 border-amber-400/50 shadow-xl max-w-sm mx-auto text-center group hover:border-amber-300/70 transition-all duration-300">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full flex items-center justify-center shadow-lg">
+                  <Brain className="w-4 h-4 text-black" />
+                </div>
+                <h3 className="text-sm font-bold text-white">More AI Tools! ✨</h3>
+              </div>
+
+              <p className="text-gray-300 text-xs mb-4 leading-relaxed">
+                Explore our collection of AI assistants and search tools! 🚀
+              </p>
+
+              <button
+                onClick={() => navigate('/ai-search')}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold rounded-lg shadow-lg hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 text-xs group-hover:shadow-amber-400/25"
+              >
+                <Globe className="w-3 h-3 group-hover:rotate-12 transition-transform duration-300" />
+                <span>Browse Tools</span>
+              </button>
+            </div>
           </motion.div>
         </div>
       </main>
