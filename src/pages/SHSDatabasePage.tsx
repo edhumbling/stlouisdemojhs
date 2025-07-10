@@ -8,7 +8,6 @@ import { PDF_LINKS } from '../data/shsData';
 const PDF_COLORS: { [key: string]: string } = {
   'cssps-2025': '#EF4444', // Red
   'public-schools-register-2025': '#7C3AED', // Violet
-  'ges-register-2025': '#059669', // Emerald
   'a': '#3B82F6', // Blue
   'b': '#10B981', // Green
   'c': '#F59E0B', // Amber

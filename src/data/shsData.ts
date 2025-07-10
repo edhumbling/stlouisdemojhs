@@ -19,12 +19,6 @@ export const PDF_LINKS: PdfLink[] = [
     url: 'https://drive.google.com/file/d/1AWbIePBjKeo60qkbLa42h5cOEentBLlI/view?usp=sharing'
   },
   {
-    id: 'ges-register-2025',
-    title: 'GES SHS Selection Register 2025 (Official)',
-    description: 'Official Ghana Education Service SHS Selection Register for 2025 - Comprehensive guide with all approved schools.',
-    url: 'https://ges.gov.gh/wp-content/uploads/2024/12/GES-SHS-Selection-Register-2025.pdf'
-  },
-  {
     id: 'a',
     title: 'Category A SHS School Selection List PDF',
     description: 'Category A SHS School Selection List PDF: Premium boarding schools with excellent facilities.',
