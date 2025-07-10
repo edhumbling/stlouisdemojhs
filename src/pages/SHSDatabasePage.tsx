@@ -5,6 +5,13 @@ import SEOHead from '../components/seo/SEOHead';
 
 const PDF_LINKS = [
   {
+    id: 'ges-register',
+    title: 'GES SHS Selection Register 2025 (Official)',
+    url: 'https://ges.gov.gh/wp-content/uploads/2024/12/GES-SHS-Selection-Register-2025.pdf',
+    color: '#059669', // Emerald
+    icon: <FileText className="w-6 h-6" />
+  },
+  {
     id: 'a',
     title: 'Category A SHS School Selection List PDF',
     url: 'https://golearnershub.com/wp-content/uploads/2023/08/Category-A-SHS-School-Selection-List-2023-2024.pdf',
@@ -84,21 +91,155 @@ const SHSDatabasePage: React.FC = () => {
         </div>
       </div>
 
-      {/* School Selection Guideline Section */}
+      {/* GES SHS Selection Register Overview */}
       <div className="container mx-auto px-4 py-6 sm:py-8">
-        <h2 className="text-xl sm:text-2xl font-bold text-green-800 mb-2">School Selection Guideline for BECE Students</h2>
-        <ul className="list-disc pl-6 text-green-900 space-y-2 text-base sm:text-lg">
-          <li><b>You can select up to 11 schools in total:</b> 6 schools during the main selection, and up to 5 more during the self-placement phase if you are not placed initially.</li>
-          <li>For the main selection: Choose <b>5 schools</b> in order of preference from Categories A, B, and C (only 1 from A, up to 2 from B, all 5 can be from C).</li>
-          <li>Your <b>6th choice</b> must be a Day school (Category D) or a Special Boarding school from the official list.</li>
-          <li>If you are not placed in any of your 6 choices, you can select up to <b>5 additional schools</b> during the self-placement phase online.</li>
-          <li>For each school, select your preferred <b>programme</b> (e.g., Science, Business, Arts) and <b>accommodation type</b> (Boarding/Day).</li>
-          <li>Discuss your choices with parents, teachers, and guidance counselors. Consider your strengths, interests, and location.</li>
-          <li>Check the <b>cut-off points</b> and requirements for your preferred schools and programmes.</li>
-          <li>Use the official <b>CSSPS School Selection Form</b> and double-check all entries before submission.</li>
-        </ul>
-        <div className="mt-4 text-green-800 text-base sm:text-lg">
-          <b>Tip:</b> Choose schools and programmes that match your interests and strengths, not just popularity. Consider proximity, facilities, and your future goals.
+        <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-6 mb-8 border border-emerald-200">
+          <h2 className="text-xl sm:text-2xl font-bold text-emerald-800 mb-4 flex items-center gap-2">
+            <FileText className="w-6 h-6" />
+            GES SHS Selection Register & Guidelines 2025
+          </h2>
+          <p className="text-emerald-700 text-base sm:text-lg leading-relaxed mb-4">
+            The Ghana Education Service (GES) SHS Selection Register is the official comprehensive document containing all approved Senior High Schools, their locations, school codes, districts, available programmes, contact information, and admission requirements for the 2025 academic year.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="bg-white rounded-lg p-4 border border-emerald-100">
+              <h3 className="font-bold text-emerald-800 mb-2">📋 Register Contents:</h3>
+              <ul className="text-sm text-emerald-700 space-y-1">
+                <li>• Complete list of all SHS schools</li>
+                <li>• School codes and locations</li>
+                <li>• Available programmes per school</li>
+                <li>• Contact information</li>
+                <li>• Admission requirements</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-emerald-100">
+              <h3 className="font-bold text-emerald-800 mb-2">🎯 Guidelines Include:</h3>
+              <ul className="text-sm text-emerald-700 space-y-1">
+                <li>• CSSPS selection procedures</li>
+                <li>• School categorization system</li>
+                <li>• Programme selection criteria</li>
+                <li>• Placement procedures</li>
+                <li>• Appeals process</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* School Categories Explanation */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8 border border-blue-200">
+          <h2 className="text-xl sm:text-2xl font-bold text-blue-800 mb-4">🏫 Understanding School Categories</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="bg-white rounded-lg p-4 border border-blue-100">
+              <h3 className="font-bold text-blue-600 mb-2">Category A</h3>
+              <p className="text-sm text-blue-700 mb-2">Premium boarding schools with excellent facilities and high academic standards.</p>
+              <p className="text-xs text-blue-600"><strong>Limit:</strong> Only 1 school allowed</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-green-100">
+              <h3 className="font-bold text-green-600 mb-2">Category B</h3>
+              <p className="text-sm text-green-700 mb-2">Good boarding schools with quality facilities and strong academic performance.</p>
+              <p className="text-xs text-green-600"><strong>Limit:</strong> Up to 2 schools allowed</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-amber-100">
+              <h3 className="font-bold text-amber-600 mb-2">Category C</h3>
+              <p className="text-sm text-amber-700 mb-2">Standard boarding schools with basic facilities and good academic programs.</p>
+              <p className="text-xs text-amber-600"><strong>Limit:</strong> All 5 choices can be Category C</p>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-purple-100">
+              <h3 className="font-bold text-purple-600 mb-2">Category D</h3>
+              <p className="text-sm text-purple-700 mb-2">Day schools and some boarding schools in local communities.</p>
+              <p className="text-xs text-purple-600"><strong>Requirement:</strong> 6th choice must be Category D</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CSSPS Guidelines */}
+        <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 mb-8 border border-orange-200">
+          <h2 className="text-xl sm:text-2xl font-bold text-orange-800 mb-4">📝 CSSPS Selection Guidelines</h2>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div>
+              <h3 className="font-bold text-orange-700 mb-3">Main Selection Process:</h3>
+              <ul className="list-disc pl-6 text-orange-700 space-y-2 text-sm sm:text-base">
+                <li><strong>6 Schools Total:</strong> Select 6 schools in order of preference</li>
+                <li><strong>Categories A-C:</strong> Choose 5 schools (1 from A, up to 2 from B, rest from C)</li>
+                <li><strong>6th Choice:</strong> Must be Category D (Day school) or Special Boarding</li>
+                <li><strong>Programme Selection:</strong> Choose specific programme for each school</li>
+                <li><strong>Accommodation:</strong> Specify Boarding or Day preference</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-orange-700 mb-3">Self-Placement Phase:</h3>
+              <ul className="list-disc pl-6 text-orange-700 space-y-2 text-sm sm:text-base">
+                <li><strong>Additional 5 Schools:</strong> If not placed in main selection</li>
+                <li><strong>Online Process:</strong> Done through CSSPS portal</li>
+                <li><strong>Available Schools:</strong> Schools with remaining vacancies</li>
+                <li><strong>Timeline:</strong> Usually 2-3 weeks after main placement</li>
+                <li><strong>Requirements:</strong> Same criteria as main selection</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* School Selection Tips */}
+        <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 mb-8 border border-purple-200">
+          <h2 className="text-xl sm:text-2xl font-bold text-purple-800 mb-4">💡 Expert School Selection Tips</h2>
+          <div className="grid sm:grid-cols-3 gap-4">
+            <div className="bg-white rounded-lg p-4 border border-purple-100">
+              <h3 className="font-bold text-purple-700 mb-2">🎯 Academic Considerations</h3>
+              <ul className="text-sm text-purple-600 space-y-1">
+                <li>• Check cut-off points for your target aggregate</li>
+                <li>• Consider programme availability</li>
+                <li>• Review school's academic performance</li>
+                <li>• Match your strengths with school focus</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-purple-100">
+              <h3 className="font-bold text-purple-700 mb-2">📍 Practical Factors</h3>
+              <ul className="text-sm text-purple-600 space-y-1">
+                <li>• Distance from home</li>
+                <li>• Transportation accessibility</li>
+                <li>• School fees and additional costs</li>
+                <li>• Boarding vs Day school preference</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-purple-100">
+              <h3 className="font-bold text-purple-700 mb-2">🏆 Strategic Selection</h3>
+              <ul className="text-sm text-purple-600 space-y-1">
+                <li>• Mix of reach, match, and safety schools</li>
+                <li>• Prioritize schools you genuinely want</li>
+                <li>• Consider backup options carefully</li>
+                <li>• Consult teachers and counselors</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Important Deadlines */}
+        <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-6 mb-8 border border-red-200">
+          <h2 className="text-xl sm:text-2xl font-bold text-red-800 mb-4">⏰ Important Deadlines & Timeline</h2>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="bg-white rounded-lg p-4 border border-red-100">
+              <h3 className="font-bold text-red-700 mb-3">Key Dates to Remember:</h3>
+              <ul className="text-sm text-red-600 space-y-2">
+                <li><strong>BECE Results Release:</strong> Usually August/September</li>
+                <li><strong>School Selection Opens:</strong> 2-3 weeks after results</li>
+                <li><strong>Selection Deadline:</strong> Check GES announcements</li>
+                <li><strong>First Placement:</strong> 2-3 weeks after selection closes</li>
+                <li><strong>Self-Placement:</strong> For unplaced candidates</li>
+                <li><strong>School Reporting:</strong> Usually September/October</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-red-100">
+              <h3 className="font-bold text-red-700 mb-3">Required Documents:</h3>
+              <ul className="text-sm text-red-600 space-y-2">
+                <li>• BECE Results Slip</li>
+                <li>• Completed CSSPS Selection Form</li>
+                <li>• Birth Certificate or Age Declaration</li>
+                <li>• Passport-size photographs</li>
+                <li>• Medical Certificate (if required)</li>
+                <li>• Parent/Guardian consent form</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
