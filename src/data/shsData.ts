@@ -16,7 +16,7 @@ export const PDF_LINKS: PdfLink[] = [
     id: 'public-schools-register-2025',
     title: '2025 Second Cycle Public Schools Register',
     description: 'Complete register of all public second cycle schools in Ghana for 2025 - Essential reference for school selection.',
-    url: 'https://drive.google.com/file/d/1AWbIePBjKeo60qkbLa42h5cOEentBLlI/view?usp=sharing'
+    url: 'https://drive.google.com/file/d/1AWbIePBjKeo60qkbLa42h5cOEentBLlI/preview'
   },
   {
     id: 'a',
