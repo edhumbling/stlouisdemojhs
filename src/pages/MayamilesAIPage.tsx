@@ -98,7 +98,8 @@ const MayamilesAIPage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-4 text-center">
             <span className="text-amber-200 text-sm font-medium">
-              🔍 Discover more AI tools beyond MayaMiles!
+              <span className="hidden sm:inline">🔍 Discover more AI tools beyond MayaMiles!</span>
+              <span className="sm:hidden">🔍 Discover more AI tools</span>
             </span>
             <button
               onClick={() => navigate('/ai-search')}
