@@ -585,7 +585,9 @@ const FacultyPage: React.FC = () => {
                     'Mr Oppong Kyei Asamoah',
                     'Mr Okyerefo Leonard',
                     'Mrs Elsie Kpedoma',
-                    'Mrs Margaret Twumwaa'
+                    'Mrs Margaret Twumwaa',
+                    'Mrs Rose Okae',
+                    'Mr Victor Appiagyei Bimpong'
                   ].map((teacher, index) => (
                     <motion.div
                       key={index}
