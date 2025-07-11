@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Calculator, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen, Zap, Bot } from 'lucide-react';
+import { Calculator, Lightbulb, Rocket, ExternalLink, ArrowLeft, BookOpen, Zap, Bot, Briefcase } from 'lucide-react';
 import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import useEnhancedNavigation from '../hooks/useEnhancedNavigation';
@@ -1206,6 +1206,24 @@ const STEMPage: React.FC = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
               STEM/TVET Resources
             </h1>
+          </div>
+        </div>
+      </div>
+
+      {/* Career Announcement Bar */}
+      <div className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border-b border-amber-400/30 py-2">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center gap-4 text-center">
+            <span className="text-amber-200 text-sm font-medium">
+              💼 Find your dream Career here
+            </span>
+            <button
+              onClick={() => navigate('/careers-list')}
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold rounded-full text-xs hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <Briefcase className="w-3 h-3" />
+              <span>Explore Careers</span>
+            </button>
           </div>
         </div>
       </div>
