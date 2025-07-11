@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, GraduationCap, Heart, Award, Handshake } from 'lucide-react'; // Added Handshake
+import { ArrowLeft, Users, GraduationCap, Heart, Award, Handshake, ShoppingBag } from 'lucide-react'; // Added Handshake
 import { useNavigate, Link } from 'react-router-dom'; // Added Link
 import SectionDivider from '../components/common/SectionDivider';
 import AlumniDetailModal from '../components/common/AlumniDetailModal';
@@ -332,6 +332,25 @@ const AlumniPage: React.FC = () => {
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
               Alumni
             </h1>
+          </div>
+        </div>
+      </div>
+
+      {/* Alumni Shop Announcement Bar */}
+      <div className="bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border-b border-amber-400/30 py-2">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 text-center">
+            <span className="text-amber-200 text-xs sm:text-sm font-medium">
+              <span className="hidden sm:inline">🛍️ Shop exclusive alumni merchandise!</span>
+              <span className="sm:hidden">🛍️ Shop alumni merch</span>
+            </span>
+            <button
+              onClick={() => navigate('/shop-gallery')}
+              className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-1.5 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold rounded-full text-xs hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <ShoppingBag className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+              <span className="text-xs">Shop Now</span>
+            </button>
           </div>
         </div>
       </div>
