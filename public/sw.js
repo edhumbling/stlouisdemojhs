@@ -2,7 +2,8 @@ const CACHE_NAME = 'st-louis-demo-jhs-v7';
 const urlsToCache = [
   '/',
   '/manifest.json',
-  'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png?updatedAt=1748175062297',
+  '/applogo.png',
+  '/loading Screen.png',
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Anton&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap'
 ];
 
