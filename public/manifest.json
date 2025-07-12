@@ -4,12 +4,13 @@
   "description": "St. Louis Demonstration JHS - Excellence in Education. Premier educational institution in Ghana offering quality junior high school education.",
   "start_url": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "background_color": "#000000",
   "theme_color": "#1e40af",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en",
-  "categories": ["education", "school", "learning"],
+  "categories": ["education", "school", "learning", "productivity", "reference"],
   "icons": [
     {
       "src": "/applogo.png",

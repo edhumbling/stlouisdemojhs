@@ -14,6 +14,9 @@ const Hero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showInstallButton, setShowInstallButton] = useState(false);
+  const [isInstalling, setIsInstalling] = useState(false);
+  const [installProgress, setInstallProgress] = useState(0);
+  const [installComplete, setInstallComplete] = useState(false);
 
   // Smart device detection
   const deviceInfo = useDeviceDetection();
@@ -121,7 +124,30 @@ const Hero: React.FC = () => {
       // Hide the install button after successful installation
       setShowInstallButton(false);
       setDeferredPrompt(null);
+      setIsInstalling(false);
+      setInstallProgress(100);
+      setInstallComplete(true);
       console.log('PWA was installed');
+
+      // Auto-hide completion message after 5 seconds
+      setTimeout(() => {
+        setInstallComplete(false);
+      }, 5000);
+    };
+
+    // Listen for service worker messages
+    const handleServiceWorkerMessage = (event: MessageEvent) => {
+      if (event.data && event.data.type === 'PWA_INSTALLED') {
+        setInstallProgress(100);
+        setInstallComplete(true);
+        setIsInstalling(false);
+        console.log('✅ PWA installation confirmed by service worker');
+      } else if (event.data && event.data.type === 'PWA_INSTALL_FAILED') {
+        setIsInstalling(false);
+        setInstallProgress(0);
+        alert('❌ App installation failed. Please try again.');
+        console.error('❌ PWA installation failed');
+      }
     };
 
     // Check if app is already installed
@@ -134,10 +160,14 @@ const Hero: React.FC = () => {
       window.addEventListener('appinstalled', handleAppInstalled);
     }
 
+    // Listen for service worker messages
+    navigator.serviceWorker?.addEventListener('message', handleServiceWorkerMessage);
+
     return () => {
       window.removeEventListener('resize', checkMobile);
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
       window.removeEventListener('appinstalled', handleAppInstalled);
+      navigator.serviceWorker?.removeEventListener('message', handleServiceWorkerMessage);
     };
   }, []);
 
@@ -241,7 +271,7 @@ const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, [loadedImageIndices]);
 
-  // PWA Install Handler with Enhanced UX
+  // PWA Install Handler with Progress Tracking
   const handleInstallApp = async () => {
     if (!deferredPrompt) {
       // Enhanced fallback for iOS with better instructions
@@ -256,6 +286,22 @@ const Hero: React.FC = () => {
     }
 
     try {
+      // Start installation process
+      setIsInstalling(true);
+      setInstallProgress(0);
+      setInstallComplete(false);
+
+      // Simulate progress for better UX
+      const progressInterval = setInterval(() => {
+        setInstallProgress(prev => {
+          if (prev >= 90) {
+            clearInterval(progressInterval);
+            return 90;
+          }
+          return prev + Math.random() * 15;
+        });
+      }, 200);
+
       // Show the install prompt
       deferredPrompt.prompt();
 
@@ -265,32 +311,51 @@ const Hero: React.FC = () => {
       if (outcome === 'accepted') {
         console.log('✅ User accepted the install prompt');
 
-        // Show success notification
-        if ('Notification' in window && Notification.permission === 'granted') {
-          new Notification('🎉 St. Louis Demo. J.H.S App Installing!', {
-            body: 'The app is being added to your device. You\'ll see the school logo on your home screen shortly.',
-            icon: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs',
-            badge: 'https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs',
-            tag: 'pwa-install',
-            requireInteraction: false
-          });
-        }
+        // Complete progress
+        setInstallProgress(100);
 
-        // Show in-page success message
+        // Wait a moment then show completion
         setTimeout(() => {
-          alert('🎉 App installed successfully! Look for the St. Louis Demo. J.H.S icon with the school logo on your home screen.');
+          setInstallComplete(true);
+          setIsInstalling(false);
+
+          // Show success notification
+          if ('Notification' in window && Notification.permission === 'granted') {
+            new Notification('🎉 St. Louis Demo. J.H.S App Installed!', {
+              body: 'The app has been added to your device. Check your home screen or app drawer.',
+              icon: '/applogo.png',
+              badge: '/applogo.png',
+              tag: 'pwa-install-complete',
+              requireInteraction: true,
+              actions: [
+                { action: 'open', title: 'Open App' },
+                { action: 'close', title: 'Close' }
+              ]
+            });
+          }
+
+          // Auto-hide completion message after 5 seconds
+          setTimeout(() => {
+            setInstallComplete(false);
+            setShowInstallButton(false);
+          }, 5000);
+
         }, 1000);
 
       } else {
         console.log('❌ User dismissed the install prompt');
+        clearInterval(progressInterval);
+        setIsInstalling(false);
+        setInstallProgress(0);
       }
 
     } catch (error) {
       console.error('Error during installation:', error);
+      setIsInstalling(false);
+      setInstallProgress(0);
     } finally {
       // Clear the deferredPrompt
       setDeferredPrompt(null);
-      setShowInstallButton(false);
     }
   };
 
@@ -486,16 +551,56 @@ const Hero: React.FC = () => {
                 <span className="absolute inset-0 bg-red-500 opacity-30 rounded-lg"></span>
               </Link>
 
-              {/* Download App Button - PWA Install with School Logo */}
-              {showInstallButton && (
-                <motion.button
+              {/* Download App Button - PWA Install with Progress */}
+              {(showInstallButton || isInstalling || installComplete) && (
+                <motion.div
                   initial={{ opacity: 0, scale: 0.8, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.8, y: 20 }}
                   transition={{ duration: 0.5, type: "spring", bounce: 0.3 }}
-                  onClick={handleInstallApp}
-                  className="inline-flex items-center justify-center gap-1.5 px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-yellow-500/25 hover:bg-yellow-500/35 backdrop-blur-xl border-2 border-yellow-400/60 text-yellow-50 font-bold rounded-xl shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:shadow-[0_0_35px_rgba(251,191,36,0.7)] transition-all duration-500 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0 group"
-                  style={{
+                  className="relative"
+                >
+                  {installComplete ? (
+                    // Installation Complete State
+                    <div className="inline-flex items-center justify-center gap-1.5 px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-green-500/25 backdrop-blur-xl border-2 border-green-400/60 text-green-50 font-bold rounded-xl shadow-[0_0_25px_rgba(34,197,94,0.5)] text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      <span className="hidden sm:inline">App Installed!</span>
+                      <span className="sm:hidden">Installed!</span>
+                      <button
+                        onClick={() => window.location.reload()}
+                        className="ml-2 px-2 py-1 bg-green-600/50 hover:bg-green-600/70 rounded text-xs transition-colors"
+                      >
+                        Open
+                      </button>
+                    </div>
+                  ) : isInstalling ? (
+                    // Installing State with Progress
+                    <div className="inline-flex items-center justify-center gap-1.5 px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-blue-500/25 backdrop-blur-xl border-2 border-blue-400/60 text-blue-50 font-bold rounded-xl shadow-[0_0_25px_rgba(59,130,246,0.5)] text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0">
+                      <div className="flex items-center gap-2 w-full">
+                        <div className="animate-spin w-3 h-3 sm:w-4 sm:h-4 border-2 border-blue-300 border-t-transparent rounded-full"></div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-xs mb-1">
+                            <span className="hidden sm:inline">Installing App...</span>
+                            <span className="sm:hidden">Installing...</span>
+                          </div>
+                          <div className="w-full bg-blue-900/50 rounded-full h-1.5">
+                            <div
+                              className="bg-blue-400 h-1.5 rounded-full transition-all duration-300 ease-out"
+                              style={{ width: `${installProgress}%` }}
+                            ></div>
+                          </div>
+                        </div>
+                        <span className="text-xs opacity-75">{Math.round(installProgress)}%</span>
+                      </div>
+                    </div>
+                  ) : (
+                    // Default Install Button
+                    <button
+                      onClick={handleInstallApp}
+                      className="inline-flex items-center justify-center gap-1.5 px-2 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 bg-yellow-500/25 hover:bg-yellow-500/35 backdrop-blur-xl border-2 border-yellow-400/60 text-yellow-50 font-bold rounded-xl shadow-[0_0_25px_rgba(251,191,36,0.5)] hover:shadow-[0_0_35px_rgba(251,191,36,0.7)] transition-all duration-500 text-[10px] sm:text-xs md:text-sm relative overflow-hidden flex-shrink-0 group"
+                      style={{
                     textShadow: '1px 1px 3px rgba(0,0,0,0.9), 0 0 15px rgba(251,191,36,0.6)',
                     backdropFilter: 'blur(15px)',
                     WebkitBackdropFilter: 'blur(15px)'
@@ -520,9 +625,11 @@ const Hero: React.FC = () => {
 
                   <span className="relative z-10 whitespace-nowrap">Download App</span>
 
-                  {/* Download icon */}
-                  <span className="relative z-10 text-xs sm:text-sm animate-bounce">📱</span>
-                </motion.button>
+                      {/* Download icon */}
+                      <span className="relative z-10 text-xs sm:text-sm animate-bounce">📱</span>
+                    </button>
+                  )}
+                </motion.div>
               )}
             </div>
           </motion.div>

@@ -7,7 +7,7 @@ const urlsToCache = [
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Anton&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap'
 ];
 
-// Install event - Fast installation
+// Install event - Progressive installation with better visibility
 self.addEventListener('install', (event) => {
   console.log('🚀 St. Louis Demo. J.H.S PWA installing...');
 
@@ -19,8 +19,32 @@ self.addEventListener('install', (event) => {
       })
       .then(() => {
         console.log('✅ St. Louis Demo. J.H.S PWA installed successfully!');
+
+        // Notify all clients about successful installation
+        self.clients.matchAll().then(clients => {
+          clients.forEach(client => {
+            client.postMessage({
+              type: 'PWA_INSTALLED',
+              message: 'App installed successfully!'
+            });
+          });
+        });
+
         // Skip waiting to activate immediately
         return self.skipWaiting();
+      })
+      .catch((error) => {
+        console.error('❌ PWA installation failed:', error);
+
+        // Notify clients about installation failure
+        self.clients.matchAll().then(clients => {
+          clients.forEach(client => {
+            client.postMessage({
+              type: 'PWA_INSTALL_FAILED',
+              message: 'App installation failed. Please try again.'
+            });
+          });
+        });
       })
   );
 });
