@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, X, Calendar, MapPin, Quote } from 'lucide-react';
+import { ArrowLeft, X, Calendar, MapPin, Quote, Search } from 'lucide-react';
 import { commencementSpeeches } from '../data/commencementSpeeches';
 import SEOHead from '../components/seo/SEOHead';
 
 const AdviceSpeechesPage: React.FC = () => {
   const [selectedSpeech, setSelectedSpeech] = useState<any>(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -24,6 +25,23 @@ const AdviceSpeechesPage: React.FC = () => {
     // Scroll to top when closing speech
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Filter speeches based on search query
+  const filteredSpeeches = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return commencementSpeeches;
+    }
+
+    const query = searchQuery.toLowerCase().trim();
+    return commencementSpeeches.filter(speech =>
+      speech.speaker.toLowerCase().includes(query) ||
+      speech.title.toLowerCase().includes(query) ||
+      speech.university.toLowerCase().includes(query) ||
+      speech.excerpt.toLowerCase().includes(query) ||
+      speech.keyPoints.some(point => point.toLowerCase().includes(query)) ||
+      speech.year.toString().includes(query)
+    );
+  }, [searchQuery]);
 
   // If a speech is selected, show the full speech view
   if (selectedSpeech) {
@@ -158,9 +176,41 @@ const AdviceSpeechesPage: React.FC = () => {
             </p>
           </div>
 
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search speeches by speaker, title, university, or content..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-600/30 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500/50 transition-all duration-200"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-white transition-colors duration-200"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              )}
+            </div>
+            {searchQuery && (
+              <div className="mt-3 text-center">
+                <p className="text-sm text-gray-400">
+                  Found {filteredSpeeches.length} speech{filteredSpeeches.length !== 1 ? 'es' : ''} matching "{searchQuery}"
+                </p>
+              </div>
+            )}
+          </div>
+
           {/* Speeches Grid - Apple Style Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {commencementSpeeches.map((speech, index) => (
+          {filteredSpeeches.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {filteredSpeeches.map((speech, index) => (
               <motion.div
                 key={speech.id}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -196,15 +246,32 @@ const AdviceSpeechesPage: React.FC = () => {
                   </p>
                 </button>
               </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <Search className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-gray-300 mb-2">No speeches found</h3>
+              <p className="text-gray-400 mb-4">
+                No speeches match your search for "{searchQuery}". Try different keywords or clear your search.
+              </p>
+              <button
+                onClick={() => setSearchQuery('')}
+                className="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-colors duration-200"
+              >
+                Clear Search
+              </button>
+            </div>
+          )}
 
           {/* Footer Message */}
-          <div className="mt-12 text-center">
-            <p className="text-sm text-gray-400">
-              Tap any card to read the full commencement speech
-            </p>
-          </div>
+          {filteredSpeeches.length > 0 && (
+            <div className="mt-12 text-center">
+              <p className="text-sm text-gray-400">
+                Tap any card to read the full commencement speech
+              </p>
+            </div>
+          )}
         </div>
       </main>
     </div>
