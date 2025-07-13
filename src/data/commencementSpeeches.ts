@@ -3156,5 +3156,897 @@ Congratulations, Class of 2019. The world needs your brilliance, your innovation
 Go forth and break some glass ceilings of your own.
 
 Thank you.`
+  },
+  {
+    id: 15,
+    speaker: "Malala Yousafzai",
+    title: "The Power of Education and Voice",
+    university: "Harvard University",
+    year: 2023,
+    excerpt: "One child, one teacher, one book, and one pen can change the world. Education is the only solution. Education first.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Education is the most powerful weapon against ignorance",
+      "Every girl deserves the right to education",
+      "Use your voice to speak for those who cannot speak",
+      "Small actions can create global change"
+    ],
+    fullText: `Dean Khurana, distinguished faculty, proud families, and graduates of Harvard University,
+
+Thank you for this incredible honor. Standing here today, I am reminded of a young girl who was shot for going to school, who was told that education was not for her kind, who was silenced for speaking up for what she believed in.
+
+That girl was me. And today, I stand before you as proof that no force is powerful enough to stop the human spirit when it is determined to learn, to grow, and to change the world.
+
+One child, one teacher, one book, and one pen can change the world. Education is the only solution. Education first.
+
+When I was growing up in the Swat Valley of Pakistan, I witnessed firsthand how extremism tries to silence voices, especially the voices of women and girls. The Taliban banned girls from going to school, but my father and I refused to accept this injustice.
+
+I spoke out because I believed that education is a basic human right. I spoke out because I knew that when we educate girls, we educate entire communities. I spoke out because silence in the face of injustice is complicity.
+
+On October 9, 2012, I was shot by the Taliban for advocating for girls' education. They thought that bullet would silence me. Instead, it amplified my voice and the voices of millions of girls around the world who are denied education.
+
+Every girl deserves the right to education. Today, 130 million girls around the world are out of school. They are denied education because of poverty, because of conflict, because of discrimination, because of harmful traditional practices.
+
+But I have seen the power of education to transform lives. I have seen girls who were once told they were worthless become doctors, teachers, engineers, and leaders. I have seen communities that were once divided by ignorance come together through understanding.
+
+Education is not just about learning facts and figures. Education is about learning to think critically, to question assumptions, to challenge injustice. Education is about developing empathy, understanding different perspectives, and building bridges between communities.
+
+Use your voice to speak for those who cannot speak. You have been given an incredible privilege - a Harvard education. With that privilege comes responsibility. You have a responsibility to use your knowledge, your skills, and your voice to make the world a better place.
+
+There are still too many places in the world where girls are married off as children, where women are denied basic rights, where people are persecuted for their beliefs. Your voice can make a difference in changing these realities.
+
+Small actions can create global change. When I started speaking out for girls' education, I was just one girl with one voice. But that one voice joined with others, and together we created a movement that has reached every corner of the globe.
+
+You don't need to be famous or powerful to make a difference. You just need to care enough to act. Whether you become a teacher, a doctor, an engineer, a business leader, or anything else, you can use your position to advocate for those who need advocates.
+
+The world needs your energy, your ideas, and your commitment to justice. The world needs you to continue the fight for equality, for human rights, for peace.
+
+As you leave Harvard and enter the world, remember that education is not a privilege - it is a right. And it is your responsibility to ensure that this right is available to everyone, everywhere.
+
+I want to end with a message to all the young people listening: You are not too young to make a difference. You are not too small to change the world. Your voice matters. Your dreams matter. Your education matters.
+
+Let us pick up our books and our pens. They are our most powerful weapons. One child, one teacher, one book, and one pen can change the world.
+
+Thank you, and congratulations to the Class of 2023.`
+  },
+  {
+    id: 16,
+    speaker: "Satya Nadella",
+    title: "Empathy and Technology",
+    university: "University of Chicago",
+    year: 2022,
+    excerpt: "The true scarce commodity of the future will be human attention and empathy. Technology should amplify human capability and human empathy, not replace it.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Empathy is the scarcest commodity in technology",
+      "Technology should amplify human capability",
+      "Growth mindset over know-it-all attitude",
+      "Inclusive design benefits everyone"
+    ],
+    fullText: `President Zimmer, distinguished faculty, proud families, and graduates of the University of Chicago,
+
+Thank you for this honor. It's wonderful to be back at this institution that has shaped so many brilliant minds and continues to push the boundaries of human knowledge.
+
+Today, I want to talk about something that might seem unusual for a technology CEO: empathy. The true scarce commodity of the future will be human attention and empathy. Technology should amplify human capability and human empathy, not replace it.
+
+When I became CEO of Microsoft, I knew that our company needed to fundamentally change. We had become known for a "know-it-all" culture, where being the smartest person in the room was valued above all else. But I realized that in a world of rapid change, what we really needed was a "learn-it-all" culture.
+
+Growth mindset over know-it-all attitude. This shift in mindset has been transformational for our company and for me personally. Instead of trying to prove how much we know, we focus on how much we can learn. Instead of being defensive about our mistakes, we see them as opportunities to grow.
+
+This mindset is especially important in technology. The pace of change is accelerating, and the challenges we face are becoming more complex. Climate change, inequality, healthcare, education - these are not problems that any one person or company can solve alone. They require collaboration, humility, and a willingness to learn from others.
+
+Technology should amplify human capability, not replace it. At Microsoft, we talk about empowering every person and organization on the planet to achieve more. This is not about replacing human intelligence with artificial intelligence. It's about augmenting human intelligence, about giving people tools that help them be more creative, more productive, more connected.
+
+I've learned this lesson personally through my son Zain, who has cerebral palsy. Watching him navigate the world has taught me about the importance of inclusive design. When we design technology with accessibility in mind from the beginning, we don't just help people with disabilities - we create better products for everyone.
+
+Inclusive design benefits everyone. The curb cut was designed for people in wheelchairs, but it helps everyone - parents with strollers, delivery workers with carts, travelers with luggage. Similarly, when we design technology to be accessible, we often discover innovations that benefit all users.
+
+This principle applies beyond technology. In your careers, whatever field you choose, remember that diversity of thought, background, and experience makes teams stronger. Seek out perspectives that are different from your own. Listen to voices that have been marginalized. Include people who might see problems and solutions that you cannot.
+
+Empathy is not just about being nice - it's about being effective. When you truly understand the needs and experiences of your customers, your colleagues, your community, you can create solutions that actually work. You can build products that people love. You can lead teams that are engaged and motivated.
+
+But empathy requires effort. It requires you to step outside your own experience and try to understand someone else's. It requires you to listen more than you speak. It requires you to admit when you don't know something and ask for help.
+
+As you leave this university and enter the world, you will face challenges that seem insurmountable. You will encounter problems that don't have easy solutions. You will work with people who see the world very differently than you do.
+
+In those moments, remember that your greatest strength is not your intelligence or your technical skills - though those are important. Your greatest strength is your ability to connect with other human beings, to understand their needs, to work together toward common goals.
+
+The future belongs to those who can combine technical excellence with human empathy. The future belongs to those who can build bridges across differences. The future belongs to those who can see technology not as an end in itself, but as a means to empower human potential.
+
+You are graduating at a time of incredible opportunity and incredible responsibility. The tools at your disposal are more powerful than any generation before you has ever had. Use them wisely. Use them with empathy. Use them to create a world where everyone can thrive.
+
+Congratulations, Class of 2022. The world needs your brilliance, but even more, it needs your humanity.
+
+Thank you.`
+  },
+  {
+    id: 17,
+    speaker: "Jacinda Ardern",
+    title: "Leadership with Kindness",
+    university: "University of Auckland",
+    year: 2021,
+    excerpt: "One of the criticisms I've faced over the years is that I'm not aggressive enough or assertive enough, or maybe somehow, because I'm empathetic, it means I'm weak. But I think we've turned that around.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Kindness and empathy are strengths, not weaknesses",
+      "Leadership is about bringing people together",
+      "Crisis reveals true character",
+      "Young people can lead change"
+    ],
+    fullText: `Vice-Chancellor McCutcheon, distinguished faculty, proud families, and graduates of the University of Auckland,
+
+Kia ora and congratulations to the Class of 2021. You are graduating at one of the most challenging times in recent history, and yet you have persevered, adapted, and succeeded. That resilience will serve you well in the years ahead.
+
+Today, I want to talk about a different kind of leadership - leadership with kindness. One of the criticisms I've faced over the years is that I'm not aggressive enough or assertive enough, or maybe somehow, because I'm empathetic, it means I'm weak. But I think we've turned that around.
+
+Kindness and empathy are strengths, not weaknesses. When I became Prime Minister, I was determined to lead differently. I wanted to show that you can be both strong and kind, that you can make tough decisions while still caring deeply about people.
+
+The events of March 15, 2019, when a terrorist attacked our Muslim community in Christchurch, tested this philosophy. In that moment of unimaginable tragedy, our response was not to meet hatred with hatred, but to respond with love, compassion, and unity.
+
+We showed the world that in the face of extremism, we would not be divided. We would not let fear win. Instead, we would come together as one people, united in our diversity and strengthened by our shared humanity.
+
+Crisis reveals true character. The COVID-19 pandemic has been another test of leadership and character. We chose to prioritize the health and wellbeing of our people above all else. We chose to be guided by science and evidence, not politics or ideology.
+
+But most importantly, we chose to communicate with honesty, transparency, and compassion. We acknowledged people's fears and concerns. We explained our decisions clearly. We asked for sacrifice, but we also provided support.
+
+Leadership is about bringing people together, not driving them apart. In a world that often seems increasingly divided, we need leaders who can build bridges, who can find common ground, who can appeal to our better angels.
+
+This doesn't mean avoiding difficult conversations or tough decisions. It means approaching them with empathy and understanding. It means listening to different perspectives. It means being willing to admit when you're wrong and change course when necessary.
+
+Young people can lead change. Throughout history, it has been young people who have driven the most significant social and political changes. From the civil rights movement to the fight against climate change, young voices have been at the forefront of progress.
+
+You don't need to wait until you're older or more experienced to make a difference. You don't need permission to speak up for what you believe in. Your voice matters now, and the world needs to hear it.
+
+As you enter the workforce and take on leadership roles, remember that leadership is not about having all the answers. It's about asking the right questions. It's about creating space for others to contribute. It's about building teams where everyone feels valued and heard.
+
+The challenges facing our world - climate change, inequality, technological disruption, global health crises - require new approaches and fresh thinking. They require leaders who can think beyond traditional boundaries and conventional wisdom.
+
+But they also require leaders who understand that at the heart of every policy, every decision, every initiative, there are real people with real lives. Leaders who remember that behind every statistic is a human story.
+
+New Zealand has always punched above its weight on the global stage, not because of our size or our military might, but because of our values. We believe in fairness, in equality, in looking after each other. We believe that small countries can make a big difference.
+
+As you go out into the world, carry these values with you. Show the world that success doesn't have to come at the expense of others. Show them that you can be competitive while still being collaborative. Show them that you can be ambitious while still being kind.
+
+The future belongs to those who can combine competence with compassion, who can be both effective and empathetic. The future belongs to those who understand that true strength comes not from dominating others, but from lifting them up.
+
+You are graduating into a world that desperately needs this kind of leadership. A world that needs people who can bring out the best in others, who can unite rather than divide, who can lead with both their heads and their hearts.
+
+Congratulations, Class of 2021. Go out there and show the world what leadership with kindness looks like.
+
+Thank you.`
+  },
+  {
+    id: 18,
+    speaker: "Yuval Noah Harari",
+    title: "Navigating the Age of Information",
+    university: "Tel Aviv University",
+    year: 2020,
+    excerpt: "In a world deluged by irrelevant information, clarity is power. The most important skill in the 21st century will be the ability to learn, unlearn, and relearn.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Clarity is power in the information age",
+      "Learn, unlearn, and relearn continuously",
+      "Question everything, especially your own beliefs",
+      "Technology is a tool, not a master"
+    ],
+    fullText: `President Klausner, distinguished faculty, proud families, and graduates of Tel Aviv University,
+
+Congratulations on reaching this milestone. You are graduating into a world that is changing faster than ever before, a world where the only constant is change itself.
+
+In a world deluged by irrelevant information, clarity is power. We live in an age where we have access to more information than any generation in human history, yet we often feel more confused and uncertain than ever. The challenge is not accessing information - it's knowing what information to trust, what questions to ask, and how to think clearly about complex problems.
+
+The most important skill in the 21st century will be the ability to learn, unlearn, and relearn. The knowledge you've acquired here at university is valuable, but it's not enough. The half-life of specific skills and knowledge is shrinking rapidly. What you learned in your first year may already be outdated by the time you graduate.
+
+This doesn't mean your education has been worthless. On the contrary, you've learned something far more valuable than any specific piece of information: you've learned how to learn. You've developed critical thinking skills. You've learned to question assumptions and analyze evidence.
+
+Question everything, especially your own beliefs. One of the most dangerous traps in the modern world is the echo chamber - surrounding ourselves with information and people that confirm what we already believe. Social media algorithms are designed to show us content that we're likely to engage with, which often means content that confirms our existing biases.
+
+As educated individuals, you have a responsibility to actively seek out perspectives that challenge your worldview. Read sources you disagree with. Engage with people who see the world differently. Be willing to change your mind when presented with compelling evidence.
+
+The rise of artificial intelligence and automation will transform the job market in ways we can barely imagine. Many jobs that exist today will disappear, while new jobs that we can't yet envision will emerge. The key to thriving in this environment is not to resist change, but to embrace it.
+
+Technology is a tool, not a master. We often talk about technological progress as if it's an unstoppable force of nature, but technology is created by humans, and it can be shaped by human choices. The question is not whether technology will change our world - it's how we will choose to use technology to shape the kind of world we want to live in.
+
+Artificial intelligence can help us solve complex problems, from climate change to disease. But it can also be used to manipulate public opinion, invade privacy, and increase inequality. The outcome depends on the choices we make as a society.
+
+As you enter the workforce, you'll have the opportunity to influence these choices. Whether you become engineers, doctors, teachers, artists, or entrepreneurs, you'll be part of shaping how technology is developed and deployed.
+
+The challenges facing humanity in the 21st century - climate change, nuclear weapons, technological disruption, global inequality - are global challenges that require global cooperation. No single country, no matter how powerful, can solve these problems alone.
+
+Yet we live in an era of rising nationalism and declining international cooperation. Building the institutions and relationships necessary to address global challenges will require a new generation of leaders who think beyond national boundaries.
+
+You are part of that generation. You've grown up in a connected world. You understand that what happens in one part of the globe affects everyone else. You have the tools and the perspective to build bridges across cultures and nations.
+
+But global thinking must be combined with local action. The most effective way to change the world is often to start in your own community. Identify problems you care about and work to solve them, whether that's improving education in your neighborhood, protecting the local environment, or supporting vulnerable populations.
+
+The future is not predetermined. It will be shaped by the choices you make, individually and collectively. You have more power to influence the course of history than you might realize.
+
+But with that power comes responsibility. The decisions you make in your careers, in your personal lives, and as citizens will help determine what kind of world future generations inherit.
+
+Use your education wisely. Think critically. Question assumptions. Embrace change while holding onto your values. Work to build a world that is more just, more sustainable, and more humane.
+
+The 21st century will be defined by how well humanity learns to cooperate in the face of unprecedented challenges. You have the knowledge, the tools, and the opportunity to help write that story.
+
+Make it a good one.
+
+Congratulations, Class of 2020.`
+  },
+  {
+    id: 19,
+    speaker: "Greta Thunberg",
+    title: "The Climate Crisis and Your Generation",
+    university: "University of Edinburgh",
+    year: 2023,
+    excerpt: "You are the generation that will either solve the climate crisis or live with the consequences of our failure. The choice is yours, and the time is now.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Your generation will determine our climate future",
+      "Small actions can spark global movements",
+      "Science must guide our decisions",
+      "Hope comes through action, not words"
+    ],
+    fullText: `Principal Mapstone, distinguished faculty, proud families, and graduates of the University of Edinburgh,
+
+Thank you for inviting me to speak today. I stand before you not as someone who has all the answers, but as someone who has learned the power of asking the right questions and demanding honest answers.
+
+You are the generation that will either solve the climate crisis or live with the consequences of our failure. The choice is yours, and the time is now.
+
+When I started my school strike for climate in 2018, I was just one person sitting outside the Swedish Parliament with a handmade sign. I was told I was too young, too naive, that I didn't understand how the world works.
+
+But I understood something that many adults seemed to have forgotten: that our house is on fire, and we need to act like it.
+
+Small actions can spark global movements. What started as one person's protest became a global movement of millions of young people demanding action on climate change. This shows the power that each of you has to create change.
+
+You don't need to be famous or powerful to make a difference. You just need to care enough to act, and to refuse to accept the unacceptable.
+
+The science is clear. We are in a climate emergency. The window for limiting global warming to 1.5 degrees Celsius is rapidly closing. Every fraction of a degree matters. Every year matters. Every choice matters.
+
+Science must guide our decisions, not politics, not economics, not convenience. The laws of physics don't negotiate. The laws of chemistry don't care about our political systems or our economic models.
+
+Yet for decades, we have been told that we can solve the climate crisis without fundamentally changing our economic system, without challenging the pursuit of endless growth on a finite planet, without questioning the systems that got us into this crisis in the first place.
+
+This is not true. We cannot solve a crisis with the same mindset that created it.
+
+The solutions exist. Renewable energy is now cheaper than fossil fuels in most parts of the world. We have the technology to dramatically reduce emissions. We know what needs to be done.
+
+What we lack is not technology or knowledge - what we lack is political will and the courage to tell the truth about what the science demands.
+
+Hope comes through action, not words. I am often asked if I have hope for the future. My answer is that hope is not something you have - hope is something you create through your actions.
+
+Every solar panel installed, every forest protected, every fossil fuel project stopped, every politician held accountable - these actions create hope.
+
+You have been educated at one of the world's great universities. You have knowledge, skills, and opportunities that most people in the world don't have. With that privilege comes responsibility.
+
+Whatever career you choose, whatever path you take, you have the power to be part of the solution. If you become an engineer, design sustainable technologies. If you become a business leader, build companies that prioritize the planet alongside profit. If you become a teacher, educate the next generation about the climate crisis. If you become a politician, have the courage to tell the truth and make the hard decisions.
+
+The climate crisis is not just an environmental issue - it's a justice issue. The people who have contributed least to the problem are suffering the most from its consequences. Small island nations are disappearing beneath rising seas. Farmers in Africa are facing unprecedented droughts. Indigenous communities are seeing their traditional ways of life destroyed.
+
+Climate action is about justice, about ensuring that everyone has the right to a livable future.
+
+You are graduating into a world that is already experiencing the impacts of climate change. You will see more extreme weather, more displacement, more conflict over resources. But you are also graduating into a world where the solutions are becoming clearer and more achievable every day.
+
+The question is not whether we can solve the climate crisis - the question is whether we will choose to do so.
+
+I believe in your generation because you have grown up understanding that the climate crisis is real. You haven't had the luxury of denial. You know that your future depends on the actions we take today.
+
+But knowledge is not enough. Awareness is not enough. We need action, and we need it now.
+
+Don't let anyone tell you that you're too young to make a difference. Don't let anyone tell you that individual actions don't matter. Don't let anyone tell you that it's too late.
+
+It's not too late, but it's getting close. Every day we delay action makes the challenge harder and the solutions more expensive.
+
+The fossil fuel industry has spent decades spreading misinformation and delaying action. They have known about climate change for decades, yet they chose profits over the planet. Don't let them steal your future.
+
+You have the power to hold them accountable. You have the power to demand better from your leaders. You have the power to create the change we need.
+
+The climate crisis is the defining challenge of our time, but it's also the greatest opportunity. The transition to a sustainable economy will create millions of jobs, improve public health, and build a more just and equitable world.
+
+You can be part of building that world. You can be part of the generation that finally takes the climate crisis seriously and acts with the urgency it demands.
+
+The future is not something that happens to you - it's something you create. So go out there and create a future worth living in.
+
+Thank you, and congratulations to the Class of 2023.`
+  },
+  {
+    id: 20,
+    speaker: "Ratan Tata",
+    title: "Business with Purpose",
+    university: "Indian Institute of Technology Bombay",
+    year: 2019,
+    excerpt: "I have always believed that business must have a purpose beyond profit. The true measure of success is not what you accumulate, but what you contribute to society.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Business must have purpose beyond profit",
+      "True success is measured by contribution to society",
+      "Integrity is non-negotiable in leadership",
+      "Innovation should solve real problems"
+    ],
+    fullText: `Director Desai, distinguished faculty, proud families, and graduates of IIT Bombay,
+
+It is an honor to be here at this prestigious institution that has produced some of India's finest minds and leaders. As I look at you today, I see the future of not just India, but the world.
+
+I have always believed that business must have a purpose beyond profit. The true measure of success is not what you accumulate, but what you contribute to society.
+
+When I took over as Chairman of Tata Group, I inherited a legacy built on values - values of integrity, excellence, and service to the nation. These values guided every decision we made, even when it meant sacrificing short-term profits for long-term principles.
+
+Integrity is non-negotiable in leadership. In business, you will face many situations where you could take shortcuts, where you could compromise your values for immediate gain. I urge you to resist these temptations.
+
+Your reputation is built over decades but can be destroyed in moments. Once lost, trust is almost impossible to regain. Build your career on a foundation of honesty, transparency, and ethical behavior.
+
+Innovation should solve real problems. As engineers and technologists, you have the power to create solutions that can transform lives. But innovation for its own sake is meaningless. Focus on innovations that address real human needs.
+
+When we developed the Tata Nano, our goal was not to create the cheapest car in the world for the sake of a record. Our goal was to provide safe, affordable transportation to millions of Indian families who were risking their lives on two-wheelers.
+
+The project faced many challenges, and commercially it didn't achieve all our goals. But it demonstrated something important: that business can be a force for social good, that companies can pursue ambitious goals that benefit society.
+
+Throughout my career, I have seen how business can be a powerful tool for positive change. The Tata Group has always believed in giving back to society. Today, about 66% of the equity capital of Tata Sons is held by philanthropic trusts.
+
+This is not charity - this is responsibility. When society provides you with opportunities, when it enables your success, you have an obligation to give back.
+
+As you begin your careers, remember that success is not just about personal achievement. It's about lifting others up with you. It's about creating opportunities for those who come after you.
+
+India is at a critical juncture in its development. We have the potential to become a global superpower, but we also face enormous challenges - poverty, inequality, environmental degradation, corruption.
+
+You are the generation that will determine which path India takes. You have the education, the skills, and the opportunity to solve these challenges. But you also have the responsibility to ensure that India's growth is inclusive and sustainable.
+
+Don't be afraid to dream big. When we started Tata Consultancy Services in 1968, few people believed that an Indian company could compete globally in technology services. Today, TCS is one of the world's largest IT services companies.
+
+When we launched Tata Tea's Tetley brand globally, people said an Indian company couldn't succeed in international consumer markets. Today, Tetley is one of the world's leading tea brands.
+
+The lesson is simple: don't let others define what's possible for you or for India. Set your own ambitious goals and work relentlessly to achieve them.
+
+But remember that true leadership is not about commanding others - it's about inspiring them. It's about creating an environment where people can do their best work, where they feel valued and motivated.
+
+Listen to your team. Learn from your mistakes. Be willing to admit when you're wrong. The best leaders are those who are constantly learning and growing.
+
+As you go out into the world, you will face setbacks and failures. I have had my share of both. The important thing is not to avoid failure, but to learn from it and bounce back stronger.
+
+When the 26/11 terrorist attacks happened in Mumbai, the Taj Hotel, which is part of the Tata Group, was one of the targets. Our staff showed incredible courage, putting the safety of guests above their own lives.
+
+In that moment of crisis, I saw the true character of our people and our organization. It reinforced my belief that when you build a company based on strong values, those values will guide people to do the right thing even in the most difficult circumstances.
+
+You are graduating at a time of unprecedented opportunity. Technology is democratizing access to information, markets, and resources. A young entrepreneur in a small Indian town can now build a global business from their laptop.
+
+But with this opportunity comes responsibility. Use technology to solve problems, not create them. Build businesses that create value for all stakeholders, not just shareholders.
+
+India needs entrepreneurs who will create jobs, innovators who will solve social problems, leaders who will build institutions that will last for generations.
+
+You have the potential to be those entrepreneurs, innovators, and leaders. But potential is not enough. You need to combine it with hard work, perseverance, and an unwavering commitment to your values.
+
+The future of India is in your hands. Make us proud.
+
+Congratulations, Class of 2019, and best wishes for your journey ahead.`
+  },
+  {
+    id: 21,
+    speaker: "Priyanka Chopra Jonas",
+    title: "Breaking Barriers and Building Bridges",
+    university: "Barnard College",
+    year: 2021,
+    excerpt: "Don't let anyone put you in a box. You are not too ethnic, too different, too ambitious, or too anything. You are exactly who you're supposed to be.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Don't let others define your limitations",
+      "Embrace your differences as your strength",
+      "Use your platform to amplify other voices",
+      "Success is about opening doors for others"
+    ],
+    fullText: `President Beilock, distinguished faculty, proud families, and graduates of Barnard College,
+
+Thank you for this incredible honor. Standing here today, I'm reminded of my own journey from a small town in India to global stages, and how every step taught me that barriers exist only to be broken.
+
+Don't let anyone put you in a box. You are not too ethnic, too different, too ambitious, or too anything. You are exactly who you're supposed to be.
+
+When I first moved to Hollywood, I was constantly told what I couldn't do. I was too Indian for American roles, too American for Indian roles. My accent was too thick, then too thin. I was too dark, too exotic, too foreign.
+
+But I learned something important: when people try to put you in a box, it's usually because they can't imagine a world where you don't fit into their limited categories. Don't let their lack of imagination become your limitation.
+
+Embrace your differences as your strength. What makes you different is what makes you special. In a world that often tries to make everyone the same, your uniqueness is your superpower.
+
+I grew up in a small town in India where becoming an international actress seemed impossible. But my parents taught me that dreams don't have geographical boundaries. They taught me that if you work hard enough and believe in yourself strongly enough, you can achieve anything.
+
+When I won Miss World at 18, it opened doors I never knew existed. But it also came with responsibilities I wasn't prepared for. Suddenly, I had a platform, and I realized that with that platform came the power to influence and inspire.
+
+Use your platform to amplify other voices. Whatever success you achieve, whatever platform you build, remember that it's not just about you. Use your voice to speak for those who don't have one. Use your success to create opportunities for others.
+
+Throughout my career, I've tried to choose projects that break stereotypes and challenge perceptions. When I played Alex Parrish in "Quantico," I wasn't just playing a character - I was representing the possibility that a South Asian woman could be the lead in an American network television show.
+
+Success is about opening doors for others. Every barrier you break doesn't just benefit you - it makes it easier for the next person who looks like you, who comes from where you come from, who dreams the dreams you dream.
+
+When I started my production company, Purple Pebble Pictures, my goal was to tell stories that hadn't been told, to give opportunities to talent that hadn't been discovered. Because I know what it feels like to be overlooked, to be told you don't fit.
+
+The entertainment industry has the power to shape perceptions and change minds. When people see diverse stories on screen, when they see characters who look like them and share their experiences, it expands their sense of what's possible.
+
+But representation isn't just about entertainment - it's about every industry, every field, every level of leadership. We need diverse voices in boardrooms, in laboratories, in government, in every space where decisions are made.
+
+As women, we face unique challenges. We're often told to be confident but not aggressive, ambitious but not threatening, strong but not intimidating. These contradictions are designed to keep us small, to make us doubt ourselves.
+
+Don't fall for it. Be unapologetically ambitious. Take up space. Speak up in meetings. Negotiate for what you're worth. Support other women. Lift each other up instead of competing with each other.
+
+I've been fortunate to work with UNICEF as a Goodwill Ambassador, and through that work, I've seen the incredible potential that exists in young people around the world. I've also seen the barriers that prevent too many of them from reaching that potential.
+
+Education is the great equalizer, but it's not equally accessible. As educated women, you have a responsibility to ensure that the next generation has even better opportunities than you did.
+
+The world is more connected than ever before, but it's also more divided. We need bridge-builders, people who can connect across cultures, languages, and differences. You have the education, the perspective, and the opportunity to be those bridge-builders.
+
+Don't be afraid to fail. I've had my share of failures - movies that didn't work, projects that didn't get made, opportunities that didn't pan out. But every failure taught me something valuable and made me stronger.
+
+Failure is not the opposite of success - it's part of success. It's how you learn, how you grow, how you develop resilience.
+
+As you leave Barnard and enter the world, remember that you're not just representing yourselves - you're representing all the women who came before you and all the girls who will come after you.
+
+You're graduating from an institution that has always believed in the power of women to change the world. Now it's your turn to prove that belief right.
+
+Dream big. Work hard. Stay true to your values. And never, ever let anyone convince you that you don't belong.
+
+The world needs your voices, your perspectives, your solutions. The world needs you to be exactly who you are.
+
+Congratulations, Class of 2021. Go out there and break some barriers.
+
+Thank you.`
+  },
+  {
+    id: 22,
+    speaker: "Sundar Pichai",
+    title: "Technology for Everyone",
+    university: "Indian Institute of Technology Kharagpur",
+    year: 2017,
+    excerpt: "Technology should be accessible to everyone, not just the privileged few. Our goal should be to democratize access to information and opportunity.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Technology should be accessible to everyone",
+      "Democratize access to information and opportunity",
+      "Stay curious and keep learning",
+      "Use technology to solve real problems"
+    ],
+    fullText: `Director Sahoo, distinguished faculty, proud families, and graduates of IIT Kharagpur,
+
+It's wonderful to be back at my alma mater. Standing here today brings back so many memories of my time as a student here, and I'm filled with pride to see how this institution continues to produce world-class engineers and innovators.
+
+Technology should be accessible to everyone, not just the privileged few. Our goal should be to democratize access to information and opportunity.
+
+When I was growing up in Chennai, my family didn't have much money. We didn't have a telephone until I was in college. The idea that I would one day lead a company that connects billions of people around the world seemed impossible.
+
+But I was fortunate to have access to education, and that education opened doors I never knew existed. It taught me that with hard work and determination, you can overcome any obstacle.
+
+Today, we live in an age where a smartphone can give someone in a remote village access to the same information as someone in Silicon Valley. This is the power of technology when it's designed with inclusion in mind.
+
+At Google, we've always believed that information should be universally accessible and useful. But accessibility isn't just about having the technology - it's about making sure that technology works for everyone, regardless of their background, their language, or their economic situation.
+
+Stay curious and keep learning. The field of technology is evolving so rapidly that what you learned in your first year here may already be outdated. But that's not a problem - it's an opportunity.
+
+The most successful people in technology are not those who know the most, but those who are most curious, most willing to learn, most adaptable to change.
+
+When I joined Google in 2004, the company was primarily focused on search. Today, we work on everything from artificial intelligence to quantum computing to autonomous vehicles. The only way to thrive in such an environment is to embrace continuous learning.
+
+Use technology to solve real problems. As engineers, you have the power to create solutions that can improve millions of lives. But with that power comes responsibility.
+
+Don't just build technology for the sake of building it. Ask yourself: Who will this help? How will it make the world better? What problems will it solve?
+
+Some of the most impactful projects at Google have come from engineers who saw a problem in their own communities and decided to solve it. Google Translate started because someone wanted to break down language barriers. Google Maps began because someone wanted to help people navigate the world more easily.
+
+India is uniquely positioned to lead the next wave of technological innovation. We have a young, educated population. We have a thriving startup ecosystem. We have engineers who understand both cutting-edge technology and the needs of emerging markets.
+
+But India's contribution to technology shouldn't just be about serving the Indian market. Indian engineers have the opportunity to build solutions that work for the next billion internet users around the world.
+
+When we launched Google Pay in India, we didn't just create a payment app - we created a platform that could work for people who had never used digital payments before. That innovation is now being applied in other markets around the world.
+
+Artificial intelligence is perhaps the most transformative technology of our time. It has the potential to solve some of humanity's biggest challenges - from climate change to healthcare to education.
+
+But AI also raises important questions about privacy, fairness, and the future of work. As the engineers who will build these systems, you have a responsibility to ensure that AI is developed and deployed responsibly.
+
+We need AI that works for everyone, not just the privileged few. We need AI that respects privacy and human dignity. We need AI that augments human capability rather than replacing it.
+
+The internet has connected billions of people, but we're still in the early stages of realizing its full potential. The next phase of the internet will be about making it more helpful, more personal, and more accessible.
+
+We're working on technologies that will allow people to interact with computers using natural language, that will provide real-time translation between any two languages, that will help people access information even when they don't know exactly what they're looking for.
+
+These technologies will be particularly important for emerging markets, where many people are coming online for the first time and may not be familiar with traditional computing interfaces.
+
+As you begin your careers, remember that success is not just about individual achievement. The most fulfilling careers are those where you can make a positive impact on the world.
+
+Whether you join a large company, start your own business, or pursue research, look for opportunities to use your skills to solve problems that matter.
+
+The challenges facing the world today - climate change, inequality, disease, education - are complex and interconnected. They require innovative solutions and collaborative approaches.
+
+You have the technical skills to contribute to these solutions. But you also need to develop empathy, cultural awareness, and the ability to work with people from different backgrounds and disciplines.
+
+Technology is most powerful when it brings people together, when it helps us understand each other better, when it creates opportunities for collaboration and connection.
+
+As you leave IIT Kharagpur and enter the world, carry with you the values that this institution has instilled in you - excellence, integrity, and service to society.
+
+Use your education not just to build successful careers, but to build a better world. Use your skills not just to create wealth, but to create value for all of humanity.
+
+The future is full of possibilities, and you have the power to shape that future. Make it count.
+
+Congratulations, Class of 2017, and best wishes for your journey ahead.`
+  },
+  {
+    id: 23,
+    speaker: "Oprah Winfrey",
+    title: "Living Your Truth",
+    university: "Duke University",
+    year: 2018,
+    excerpt: "Your truth is the most powerful tool you have. When you honor your truth, you honor yourself and you give others permission to do the same.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Your truth is your most powerful tool",
+      "Honor yourself by living authentically",
+      "Service to others gives life meaning",
+      "Every experience teaches you something valuable"
+    ],
+    fullText: `President Price, distinguished faculty, proud families, and graduates of Duke University,
+
+Thank you for this incredible honor. Being here with you today, witnessing this celebration of achievement and possibility, fills my heart with joy.
+
+Your truth is the most powerful tool you have. When you honor your truth, you honor yourself and you give others permission to do the same.
+
+I want to share with you something I've learned over the years: that the most important relationship you will ever have is the relationship with yourself. And the foundation of that relationship is truth - knowing who you are, what you value, what you stand for.
+
+For too many years, I tried to be what other people wanted me to be. I tried to fit into boxes that were too small for my spirit. I tried to dim my light so that others wouldn't feel uncomfortable.
+
+But I learned that when you betray yourself, when you live a lie, you rob the world of your unique gifts. You rob yourself of the joy that comes from living authentically.
+
+Honor yourself by living authentically. This doesn't mean being selfish or inconsiderate of others. It means being true to your values, following your passion, speaking your truth with love and respect.
+
+When I started my talk show, television executives told me I was "too emotional," "too personal," "too much." They wanted me to be more like other hosts, to follow a formula that had worked for others.
+
+But I knew that my strength was in my authenticity, in my willingness to be vulnerable, in my ability to connect with people on a human level. So I chose to be myself, fully and completely.
+
+That choice changed everything. It allowed me to build a career that was not just successful, but meaningful. It allowed me to touch lives and make a difference in ways I never could have imagined.
+
+Service to others gives life meaning. Success without service is empty. Achievement without contribution is hollow. The most fulfilling life is one where you use your gifts to lift others up.
+
+I've been blessed with many opportunities in my life, but the moments that have brought me the greatest joy are those when I've been able to help someone else realize their potential, when I've been able to use my platform to shine light on important issues, when I've been able to make a difference in someone's life.
+
+Whether you become a doctor, a teacher, an entrepreneur, an artist, or anything else, look for ways to serve. Look for ways to use your talents to make the world a little bit better.
+
+Every experience teaches you something valuable. I've had my share of failures, disappointments, and setbacks. There were times when I thought my career was over, times when I questioned my worth, times when I felt lost and uncertain.
+
+But I learned that every experience, even the painful ones, has something to teach you. Every setback is a setup for a comeback. Every failure is a lesson in disguise.
+
+The key is to remain open to learning, to see challenges as opportunities for growth, to trust that even when you can't see the path ahead, you're exactly where you need to be.
+
+When I was fired from my first television job in Baltimore, I was devastated. I thought my dreams were over. But that "failure" led me to Chicago, where I found my true calling in daytime television.
+
+When my movie "Beloved" didn't perform well at the box office, I was disappointed. But that experience taught me valuable lessons about storytelling and helped me become a better producer.
+
+Every closed door led to an open window. Every "no" led to a better "yes." Every ending led to a new beginning.
+
+As you leave Duke and enter the world, you will face your own challenges and setbacks. You will encounter people who don't believe in you, opportunities that don't work out, dreams that seem impossible to achieve.
+
+In those moments, remember your truth. Remember your worth. Remember that you have something unique and valuable to offer the world.
+
+Don't let anyone else define your worth or your potential. Don't let fear keep you from pursuing your dreams. Don't let setbacks convince you that you're not capable of greatness.
+
+You are graduating from one of the finest universities in the world. You have been given tools, knowledge, and opportunities that will serve you well. But your greatest asset is not your degree - it's your authentic self.
+
+The world needs what you have to offer. The world needs your perspective, your passion, your unique way of seeing and solving problems.
+
+But the world can only benefit from your gifts if you have the courage to share them, if you have the confidence to be yourself, if you have the commitment to live your truth.
+
+As you go forth from this place, carry with you the knowledge that you are enough, exactly as you are. You don't need to be perfect. You don't need to have all the answers. You just need to be willing to show up, to try, to learn, to grow.
+
+Trust your instincts. Follow your heart. Live your truth. And remember that the greatest gift you can give the world is the gift of your authentic self.
+
+Congratulations, Class of 2018. The world is waiting for what you have to offer.
+
+Thank you.`
+  },
+  {
+    id: 24,
+    speaker: "Elon Musk",
+    title: "Thinking from First Principles",
+    university: "Caltech",
+    year: 2012,
+    excerpt: "I think it's important to reason from first principles rather than by analogy. The normal way we conduct our lives is we reason by analogy.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Reason from first principles, not by analogy",
+      "Take risks when you're young",
+      "Work incredibly hard on things that matter",
+      "Don't be afraid to fail"
+    ],
+    fullText: `President Chameau, distinguished faculty, proud families, and graduates of Caltech,
+
+Thank you for having me here today. It's an honor to address the graduating class of one of the world's premier institutions for science and technology.
+
+I think it's important to reason from first principles rather than by analogy. The normal way we conduct our lives is we reason by analogy.
+
+When I was thinking about starting SpaceX, everyone told me it was impossible. They said, "Look at all the big aerospace companies that have tried and failed. Look at how much money the government spends on space programs. A private company could never compete."
+
+But I didn't accept that reasoning. Instead, I broke the problem down to its fundamental components. What does a rocket actually cost to build? What are the raw materials? What are the manufacturing processes?
+
+When I looked at it from first principles, I realized that the cost of the materials for a rocket is only about 2% of the typical price of a rocket. The rest is inefficiency, bureaucracy, and profit margins built on the assumption that rockets are inherently expensive.
+
+This is the power of first principles thinking. It allows you to see past conventional wisdom and find new solutions to old problems.
+
+Take risks when you're young. Now is the time in your life when you can afford to take big risks. You don't have families depending on you. You don't have mortgages to pay. You have the luxury of being able to fail and recover.
+
+As you get older, your obligations increase. You have more to lose. It becomes harder to take the kinds of risks that can lead to breakthrough innovations.
+
+So if you have an idea that excites you, if you see a problem that needs solving, don't wait. Don't spend years planning and preparing. Start now, while you have the freedom to fail.
+
+Work incredibly hard on things that matter. There's no substitute for hard work. If you're trying to create a company, you need to work super hard. I mean, you need to put in 80 to 100 hour weeks every week.
+
+This improves the odds of success. If other people are putting in 40 hour work weeks and you're putting in 100 hour work weeks, then even if you're doing the same thing, you know that you will achieve in four months what it takes them a year to achieve.
+
+But it's not just about working hard - it's about working hard on things that matter. There are a lot of ways to spend your time that don't create value. Focus on the things that will make the biggest difference.
+
+Don't be afraid to fail. I've failed many times. My first company, Zip2, almost went bankrupt several times. PayPal faced numerous challenges and setbacks. SpaceX had three failed launches before we finally succeeded. Tesla nearly went bankrupt multiple times.
+
+But each failure taught me something valuable. Each setback made me stronger and more determined. Failure is not the opposite of success - it's a stepping stone to success.
+
+The key is to fail fast and learn quickly. Don't spend years working on something that isn't going to work. Test your ideas quickly, get feedback, iterate, and improve.
+
+At SpaceX, our goal is to make life multiplanetary. This might sound like science fiction, but I believe it's essential for the long-term survival of humanity. We need to become a spacefaring civilization.
+
+The technical challenges are enormous, but they're not insurmountable. We've already demonstrated that we can build reusable rockets, which dramatically reduces the cost of space travel. We're working on developing the technology to travel to Mars and establish a sustainable human presence there.
+
+At Tesla, we're working to accelerate the world's transition to sustainable energy. Climate change is one of the greatest challenges facing humanity, and we need to move away from fossil fuels as quickly as possible.
+
+Electric vehicles are just the beginning. We're also working on energy storage, solar panels, and other technologies that will help create a sustainable energy ecosystem.
+
+The future of transportation is not just electric - it's also autonomous. Self-driving cars will be safer, more efficient, and more convenient than human-driven cars. They'll also enable new business models and ways of thinking about transportation.
+
+At Neuralink, we're working on developing brain-computer interfaces. This technology could help people with paralysis control computers and prosthetic devices with their thoughts. In the long term, it could help humanity keep pace with artificial intelligence.
+
+These might seem like wildly different projects, but they're all connected by a common thread: they're all aimed at solving important problems and making the future better than the present.
+
+As you leave Caltech and enter the world, I encourage you to think big. Don't just aim to make incremental improvements - aim to make breakthrough innovations that can change the world.
+
+The problems facing humanity are complex and challenging, but they're not unsolvable. Climate change, sustainable energy, space exploration, artificial intelligence, biotechnology - these are all areas where breakthrough innovations are needed and possible.
+
+You have the scientific training and technical skills to contribute to these solutions. But you also need the courage to think differently, to challenge conventional wisdom, to take risks.
+
+Don't be satisfied with the status quo. Don't accept that things have to be the way they've always been. Ask yourself: How can we do this better? How can we solve this problem in a completely new way?
+
+The future is not predetermined. It will be shaped by the choices you make and the problems you choose to solve. Make sure you're working on things that matter, things that will make a positive difference in the world.
+
+Congratulations, Class of 2012. The future is in your hands. Make it an amazing one.
+
+Thank you.`
+  },
+  {
+    id: 25,
+    speaker: "Michelle Obama",
+    title: "Becoming Who You're Meant to Be",
+    university: "City College of New York",
+    year: 2016,
+    excerpt: "Don't ever make decisions based on fear. Make decisions based on hope and possibility. Make decisions based on what should happen, not what shouldn't.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Make decisions based on hope, not fear",
+      "Your story matters and deserves to be told",
+      "Education is the great equalizer",
+      "Lift others as you climb"
+    ],
+    fullText: `President Coico, distinguished faculty, proud families, and graduates of the City College of New York,
+
+Thank you so much for this honor. It is wonderful to be here at City College, an institution that has been opening doors and changing lives for more than 160 years.
+
+Don't ever make decisions based on fear. Make decisions based on hope and possibility. Make decisions based on what should happen, not what shouldn't.
+
+I want to start by telling you how proud I am of each and every one of you. You have worked hard to get here. You have overcome obstacles, made sacrifices, and persevered through challenges that would have stopped many others.
+
+Your story matters and deserves to be told. Each of you has a unique story - where you come from, what you've overcome, what you've learned along the way. Don't ever let anyone make you feel like your story doesn't matter.
+
+I grew up on the South Side of Chicago in a working-class family. My father was a city water plant employee. My mother was a secretary who later stayed home to raise my brother and me. We didn't have much money, but we had something more valuable - we had parents who believed in the power of education.
+
+Education is the great equalizer. It doesn't matter where you come from, what your parents do for a living, or how much money your family has. If you get a good education, if you work hard and stay focused, you can achieve anything.
+
+That's the promise of America, and that's the promise that institutions like City College have been fulfilling for generations. This college has educated more Nobel Prize winners than any other public institution in America. It has produced leaders in every field imaginable.
+
+But City College's greatest achievement is not the famous people it has produced - it's the ordinary people whose lives have been transformed by education. The first-generation college students who became doctors, teachers, engineers, and entrepreneurs. The immigrants who came here with nothing but dreams and left with the tools to build better lives for their families.
+
+You are part of that legacy now. You are proof that the American Dream is still alive and well.
+
+But with the privilege of education comes responsibility. You have an obligation to use your knowledge and skills not just for your own advancement, but to lift others up as well.
+
+Lift others as you climb. As you achieve success in your careers, remember those who are still struggling. Mentor young people who are where you once were. Support organizations that provide educational opportunities to underserved communities. Use your voice to advocate for policies that expand access to quality education.
+
+The world needs your talents, your perspectives, your solutions to the challenges we face. But the world also needs your compassion, your empathy, your commitment to justice and equality.
+
+We live in a time of great division and uncertainty. There are forces that want to divide us, that want to make us afraid of each other, that want to convince us that our differences make us weak.
+
+But I've learned that our diversity is our strength. When people from different backgrounds, different experiences, different perspectives come together, that's when innovation happens. That's when problems get solved. That's when progress is made.
+
+Don't let anyone tell you that you don't belong, that you're not smart enough, that you're not qualified enough. You have earned your place here. You have proven your worth. You belong at every table where decisions are being made.
+
+But belonging is not enough. You need to speak up. You need to contribute. You need to make your voice heard.
+
+When I was in law school, I was often one of the few African American women in my classes. There were times when I felt like I didn't belong, when I questioned whether I was smart enough to be there.
+
+But I learned that those feelings of doubt and insecurity are normal. Everyone feels them sometimes. The key is not to let them stop you from pursuing your dreams.
+
+I also learned that representation matters. When you see someone who looks like you, who comes from where you come from, achieving success, it expands your sense of what's possible.
+
+That's why it's so important for you to succeed. Not just for yourselves, but for all the young people who will see your success and think, "If they can do it, so can I."
+
+As you leave City College and enter the world, you will face challenges and setbacks. There will be times when you feel discouraged, when you question your abilities, when you wonder if you made the right choices.
+
+In those moments, remember why you started this journey. Remember the dreams that brought you here. Remember the people who believed in you and supported you along the way.
+
+And remember that failure is not the end of your story - it's just a chapter. Every successful person has failed at something. The difference between those who succeed and those who don't is not that successful people never fail - it's that they don't let failure define them.
+
+They learn from their mistakes, they get back up, and they keep moving forward.
+
+You have the education, the skills, and the determination to achieve great things. But more importantly, you have the opportunity to make a difference in the world.
+
+Use that opportunity wisely. Be bold in your dreams, but also be thoughtful in your actions. Take risks, but also take responsibility. Pursue success, but also pursue significance.
+
+The future belongs to those who believe in the beauty of their dreams. Dream big, work hard, and never give up.
+
+Congratulations, Class of 2016. I can't wait to see what you accomplish.
+
+Thank you.`
+  },
+  {
+    id: 26,
+    speaker: "Lin-Manuel Miranda",
+    title: "The Power of Storytelling",
+    university: "University of Pennsylvania",
+    year: 2016,
+    excerpt: "You are the storytellers of the next generation. You get to write the next chapter of the human story. Make it a good one.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "You are the storytellers of the next generation",
+      "Embrace your unique perspective and voice",
+      "Art has the power to change hearts and minds",
+      "Tell stories that haven't been told before"
+    ],
+    fullText: `President Gutmann, distinguished faculty, proud families, and graduates of the University of Pennsylvania,
+
+Thank you for this incredible honor. Being here with you today, surrounded by so much talent and potential, reminds me why I love what I do.
+
+You are the storytellers of the next generation. You get to write the next chapter of the human story. Make it a good one.
+
+When I was writing Hamilton, people told me I was crazy. "A hip-hop musical about Alexander Hamilton? No one will understand it. No one will come see it. It's too different, too weird, too ambitious."
+
+But I believed in the story I wanted to tell. I believed that the story of America's founding fathers could be told in a new way, with new voices, that would make it relevant and exciting for a new generation.
+
+Embrace your unique perspective and voice. What makes you different is what makes you valuable. Your background, your experiences, your way of seeing the world - these are not obstacles to overcome, they are gifts to share.
+
+I grew up in a Puerto Rican family in New York. I spoke Spanish at home and English at school. I loved both hip-hop and musical theater - two art forms that most people thought had nothing in common.
+
+For a long time, I felt like I didn't fit anywhere. I was too Latino for some spaces, not Latino enough for others. Too hip-hop for musical theater, too musical theater for hip-hop.
+
+But I learned that being in between spaces, being a bridge between different worlds, is actually a superpower. It allows you to see connections that others miss, to bring together ideas that others think don't belong together.
+
+Art has the power to change hearts and minds. When people see themselves reflected in stories, when they see their experiences validated and celebrated, it changes how they see themselves and their place in the world.
+
+When young Latino kids see themselves represented on Broadway, when they see that their stories matter, it expands their sense of what's possible. When people who have never thought about the immigrant experience see it portrayed with humanity and complexity, it changes how they think about immigration.
+
+This is the power of storytelling. It doesn't just entertain - it educates, it inspires, it transforms.
+
+Tell stories that haven't been told before. The world is full of untold stories, unheard voices, unexplored perspectives. Your job as the next generation of leaders, creators, and innovators is to find those stories and bring them to light.
+
+Maybe you'll become a filmmaker who tells stories about communities that have been ignored by Hollywood. Maybe you'll become a journalist who gives voice to the voiceless. Maybe you'll become a teacher who helps young people find their own stories and learn to tell them.
+
+Whatever field you enter, remember that you have the power to shape narratives, to challenge assumptions, to change the conversation.
+
+When I was working on In the Heights, my first musical, I wanted to tell the story of my neighborhood, Washington Heights. I wanted to show the beauty, the complexity, the humanity of a community that was often portrayed in one-dimensional ways in the media.
+
+It took years to get that show produced. People didn't understand why anyone would want to see a musical about Latinos in New York. But I persisted because I knew the story mattered.
+
+When In the Heights finally opened on Broadway, I received letters from young people who said they had never seen themselves represented on stage before. They said it made them proud of who they were and where they came from.
+
+That's when I truly understood the responsibility that comes with having a platform, with having the ability to tell stories that reach large audiences.
+
+The stories we tell shape how we see ourselves and each other. They shape our understanding of what's possible, what's valuable, what's worth fighting for.
+
+As you leave Penn and enter the world, you will have opportunities to tell stories - whether through your work, your art, your activism, or simply through the way you live your life.
+
+Choose to tell stories that bring people together rather than drive them apart. Choose to tell stories that celebrate our common humanity while honoring our differences. Choose to tell stories that inspire hope rather than fear.
+
+The world needs your stories. The world needs your perspective. The world needs your voice.
+
+But having a voice is not enough - you have to use it. You have to be willing to speak up, to take risks, to put yourself out there.
+
+When I first performed at the White House poetry jam in 2009, I was terrified. I was going to perform a song about Alexander Hamilton - a song that would eventually become the opening number of Hamilton - to an audience that included the President and First Lady.
+
+I almost chickened out. I almost performed something safer, something more conventional. But I decided to trust my instincts, to share the story I was passionate about, even if it seemed crazy.
+
+That performance changed my life. It gave me the confidence to pursue Hamilton as a full musical. It showed me that sometimes the craziest ideas are the ones worth pursuing.
+
+Don't be afraid to be different. Don't be afraid to fail. Don't be afraid to dream big.
+
+The world is changing rapidly. The old rules don't always apply. The old gatekeepers don't have the same power they once did. This creates opportunities for new voices, new stories, new ways of doing things.
+
+You are graduating at a time when you have more tools than ever before to tell your stories and share them with the world. Social media, streaming platforms, crowdfunding - these technologies have democratized storytelling in ways that were unimaginable just a few years ago.
+
+Use these tools wisely. Use them to amplify voices that need to be heard. Use them to build communities around shared values and common goals. Use them to create positive change in the world.
+
+Remember that with great power comes great responsibility. The stories you tell, the platforms you build, the communities you create - they all have the potential to influence how people think and act.
+
+Make sure that influence is positive. Make sure you're contributing to a world that is more just, more compassionate, more understanding.
+
+You have been given an incredible education at one of the world's great universities. You have knowledge, skills, and opportunities that most people in the world don't have.
+
+Use them well. Use them to tell stories that matter. Use them to make a difference.
+
+The future is unwritten. You get to help write it. Make it a story worth telling.
+
+Congratulations, Class of 2016. I can't wait to see the stories you tell.
+
+Thank you.`
+  },
+  {
+    id: 27,
+    speaker: "Serena Williams",
+    title: "Champions Never Give Up",
+    university: "Howard University",
+    year: 2022,
+    excerpt: "Being a champion isn't just about winning. It's about how you handle defeat, how you come back from setbacks, how you inspire others to believe in themselves.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Champions are defined by how they handle defeat",
+      "Believe in yourself even when others don't",
+      "Use your platform to lift others up",
+      "Excellence requires sacrifice and dedication"
+    ],
+    fullText: `President Frederick, distinguished faculty, proud families, and graduates of Howard University,
+
+Thank you for this incredible honor. Standing here at the Mecca, at this institution that has produced so many leaders, innovators, and champions, fills me with immense pride.
+
+Being a champion isn't just about winning. It's about how you handle defeat, how you come back from setbacks, how you inspire others to believe in themselves.
+
+I've won 23 Grand Slam singles titles, but I've also lost many matches. I've been defeated, disappointed, and discouraged more times than I can count. But each loss taught me something valuable about myself and about what it takes to succeed.
+
+The difference between champions and everyone else is not that champions never fail - it's that they never give up. They use failure as fuel. They let setbacks motivate them to work harder, to get better, to come back stronger.
+
+Believe in yourself even when others don't. When I was young, people told me I would never make it in tennis. They said I was too aggressive, too emotional, too different. They said tennis wasn't for people who looked like me.
+
+But my parents believed in me, and more importantly, I learned to believe in myself. I knew that I had something special, something that couldn't be measured by conventional standards.
+
+That belief carried me through the toughest moments of my career. When I was struggling with injuries, when I was facing criticism from the media, when I was dealing with personal challenges - my belief in myself never wavered.
+
+You will face people who doubt you, who underestimate you, who try to put you in a box. Don't let them define your limits. Don't let them tell you what you can and cannot achieve.
+
+Use your platform to lift others up. Success is not just about personal achievement - it's about using your success to create opportunities for others.
+
+Throughout my career, I've tried to use my platform to advocate for equality, to support other women, to inspire young people to pursue their dreams. I've spoken out about pay equity, about representation, about the importance of diversity in all fields.
+
+When you achieve success, remember that you didn't get there alone. You had coaches, mentors, family members, and friends who supported you along the way. Your responsibility is to be that support system for someone else.
+
+Excellence requires sacrifice and dedication. There are no shortcuts to greatness. If you want to be the best at what you do, you have to be willing to outwork everyone else.
+
+I've spent countless hours on the practice court, in the gym, working on my technique, my fitness, my mental game. I've missed parties, vacations, and social events because I was committed to my craft.
+
+But those sacrifices were worth it because they allowed me to achieve my dreams and to inspire others to pursue theirs.
+
+Whatever field you enter, whatever goals you set for yourself, remember that excellence is not an accident. It's the result of deliberate practice, consistent effort, and unwavering commitment.
+
+Tennis taught me many lessons that apply far beyond the court. It taught me about resilience, about mental toughness, about the importance of preparation. It taught me that success is not just about talent - it's about character.
+
+When I was pregnant with my daughter and playing in the Australian Open, people questioned whether I should be competing. But I knew my body, I knew my capabilities, and I trusted my instincts. I went on to win that tournament while pregnant.
+
+That experience taught me that women can be strong, competitive, and successful while also being mothers, caregivers, and nurturers. We don't have to choose between our professional ambitions and our personal lives.
+
+As you leave Howard and enter the world, you will face choices about what kind of person you want to be, what kind of impact you want to make, what kind of legacy you want to leave.
+
+Choose to be someone who stands up for what's right, even when it's difficult. Choose to be someone who supports others, even when you're competing against them. Choose to be someone who uses their success to make the world a better place.
+
+The world needs more champions - not just in sports, but in every field. Champions in medicine who work tirelessly to find cures for diseases. Champions in education who ensure that every child has access to quality learning. Champions in business who build companies that serve their communities.
+
+Champions in law who fight for justice and equality. Champions in technology who use innovation to solve real problems. Champions in the arts who tell stories that inspire and unite us.
+
+You have the education, the skills, and the opportunity to be champions in whatever field you choose. But being a champion is not just about what you achieve - it's about how you achieve it.
+
+Compete with integrity. Win with humility. Lose with grace. Treat your opponents with respect. Support your teammates. Give credit where credit is due.
+
+Remember that true champions are not just remembered for their victories - they're remembered for their character, their sportsmanship, their impact on others.
+
+As I near the end of my tennis career, I'm most proud not of the titles I've won, but of the barriers I've broken, the young people I've inspired, the conversations I've started about equality and representation.
+
+That's the legacy I want to leave - not just as a tennis player, but as a person who used her platform to make a difference.
+
+You have the opportunity to create your own legacy. Make it one that you can be proud of. Make it one that inspires others to dream bigger, work harder, and never give up.
+
+The world is waiting for your championship performance. Go out there and show them what you're made of.
+
+Congratulations, Class of 2022. I believe in you, and I can't wait to see the championships you win in life.
+
+Thank you.`
   }
 ];
