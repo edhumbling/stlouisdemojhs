@@ -519,6 +519,146 @@ Congratulations, Class of 2010. Thank you.`
   },
   {
     id: 7,
+    speaker: "Nelson Mandela",
+    title: "Education is the Most Powerful Weapon",
+    university: "University of the Witwatersrand",
+    year: 2003,
+    excerpt: "Education is the most powerful weapon which you can use to change the world. No country can really develop unless its citizens are educated.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Education is the most powerful weapon to change the world",
+      "A good head and a good heart are always a formidable combination",
+      "It always seems impossible until it's done",
+      "The greatest glory is not in never falling, but in rising every time we fall"
+    ],
+    fullText: `My dear graduates, distinguished faculty, and honored guests,
+
+Today marks not just the end of your academic journey, but the beginning of your mission to transform our world. As I stand before you, I am reminded of the power that education holds - a power that no one can take away from you.
+
+Education is the most powerful weapon which you can use to change the world. No country can really develop unless its citizens are educated. You, the graduates of today, are the architects of tomorrow's Africa, tomorrow's world.
+
+I have lived through times when education was denied to many because of the color of their skin. I have seen how ignorance breeds fear, and how fear breeds hatred. But I have also witnessed the transformative power of knowledge, the way it can break down barriers and build bridges between people.
+
+During my 27 years in prison, I never stopped learning. I read everything I could get my hands on. I studied law, history, philosophy. Education became my companion in the darkest hours, my hope for a better future. It taught me that no matter how dark the night, the sun will rise again.
+
+You have been privileged to receive an education that many in our continent still dream of. With this privilege comes responsibility. You must use your knowledge not just to better your own lives, but to lift up those around you.
+
+A good head and a good heart are always a formidable combination. But when you add to that a literate tongue or pen, then you have something very special. You have the tools to change the world.
+
+Remember, it always seems impossible until it's done. When I was your age, the idea of a free, democratic South Africa seemed like an impossible dream. Yet here we are today, living proof that the impossible can become possible when people are educated, determined, and united in their purpose.
+
+The greatest glory in living lies not in never falling, but in rising every time we fall. You will face challenges, setbacks, and moments of doubt. But remember that every great achievement was once considered impossible by somebody.
+
+As you leave this institution, carry with you the knowledge that you are not just individuals with degrees, but agents of change. You have the power to heal the wounds of the past, to build bridges across divides, and to create a future where every child, regardless of their background, has access to quality education.
+
+Africa needs you. The world needs you. But most importantly, you need to believe in yourselves and in your power to make a difference.
+
+Go forth and change the world. The future is in your hands.
+
+Thank you, and congratulations to the Class of 2003.`
+  },
+  {
+    id: 8,
+    speaker: "Wangari Maathai",
+    title: "The Power of Small Actions",
+    university: "University of Nairobi",
+    year: 2006,
+    excerpt: "You cannot protect the environment unless you empower people, you cannot empower people unless you democratize knowledge and access to information.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Small actions can create big changes",
+      "Environmental protection requires empowering people",
+      "Education and democracy go hand in hand",
+      "Women must be part of the solution"
+    ],
+    fullText: `Dear graduates, faculty, and distinguished guests,
+
+Today, as you celebrate this remarkable achievement, I want to share with you a simple truth that has guided my life: the power of small actions to create monumental change.
+
+When I started the Green Belt Movement in 1977, I began with a simple idea - to plant trees. People thought I was crazy. "How can planting trees solve our problems?" they asked. But I believed that small actions, when multiplied by millions of people, can transform the world.
+
+You cannot protect the environment unless you empower people, you cannot empower people unless you democratize knowledge and access to information, and you cannot democratize knowledge and access to information unless you have a democratic space.
+
+Education is the foundation of democracy. It is what has brought you here today, and it is what will enable you to participate fully in shaping the future of our continent and our planet.
+
+As I speak to you today, I think of the millions of women across Africa who are still denied access to education, who are still marginalized in decision-making processes. Yet these are the very women who are most affected by environmental degradation, who walk miles to fetch water, who struggle to feed their families when the rains fail.
+
+Your education gives you a responsibility to speak for those who cannot speak for themselves, to act for those who cannot act for themselves.
+
+The environment and women's rights are not separate issues - they are interconnected. When we destroy our forests, we destroy the livelihoods of women who depend on them. When we pollute our water sources, we burden women who must walk further to find clean water.
+
+But when we plant trees, we create jobs for women. When we protect our watersheds, we ensure that communities have access to clean water. When we practice sustainable agriculture, we empower small-scale farmers, most of whom are women.
+
+I want you to understand that you don't need to wait for someone else to solve the world's problems. You don't need to wait for permission to make a difference. Start where you are, with what you have.
+
+If you see a problem, don't complain about it - do something about it. If you see injustice, don't just talk about it - act against it. If you see environmental destruction, don't just worry about it - work to restore it.
+
+Remember, the little grasshopper can move mountains when it acts together with other grasshoppers. You are not alone in this work. You are part of a generation that has the knowledge, the tools, and the passion to heal our planet.
+
+As you leave this university, carry with you the understanding that your education is not just for your personal advancement, but for the advancement of all humanity. Use your knowledge to bridge divides, to heal wounds, to plant seeds of hope.
+
+The future of Africa, the future of our planet, depends on educated, committed young people like you. Go forth and be the change you wish to see in the world.
+
+Congratulations, and may you always remember the power of small actions to create big changes.
+
+Thank you.`
+  },
+  {
+    id: 9,
+    speaker: "Mo Ibrahim",
+    title: "Africa's Time is Now",
+    university: "American University in Cairo",
+    year: 2015,
+    excerpt: "Africa is not a country, it's a continent of 54 countries with over a billion people. We have everything we need to succeed - resources, young population, and now, increasingly, good governance.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Africa has all the resources needed for success",
+      "Good governance is essential for development",
+      "Young people are Africa's greatest asset",
+      "Technology can leapfrog traditional development challenges"
+    ],
+    fullText: `Distinguished graduates, esteemed faculty, and honored guests,
+
+Today, I stand before you not just as a businessman, but as a proud African who believes deeply in the potential of our continent and our people.
+
+Africa is not a country, it's a continent of 54 countries with over a billion people. We have everything we need to succeed - abundant natural resources, a young and dynamic population, and now, increasingly, good governance.
+
+For too long, Africa has been defined by what we lack rather than what we have. We have been told stories of poverty, conflict, and despair. But I am here to tell you a different story - a story of opportunity, innovation, and hope.
+
+You, the graduates sitting before me today, are living proof of this new African narrative. You represent the best of what our continent has to offer - educated, ambitious, and ready to take on the world.
+
+When I started Celtel, many people told me I was crazy to invest in African telecommunications. "Africans don't need mobile phones," they said. "The infrastructure isn't there." But I believed in the potential of our people, and I was right.
+
+Today, Africa has more mobile phone subscribers than Europe or North America. We have leapfrogged fixed-line technology and gone straight to mobile. We have created mobile banking systems that are now being copied around the world. This is the power of African innovation.
+
+But technology alone is not enough. We need good governance. We need leaders who are accountable to their people, who are transparent in their dealings, and who put the interests of their citizens first.
+
+This is why I established the Mo Ibrahim Foundation and the Ibrahim Prize for Achievement in African Leadership. We must celebrate and reward good governance, because without it, all our natural resources and human potential mean nothing.
+
+Young people like you are Africa's greatest asset. You are more educated than any generation before you. You are more connected to the world than any generation before you. You have access to information and opportunities that previous generations could only dream of.
+
+But with these advantages comes responsibility. You have a responsibility to use your education not just for personal gain, but for the betterment of your communities and your countries.
+
+Don't let anyone tell you that you need to leave Africa to succeed. Yes, the world is global, and you should think globally. But remember that some of the greatest opportunities in the world today are right here on our continent.
+
+Africa is the fastest-growing continent in the world. We have six of the ten fastest-growing economies globally. We have a middle class that is expanding rapidly. We have cities that are becoming major economic hubs.
+
+The question is not whether Africa will rise - it's whether you will be part of that rise.
+
+I challenge you to think big, to dream big, to act big. Don't be satisfied with small thinking or small actions. Africa needs big solutions to big challenges, and you are the ones who can provide them.
+
+Whether you become entrepreneurs, doctors, teachers, engineers, or leaders in any field, remember that you are not just building careers - you are building the future of Africa.
+
+The time for excuses is over. The time for waiting for someone else to solve our problems is over. Africa's time is now, and your time is now.
+
+Go forth and make us proud. Go forth and make Africa proud. Go forth and show the world what we are truly capable of.
+
+Congratulations, Class of 2015. The future of Africa is in your hands.
+
+Thank you.`
+  },
+  {
+    id: 10,
     speaker: "Oprah Winfrey",
     title: "The Secret to Success",
     university: "Stanford University",
@@ -2756,6 +2896,264 @@ Africa's mineral wealth is waiting to be unlocked for the benefit of all African
 Go out there and make it happen. Transform Africa's mining industry. Ensure that our mineral wealth becomes a blessing for all.
 
 Congratulations, Class of 2021. Make Africa proud.
+
+Thank you.`
+  },
+  {
+    id: 11,
+    speaker: "Ellen Johnson Sirleaf",
+    title: "Breaking Barriers and Leading Change",
+    university: "Harvard University",
+    year: 2011,
+    excerpt: "The size of your dreams must always exceed your current capacity to achieve them. If your dreams do not scare you, they are not big enough.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Dream bigger than your current capacity",
+      "Leadership requires courage and persistence",
+      "Women must claim their rightful place in leadership",
+      "Education is the foundation of democracy"
+    ],
+    fullText: `Dean Williams, distinguished faculty, proud families, and most importantly, graduates of Harvard University,
+
+It is an extraordinary honor to stand before you today as the first elected female head of state in Africa. But I stand here not just as a president, but as a woman who has broken barriers, faced challenges, and refused to accept limitations.
+
+The size of your dreams must always exceed your current capacity to achieve them. If your dreams do not scare you, they are not big enough.
+
+When I first entered politics in Liberia, people told me that politics was not for women. When I ran for president, they said a woman could never lead an African nation. When I won, they said I would fail because I was too old, too educated, too foreign.
+
+But I had learned something important: that leadership is not about being perfect, it's about being persistent. It's not about having all the answers, it's about asking the right questions. It's not about avoiding failure, it's about learning from it and moving forward.
+
+Throughout my career, I have seen the devastating effects of war, poverty, and inequality. I have seen children forced to become soldiers, women denied basic rights, and entire communities destroyed by conflict. But I have also seen the incredible resilience of the human spirit, the power of hope, and the transformative potential of good leadership.
+
+When I became president of Liberia in 2006, our country was emerging from 14 years of civil war. Our infrastructure was destroyed, our institutions were weak, and our people had lost faith in government. Many said the task was impossible.
+
+But we believed in the power of education, the importance of women's participation, and the necessity of good governance. We worked to rebuild our schools, to empower our women, and to create transparent and accountable institutions.
+
+Today, Liberia is at peace. Our children are in school instead of carrying guns. Our women are participating in all levels of society. Our economy is growing, and our democracy is strong.
+
+This transformation did not happen overnight, and it did not happen without setbacks. There were times when I doubted myself, times when the challenges seemed insurmountable, times when I wanted to give up.
+
+But I remembered the words of my grandmother, who told me that a woman's place is wherever she chooses to be, and that education is the one thing that no one can take away from you.
+
+Education is indeed the foundation of democracy, the pathway to prosperity, and the key to human dignity. It is what has brought you here today, and it is what will enable you to change the world tomorrow.
+
+As you leave this great institution, remember that you have a responsibility to use your education not just for personal advancement, but for the advancement of humanity. You have a responsibility to speak for those who have no voice, to stand up for those who cannot stand up for themselves, to lead where others fear to go.
+
+Women, in particular, must claim their rightful place in leadership. For too long, we have been told that we are not strong enough, not smart enough, not experienced enough to lead. But we know better. We know that diversity in leadership leads to better decisions, that women's participation strengthens democracy, and that gender equality benefits everyone.
+
+Do not let anyone tell you that your dreams are too big, your goals too ambitious, or your vision too bold. The world needs your energy, your ideas, and your leadership.
+
+As you go forth from this place, remember that leadership is not a privilege, it's a responsibility. It's not about power, it's about service. It's not about what you can get, it's about what you can give.
+
+The challenges facing our world today - poverty, inequality, climate change, conflict - require bold leadership and innovative solutions. They require leaders who are willing to take risks, to challenge the status quo, and to work across boundaries and differences.
+
+You are that generation of leaders. You have the education, the tools, and the opportunity to make a real difference in the world.
+
+So dream big, work hard, and never give up. The future is counting on you.
+
+Congratulations, Class of 2011. Go forth and lead.
+
+Thank you.`
+  },
+  {
+    id: 12,
+    speaker: "Trevor Noah",
+    title: "Finding Humor in the Struggle",
+    university: "University of Cape Town",
+    year: 2018,
+    excerpt: "Comedy is a way of processing pain. It's a way of taking something that hurts and finding a way to laugh about it, which ultimately helps you heal from it.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Humor can help process pain and heal",
+      "Your background doesn't define your future",
+      "Embrace your uniqueness as your strength",
+      "Use your voice to tell important stories"
+    ],
+    fullText: `Vice-Chancellor, distinguished faculty, proud families, and graduates of the University of Cape Town,
+
+Thank you for having me back at my alma mater. Well, sort of. I actually never graduated from here, so this is a bit awkward. But hey, at least I'm finally on campus without security chasing me away!
+
+I want to talk to you today about something that has shaped my life and career: the power of finding humor in the struggle.
+
+Comedy is a way of processing pain. It's a way of taking something that hurts and finding a way to laugh about it, which ultimately helps you heal from it.
+
+Growing up in apartheid South Africa, I learned this lesson early. My very existence was illegal - I was born to a black mother and a white father at a time when such relationships were forbidden. I was literally a crime walking around.
+
+But instead of letting this define me negatively, I learned to find the absurdity in it. I learned to laugh at the ridiculousness of a system that said I shouldn't exist. And that laughter became my superpower.
+
+Your background doesn't define your future. I grew up in Soweto, in poverty, in a broken system. Many people would have said I had no chance of success. But I refused to accept that narrative.
+
+I want you to understand something important: your struggles are not your limitations - they are your qualifications. The challenges you've faced, the obstacles you've overcome, the pain you've endured - these are not weaknesses. They are your unique strengths.
+
+When I started doing comedy in South Africa, people told me I would never make it internationally because my humor was "too African," "too specific," "too different." But I realized that my difference was exactly what the world needed to hear.
+
+Embrace your uniqueness as your strength. Don't try to fit into someone else's mold. The world doesn't need another copy of someone else - it needs the original you.
+
+When I got to America and started working on The Daily Show, I could have tried to sound like an American, to hide my accent, to pretend I was something I wasn't. But I realized that my perspective as an African, as an outsider looking in, was exactly what made my voice valuable.
+
+Use your voice to tell important stories. Comedy gave me a platform, but I used that platform to talk about serious issues - racism, inequality, injustice. I learned that you can make people laugh and make them think at the same time.
+
+You don't have to choose between being successful and being authentic. You don't have to choose between making money and making a difference. You can do both.
+
+I want to share something with you that my mother taught me. She said, "Trevor, you can be anything you want to be, but you must never forget where you come from." She taught me that success is not about escaping your past - it's about honoring it while building your future.
+
+My mother also taught me the power of language. She made sure I could speak multiple languages because she knew that language is power. When you can speak to people in their own language, you can connect with them in ways that transcend barriers.
+
+Here in South Africa, we have 11 official languages. That's not a burden - that's a superpower. You can connect with more people, understand more perspectives, and bridge more divides than almost anyone else in the world.
+
+But language is not just about words - it's about understanding. It's about empathy. It's about being able to see the world through someone else's eyes.
+
+As you leave this university, you're going to face a world that is often divided, often angry, often afraid. You're going to encounter people who look different from you, think different from you, believe different things than you do.
+
+Your job is not to judge them or change them - your job is to understand them. Your job is to find the common humanity that connects us all.
+
+I've learned that laughter is a universal language. No matter where I go in the world, no matter what language people speak, laughter sounds the same. It breaks down barriers, builds bridges, and reminds us that we're all human.
+
+So as you go out into the world, remember to laugh. Laugh at yourself, laugh with others, and help others find reasons to laugh. The world is serious enough - it needs more joy, more lightness, more hope.
+
+But also remember that with your education comes responsibility. You have been given tools that many people in our country and our continent still don't have access to. Use those tools not just for your own advancement, but to lift others up.
+
+South Africa needs you. Africa needs you. The world needs your voices, your perspectives, your solutions to the challenges we face.
+
+Don't let anyone tell you that you're not good enough, smart enough, or worthy enough. You are graduates of one of the finest universities in Africa. You have already proven that you can achieve great things.
+
+Now go out there and prove that you can achieve even greater things. Make us laugh, make us think, make us better.
+
+And remember - if a mixed-race kid from Soweto can end up hosting an American television show, then anything is possible.
+
+Congratulations, Class of 2018. The world is waiting for your unique brand of magic.
+
+Thank you, and stay funny!`
+  },
+  {
+    id: 13,
+    speaker: "Lupita Nyong'o",
+    title: "Embracing Your True Self",
+    university: "Hampshire College",
+    year: 2014,
+    excerpt: "No matter where you're from, your dreams are valid. You have been born into a world that celebrates diversity, and your difference is your strength.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Your dreams are valid no matter where you're from",
+      "Embrace your difference as your strength",
+      "Representation matters in all fields",
+      "Stay true to your authentic self"
+    ],
+    fullText: `President Nelson, distinguished faculty, proud families, and graduates of Hampshire College,
+
+Thank you for this incredible honor. Standing here today, I am reminded of my own journey and the power of dreams that seemed impossible not too long ago.
+
+No matter where you're from, your dreams are valid. You have been born into a world that celebrates diversity, and your difference is your strength.
+
+I want to share with you a story about a little girl who grew up in Kenya, who loved movies but never saw anyone who looked like her on the big screen. That little girl was me.
+
+When I was young, I would watch Hollywood movies and dream of being an actress. But I never saw anyone who looked like me in leading roles. I never saw dark-skinned African women being celebrated for their beauty, their talent, their humanity.
+
+For a long time, I thought that meant there was no place for me in that world. I thought that my dreams were too big, too unrealistic, too impossible.
+
+But my parents taught me something important: they taught me that my worth was not determined by how others saw me, but by how I saw myself. They taught me that beauty comes in all shades, all shapes, all sizes.
+
+When I came to America to study at Yale School of Drama, I was one of the few African students in my program. I felt different, sometimes isolated, sometimes like I didn't belong.
+
+But I learned that my difference was not a weakness - it was my strength. My perspective as an African woman, my experiences growing up in Kenya, my understanding of different cultures - these were not obstacles to overcome, but gifts to share.
+
+Representation matters in all fields. When I won the Academy Award for "12 Years a Slave," I received thousands of letters from young girls around the world, especially young black girls, telling me that seeing me on that stage made them believe that their dreams were possible too.
+
+That's when I truly understood the power and responsibility that comes with visibility. When you succeed, you're not just succeeding for yourself - you're opening doors for others who look like you, who come from where you come from, who dream the dreams you once dreamed.
+
+But success is not just about reaching the top - it's about staying true to your authentic self along the way. In an industry that often tries to change you, mold you, make you fit into predetermined boxes, the greatest challenge is remaining yourself.
+
+I have been pressured to lighten my skin, to straighten my hair, to lose weight, to change my accent. I have been told that I am "too dark" for some roles and "not African enough" for others. But I learned that when you compromise your authenticity for acceptance, you lose the very thing that makes you special.
+
+Stay true to your authentic self. The world doesn't need another copy of someone else - it needs the original you.
+
+Your education here at Hampshire has prepared you not just with knowledge, but with the ability to think critically, to question assumptions, to challenge the status quo. Use these skills not just in your careers, but in your lives.
+
+Question the narratives that tell you who you can and cannot be. Challenge the systems that limit opportunities based on race, gender, class, or nationality. Create new stories that include voices that have been marginalized or ignored.
+
+As you leave this institution, you're entering a world that is more connected than ever before. You have the opportunity to build bridges across cultures, to create understanding between different communities, to use your talents to make the world more inclusive and more just.
+
+Whether you become artists, scientists, teachers, entrepreneurs, or leaders in any field, remember that you have the power to change the narrative. You have the power to create a world where every child can see themselves reflected in positions of success and leadership.
+
+I want to leave you with this thought: your journey will not always be easy. You will face rejection, criticism, and moments of doubt. There will be times when you question whether your dreams are worth pursuing.
+
+But remember that every "no" brings you closer to a "yes." Every rejection teaches you something valuable. Every challenge makes you stronger and more resilient.
+
+And remember that you are not alone. You are part of a global community of dreamers, creators, and change-makers. You are connected to everyone who has ever dared to dream big, to challenge conventions, to believe in the impossible.
+
+The little girl from Kenya who dreamed of being in movies never imagined she would one day stand on stages like this, inspiring others to pursue their dreams. But here I am, and here you are, proof that dreams do come true when you combine them with hard work, persistence, and authenticity.
+
+So go out there and dream boldly. Create fearlessly. Love deeply. And never, ever let anyone convince you that your dreams are too big or that you don't belong.
+
+The world is waiting for your unique contribution. The world needs your voice, your perspective, your talents.
+
+Congratulations, Class of 2014. Make your mark on the world, and make it beautiful.
+
+Thank you.`
+  },
+  {
+    id: 14,
+    speaker: "Ngozi Okonjo-Iweala",
+    title: "Breaking Glass Ceilings in Global Leadership",
+    university: "MIT",
+    year: 2019,
+    excerpt: "Don't let anyone put you in a box. Don't let anyone tell you that because you're a woman, because you're African, because you're different, that you can't achieve your dreams.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Don't let others put you in a box",
+      "Use your difference as a competitive advantage",
+      "Global challenges require diverse perspectives",
+      "Economic empowerment is key to development"
+    ],
+    fullText: `President Reif, distinguished faculty, proud families, and graduates of MIT,
+
+It is an honor to address you today as someone who has spent her career breaking glass ceilings and challenging the status quo in global economic leadership.
+
+Don't let anyone put you in a box. Don't let anyone tell you that because you're a woman, because you're African, because you're different, that you can't achieve your dreams.
+
+When I first entered the field of development economics, I was often the only woman in the room, the only African in the room, sometimes the only person who looked like me in the entire building. People would question whether I belonged there, whether I had the right qualifications, whether I could handle the pressure.
+
+But I learned something important: being different is not a disadvantage - it's a competitive advantage. My perspective as an African woman, my understanding of development challenges from the ground up, my experience of living in both developed and developing countries - these were not weaknesses, they were strengths.
+
+Use your difference as a competitive advantage. The world's biggest challenges - poverty, inequality, climate change, pandemics - cannot be solved by people who all think the same way, who all come from the same backgrounds, who all have the same experiences.
+
+Global challenges require diverse perspectives. They require people who can see problems from different angles, who can propose solutions that others might not think of, who can connect with communities that have been left out of traditional decision-making processes.
+
+When I served as Nigeria's Finance Minister, I was tasked with reforming an economy plagued by corruption, inefficiency, and lack of transparency. Many people said it was impossible, that the system was too entrenched, that change would never come.
+
+But we proved them wrong. We implemented reforms that increased transparency, reduced corruption, and improved economic growth. We showed that with the right policies and the right leadership, even the most challenging problems can be solved.
+
+Economic empowerment is key to development. You cannot have sustainable development without economic growth, and you cannot have inclusive economic growth without empowering all segments of society, especially women and marginalized communities.
+
+When I became the first woman and first African to lead the World Trade Organization, I knew that I was not just representing myself - I was representing all the women and Africans who had been told they couldn't reach such positions.
+
+But representation is not enough. It's not enough to just be in the room - you have to use your voice, you have to make a difference, you have to ensure that your presence leads to better outcomes for the people you represent.
+
+At the WTO, I have worked to ensure that trade policies benefit not just the wealthy and powerful, but also small businesses, women entrepreneurs, and developing countries. I have pushed for reforms that make global trade more inclusive and more sustainable.
+
+Your MIT education has given you tools that are incredibly powerful - analytical thinking, problem-solving skills, technological expertise, and the ability to innovate. But with these tools comes responsibility.
+
+You have a responsibility to use your knowledge not just for personal gain, but for the betterment of humanity. You have a responsibility to ensure that the benefits of technology and innovation are shared broadly, not concentrated in the hands of a few.
+
+As you enter the workforce, you will face choices about what kind of career to pursue, what kind of impact to make, what kind of legacy to leave. I encourage you to think beyond just financial success or personal achievement.
+
+Think about how you can use your skills to solve problems that matter. Think about how you can create opportunities for others who may not have had the same advantages you've had. Think about how you can build a more inclusive and equitable world.
+
+The challenges facing our world today are complex and interconnected. Climate change, inequality, technological disruption, geopolitical tensions - these issues require leaders who can think systemically, who can work across boundaries, who can bring different perspectives together.
+
+You are that generation of leaders. You have been educated at one of the world's finest institutions. You have access to cutting-edge technology and knowledge. You have the opportunity to shape the future in ways that previous generations could only dream of.
+
+But remember that leadership is not just about having the right skills or knowledge - it's about having the courage to use them. It's about being willing to take risks, to challenge conventional wisdom, to stand up for what you believe in.
+
+Don't be afraid to be the first. Don't be afraid to be different. Don't be afraid to fail. Some of the most important breakthroughs in history have come from people who were willing to try something that others thought was impossible.
+
+As you leave MIT and enter the world, remember that you are not just individuals pursuing your own dreams - you are part of a global community working to solve humanity's greatest challenges.
+
+The future is not predetermined. It will be shaped by the choices you make, the risks you take, the problems you choose to solve. Make sure that future is one where everyone has the opportunity to thrive.
+
+Congratulations, Class of 2019. The world needs your brilliance, your innovation, and your leadership.
+
+Go forth and break some glass ceilings of your own.
 
 Thank you.`
   }
