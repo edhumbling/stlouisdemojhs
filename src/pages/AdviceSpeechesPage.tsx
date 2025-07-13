@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, X, Calendar, MapPin, Quote } from 'lucide-react';
 import { commencementSpeeches } from '../data/commencementSpeeches';
 import SEOHead from '../components/seo/SEOHead';
-import ShimmerLoader from '../components/common/ShimmerLoader';
 
 const AdviceSpeechesPage: React.FC = () => {
   const [selectedSpeech, setSelectedSpeech] = useState<any>(null);
@@ -173,15 +172,6 @@ const AdviceSpeechesPage: React.FC = () => {
                   onClick={() => handleSpeechClick(speech)}
                   className="w-full aspect-square bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative overflow-hidden group flex flex-col justify-center items-center text-center"
                 >
-                  {/* Strong Shimmer Silver Loading Effect */}
-                  <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover:opacity-25 transition-opacity duration-300">
-                    <ShimmerLoader
-                      variant="silver"
-                      className="w-full h-full"
-                      width="w-full"
-                      height="h-full"
-                    />
-                  </div>
 
                   {/* Speaker Name - Large and Prominent */}
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 leading-tight">
