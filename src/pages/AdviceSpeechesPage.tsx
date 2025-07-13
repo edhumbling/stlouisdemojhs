@@ -171,7 +171,7 @@ const AdviceSpeechesPage: React.FC = () => {
               >
                 <button
                   onClick={() => handleSpeechClick(speech)}
-                  className="w-full bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative overflow-hidden group"
+                  className="w-full aspect-square bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-600/30 hover:border-gray-500/50 transition-all duration-200 hover:shadow-lg hover:bg-gray-700/60 active:scale-95 text-left relative overflow-hidden group flex flex-col justify-center items-center text-center"
                 >
                   {/* Strong Shimmer Silver Loading Effect */}
                   <div className="absolute inset-0 rounded-2xl overflow-hidden opacity-0 group-hover:opacity-25 transition-opacity duration-300">
@@ -182,33 +182,26 @@ const AdviceSpeechesPage: React.FC = () => {
                       height="h-full"
                     />
                   </div>
-                  {/* Speaker Image */}
-                  <div className="w-full h-32 sm:h-40 rounded-xl overflow-hidden mb-4">
-                    <img
-                      src={speech.image}
-                      alt={speech.speaker}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 grayscale blur-sm opacity-60"
-                    />
-                  </div>
 
-                  {/* Speaker Info */}
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                  {/* Speaker Name - Large and Prominent */}
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 leading-tight">
                     {speech.speaker}
                   </h3>
 
-                  <h4 className="text-sm sm:text-base font-medium text-orange-300 mb-3 leading-tight">
+                  {/* Speech Title */}
+                  <h4 className="text-sm sm:text-base font-medium text-orange-300 mb-3 leading-tight line-clamp-2">
                     {speech.title}
                   </h4>
 
                   {/* University and Year */}
-                  <div className="flex flex-wrap gap-2 text-xs sm:text-sm text-gray-400 mb-3">
+                  <div className="flex flex-wrap gap-2 text-xs sm:text-sm text-gray-400 mb-3 justify-center">
                     <span>{speech.university}</span>
                     <span>•</span>
                     <span>{speech.year}</span>
                   </div>
 
-                  {/* Excerpt */}
-                  <p className="text-sm text-gray-300 leading-relaxed line-clamp-3">
+                  {/* Excerpt - Smaller and Limited */}
+                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed line-clamp-2">
                     "{speech.excerpt}"
                   </p>
                 </button>
