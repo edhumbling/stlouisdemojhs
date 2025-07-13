@@ -4048,5 +4048,737 @@ The world is waiting for your championship performance. Go out there and show th
 Congratulations, Class of 2022. I believe in you, and I can't wait to see the championships you win in life.
 
 Thank you.`
+  },
+  {
+    id: 31,
+    speaker: "Maya Angelou",
+    title: "Finding Your Voice and Rising Above",
+    university: "Duke University",
+    year: 1992,
+    excerpt: "There is no greater agony than bearing an untold story inside you. You have been paid for by the dreams, sweat, and tears of your ancestors. Use that privilege to make the world better.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Every person has a story worth telling",
+      "We stand on the shoulders of those who came before us",
+      "Courage is the most important virtue",
+      "Use your education to lift others"
+    ],
+    fullText: `Thank you so very much. Dean Johnson, trustees, faculty, families, and most especially, graduating class of 1992.
+
+I am very pleased and honored to be here with you today. You know, I've been thinking about what I wanted to say to you, and I keep coming back to something very simple but very profound: You have a story to tell.
+
+Each of you sitting here today has overcome obstacles, faced challenges, and achieved something remarkable. You didn't get here by accident. You got here because somebody believed in you, because somebody sacrificed for you, because somebody dreamed that you could be more than your circumstances.
+
+I want you to remember that as you leave this place and go out into the world. Remember that you carry with you not just your own dreams, but the dreams of all those who made your success possible.
+
+You see, I learned early in life that there is no greater agony than bearing an untold story inside you. Each of us has a story. Each of us has something unique to contribute to this world. But too often, we allow fear to silence us. We allow doubt to diminish us. We allow the voices of others to convince us that our stories don't matter.
+
+But I'm here to tell you today that your story matters. Your voice matters. Your dreams matter.
+
+I grew up in a time and place where people who looked like me were told we couldn't dream big dreams. We were told that certain doors were closed to us, that certain heights were beyond our reach. But I learned that courage is the most important of all the virtues, because without courage, you can't practice any other virtue consistently.
+
+It takes courage to tell your story. It takes courage to stand up for what you believe in. It takes courage to love in a world that seems designed to break your heart. But that courage is what will set you apart.
+
+You have been educated at one of the finest institutions in this country. You have been given tools and knowledge that many people around the world can only dream of having. With that privilege comes responsibility.
+
+You are responsible for using your education not just to better your own lives, but to make the world better for others. You are responsible for being the voice for those who cannot speak for themselves. You are responsible for opening doors that have been closed to others.
+
+When I think about the young people of your generation, I am filled with hope. You are more connected to the world than any generation before you. You have access to information and opportunities that previous generations could not have imagined. You have the power to solve problems that have plagued humanity for centuries.
+
+But knowledge without wisdom is dangerous. Information without compassion is meaningless. Education without heart is empty.
+
+So as you go forward from this place, I want you to remember to lead with your heart. Remember that behind every statistic is a human being. Behind every problem is someone who needs your help. Behind every challenge is an opportunity to make a difference.
+
+I want you to remember to be brave. The world will try to convince you to play it safe, to take the easy path, to avoid risks. But greatness has never come from playing it safe. Change has never come from taking the easy path. Progress has never come from avoiding risks.
+
+Be brave enough to fail. Be brave enough to try again. Be brave enough to dream bigger than anyone thinks you should.
+
+And remember to lift as you climb. As you achieve success, as you reach new heights, remember to reach back and pull others up with you. Remember that your success is not just about you – it's about everyone who invested in you, everyone who believed in you, everyone who sacrificed for you.
+
+You have a story to tell. The world is waiting to hear it. Don't let fear silence you. Don't let doubt diminish you. Don't let anyone convince you that your voice doesn't matter.
+
+Go out there and tell your story. Change the world. Make us proud.
+
+Congratulations, Class of 1992.`
+  },
+  {
+    id: 32,
+    speaker: "Barack Obama",
+    title: "The Audacity of Hope",
+    university: "Howard University",
+    year: 2016,
+    excerpt: "Change will not come if we wait for some other person or some other time. We are the ones we've been waiting for. We are the change that we seek.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Be confident in your heritage and identity",
+      "Challenge systems and structures that hold people back",
+      "Education is the foundation for progress",
+      "You are the change you've been waiting for"
+    ],
+    fullText: `Thank you so much. Thank you. Please, everybody, have a seat.
+
+To President Frederick, the board of trustees, faculty and staff, thank you for this honor. To the Class of 2016 – congratulations on your graduation from the real HU.
+
+Now, before I begin, let me just say that I've got to address the elephant in the room. I know that many of you came here today expecting to see someone else. And I get it. You're probably thinking, where's Chance the Rapper? Or how about DJ Khaled? "Another one!" I understand. I'm not going to take it personally, because on my way here, I passed a bunch of students who were taking selfies and posting on Instagram, and the hashtag was #NotMyCommencementSpeaker.
+
+But let me tell you, Howard University has always held a special place in my heart. This is where I learned to think. This is where I discovered that education wasn't just about memorizing facts or mastering techniques, but about developing critical thinking and the ability to question and challenge the world around you.
+
+Howard taught me that I could be both African American and intellectual, that I could be proud of my heritage and still embrace knowledge from all corners of the world. It taught me that being black didn't mean I had to choose between success and authenticity.
+
+And that's what I want to talk to you about today – the importance of being confident in your identity, of being proud of your heritage, and of using that strength to change the world.
+
+You are graduating from Howard University – an institution that has produced more African American PhDs than any other university in America. You are joining the ranks of Thurgood Marshall, Toni Morrison, Spike Lee, and Kamala Harris. You are inheriting a legacy of excellence, a tradition of breaking barriers, and a responsibility to continue that work.
+
+But I also want you to understand that your degree from Howard is not just about what you've accomplished – it's about what you're going to do next. It's about how you're going to use your education to lift others up, to tear down barriers, and to create opportunities for those who come after you.
+
+See, the thing is, America has never been perfect. From the beginning, we've struggled with questions of equality and justice. We've made progress, but that progress has never been linear, and it's never been inevitable. Every step forward has required someone to stand up, speak out, and demand change.
+
+And that's where you come in. You are graduating at a time when our country is grappling with some of the same issues that your predecessors faced – issues of racial justice, economic inequality, and social progress. But you're also graduating with tools and opportunities that previous generations couldn't have imagined.
+
+You have access to technology that can connect you to movements around the world. You have platforms that can amplify your voice to millions of people. You have the ability to organize, mobilize, and create change in ways that were unthinkable just a generation ago.
+
+But technology and platforms and tools are not enough. Change requires courage. It requires persistence. It requires the willingness to stand up even when it's difficult, even when it's unpopular, even when it's dangerous.
+
+Change requires you to be confident in who you are. Too often, young people – especially young people of color – are told that they need to choose between success and authenticity. They're told that to succeed in America, they need to leave their culture behind, to assimilate, to blend in.
+
+That's a false choice. Your heritage is not a burden – it's a strength. Your culture is not something to be ashamed of – it's something to be celebrated. Your identity is not something to hide – it's something to embrace and use to make the world better.
+
+I want you to be proud of your blackness. I want you to be proud of your heritage. I want you to be proud of Howard University and what it represents. And I want you to use that pride as a foundation for building the future you want to see.
+
+But I also want you to remember that pride without action is meaningless. Confidence without commitment is empty. Knowledge without compassion is dangerous.
+
+You have been given an extraordinary education. You have been equipped with skills and knowledge that can change the world. But that education comes with a responsibility – the responsibility to use what you've learned to make life better for others.
+
+That means fighting for justice even when it's inconvenient. It means standing up for what's right even when it's unpopular. It means speaking truth to power even when it's risky.
+
+It means working to create a world where every child has access to quality education, where every family has access to healthcare, where every person has an opportunity to succeed regardless of the color of their skin or the circumstances of their birth.
+
+Change will not come if we wait for some other person or some other time. We are the ones we've been waiting for. We are the change that we seek.
+
+So go out there and change the world. Be bold. Be fearless. Be proud. And never forget where you came from.
+
+Congratulations, Howard University Class of 2016. I believe in you.`
+  },
+  {
+    id: 33,
+    speaker: "Oprah Winfrey",
+    title: "Your Journey to Fulfillment",
+    university: "Stanford University",
+    year: 2008,
+    excerpt: "Your true work is to figure out what your truth is. What feeds your soul. Because when you're aligned with your truth and living from your authentic self, success will follow.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Find your authentic truth and purpose",
+      "Success follows when you align with your values",
+      "Listen to your intuition and inner voice",
+      "Service to others brings the greatest fulfillment"
+    ],
+    fullText: `Thank you, President Hennessy, and to the trustees and the faculty, to all of the parents and grandparents, to you, the Stanford graduating class of 2008, and thank you for the privilege of speaking to you at your commencement.
+
+I thought long and hard about what I wanted to say to you today. I wanted to tell you something that would stay with you beyond today, something that would help guide you as you leave this beautiful campus and enter the world.
+
+And what I've realized is this: your greatest gift is your intuition. It's your internal GPS. It's that instinct that points true north and tells you which way to go.
+
+You see, I've learned that the key to fulfillment – not just success, but true fulfillment – is to align your life with your authentic self. To figure out what your truth is. What feeds your soul.
+
+I know that sounds simple, but it's actually quite revolutionary. Because for most of your lives, you've been listening to other people's voices. You've been told what to study, what career to pursue, what success looks like. But now, as you graduate from one of the finest universities in the world, it's time to start listening to your own voice.
+
+Let me tell you a story. When I was 22 years old, I was working at a television station in Baltimore. I was the weekend news anchor, and I thought I was living the dream. But every day, I felt something was wrong. I felt disconnected from what I was doing. I felt like I was pretending to be someone I wasn't.
+
+One day, my boss called me into his office. He said, "Oprah, you're too emotional. You're too invested in the stories. You need to be more objective." And in that moment, I realized that being objective, being detached, was exactly the opposite of who I was. I was someone who felt deeply, who connected with people, who believed that emotions were a strength, not a weakness.
+
+That realization changed everything for me. I started to understand that my greatest strength was my ability to connect with people, to empathize, to feel. And when I finally got the opportunity to do a talk show, I knew that was my truth. That was what fed my soul.
+
+The lesson is this: what makes you different makes you powerful. What makes you unique is what the world needs from you.
+
+Too often, we try to fit ourselves into someone else's definition of success. We try to follow someone else's path. We try to be someone we're not. But your job is not to be like everyone else. Your job is to be the best version of yourself.
+
+And here's what I know for sure: when you're aligned with your truth, when you're living from your authentic self, success will follow. Not just financial success, but the kind of success that feeds your soul. The kind of success that makes you wake up excited about your day.
+
+But finding your truth requires courage. It requires you to be honest with yourself about what you really want, what you really value, what really matters to you. It requires you to tune out the noise and listen to the whisper of your own heart.
+
+I want you to remember three things as you leave here today:
+
+First, listen to your intuition. That little voice inside you that tells you when something feels right or wrong – that's your truth talking. Don't ignore it. Don't talk yourself out of it. Trust it.
+
+Second, don't be afraid to fail. I've had many failures in my life, and each one taught me something valuable. Failure is not the opposite of success – it's a stepping stone to success. It's how you learn, how you grow, how you become who you're meant to be.
+
+And third, remember that the greatest fulfillment comes from service. The most successful people I know – the ones who are truly happy, truly fulfilled – are the ones who have figured out how to use their gifts to serve others.
+
+You don't have to save the world all at once. You don't have to solve every problem. But you do have to figure out how to use what you've learned here at Stanford to make a difference in the lives of others.
+
+Maybe that means becoming a teacher who inspires young minds. Maybe that means starting a company that creates jobs and opportunities. Maybe that means becoming a doctor who heals the sick, or a lawyer who fights for justice, or an engineer who builds solutions to the world's problems.
+
+Whatever path you choose, make sure it's your path. Make sure it's aligned with your truth. Make sure it feeds your soul.
+
+Because here's what I know: you have been given an extraordinary education. You have been equipped with knowledge and skills that can change the world. But more importantly, you have been given the opportunity to discover who you really are and what you're really capable of.
+
+The world needs what you have to offer. The world needs your truth, your passion, your unique perspective. Don't hide it. Don't diminish it. Don't apologize for it. Embrace it. Share it. Use it to make the world better.
+
+Your time at Stanford is ending, but your real education is just beginning. The world is your classroom now. Go out there and learn. Go out there and grow. Go out there and make a difference.
+
+And remember: your greatest gift is your intuition. Trust it. Follow it. It will never lead you astray.
+
+Congratulations, Class of 2008. I can't wait to see what you do next.`
+  },
+  {
+    id: 34,
+    speaker: "Denzel Washington",
+    title: "Fall Forward and Never Give Up",
+    university: "University of Pennsylvania",
+    year: 2011,
+    excerpt: "I found that nothing in life is worthwhile unless you take risks. Fall forward. Every failed experiment is one step closer to success. You've got to take risks.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Take risks and embrace failure as learning",
+      "Put God first in everything you do",
+      "Serve others and give back to your community",
+      "Fall forward, not backward"
+    ],
+    fullText: `Thank you very much. Thank you. President Gutmann, Dean Garrett, faculty, family, friends, and graduates.
+
+It's an honor to be here today. I'm honored to receive this degree and to be here with you. You know, when I first heard I was going to be a commencement speaker, I thought, what am I going to say to these students that's going to help them? What wisdom can I share?
+
+And then I realized: I don't have to have all the answers. I just have to share what I've learned. So that's what I'm going to do today. I'm going to share with you some of the lessons that life has taught me.
+
+The first lesson is this: fall forward.
+
+Here's what I mean by that. I found that nothing in life is worthwhile unless you take risks. Nothing. Nelson Mandela said, "There is no passion to be found playing small and settling for a life that's less than the one you're capable of living."
+
+I'm sure in your experiences in school, in applying to college, in studying abroad, in getting jobs, in life – you've had to take risks. And some of those risks didn't pay off. Some of them resulted in failure.
+
+But here's the thing about failure: you can't let it defeat you. You've got to learn from it. You've got to use it as a stepping stone to success.
+
+Thomas Edison conducted 1,000 failed experiments. Did you know that? I didn't know that either, until I looked it up. But Edison said, "I didn't fail 1,000 times. I found 1,000 ways not to make a light bulb."
+
+Every failed experiment is one step closer to success. You've got to take risks. And when you do fail – and you will fail – fall forward.
+
+Every failure teaches you something. Every setback prepares you for something bigger. Every disappointment contains within it the seeds of greater opportunity.
+
+I've failed a lot in my life. I've failed more than I've succeeded. But I never failed backward. I always failed forward. And eventually, those failures led to success.
+
+The second lesson I want to share with you is this: you've got to work hard.
+
+There's no substitute for hard work. I don't care how talented you are. I don't care how smart you are. I don't care how much natural ability you have. If you don't work hard, someone who's less talented but more dedicated will beat you every time.
+
+I've been acting for over 30 years, and I can tell you that talent is common. What's uncommon is dedication. What's uncommon is the willingness to work harder than everyone else. What's uncommon is the willingness to do the things that others won't do.
+
+When I was starting out as an actor, I was hungry. Literally hungry. I would audition for anything. I would take any role. I would work for free if it meant getting experience. While other actors were waiting for the perfect opportunity, I was working. While they were talking about their dreams, I was living mine.
+
+Hard work is the price of admission to any success worth having. And here's the thing: hard work beats talent when talent doesn't work hard.
+
+The third lesson is this: give back.
+
+Success isn't just about what you accomplish in your life. It's about what you inspire others to do. It's about how you lift others up. It's about how you make the world better than you found it.
+
+I've been blessed in my career. I've had opportunities that many people never get. I've achieved things that I never dreamed possible when I was your age. But none of that would mean anything if I didn't use it to help others.
+
+You've been given a great education here at the University of Pennsylvania. You've been equipped with knowledge and skills that can change the world. But with that privilege comes responsibility. The responsibility to give back. The responsibility to lift others up. The responsibility to use your success to help those who haven't had the same opportunities.
+
+And here's what I've learned about giving back: it's not just good for the people you help. It's good for you too. It gives your life meaning. It gives your success purpose. It makes everything you've accomplished worthwhile.
+
+The fourth and final lesson I want to share with you is this: put God first.
+
+I know this might make some of you uncomfortable. I know that not everyone here shares the same beliefs. But I have to speak my truth. And my truth is that everything I have, everything I've accomplished, everything I am, is because of God.
+
+When I didn't know which way to go, I prayed. When I was facing challenges that seemed insurmountable, I prayed. When I achieved success, I gave thanks. God has been the foundation of my life, and he's been the source of my strength.
+
+I'm not saying you have to believe what I believe. I'm not saying you have to pray like I pray. But I am saying that you need something bigger than yourself to anchor your life. You need something that gives your life meaning beyond your own success. You need something that keeps you humble when you're on top and gives you hope when you're down.
+
+So as you leave this place and go out into the world, remember these four things:
+
+Fall forward. Take risks. Embrace failure as a teacher, not an enemy.
+
+Work hard. There's no substitute for it. Talent without work ethic is wasted potential.
+
+Give back. Use your success to lift others up. Make the world better than you found it.
+
+And put God first. Find something bigger than yourself to anchor your life.
+
+You are graduating from one of the finest universities in the world. You have been equipped with the tools to succeed. But success is not guaranteed. Success requires courage. It requires persistence. It requires faith.
+
+The world needs what you have to offer. The world needs your energy, your passion, your ideas, your solutions. Don't hold back. Don't play small. Don't settle for less than you're capable of.
+
+Take risks. Work hard. Give back. Put God first. And always, always fall forward.
+
+Congratulations, Class of 2011. Now go out there and make a difference.`
+  },
+  {
+    id: 35,
+    speaker: "Ta-Nehisi Coates",
+    title: "The Struggle and the Dream",
+    university: "Morehouse College",
+    year: 2015,
+    excerpt: "The struggle is eternal. It is about understanding that your education is a privilege built on the backs of countless ancestors who dreamed you into existence.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Understand the weight of historical struggle",
+      "Education is a privilege earned by ancestors",
+      "Question everything and think critically",
+      "The work of justice is never finished"
+    ],
+    fullText: `President Wilson, distinguished faculty, proud families, and most importantly, the graduating class of 2015.
+
+I stand before you today humbled and honored to address the sons of Morehouse, an institution that has produced some of the most important leaders in American history. You sit where Martin Luther King Jr. sat. You walk where Spike Lee walked. You study where Julian Bond studied.
+
+But I want to talk to you today not about the legends who came before you, but about the struggle that brought you here. Because make no mistake – your presence here today is not an accident. It is not simply the result of your own hard work, though that work has been considerable. It is the result of a centuries-long struggle, a dream deferred and finally realized.
+
+Your ancestors dreamed you into existence. They dreamed of a time when young Black men could walk onto a college campus not as servants or laborers, but as scholars. They dreamed of a time when the children of enslaved people could sit in classrooms and debate ideas, conduct research, and prepare to lead.
+
+That dream was not free. It was paid for with blood, sweat, and tears. It was paid for by people who were lynched for trying to learn to read. It was paid for by students who integrated universities at the risk of their lives. It was paid for by parents who worked multiple jobs so their children could have opportunities they never had.
+
+You are the inheritors of that dream. But inheritance comes with responsibility.
+
+The first responsibility is to understand. Understand that your education is not just about you. It's about all of us. It's about proving wrong every person who ever said that Black people couldn't learn, couldn't lead, couldn't excel. Every A you earn, every degree you complete, every success you achieve is a refutation of centuries of lies about who we are and what we can accomplish.
+
+The second responsibility is to question. Your ancestors fought for your right to be here, but they didn't fight so that you could simply accept everything you're told. They fought so that you could think critically, question authority, and challenge the status quo.
+
+Don't be satisfied with easy answers. Don't accept injustice because it's always been that way. Don't let anyone tell you that the way things are is the way things have to be.
+
+The world will try to convince you that racism is over, that inequality is a thing of the past, that if you just work hard enough, you can overcome any obstacle. But you know better. You've seen the statistics. You've experienced the reality. You know that the playing field is not level, that the systems we navigate were not designed for our success.
+
+That knowledge is not meant to discourage you. It's meant to prepare you. It's meant to help you understand that your success requires not just individual excellence, but collective action. It requires not just personal achievement, but systemic change.
+
+The third responsibility is to act. Education without action is meaningless. Knowledge without application is empty. You have been equipped with tools – the ability to think, to analyze, to communicate, to lead. But tools are only valuable if you use them.
+
+Use them to fight injustice wherever you find it. Use them to lift up those who haven't had your opportunities. Use them to change systems that perpetuate inequality. Use them to build a better world for the next generation.
+
+But understand this: the struggle is eternal. It doesn't end when you graduate. It doesn't end when you get a good job or make money or achieve success. It continues as long as there are people who are denied opportunities because of the color of their skin, the circumstances of their birth, or the content of their character.
+
+Some of you will become doctors and heal the sick. Some will become lawyers and fight for justice. Some will become teachers and inspire young minds. Some will become entrepreneurs and create opportunities. Some will become artists and tell our stories. Some will become leaders and guide us forward.
+
+But all of you must become warriors in the ongoing struggle for equality and justice.
+
+That struggle will not always be popular. There will be times when people tell you to be quiet, to be patient, to wait for a better time. There will be times when you're told that you're being too aggressive, too demanding, too political.
+
+Don't listen to them. Don't be silent when you should speak. Don't be patient when patience enables injustice. Don't wait when action is needed now.
+
+You are Morehouse men. You come from a tradition of courage, of leadership, of excellence. You come from a tradition of men who were not content to accept the world as it was, but who worked to make it what it should be.
+
+That tradition continues with you. The question is not whether you will face challenges – you will. The question is not whether you will encounter setbacks – you will. The question is: How will you respond? How will you use your education, your privilege, your opportunity to advance the cause of justice?
+
+The ancestors dreamed you into existence. They sacrificed so that you could be here. They believed in a future they would never see but that you now inhabit.
+
+Honor their sacrifice. Continue their struggle. Fulfill their dream.
+
+And remember: you are not here by accident. You are here by design. You are here for a purpose. Go out and fulfill that purpose.
+
+Congratulations, Morehouse Class of 2015. The world is waiting for you.`
+  },
+  {
+    id: 36,
+    speaker: "John Lewis",
+    title: "Good Trouble and Necessary Change",
+    university: "Emory University",
+    year: 2018,
+    excerpt: "Never, ever be afraid to make some noise and get in good trouble, necessary trouble. Democracy is not a state. It is an act, and each generation must do its part.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Get in good trouble for justice",
+      "Democracy requires active participation",
+      "Love and nonviolence can overcome hate",
+      "Each generation must do its part"
+    ],
+    fullText: `President Sterk, distinguished faculty, proud families, and graduates of the class of 2018.
+
+It is an honor and a privilege to be here with you today. As I look out at your faces, I see hope. I see the future. I see young people who have the power to change the world.
+
+I want to tell you about trouble. Good trouble. Necessary trouble.
+
+When I was your age, this country was a very different place. I grew up in rural Alabama during the 1940s and 1950s, when segregation was the law of the land. I could not go to the library in my hometown. I could not attend the white school. I could not eat at the lunch counter downtown.
+
+But I was taught by my parents, by my teachers, and by my faith that these laws were wrong. That separate was not equal. That all people, regardless of the color of their skin, deserved to be treated with dignity and respect.
+
+So when I was a student at Fisk University, I started getting in trouble. I participated in sit-ins at lunch counters. I rode the Freedom Rides through the South. I helped organize the March on Washington. I spoke up when I was told to be quiet. I acted when I was told to wait.
+
+Some people said I was causing trouble. They said I was disturbing the peace. They said I was being unreasonable, impatient, ungrateful.
+
+But I knew it was good trouble. Necessary trouble. The kind of trouble that leads to progress, that leads to justice, that leads to change.
+
+And you know what? It worked. Not overnight. Not without sacrifice. Not without setbacks. But it worked.
+
+The lunch counters were integrated. The buses were integrated. The schools were integrated. The Voting Rights Act was passed. And in 2008, we elected our first African American president.
+
+Change is possible. Progress is possible. But it requires people who are willing to get in good trouble.
+
+Now, I know some of you might be thinking: "Congressman Lewis, that was a different time. The big battles have been fought. The major victories have been won. Things are different now."
+
+And you're right. Things are different. But the work is not finished. Democracy is not a destination. It's a journey. And each generation must do its part to keep moving forward.
+
+Today, we face new challenges. We see attacks on voting rights. We see the rise of hate and division. We see threats to our democratic institutions. We see inequality and injustice in new forms.
+
+But we also see young people like you who are standing up, speaking out, and demanding change. We see students who are organizing for gun safety. We see young activists fighting for climate action. We see a new generation of leaders who are not willing to accept the status quo.
+
+You give me hope. You remind me that the spirit of good trouble is alive and well.
+
+So here's what I want to tell you as you leave this great university and go out into the world: Never, ever be afraid to make some noise and get in good trouble, necessary trouble.
+
+If you see something that is not right, not fair, not just, you have a moral obligation to do something about it. You have a responsibility to speak up, to stand up, to act.
+
+Don't let anyone tell you that you're too young to make a difference. Don't let anyone tell you that change is impossible. Don't let anyone convince you that the way things are is the way things have to be.
+
+You have been given an excellent education. You have been equipped with knowledge and skills. But more importantly, you have been given the opportunity to be agents of change.
+
+Use that opportunity. Use your voice. Use your vote. Use your talent. Use your passion.
+
+But remember: change requires more than good intentions. It requires action. It requires persistence. It requires the willingness to get uncomfortable, to take risks, to make sacrifices.
+
+It requires love. Love for your fellow human beings. Love for justice. Love for democracy. Love for this country and its highest ideals.
+
+You see, the movement for civil rights was not just about changing laws. It was about changing hearts. It was about appealing to the better angels of our nature. It was about demonstrating that love is more powerful than hate, that hope is stronger than fear, that truth will ultimately prevail over lies.
+
+We practiced nonviolence not because we were weak, but because we were strong. We practiced love not because it was easy, but because it was right. We practiced discipline not because we enjoyed suffering, but because we believed in the power of moral force to bring about change.
+
+And it worked. Love conquered hate. Hope overcame fear. Truth defeated lies.
+
+But that victory was not permanent. Each generation must win it anew. Each generation must choose love over hate, hope over fear, truth over lies.
+
+Democracy is not a state. It is an act. And each generation must do its part to keep democracy alive, to keep it growing, to keep it inclusive.
+
+You are that generation now. You are the ones who must take up the mantle of democracy. You are the ones who must get in good trouble when trouble is needed.
+
+The future of this country, the future of democracy, the future of justice – it all depends on you. It depends on your willingness to act, to speak, to vote, to organize, to protest when protest is needed, to build bridges when bridges are needed.
+
+It depends on your willingness to believe that change is possible, that progress is possible, that a better world is possible.
+
+I believe in you. I believe in your generation. I believe that you will continue the work that we started, that you will fight the good fights that need to be fought, that you will get in the good trouble that needs to be gotten into.
+
+So go out there and change the world. Make it more fair, more just, more loving, more inclusive. Make it a place where all people can live with dignity and respect.
+
+Get in good trouble. Necessary trouble. The kind of trouble that our democracy needs, that our world needs, that future generations will thank you for.
+
+Congratulations, Class of 2018. Now go make some good trouble.`
+  },
+  {
+    id: 37,
+    speaker: "Chimamanda Ngozi Adichie",
+    title: "The Danger of a Single Story",
+    university: "Harvard University",
+    year: 2018,
+    excerpt: "Stories matter. Many stories matter. Stories have been used to dispossess and to malign, but stories can also be used to empower and to humanize. When we reject the single story, we regain a kind of paradise.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Reject single stories and embrace complexity",
+      "Stories have the power to empower or diminish",
+      "Seek out diverse perspectives and narratives",
+      "Use your platform to tell complete stories"
+    ],
+    fullText: `Dean Khurana, distinguished faculty, proud families, and graduates of Harvard's Class of 2018.
+
+I am deeply honored to be here with you today. When I was invited to speak at Harvard, I thought about what I wanted to say to some of the brightest minds of your generation. And I kept coming back to a simple but powerful idea: the danger of a single story.
+
+Let me start with a story of my own. I grew up in Nigeria, and like many children around the world, I learned to read at an early age. The books I read were British and American children's books. I read about children who ate apples and played in the snow and talked about the weather being lovely – things that were completely foreign to my experience as a child in tropical Nigeria.
+
+But more importantly, these books shaped my understanding of what literature should be. They taught me that characters in books had to be foreign to me, that literature was supposed to be about experiences I could not personally identify with.
+
+This changed when I discovered African writers – writers like Chinua Achebe and Camara Laye. I realized that people like me, girls with skin the color of chocolate, whose kinky hair could not form ponytails, could also exist in literature. I began to write stories.
+
+But here's what I want you to understand: if I had not grown up in Nigeria, and if all I knew about Africa were from popular images, I too would think that Africa was a place of beautiful landscapes, beautiful animals, and incomprehensible people, fighting senseless wars, dying of poverty and AIDS, unable to speak for themselves and waiting to be saved by a kind, white foreigner.
+
+This single story of Africa comes from Western literature and media. It shows Africa as a place of negatives, of difference, of darkness. It is a story that emphasizes how Africans are different from Europeans and Americans, rather than how we are similar.
+
+But the single story creates stereotypes, and the problem with stereotypes is not that they are untrue, but that they are incomplete. They make one story become the only story.
+
+Of course, Africa has its problems. But it is also a continent of extraordinary beauty, creativity, resilience, and hope. It is a continent of brilliant scholars, innovative entrepreneurs, talented artists, and visionary leaders. But these stories are rarely told in mainstream media.
+
+The single story robs people of dignity. It makes our recognition of our equal humanity difficult. It emphasizes how we are different rather than how we are similar.
+
+And this danger extends far beyond how Africa is portrayed. It affects how we see each other across all lines of difference – race, class, gender, sexuality, nationality, religion.
+
+When we encounter single stories about any group of people, we risk critical misunderstanding. We risk seeing people as one thing, rather than as complex, multifaceted human beings.
+
+I want to challenge you today to reject the single story wherever you encounter it. Seek out multiple perspectives. Listen to voices that are often silenced. Question the narratives that seem too simple, too convenient, too absolute.
+
+As Harvard graduates, you have been given extraordinary privileges. You have access to knowledge, resources, and networks that most people in the world do not have. With that privilege comes responsibility.
+
+You have the responsibility to complicate the narratives. To tell complete stories. To challenge single stories wherever you encounter them.
+
+If you are a journalist, tell stories that show the full humanity of your subjects. If you are a business leader, consider whose voices are missing from your boardroom. If you are a politician, listen to the people who are usually not heard. If you are an educator, teach your students to question, to think critically, to seek out multiple perspectives.
+
+But this is not just about professional responsibility. This is about how you live your life, how you interact with other people, how you see the world.
+
+When you meet someone new, resist the urge to make assumptions based on their appearance, their accent, their background. Ask questions. Listen to their story. Understand that every person contains multitudes.
+
+When you consume media, ask yourself: whose perspective is being represented? Whose voice is missing? What stories are not being told?
+
+When you have the opportunity to speak, to write, to create, to lead, ask yourself: what story am I telling? Is it complete? Is it fair? Does it honor the full humanity of the people I'm talking about?
+
+Because here's what I know: stories matter. Many stories matter. Stories have been used to dispossess and to malign, but stories can also be used to empower and to humanize. Stories can break the dignity of a people, but stories can also repair that broken dignity.
+
+The American writer Alice Walker wrote, "The most common way people give up their power is by thinking they don't have any." I would add: the most common way people give up their power is by accepting single stories about themselves and others.
+
+But when we reject the single story, when we realize that there is never a single story about any place or any person, we regain a kind of paradise. We regain our full humanity.
+
+You have the power to shape narratives. You have the power to tell stories that matter. You have the power to challenge single stories and to create space for multiple stories to be told.
+
+As you leave Harvard and go out into the world, I want you to remember that your story matters. But so do other people's stories. All of our stories matter.
+
+Don't let anyone reduce you to a single story. Don't reduce others to single stories. Seek complexity. Embrace nuance. Honor the full humanity in yourself and in others.
+
+The world needs your voices. The world needs your stories. But it also needs you to listen to other stories, to amplify other voices, to create space for narratives that have been silenced or ignored.
+
+Change the conversation. Challenge the assumptions. Complicate the narratives. Tell the stories that need to be told.
+
+When we do this, when we reject the single story and embrace the beautiful complexity of human experience, we create a more just, more understanding, more connected world.
+
+That is your challenge. That is your opportunity. That is your responsibility.
+
+Congratulations, Harvard Class of 2018. Now go out there and tell some beautiful, complicated, human stories.`
+  },
+  {
+    id: 38,
+    speaker: "Mahershala Ali",
+    title: "Authenticity and Excellence",
+    university: "Wesleyan University",
+    year: 2019,
+    excerpt: "Excellence is the result of caring more than others think is wise, risking more than others think is safe, dreaming more than others think is practical, and expecting more than others think is possible.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Pursue excellence through authentic self-expression",
+      "Risk more and dream bigger than others expect",
+      "Use your platform to represent and uplift others",
+      "Success comes from staying true to your values"
+    ],
+    fullText: `President Roth, distinguished faculty, proud families, and graduates of the Class of 2019.
+
+Thank you for this incredible honor. When I was asked to speak to you today, I was both thrilled and terrified. Thrilled because Wesleyan has a reputation for producing thoughtful, engaged citizens who go on to change the world. Terrified because I knew I wanted to say something meaningful to such an accomplished group of young people.
+
+So I want to talk to you today about two things that have guided my life and career: authenticity and excellence. And how pursuing both can lead you to a life of purpose and fulfillment.
+
+Let me start with authenticity. For most of my early career, I was trying to be what I thought Hollywood wanted me to be. I was trying to fit into a particular image, to play particular types of roles, to be a particular kind of actor.
+
+But it wasn't working. I wasn't getting the parts I wanted. I wasn't feeling fulfilled by the work I was doing. I was successful by some measures, but I felt like I was living someone else's life.
+
+The turning point came when I decided to stop trying to be what others wanted me to be and started being who I actually was. I embraced my background, my identity, my values. I started choosing roles that reflected my authentic self rather than roles that I thought would make me more marketable.
+
+And you know what happened? My career took off. Not immediately, but steadily. The roles I got were better. The work I was doing felt more meaningful. I felt more connected to my craft and to my purpose.
+
+Authenticity, I learned, is not just about being true to yourself. It's about having the courage to be true to yourself even when it's difficult, even when it's not popular, even when it might cost you opportunities.
+
+But authenticity alone is not enough. It must be paired with excellence.
+
+Excellence is the result of caring more than others think is wise, risking more than others think is safe, dreaming more than others think is practical, and expecting more than others think is possible.
+
+Excellence is not about being perfect. It's about being relentless in your pursuit of improvement. It's about pushing yourself beyond your comfort zone. It's about refusing to settle for good enough when you know you can do better.
+
+Excellence is also about preparation. When I prepare for a role, I don't just memorize lines and show up on set. I research the character's background, his motivations, his fears, his dreams. I think about how he walks, how he talks, how he relates to other people. I prepare as if the role is the most important thing I'll ever do.
+
+Because it is. Every role is the most important role. Every opportunity is the most important opportunity. Every moment is the most important moment.
+
+Excellence is also about service. Using your talents not just for your own benefit, but for the benefit of others. Using your platform, however big or small, to make a positive impact on the world.
+
+As an actor, I've been privileged to portray characters that represent communities that have been underrepresented in film and television. I've played a Muslim piano teacher in "Moonlight," a jazz musician in "Green Book," a detective in "True Detective."
+
+Each of these roles came with responsibility. Not just to deliver a good performance, but to represent these characters and communities with dignity, complexity, and truth. To avoid stereotypes and single stories. To show the full humanity of people who are often reduced to caricatures.
+
+This is what I mean by excellence in service. Using your skills, your talents, your opportunities to lift others up, to tell stories that matter, to create a more just and inclusive world.
+
+Now, I know that not all of you will become actors. You'll become doctors, lawyers, teachers, entrepreneurs, public servants, artists, scientists. But whatever you do, you can pursue both authenticity and excellence.
+
+You can be true to your values while striving to be the best at what you do. You can refuse to compromise your integrity while pushing yourself to achieve at the highest level. You can serve others while fulfilling your own dreams and ambitions.
+
+But this requires choices. It requires saying no to opportunities that don't align with your values. It requires working harder than your competitors. It requires taking risks that might not pay off.
+
+It requires faith. Faith in yourself, faith in your abilities, faith in your vision of what's possible.
+
+When I was starting out, people told me that there weren't enough opportunities for actors who looked like me, who came from backgrounds like mine. They told me to lower my expectations, to be grateful for whatever I could get, to wait for someone else to create opportunities for me.
+
+But I refused to accept those limitations. I chose to believe that excellence would create its own opportunities. I chose to believe that authenticity would resonate with audiences. I chose to believe that the world was ready for stories that hadn't been told before.
+
+And I was right. Not because I was special or exceptionally talented, but because I was willing to do the work. Because I was willing to be patient. Because I was willing to bet on myself when others wouldn't.
+
+You have the same opportunity. You have been educated at one of the finest institutions in the world. You have been given tools and knowledge that can change the world. You have been prepared for leadership.
+
+But preparation is not enough. You have to act. You have to take risks. You have to be willing to fail in service of something greater than yourself.
+
+You have to care more than others think is wise. You have to risk more than others think is safe. You have to dream more than others think is practical. You have to expect more than others think is possible.
+
+Because that's what excellence looks like. That's what authenticity demands. That's what the world needs from you.
+
+The world needs your unique perspective. The world needs your authentic voice. The world needs your commitment to excellence. The world needs you to be who you are at the highest level possible.
+
+Don't shrink yourself to fit into someone else's vision of who you should be. Don't lower your standards to match other people's expectations. Don't apologize for wanting more, for dreaming big, for refusing to settle.
+
+Be authentic. Be excellent. Be of service.
+
+And remember: success is not just about what you achieve. It's about who you become in the process of achieving it. It's about how you treat people along the way. It's about whether you use your success to create opportunities for others.
+
+The world is waiting for what you have to offer. Don't make us wait too long.
+
+Congratulations, Class of 2019. Now go out there and show us what authentic excellence looks like.`
+  },
+  {
+    id: 39,
+    speaker: "Stacey Abrams",
+    title: "Democracy in Action",
+    university: "Agnes Scott College",
+    year: 2020,
+    excerpt: "Voting is not just a right, it's a responsibility. Democracy is not a spectator sport. It requires all of us to participate, to speak up, to stand up, and to vote.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Democracy requires active participation from all citizens",
+      "Voting is both a right and a responsibility",
+      "Stand up for those whose voices are silenced",
+      "Change happens when ordinary people do extraordinary things"
+    ],
+    fullText: `President Johnson, distinguished faculty, proud families, and the remarkable women of Agnes Scott College Class of 2020.
+
+It is an extraordinary honor to be here with you today, even if we're gathering in these unusual circumstances. You are graduating during one of the most challenging times in our nation's history, but you are also graduating at a time when your leadership has never been more needed.
+
+I want to talk to you today about democracy. Not as an abstract concept, but as a living, breathing responsibility that belongs to each of you.
+
+Democracy is not a spectator sport. It's not something that happens to you – it's something you participate in, something you shape, something you fight for every single day.
+
+I learned this lesson early in my life. I grew up in Mississippi and Georgia in a family that understood that our rights were not guaranteed, that our voice mattered, and that democracy only works when all of us participate.
+
+My parents taught me that voting was sacred. They taught me that people died for the right to vote, that people marched and bled and sacrificed so that I could walk into a voting booth and have my voice heard.
+
+But they also taught me that voting is not enough. Democracy requires more than just showing up every four years to vote for president. It requires daily engagement, constant vigilance, and the willingness to speak up when something is wrong.
+
+It requires us to pay attention to what's happening in our communities, our states, and our nation. It requires us to hold our elected officials accountable. It requires us to organize, to advocate, and to act.
+
+And sometimes, it requires us to run for office ourselves.
+
+When I first ran for the Georgia House of Representatives in 2006, people told me I was too young, too idealistic, too ambitious. They said a young Black woman from Mississippi had no business thinking she could represent anyone in the Georgia legislature.
+
+But I knew that if we wait for permission to lead, we'll be waiting forever. I knew that change doesn't happen when we sit on the sidelines hoping someone else will fight our battles for us. Change happens when ordinary people decide to do extraordinary things.
+
+So I ran. And I won. And for ten years, I had the privilege of serving in the Georgia legislature, fighting for issues I cared about – education, economic opportunity, criminal justice reform, voting rights.
+
+But it was after I left the legislature that I learned my most important lesson about democracy. In 2018, I ran for governor of Georgia. I came closer than any Democrat had in decades, but I came up short. I could have been bitter. I could have given up. I could have decided that the system was too rigged, too corrupt, too stacked against people like me.
+
+Instead, I decided to double down on democracy. I founded Fair Fight, an organization dedicated to ensuring that every eligible voter has access to the ballot box. Because I realized that my loss wasn't just about me – it was about the thousands of Georgians who were prevented from voting, who were purged from voter rolls, who faced long lines and broken machines and other barriers to exercising their fundamental right.
+
+I realized that democracy is fragile. It requires constant maintenance, constant protection, constant participation. And when some people are excluded from democracy, all of democracy suffers.
+
+This is not a partisan issue. This is about the basic principle that in a democracy, every voice should be heard, every vote should count, and every person should have an equal say in choosing their leaders.
+
+But here's what I've learned: democracy is not self-executing. It doesn't just happen automatically. It requires people who are willing to do the work – the unglamorous, difficult, often thankless work of organizing, registering voters, fighting for fair maps, pushing for good policies, and holding officials accountable.
+
+It requires people like you.
+
+You are graduating from an institution that has a long tradition of producing women who change the world. Agnes Scott alumnae have been pioneers in business, science, politics, education, and social justice. You are inheriting that legacy, but you're also responsible for extending it.
+
+The challenges we face today – from a global pandemic to economic inequality to climate change to systemic racism – these challenges require solutions. They require leadership. They require people who are willing to step up and do the hard work of democracy.
+
+But democracy is not just about big, national issues. It's also about what happens in your communities. It's about school board meetings and city council sessions. It's about neighborhood associations and volunteer organizations. It's about showing up, speaking up, and standing up for what you believe in.
+
+It's about using your voice, your vote, your platform, and your privilege to make things better for everyone.
+
+Some of you will run for office. Some of you will work for campaigns. Some of you will start nonprofits or advocacy organizations. Some of you will become journalists or teachers or social workers or doctors or lawyers or business leaders.
+
+But all of you can be champions of democracy. All of you can be agents of change. All of you can use whatever platform you have to make our democracy more inclusive, more representative, more responsive to the needs of all people.
+
+Here's what I want you to remember: democracy is not a destination. It's a journey. It's not something we achieve once and then forget about. It's something we have to work on every day, in every election, in every interaction, in every decision we make about how to live our lives and use our talents.
+
+And democracy is not perfect. It never has been. But it's the best system we have for ensuring that all people have a voice in their own governance. And it's worth fighting for, worth protecting, worth strengthening.
+
+The question is not whether you'll face challenges to democracy in your lifetime – you will. The question is how you'll respond to those challenges. Will you be bystanders, or will you be participants? Will you be observers, or will you be leaders?
+
+I believe in you. I believe in your generation. I believe that you have the knowledge, the passion, and the determination to make our democracy stronger, more inclusive, and more just.
+
+But belief is not enough. Action is required. Participation is required. Your voice is required.
+
+So vote. Not just in presidential elections, but in every election. Vote in primaries. Vote in local elections. Vote in special elections. Vote like your life depends on it, because it does.
+
+But don't stop there. Run for office. Volunteer for campaigns. Join advocacy organizations. Start movements. Create change.
+
+And encourage others to do the same. Democracy works best when everyone participates. Make sure your friends are registered to vote. Make sure your family members know when elections are happening. Make sure your communities have access to the ballot box.
+
+The future of our democracy depends on you. Not on politicians in Washington, not on celebrities or billionaires or anyone else. On you.
+
+You have been educated. You have been prepared. You have been empowered. Now it's time to act.
+
+Democracy is calling. Are you ready to answer?
+
+Congratulations, Class of 2020. Now go out there and strengthen our democracy.`
+  },
+  {
+    id: 40,
+    speaker: "Michael Jordan",
+    title: "The Mentality of Champions",
+    university: "University of North Carolina",
+    year: 2017,
+    excerpt: "I've failed over and over and over again in my life. And that is why I succeed. Champions are made when nobody's watching. It's about having the mentality to never give up.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Failure is the foundation of success",
+      "Champions are made when nobody's watching",
+      "Never give up, no matter the obstacles",
+      "Excellence requires sacrifice and dedication"
+    ],
+    fullText: `Chancellor Folt, distinguished faculty, proud families, and graduates of the University of North Carolina Class of 2017.
+
+It's an honor to be back at Carolina, the place that changed my life, the place that taught me what it means to be a champion.
+
+I want to talk to you today about something that's been central to everything I've accomplished in my life: the mentality of champions. Because becoming a champion – whether in sports, in business, in life – is not about talent alone. It's about mindset. It's about how you approach challenges, how you deal with failure, and how you push yourself to be better than you were yesterday.
+
+Let me start with a confession: I've failed over and over and over again in my life. And that is why I succeed.
+
+I was cut from my high school basketball team. I lost hundreds of games in my career. I missed thousands of shots. I turned the ball over countless times. I failed to win championships for the first seven years of my NBA career.
+
+But each failure taught me something. Each setback motivated me to work harder. Each defeat made me more determined to succeed.
+
+You see, failure is not the opposite of success – it's the foundation of success. It's how you learn. It's how you grow. It's how you discover what you're really made of.
+
+But here's the key: how you respond to failure determines everything. You can let failure defeat you, or you can let it teach you. You can let it make you bitter, or you can let it make you better.
+
+I chose to let it make me better. Every time.
+
+When I was cut from my high school team, I could have quit basketball. Instead, I used it as motivation to work harder than anyone else. I spent hours in the gym, perfecting my shot, improving my footwork, building my strength.
+
+When I struggled in my first years in the NBA, when critics said I was selfish, when we kept losing in the playoffs, I could have accepted that maybe I wasn't championship material. Instead, I worked on becoming a better teammate, a better leader, a better all-around player.
+
+Champions are made when nobody's watching. They're made in the early morning workouts, in the late-night training sessions, in the moments when you're tired and you want to quit but you push through anyway.
+
+I remember countless mornings getting to the gym at 5 AM, working on my shot for hours before practice even started. I remember studying game film until 2 in the morning, looking for ways to get better, looking for advantages I could find.
+
+That's what separates champions from everyone else. Champions are willing to do what others won't do. They're willing to make sacrifices that others won't make. They're willing to push themselves beyond what they think is possible.
+
+But being a champion is not just about individual achievement. It's about lifting others up with you. Some of my greatest memories from basketball are not about the shots I made or the points I scored. They're about the championships we won together as a team.
+
+Basketball taught me that success is sweeter when it's shared. That individual brilliance means nothing without team success. That the best leaders are those who make everyone around them better.
+
+The same is true in life. Whatever field you go into, whatever career you pursue, remember that your success is connected to the success of others. Lift people up. Be generous with your knowledge. Help others reach their potential.
+
+But here's what I want you to understand about the champion's mentality: it's not just about winning. It's about pursuing excellence in everything you do. It's about having standards for yourself that are higher than anyone else's standards for you.
+
+Excellence is not a skill, it's an attitude. It's a choice you make every day to be the best version of yourself. It's the decision to never be satisfied with good enough, to always push for better.
+
+And excellence requires sacrifice. It requires saying no to things that are easy, comfortable, popular. It requires choosing the difficult path because you know it leads to better outcomes.
+
+I sacrificed a lot for basketball. I missed family gatherings, social events, vacations. I dealt with criticism, pressure, expectations. But I never regretted those sacrifices because they led me to achieve something I was passionate about.
+
+You'll have to make sacrifices too. You'll have to choose between what's easy and what's right. Between what's comfortable and what's challenging. Between what's popular and what's excellent.
+
+Choose excellence. Choose the harder path. Choose to be a champion.
+
+But remember: being a champion is not a destination – it's a way of living. It's how you approach every challenge, every opportunity, every relationship. It's how you treat people, especially when nobody's watching. It's how you handle success and how you handle failure.
+
+I've been blessed to achieve success in basketball and in business. But what I'm most proud of is not the championships or the money or the fame. It's the example I've tried to set for young people about what's possible when you work hard, when you never give up, when you pursue excellence with everything you have.
+
+Each of you has the potential to be a champion in your own field, in your own way. You have the education, the skills, and the opportunities to make a significant impact on the world.
+
+But potential means nothing without action. Dreams mean nothing without work. Talent means nothing without dedication.
+
+So as you leave this great university and go out into the world, I want you to adopt the mentality of champions:
+
+Embrace failure as a teacher, not an enemy. Use setbacks as stepping stones, not stopping points.
+
+Work when nobody's watching. Put in the effort when it's not glamorous, when it's not fun, when nobody's appreciating it.
+
+Set standards for yourself that are higher than anyone else's expectations. Don't just meet expectations – exceed them.
+
+Lift others up as you climb. Share your success. Help others reach their potential.
+
+Never give up. No matter how difficult things get, no matter how many times you fall, get back up and keep fighting.
+
+And remember: champions are not born – they're made. They're made through hard work, through dedication, through the willingness to push beyond what seems possible.
+
+You have everything you need to be champions. The only question is: are you willing to do what champions do?
+
+The world is waiting for your excellence. Don't keep it waiting too long.
+
+Congratulations, Class of 2017. Now go out there and show the world what champions look like.`
   }
 ];
