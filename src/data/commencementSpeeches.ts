@@ -723,7 +723,95 @@ Thank you all very much.`
       "Build deep friendships and lean on them",
       "Find gratitude and meaning in hardship"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Thank you, Marie. And thank you esteemed members of the faculty, proud parents, devoted friends, squirming siblings.
+
+Congratulations to all of you…and especially to the magnificent Berkeley graduating class of 2016!
+
+It is a privilege to be here at Berkeley, which has produced so many Nobel Prize winners, Turing Award winners, astronauts, members of Congress, Olympic gold medalists…. and that's just the women!
+
+Berkeley has always been ahead of the times. In the 1960s, you led the Free Speech Movement. Back in those days, people used to say that with all the long hair, how do we even tell the boys from the girls? We now know the answer: manbuns.
+
+Today is a day of celebration. A day to celebrate all the hard work that got you to this moment.
+
+Today is a day of thanks. A day to thank those who helped you get here—nurtured you, taught you, cheered you on, and dried your tears.
+
+Today is a day of reflection. Because today marks the end of one era of your life and the beginning of something new.
+
+A commencement address is meant to be a dance between youth and wisdom. You have the youth. Someone comes in to be the voice of wisdom—that's supposed to be me. I stand up here and tell you all the things I have learned in life, you throw your cap in the air, you let your family take a million photos –don't forget to post them on Instagram —and everyone goes home happy.
+
+Today will be a bit different. We will still do the caps and you still have to do the photos. But I am not here to tell you all the things I've learned in life. Today I will try to tell you what I learned in death.
+
+I have never spoken publicly about this before. It's hard. But I will do my very best not to blow my nose on this beautiful Berkeley robe.
+
+One year and thirteen days ago, I lost my husband, Dave. His death was sudden and unexpected. We were at a friend's fiftieth birthday party in Mexico. I took a nap. Dave went to work out. What followed was the unthinkable—walking into a gym to find him lying on the floor. Flying home to tell my children that their father was gone. Watching his casket being lowered into the ground.
+
+For many months afterward, and at many times since, I was swallowed up in the deep fog of grief—what I think of as the void—an emptiness that fills your heart, your lungs, constricts your ability to think or even to breathe.
+
+Dave's death changed me in very profound ways. I learned about the depths of sadness and the brutality of loss. But I also learned that when life sucks you under, you can kick against the bottom, break the surface, and breathe again. I learned that in the face of the void—or in the face of any challenge—you can choose joy and meaning.
+
+I'm sharing this with you in the hopes that today, as you take the next step in your life, you can learn the lessons that I only learned in death. Lessons about hope, strength, and the light within us that will not be extinguished.
+
+Everyone who has made it through Cal has already experienced some disappointment. You wanted an A but you got a B. OK, let's be honest—you got an A- but you're still mad. You applied for an internship at Facebook, but you only got one from Google. She was the love of your life… but then she swiped left.
+
+You will almost certainly face more and deeper adversity. There's loss of opportunity: the job that doesn't work out, the illness or accident that changes everything in an instant. There's loss of dignity: the sharp sting of prejudice when it happens. There's loss of love: the broken relationships that can't be fixed. And sometimes there's loss of life itself.
+
+The question is not if some of these things will happen to you. They will. Today I want to talk about what happens next. About the things you can do to overcome adversity, no matter what form it takes or when it hits you. The easy days ahead of you will be easy. It is the hard days—the times that challenge you to your very core—that will determine who you are. You will be defined not just by what you achieve, but by how you survive.
+
+A few weeks after Dave died, I was talking to my friend Phil about a father-son activity that Dave was not here to do. We came up with a plan to fill in for Dave. I cried to him, "But I want Dave." Phil put his arm around me and said, "Option A is not available. So let's just kick the shit out of option B."
+
+We all at some point live some form of option B. The question is: What do we do then?
+
+As a representative of Silicon Valley, I'm pleased to tell you there is data to learn from. After spending decades studying how people deal with setbacks, psychologist Martin Seligman found that there are three P's—personalization, pervasiveness, and permanence—that are critical to how we bounce back from hardship. The seeds of resilience are planted in the way we process the negative events in our lives.
+
+The first P is personalization—the belief that we are at fault. This is different from taking responsibility, which you should always do. This is the lesson that not everything that happens to us happens because of us.
+
+When Dave died, I had a very common reaction, which was to blame myself. He died in seconds from a cardiac arrhythmia. I poured over his medical records asking what I could have—or should have—done. It wasn't until I learned about the three P's that I accepted that I could not have prevented his death. His doctors had not identified his coronary artery disease. I was an economics major; how could I have?
+
+The second P is pervasiveness—the belief that an event will affect all areas of your life. You know that song "Everything is awesome?" This is the flip: "Everything is awful." There's no place to run or hide from the all-consuming sadness.
+
+The child psychologists I spoke to encouraged me to get my kids back to their routine as soon as possible. So ten days after Dave died, they went back to school and I went back to work. I remember sitting in my first Facebook meeting in a deep, deep haze. All I could think was, "What is everyone talking about and how could this possibly matter?" But then I got drawn into the discussion and for a second—a brief split second—I forgot about death.
+
+That brief second helped me see that there were other things in my life that were not awful. My children and I were healthy. My friends and family were so loving and they carried us—quite literally at times.
+
+The third P is permanence—the belief that the sorrow will last forever. For months, no matter what I did, it felt like the crushing grief would always be there.
+
+We often project our current feelings out indefinitely—and experience what I think of as the second derivative of those feelings. We feel anxious—and then we feel anxious that we're anxious. We feel sad—and then we feel sad that we're sad. Instead, we should accept our feelings—but recognize that they will not last forever.
+
+But I wish I had known about the three P's when I was your age. There were so many times these lessons would have helped.
+
+The three P's are common emotional reactions to so many things that happen to us—in our careers, our personal lives, and our relationships. You're probably feeling one of them right now about something in your life. But if you can recognize you are falling into these traps, you can catch yourself. Just as our bodies have a physiological immune system, our brains have a psychological immune system—and there are steps you can take to help kick it into gear.
+
+One day my friend Adam Grant, a psychologist, suggested that I think about how much worse things could be. This was completely counterintuitive; it seemed like the way to recover was to try to find positive thoughts. "Worse?" I said. "Are you kidding me? How could things be worse?" His answer cut straight through me: "Dave could have had that same cardiac arrhythmia while he was driving your children." Wow. The moment he said it, I was overwhelmingly grateful that the rest of my family was alive and healthy. That gratitude overtook some of the grief.
+
+Finding gratitude and appreciation is key to resilience. People who take the time to list things they are grateful for are happier and healthier. It turns out that counting your blessings can actually increase your blessings.
+
+As you graduate, can you ask yourselves to live as if you had eleven days left? I don't mean blow everything off and party all the time— although tonight is an exception. I mean live with the understanding of how precious every single day would be. How precious every day actually is.
+
+As I stand here today, a year after the worst day of my life, two things are true. I have a huge reservoir of sadness that is with me always—right here where I can touch it. I never knew I could cry so often—or so much.
+
+But I am also aware that I am walking without pain. For the first time, I am grateful for each breath in and out—grateful for the gift of life itself. I used to celebrate my birthday every five years and friends' birthdays sometimes. Now I celebrate always. I used to go to sleep worrying about all the things I messed up that day—and trust me that list was often quite long. Now I try really hard to focus on each day's moments of joy.
+
+It is the greatest irony of my life that losing my husband helped me find deeper gratitude—gratitude for the kindness of my friends, the love of my family, the laughter of my children. My hope for you is that you can find that gratitude—not just on the good days, like today, but on the hard ones, when you will really need it.
+
+There are so many moments of joy ahead of you. That trip you always wanted to take. A first kiss with someone you really like. The day you get a job doing something you truly believe in. All of these things will happen to you. Enjoy each and every one.
+
+I hope that you live your life—each precious day of it—with joy and meaning. I hope that you walk without pain—and that you are grateful for each step.
+
+And when the challenges come, I hope you remember that anchored deep within you is the ability to learn and grow. You are not born with a fixed amount of resilience. Like a muscle, you can build it up, draw on it when you need it. In that process you will figure out who you really are—and you just might become the very best version of yourself.
+
+Class of 2016, as you leave Berkeley, build resilience.
+
+Build resilience in yourselves. When tragedy or disappointment strike, know that you have the ability to get through absolutely anything. I promise you do. As the saying goes, we are more vulnerable than we ever thought, but we are stronger than we ever imagined.
+
+Build resilient organizations. If anyone can do it, you can, because Berkeley is filled with people who want to make the world a better place. Never stop working to do so—whether it's a boardroom that is not representative or a campus that's not safe. Speak up, especially at institutions like this one, which you hold so dear.
+
+Build resilient communities. We find our humanity—our will to live and our ability to love—in our connections to one another. Be there for your family and friends. And I mean in person. Not just in a message with a heart emoji.
+
+Lift each other up, help each other kick the shit out of option B—and celebrate each and every moment of joy.
+
+You have the whole world in front of you. I can't wait to see what you do with it.
+
+Congratulations, and Go Bears!`
   },
   {
     id: 10,
@@ -739,7 +827,43 @@ Thank you all very much.`
       "Challenge the status quo",
       "Leave the world better than you found it"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Hello, MIT!
+
+Thank you. Congratulations class of '17. I especially want to thank Chairman Millard, President Reif, distinguished faculty, trustees, and the members of the class of 1967. It is a privilege to be here today with your families and your friends on such on amazing and important day.
+
+MIT and Apple share so much. We both love hard problems. We love the search for new ideas, and we especially love finding those ideas, the really big ones, the ones that can change the world. I know MIT has a proud tradition of pranks or as you would call them, hacks. And you have have pulled off some pretty great ones over the years. I'll never figure out how MIT students sent that Mars rover to the Kresge Oval, or put a propeller beanie on the great dome, or how you've obviously taken over the president's Twitter account. I can tell college students are behind because most of the Tweets happen at 3:00 a.m.
+
+I'm really happy to be here. Today is about celebration. And you have so much to be proud of. As you leave here to start the next leg of your journey in life, there will be days where you ask yourself, 'Where is this all going?' 'What is the purpose?' 'What is my purpose?' I will be honest, I asked myself that same question and it took nearly 15 years to answer it. Maybe by talking about my journey today, I can save you some time.
+
+The struggle for me started early on. In high school, I thought I discovered my life's purpose when I could answer that age-old question, 'What do you want to be when you grow up?' Nope. In college I thought I'd discover it when I could answer, 'What's your major?' Not quite. I thought that maybe I'd discovered it when I found a good job. Then I thought I just needed to get a few promotions. That didn't work either.
+
+I kept convincing myself that it was just over the horizon, around the next corner. Nothing worked. And it was really tearing me apart. Part of me kept pushing ahead to the next achievement. And the other part kept asking, 'Is this all there is?' I went to grad school at Duke looking for the answer. I tried meditation. I sought guidance in religion. I read great philosophers and authors. And in a moment of youthful indiscretion, I might even have experimented with a Windows PC, and obviously that didn't work.
+
+After countless twists and turns, at last, 20 years ago, my search brought me to Apple. At the time, the company was struggling to survive. Steve Jobs had just returned to Apple, and had launched the 'Think Different' campaign. He wanted to empower the crazy ones—the misfits, the rebels and the troublemakers, the round pegs, and the square holes—to do the best work. If we could just do that, Steve knew we could really change the world.
+
+Before that moment, I had never met a leader with such passion or encountered a company with such a clear and compelling purpose: to serve humanity. It was just that simple. Serve humanity. And it was in that moment, after 15 years of searching, something clicked. I finally felt aligned. Aligned with a company that brought together challenging, cutting edge work with a higher purpose. Aligned with a leader who believed that technology which didn't exist yet could reinvent tomorrow's world. Aligned with myself and my own deep need to serve something greater.
+
+Of course, at that moment I don't know all of that. I was just grateful to have psychological burden lifted. But with the help of hindsight, my breakthrough makes a lot more sense. I was never going to find my purpose working some place without a clear sense of purpose of its own. Steve and Apple freed me to throw my whole self into my work, to embrace their mission and make it my own. How can I serve humanity? This is life's biggest and most important question. When you work towards something greater than yourself, you find meaning, you find purpose. So the question I hope you will carry forward from here is how will you serve humanity?
+
+The good news is since you are here today you are on a great track. At MIT you have learned how much power that science and technology have to change the world for the better. Thanks to discoveries made right here, billions of people are leading healthier, more productive and more fulfilling lives. And if we're ever going to solve some of the hardest problems facing the world today, everything from cancer to climate change to educational inequality, then technology will help us to do it. But technology alone isn't the solution. And sometimes it's even part of the problem.
+
+Last year I had the chance to meet with Pope Francis. It was the most incredible meeting of my life. This is a man who has spent more time comforting the inflicted in slums than with heads of state. This may surprise you, but he knew an unbelievable amount about technology. It was obvious to me that he had thought deeply about it. Its opportunity. Its risks. Its morality. What he said to me at that meeting, what he preached, really, was on a topic that we care a lot about at Apple. But he expressed a shared concern in a powerful new way: Never has humanity had such power over itself, yet nothing ensures it will be used wisely, he has said.
+
+Technology today is integral to almost all aspects of our lives and most of the time it's a force for good. And yet the potential adverse consequences are spreading faster and cutting deeper. The threats to security, threats to privacy, fake news, and social media that becomes antisocial. Sometimes the very technology that is meant to connect us divides us. Technology is capable of doing great things. But it doesn't want to do great things. It doesn't want anything. That part takes all of us. It takes our values and our commitment to our families and our neighbors and our communities, our love of beauty and belief that all of our faiths are interconnected, our decency, our kindness.
+
+I'm not worried about artificial intelligence giving computers the ability to think like humans. I'm more concerned about people thinking like computers without values or compassion, without concern for consequences. That is what we need you to help us guard against. Because if science is a search in the darkness, then the humanities are a candle that shows us where we've been and the danger that lies ahead.
+
+As Steve once said, technology alone is not enough. It is technology married with the liberal arts married with the humanities that make our hearts sing. When you keep people at the center of what you do, it can have an enormous impact. It means an iPhone that allows the blind person to run a marathon. It means an Apple Watch that catches a heart condition before it becomes a heart attack. It means an iPad that helps a child with autism connect with his or her world. In short, it means technology infused with your values, making progress possible for everyone.
+
+Whatever you do in your life, and whatever we do at Apple, we must infuse it with the humanity that each of us is born with. That responsibility is immense, but so is the opportunity. I'm optimistic because I believe in your generation, your passion, your journey to serve humanity. We are all counting on you. There is so much out there conspiring to make you cynical. The internet has enabled so much and empowered so many, but it can also be a place where basic rules of decency are suspended and pettiness and negativity thrive.
+
+Don't let that noise knock you off course. Don't get caught up in the trivial aspects of life. Don't listen to trolls and for God's sake don't become one. Measure your impact in humanity not in the likes, but the lives you touch; not in popularity, but in the people you serve. I found that my life got bigger when I stopped carrying about what other people thought about me. You will find yours will too. Stay focused on what really matters. There will be times when your resolve to serve humanity will be tested. Be prepared. People will try to convince you that you should keep your empathy out of your career. Don't accept this false premise.
+
+At a shareholders meeting a few years back, someone questioned Apple's investment and focus on the environment. He asked me to pledge that Apple would only invest in green initiatives that could be justified with a return on investment. I tried to be diplomatic. I pointed out that Apple does many things, like accessibility features for those with disabilities that don't rely on an ROI. We do the things because they are the right thing to do, and protecting the environment is a critical example. He wouldn't let it go and I got my blood up. So I told him, "If you can't accept our position, you shouldn't own Apple stock."
+
+When you are convinced that your cause is right, have the courage to take a stand. If you see a problem or an injustice, recognize that no one will fix it but you. As you go forward today, use your minds and hands and your hearts to build something bigger than yourselves. Always remember there is no idea bigger than this. As Dr. Martin Luther King said, "All life is interrelated. We are all bound together into a single garment of destiny." If you keep that idea at the forefront of all that you do, if you choose to live your lives at that intersection between technology and the people it serves, if you strive to create the best, give the best, do the best for everyone, not just for some, then today all of humanity has good cause for hope.
+
+Thank you very much and congratulations class of 2017!`
   },
   {
     id: 11,
@@ -851,7 +975,61 @@ I wish you all very good lives. Thank-you very much.`
       "Put God first in everything you do",
       "Give back and help others climb"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Thank you very much. I am obviously the most unorganized. Everybody else has nice boxes to bring their script up in. I just got it all messed up here and put it inside of a magazine.
+
+President Gutmann, Provost Price, Board Chair Cohen, fellow honorees, beautiful honorees, and today's graduates. I'm honored and grateful for the invitation today. It's always been great to be on the Penn campus. I've been here before a lot of times for basketball games. My son played on the basketball team.
+
+But I'll be honest with you. I'm a little nervous. I'm not used to speaking at a graduation of this magnitude. It's a little overwhelming. It's out of my comfort zone. You dress me up in army fatigues or throw me on top of a moving train that someone said unstoppable, or ask me to play Malcolm X, Rubin Hurricane Carter, or Alonzo from Training Day, I can do that. But a commencement speech, it's a very serious affair, and it's a very different ball game.
+
+I was thinking about this speech, what I should say. I figured the best way to keep your attention would be to talk about something, really juicy Hollywood stuff. But I said, no, no, no. You're a group of high-minded intellectuals.
+
+So I was back to square one, feeling the pressure. So, now you're probably thinking if it was going to be this difficult, this is much pressure, why did I even accept today's invitation in the first place? Well, my son goes here, that's number one. That's a good reason. And I always like to check to see how my money's being spent.
+
+So I had to be here. I had to come, even though I was afraid I might make a fool of myself. In fact, if you really want to know the truth, I had to come exactly because I might make a fool of myself. Now, what am I talking about? Here it is.
+
+I found that nothing in life is worthwhile unless you take risks. Nothing. Nelson Mandela said, "There is no passion to be found, playing small and settling for a life that's less than the one you're capable of living."
+
+Now, I'm sure in your experiences in school and applying to college and picking your major and deciding what you want to do with life, I'm sure people have told you to make sure you have something to fall back on. Make sure you got something to fall back on, honey. But I never understood that concept, having something to fall back on. If I'm going to fall, I don't want to fall back on anything except my faith. I want to fall forward. I figure at least this way, I'll see what I'm going to hit.
+
+Fall forward. This is what I mean. Reggie Jackson struck out 2,600 times in his career, the most in the history of baseball, but you don't hear about the strikeouts. People remember the home runs. Fall forward.
+
+Thomas Edison conducted 1000 failed experiments. Did you know that? I didn't know that. Because the 1001st was the light bulb. Fall forward.
+
+Every failed experiment is one step closer to success. You've got to take risks, and I'm sure you've probably heard that before, but I want to talk to you about why that's so important. I got three reasons.
+
+First, you will fail at some point in your life. Accept it. You will lose. You will embarrass yourself. You will suck at something. There's no doubt about it. And I know that's probably not a traditional message for a graduation ceremony, but hey, I'm telling you embrace it because it's inevitable. And I should know. In the acting business, you fail all the time.
+
+Early on in my career, I auditioned for a part in a Broadway musical. Perfect role for me, I thought, except for the fact that I can't sing. So, I'm in the wings. I'm about to go on stage, but the guy in front of me, he's singing like Pavarotti. And I'm just shrinking. I'm getting smaller and smaller.
+
+I didn't get the job. But here's the thing. I didn't quit. I didn't fall back. I walked out of there to prepare for the next audition and the next audition and the next audition. I prayed. I prayed and I prayed. But I continued to fail and fail and fail. But it didn't matter because you know what? There's an old saying, you hang around the barbershop long enough, sooner or later, you're going to get a haircut. So you will catch a break. And I did catch a break.
+
+Last year, I did a play called Fences on Broadway. Won the Tony Award. And I didn't have to sing, by the way. But here's the kicker. It was at the Cort Theatre. It was at the same theater that I failed that first audition, 30 years prior.
+
+The point is, every graduate here today has the training and the talent to succeed. But do you have the guts to fail?
+
+Here's my second point about failure. If you don't fail, you're not even trying. I'll say it again. If you don't fail, you're not even trying. My wife told me this great expression. To get something you never had, you have to do something you never did.
+
+So I ask you today, how many ghosts are going to be around your bed when your time comes? You've invested a lot in your education, and people have invested in you. And let me tell you, the world needs your talents. Man, does it ever. The world needs a lot, and we need it from you. We really do. We need it from you young people.
+
+So you got to get out there. You got to give it everything you got, whether it's your time, your talent, your prayers, or your treasures. Because remember this, you will never see a U-Haul behind a hearse. I'll say it again. You will never see a U-Haul behind a hearse. You can't take it with you. The Egyptians tried it, and all they got was robbed.
+
+So the question is, what are you going to do with what you have? I'm not talking about how much you have. Some of you are business majors. Some of you were theologians, nurses, sociologists. Some of you have money. Some of you have patience. Some of you have kindness. Some of you have love. Some of you have the gift of long-suffering. Whatever it is, whatever your gift is, what are you going to do with what you have?
+
+All right. Now, here's my last point about failure. Sometimes it's the best way to figure out where you're going. Your life will never be a straight path. I began at Fordham University as a pre-med student. I took a course called cardiac morphogenesis. I couldn't read it. I couldn't say it. I sure couldn't pass it.
+
+So then I decided to go into pre-law, then journalism. And with no academic focus, my grades took off in their own direction. Yeah, down. I was a 1.8 GPA one semester. And the university very politely suggested that it might be better to take some time off. I was 20 years old. I was at my lowest point.
+
+And then one day, and I remember the exact day, March 27, 1975, I was helping my mother in her beauty shop. My mother owned a beauty shop up in Mount Vernon. And there was this older woman who was considered one of the elders in the town. And I didn't know her personally, but I was looking in a mirror and every time I looked at the mirror, I could see her behind me. And she was staring at me.
+
+So she finally took the dryer off her head, and she said something I'll never forget. First of all, she said, "Somebody give me a piece of paper. Give me a piece of paper." She said, "Young boy, I have a prophecy, a spiritual prophecy." She said, "You are going to travel the world and speak to millions of people."
+
+Now mind you, I'm 20 years old. I'm flunked out of school. But maybe she was onto something. Because later that summer, while working as a counselor to YMCA camp in Connecticut, we put on a talent show for the campus. And after the show, another counselor that came up to me and asked, "Had you ever thought about acting? You're good at that."
+
+So when I got back to Fordham that fall, I got in and I changed my major once again, for the last time. And in the years that followed, just as that woman prophesied, I have traveled the world, and I have spoken to millions of people through my movies. But I see you today. And I'm encouraged by what I see. And I'm strengthened by what I see. And I love what I see.
+
+So members of the class of 2011, this is your mission. When you leave the friendly confines of Philly, never be discouraged, never hold back, give everything you got. And when you fall throughout life, remember this: fall forward.
+
+Congratulations. I love you. God bless you. I respect you.`
   },
   {
     id: 14,
@@ -867,7 +1045,45 @@ I wish you all very good lives. Thank-you very much.`
       "Create and find new families",
       "Be good to people, yourself, and the earth"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Thank you so much, thank you so much. Thank you, President Cowan, Mrs. President Cowen; distinguished guests, undistinguished guests, you know who you are, honored faculty and creepy Spanish teacher. And thank you to all the graduating Class of 2009, I realize most of you are hungover and have splitting headaches and haven't slept since Fat Tuesday, but you can't graduate 'til I finish, so listen up.
+
+When I was asked to make the commencement speech, I immediately said yes. Then I went to look up what commencement meant, which would have been easy if I had a dictionary, but most of the books in our house are Portia's, and they're all written in Australian. So I had to break the word down myself, to find out the meaning.
+
+I thought that you had to be a famous alumnus, alumini, aluminum, alumis; you had to graduate from this school. And I didn't go to college here, and I don't know if President Cowan knows, I didn't go to any college at all, any college. And I'm not saying you wasted your time, or money, but look at me, I'm a huge celebrity.
+
+Although I did graduate from the school of hard knocks, our mascot was the knockers. I spent a lot of time here growing up. My mom worked at Newcomb and I would go there every time I needed to steal something out of her purse.
+
+But why am I here today? Clearly not to steal, you're too far away and I'd never get away with it. I'm here because of you. Because I can't think of a more tenacious, more courageous graduating class. I mean, look at you all, wearing your robes. Usually when you're wearing a robe at 10 in the morning, it means you've given up.
+
+I'm here because I love New Orleans. I was born and raised here, I spent my formative years here, and like you, while I was living here I only did laundry six times. When I finished school, I was completely lost and by school, I mean middle school, but I went ahead and finished high school anyway. And I really, I had no ambition; I didn't know what I wanted to do. I did everything from: I shucked oysters, I was a hostess, I was a bartender, I was a waitress, I painted houses, I sold vacuum cleaners; I had no idea and I thought I'd just finally settle in some job and I would make enough money to pay my rent, maybe have basic cable, maybe not, I didn't really have a plan.
+
+My point is that, by the time I was your age, I really thought I knew who I was but I had no idea. Like for example, when I was your age, I was dating men. So what I'm saying is, when you're older, most of you will be gay. Is anybody writing this stuff down? Parents?
+
+Anyway, I had no idea what I wanted to do with my life and the way I ended up on this path was from a very tragic event. I was maybe 19, and my girlfriend at the time was killed in a car accident. And I passed the accident, and I didn't know it was her and I kept going and I found out shortly after that, it was her.
+
+And I was living in a basement apartment; I had no money; I had no heat, no air, I had a mattress on the floor and the apartment was infested with fleas. And I was soul-searching, I was like, why is she suddenly gone, and there are fleas here? I don't understand, there must be a purpose and wouldn't it be so convenient if we could pick up the phone and call God and ask these questions.
+
+And I started writing and what poured out of me was an imaginary conversation with God, which was one-sided and I finished writing it and I looked at it and I said to myself, and I hadn't even been doing stand-up, ever, there was no club in town. I said, "I'm going do this on the Tonight Show with Johnny Carson" – at the time he was the king – "and I'm going be the first woman in the history of the show to be called over to sit down." And several years later, I was the first woman in the history of the show, and only woman in the history of the show to sit down, because of that phone conversation with God that I wrote.
+
+And I started this path of stand-up, and it was successful and it was great, but it was hard because I was trying to please everybody and I had this secret that I was keeping, that I was gay. And I thought if people found out they wouldn't like me, they wouldn't laugh at me. Then my career turned… I got my own sitcom, and that was very successful, another level of success. And I thought, what if they find out I'm gay, then they'll never watch, and this was a long time ago, this was when we just had white presidents. But anyway, this was back many years ago.
+
+And I finally decided that I was living with so much shame, and so much fear, that I just couldn't live that way anymore and I decided to come out and make it creative. And my character would come out at the same time, and it wasn't to make a political statement, it wasn't to do anything other than to free myself up from this heaviness that I was carrying around, and I just wanted to be honest. And I thought, "What's the worst that could happen? I can lose my career." I did. I lost my career. The show was cancelled after six years without even telling me; I read it in the paper. The phone didn't ring for three years. I had no offers. Nobody wanted to touch me at all.
+
+Yet, I was getting letters from kids that almost committed suicide, but didn't because of what I did. And I realized that I had a purpose. And it wasn't just about me and it wasn't about celebrity, but I felt like I was being punished and it was a bad time, I was angry, I was sad, and then I was offered a talk show. And the people that offered me the talk show tried to sell it. And most stations didn't want to pick it up. Most people didn't want to buy it because they thought nobody would watch me.
+
+Really when I look back on it, I wouldn't change a thing. I mean, it was so important for me to lose everything because I found out what the most important thing is, is to be true to yourself. Ultimately, that's what's gotten me to this place. I don't live in fear, I'm free; I have no secrets and I know I'll always be OK, because no matter what, I know who I am.
+
+So in conclusion, when I was younger I thought success was something different. I thought when I grow up, I want to be famous. I want to be a star. I want to be in movies. When I grow up I want to see the world, drive nice cars, I want to have groupies. To quote the Pussycat Dolls. How many people thought it was "boobies", by the way? It's not, it's "groupies".
+
+But my idea of success is different today. And as you grow, you'll realize the definition of success changes. For many of you, today, success is being able to hold down 20 shots of tequila. For me, the most important thing in your life is to live your life with integrity and not to give into peer pressure to try to be something that you're not, to live your life as an honest and compassionate person, to contribute in some way. So to conclude my conclusion, follow your passion, stay true to yourself. Never follow anyone else's path, unless you're in the woods and you're lost and you see a path and by all means you should follow that.
+
+Don't give advice, it will come back and bite you in the ass. Don't take anyone's advice. So my advice to you is to be true to yourself and everything will be fine. And I know that a lot of you are concerned about your future, but there's no need to worry. The economy is booming, the job market is wide open, the planet is just fine. It's going be great.
+
+You've already survived a hurricane. What else can happen to you? And as I mentioned before, some of the most devastating things that happen to you will teach you the most. And now you know the right questions to ask in your first job interview. Like, "Is it above sea level?"
+
+So to conclude my conclusion that I've previously concluded, in the common cement speech, I guess what I'm trying to say is life is like one big Mardi Gras. But instead of showing your boobs, show people your brain, and if they like what they see, you'll have more beads than you know what to do with and you'll be drunk, most of the time.
+
+So the Katrina class of 2009, I say congratulations, and if you don't remember a thing I said today, remember this, you're going to be OK, dum de dumdumdum, just dance.`
   },
   {
     id: 15,
@@ -899,7 +1115,67 @@ I wish you all very good lives. Thank-you very much.`
       "Hope is not blind optimism",
       "Yes we can make a difference"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Good morning President Bienen, the Board of Trustees, faculty, parents, family, friends, and the Class of 2006. Congratulations on your graduation, and thank you for allowing me the honor to be a part of it.
+
+A few months ago, I came across an article in your student newspaper by Elaine Meyer. So, Elaine wrote this article entitled, "Challenge us, Senator Obama." I thought this seemed like a fair request, so I kept reading. And I noticed that Elaine set out a few expectations for this speech.
+
+According to the article, I'm supposed to be inspirational, but not contrived. I'm supposed to be hopeful, but not cheesy. I should be political, but not too political.
+
+And what she wrote next is precisely what I'd like to talk you about today. She said, "When people say they don't want to hear about politics in a commencement address, they are in part speaking of not wanting to hear about the outside world and its problems. We students have been insulated enough for the past four years that it shouldn't hurt us to be challenged for thirty minutes, especially on a day that marks our commencement into the 'real' world."
+
+That struck me as an important statement. And it called to mind a passage from scriptures that some of you may know: Corinthians 13:11: "When I was a child, I spoke as a child, I felt as a child, I thought as a child. Now that I have become a man, I have put away childish things."
+
+I bring this up because there's an assumption in rites of passage like this that growing up is just a function of age; that becoming an adult is an inevitable and natural progression. But in fact, I know a whole lot of thirty year olds and forty year olds and fifty year olds who are not yet full-grown.
+
+So even today, as a U.S. Senator, I have to remind myself of certain lessons from my own youth - lessons about growing up and being true to my values and ideals.
+
+The first lesson came during my first year in college. Back then I had a tendency, in my mother's words, to act a bit casual about my future. I rebelled, angry in the way that many young men in general, and young black man in particular, are angry, thinking that responsibility and hard work were old-fashioned conventions that didn't apply to me. I partied a little too much and studied just enough to get by.
+
+And once, after a particularly long night of partying, we had spilled a little too much beer, broke a few too many bottles, and trashed a little too much of the dorm. And the next day, the mess was so bad that when one of the cleaning ladies saw it, she began to tear up. And when a girlfriend of mine heard about this, she said to me, "That woman could've been my grandmother, Barack. She spent her days cleaning up after somebody else's mess."
+
+Which drove home for me the first lesson of growing up: The world doesn't just revolve around you. There's a lot of talk in this country about the federal deficit. But I think we should talk more about our empathy deficit - the ability to put ourselves in someone else's shoes; to see the world through those who are different from us - the child who's hungry, the laid-off steelworker, the immigrant woman cleaning your dorm room.
+
+As you go on in life, cultivating this quality of empathy will become harder, not easier. There's no community service requirement in the real world; no one forcing you to care. You'll be free to live in neighborhoods with people who are exactly like yourself, and send your kids to the same schools, and narrow your concerns to what's going in your own little circle.
+
+Not only that - we live in a culture that discourages empathy. A culture that too often tells us our principle goal in life is to be rich, thin, young, famous, safe, and entertained. A culture where those in power too often encourage these selfish impulses.
+
+I hope you don't listen to this. I hope you choose to broaden, and not contract, your ambit of concern. Not because you have an obligation to those who are less fortunate, although you do have that obligation. Not because you have a debt to all of those who helped you get to where you are, although you do have that debt.
+
+It's because you have an obligation to yourself. Because our individual salvation depends on collective salvation. And because it's only when you hitch your wagon to something larger than yourself that you will realize your true potential - and become full-grown.
+
+The second lesson I learned after college, when I had this crazy idea that I wanted to be a community organizer and work in low-income neighborhoods. My mother and grandparents thought I should go to law school. My friends had applied for jobs on Wall Street. But I went ahead and wrote letters to every organization in the country that I could think of.
+
+Even people who didn't know me were skeptical of my decision. I remember having a conversation with an older man I had met before I arrived in Chicago. I told him about my plans, and he looked at me and said, "Let me tell something. You look like a nice clean-cut young man, and you've got a nice voice. So let me give you a piece of advice - forget this community organizing business. You can't change the world, and people won't appreciate you trying. What you should do is go into television broadcasting. I'm telling you, you've got a future."
+
+But I knew there was something in me that wanted to try for something bigger.
+
+So the second lesson is this: Challenge yourself. Take some risks in your life.
+
+This may be difficult for all of you because one of the great things about graduating from Northwestern is that you can now punch your own ticket. You can take your diploma, walk off this stage, and go chasing after the big house and the large salary and the nice suits and all the other things that our money culture says you should buy.
+
+But I hope you don't. Focusing your life solely on making a buck shows a poverty of ambition. It asks too little of yourself. And it will leave you unfulfilled.
+
+So don't let people talk you into doing the safe thing. Listen to what's inside of you and decide what it is that you care about so much that you're willing to risk it all.
+
+The third lesson is one that I learned once I got to Chicago. I had spent weeks organizing our very first community meeting around the issue of gang violence. The night of the meeting we arranged rows and rows of chairs in anticipation of the crowd. And we waited. And we waited. And finally, a group of older people walk in to the hall. And they sit down. And this little old lady raises her hand and asks, "Is this where the bingo game is?"
+
+Thirteen people showed up that night. The police never came. And the meeting was a complete disaster. Later, the volunteers I worked with told me they were quitting - that they had been doing this for two years and had nothing to show for it.
+
+I was tired too. But at that point, I looked outside and saw some young boys playing in a vacant lot across the street, tossing stones at boarded-up apartment building. And I turned to the volunteers, and I asked them, "Before you quit, I want you to answer one question. What's gonna happen to those boys? Who will fight for them if not us? Who will give them a fair shot if we leave?" And at that moment, we were all reminded of a third lesson in growing up: Persevere.
+
+Making your mark on the world is hard. If it were easy, everybody would do it. But it's not. It takes patience, it takes commitment, and it comes with plenty of failure along the way. The real test is not whether you avoid this failure, because you won't. it's whether you let it harden or shame you into inaction, or whether you learn from it; whether you choose to persevere.
+
+Cultivating empathy, challenging yourself, persevering in the face of adversity - these are the qualities that I've found to be important in my own life. But what's true for individuals can also be true for nations.
+
+For what America needs right now, more than ever, is a sense of purpose to guide us through the challenges that lie ahead; a maturity that we seem to have lost somewhere along the way; a willingness to engage in a sober, adult conversation about our future.
+
+Each and every one of these challenges call for an America that is more purposeful, more grown-up than the America that we have today. An America that reflects the lessons that have helped so many of its people mature in their own lives. An America that's about not just each of us, but all of us. An America that takes great risks in the face of greater odds. An America that, above all, perseveres.
+
+And now it is 2006. And here you sit facing challenges as great as any in the past. And the choice is yours. Will the years pass with barely a whisper from your generation? Or will we look back on this time as the moment where you took a stand and changed the world?
+
+Time will tell. You will be tested by the challenges of this new century, and at times you will fail. But know that you have it within your power to try. That generations who have come before you faced these same fears and uncertainties in their own time. And that if we're willing to shoulder each other's burdens, to take great risks, and to persevere through trial, America will continue on its magnificent journey towards that distant horizon, and a better day.
+
+Thank you so much to the class of 2006, congratulations on your graduation.`
   },
   {
     id: 17,
