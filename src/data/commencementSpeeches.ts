@@ -879,7 +879,111 @@ Thank you very much and congratulations class of 2017!`
       "Small efforts can change many lives",
       "Optimism is a huge asset in solving problems"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `President Bok, former President Rudenstine, incoming President Faust, members of the Harvard Corporation and the Board of Overseers, members of the faculty, parents, and especially, the graduates:
+
+I've been waiting more than 30 years to say this: "Dad, I always told you I'd come back and get my degree."
+
+I want to thank Harvard for this timely honor. I'll be changing my job next year … and it will be nice to finally have a college degree on my resume.
+
+I applaud the graduates today for taking a much more direct route to your degrees. For my part, I'm just happy that the Crimson has called me "Harvard's most successful dropout." I guess that makes me valedictorian of my own special class … I did the best of everyone who failed.
+
+Harvard was just a phenomenal experience for me. Academic life was fascinating. I used to sit in on lots of classes I hadn't even signed up for. And dorm life was terrific. I lived up at Radcliffe, in Currier House. There were always lots of people in my dorm room late at night discussing things, because everyone knew I didn't worry about getting up in the morning.
+
+One of my biggest memories of Harvard came in January 1975, when I made a call from Currier House to a company in Albuquerque that had begun making the world's first personal computers. I offered to sell them software.
+
+I worried that they would realize I was just a student in a dorm and hang up on me. Instead they said: "We're not quite ready, come see us in a month," which was a good thing, because we hadn't written the software yet. From that moment, I worked day and night on this little extra credit project that marked the end of my college education and the beginning of a remarkable journey with Microsoft.
+
+What I remember above all about Harvard was being in the midst of so much energy and intelligence. It could be exhilarating, intimidating, sometimes even discouraging, but always challenging. It was an amazing privilege – and though I left early, I was transformed by my years at Harvard, the friendships I made, and the ideas I worked on.
+
+But taking a serious look back … I do have one big regret.
+
+I left Harvard with no real awareness of the awful inequities in the world – the appalling disparities of health, and wealth, and opportunity that condemn millions of people to lives of despair.
+
+I learned a lot here at Harvard about new ideas in economics and politics. I got great exposure to the advances being made in the sciences.
+
+But humanity's greatest advances are not in its discoveries – but in how those discoveries are applied to reduce inequity. Whether through democracy, strong public education, quality health care, or broad economic opportunity – reducing inequity is the highest human achievement.
+
+I left campus knowing little about the millions of young people cheated out of educational opportunities here in this country. And I knew nothing about the millions of people living in unspeakable poverty and disease in developing countries.
+
+It took me decades to find out.
+
+You graduates came to Harvard at a different time. You know more about the world's inequities than the classes that came before. In your years here, I hope you've had a chance to think about how – in this age of accelerating technology – we can finally take on these inequities, and we can solve them.
+
+For Melinda and for me, the challenge is the same: how can we do the most good for the greatest number with the resources we have.
+
+During our discussions on this question, Melinda and I read an article about the millions of children who were dying every year in poor countries from diseases that we had long ago made harmless in this country. Measles, malaria, pneumonia, hepatitis B, yellow fever. One disease I had never even heard of, rotavirus, was killing half a million kids each year – none of them in the United States.
+
+We were shocked. We had just assumed that if millions of children were dying and they could be saved, the world would make it a priority to discover and deliver the medicines to save them. But it did not. For under a dollar, there were interventions that could save lives that just weren't being delivered.
+
+If you believe that every life has equal value, it's revolting to learn that some lives are seen as worth saving and others are not. We said to ourselves: "This can't be true. But if it is true, it deserves to be the priority of our giving."
+
+So we began our work in the same way anyone here would begin it. We asked: "How could the world let these children die?"
+
+The answer is simple, and harsh. The market did not reward saving the lives of these children, and governments did not subsidize it. So the children died because their mothers and their fathers had no power in the market and no voice in the system.
+
+But you and I have both.
+
+We can make market forces work better for the poor if we can develop a more creative capitalism – if we can stretch the reach of market forces so that more people can make a profit, or at least make a living, serving people who are suffering from the worst inequities. We also can press governments around the world to spend taxpayer money in ways that better reflect the values of the people who pay the taxes.
+
+If we can find approaches that meet the needs of the poor in ways that generate profits for business and votes for politicians, we will have found a sustainable way to reduce inequity in the world. This task is open-ended. It can never be finished. But a conscious effort to answer this challenge will change the world.
+
+I am optimistic that we can do this, but I talk to skeptics who claim there is no hope. They say: "Inequity has been with us since the beginning, and will be with us till the end – because people just … don't … care." I completely disagree.
+
+I believe we have more caring than we know what to do with.
+
+All of us here in this Yard, at one time or another, have seen human tragedies that broke our hearts, and yet we did nothing – not because we didn't care, but because we didn't know what to do. If we had known how to help, we would have acted.
+
+The barrier to change is not too little caring; it is too much complexity.
+
+To turn caring into action, we need to see a problem, see a solution, and see the impact. But complexity blocks all three steps.
+
+If we can really see a problem, which is the first step, we come to the second step: cutting through the complexity to find a solution.
+
+Finding solutions is essential if we want to make the most of our caring. If we have clear and proven answers anytime an organization or individual asks "How can I help?," then we can get action – and we can make sure that none of the caring in the world is wasted.
+
+Cutting through complexity to find a solution runs through four predictable stages: determine a goal, find the highest-leverage approach, discover the ideal technology for that approach, and in the meantime, make the smartest application of the technology that you already have — whether it's something sophisticated, like a drug, or something simpler, like a bednet.
+
+The final step – after seeing the problem and finding an approach – is to measure the impact of your work and share your successes and failures so that others learn from your efforts.
+
+You have to have the statistics, of course. You have to be able to show that a program is vaccinating millions more children. You have to be able to show a decline in the number of children dying from these diseases. This is essential not just to improve the program, but also to help draw more investment from business and government.
+
+But if you want to inspire people to participate, you have to show more than numbers; you have to convey the human impact of the work – so people can feel what saving a life means to the families affected.
+
+Still, I'm optimistic. Yes, inequity has been with us forever, but the new tools we have to cut through complexity have not been with us forever. They are new – they can help us make the most of our caring – and that's why the future can be different from the past.
+
+The defining and ongoing innovations of this age – biotechnology, the computer, the Internet – give us a chance we've never had before to end extreme poverty and end death from preventable disease.
+
+Members of the Harvard Family: Here in the Yard is one of the great collections of intellectual talent in the world.
+
+What for?
+
+There is no question that the faculty, the alumni, the students, and the benefactors of Harvard have used their power to improve the lives of people here and around the world. But can we do more? Can Harvard dedicate its intellect to improving the lives of people who will never even hear its name?
+
+Let me make a request of the deans and the professors – the intellectual leaders here at Harvard: As you hire new faculty, award tenure, review curriculum, and determine degree requirements, please ask yourselves:
+
+Should our best minds be dedicated to solving our biggest problems?
+
+Should Harvard encourage its faculty to take on the world's worst inequities? Should Harvard students learn about the depth of global poverty … the prevalence of world hunger … the scarcity of clean water …the girls kept out of school … the children who die from diseases we can cure?
+
+Should the world's most privileged people learn about the lives of the world's least privileged?
+
+These are not rhetorical questions – you will answer with your policies.
+
+My mother, who was filled with pride the day I was admitted here – never stopped pressing me to do more for others. A few days before my wedding, she hosted a bridal event, at which she read aloud a letter about marriage that she had written to Melinda. My mother was very ill with cancer at the time, but she saw one more opportunity to deliver her message, and at the close of the letter she said: "From those to whom much is given, much is expected."
+
+When you consider what those of us here in this Yard have been given – in talent, privilege, and opportunity – there is almost no limit to what the world has a right to expect from us.
+
+In line with the promise of this age, I want to exhort each of the graduates here to take on an issue – a complex problem, a deep inequity, and become a specialist on it. If you make it the focus of your career, that would be phenomenal. But you don't have to do that to make an impact. For a few hours every week, you can use the growing power of the Internet to get informed, find others with the same interests, see the barriers, and find ways to cut through them.
+
+Don't let complexity stop you. Be activists. Take on the big inequities. It will be one of the great experiences of your lives.
+
+You graduates are coming of age in an amazing time. As you leave Harvard, you have technology that members of my class never had. You have awareness of global inequity, which we did not have. And with that awareness, you likely also have an informed conscience that will torment you if you abandon these people whose lives you could change with very little effort. You have more than we had; you must start sooner, and carry on longer.
+
+Knowing what you know, how could you not?
+
+And I hope you will come back here to Harvard 30 years from now and reflect on what you have done with your talent and your energy. I hope you will judge yourselves not on your professional accomplishments alone, but also on how well you have addressed the world's deepest inequities … on how well you treated people a world away who have nothing in common with you but their humanity.
+
+Good luck.`
   },
   {
     id: 12,
@@ -1099,7 +1203,61 @@ So the Katrina class of 2009, I say congratulations, and if you don't remember a
       "Disappointment can lead to unexpected opportunities",
       "Don't be afraid to fail spectacularly"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Before I begin, I must point out that behind me sits a highly admired President of the United States and decorated war hero while I, a cable television talk show host, has been chosen to stand here and impart wisdom. I pray I never witness a more damning example of what is wrong with America today.
+
+Graduates, faculty, parents, relatives, undergraduates, and old people that just come to these things - Good morning and congratulations to the Dartmouth Class of 2011. Today, you have achieved something special - something only 92 percent of Americans your age will ever know: a college diploma. That's right, with your college diploma you now have a crushing advantage over 8 percent of the workforce. I'm talking about dropout losers like Bill Gates, Steve Jobs, and Mark Zuckerberg.
+
+My first job as your commencement speaker is to illustrate that life is not fair. For example, you have worked tirelessly for four years to earn the diploma you'll be receiving this weekend, and Dartmouth is giving me the same degree for interviewing the fourth lead in Twilight. Deal with it.
+
+I would like to thank President Kim for inviting me here today. But this is a wonderful occasion and it is great to be here in New Hampshire, where I am getting an honorary degree and all the legal fireworks I can fit in the trunk of my car.
+
+To communicate with you students today, I have gone to great lengths to become well-versed in your unique linguistic patterns. Your school motto is "Vox Clamantis in Deserto," which means "Voice Crying Out in the Wilderness." This is easily the most pathetic school motto I have ever heard. Apparently, it narrowly beat out "Silently Weeping in Thick Shrub" and "Whimpering in Moist Leaves without Pants."
+
+Your school color is green, and this color was chosen by Frederick Mather in 1867 because, and this is true, "it was the only color that had not been taken already." I cannot remember hearing anything so sad. Dartmouth, you have an inferiority complex, and you should not.
+
+No, Dartmouth, you must stand tall. Raise your heads high and feel proud.
+
+Because if Harvard, Yale, and Princeton are your self-involved, vain, name-dropping older brothers, you are the cool, sexually confident, Lacrosse playing younger sibling who knows how to throw a party and looks good in a down vest. Brown, of course, is your lesbian sister who never leaves her room. And Penn, Columbia, and Cornell... well, frankly, who gives a shit.
+
+Yes, I've always had a special bond with this school. But fate dealt a heavy blow. With no money, I was forced to enroll in a small, local commuter school, a pulsating sore on a muddy elbow of the Charles River. I was a miserable wretch, and to this day I cannot help but wonder: What if I had gone to Dartmouth?
+
+You are a great school, and you deserve a historic commencement address. That's right, I want my message today to be forever remembered because it changed the world. To do this, I must suggest groundbreaking policy. I call it The Conan Doctrine.
+
+Besides policy, another hallmark of great commencement speeches is deep, profound advice like "reach for the stars." Well today, I am not going to waste your time with empty clichés. Instead, I am going to give you real, practical advice that you will need to know if you are going to survive the next few years.
+
+First, adult acne lasts longer than you think. Guys: this is important -- you cannot iron a shirt while wearing it. If you live on Ramen Noodles for too long, you lose all feeling in your hands. And finally, wearing colorful Converse high-tops beneath your graduation robe is a great way to tell your classmates that this is just the first of many horrible decisions you plan to make with your life.
+
+Yes, you parents must be patient because it is indeed a grim job market out there. And one of the reasons that it's so tough finding work is that aging baby boomers refuse to leave their jobs. Trust me on this. Even when they promise you for five years that they are going to leave... and say it on television... there is no guarantee they won't come back.
+
+But enough. This is not a time for grim prognostications or negativity. No, I came here today because, believe it or not, I actually do have something real to tell you.
+
+Eleven years ago I gave an address to a graduating class at Harvard. I have not spoken at a graduation since because I thought I had nothing left to say. But then 2010 came. And now I'm here, three thousand miles from my home, because I learned a hard but profound lesson last year and I'd like to share it with you.
+
+In 2000, I told graduates "Don't be afraid to fail." Well now I'm here to tell you that, though you should not fear failure, you should do your very best to avoid it. Nietzsche famously said "Whatever doesn't kill you makes you stronger." But what he failed to stress is that IT ALMOST KILLS YOU. Disappointment stings and, for driven, successful people like yourselves it is disorienting.
+
+By definition, Commencement speakers at an Ivy League college are considered successful. But a little over a year ago, I experienced a profound and very public disappointment. I did not get what I wanted, and I left a system that had nurtured and help define me for the better part of seventeen years.
+
+But then something spectacular happened. Fogbound, with no compass, and adrift, I started trying things. I grew a strange, cinnamon beard. I dove into the world of social media and started tweeting my comedy. I threw together a national tour. I played the guitar, did stand-up, wore a skin-tight blue leather suit, recorded an album, made a documentary, and frightened my friends and family.
+
+Ultimately, I abandoned all preconceived perceptions of my career path and stature and took a job on basic cable with a network most famous for showing re-runs. I did a lot of silly, unconventional, spontaneous and seemingly irrational things and guess what - with the exception of the blue leather suit, it was the most satisfying and fascinating year of my professional life.
+
+How could this be true? It's simple: there are few things more liberating in this life than having your worst fear realized.
+
+Your path at 22 will not necessarily be your path at 32 or 42. One's dream is constantly evolving, rising and falling, changing course. This happens in every job, but because I have worked in comedy for twenty five years, I can speak best about my own profession.
+
+It is our failure to become our perceived ideal that ultimately defines us and makes us unique. It's not easy, but if you accept your misfortune and handle it right, your perceived failure can be a catalyst for profound re-invention.
+
+So, at the age of 47, after 25 years of obsessively pursuing my dream, that dream changed. For decades, in show business, the ultimate goal of every comedian was to host The Tonight Show. It was the Holy Grail, and like many people I thought that achieving that goal would define me as successful. But that is not true. No specific job or career goal defines me and it should not define you.
+
+In 2000, I told graduates to not be afraid to fail, and I still believe that. But today I tell you that whether you fear it or not, disappointment will come. The beauty is that through disappointment you can gain clarity, and with clarity comes conviction and true originality.
+
+Many of you here today are getting your diploma at this Ivy League school because you have committed yourself to a dream and worked hard to achieve it. And there is no greater cliché in a commencement address than "follow your dream." Well I am here to tell you that whatever you think your dream is now, it will probably change. And that's okay.
+
+Four years ago, many of you had a specific vision of what your college experience was going to be and who you were going to become. And I bet, today, most of you would admit that your time here was very different from what you imagined. But through the good and especially the bad, the person you are now is someone you could never have conjured in the fall of 2007.
+
+I have told you many things today, most of it foolish but some of it true. I'd like to end my address by breaking a taboo and quoting myself from 17 months ago. At the end of my final program with NBC, just before signing off, I said "Work hard, be kind, and amazing things will happen." Today, receiving this honor and speaking to the Dartmouth Class of 2011 from behind a tree-trunk, I have never believed that more.
+
+Thank you very much, and congratulations.`
   },
   {
     id: 16,
@@ -1191,7 +1349,81 @@ Thank you so much to the class of 2006, congratulations on your graduation.`
       "Representation matters - be the change you want to see",
       "Your voice and perspective are needed"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Good morning to the Class of 2018, the faculty, the parents, the grandparents, fellow honorees, and the paid laughers I have scattered throughout the audience.
+
+It is an honor to join you this morning for this special occasion. It is also an honor to speak to you today from behind this gigantic tree stump. Like some sort of female Lorax with an advanced degree.
+
+Before I get any further, I should actually probably clarify who I am for the parents and grandparents in the audience who are thinking to themselves, "Who is this loud Indian woman? Is that the girl from Quantico? She looks so much worse in person."
+
+No, no, I'm not Priyanka Chopra, not even Padma Lakshmi. I'm the other Indian woman we have allowed to be on television, Mindy Kaling.
+
+You may remember me from my role on The Office as Kelly Kapoor, who internet commenters said was "shrill" and "took up valuable time that could have gone to Steve Carell."
+
+I then created and starred in my own TV show, The Mindy Project. It was an uphill battle to get the show on the air, but it was worth it, because it enabled me to become Dartmouth's most successful female minority show creator who has spoken at commencement!
+
+Oh wait, no. Shonda Rhimes went here. Yup, and she's created like 10 more shows than me, so great.
+
+But today is not about famous alumni. It's about the men and women who have toiled in obscurity for years so that they might better our country. I speak, of course, of the 51 percent of Dartmouth grads who will go into finance—highest in the Ivy League!
+
+I know that going into the real world sounds scary, but it's exciting too. Finally, you'll be in control of your own lives. No longer will there be an irrational Board of Trustees telling you you can't have hard liquor on campus, for the ridiculous reason that they don't want you to die.
+
+It's a real moment of reflection for me to be standing here speaking to all of you now, because it makes me harken back to my own time at my Dartmouth graduation. Madeleine Albright was my commencement speaker; and while I don't remember any specific quotes she said, or even a general gist of what she was talking about, I do remember thinking: "I wonder what it will be like to have my own cell phone?"
+
+I bet none of you remember a time before the internet. Meanwhile, when I was in college we didn't even have Google. If you wanted to find out, say, how tall Ben Affleck was, you were out of luck. You just had to sit there, not knowing, and your entire day would be ruined.
+
+Now we're reaching the part of the speech where I am supposed to tell you something uplifting like "follow your dreams."
+
+In general, advice isn't actually an effective way to change your life. If all it took to make your life great was hearing amazing advice, then everyone who watched TED Talks would be a millionaire.
+
+So don't trust any one story of how to become successful. So here is some practical advice that you may or may not remember at the end of this speech:
+
+First off, remove "Proficient at Word" from your resume. That is ridiculous. You're really scraping the bottom of the barrel of competency there.
+
+Most of your post-college life is simply filling out forms. Car insurance, health insurance, W-2s. W-4s, 1099s. Guess what? None of us know what any of those forms mean, but you will fill out a hundred of them before you die.
+
+You never need more than one pancake. Trust me on this. Cartoons have trained us to want a giant stack of those bad boys, but order one first and then just see how you feel later.
+
+This one is just for guys: When you go on dates, act as if every woman you're talking to is a reporter for an online publication that you are scared of. Date like everyone's watching, because we are.
+
+And this might be the most important—buy a toilet plunger. Trust me on this. Don't wait until you need a plunger to buy a plunger.
+
+Okay, now let's get real. Next year, the next year of your life is going to be bad. You have been in the comfortable fleece-lined womb of mother Dartmouth for four years now, and you're gonna go out in the cold, hard world.
+
+You're graduating into a world where it seems like everything is falling apart. Trust in institutions are at a record low; the truth doesn't seem to matter anymore.
+
+So, Class of 2018, you are entering a world that we have toppled like a Jenga tower, and we are relying on you to rebuild it.
+
+But how can you do that with the knowledge that things are so unstable out there? I'll tell you my secret, the one thing that has kept me going through the years, my superpower: delusion.
+
+My point is, you have to have insane confidence in yourself, even if it's not real. You need to be your own cheerleader now, because there isn't a room full of people waiting with pom-poms to tell you, "You did it! We've been waiting all this time for you to succeed!"
+
+So, I'm giving you permission to root for yourself. And while you're at it, root for those around you, too. It took me a long time to realize that success isn't a zero-sum game.
+
+I thought I might take a second to speak to the ladies in the audience. Hey girls, we need to do a better job of supporting each other. I know that I am guilty of it too. We live in a world where it seems like there's only room for one of us at the table. So when another woman shows up, we think, "Oh my god, she's going to take the one woman spot! That was supposed to be mine!"
+
+But that's just what certain people want us to do! Wouldn't it be better if we worked together to dismantle a system that makes us feel like there's limited room for us? Because when women work together, we can accomplish anything.
+
+Now I wanted to share a little bit about me, Mindy Kaling, the Dartmouth student. When I came to Hanover in the fall of 1997, I was, as many of you were: driven, bright, ambitious.
+
+I arrived here as a 17-year-old, took the lay of the land, and immediately began making a checklist of everything I wanted to accomplish. And I completed that checklist.
+
+Then, I graduated. And I made a new checklist for my twenties: get married by 27, have kids at 30, win an Oscar, be the star of my own TV show, and do it all while being a size 2.
+
+Well, spoiler alert: I've only done one of those things, and I'm not sure I will ever do the others. And that is a really scary feeling. Knowing how far that I've strayed from the person that I was hoping to be when I was 21.
+
+I will tell you a personal story. After my daughter was born in December, I remember bringing her home and being in my house with her for the first time and thinking, "According to movies and TV, this is traditionally the time when my mother and spouse are supposed to be here, sharing this experience with me." And I looked around, and I had neither. And for a moment, it was kind of scary. Like, "Can I do this by myself?"
+
+But then, that feeling went away, because the reality is, I'm not doing it by myself. I'm surrounded by family and friends who love and support me. And the joy I feel from being with my daughter Katherine eclipses anything from any crazy checklist.
+
+So I just want to tell you guys, don't be scared if you don't do things in the right order, or if you don't do some things at all. I didn't think I'd have a child before I got married, but hey, it turned out that way, and I wouldn't change a thing.
+
+So if I could impart any advice, it's this: If you have a checklist, good for you. Structured ambition can sometimes be motivating. But also, feel free to let it go.
+
+I was not someone who should have the life I have now, and yet I do. I was sitting in the chair you are literally sitting in right now and I just whispered, "Why not me?" And I kept whispering it for seventeen years; and here I am, someone that this school deemed worthy enough to speak to you at your Commencement.
+
+Don't let anyone tell you that you can't do something, but especially not yourself. Go conquer the world. Just remember this: Why not you? You made it this far.
+
+Thank you very much, and congratulations to the Class of 2018.`
   },
   {
     id: 18,
@@ -1207,7 +1439,93 @@ Thank you so much to the class of 2006, congratulations on your graduation.`
       "Make mistakes and learn from them",
       "Do the work you love, not just what pays"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `I never really expected to find myself giving advice to people graduating from an establishment of higher education. I never graduated from any such establishment. I never even started at one. I escaped from school as soon as I could, when the prospect of four more years of enforced learning before I'd become the writer I wanted to be was stifling.
+
+I got out into the world, I wrote, and I became a better writer the more I wrote, and I wrote some more, and nobody ever seemed to mind that I was making it up as I went along, they just read what I wrote and they paid for it, or they didn't, and often they commissioned me to write something else for them.
+
+Looking back, I've had a remarkable ride. I'm not sure I can call it a career, because a career implies that I had some kind of career plan, and I never did. The nearest thing I had was a list I made when I was 15 of everything I wanted to do: to write an adult novel, a children's book, a comic, a movie, record an audiobook, write an episode of Doctor Who… and so on. I didn't have a career. I just did the next thing on the list.
+
+So I thought I'd tell you everything I wish I'd known starting out, and a few things that, looking back on it, I suppose that I did know. And that I would also give you the best piece of advice I'd ever got, which I completely failed to follow.
+
+First of all: When you start out on a career in the arts you have no idea what you are doing.
+
+This is great. People who know what they are doing know the rules, and know what is possible and impossible. You do not. And you should not. The rules on what is possible and impossible in the arts were made by people who had not tested the bounds of the possible by going beyond them. And you can.
+
+If you don't know it's impossible it's easier to do. And because nobody's done it before, they haven't made up rules to stop anyone doing that again, yet.
+
+Secondly, If you have an idea of what you want to make, what you were put here to do, then just go and do that.
+
+And that's much harder than it sounds and, sometimes in the end, so much easier than you might imagine. Because normally, there are things you have to do before you can get to the place you want to be. I wanted to write comics and novels and stories and films, so I became a journalist, because journalists are allowed to ask questions, and to simply go and find out how the world works, and besides, to do those things I needed to write and to write well, and I was being paid to learn how to write economically, crisply, sometimes under adverse conditions, and on time.
+
+Something that worked for me was imagining that where I wanted to be – an author, primarily of fiction, making good books, making good comics and supporting myself through my words – was a mountain. A distant mountain. My goal.
+
+And I knew that as long as I kept walking towards the mountain I would be all right. And when I truly was not sure what to do, I could stop, and think about whether it was taking me towards or away from the mountain.
+
+Thirdly, When you start off, you have to deal with the problems of failure. You need to be thickskinned, to learn that not every project will survive. A freelance life, a life in the arts, is sometimes like putting messages in bottles, on a desert island, and hoping that someone will find one of your bottles and open it and read it, and put something in a bottle that will wash its way back to you: appreciation, or a commission, or money, or love. And you have to accept that you may put out a hundred things for every bottle that winds up coming back.
+
+The problems of failure are problems of discouragement, of hopelessness, of hunger. You want everything to happen and you want it now, and things go wrong.
+
+And I shrugged, and I still had my electric typewriter and enough money to pay the rent for a couple of months, and I decided that I would do my best in future not to write books just for the money. If you didn't get the money, then you didn't have anything. If I did work I was proud of, and I didn't get the money, at least I'd have the work.
+
+Every now and again, I forget that rule, and whenever I do, the universe kicks me hard and reminds me. I don't know that it's an issue for anybody but me, but it's true that nothing I did where the only reason for doing it was the money was ever worth it, except as bitter experience. Usually I didn't wind up getting the money, either. The things I did because I was excited, and wanted to see them exist in reality have never let me down, and I've never regretted the time I spent on any of them.
+
+The problems of failure are hard.
+
+The problems of success can be harder, because nobody warns you about them.
+
+The first problem of any kind of even limited success is the unshakable conviction that you are getting away with something, and that any moment now they will discover you. It's Imposter Syndrome, something my wife Amanda christened the Fraud Police.
+
+Fourthly, I hope you'll make mistakes. If you're making mistakes, it means you're out there doing something. And the mistakes in themselves can be useful. I once misspelled Caroline, in a letter, transposing the A and the O, and I thought, "Coraline looks like a real name…"
+
+And remember that whatever discipline you are in, whether you are a musician or a photographer, a fine artist or a cartoonist, a writer, a dancer, a designer, whatever you do you have one thing that's unique. You have the ability to make art.
+
+And for me, and for so many of the people I have known, that's been a lifesaver. The ultimate lifesaver. It gets you through good times and it gets you through the other ones.
+
+Life is sometimes hard. Things go wrong, in life and in love and in business and in friendship and in health and in all the other ways that life can go wrong. And when things get tough, this is what you should do.
+
+Make good art.
+
+I'm serious. Husband runs off with a politician? Make good art. Leg crushed and then eaten by mutated boa constrictor? Make good art. IRS on your trail? Make good art. Cat exploded? Make good art. Somebody on the Internet thinks what you do is stupid or evil or it's all been done before? Make good art. Probably things will work out somehow, and eventually time will take the sting away, but that doesn't matter. Do what only you do best. Make good art.
+
+Make it on the good days too.
+
+And Fifthly, while you are at it, make your art. Do the stuff that only you can do.
+
+The urge, starting out, is to copy. And that's not a bad thing. Most of us only find our own voices after we've sounded like a lot of other people. But the one thing that you have that nobody else has is you. Your voice, your mind, your story, your vision. So write and draw and build and play and dance and live as only you can.
+
+The moment that you feel that, just possibly, you're walking down the street naked, exposing too much of your heart and your mind and what exists on the inside, showing too much of yourself. That's the moment you may be starting to get it right.
+
+The things I've done that worked the best were the things I was the least certain about, the stories where I was sure they would either work, or more likely be the kinds of embarrassing failures people would gather together and talk about until the end of time. They always had that in common: looking back at them, people explain why they were inevitable successes. While I was doing them, I had no idea.
+
+I still don't. And where would be the fun in making something you knew was going to work?
+
+Sixthly. I will pass on some secret freelancer knowledge. Secret knowledge is always good. And it is useful for anyone who ever plans to create art for other people, to enter a freelance world of any kind.
+
+People get hired because, somehow, they get hired. People keep working, in a freelance world, and more and more of today's world is freelance, because their work is good, and because they are easy to get along with, and because they deliver the work on time. And you don't even need all three. Two out of three is fine. People will tolerate how unpleasant you are if your work is good and you deliver it on time. They'll forgive the lateness of the work if it's good, and if they like you. And you don't have to be as good as the others if you're on time and it's always a pleasure to hear from you.
+
+When I agreed to give this address, I started trying to think what the best advice I'd been given over the years was.
+
+And it came from Stephen King twenty years ago, at the height of the success of Sandman. I was writing a comic that people loved and were taking seriously. King had liked Sandman and my novel with Terry Pratchett, Good Omens, and he saw the madness, the long signing lines, all that, and his advice was this:
+
+"This is really great. You should enjoy it."
+
+And I didn't. Best advice I got that I ignored. Instead I worried about it. I worried about the next deadline, the next idea, the next story. There wasn't a moment for the next fourteen or fifteen years that I wasn't writing something in my head, or wondering about it. And I didn't stop and look around and go, this is really fun. I wish I'd enjoyed it more.
+
+That was the hardest lesson for me, I think: to let go and enjoy the ride, because the ride takes you to some remarkable and unexpected places.
+
+To all today's graduates: I wish you luck. Luck is useful. Often you will discover that the harder you work, and the more wisely you work, the luckier you get. But there is luck, and it helps.
+
+We're in a transitional world right now, if you're in any kind of artistic field, because the nature of distribution is changing, the models by which creators got their work out into the world, and got to keep a roof over their heads and buy sandwiches while they did that, are all changing.
+
+Which is, on the one hand, intimidating, and on the other, immensely liberating. The rules, the assumptions, the now-we're supposed to's of how you get your work seen, and what you do then, are breaking down. The gatekeepers are leaving their gates. You can be as creative as you need to be to get your work seen.
+
+So make up your own rules.
+
+Someone asked me recently how to do something she thought was going to be difficult, in this case recording an audio book, and I suggested she pretend that she was someone who could do it. Not pretend to do it, but pretend she was someone who could.
+
+So be wise, because the world needs more wisdom, and if you cannot be wise, pretend to be someone who is wise, and then just behave like they would.
+
+And now go, and make interesting mistakes, make amazing mistakes, make glorious and fantastic mistakes. Break rules. Leave the world more interesting for your being here. Make good art.`
   },
   {
     id: 19,
