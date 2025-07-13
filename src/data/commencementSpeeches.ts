@@ -2236,5 +2236,527 @@ And the sun, is a limitless source of energy. Oil under the ground, not so much.
 My final point. We live in a world where not everyone has the urge to help others. Ok? Wanna do it all yourself for yourself, and require that other people help themselves, and I'm reminded of a saying that went around for awhile they say "We need people to lift themselves up by their bootstraps". And then I think about that, and that works you know, sometimes, but we're reminded that it is ok to encourage others to pull themselves up by the bootstraps. But if you do just remember that some people have no boots.
 
 Thank you.`
+  },
+  {
+    id: 29,
+    speaker: "Aliko Dangote",
+    title: "Building Africa's Future",
+    university: "University of Lagos",
+    year: 2019,
+    excerpt: "Africa has everything it needs to succeed. We have the resources, the people, and the potential. What we need is the vision, the patience, and the discipline to build sustainable businesses that will transform our continent.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Africa has unlimited potential",
+      "Build sustainable businesses for transformation",
+      "Patience and discipline are key to success",
+      "Invest in Africa's future generations"
+    ],
+    fullText: `Vice-Chancellor, distinguished faculty, proud families, and the graduating class of 2019 – congratulations on this remarkable achievement.
+
+It is a great honor to address you today at the University of Lagos, one of Nigeria's most prestigious institutions. As I look out at all of you, I see the future of Africa. I see young minds that will shape our continent's destiny and build the Africa we all dream of.
+
+Today, I want to talk to you about something I am deeply passionate about: building Africa's future. Africa has everything it needs to succeed. We have the resources, the people, and the potential. What we need is the vision, the patience, and the discipline to build sustainable businesses that will transform our continent.
+
+When I started my business journey over four decades ago, many people told me that Africa was not ready for big business. They said our markets were too small, our infrastructure too weak, our people too poor. But I believed then, as I believe now, that Africa is the land of opportunity.
+
+I started with a small trading business, importing sugar, rice, and cement. People laughed at my ambitions when I said I wanted to build the largest industrial conglomerate in Africa. They said it was impossible, that an African company could never compete with multinational corporations.
+
+But I had a vision. I saw an Africa where we would not just be consumers of products made elsewhere, but producers of goods that would feed our people, build our cities, and power our economies. I saw an Africa where our young people would have opportunities to build careers, start businesses, and create wealth right here on our continent.
+
+That vision drove me through many challenges. There were times when I almost gave up, when the obstacles seemed insurmountable, when the critics seemed to be right. But I learned that success in Africa requires three things: vision, patience, and discipline.
+
+Vision is about seeing possibilities where others see problems. When I looked at Africa's growing population, I didn't see a burden – I saw a market. When I looked at our lack of local production, I didn't see a weakness – I saw an opportunity. When I looked at our young people, I didn't see unemployment – I saw untapped potential.
+
+But vision alone is not enough. You need patience. Building sustainable businesses in Africa takes time. You cannot expect overnight success. You must be willing to invest for the long term, to build slowly and steadily, to weather the storms and keep moving forward.
+
+I spent decades building my business, reinvesting profits, expanding gradually, learning from mistakes. Many times, I could have taken shortcuts, made quick profits, and moved my money elsewhere. But I believed in Africa's potential, and I was patient enough to wait for that potential to be realized.
+
+And you need discipline. Discipline to focus on what matters most. Discipline to resist the temptation of easy money. Discipline to build quality products and services. Discipline to treat your employees, customers, and communities with respect.
+
+In business, there are always opportunities to cut corners, to compromise on quality, to prioritize short-term profits over long-term sustainability. But if you want to build something lasting, something that will contribute to Africa's development, you must have the discipline to do things the right way.
+
+Today, the Dangote Group employs over 30,000 people across Africa. We produce cement that builds homes, schools, and hospitals. We refine oil that powers our economies. We produce fertilizer that feeds our people. We are building a petrochemical complex that will make Nigeria self-sufficient in many products we currently import.
+
+But this is not just about one company or one man's success. This is about what is possible when we believe in Africa, when we invest in Africa, when we build for Africa.
+
+As you leave this university and enter the next phase of your lives, I want to challenge you to think about how you can contribute to building Africa's future. You don't all need to become entrepreneurs, but you all need to become builders – builders of institutions, builders of communities, builders of a better Africa.
+
+If you choose the path of entrepreneurship, remember that business is not just about making money. Business is about solving problems, creating value, providing jobs, and contributing to society. Look for problems that need solving in your communities, in your countries, in your continent. Those problems are your opportunities.
+
+Don't be afraid to start small. Every big business started with a small idea, a small investment, a small step. What matters is that you start, that you learn, that you persist, and that you grow.
+
+Don't be discouraged by those who say Africa is not ready, that our markets are too difficult, that success is impossible. I have heard these arguments for forty years, and I have proven them wrong. You can prove them wrong too.
+
+Invest in yourself. Invest in your education, your skills, your network. The world is changing rapidly, and you need to change with it. Technology is creating new opportunities every day. Artificial intelligence, renewable energy, digital finance, e-commerce – these are the industries that will shape Africa's future.
+
+But also remember your roots. Remember the communities that raised you, the countries that educated you, the continent that gave you opportunities. As you succeed, lift others with you. Create jobs for your fellow Africans. Mentor young entrepreneurs. Invest in education and healthcare. Give back to your communities.
+
+Africa is rising, but we need you to help it rise faster and higher. We need you to build the businesses that will make us self-sufficient. We need you to create the innovations that will solve our challenges. We need you to develop the leaders who will govern us wisely.
+
+The world is watching Africa. They see our young population, our natural resources, our growing economies. Some see opportunities to exploit. Others see partners to work with. But what they all see is potential – the potential for Africa to become a major force in the global economy.
+
+That potential will only be realized if we have the courage to dream big, the patience to build sustainably, and the discipline to do things right. It will only be realized if we believe in ourselves, invest in ourselves, and work together to build the Africa we want to see.
+
+You are the generation that will make this happen. You have better education than any generation before you. You have access to technology that can connect you to the world. You have opportunities that your parents could only dream of.
+
+But with opportunity comes responsibility. The responsibility to work hard, to think big, to act with integrity, and to never forget where you come from.
+
+Africa's time is now. Your time is now. Go out there and build the future we all believe in.
+
+Congratulations, Class of 2019. Make Africa proud.
+
+Thank you.`
+  },
+  {
+    id: 30,
+    speaker: "Ngozi Okonjo-Iweala",
+    title: "Leading Africa's Economic Transformation",
+    university: "University of Cape Town",
+    year: 2021,
+    excerpt: "Africa must take control of its own economic destiny. We have the talent, the resources, and the determination to build a prosperous continent. But we must work together, trade with each other, and invest in our people.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Africa must control its economic destiny",
+      "Regional integration and trade are crucial",
+      "Invest in education and human capital",
+      "Women's participation drives growth"
+    ],
+    fullText: `Vice-Chancellor Phakeng, distinguished faculty, proud families, and the exceptional graduating class of 2021 – congratulations on this extraordinary achievement.
+
+It is a tremendous honor to address you today at the University of Cape Town, one of Africa's leading institutions of higher learning. As the first African and first woman to serve as Director-General of the World Trade Organization, I stand before you as proof that Africa's time has come, and that our continent is ready to take its rightful place in the global economy.
+
+Today, I want to talk to you about something that is close to my heart: leading Africa's economic transformation. Africa must take control of its own economic destiny. We have the talent, the resources, and the determination to build a prosperous continent. But we must work together, trade with each other, and invest in our people.
+
+For too long, Africa has been seen as a continent of problems – poverty, conflict, disease, corruption. But I see a different Africa. I see a continent of solutions, a continent of opportunities, a continent of unlimited potential.
+
+Africa has 60% of the world's uncultivated arable land. We have 30% of the world's mineral reserves. We have the youngest population in the world, with a median age of just 19 years. We have a growing middle class, expanding cities, and increasing connectivity.
+
+But most importantly, we have you – educated, ambitious, globally connected young Africans who refuse to accept the status quo and are determined to build a better future.
+
+The question is: how do we transform this potential into prosperity? How do we move from being exporters of raw materials to producers of finished goods? How do we create jobs for our young people? How do we build economies that work for everyone?
+
+The answer lies in economic transformation, and that transformation must be led by Africans, for Africans.
+
+First, we must embrace regional integration and intra-African trade. For too long, we have traded more with the rest of the world than with each other. A farmer in Kenya finds it easier to export coffee to Europe than to sell it to a neighboring African country. A manufacturer in South Africa finds it cheaper to import goods from Asia than to buy them from other African countries.
+
+This must change. The African Continental Free Trade Area, which launched in 2021, is our opportunity to change this narrative. It creates a single market of 1.3 billion people with a combined GDP of over $3 trillion. It has the potential to boost intra-African trade by 52% and lift 30 million people out of extreme poverty.
+
+But trade agreements are just pieces of paper unless we have the infrastructure, the institutions, and the political will to make them work. We need better roads, railways, and ports to connect our markets. We need harmonized standards and regulations to facilitate trade. We need payment systems that allow businesses to transact across borders easily.
+
+Second, we must invest in our people. Africa's greatest asset is not our oil, our gold, or our diamonds – it's our people. But we can only realize this potential if we invest in education, healthcare, and skills development.
+
+We need education systems that prepare our young people for the jobs of the future, not the jobs of the past. We need to embrace technology and digital skills. We need to promote science, technology, engineering, and mathematics. We need to ensure that girls and women have equal access to education and opportunities.
+
+When I was growing up in Nigeria, my parents invested everything in my education. They believed that education was the key to a better future, and they were right. Education opened doors for me that would have remained closed otherwise. It gave me the confidence to compete on the global stage and the skills to succeed.
+
+But education is not just about individual success – it's about national development. Countries that invest in education grow faster, innovate more, and create more opportunities for their people.
+
+Third, we must harness the power of technology and innovation. Africa has already shown what's possible with mobile money, which started in Kenya and has now spread across the continent. We have young entrepreneurs creating solutions to African problems using African ingenuity.
+
+But we need to do more. We need to invest in research and development. We need to create innovation hubs and technology parks. We need to support startups and small businesses. We need to ensure that our young people have access to the internet and digital tools.
+
+The COVID-19 pandemic showed us both our vulnerabilities and our capabilities. It exposed the weaknesses in our healthcare systems and supply chains. But it also showed our resilience, our ability to adapt, and our capacity for innovation.
+
+African scientists were among the first to sequence the genome of the virus. African entrepreneurs created innovative solutions for contact tracing, telemedicine, and e-learning. African governments implemented creative policies to support their people and economies.
+
+This is the Africa I know – an Africa that doesn't wait for solutions from outside but creates its own solutions to its own problems.
+
+Fourth, we must ensure that women are full participants in our economic transformation. Study after study shows that countries with greater gender equality grow faster and are more prosperous. Companies with more women in leadership positions perform better. Families where women have economic power are healthier and more educated.
+
+Yet across Africa, women still face barriers to education, employment, and entrepreneurship. They have less access to credit, land, and technology. They are underrepresented in leadership positions in business and government.
+
+This is not just unfair – it's economically inefficient. We cannot afford to waste half of our talent. We cannot achieve our full potential if we exclude women from full participation in our economies.
+
+As African women, we must support each other, mentor each other, and create opportunities for each other. As African men, you must be allies in this struggle for equality. As African leaders, we must create policies and institutions that promote gender equality.
+
+Fifth, we must build strong institutions and good governance. Economic transformation requires predictable rules, transparent processes, and accountable leadership. Investors – both domestic and foreign – need to know that their investments will be protected, that contracts will be enforced, and that corruption will not undermine their efforts.
+
+This is not just about government – it's about all of our institutions. We need strong universities that produce world-class research. We need independent judiciaries that uphold the rule of law. We need free media that hold leaders accountable. We need civil society organizations that advocate for citizens' rights.
+
+Finally, we must tell our own stories. For too long, others have told the story of Africa – often focusing on our challenges rather than our achievements, our problems rather than our potential.
+
+But we know the real Africa. We know the Africa of innovation and entrepreneurship. We know the Africa of rich cultures and diverse traditions. We know the Africa of resilience and hope.
+
+As you leave this university and take your place in the world, you have a responsibility to tell the true story of Africa. Use your voices, your platforms, your networks to change the narrative about our continent.
+
+Show the world that Africa is not a continent waiting to be saved – it's a continent ready to lead. Show them that we are not just consumers of technology – we are creators of innovation. Show them that we are not just recipients of aid – we are partners in development.
+
+The world needs what Africa has to offer. We have the energy, the creativity, and the determination to solve some of the world's biggest challenges. Climate change, food security, healthcare, education – these are global challenges that require African solutions.
+
+But we must believe in ourselves first. We must invest in ourselves first. We must work together first.
+
+You are graduating at a pivotal moment in Africa's history. The decisions you make, the careers you choose, the businesses you build, the leaders you become – these will shape Africa's future for generations to come.
+
+The Africa of your children and grandchildren depends on what you do today. Will it be an Africa of prosperity and opportunity? Will it be an Africa that has taken control of its own destiny? Will it be an Africa that is respected and admired around the world?
+
+I believe the answer is yes, but only if you make it so.
+
+Go out there and lead Africa's economic transformation. Build the businesses that will create jobs. Develop the innovations that will solve problems. Create the institutions that will serve our people. Tell the stories that will change perceptions.
+
+Africa's time is now. Your time is now.
+
+Congratulations, Class of 2021. Make Africa proud.
+
+Thank you.`
+  },
+  {
+    id: 31,
+    speaker: "Mo Ibrahim",
+    title: "Leadership and Governance in Africa",
+    university: "American University in Cairo",
+    year: 2018,
+    excerpt: "Good governance is not a luxury for Africa – it is a necessity. We cannot achieve sustainable development without accountable leadership, transparent institutions, and the rule of law.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Good governance is essential for development",
+      "Leadership must be accountable and transparent",
+      "Invest in institutions and rule of law",
+      "Young people must demand better governance"
+    ],
+    fullText: `President Ricciardone, distinguished faculty, proud families, and the graduating class of 2018 – congratulations on this significant milestone.
+
+It is an honor to address you today at the American University in Cairo, an institution that has been bridging cultures and building leaders for over a century. As someone who has spent decades working across Africa and the Middle East, I understand the unique position you occupy as graduates of this remarkable institution.
+
+Today, I want to talk to you about something that is fundamental to Africa's future: leadership and governance. Good governance is not a luxury for Africa – it is a necessity. We cannot achieve sustainable development without accountable leadership, transparent institutions, and the rule of law.
+
+I have spent my career building businesses, creating jobs, and working to improve governance across Africa. Through the Mo Ibrahim Foundation, we have been measuring and promoting good governance for over fifteen years. What I have learned is this: governance matters more than anything else for a country's development.
+
+You can have all the natural resources in the world, but without good governance, they become a curse rather than a blessing. You can have the most educated population, but without good governance, talent will flee to other countries. You can have the best development plans, but without good governance, they will remain on paper.
+
+Africa has made tremendous progress in recent decades. We have seen economic growth, poverty reduction, improvements in health and education, and the emergence of a vibrant civil society. But we have also seen too many examples of poor governance holding back progress and squandering opportunities.
+
+When I started Celtel, my telecommunications company, in the 1990s, many people told me I was crazy to invest in Africa. They said the continent was too risky, too corrupt, too unstable. But I believed then, as I believe now, that Africa's potential is unlimited if we can get the governance right.
+
+Celtel succeeded because we insisted on doing business the right way. We refused to pay bribes. We demanded transparency in our dealings with governments. We invested in local communities and trained local employees. We showed that it was possible to build a successful business in Africa while maintaining the highest ethical standards.
+
+But individual companies cannot transform a continent. We need systemic change. We need governments that are accountable to their people. We need institutions that are strong and independent. We need leaders who put the public interest above their personal interests.
+
+This is why the Mo Ibrahim Foundation created the Ibrahim Index of African Governance, which measures governance performance across all African countries. We wanted to create a tool that would help citizens hold their governments accountable and help governments identify areas for improvement.
+
+What the Index shows is that governance matters enormously for development outcomes. Countries with better governance have higher economic growth, better health and education outcomes, and more peaceful societies. Countries with poor governance struggle with poverty, conflict, and instability.
+
+But the Index also shows that progress is possible. We have seen countries like Rwanda, Ghana, and Botswana make significant improvements in governance over time. We have seen leaders like Ellen Johnson Sirleaf in Liberia and Joaquim Chissano in Mozambique demonstrate that it is possible to govern with integrity and leave office voluntarily.
+
+This is why we created the Ibrahim Prize for Achievement in African Leadership – to recognize and celebrate African leaders who have governed well and transferred power peacefully. We want to change the narrative about African leadership and show that good governance is not only possible but is happening across the continent.
+
+But governance is not just about presidents and prime ministers. It is about all of us. It is about the choices we make as citizens, as professionals, as leaders in our communities.
+
+As you leave this university and take your place in the world, you will face many choices about how to conduct yourselves. You will be tempted to take shortcuts, to compromise your principles, to go along with corrupt practices because "that's how things are done."
+
+I urge you to resist these temptations. Be the change you want to see in your countries and your continent. Demand transparency in your workplaces. Refuse to participate in corrupt practices. Hold your leaders accountable. Use your voices to speak up for justice and good governance.
+
+You have been educated at one of the finest universities in the region. You have been given tools and opportunities that many of your peers do not have. With these privileges come responsibilities.
+
+If you are going into business, build companies that operate with integrity and contribute to development. Create jobs for your fellow citizens. Pay your taxes. Treat your employees fairly. Invest in your communities.
+
+If you are going into government, serve the public interest, not your personal interests. Be transparent in your dealings. Listen to your constituents. Make decisions based on evidence and merit, not on personal relationships or political calculations.
+
+If you are going into civil society, hold power accountable. Advocate for the rights of the marginalized. Promote transparency and good governance. Build bridges between different groups and communities.
+
+Whatever field you enter, remember that leadership is not about titles or positions – it is about influence and impact. You can be a leader in your family, your community, your workplace, your country. You can make a difference wherever you are.
+
+But leadership also requires courage. It requires the courage to speak truth to power, to stand up for what is right even when it is difficult, to challenge the status quo when it is unjust.
+
+I have seen too many talented young Africans leave the continent because they are frustrated with poor governance and lack of opportunities. This brain drain is one of Africa's greatest challenges. We are losing our best and brightest at the very time when we need them most.
+
+I understand the frustration. I understand the temptation to seek opportunities elsewhere. But I also believe that Africa needs you. We need your energy, your ideas, your commitment to change.
+
+You don't have to stay in Africa to contribute to Africa's development. The African diaspora plays a crucial role in sending remittances, transferring knowledge, and building networks. But we also need young Africans who are willing to stay and fight for change from within.
+
+The choice is yours, but whatever you choose, don't give up on Africa. Don't accept that poor governance is inevitable. Don't believe that corruption is part of our culture. Don't think that change is impossible.
+
+Change is not only possible – it is happening. Across Africa, we are seeing young people demanding better governance. We are seeing civil society organizations holding governments accountable. We are seeing businesses refusing to participate in corrupt practices. We are seeing leaders emerging who are committed to serving their people.
+
+You are part of this generation of change. You have the education, the tools, and the opportunities to make a difference. The question is: will you use them?
+
+Africa's future depends on governance. And governance depends on leadership. And leadership depends on people like you who are willing to stand up, speak out, and work for change.
+
+The continent that your children and grandchildren inherit will be shaped by the choices you make today. Will it be an Africa of good governance and accountable leadership? Will it be an Africa where institutions are strong and the rule of law prevails? Will it be an Africa where young people have opportunities to succeed and contribute?
+
+I believe the answer is yes, but only if you make it so.
+
+Go out there and be the leaders Africa needs. Build the institutions that will serve future generations. Demand the governance that will unlock Africa's potential.
+
+Africa is counting on you. Don't let us down.
+
+Congratulations, Class of 2018. Make us proud.
+
+Thank you.`
+  },
+  {
+    id: 32,
+    speaker: "Akinwumi Adesina",
+    title: "Feeding Africa and the World",
+    university: "University of Ghana",
+    year: 2020,
+    excerpt: "Africa must feed itself and help feed the world. We have the land, the water, and the people. What we need is the technology, the investment, and the political will to transform our agriculture.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Africa must achieve food security",
+      "Transform agriculture with technology",
+      "Invest in rural development and farmers",
+      "Create value chains and agribusiness"
+    ],
+    fullText: `Vice-Chancellor Ebenezer Oduro Owusu, distinguished faculty, proud families, and the graduating class of 2020 – congratulations on this remarkable achievement.
+
+It is a great honor to address you today at the University of Ghana, one of Africa's premier institutions of higher learning. As President of the African Development Bank, I have had the privilege of working across our continent to promote development and transformation. Today, I want to talk to you about something that is fundamental to Africa's future: feeding Africa and the world.
+
+Africa must feed itself and help feed the world. We have the land, the water, and the people. What we need is the technology, the investment, and the political will to transform our agriculture.
+
+This is not just about agriculture – it is about Africa's economic transformation, about creating jobs for our young people, about ensuring food security for our growing population, about positioning Africa as a global food powerhouse.
+
+Let me share some facts that might surprise you. Africa has 60% of the world's uncultivated arable land. We have abundant water resources. We have a young, energetic population. Yet we spend $75 billion every year importing food that we could produce ourselves.
+
+This is not just an economic inefficiency – it is a strategic vulnerability. The COVID-19 pandemic showed us what happens when global supply chains are disrupted. Countries that depend on food imports found themselves at risk. Countries that are food self-sufficient were more resilient.
+
+But I see this challenge as an opportunity – perhaps the greatest opportunity of our time. If we can transform African agriculture, we can create millions of jobs, lift millions out of poverty, and position Africa as a major player in global food markets.
+
+When I was Nigeria's Minister of Agriculture, we launched a transformation agenda that changed the face of Nigerian agriculture. We treated agriculture as a business, not a development program. We used technology to reach farmers directly. We created value chains that connected farmers to markets. We attracted private sector investment.
+
+The results were dramatic. Agricultural GDP grew by 6.7% annually. We created 3.5 million jobs. We reduced food imports and increased exports. We showed that African agriculture could be transformed if we had the right policies, the right investments, and the right leadership.
+
+But Nigeria is just one country. Imagine what we could achieve if we scaled this transformation across the entire continent. Imagine an Africa where every country is food secure, where agriculture is a modern, profitable business, where young people see farming as an attractive career option.
+
+This is the vision that drives my work at the African Development Bank. Through our "Feed Africa" strategy, we are investing $24 billion over ten years to transform African agriculture. We are supporting countries to develop agricultural value chains, improve rural infrastructure, and build agricultural institutions.
+
+But transformation requires more than money – it requires a fundamental change in how we think about agriculture.
+
+First, we must embrace technology. African farmers are among the most innovative in the world, but they often lack access to modern technologies that could dramatically increase their productivity. We need to ensure that farmers have access to improved seeds, fertilizers, irrigation systems, and digital tools.
+
+The African Development Bank is supporting the development of agricultural technology hubs across the continent. We are investing in research and development. We are promoting the use of drones, satellites, and artificial intelligence in agriculture.
+
+In Rwanda, farmers are using drones to monitor their crops and optimize fertilizer application. In Kenya, farmers are using mobile phones to access weather information, market prices, and agricultural advice. In Ghana, farmers are using solar-powered irrigation systems to grow crops year-round.
+
+These are not futuristic technologies – they are available today. What we need is the infrastructure, the training, and the financing to make them accessible to all farmers.
+
+Second, we must invest in value addition. For too long, Africa has been content to export raw agricultural products and import processed foods. We export cocoa beans and import chocolate. We export coffee beans and import instant coffee. We export cotton and import textiles.
+
+This must change. We need to process our agricultural products locally, create value-added products, and capture more of the value chain. This will create jobs, increase incomes, and reduce our dependence on imports.
+
+The African Development Bank is supporting the development of agricultural processing zones across the continent. These zones will house food processing companies, provide infrastructure and services, and create thousands of jobs for young people.
+
+Third, we must make agriculture attractive to young people. The average age of farmers in Africa is over 60 years. Our young people are leaving rural areas for cities, seeking opportunities in other sectors. If we don't reverse this trend, we will face a serious agricultural labor shortage in the coming decades.
+
+But young people will only be attracted to agriculture if it is profitable, modern, and respected. We need to show them that agriculture is not about subsistence farming with hand tools – it is about agribusiness, technology, and innovation.
+
+We need to support young agricultural entrepreneurs who are using technology to solve agricultural problems. We need to provide them with access to land, credit, and markets. We need to create agricultural incubation centers and training programs.
+
+Fourth, we must improve rural infrastructure. You cannot have modern agriculture without good roads, reliable electricity, and efficient logistics systems. Farmers need to be able to get their products to market quickly and efficiently. They need access to storage facilities, processing plants, and export terminals.
+
+The African Development Bank is investing heavily in rural infrastructure. We are building roads that connect farming communities to markets. We are supporting the development of irrigation systems that allow year-round farming. We are financing storage facilities that reduce post-harvest losses.
+
+Fifth, we must strengthen agricultural institutions. We need strong research institutions that develop new technologies and practices. We need extension services that transfer knowledge to farmers. We need financial institutions that provide credit to agricultural businesses.
+
+We also need regional institutions that promote agricultural trade and cooperation. The African Continental Free Trade Area creates enormous opportunities for agricultural trade within Africa. We need to ensure that farmers and agribusinesses can take advantage of these opportunities.
+
+Finally, we must ensure that agricultural transformation is inclusive. We cannot leave anyone behind – not smallholder farmers, not women, not young people, not marginalized communities.
+
+Women produce 70% of Africa's food, but they have less access to land, credit, and technology than men. We must ensure that women farmers have equal opportunities to participate in and benefit from agricultural transformation.
+
+Smallholder farmers produce most of Africa's food, but they often lack access to markets and modern technologies. We must ensure that they are integrated into value chains and benefit from agricultural modernization.
+
+As you leave this university and enter your careers, I want to challenge you to think about how you can contribute to Africa's agricultural transformation. You don't all need to become farmers, but you can all play a role.
+
+If you are studying engineering, think about how you can develop technologies that solve agricultural problems. If you are studying business, think about how you can build companies that serve agricultural markets. If you are studying economics, think about how you can design policies that promote agricultural development.
+
+If you are studying computer science, think about how you can use digital technologies to connect farmers to markets, provide agricultural information, and improve supply chains. If you are studying environmental science, think about how you can promote sustainable agricultural practices that protect our natural resources.
+
+Whatever your field of study, remember that agriculture touches every aspect of our economy and society. Food security is national security. Agricultural development is economic development. Rural prosperity is national prosperity.
+
+Africa's agricultural transformation is not just an economic opportunity – it is a moral imperative. We cannot accept that people go hungry on a continent that has the potential to feed the world. We cannot accept that young people leave rural areas because there are no opportunities. We cannot accept that we import food that we could produce ourselves.
+
+The transformation of African agriculture will not happen overnight, and it will not happen without challenges. But it is possible, and it is necessary. Countries like Brazil, India, and China have shown that agricultural transformation can drive economic development and poverty reduction.
+
+Africa can do the same, but only if we have the vision, the commitment, and the leadership to make it happen.
+
+You are the generation that will lead this transformation. You have the education, the energy, and the passion to change Africa's agricultural future. The question is: will you take up this challenge?
+
+Africa is counting on you. Our farmers are counting on you. Future generations are counting on you.
+
+Go out there and help feed Africa and the world.
+
+Congratulations, Class of 2020. Make Africa proud.
+
+Thank you.`
+  },
+  {
+    id: 33,
+    speaker: "Graca Machel",
+    title: "Empowering Women and Children",
+    university: "University of the Witwatersrand",
+    year: 2019,
+    excerpt: "The future of Africa depends on how we treat our women and children today. We must invest in their education, protect their rights, and create opportunities for them to thrive.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Women and children are Africa's future",
+      "Education is the foundation of empowerment",
+      "Protect rights and create opportunities",
+      "Leadership must be inclusive and compassionate"
+    ],
+    fullText: `Vice-Chancellor Habib, distinguished faculty, proud families, and the graduating class of 2019 – congratulations on this momentous achievement.
+
+It is a profound honor to address you today at the University of the Witwatersrand, an institution that has played such an important role in South Africa's struggle for freedom and democracy. As someone who has dedicated my life to fighting for justice, equality, and human rights, I am deeply moved to speak to a new generation of leaders.
+
+Today, I want to talk to you about something that is fundamental to Africa's future: empowering women and children. The future of Africa depends on how we treat our women and children today. We must invest in their education, protect their rights, and create opportunities for them to thrive.
+
+Throughout my life, I have seen the transformative power of education, the devastating impact of conflict on children, and the incredible strength and resilience of African women. I have learned that no society can truly prosper if it leaves half of its population behind, and no continent can reach its potential if it fails to protect and nurture its children.
+
+When I was growing up in Mozambique under Portuguese colonial rule, education was a privilege reserved for the few. As a young woman, I was told that my role was to be a wife and mother, not a leader or professional. But I was fortunate to have parents who believed in education and who sacrificed to give me opportunities.
+
+That education changed my life. It opened doors that would have remained closed. It gave me the tools to fight for independence, to serve my country as a minister, and to advocate for women and children around the world.
+
+But I was one of the lucky ones. Millions of African girls still do not have access to quality education. They are married off as children, denied opportunities to learn and grow, and trapped in cycles of poverty and dependence.
+
+This is not just a tragedy for these individual girls – it is a tragedy for our entire continent. When we deny education to girls, we waste human potential. When we limit women's participation in the economy, we reduce economic growth. When we exclude women from leadership, we make poorer decisions.
+
+Study after study shows that educating girls is one of the most effective ways to promote development. Educated women have fewer children, and those children are healthier and better educated. Educated women earn more money and invest more in their families and communities. Educated women are more likely to participate in politics and advocate for change.
+
+Yet across Africa, millions of girls are still out of school. They face barriers ranging from poverty and cultural attitudes to lack of schools and qualified teachers. They are forced to walk long distances to school, often facing harassment and violence along the way. They lack basic facilities like toilets and clean water that would make school attendance possible.
+
+We must do better. We must ensure that every African girl has access to quality education from primary school through university. We must remove the barriers that keep girls out of school. We must change attitudes that undervalue girls' education. We must invest in schools, teachers, and infrastructure.
+
+But education is not enough. We must also protect women and children from violence, exploitation, and abuse. As someone who has worked extensively on issues of children in armed conflict, I have seen firsthand the devastating impact of war on young lives.
+
+Children are not just victims of conflict – they are often forced to become perpetrators. They are recruited as soldiers, used as human shields, and subjected to unspeakable violence. Girls face the additional burden of sexual violence and forced marriage.
+
+Even in peacetime, too many African children face violence in their homes, schools, and communities. They are subjected to harmful traditional practices, child labor, and sexual abuse. They grow up in poverty, without access to basic services like healthcare and education.
+
+This must stop. We must create a continent where every child is safe, protected, and able to reach their full potential. We must strengthen child protection systems, enforce laws against violence, and change attitudes that normalize abuse.
+
+We must also address the root causes of violence against women and children – poverty, inequality, and harmful gender norms. We must create economic opportunities for women, ensure their equal participation in decision-making, and challenge attitudes that treat women and children as property rather than human beings with rights.
+
+As I have traveled across Africa and around the world, I have been inspired by the incredible strength and resilience of African women. Despite facing enormous challenges, they continue to care for their families, build their communities, and fight for change.
+
+I have met women who have started businesses with nothing but determination and creativity. I have met women who have become leaders in their communities, advocating for better schools, healthcare, and services. I have met women who have survived conflict and violence and have dedicated their lives to helping others heal.
+
+These women are the backbone of our societies. They are the ones who keep families together, who care for the sick and elderly, who ensure that children are fed and educated. They are the ones who build peace in their communities and who fight for justice and equality.
+
+But they should not have to do this alone. We must create systems and institutions that support women's leadership and participation. We must ensure that women have equal access to education, employment, and political participation. We must change laws and policies that discriminate against women.
+
+We must also recognize that empowering women is not just a women's issue – it is a human rights issue that benefits everyone. When women are empowered, families are stronger, communities are more prosperous, and societies are more just and peaceful.
+
+As you leave this university and take your place in the world, I want to challenge you to be champions for women and children. Whether you are men or women, whether you work in business, government, civil society, or academia, you have a role to play in creating a more just and equal world.
+
+If you are going into business, create companies that provide equal opportunities for women and that have family-friendly policies. Invest in businesses led by women and that serve women's needs. Use your economic power to promote gender equality.
+
+If you are going into government, advocate for laws and policies that protect women and children. Ensure that budgets allocate adequate resources for education, healthcare, and social services. Work to eliminate discrimination and violence.
+
+If you are going into civil society, advocate for the rights of women and children. Hold governments and businesses accountable for their commitments to gender equality. Support grassroots organizations led by women.
+
+Whatever field you enter, use your voice to speak up for those who cannot speak for themselves. Challenge discrimination when you see it. Support women's leadership and participation. Mentor young women and girls.
+
+Remember that change is possible. When I was young, few people believed that Mozambique could achieve independence or that apartheid could be defeated in South Africa. But through the courage and determination of ordinary people, these seemingly impossible changes became reality.
+
+The same is true for gender equality and children's rights. Change is possible, but it requires all of us to work together. It requires men and women, young and old, to stand up for what is right.
+
+I have been privileged to work with many remarkable leaders throughout my life, including my late husband Nelson Mandela. From him, I learned that leadership is not about power or position – it is about service and sacrifice. It is about putting the needs of others before your own and working tirelessly for justice and equality.
+
+I also learned that leadership requires both courage and compassion. You must have the courage to speak truth to power, to challenge injustice, and to stand up for what is right even when it is difficult. But you must also have the compassion to understand the suffering of others and to work to alleviate it.
+
+As you begin your careers and your lives as leaders, remember that you have been given tremendous privileges and opportunities. You have received a world-class education. You have access to networks and resources that many people can only dream of.
+
+With these privileges come responsibilities. You have a responsibility to use your talents and opportunities not just for your own benefit, but for the benefit of others. You have a responsibility to lift up those who have been left behind. You have a responsibility to create a more just and equal world.
+
+The women and children of Africa are counting on you. They are counting on you to be their voices when they cannot speak. They are counting on you to fight for their rights when they cannot fight for themselves. They are counting on you to create opportunities when none exist.
+
+Do not let them down. Do not be content with a world where women and children face discrimination, violence, and exclusion. Do not accept that poverty and inequality are inevitable.
+
+You have the power to change the world. You have the education, the energy, and the passion to make a difference. The question is: will you use that power for good?
+
+I believe you will. I believe that your generation will be the one that finally achieves gender equality, that protects all children, and that creates a world where everyone can thrive.
+
+Go out there and make it happen. Africa is counting on you.
+
+Congratulations, Class of 2019. Make us proud.
+
+Thank you.`
+  },
+  {
+    id: 34,
+    speaker: "Patrice Motsepe",
+    title: "African Mining and Sustainable Development",
+    university: "University of Pretoria",
+    year: 2021,
+    excerpt: "Africa's mineral wealth must benefit all Africans, not just a few. We must ensure that mining contributes to sustainable development, creates jobs, and protects our environment for future generations.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Mining must benefit all Africans",
+      "Sustainable development is essential",
+      "Create jobs and economic opportunities",
+      "Protect environment for future generations"
+    ],
+    fullText: `Vice-Chancellor de la Rey, distinguished faculty, proud families, and the graduating class of 2021 – congratulations on this remarkable achievement.
+
+It is an honor to address you today at the University of Pretoria, my alma mater and one of South Africa's leading institutions of higher learning. As someone who has spent decades in the mining industry and who is passionate about Africa's development, I want to talk to you about something that is crucial to our continent's future: ensuring that Africa's mineral wealth benefits all Africans.
+
+Africa's mineral wealth must benefit all Africans, not just a few. We must ensure that mining contributes to sustainable development, creates jobs, and protects our environment for future generations.
+
+Africa is blessed with extraordinary mineral wealth. We have some of the world's largest reserves of gold, platinum, diamonds, copper, cobalt, and many other minerals that are essential for modern life. These resources have the potential to transform our continent, to lift millions out of poverty, and to position Africa as a major player in the global economy.
+
+But for too long, Africa's mineral wealth has been extracted by others for the benefit of others. Colonial powers took our resources to build their economies while leaving us with little to show for it. Even after independence, too many mining operations have continued to extract wealth from Africa without contributing adequately to local development.
+
+This must change. We must ensure that Africa's mineral resources become a blessing, not a curse. We must ensure that mining contributes to sustainable development, creates decent jobs, and builds the infrastructure and institutions that our countries need to prosper.
+
+When I started African Rainbow Minerals over two decades ago, I was determined to show that African mining companies could operate differently. We committed to empowering local communities, creating opportunities for previously disadvantaged South Africans, and operating with the highest environmental and safety standards.
+
+We invested in education and training programs to develop local skills. We supported small businesses and entrepreneurs in mining communities. We contributed to healthcare, education, and infrastructure development. We showed that mining could be a force for transformation and empowerment.
+
+But one company, or even one country, cannot transform an entire continent. We need systemic change across the African mining industry. We need governments that negotiate fair deals with mining companies. We need companies that are committed to sustainable development. We need communities that are empowered to participate in and benefit from mining activities.
+
+First, we must ensure that African countries get fair value for their mineral resources. For too long, we have been content to export raw materials at low prices and import finished products at high prices. We export copper ore and import copper wire. We export iron ore and import steel. We export diamonds and import jewelry.
+
+This must change. We need to add value to our mineral resources locally. We need to develop processing industries that create jobs and capture more of the value chain. We need to build the infrastructure and develop the skills that will enable us to compete in global markets.
+
+The African Continental Free Trade Area creates enormous opportunities for intra-African trade in minerals and processed products. We need to take advantage of these opportunities to build integrated value chains across the continent.
+
+Second, we must ensure that mining creates decent jobs for African workers. Mining has the potential to create millions of jobs, from extraction and processing to transportation and services. But these must be good jobs that pay fair wages, provide safe working conditions, and offer opportunities for advancement.
+
+We need to invest in education and training programs that prepare African workers for careers in mining. We need to ensure that women have equal opportunities to participate in the mining industry. We need to support the development of local suppliers and service providers.
+
+We also need to ensure that mining communities benefit from mining activities. Too often, mining takes place in remote areas where local communities see little benefit from the wealth being extracted from their land. This creates resentment and conflict that benefits no one.
+
+Mining companies must work with local communities to ensure that they share in the benefits of mining. This means investing in local infrastructure, supporting local businesses, and creating opportunities for local employment. It means respecting local cultures and traditions and ensuring that communities have a voice in decisions that affect them.
+
+Third, we must ensure that mining is environmentally sustainable. Mining has historically had a significant environmental impact, from air and water pollution to habitat destruction and climate change. As we face the growing threat of climate change, we cannot continue with business as usual.
+
+The mining industry must embrace clean technologies and sustainable practices. We must minimize our environmental footprint and work to restore damaged ecosystems. We must ensure that future generations inherit a healthy planet, not a degraded one.
+
+This is not just about corporate responsibility – it is about business sustainability. Companies that fail to address environmental concerns will face increasing regulatory pressure, investor scrutiny, and community opposition. Companies that embrace sustainability will be better positioned for long-term success.
+
+Fourth, we must ensure good governance in the mining sector. Too often, mineral wealth has been associated with corruption, conflict, and poor governance. We have seen countries where vast mineral wealth has enriched a few while leaving the majority in poverty.
+
+We need transparent and accountable governance systems that ensure mineral revenues are used for public benefit. We need strong institutions that can negotiate fair contracts, monitor compliance, and ensure that revenues are invested in development priorities.
+
+We need civil society organizations that can hold governments and companies accountable. We need media that can investigate and report on mining activities. We need citizens who are informed about their rights and empowered to demand accountability.
+
+Fifth, we must leverage technology and innovation to transform African mining. The mining industry is undergoing a technological revolution, with advances in automation, artificial intelligence, and data analytics transforming how mining is done.
+
+African mining companies must embrace these technologies to improve productivity, reduce costs, and minimize environmental impact. We must invest in research and development to develop solutions that are appropriate for African conditions.
+
+We must also ensure that technological advancement creates opportunities for African workers, not just displaces them. This means investing in education and training programs that prepare workers for the jobs of the future.
+
+As you leave this university and enter your careers, I want to challenge you to think about how you can contribute to transforming Africa's mining industry. You don't all need to work in mining, but you can all play a role in ensuring that Africa's mineral wealth benefits all Africans.
+
+If you are studying engineering, think about how you can develop technologies that make mining safer, cleaner, and more efficient. If you are studying business, think about how you can build companies that add value to Africa's mineral resources.
+
+If you are studying law, think about how you can help negotiate fair contracts and develop regulatory frameworks that protect public interests. If you are studying environmental science, think about how you can help minimize mining's environmental impact.
+
+If you are studying economics, think about how mineral revenues can be used to promote sustainable development. If you are studying social sciences, think about how mining can contribute to social transformation and empowerment.
+
+Whatever your field of study, remember that Africa's mineral wealth belongs to all Africans. It is not the private property of mining companies or political elites. It is a common heritage that must be managed for the benefit of current and future generations.
+
+The transformation of Africa's mining industry will not be easy. It will require changes in policies, practices, and attitudes. It will require collaboration between governments, companies, communities, and civil society. It will require leadership from people like you who are committed to building a better Africa.
+
+But the potential rewards are enormous. If we can get mining right, we can create millions of jobs, generate billions in revenues, and build the infrastructure and institutions that Africa needs to prosper. We can position Africa as a major player in the global economy and ensure that our children inherit a continent of opportunity and prosperity.
+
+You are the generation that will lead this transformation. You have the education, the energy, and the passion to change how mining is done in Africa. The question is: will you take up this challenge?
+
+Africa's mineral wealth is waiting to be unlocked for the benefit of all Africans. The tools and knowledge you need are available. The opportunities are there.
+
+Go out there and make it happen. Transform Africa's mining industry. Ensure that our mineral wealth becomes a blessing for all.
+
+Congratulations, Class of 2021. Make Africa proud.
+
+Thank you.`
   }
 ];
