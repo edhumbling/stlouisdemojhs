@@ -1580,7 +1580,7 @@ And now go, and make interesting mistakes, make amazing mistakes, make glorious 
     speaker: "John Lewis",
     title: "Get in Good Trouble",
     university: "Emory University",
-    year: 2018,
+    year: 2014,
     excerpt: "Never, ever be afraid to make some noise and get in good trouble, necessary trouble. We must use our time and our space on this little planet that we call Earth to make a lasting contribution.",
     image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
@@ -1589,7 +1589,51 @@ And now go, and make interesting mistakes, make amazing mistakes, make glorious 
       "Make a lasting contribution to humanity",
       "Never give up on justice and equality"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `President Wagner, members of the Board of Trustees, distinguished faculty, parents, family, and friends, and to the class of 2014, I'm delighted and very pleased to be with you on this important occasion.
+
+Now let me join President Wagner in saying congratulations to each and every one of you who are receiving a degree. Congratulations. This is your day. Enjoy it. Be happy. Just be happy, have a little fun. Smile. You look good. You look beautiful, handsome.
+
+And let me just tell you for a moment, I didn't grow up in a big city like Atlanta. I grew up in rural Alabama, 50 miles from Montgomery outside of a little place called Troy. My father was a sharecropper, but back in 1944 when I was only four years old, my father had saved $300. And with the $300, he bought 110 acres of land. My family still own that land today.
+
+It was many, many years ago, when we would visit the little town of Troy, visit Montgomery, visit Tuskegee, visit Birmingham, I saw those signs that said 'white men, coloured men', 'white women, coloured women,' 'white waiting, coloured waiting.' I would come home and ask my mother, my father, my grandparents, my great-grandparents, 'Why?' And they would say, 'That's the way it is. Don't get in the way, don't get in trouble!'
+
+But one day in 1955, 15 years old in the 10th grade, I heard about Rosa Parks. I heard the words of Martin Luther King Jr on our radio. In 1957, I met Rosa Parks at the age of 17. In 1958 at the age of 18, I met Martin Luther King Jr, and these two individuals inspired me to get in the way, to get in trouble.
+
+So I come here to say to you this morning, on this beautiful campus, with your great education, you must find a way to get in the way. You must find a way to get in trouble. Good trouble. Necessary trouble.
+
+Use your education. You have wonderful teachers, wonderful professors, researchers. Use what you have. Use your learning. Use your tools. To help make our country and make our world a better place where no one would be left out or left behind. You can do it and you must do it. It is your time.
+
+In a few short days, we will commemorate what we call the Mississippi Summer Project, when more than a thousand students from all over America, many from abroad, made a trip to Mississippi to encourage people to register to vote. And on the summer night of June 21st, 1964, three young men that I knew, two whites and one African American, went out to investigate the burning of an African American church that was used for voter registration workshop. These three young men were detained by the sheriff, taken to jail, taken out of jail, turned over to the Klan where they were beaten, shot and killed.
+
+And I tell students today, these three young men didn't die in Vietnam. They didn't die in the Middle East or Eastern Europe. They didn't die in Africa or Central or South America. They died right here in our own country, trying to help all of our citizens become participants in the democratic process.
+
+As young people, you must understand that there are forces that want to take us back to another period, but you must say that we're not going back. We made too much progress and we are going forward.
+
+There may be some setbacks, some delays, some disappointment, but you must never ever give up, or give in. You must keep the faith and keep your eyes on the prize. That is your calling, that is your mission, that is your moral obligation, that is your mandate. Get out there and do it, get in the way!
+
+In the final analysis, we all must learn to live together as brothers and sisters, not just in America, but around the world.
+
+You know, I got arrested a few times during the sixties, 40 times, and all of the charges were dropped and dismissed. But since I've been in Congress and young people ask me, how can you be in Congress, you got arrested so many times. I've been arrested since I've been in Congress, five more times. And I may get arrested again.
+
+The last time I got arrested was trying to say to the Congress, we need to pass comprehensive immigration reform and set people on a path to citizenship. It's the right thing to do.
+
+It doesn't make sense that we live in our country, we live in a society where more than 12 million people are living in the shadow, living in fear. That is not right. That is not fair. And that is not just, and you must get in the way and find a way to make the way out of no way.
+
+When I was growing up outside of Troy, Alabama, I had an aunt by the name of Sineva and my Aunt Sineva lived in what we call a 'shotgun house.' My aunt Sineva didn't have a green manicured lawn, had a simple plain dirt yard. And sometime at night, you could look up through the holes in the ceiling, the holes in the tin roof and count the stars. And when it rained she would get a pail, a bucket or tub and catch the rain water.
+
+From time to time, she would walk out into the woods and cut branches from a Dogwood tree and tie these branches together and make what she called a 'brush broom'. And she would sweep the dirt yard very clean, sometime two and three times a week, but especially on a Friday or Saturday because she wanted that dirt yard to look good during the weekend.
+
+One Saturday afternoon, a group of my brothers and sisters, and a few of my first cousins were out playing in my Aunt Sineva's dirt yard. And an unbelievable storm came up. The wind started blowing. The thunder started rolling. The lightning started flashing and the rain started beating on the tin roof of this old shotgun house. My aunt became terrified. She started crying. She thought this whole house was going to blow away.
+
+When it appeared that one corner of the house was going to blow away, my aunt had us all hold hands and walk to that side, to try to hold the house down with our little bodies. When another corner appeared to be lifting, she had us walk to that side. We were little children walking with the wind, but we never left the house.
+
+I say to you, as you leave here, leave this beautiful campus. The wind may blow. The thunder may roll, the lightning may flash, and the rain may beat on our old house. Call it a house of Emory, call it a house of Georgia or Alabama or New York. Call it a house of Europe. Call it a house of Africa. Call it a house of Asia. Of Central or South America. Call it a house of the Middle East.
+
+We all live in the same house, and it doesn't matter whether we are black or white, Latino, Asian American, or Native American. It doesn't matter if we are straight or gay. We are one people. We are one family. We all live in the same house.
+
+Be bold. Be courageous, stand up, speak up, speak out and find a way to create the beloved community. The beloved world. A world of peace, a world that recognizes the dignity of all humankind. Never become bitter, never become hostile, never hate. Live in peace. We are one, one people and one love.
+
+Thank you very much.`
   },
   {
     id: 23,
@@ -1676,7 +1720,7 @@ And now go, and make interesting mistakes, make amazing mistakes, make glorious 
     speaker: "Neil deGrasse Tyson",
     title: "The Universe is Under No Obligation",
     university: "University of Massachusetts",
-    year: 2016,
+    year: 2015,
     excerpt: "The universe is under no obligation to make sense to you. But that doesn't mean we should stop trying to understand it. Curiosity and scientific thinking are our greatest tools.",
     image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
     keyPoints: [
@@ -1685,6 +1729,52 @@ And now go, and make interesting mistakes, make amazing mistakes, make glorious 
       "Question everything with scientific thinking",
       "Make science accessible to everyone"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Thank you for this honor. When I first arrived in the robing room I had to figure out who was the president and the chancellor, and they were the ones wearing the most bling. I was invited to give the commencement speech and they said I would have 8 minutes, I said the universe needs more than eight minutes. I need at least nine minutes. Maybe ten.
+
+I thought I would spend this time, brief as it is, together, things that you should know going forward in life. Maybe you already know it, but I don't think everybody knows all of this.
+
+Your grades. Whatever is your GPA rapidly becomes irrelevant in your life. I cannot begin to impress upon you how irrelevant it becomes. Ask anybody just a few years older than you "When was the last time someone asked about your GPA?" And they will have long forgotten, because in life they're not gonna ask you your GPA. They will ask you "are you a hard worker?" "Are you a problem solver?" "Are you committed?" "Are you a good leader?" All of these other questions matter in the rest of your life.
+
+I remember taking the SATs long ago. I remember I got the scores back and my verbal score was ok, but it wasn't one of those scores where a teacher will say "hey he'll go far, watch that student!" So a few years go by, I get my masters, my PHD, I write a column for a magazine... 5 books later I get a letter from the educational testing service in New Jersey. They are the purveyors of the SATs.
+
+I get the letter saying "Gasp, was there an error in my SAT scores?!" I'm a full grown adult reacting this way to a letter. And I open it up and they said "Dear Dr. Tyson, we were reading one of your essays on the universe, and we were impressed with it so much we want to use it for the next round of SATs for the reading comprehension part for the students." So I said "What just happened here!? Something is wrong!"
+
+If the exam means anything, if your GPA means anything, it's that you were in that moment and it so does not define you for the rest of your life.
+
+Another thing- the most dangerous people in a free society are those who don't know- by the way it's ok to not know! This is what school is for! That's ok! But if you don't know, but think you do know, and have power over legislation that would affect others, THAT is dangerous. Those are the signs of the end of an informed democracy.
+
+Science matters. Other subjects matter too, but I'm just saying, science matters in the following way. Think about it. Cavemen and women: they had clean air, freshwater, their food was free range, organic, and their life expectancy was thirty five!
+
+Something else that matters that improves your life expectancy than just the search for clean air and clean water! There's more going on in our lives, brought to you by innovations in science and technology, that improves your health, your wealth, your well-being, just consider that before you start saying "I don't like science, I don't want science" Then move the hell back into the cave and we'll go to your funeral before you turn 36!
+
+Another thing- It's become a past-time to blame politicians for the ills of the world. And I understand the urge to do that, I get that, however, at the end of the day, the politician is a representative of an electorate.
+
+If you have an issue with the politicians that means you have an issue with your fellow citizens that put them there! So if there is a politician that is SURE that the universe is 6,000 years old, It's because there are people walking among us that think that.
+
+As an educator it is my duty to teach people about the methods and tools of science- how and why it works, because the engines of tomorrow's economy depends on it. Innovations in science and technology will drive the 21st century economies. The extent to which you cherry pick science for your own philosophy, just because you didn't like the result- where does it stop! What's gonna happen, you're gonna say "I want to repeal the law of gravity because I gained ten pounds last month!" Where does it stop!
+
+The laws of physics affect us all! Objective truths are true whether or not you believe in them. So if you are not scientifically literate in the 21st century, you will have disenfranchised yourself from important decisions that affect us all. Unless you're ok with that, you should be thinking about how to learn- it doesn't mean you have to be a scientist, no you don't have to be one, just understand what it is, and why!
+
+Scientific literacy is not how much you know, it's how your brain is wired for thought. If someone comes up to you and says "I have these crystals, and if you rub them together and dance under them, it'll cure your ailments." Ok so now, it's easy to be smug and say this person is a freaking idiot, let me just leave them alone.
+
+One might also say "Wow that's great lemme get them, how much are they, I'll buy all of them!" Do you realize each of those states of mind are equally as lazy. It actually takes effort to inquire about the truth of something. Effort. So you ask "Where are these crystals from? What are they made of? What's their chemical composition? What are the properties you're evoking that claims to create the health? What're the experiments, can you cite them?"
+
+That is science literacy. Neither the blunt acceptance or blunt rejection of a claim of someone who is making statements in the name of science.
+
+Another point- this is a personal thing- I think on some level role models are overrated. Let me tell you why.
+
+Growing up in the Bronx- Had I acquired a prerequisite that another black man from the Bronx had become an astrophysicist, I'd still be in the Bronx. If you acquire a role model who looks just like you to be something you wanna be, and you can't find one, is that a reason to not be what you want to be? No!
+
+My argument is simple. You could assemble your role model- get the people that do what you like, but you don't have to be them! Be the piece of them that you want to be, and if it's someone who was moral, do that, someone athletic, do that. You don't have to be the whole person. That protects you from when your person messes up in some fundamental way, there is not this fear that you have to mess up too, because that's what your role model did.
+
+So I encourage people to assemble their role models ala carte. That is a far more potent way to establish what it is you want to become in this world.
+
+Now a couple things just cosmically. The universe is bigger than you are. Lesson one. It sounds obvious, but some people don't really know that. Number two, Earth. If someone invites you to go to Mars, just remember how beautiful Earth is before you do that. You can breathe the air, you know, things like this, however. Do not forget that Earth is really good at killing. Over ninety seven percent of all the species of life on earth that have ever existed are now extinct because of Earth. So we think of Earth as a haven, but in fact it is out to kill us every opportunity it gets. It's our ingenuity in spite of that fact that prevents it.
+
+And the sun, is a limitless source of energy. Oil under the ground, not so much. If you want us to exist and thrive into the future, and you're one of these people that say "I don't need space, I'll solve all my problems here on earth" meanwhile there's unlimited energy, unlimited resources, move back to the cave because that's where you'll be when this is all over.
+
+My final point. We live in a world where not everyone has the urge to help others. Ok? Wanna do it all yourself for yourself, and require that other people help themselves, and I'm reminded of a saying that went around for awhile they say "We need people to lift themselves up by their bootstraps". And then I think about that, and that works you know, sometimes, but we're reminded that it is ok to encourage others to pull themselves up by the bootstraps. But if you do just remember that some people have no boots.
+
+Thank you.`
   }
 ];
