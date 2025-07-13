@@ -1541,7 +1541,55 @@ And now go, and make interesting mistakes, make amazing mistakes, make glorious 
       "Break barriers and create opportunities",
       "Lead with authenticity and courage"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Thank you for that warm introduction. It's an honor to be here with you today at this historic institution, speaking to the graduating class of 2017.
+
+When I look out at all of you, I see the future. I see leaders, innovators, change-makers. But more importantly, I see individuals who have the power to be different, to stand out, and to make a lasting impact on this world.
+
+Let me start by telling you a little about my journey. I grew up in a housing project on the Lower East Side of Manhattan. My mother was a single parent who cleaned offices and ironed shirts to make ends meet. We didn't have much, but what we had was determination, grit, and the belief that education could change everything.
+
+I was different from day one. I was loud when I was supposed to be quiet. I asked questions when I was supposed to just listen. I challenged the status quo when I was supposed to accept it. And you know what? That difference became my superpower.
+
+When I started at Xerox as a summer intern in 1980, I was one of the few African American women in the building. I could have tried to blend in, to make myself smaller, to not rock the boat. Instead, I chose to be authentically me. I spoke up in meetings. I challenged processes that didn't make sense. I took on assignments that others thought were too risky.
+
+Some people told me to tone it down. They said I was too direct, too aggressive, too different. But I learned something important early on: the very things that make you different are often the things that make you valuable.
+
+Throughout my career, I've seen too many talented people dim their light because they were afraid of standing out. They were afraid of being the only one in the room who looked like them, thought like them, or had their background. But here's what I want you to understand: diversity isn't just about fairness – it's about excellence.
+
+When I became CEO of Xerox in 2009, I became the first African American woman to lead a Fortune 500 company. That wasn't just a personal milestone – it was a statement about what's possible when we embrace difference instead of fearing it.
+
+But being different isn't always easy. There will be times when you walk into rooms where you're the only one who looks like you. There will be moments when people question whether you belong. There will be days when you doubt yourself.
+
+In those moments, I want you to remember this: you weren't meant to fit in. You were meant to stand out. You were meant to bring something to the table that no one else can bring. Your perspective, your experience, your unique way of seeing the world – that's not a liability, it's an asset.
+
+I've learned that leadership isn't about having all the answers. It's about asking the right questions. It's about being willing to make tough decisions, even when they're unpopular. It's about surrounding yourself with people who complement your strengths and challenge your thinking.
+
+But most importantly, leadership is about authenticity. You cannot lead effectively if you're trying to be someone you're not. People can sense authenticity from a mile away, and they can sense its absence just as easily.
+
+So as you leave this institution and enter the next phase of your lives, I want to challenge you with three things:
+
+First, dare to be different. Don't try to fit into someone else's mold. The world doesn't need another copy of someone else. It needs the original you. Embrace what makes you unique, and use it as your competitive advantage.
+
+Second, take risks. The biggest risk is not taking any risks at all. Throughout my career, I've taken on roles that others thought were too challenging, too risky, or too ambitious. But those risks led to the greatest rewards. Don't let fear of failure keep you from pursuing your dreams.
+
+Third, lift others as you climb. Success isn't just about what you achieve for yourself. It's about opening doors for others who will come after you. Be the leader who creates opportunities for others to be different, to stand out, to succeed.
+
+I want to share something with you that my mother told me when I was young. She said, "Ursula, you have two choices in life. You can be a victim of your circumstances, or you can be the architect of your future." I chose to be the architect, and I want each of you to make that same choice.
+
+The world is changing rapidly. Technology is transforming how we work, how we communicate, how we live. In this environment, the ability to adapt, to think differently, to bring fresh perspectives – these aren't just nice-to-have qualities. They're essential.
+
+You are graduating at a time when the world needs your energy, your ideas, your different way of seeing things. Don't waste that opportunity by trying to be like everyone else.
+
+I'll leave you with this thought: Throughout history, every major breakthrough, every significant change, every leap forward has come from someone who dared to be different. Someone who was willing to challenge conventional thinking. Someone who refused to accept that "this is just how things are done."
+
+You have that same power. You have the ability to look at problems differently, to find solutions that others miss, to create change where others see only obstacles.
+
+So go out there and be different. Be bold. Be authentic. Be the leader the world needs you to be. And remember, your difference isn't something to overcome – it's something to celebrate and leverage.
+
+The future belongs to those who dare to be different. Make sure you're one of them.
+
+Congratulations, Class of 2017. Now go out there and change the world.
+
+Thank you.`
   },
   {
     id: 20,
@@ -1557,7 +1605,65 @@ And now go, and make interesting mistakes, make amazing mistakes, make glorious 
       "Embrace change as an opportunity",
       "Build bridges across differences"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `President Frederick, distinguished faculty, proud families, and most importantly, the graduating class of 2016 – congratulations on this remarkable achievement.
+
+It is a profound honor to stand before you today at this historic institution, a place that has been a beacon of excellence and opportunity for generations of African American leaders. Howard University has always been more than just a university – it has been a launching pad for change-makers, innovators, and leaders who have shaped our nation and our world.
+
+As I look out at all of you today, I see the future of leadership in America. But I also see young people entering a world that is changing at an unprecedented pace. The question is not whether change will come – it's how you will lead through that change.
+
+Let me share with you some lessons I've learned about leadership during my time as CEO of American Express, lessons that I believe will serve you well as you embark on your own leadership journeys.
+
+First, leadership is not about being popular. It's about making the tough decisions and doing what's right, even when it's difficult, even when it's unpopular, even when it costs you something personally.
+
+Throughout my career, I've had to make decisions that weren't popular with employees, with shareholders, with the media, or even with my own family. But leadership isn't a popularity contest. It's about having the courage to do what you believe is right for the long-term success of your organization and the people you serve.
+
+When the financial crisis hit in 2008, we had to make some incredibly difficult decisions at American Express. We had to cut costs, reduce our workforce, and fundamentally change how we operated. These weren't popular decisions, but they were necessary decisions. And because we made them quickly and decisively, we emerged from the crisis stronger than ever.
+
+Second, embrace change as an opportunity, not a threat. The world is changing faster today than at any point in human history. Technology is transforming every industry. Globalization is creating new markets and new competition. Social movements are reshaping how we think about equality and justice.
+
+You can either be overwhelmed by this change, or you can see it as the greatest opportunity of your lifetime. I choose to see it as an opportunity, and I encourage you to do the same.
+
+At American Express, we've had to completely reimagine our business model multiple times during my tenure. We've gone from being primarily a charge card company to being a global payments and travel company. We've embraced digital technology, mobile payments, and data analytics. We've expanded into new markets and new customer segments.
+
+Each of these changes was challenging, but each one also opened up new possibilities for growth and innovation. The companies and leaders who thrive in the 21st century will be those who can adapt quickly and turn change into competitive advantage.
+
+Third, character matters more than charisma. In our celebrity-obsessed culture, we often confuse leadership with charisma. We think leaders need to be the loudest voice in the room, the most charming personality, the most telegenic presence.
+
+But true leadership is about character – about integrity, honesty, humility, and moral courage. It's about doing the right thing when no one is watching. It's about keeping your word even when it's inconvenient. It's about admitting when you're wrong and learning from your mistakes.
+
+I've worked with many charismatic people who were terrible leaders, and I've worked with many quiet, humble people who were extraordinary leaders. Charisma might get you noticed, but character is what earns you respect and trust.
+
+Fourth, diversity is not just the right thing to do – it's the smart thing to do. As leaders, you will be responsible for bringing together people from different backgrounds, different perspectives, different experiences. This diversity isn't just about fairness or political correctness. It's about performance.
+
+Study after study has shown that diverse teams make better decisions, solve problems more creatively, and deliver better results. When you surround yourself with people who think differently than you do, you make better choices.
+
+But diversity only works if you create an environment where different voices can be heard and different perspectives can be valued. As leaders, it's your job to create that environment.
+
+Fifth, build bridges, don't build walls. We live in an increasingly polarized world. People retreat into their own echo chambers, surrounding themselves only with people who agree with them. Social media amplifies our differences and minimizes our common ground.
+
+As leaders, you have a responsibility to build bridges across these divides. You need to be able to work with people who don't look like you, don't think like you, don't vote like you. You need to find common ground and build coalitions around shared values and shared goals.
+
+This doesn't mean compromising your principles. It means being principled enough to work with others who share your commitment to making progress, even if you disagree on some of the details.
+
+Finally, remember that leadership is a privilege, not a right. Every leadership position you hold, every opportunity you're given to make a difference, is a privilege that comes with enormous responsibility.
+
+You have a responsibility to the people you lead, to the organizations you serve, and to the communities you're part of. You have a responsibility to use your platform to make things better, not just for yourself, but for others.
+
+As graduates of Howard University, you carry a special responsibility. You are part of a legacy of leaders who have broken barriers, challenged injustice, and opened doors for others. That legacy doesn't end with your graduation – it continues with what you do next.
+
+The world needs your leadership. It needs your energy, your ideas, your passion for justice and equality. It needs your willingness to take on tough challenges and make difficult decisions.
+
+But most of all, it needs your commitment to doing what's right, even when it's hard, even when it's unpopular, even when it costs you something.
+
+The future belongs to leaders who can navigate change with courage, who can build bridges across differences, who can make tough decisions with integrity, and who can inspire others to be their best selves.
+
+You have all the tools you need to be those leaders. You have the education, the intelligence, the passion, and the character. Now it's time to go out and use them.
+
+The world is waiting for your leadership. Don't keep it waiting too long.
+
+Congratulations again, Class of 2016. Now go out there and lead.
+
+Thank you.`
   },
   {
     id: 21,
@@ -1573,7 +1679,61 @@ And now go, and make interesting mistakes, make amazing mistakes, make glorious 
       "Break barriers in STEM fields",
       "Use your talents to serve humanity"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `President Klawe, faculty, families, and graduates of Harvey Mudd College – congratulations on this extraordinary achievement.
+
+It is truly an honor to be here with you today at one of the most prestigious science and engineering institutions in the world. When I look out at all of you, I see the future of innovation, discovery, and human progress.
+
+You know, when I was growing up, people often asked me what I wanted to be when I grew up. And I would say, "I want to be a scientist, a dancer, and an astronaut." And they would look at me like I was crazy. They would say, "You have to pick one. You can't do all of those things."
+
+But I'm here to tell you today that you don't have to pick just one thing. You don't have to fit into someone else's narrow definition of what a scientist looks like, what an engineer does, or what's possible for your life.
+
+I became a doctor, an engineer, a dancer, and yes, an astronaut. I've traveled to space, but I've also danced with the Alvin Ailey American Dance Theater. I've conducted medical research, but I've also studied art and African studies. I've worked on spacecraft, but I've also worked on sustainable development in Africa.
+
+The point is this: don't let anyone rob you of your imagination, your creativity, or your curiosity. It's your place in the world; it's your life. Go on and do all you can with it.
+
+As graduates of Harvey Mudd, you have been trained in some of the most rigorous scientific and mathematical disciplines in the world. You have the tools to solve complex problems, to innovate, to create technologies that can change the world. But I want to challenge you to think beyond just the technical aspects of your education.
+
+Science and technology are not separate from the rest of human experience. They are deeply connected to art, to culture, to social justice, to the human condition. The best scientists and engineers I know are those who understand these connections and use them to inform their work.
+
+When I was selected to be an astronaut, I wasn't chosen just because of my technical qualifications. I was chosen because I brought a unique perspective – as a woman, as an African American, as someone who had lived and worked in different cultures, as someone who understood that science is not just about formulas and equations, but about improving the human condition.
+
+In space, when I looked down at Earth, I didn't see the political boundaries that divide us. I didn't see the artificial barriers that we create between disciplines, between cultures, between people. I saw one beautiful, interconnected planet that we all share.
+
+That perspective changed me, and I want it to change how you think about your role as scientists and engineers. You are not just problem solvers – you are world changers. You are not just technicians – you are visionaries. You are not just graduates of Harvey Mudd – you are citizens of the world with a responsibility to use your talents to make life better for everyone.
+
+But let me be clear: this won't always be easy. You will face challenges, setbacks, and people who doubt you. I certainly did.
+
+When I applied to be an astronaut, I was told that I didn't fit the profile. When I wanted to study both engineering and African studies, I was told to focus on one or the other. When I talked about the importance of including art and culture in space missions, some people thought I wasn't serious about science.
+
+But I persisted, because I knew that my different perspective was not a weakness – it was a strength. And I want you to remember that when you face similar challenges.
+
+Your diversity – whether it's your gender, your race, your background, your interests, your way of thinking – is not something to overcome. It's something to celebrate and leverage. The world needs your unique perspective.
+
+Science and engineering have historically been dominated by people who look and think a certain way. But the challenges we face today – climate change, disease, poverty, inequality – are too complex to be solved by any one group of people. We need all hands on deck. We need all perspectives at the table.
+
+As you leave Harvey Mudd and enter your careers, I want you to remember three things:
+
+First, stay curious. The moment you stop asking questions, the moment you think you have all the answers, is the moment you stop growing as a scientist and as a human being. The universe is vast and mysterious, and there is always more to learn, more to discover, more to explore.
+
+Second, think big. Don't limit yourself to incremental improvements or safe projects. The world needs breakthrough innovations, paradigm shifts, revolutionary ideas. You have the training and the talent to tackle the biggest challenges facing humanity. Don't waste that potential on small problems.
+
+Third, remember your responsibility to humanity. Science and technology are powerful tools, but they are just tools. What matters is how you use them. Use them to heal, not to harm. Use them to unite, not to divide. Use them to lift up the most vulnerable members of our society, not just to benefit the privileged few.
+
+I want to share with you one of my favorite quotes from the great scientist and humanitarian Albert Einstein: "A human being is a part of the whole called by us universe, a part limited in time and space. He experiences himself, his thoughts and feeling as something separated from the rest, a kind of optical delusion of his consciousness. This delusion is a kind of prison for us, restricting us to our personal desires and to affection for a few persons nearest to us. Our task must be to free ourselves from this prison by widening our circle of compassion to embrace all living creatures and the whole of nature in its beauty."
+
+That's what I want for all of you – to widen your circle of compassion, to see beyond the boundaries that others try to impose on you, to use your scientific training not just to understand the universe, but to make it a better place for all of us.
+
+You are graduating at an incredible time in human history. We are on the verge of breakthroughs in artificial intelligence, quantum computing, biotechnology, space exploration, and so many other fields. The next few decades will see changes that will make the last century look slow by comparison.
+
+You have the opportunity to be part of that transformation. You have the opportunity to be the generation that solves climate change, that cures cancer, that takes humanity to Mars, that creates technologies we can't even imagine today.
+
+But remember, as you reach for the stars – literally and figuratively – don't forget to keep your feet grounded in humanity. Don't forget that the ultimate goal of all our scientific endeavors should be to improve life for everyone on this planet.
+
+The stars are calling, and you are ready to answer. Go forth and explore. Go forth and discover. Go forth and change the world.
+
+Congratulations, Class of 2015. The universe is waiting for you.
+
+Thank you.`
   },
   {
     id: 22,
@@ -1701,7 +1861,75 @@ Thank you.`
       "Fight for voting rights and democracy",
       "Turn setbacks into comebacks"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `President Johnson, distinguished faculty, proud families, and the extraordinary Class of 2020 – congratulations on this momentous achievement.
+
+It is a profound honor to address you today as graduates of Spelman College, an institution that has been a beacon of excellence for Black women for more than 140 years. You are part of a legacy that includes civil rights leaders, scientists, artists, entrepreneurs, and change-makers who have shaped our world.
+
+But today, I want to talk to you about something that I believe is at the heart of the Spelman experience: leadership. Not the kind of leadership that requires a title or a corner office, but the kind of leadership that you can exercise right now, right where you are, with whatever resources you have.
+
+Leadership is not about the title you hold, but about the impact you make. Lead from where you are, with what you have, for the people who need you most.
+
+I learned this lesson the hard way. In 2018, I ran for Governor of Georgia. I had a plan, a vision, and the support of hundreds of thousands of Georgians. But I didn't win. In fact, I experienced what many would call a devastating defeat.
+
+But here's what I learned from that experience: losing a race doesn't mean losing your voice. Failing to win an election doesn't mean failing to make a difference. Sometimes, the most important leadership happens not when you're in the position you wanted, but when you're in the position you find yourself in.
+
+After that election, I could have retreated. I could have felt sorry for myself. I could have given up on the political process altogether. Instead, I decided to lead from where I was. I founded Fair Fight, an organization dedicated to protecting voting rights and ensuring fair elections. I wrote books, gave speeches, and worked to register voters across the country.
+
+And you know what happened? In 2020, Georgia flipped blue for the first time in decades. We helped elect two Democratic senators and played a crucial role in electing a new president. None of that would have happened if I had waited for the "right" position or the "perfect" opportunity to lead.
+
+That's the lesson I want to share with you today: don't wait for permission to lead. Don't wait for someone to give you a title or a platform. Don't wait until you have all the resources you think you need. Lead from where you are, right now.
+
+You might be thinking, "But Stacey, I'm just graduating from college. I don't have any power. I don't have any influence. How can I lead?"
+
+Let me tell you something: some of the most powerful leaders I know are people who started with nothing but a vision and a willingness to work. They didn't wait for someone to hand them a leadership role. They created their own.
+
+Leadership is about seeing a problem and deciding to be part of the solution. It's about using your voice to speak up for those who can't speak for themselves. It's about using your talents to serve others. It's about refusing to accept injustice, inequality, or indifference.
+
+As Spelman women, you have been trained not just to succeed, but to serve. You have been taught not just to achieve, but to lift others as you climb. That's not just a nice sentiment – it's a call to action.
+
+The world you're entering is facing enormous challenges. We're dealing with a global pandemic that has exposed deep inequalities in our society. We're grappling with systemic racism that continues to deny opportunities to millions of Americans. We're facing climate change, economic uncertainty, and threats to our democracy.
+
+These challenges can seem overwhelming. But I want you to see them as opportunities – opportunities to lead, to make a difference, to be part of the solution.
+
+You don't need to solve all of these problems by yourself. But you can choose one issue that matters to you and commit to making a difference. You can use your education, your passion, and your voice to create change.
+
+Maybe you'll become a doctor and work to eliminate health disparities in underserved communities. Maybe you'll become a teacher and help close the achievement gap. Maybe you'll become an entrepreneur and create jobs in communities that need them most. Maybe you'll become an activist and fight for justice and equality.
+
+Whatever path you choose, remember this: your leadership matters. Your voice matters. Your contribution matters.
+
+But leadership isn't just about what you do professionally. It's about how you show up in your community, in your family, in your relationships. It's about being the person who speaks up when others are silent. It's about being the person who stands up when others sit down. It's about being the person who shows up when others turn away.
+
+I want to share with you three principles that have guided my own leadership journey:
+
+First, embrace your authenticity. Don't try to be the leader you think others want you to be. Be the leader you are meant to be. Your unique perspective, your experiences, your background – these are not obstacles to overcome, they are assets to leverage.
+
+As Black women, we often feel pressure to conform, to fit in, to make others comfortable. But the world doesn't need another copy of someone else. It needs the original you. Your authenticity is your superpower.
+
+Second, build bridges, not walls. Leadership is not about defeating your opponents; it's about finding common ground and building coalitions. It's about bringing people together around shared values and shared goals.
+
+This doesn't mean compromising your principles. It means being principled enough to work with others who share your commitment to progress, even if you disagree on some of the details.
+
+Third, turn your setbacks into comebacks. You will face failures, disappointments, and defeats. That's not a sign that you're not meant to lead – it's a sign that you're human. What matters is not whether you fall, but whether you get back up.
+
+Every setback is an opportunity to learn, to grow, to come back stronger. Every defeat is a chance to reassess, to refocus, to recommit to your goals.
+
+I want you to remember that your education at Spelman has prepared you not just for success, but for significance. You have been trained to think critically, to communicate effectively, to solve problems creatively. But most importantly, you have been taught to care – about justice, about equality, about making the world a better place.
+
+That caring is what will drive your leadership. That passion is what will sustain you through the challenges ahead. That commitment is what will enable you to make a lasting impact.
+
+As you leave this institution and enter the next phase of your lives, remember that you carry with you the hopes and dreams of all the women who came before you – the women who fought for the right to vote, the right to an education, the right to be treated with dignity and respect.
+
+You also carry with you the responsibility to open doors for the women who will come after you. Your success is not just about you – it's about all of us.
+
+The world needs your leadership. It needs your energy, your ideas, your passion for justice. It needs your willingness to challenge the status quo and fight for what's right.
+
+Don't wait for someone to give you permission to lead. Don't wait for the perfect opportunity or the ideal circumstances. Lead from where you are, with what you have, starting today.
+
+The future is not something that happens to you – it's something you create. And I have no doubt that you will create a future that is more just, more equitable, and more hopeful than the world you inherited.
+
+Congratulations, Class of 2020. Now go out there and lead.
+
+Thank you.`
   },
   {
     id: 25,
@@ -1717,7 +1945,73 @@ Thank you.`
       "Representation changes everything",
       "Use media to drive social change"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Chancellor Block, distinguished faculty, proud families, and the brilliant Class of 2018 – congratulations on this incredible achievement.
+
+It is an honor to be here with you today at UCLA, an institution that has been a launching pad for so many creative minds and innovative thinkers. As I look out at all of you, I see the future of storytelling, the future of media, the future of how we understand and share the human experience.
+
+Today, I want to talk to you about something that I believe is fundamental to who we are as human beings: our stories. Your story matters. Your voice matters. Your perspective is needed. Don't wait for permission to tell your story – create your own opportunities.
+
+When I started my career, I didn't set out to become a filmmaker. I was working in journalism and public relations, and I was good at it. But I felt like something was missing. I felt like the stories I really wanted to tell – stories about people who looked like me, stories about experiences that weren't being represented in mainstream media – those stories weren't being told.
+
+So I made a choice. I decided to stop waiting for someone else to tell those stories and start telling them myself. I took my life savings, bought a camera, and made my first film. It wasn't perfect. It wasn't polished. But it was mine, and it was authentic, and it was necessary.
+
+That film led to another, and another, and eventually to "Selma," "13th," "When They See Us," and "A Wrinkle in Time." But none of that would have happened if I had waited for permission, if I had waited for someone to give me an opportunity, if I had waited for the industry to change.
+
+The lesson I want to share with you today is this: don't wait. Don't wait for the perfect moment, the perfect opportunity, the perfect circumstances. Don't wait for someone to validate your vision or give you permission to pursue your dreams. Create your own opportunities.
+
+In the film industry, I was told for years that stories about Black people, stories about women, stories about social justice – these stories wouldn't sell. They wouldn't find an audience. They weren't commercial. They weren't universal.
+
+But I knew that was wrong. I knew that everyone's story is universal when it's told with truth and authenticity. I knew that representation matters, not just for the people being represented, but for everyone who gets to see and understand different perspectives.
+
+When "Selma" was released, it wasn't just important for Black audiences to see their history reflected on screen. It was important for all audiences to understand that history, to grapple with its implications, to see how it connects to our present moment.
+
+When "13th" explored the intersection of race and mass incarceration, it wasn't just a film for people who already understood these issues. It was a film that opened eyes, changed minds, and sparked conversations that needed to happen.
+
+When "When They See Us" told the story of the Central Park Five, it wasn't just about correcting a historical injustice. It was about showing how the media, the justice system, and society as a whole can fail the most vulnerable among us.
+
+These stories mattered because they were true, because they were necessary, and because they were told with integrity and purpose. But they also mattered because they changed the conversation about what kinds of stories deserve to be told and who deserves to tell them.
+
+That's the power of storytelling. It's not just entertainment. It's not just art. It's a tool for understanding, for empathy, for social change. It's a way to make the invisible visible, to give voice to the voiceless, to challenge assumptions and change hearts and minds.
+
+But here's the thing: that power doesn't belong only to filmmakers or writers or journalists. It belongs to all of you. Every single one of you has a story to tell, a perspective to share, a voice that needs to be heard.
+
+Maybe you're going into business, and your story is about creating companies that prioritize social responsibility and ethical practices. Maybe you're going into medicine, and your story is about providing healthcare to underserved communities. Maybe you're going into education, and your story is about ensuring that every child has access to quality learning opportunities.
+
+Whatever field you enter, whatever career you pursue, you have the opportunity to tell your story through your work, through your choices, through the impact you make on the world.
+
+But telling your story isn't just about your professional life. It's about how you show up in the world every day. It's about the conversations you have, the relationships you build, the communities you serve. It's about being authentic, being honest, being true to your values and your vision.
+
+In a world that often tries to silence certain voices, that tries to marginalize certain perspectives, that tries to make certain people invisible, your commitment to telling your story is an act of resistance. It's an act of courage. It's an act of love.
+
+I want to share with you three principles that have guided my own storytelling journey:
+
+First, authenticity is your superpower. Don't try to tell the stories you think people want to hear. Tell the stories that you need to tell. Tell the stories that come from your heart, your experience, your truth. Those are the stories that will resonate, that will matter, that will make a difference.
+
+Second, representation is revolution. When you tell stories that haven't been told, when you center voices that have been marginalized, when you challenge the dominant narrative, you're not just making art – you're making change. You're expanding the definition of whose stories matter, whose experiences count, whose voices deserve to be heard.
+
+Third, collaboration amplifies impact. Storytelling is not a solo endeavor. The best stories come from bringing together diverse perspectives, different talents, varied experiences. Surround yourself with people who challenge you, who complement your skills, who share your commitment to truth and justice.
+
+As you leave UCLA and enter the next phase of your lives, I want you to remember that you are living in an unprecedented time for storytelling. Technology has democratized the tools of creation and distribution. Social media has given everyone a platform. Streaming services have created new opportunities for diverse content.
+
+But with that opportunity comes responsibility. The stories you tell, the content you create, the messages you share – they have power. They can heal or harm, unite or divide, inspire or discourage. Use that power wisely.
+
+Tell stories that matter. Tell stories that challenge. Tell stories that inspire. Tell stories that bring us together rather than tear us apart. Tell stories that help us understand each other better, that help us see our common humanity, that help us build a more just and equitable world.
+
+Your generation has the opportunity to reshape how stories are told, who gets to tell them, and what impact they have on society. You have the opportunity to create a media landscape that truly reflects the diversity and complexity of human experience.
+
+But that won't happen automatically. It will happen because you make it happen. It will happen because you refuse to accept the status quo. It will happen because you insist on telling your story, even when others try to silence you.
+
+The world needs your stories. It needs your perspective. It needs your voice. It needs your commitment to truth, to justice, to representation, to change.
+
+Don't wait for permission. Don't wait for an invitation. Don't wait for the perfect moment. Start telling your story today. Start with where you are, with what you have, with the platform you can create for yourself.
+
+Your story matters. Your voice matters. Your perspective is needed.
+
+Now go out there and tell it.
+
+Congratulations, Class of 2018. The world is waiting to hear from you.
+
+Thank you.`
   },
   {
     id: 26,
@@ -1733,7 +2027,71 @@ Thank you.`
       "Education is the path to freedom",
       "Question everything and think critically"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `President Frederick, distinguished faculty, proud families, and the graduating class of 2017 – it is an extraordinary honor to stand before you today at this sacred institution.
+
+Howard University is not just a school. It is a sanctuary. It is a place where Black minds have been nurtured, Black voices have been amplified, and Black dreams have been realized for more than 150 years. You are part of that legacy, and that legacy is now part of you.
+
+Today, I want to talk to you about something that has shaped my life and my understanding of the world: the power of writing. But I'm not just talking about writing as a craft or a profession. I'm talking about writing as an act of courage, as a tool for truth-telling, as a weapon against ignorance and injustice.
+
+Writing is an act of courage. It requires you to be vulnerable, to tell the truth, and to confront uncomfortable realities. But it's through this courage that we create change.
+
+When I was your age, I was not a good student. I was angry, unfocused, and frankly, I didn't see the point of much of what I was being taught. I dropped out of Howard – yes, this very institution – because I thought I knew better. I thought the world owed me something, and I was impatient to collect.
+
+But life has a way of humbling you, of teaching you lessons you didn't know you needed to learn. And one of the most important lessons I learned was this: education is not just about acquiring knowledge. It's about acquiring the tools to think critically, to question assumptions, to see the world as it really is, not as we wish it were.
+
+It was through writing that I began to understand this. Writing forced me to slow down, to think carefully about what I believed and why I believed it. Writing forced me to confront my own ignorance, my own biases, my own limitations.
+
+But writing also gave me power. It gave me the power to articulate my thoughts, to share my experiences, to contribute to important conversations about race, history, and justice in America.
+
+When I wrote "Between the World and Me," I wasn't trying to write a bestseller or win awards. I was trying to make sense of my own experience as a Black man in America. I was trying to understand how the history of this country had shaped my life and the lives of people who looked like me.
+
+But what I discovered in the process of writing that book was that my personal story was connected to a much larger story – the story of how race has been constructed and used in America, the story of how violence and exploitation have been justified and normalized, the story of how people have resisted and survived and thrived despite it all.
+
+That's the power of writing: it allows us to connect our individual experiences to larger truths, to see patterns and systems that might otherwise remain invisible, to bear witness to realities that others might prefer to ignore.
+
+But writing is not just about individual expression. It's about collective understanding. It's about creating a record, preserving memory, challenging dominant narratives.
+
+For too long, the stories that have been told about Black people in America have been told by others, from the outside, often with little understanding or empathy. But when we tell our own stories, when we write our own narratives, when we insist on our own humanity and complexity, we change the conversation.
+
+This is especially important for you as graduates of Howard University. You have been educated at an institution that has always understood the importance of Black intellectual life, Black scholarship, Black voices. You have been taught not just to consume knowledge, but to create it, to question it, to add to it.
+
+As you leave this place and enter the world, you will encounter people who will try to diminish your intelligence, question your qualifications, dismiss your perspectives. You will encounter systems and structures that were not designed with you in mind, that may actively work against your success.
+
+But you have something powerful: you have your voice, your perspective, your ability to think critically and write clearly about the world as you see it.
+
+Use that power. Write about your experiences. Write about the injustices you see. Write about the beauty you find. Write about the questions that keep you up at night. Write about the solutions you envision.
+
+Don't wait for permission. Don't wait for someone to give you a platform. Create your own platform. Start a blog. Write for your local newspaper. Submit articles to magazines. Apply for fellowships. Pitch book ideas. Use social media to share your thoughts and engage in important conversations.
+
+But remember: with the power to write comes the responsibility to write well, to write truthfully, to write with integrity. Don't just write to confirm what people already believe. Write to challenge, to complicate, to illuminate.
+
+Be willing to be wrong. Be willing to change your mind. Be willing to admit when you don't know something. The best writers are not those who have all the answers, but those who ask the right questions.
+
+And remember that writing is not just about individual success. It's about contributing to a larger project of understanding, of justice, of human flourishing. When you write, you're not just expressing yourself – you're participating in the ongoing conversation about who we are as a society, where we've been, and where we're going.
+
+The world needs your voices now more than ever. We live in an age of information overload, of fake news, of echo chambers and filter bubbles. We need writers who can cut through the noise, who can help us make sense of complexity, who can remind us of our shared humanity.
+
+We need writers who can help us understand how the past shapes the present, how individual experiences connect to larger systems, how we can work together to create a more just and equitable future.
+
+You have been trained for this work. You have been given the tools – intellectual, analytical, creative – to contribute to this vital project. Don't waste those tools. Don't underestimate your own power.
+
+But also remember that writing is hard work. It requires discipline, persistence, and humility. It requires you to read widely, to think deeply, to revise constantly. It requires you to be open to criticism, to learn from failure, to keep going even when the words don't come easily.
+
+Most importantly, it requires you to care – about truth, about justice, about the people whose stories you're telling, about the readers who will encounter your work.
+
+As you leave Howard and begin the next chapter of your lives, I want you to remember that you are part of a tradition of Black intellectual excellence that stretches back generations. You are the inheritors of a legacy of scholarship, activism, and artistic achievement that has changed the world.
+
+But you are not just inheritors – you are creators. You have the opportunity to add your own voices to this tradition, to tell new stories, to ask new questions, to imagine new possibilities.
+
+The pen is in your hands. The page is before you. The world is waiting to hear what you have to say.
+
+Write with courage. Write with conviction. Write with love.
+
+And remember: your words have power. Use them wisely.
+
+Congratulations, Class of 2017. Now go out there and write your way to freedom.
+
+Thank you.`
   },
   {
     id: 27,
@@ -1749,7 +2107,73 @@ Thank you.`
       "Challenge systemic inequality",
       "Use law as a tool for social change"
     ],
-    fullText: "Full speech content will be added..."
+    fullText: `Dean Gillian Lester, distinguished faculty, proud families, and the graduating class of 2019 – congratulations on this momentous achievement.
+
+It is a profound honor to address you today at Columbia Law School, an institution that has trained generations of lawyers, judges, and advocates who have shaped our legal system and our society. As you prepare to enter the legal profession, I want to talk to you about something that I believe is fundamental to the pursuit of justice: intersectionality.
+
+Justice is not just about individual achievement, but about collective liberation. We must understand how different forms of discrimination intersect and work together to create systemic inequality.
+
+When I first coined the term "intersectionality" more than thirty years ago, I was trying to address a simple but profound problem: the law's failure to see and address the unique discrimination faced by Black women. The courts could see race discrimination. They could see sex discrimination. But they couldn't see what happened when both forms of discrimination came together to create something distinct and particularly harmful.
+
+This wasn't just an academic exercise. This was about real people – Black women who were being denied jobs, who were facing harassment, who were being excluded from opportunities – and who had no legal recourse because their experiences didn't fit neatly into the existing categories of discrimination law.
+
+But intersectionality is about more than just Black women, and it's about more than just race and gender. It's a framework for understanding how all of our identities – our race, our gender, our class, our sexuality, our disability status, our immigration status – interact with systems of power to shape our experiences in the world.
+
+It's about recognizing that people are not just one thing. We are complex, multifaceted beings who exist at the intersection of multiple identities and multiple systems of oppression and privilege.
+
+And here's why this matters for you as future lawyers: the law has tremendous power to either perpetuate inequality or to challenge it. The legal frameworks we create, the cases we bring, the arguments we make – they all have the potential to either see people in their full complexity or to reduce them to single dimensions.
+
+For too long, our legal system has operated from a single-axis framework – looking at discrimination one category at a time, addressing inequality one issue at a time, seeking justice one group at a time. But that approach leaves too many people behind. It leaves behind the people who exist at the intersections, who face multiple forms of discrimination simultaneously, who don't fit neatly into our existing legal categories.
+
+As you enter the legal profession, I want to challenge you to think differently. I want you to develop what I call "intersectional literacy" – the ability to see and understand how different forms of inequality work together, how they reinforce each other, how they create unique harms that require unique solutions.
+
+This means asking different questions. Instead of just asking "Is this race discrimination or sex discrimination?" ask "How do race and gender work together in this situation?" Instead of just asking "How do we protect this particular group?" ask "How do we create systems that protect everyone, especially those who face multiple forms of marginalization?"
+
+This means thinking beyond individual cases to systemic change. Yes, it's important to win individual cases, to get justice for individual clients. But it's also important to think about how those cases fit into larger patterns, how they can be used to challenge broader systems of inequality.
+
+This means building coalitions across difference. Intersectionality is not about dividing people into smaller and smaller groups. It's about understanding how our struggles are connected, how our liberation is bound together, how we can work across our differences to create change.
+
+Let me give you a concrete example. When we talk about police violence, we often focus on the experiences of Black men. And that's important – Black men do face disproportionate levels of police violence, and that's a serious problem that deserves attention.
+
+But if we only focus on Black men, we miss the experiences of Black women who are also victims of police violence – women like Sandra Bland, Breonna Taylor, Atatiana Jefferson. We miss the ways that Black women's experiences of police violence are shaped not just by their race, but also by their gender, by stereotypes about Black women's sexuality and aggression, by the particular ways that Black women are policed and controlled.
+
+The #SayHerName campaign that I helped launch was designed to address this gap, to make visible the experiences of Black women and girls who are victims of police violence. It was an intersectional intervention – an attempt to expand our understanding of police violence to include all of its victims.
+
+But intersectionality is not just about understanding oppression. It's also about understanding privilege, about recognizing how some of us benefit from systems that harm others, about using that privilege responsibly.
+
+Many of you in this room have significant privilege. You're graduating from one of the most prestigious law schools in the country. You'll have opportunities that many people can only dream of. You'll have access to power, to resources, to platforms that can be used to create change.
+
+The question is: how will you use that privilege? Will you use it only to advance your own interests, or will you use it to challenge systems of inequality? Will you use it to climb the ladder and then pull it up behind you, or will you use it to create more ladders for others to climb?
+
+Intersectionality demands that we think about privilege and oppression not as fixed categories, but as dynamic relationships that shift depending on context. You might be privileged in some ways and marginalized in others. You might have power in some situations and be powerless in others.
+
+The key is to be aware of these dynamics, to be thoughtful about how you navigate them, to be intentional about using whatever privilege you have to create more justice, more equality, more opportunity for others.
+
+As lawyers, you will have many opportunities to make these choices. You'll choose which cases to take, which clients to represent, which causes to support. You'll choose how to frame legal arguments, how to tell stories in court, how to use the law as a tool for change.
+
+I encourage you to make those choices with an intersectional lens. Ask yourself: whose voices are being heard? Whose experiences are being centered? Whose stories are being told? And whose voices, experiences, and stories are being left out?
+
+Ask yourself: how can I use my legal training not just to succeed within existing systems, but to challenge and transform those systems? How can I use the law not just to protect the privileged, but to empower the marginalized?
+
+These are not easy questions, and they don't have simple answers. Intersectional thinking requires nuance, complexity, a willingness to sit with ambiguity and contradiction. It requires us to move beyond either/or thinking to both/and thinking.
+
+But I believe that this kind of thinking is essential if we want to create a more just society. We cannot address inequality by looking at one form of discrimination at a time. We cannot achieve justice by focusing on one group at a time. We need approaches that are as complex and multifaceted as the problems we're trying to solve.
+
+The legal profession needs lawyers who can think intersectionally, who can see connections across difference, who can build coalitions for change. The world needs advocates who understand that justice is not a zero-sum game, that liberation for some does not require oppression of others, that we can create systems that work for everyone.
+
+You have the tools, the training, and the opportunity to be those lawyers, those advocates, those change-makers. You have the privilege of a Columbia Law degree, and with that privilege comes responsibility.
+
+Use your legal training to challenge injustice wherever you find it. Use your voice to speak up for those who have been silenced. Use your privilege to create opportunities for others. Use your power to build a more just and equitable world.
+
+The law is not neutral. It is not objective. It is a human creation that reflects human choices, human values, human priorities. And that means it can be changed. It can be improved. It can be made more just.
+
+But that will only happen if people like you – people with legal training, with access to power, with the ability to shape legal discourse – choose to make it happen.
+
+The future of justice depends on your choices. Choose wisely. Choose courageously. Choose with an intersectional lens that sees and values the full complexity of human experience.
+
+Congratulations, Class of 2019. Now go out there and use the law to create the world you want to live in.
+
+Thank you.`
   },
   {
     id: 28,
