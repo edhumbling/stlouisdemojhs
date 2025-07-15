@@ -319,7 +319,7 @@ const DonateOneDollarPage: React.FC = () => {
       </div>
 
       {/* Main Content - Edge to Edge */}
-      <div className="pb-6 sm:pb-12">
+      <div className="py-6 sm:py-8">
         <div className="px-3 sm:px-4">
           {/* Desktop: Centered smaller container, Mobile: Full width */}
           <div className="lg:max-w-2xl lg:mx-auto">
@@ -328,17 +328,17 @@ const DonateOneDollarPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-6 shadow-2xl">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-4 sm:mb-6 shadow-2xl">
               <DollarSign className="w-10 h-10 text-white" />
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-green-600 mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-green-600 mb-3 sm:mb-4">
               Every Dollar Makes a Difference
             </h2>
-            
-            <p className="text-lg text-gray-600 leading-relaxed max-w-xl mx-auto">
+
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-xl mx-auto px-4 sm:px-0">
               Support St. Louis Demonstration JHS with just $1. Your small contribution joins with others to create a big impact on our students' education.
             </p>
           </motion.div>
