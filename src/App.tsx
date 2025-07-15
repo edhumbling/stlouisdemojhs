@@ -11,6 +11,7 @@ import AdmissionsPage from './pages/AdmissionsPage';
 import ContactPage from './pages/ContactPage';
 import FacultyPage from './pages/FacultyPage';
 import DonationPage from './pages/DonationPage';
+import DonateOneDollarPage from './pages/DonateOneDollarPage';
 import NewsPage from './pages/NewsPage';
 import CalendarPage from './pages/CalendarPage';
 import AISearchPage from './pages/AISearchPage';
@@ -166,6 +167,7 @@ const App: React.FC = () => {
           <Route path="media" element={<MediaPage />} />
           <Route path="media-files" element={<MediaFilesPage />} />
           <Route path="donate" element={<DonationPage />} />
+          <Route path="donate-one-dollar" element={<DonateOneDollarPage />} />
           <Route path="donate-paypal" element={<PayPalDonatePage />} />
           <Route path="donate-us-bank" element={<DonateUSBankPage />} />
           <Route path="donate-uk-bank" element={<DonateUKBankPage />} />

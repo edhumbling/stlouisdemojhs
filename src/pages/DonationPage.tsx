@@ -637,6 +637,16 @@ const DonationPage: React.FC = () => {
 
             {/* Donation Buttons Container */}
             <div className="mt-8 mb-10 flex flex-wrap justify-center gap-2 sm:gap-4 px-2">
+              {/* $1 Donation Button - Featured */}
+              <Link
+                to="/donate-one-dollar"
+                onClick={() => triggerHapticFeedback('medium')}
+                className="inline-flex items-center justify-center px-4 py-3 sm:px-6 sm:py-3 text-sm sm:text-lg font-bold text-white bg-gradient-to-br from-green-500 via-emerald-500 to-green-600 border border-green-700 rounded-xl hover:from-green-400 hover:via-emerald-400 hover:to-green-500 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 ring-2 ring-green-300/50"
+              >
+                <span className="mr-2 text-lg sm:text-xl">💵</span>
+                <span>Just $1</span>
+              </Link>
+
               {/* PayPal Donation Button - Optimized */}
               <Link
                 to="/donate-paypal"

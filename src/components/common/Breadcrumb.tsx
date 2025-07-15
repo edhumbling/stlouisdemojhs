@@ -92,6 +92,7 @@ const UnifiedBreadcrumb: React.FC<UnifiedBreadcrumbProps> = ({
 
     // Support & Engagement
     '/donate': { name: 'Support Our School', path: '/donate', description: 'Donate to support school development and programs' },
+    '/donate-one-dollar': { name: 'Donate Just $1', path: '/donate-one-dollar', description: 'Simple $1 donation to support our school' },
     '/donation': { name: 'Support Our School', path: '/donation', description: 'Donation options and support opportunities' },
     '/apply-now': { name: 'Apply Now', path: '/apply-now', description: 'School application process and requirements' },
     '/schedule-visit': { name: 'Schedule Visit', path: '/schedule-visit', description: 'Schedule a visit to our school campus' },
