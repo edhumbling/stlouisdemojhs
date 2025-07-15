@@ -9,14 +9,47 @@ const DonateOneDollarPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   const handleBack = () => {
     navigate(-1);
   };
 
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    // Clear previous errors
+    setEmailError('');
+    setError(null);
+
+    // Validate email if not empty
+    if (value && !validateEmail(value)) {
+      setEmailError('Please enter a valid email address');
+    }
+  };
+
   const handleDonateOneDollar = async () => {
+    // Validate email before proceeding
+    if (!email.trim()) {
+      setEmailError('Email address is required');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address');
+      return;
+    }
+
     setIsLoading(true);
     setError(null);
+    setEmailError('');
 
     try {
       // Use the live secret key directly for the $1 donation page
@@ -31,11 +64,11 @@ const DonateOneDollarPage: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: 'edhumbling@gmail.com',
+          email: email.trim(),
           amount: 1500, // GH₵15 in pesewas (1500 pesewas = 15 cedis ≈ $1 USD)
           currency: 'GHS',
           reference: `STLOUIS-1USD-${Date.now()}-${Math.floor(Math.random() * 10000)}`,
-          callback_url: `${window.location.origin}/donation-success`,
+          callback_url: `${window.location.origin}/donation-thank-you`,
           metadata: JSON.stringify({
             donor_name: 'Anonymous Supporter',
             donation_type: 'One Dollar Support',
@@ -212,6 +245,33 @@ const DonateOneDollarPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Email Input */}
+              <div className="mb-6">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  placeholder="Enter your email address"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors ${
+                    emailError ? 'border-red-500 bg-red-50' : 'border-gray-300'
+                  }`}
+                  required
+                />
+                {emailError && (
+                  <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
+                    <AlertCircle className="w-4 h-4" />
+                    {emailError}
+                  </p>
+                )}
+                <p className="mt-1 text-xs text-gray-500">
+                  We'll send your donation receipt to this email address
+                </p>
+              </div>
+
               {/* Error Display */}
               {error && (
                 <motion.div
@@ -243,7 +303,7 @@ const DonateOneDollarPage: React.FC = () => {
               {/* Donation Button */}
               <button
                 onClick={handleDonateOneDollar}
-                disabled={isLoading}
+                disabled={isLoading || !email.trim() || !validateEmail(email) || !!emailError}
                 className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 px-8 rounded-xl hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-3"
               >
                 {isLoading ? (
