@@ -15,9 +15,10 @@ const DonateOneDollarPage: React.FC = () => {
   const [nameError, setNameError] = useState('');
   const [exchangeRate, setExchangeRate] = useState(15); // Default: 1 USD = 15 GHS
   const [isLoadingRate, setIsLoadingRate] = useState(false);
+  const [usdAmount, setUsdAmount] = useState(1); // User-selected amount
+  const [customAmountInput, setCustomAmountInput] = useState('1');
 
-  // Calculate amounts
-  const usdAmount = 1;
+  // Calculate amounts based on user selection
   const ghsAmount = Math.round(usdAmount * exchangeRate * 100) / 100; // Round to 2 decimal places
   const paystackFee = Math.round(ghsAmount * 0.015 * 100) / 100; // 1.5% Paystack fee
   const totalAmount = Math.round((ghsAmount + paystackFee) * 100) / 100;
@@ -86,6 +87,38 @@ const DonateOneDollarPage: React.FC = () => {
     }
   };
 
+  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value);
+    setUsdAmount(value);
+    setCustomAmountInput(value.toString());
+  };
+
+  const handleAmountInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setCustomAmountInput(value);
+
+    // Parse and validate the input
+    const numValue = parseFloat(value);
+    if (!isNaN(numValue) && numValue >= 1 && numValue <= 1000) {
+      setUsdAmount(numValue);
+    }
+  };
+
+  const handleAmountInputBlur = () => {
+    // Ensure the input shows a valid value when user leaves the field
+    const numValue = parseFloat(customAmountInput);
+    if (isNaN(numValue) || numValue < 1) {
+      setUsdAmount(1);
+      setCustomAmountInput('1');
+    } else if (numValue > 1000) {
+      setUsdAmount(1000);
+      setCustomAmountInput('1000');
+    } else {
+      setUsdAmount(numValue);
+      setCustomAmountInput(numValue.toString());
+    }
+  };
+
   const handleDonateOneDollar = async () => {
     // Validate email before proceeding
     if (!email.trim()) {
@@ -134,9 +167,9 @@ const DonateOneDollarPage: React.FC = () => {
           callback_url: `${window.location.origin}/donation-thank-you`,
           metadata: JSON.stringify({
             donor_name: donorName.trim(),
-            donation_type: 'One Dollar Support',
+            donation_type: 'Custom Amount Donation',
             school_name: 'St. Louis Demonstration JHS',
-            amount_usd: 1,
+            amount_usd: usdAmount,
             amount_ghs: ghsAmount,
             payment_method: 'paystack_api',
             custom_fields: [
@@ -148,7 +181,7 @@ const DonateOneDollarPage: React.FC = () => {
               {
                 display_name: 'Donation Type',
                 variable_name: 'donation_type',
-                value: 'One Dollar Support'
+                value: 'Custom Amount Donation'
               },
               {
                 display_name: 'School Name',
@@ -158,7 +191,7 @@ const DonateOneDollarPage: React.FC = () => {
               {
                 display_name: 'Amount (USD)',
                 variable_name: 'amount_usd',
-                value: '$1.00'
+                value: `$${usdAmount.toFixed(2)}`
               },
               {
                 display_name: 'Amount (GHS)',
@@ -173,7 +206,7 @@ const DonateOneDollarPage: React.FC = () => {
               {
                 display_name: 'Payment Source',
                 variable_name: 'payment_source',
-                value: 'Website - One Dollar Page'
+                value: 'Website - Custom Amount Page'
               }
             ]
           })
@@ -234,13 +267,37 @@ const DonateOneDollarPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50">
       <SEOHead
-        title="Donate Just $1 | Support St. Louis Demonstration JHS"
-        description="Make a simple $1 donation to support St. Louis Demonstration JHS. Every dollar helps us provide quality education for our students."
-        keywords="donate, $1 donation, support school, Ghana education, St. Louis Demo JHS, school funding"
+        title="Choose Your Donation Amount | Support St. Louis Demonstration JHS"
+        description="Make a custom donation to support St. Louis Demonstration JHS. Choose any amount from $1 to $1000 to help us provide quality education for our students."
+        keywords="donate, custom donation, support school, Ghana education, St. Louis Demo JHS, school funding"
         url="/donate-one-dollar"
         type="website"
         pageType="donation"
       />
+
+      {/* Custom Slider Styles */}
+      <style>{`
+        .slider::-webkit-slider-thumb {
+          appearance: none;
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          background: #10b981;
+          cursor: pointer;
+          border: 3px solid #ffffff;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .slider::-moz-range-thumb {
+          height: 24px;
+          width: 24px;
+          border-radius: 50%;
+          background: #10b981;
+          cursor: pointer;
+          border: 3px solid #ffffff;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+      `}</style>
 
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4">
@@ -255,7 +312,7 @@ const DonateOneDollarPage: React.FC = () => {
             </button>
 
             <h1 className="text-xl md:text-2xl font-bold text-white">
-              💵 Donate Just $1
+              💵 Choose Your Donation Amount
             </h1>
           </div>
         </div>
@@ -292,28 +349,87 @@ const DonateOneDollarPage: React.FC = () => {
             className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
           >
             <div className="text-center">
-              {/* Amount Display */}
-              <div className="mb-6 sm:mb-8 text-center">
-                <div className="text-4xl sm:text-6xl font-bold text-green-600 mb-2">💵 $1</div>
-                <div className="text-xl sm:text-2xl font-semibold text-gray-700 mb-2">
-                  {isLoadingRate ? (
-                    <span className="flex items-center justify-center gap-2">
-                      <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
-                      <span className="text-sm sm:text-base">Loading rate...</span>
-                    </span>
-                  ) : (
-                    `≈ GH₵${ghsAmount.toFixed(2)}`
-                  )}
+              {/* Amount Selection */}
+              <div className="mb-6 sm:mb-8">
+                {/* Amount Display */}
+                <div className="text-center mb-6">
+                  <div className="text-4xl sm:text-6xl font-bold text-green-600 mb-2">
+                    💵 ${usdAmount.toFixed(usdAmount % 1 === 0 ? 0 : 2)}
+                  </div>
+                  <div className="text-xl sm:text-2xl font-semibold text-gray-700 mb-2">
+                    {isLoadingRate ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
+                        <span className="text-sm sm:text-base">Loading rate...</span>
+                      </span>
+                    ) : (
+                      `≈ GH₵${ghsAmount.toFixed(2)}`
+                    )}
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-500 mb-3 bg-gray-100 inline-block px-3 py-1 rounded-full">
+                    📊 Rate: 1 USD = {exchangeRate} GHS
+                  </div>
                 </div>
-                <div className="text-xs sm:text-sm text-gray-500 mb-3 bg-gray-100 inline-block px-3 py-1 rounded-full">
-                  📊 Rate: 1 USD = {exchangeRate} GHS
+
+                {/* Amount Slider */}
+                <div className="bg-white rounded-xl p-4 sm:p-6 border-2 border-green-200 shadow-lg mb-4">
+                  <h3 className="text-base sm:text-lg font-bold text-green-800 mb-4 text-center">
+                    🎚️ Choose Your Amount
+                  </h3>
+
+                  {/* Slider */}
+                  <div className="mb-4">
+                    <input
+                      type="range"
+                      min="1"
+                      max="1000"
+                      step="1"
+                      value={usdAmount}
+                      onChange={handleSliderChange}
+                      className="w-full h-3 bg-green-200 rounded-lg appearance-none cursor-pointer slider"
+                      style={{
+                        background: `linear-gradient(to right, #10b981 0%, #10b981 ${((usdAmount - 1) / 999) * 100}%, #d1fae5 ${((usdAmount - 1) / 999) * 100}%, #d1fae5 100%)`
+                      }}
+                    />
+                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                      <span>$1</span>
+                      <span>$1000</span>
+                    </div>
+                  </div>
+
+                  {/* Custom Amount Input */}
+                  <div className="flex items-center gap-3">
+                    <label htmlFor="customAmount" className="text-sm font-medium text-gray-700 whitespace-nowrap">
+                      💰 Custom:
+                    </label>
+                    <div className="flex-1 relative">
+                      <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-medium">$</span>
+                      <input
+                        type="number"
+                        id="customAmount"
+                        min="1"
+                        max="1000"
+                        step="0.01"
+                        value={customAmountInput}
+                        onChange={handleAmountInputChange}
+                        onBlur={handleAmountInputBlur}
+                        className="w-full pl-8 pr-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-black font-medium"
+                        placeholder="Enter amount"
+                      />
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-gray-500 text-center mt-3">
+                    💡 Slide or type any amount from $1 to $1000
+                  </p>
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 font-medium">✨ Simple. Quick. Impactful. ✨</p>
+
+                <p className="text-sm sm:text-base text-gray-600 font-medium text-center">✨ Simple. Quick. Impactful. ✨</p>
               </div>
 
               {/* Impact Statement */}
               <div className="bg-green-50 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 border border-green-200">
-                <h3 className="text-base sm:text-lg font-bold text-green-800 mb-4 text-center">🎯 Your $1 Helps Provide:</h3>
+                <h3 className="text-base sm:text-lg font-bold text-green-800 mb-4 text-center">🎯 Your Donation Helps Provide:</h3>
                 <div className="grid grid-cols-1 gap-3 text-sm sm:text-base text-green-700">
                   <div className="flex items-center justify-center gap-3 bg-white p-3 rounded-lg shadow-sm">
                     <span className="text-lg">📚</span>
@@ -450,7 +566,7 @@ const DonateOneDollarPage: React.FC = () => {
                 ) : (
                   <>
                     <Heart className="w-5 h-5" />
-                    Donate $1 (GH₵{totalAmount.toFixed(2)})
+                    Donate ${usdAmount.toFixed(usdAmount % 1 === 0 ? 0 : 2)} (GH₵{totalAmount.toFixed(2)})
                   </>
                 )}
               </button>
