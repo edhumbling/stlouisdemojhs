@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
+import UnifiedBreadcrumb from '../common/Breadcrumb';
 
 import { useHeader } from '../../contexts/HeaderContext';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
@@ -79,9 +80,40 @@ const Layout: React.FC = () => {
   ];
   const shouldShowFooter = !noFooterPages.includes(location.pathname) && showFooter;
 
+  // Pages that should not show breadcrumbs (typically full-screen or special pages)
+  const noBreadcrumbPages = [
+    '/',
+    '/news',
+    '/calendar',
+    '/ai-search',
+    '/schedule-visit',
+    '/apply-now',
+    '/thank-you',
+    '/tiktok',
+    '/gallery',
+    ...((location.pathname.startsWith('/shs-database/pdf/')) ? [location.pathname] : []),
+    ...((location.pathname.startsWith('/financial-library/')) ? [location.pathname] : []),
+  ];
+  const shouldShowBreadcrumbs = !noBreadcrumbPages.includes(location.pathname);
+
   // Homepage should not have top padding (content can go under header)
   const isHomePage = location.pathname === '/';
   const shouldHaveTopPadding = !isHomePage && showHeader;
+
+  // Determine breadcrumb theme based on page
+  const darkBreadcrumbPages = [
+    '/ai',
+    '/stem',
+    '/stem-education',
+    '/stem-deep-learning',
+    '/robotics',
+    '/space-exploration',
+    '/mayamiles-ai',
+    '/ask-louis',
+    '/tech-resources',
+    '/ai-teaching-guide'
+  ];
+  const breadcrumbTheme = darkBreadcrumbPages.some(page => location.pathname.startsWith(page)) ? 'dark' : 'light';
 
 
 
@@ -90,6 +122,14 @@ const Layout: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {showHeader && <Header />}
+
+      {/* Unified Google-Optimized Breadcrumb Navigation */}
+      {shouldShowBreadcrumbs && (
+        <UnifiedBreadcrumb
+          theme={breadcrumbTheme}
+          className="relative z-40"
+        />
+      )}
 
       <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
         <Outlet />
