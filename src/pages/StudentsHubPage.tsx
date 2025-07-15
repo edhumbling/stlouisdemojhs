@@ -308,6 +308,15 @@ const StudentsHubPage: React.FC = () => {
         isInternal: true
       },
       {
+        id: 201,
+        title: "Tech Resources",
+        description: "Curated collection of coding tools, AI resources, productivity apps, and tech learning platforms for aspiring developers and tech enthusiasts",
+        url: "/tech-resources",
+        icon: <Code className="w-5 h-5" />,
+        color: "#00D4FF",
+        isInternal: true
+      },
+      {
         id: 2,
         title: "Poetry Archive",
         description: "Children's poetry collection",

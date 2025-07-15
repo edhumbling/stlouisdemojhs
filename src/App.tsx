@@ -100,6 +100,7 @@ import FinancialLibraryPage from './pages/FinancialLibraryPage';
 import FinancialLibraryViewerPage from './pages/FinancialLibraryViewerPage';
 import ShopGalleryPage from './pages/ShopGalleryPage';
 import CareersListPage from './pages/CareersListPage';
+import TechResourcesPage from './pages/TechResourcesPage';
 
 // Note: Scroll position management is now handled by useEnhancedNavigation hook
 
@@ -159,6 +160,7 @@ const App: React.FC = () => {
           <Route path="alumni" element={<AlumniPage />} />
           <Route path="shop" element={<ShopGalleryPage />} />
           <Route path="careers-list" element={<CareersListPage />} />
+          <Route path="tech-resources" element={<TechResourcesPage />} />
           <Route path="sponsorship" element={<SponsorshipPage />} /> {/* New Route */}
           <Route path="pta" element={<PTAPage />} />
           <Route path="media" element={<MediaPage />} />
