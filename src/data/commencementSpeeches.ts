@@ -5178,5 +5178,409 @@ The world is waiting for your stories. The world is waiting for your vision. The
 Don't keep it waiting too long.
 
 Congratulations, Class of 2014. Now stop dreaming and start doing.`
+  },
+  {
+    id: 46,
+    speaker: "Melinda French Gates",
+    title: "The Power of Lifting Others Up",
+    university: "Stanford University",
+    year: 2014,
+    excerpt: "When we lift up women, we lift up humanity. When we invest in women and girls, we invest in the people who invest in everyone else - the people who make everyone else's lives better.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Lifting up women lifts up humanity",
+      "Use your privilege to create opportunities for others",
+      "Technology should serve those who need it most",
+      "Optimism combined with action creates change"
+    ],
+    fullText: `President Hennessy, distinguished faculty, proud families, and graduates of Stanford's Class of 2014,
+
+Thank you for this incredible honor. Standing here at Stanford, where I earned my MBA and where I learned that technology could be a force for good in the world, I'm reminded of the power we have to create positive change.
+
+When we lift up women, we lift up humanity. When we invest in women and girls, we invest in the people who invest in everyone else - the people who make everyone else's lives better.
+
+I want to start by sharing something that changed my perspective forever. Several years ago, I was visiting a village in Niger, one of the poorest countries in the world. I met a woman named Sadi who had walked for hours to bring her sick baby to a health clinic.
+
+When we arrived at the clinic, there were no vaccines, no medicines, no basic supplies. The healthcare worker apologized and told Sadi to come back next week. But Sadi looked at her baby and said, "My baby will be dead by then."
+
+In that moment, I realized that all the technology in the world, all the innovation coming out of Silicon Valley, all the progress we celebrate - none of it mattered if it didn't reach the people who needed it most.
+
+Use your privilege to create opportunities for others. You are graduating from one of the world's most prestigious universities. You have access to networks, resources, and opportunities that most people in the world can only dream of.
+
+With that privilege comes responsibility. The responsibility to ensure that the benefits of innovation and progress are shared broadly, not concentrated among the few.
+
+When Bill and I started our foundation, we made a conscious decision to focus on the world's most pressing problems - problems that the market alone wouldn't solve because the people affected couldn't pay for solutions.
+
+We focused on global health, on education, on poverty alleviation. We focused on reaching the people who had been left behind by progress, who had been forgotten by innovation.
+
+Technology should serve those who need it most. Too often, we develop technology for people like us - educated, affluent, connected. But the real test of innovation is whether it can improve the lives of people who are different from us, who face challenges we've never faced.
+
+I've seen incredible examples of this. I've seen mobile banking systems that allow women in Kenya to save money safely for the first time. I've seen digital health records that help track vaccinations in remote villages. I've seen educational apps that teach children to read in languages that were never written down before.
+
+But I've also seen technology that widens the gap between rich and poor, that excludes rather than includes, that serves the privileged while ignoring the marginalized.
+
+As you enter the workforce, as you build companies and create products, ask yourself: Who is this for? Who is being left out? How can we ensure that innovation serves everyone, not just the few?
+
+Optimism combined with action creates change. I am an optimist. I believe that the world is getting better, that we are making progress on the biggest challenges facing humanity.
+
+But optimism alone is not enough. Optimism without action is just wishful thinking. Real change requires optimism combined with hard work, with persistence, with the willingness to tackle problems that seem insurmountable.
+
+When we started working on global health, people told us that diseases like malaria and tuberculosis were too complex, too entrenched, too expensive to solve. But we believed that with the right approach, with sufficient resources, with innovative thinking, we could make a difference.
+
+And we have. Deaths from malaria have been cut in half. Polio is on the verge of eradication. Millions of children who would have died are alive today because people refused to accept that suffering was inevitable.
+
+But there's still so much work to do. There are still women dying in childbirth from preventable causes. There are still children dying from diseases that we know how to prevent and treat. There are still girls who are denied education simply because of their gender.
+
+These problems are solvable. They require resources, yes, but they also require people who care enough to work on them, who are willing to dedicate their talents and energy to making the world more just and more equitable.
+
+I want to speak specifically to the women in the audience. You are entering the workforce at a time of unprecedented opportunity. You have access to education and careers that previous generations of women could only dream of.
+
+But you're also entering a world where women still face significant barriers. Where women are underrepresented in leadership positions, where the gender pay gap persists, where women's voices are often marginalized or ignored.
+
+Don't let these barriers discourage you. Use them as motivation. Prove that women can lead, can innovate, can solve the world's biggest problems. And as you succeed, reach back and pull other women up with you.
+
+Support other women. Mentor them. Sponsor them. Create opportunities for them. Because when women succeed, everyone benefits.
+
+The data is clear: companies with more women in leadership perform better. Countries with more gender equality have stronger economies. Families where women have more power and resources are healthier and more prosperous.
+
+This isn't just about fairness - though fairness matters. This is about effectiveness. This is about solving problems and creating value and building a better world.
+
+As you leave Stanford and enter the world, you will have many choices to make about how to spend your time, your energy, your talents. You will have opportunities to make money, to build careers, to achieve personal success.
+
+I encourage you to think bigger than that. Think about how you can use your success to create opportunities for others. Think about how you can use your voice to speak for those who don't have one. Think about how you can use your privilege to lift up those who have been left behind.
+
+The world needs your talents. The world needs your energy. The world needs your optimism and your determination to make things better.
+
+But the world also needs you to remember that success is not just about what you achieve for yourself. Success is about what you enable others to achieve. Success is about the positive impact you have on the world.
+
+You have been given extraordinary opportunities. Use them wisely. Use them generously. Use them to create a world where everyone has the chance to live a healthy, productive, meaningful life.
+
+The future is in your hands. Make it a future we can all be proud of.
+
+Congratulations, Class of 2014. Now go out there and lift up the world.`
+  },
+  {
+    id: 47,
+    speaker: "Kofi Annan",
+    title: "Global Citizenship and Moral Leadership",
+    university: "MIT",
+    year: 2004,
+    excerpt: "We must start from the principle that each of us is a citizen of the world. We are all responsible for each other's welfare, and we must act on that responsibility.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "We are all citizens of the world",
+      "Technology must serve humanity's common good",
+      "Leadership requires moral courage",
+      "Global challenges need global solutions"
+    ],
+    fullText: `President Vest, distinguished faculty, proud families, and graduates of MIT's Class of 2004,
+
+Thank you for this great honor. It is wonderful to be here at MIT, an institution that has contributed so much to human knowledge and technological progress, and that continues to shape the future of our world.
+
+We must start from the principle that each of us is a citizen of the world. We are all responsible for each other's welfare, and we must act on that responsibility.
+
+As I look out at you today, I see the future leaders of science, technology, and innovation. You have been educated at one of the world's finest institutions. You have been given tools and knowledge that can literally change the world.
+
+But with that knowledge comes responsibility. The responsibility to use your talents not just for personal gain, but for the common good of humanity.
+
+Technology must serve humanity's common good. We live in an age of unprecedented technological advancement. The pace of innovation is accelerating, and the possibilities seem limitless.
+
+But technology is not neutral. It can be used to build or to destroy, to include or to exclude, to empower or to oppress. The question is not what technology can do, but what it should do.
+
+During my time as Secretary-General of the United Nations, I saw both the promise and the peril of technological advancement. I saw how information technology could connect people across continents, how medical advances could save millions of lives, how agricultural innovations could feed the hungry.
+
+But I also saw how technology could be used to wage war, to spread hatred, to widen the gap between rich and poor. I saw how the benefits of technological progress were often concentrated among the privileged few, while the majority of humanity was left behind.
+
+This is not inevitable. This is a choice. And it is a choice that you, as the next generation of innovators and leaders, will have to make.
+
+Leadership requires moral courage. True leadership is not about having the right answers. It is about asking the right questions. It is about having the courage to stand up for what is right, even when it is difficult, even when it is unpopular.
+
+Throughout my career, I have had to make difficult decisions, to take unpopular stands, to speak truth to power. I have learned that leadership is not about being liked. It is about doing what is right.
+
+When I spoke out against the Iraq War, many people criticized me. When I called for intervention in Rwanda and Kosovo, others said I was overstepping my authority. When I pushed for reform of the United Nations, some accused me of being naive.
+
+But I believed then, and I believe now, that leaders have a moral obligation to speak out against injustice, to defend the vulnerable, to work for peace and human dignity.
+
+You will face similar moments in your careers. Moments when you have to choose between what is easy and what is right. Moments when you have to decide whether to use your knowledge and influence for narrow interests or for the broader good.
+
+I urge you to choose courage. Choose to be leaders who are guided by moral principles, not just by market forces. Choose to be innovators who ask not just "can we?" but "should we?"
+
+Global challenges need global solutions. The problems facing humanity today - climate change, poverty, disease, conflict, terrorism - are global in nature. They cannot be solved by any one country, any one institution, any one sector acting alone.
+
+They require cooperation across borders, across disciplines, across cultures. They require people who can think globally while acting locally, who can bridge differences and build consensus.
+
+Climate change does not respect national boundaries. A pandemic that starts in one country can quickly spread around the world. Economic instability in one region can have global consequences.
+
+These challenges require global solutions, and global solutions require global citizens - people who understand that their fate is connected to the fate of people everywhere, people who are willing to work across differences to solve common problems.
+
+You are uniquely positioned to be such global citizens. You have been educated in an international environment. You have access to global networks and global knowledge. You understand that innovation and progress depend on collaboration and exchange of ideas.
+
+Use that understanding. Build bridges across cultures and disciplines. Work on problems that matter not just to your community or your country, but to humanity as a whole.
+
+The United Nations was founded on the principle that we are stronger together than we are apart, that our common humanity is more important than our differences, that we can solve problems through dialogue and cooperation rather than through conflict and competition.
+
+These principles are more relevant today than ever. In an interconnected world, we need institutions and leaders who can bring people together, who can find common ground, who can build consensus around shared values and common goals.
+
+As you leave MIT and enter the world, you will have many opportunities to contribute to human progress. You may become entrepreneurs who create new companies and new jobs. You may become researchers who make breakthrough discoveries. You may become engineers who design solutions to complex problems.
+
+Whatever path you choose, remember that your work is not just about you. It is about all of us. It is about using your talents and knowledge to make the world a better place for everyone.
+
+The world needs your innovation, but it also needs your compassion. The world needs your technical skills, but it also needs your moral leadership. The world needs your ambition, but it also needs your sense of responsibility to others.
+
+You have been given extraordinary opportunities. You have been equipped with knowledge and skills that can change the world. But knowledge without wisdom is dangerous. Skills without values are meaningless.
+
+Use your knowledge wisely. Use your skills ethically. Use your opportunities to serve not just your own interests, but the interests of humanity.
+
+Be global citizens. Be moral leaders. Be forces for good in the world.
+
+The future of our planet depends on it. The future of humanity depends on it. The future depends on you.
+
+Congratulations, Class of 2004. Now go out there and make us proud.`
+  },
+  {
+    id: 48,
+    speaker: "Amal Clooney",
+    title: "Justice and Human Rights",
+    university: "Vanderbilt University",
+    year: 2018,
+    excerpt: "Don't be afraid of being called ambitious or difficult. Those are not insults - they are compliments. And don't let anyone tell you that caring about justice makes you naive.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Embrace being called ambitious and difficult",
+      "Caring about justice is not naive",
+      "Use your education to defend human rights",
+      "The law can be a powerful tool for change"
+    ],
+    fullText: `Chancellor Zeppos, distinguished faculty, proud families, and graduates of Vanderbilt's Class of 2018,
+
+Thank you for this tremendous honor. It is wonderful to be here at Vanderbilt, an institution that has long been committed to excellence in education and to preparing students to make a positive impact on the world.
+
+Don't be afraid of being called ambitious or difficult. Those are not insults - they are compliments. And don't let anyone tell you that caring about justice makes you naive.
+
+I want to start by talking about something that many of you, especially the women in the audience, will face in your careers: the expectation that you should be modest about your ambitions, that you should avoid being seen as too demanding or too difficult.
+
+I have been called ambitious. I have been called difficult. I have been told that I care too much about cases that don't matter, that I should focus on more practical concerns, that I should be more realistic about what can be achieved.
+
+But I have learned that these criticisms often come from people who are uncomfortable with change, who benefit from the status quo, who would prefer that injustice remain unchallenged.
+
+Don't let them discourage you. Don't let them make you smaller. Don't let them convince you that your passion for justice is a weakness rather than a strength.
+
+Use your education to defend human rights. You have been given an extraordinary education here at Vanderbilt. You have been taught to think critically, to analyze complex problems, to communicate effectively.
+
+These skills are not just tools for personal advancement. They are tools for justice. They are tools for defending the rights of people who cannot defend themselves.
+
+Throughout my career as a human rights lawyer, I have represented clients who have been persecuted for their beliefs, who have been imprisoned for speaking truth to power, who have been denied basic human dignity.
+
+I have represented journalists who have been jailed for reporting the truth. I have represented women who have been victims of sexual violence in conflict zones. I have represented minorities who have been targeted for genocide.
+
+These cases are not easy. They are often dangerous. They require traveling to places where the rule of law is weak, where corruption is rampant, where speaking out can have serious consequences.
+
+But they are also the most important work I have ever done. Because at the heart of each case is a human being whose rights have been violated, whose dignity has been denied, whose voice has been silenced.
+
+The law can be a powerful tool for change. Some people see the law as dry, technical, removed from real life. But I have seen how the law can be a force for justice, how it can protect the vulnerable, how it can hold the powerful accountable.
+
+I have seen how international law can be used to prosecute war criminals, to seek justice for victims of atrocities, to establish precedents that protect future generations.
+
+I have seen how domestic law can be used to challenge discrimination, to protect civil liberties, to ensure that everyone is treated equally under the law.
+
+But the law is only as strong as the people who are willing to use it, to defend it, to fight for it. The law needs advocates who are willing to take on difficult cases, who are willing to challenge powerful interests, who are willing to stand up for what is right.
+
+You don't have to be a lawyer to be an advocate for justice. Whatever field you enter, you can use your skills and your platform to defend human rights, to challenge injustice, to make the world more fair and more equal.
+
+If you become a journalist, you can expose corruption and hold leaders accountable. If you become a business leader, you can ensure that your company respects human rights and operates ethically. If you become a teacher, you can educate the next generation about the importance of justice and equality.
+
+If you become a doctor, you can provide care to those who need it most. If you become an engineer, you can design solutions that improve people's lives. If you become an artist, you can use your creativity to inspire change and challenge injustice.
+
+The world needs advocates for justice in every field, in every profession, in every corner of society.
+
+I want to speak specifically to the women in the audience. You are entering the workforce at a time when women's rights are under attack in many parts of the world. You are entering a time when the progress that previous generations fought for is being challenged and sometimes reversed.
+
+Don't let this discourage you. Let it motivate you. Let it remind you that the fight for equality is not over, that each generation must do its part to advance the cause of justice.
+
+Be ambitious. Be demanding. Be difficult when difficulty is required. Don't apologize for wanting to change the world. Don't apologize for caring about justice. Don't apologize for refusing to accept the unacceptable.
+
+The world needs women who are willing to speak out, to stand up, to fight for what is right. The world needs women who are not afraid to challenge authority, to question assumptions, to demand better.
+
+But remember that you are not alone in this fight. You are part of a long tradition of women who have fought for justice, who have broken barriers, who have refused to be silenced.
+
+You are part of a global movement of people who believe that human rights are universal, that justice is not negotiable, that every person deserves to be treated with dignity and respect.
+
+As you leave Vanderbilt and enter the world, you will face choices about how to use your talents, your education, your opportunities. You will have the chance to make money, to build careers, to achieve personal success.
+
+But I hope you will also choose to use your success to help others. I hope you will choose to be advocates for justice, defenders of human rights, voices for the voiceless.
+
+The world needs your talents. The world needs your passion. The world needs your commitment to justice.
+
+Don't be afraid to be ambitious. Don't be afraid to be difficult. Don't be afraid to care about justice.
+
+The world is counting on you.
+
+Congratulations, Class of 2018. Now go out there and fight for justice.`
+  },
+  {
+    id: 49,
+    speaker: "Ban Ki-moon",
+    title: "Global Leadership for a Better World",
+    university: "New York University",
+    year: 2016,
+    excerpt: "Leadership is not about being in charge. Leadership is about taking care of those in your charge. True leaders serve others, not themselves.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Leadership is about serving others",
+      "Global challenges require collective action",
+      "Young people are the key to solving world problems",
+      "Sustainable development is everyone's responsibility"
+    ],
+    fullText: `President Hamilton, distinguished faculty, proud families, and graduates of New York University's Class of 2016,
+
+Thank you for this great honor. It is wonderful to be here at NYU, a truly global university that brings together students from around the world and prepares them to be global citizens and leaders.
+
+Leadership is not about being in charge. Leadership is about taking care of those in your charge. True leaders serve others, not themselves.
+
+As I conclude my tenure as Secretary-General of the United Nations, I have been reflecting on what I have learned about leadership during my time in this role. I have learned that leadership is not about power or prestige. It is about service and sacrifice.
+
+The greatest leaders I have known are those who have dedicated their lives to serving others, who have put the common good above their own interests, who have worked tirelessly to make the world a better place.
+
+Global challenges require collective action. During my time at the United Nations, I have witnessed firsthand the challenges facing our world: climate change, poverty, inequality, conflict, terrorism, disease.
+
+These challenges are interconnected and global in scope. They cannot be solved by any one country acting alone. They require collective action, international cooperation, and shared responsibility.
+
+Climate change, for example, affects every country on Earth, but its impacts are felt most severely by the poorest and most vulnerable populations. Addressing climate change requires all countries to work together, to reduce emissions, to adapt to changing conditions, to support those who are most affected.
+
+The Paris Agreement on climate change, which was adopted during my tenure, represents a historic achievement in international cooperation. For the first time, all countries agreed to work together to limit global warming and to build a more sustainable future.
+
+But agreements are only as strong as the commitment to implement them. The real work begins now, and it will require leaders at every level - in government, in business, in civil society - to take action.
+
+Young people are the key to solving world problems. Throughout my career, I have been inspired by the energy, creativity, and passion of young people. You are not just the leaders of tomorrow - you are the leaders of today.
+
+Young people have been at the forefront of many of the most important movements for change in recent years. You have led the fight against climate change, the struggle for social justice, the push for greater equality and inclusion.
+
+You have used technology and social media to organize, to mobilize, to create change in ways that previous generations could not have imagined.
+
+But with this power comes responsibility. The responsibility to use your energy and creativity for good, to work for positive change, to build a better world for all.
+
+Sustainable development is everyone's responsibility. In 2015, the world adopted the Sustainable Development Goals - a comprehensive agenda for ending poverty, protecting the planet, and ensuring prosperity for all.
+
+These goals represent a shared vision of the future we want to create: a world where no one is left behind, where everyone has the opportunity to live a life of dignity and fulfillment.
+
+But achieving these goals will require more than government action. It will require the engagement of all sectors of society - businesses, civil society organizations, universities, and individuals like you.
+
+As you begin your careers, I encourage you to think about how you can contribute to sustainable development. How can you use your skills and talents to help end poverty? How can you help protect the environment? How can you promote peace and justice?
+
+Whether you become entrepreneurs, teachers, doctors, engineers, artists, or public servants, you have a role to play in building a more sustainable and equitable world.
+
+I have spent my career in diplomacy and international relations, working to build bridges between countries and cultures. I have learned that despite our differences in language, religion, and culture, we share common values and common aspirations.
+
+We all want to live in peace. We all want our children to have better opportunities than we had. We all want to live in a world where human rights are respected and where everyone is treated with dignity.
+
+These shared values are the foundation for international cooperation and global governance. They are what make it possible for countries to work together to address common challenges.
+
+But maintaining international cooperation requires constant effort. It requires leaders who are committed to dialogue and diplomacy, who are willing to compromise and find common ground, who understand that we are stronger together than we are apart.
+
+As you enter the world, you will face many challenges and opportunities. You will have the chance to build careers, to start families, to pursue your dreams and ambitions.
+
+But I hope you will also remember that you are part of a global community, that your actions have consequences beyond your immediate circle, that you have a responsibility to contribute to the common good.
+
+The world needs your talents, your energy, your fresh perspectives. The world needs leaders who are committed to service, who are willing to work across differences, who understand that true success is measured not by what you achieve for yourself, but by what you contribute to others.
+
+The United Nations was founded on the belief that we can solve problems through dialogue and cooperation, that we can build a better world through collective action, that we can achieve peace and prosperity for all.
+
+These ideals may seem naive to some, but I have seen them work. I have seen countries come together to address global challenges. I have seen enemies become partners. I have seen hope triumph over despair.
+
+The future of our world depends on leaders who believe in these ideals and who are willing to work to make them reality.
+
+You are those leaders. You have been educated at one of the world's great universities. You have been given the tools and knowledge you need to make a difference.
+
+Now it is up to you to use those tools wisely, to lead with integrity and compassion, to work for a world that is more just, more peaceful, and more sustainable.
+
+The world is counting on you. Don't let us down.
+
+Congratulations, Class of 2016. Now go out there and change the world.`
+  },
+  {
+    id: 50,
+    speaker: "Leymah Gbowee",
+    title: "The Power of Women's Leadership",
+    university: "Barnard College",
+    year: 2012,
+    excerpt: "Don't wait for someone else to come and save you. You have the power within you to create the change you want to see. Women's leadership is not just about women - it's about transforming the world.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Don't wait for someone else to save you",
+      "Women's leadership transforms the world",
+      "Peace requires the participation of women",
+      "Your voice matters, no matter where you come from"
+    ],
+    fullText: `President Spar, distinguished faculty, proud families, and graduates of Barnard College's Class of 2012,
+
+Thank you for this incredible honor. Standing here at Barnard, an institution that has been empowering women for over 120 years, I am reminded of the power that women have to change the world when they are given the opportunity and when they refuse to be silenced.
+
+Don't wait for someone else to come and save you. You have the power within you to create the change you want to see. Women's leadership is not just about women - it's about transforming the world.
+
+I want to tell you a story about a group of women in Liberia who decided they had had enough. For fourteen years, our country had been torn apart by civil war. Hundreds of thousands of people had been killed. Women were being raped as a weapon of war. Children were being forced to become soldiers.
+
+The men who were supposed to be our leaders were sitting in air-conditioned rooms, talking and talking while our people continued to die. They seemed more interested in power than in peace, more concerned with their own positions than with the suffering of their people.
+
+So we women decided to act. We organized. We mobilized. We demanded peace.
+
+We started with a small group of women who met in a church. We came from different ethnic groups, different religions, different social classes. But we were united by one thing: we were tired of war, and we were determined to do something about it.
+
+We organized protests. We staged sit-ins. We confronted the warlords and demanded that they stop fighting. We traveled to peace talks in Ghana and refused to leave until the men reached an agreement.
+
+When the negotiators tried to take a break, we locked arms and blocked the doors. We told them they could not leave until they had signed a peace agreement. We told them that we would not let them go home to their comfortable lives while our people continued to suffer.
+
+And you know what? It worked. The men signed a peace agreement. The war ended. And Liberia began the long process of rebuilding.
+
+But our work was not finished. We knew that ending the war was just the first step. We had to build a lasting peace, and we knew that peace could not be sustainable without the full participation of women.
+
+Peace requires the participation of women. Women are not just victims of conflict - we are agents of peace. We are the ones who hold families and communities together during times of crisis. We are the ones who understand the true cost of war because we are the ones who bury the dead, who care for the wounded, who try to keep hope alive in the darkest times.
+
+But for too long, women have been excluded from peace processes. We have been told that peace is men's business, that women should stay home and let the men handle the important decisions.
+
+This is not just wrong - it is counterproductive. Research shows that peace agreements are more likely to last when women are involved in negotiating them. Countries with greater gender equality are less likely to experience conflict.
+
+Women bring different perspectives to the table. We ask different questions. We prioritize different issues. We think about the long-term consequences of decisions, not just the short-term political gains.
+
+When women are involved in peace processes, we insist on addressing the root causes of conflict - poverty, inequality, injustice. We demand accountability for crimes committed during war. We push for reconciliation and healing, not just the absence of violence.
+
+Your voice matters, no matter where you come from. Some of you might be thinking, "That's a powerful story, but what does it have to do with me? I'm not from a war-torn country. I don't face the same challenges."
+
+But every society has its own forms of injustice, its own systems of oppression, its own challenges that need to be addressed. And in every society, there are people who are told that their voices don't matter, that they should leave the important decisions to others.
+
+Don't believe them. Your voice matters. Your perspective matters. Your experiences matter.
+
+You don't have to be from Liberia to understand the importance of standing up for what is right. You don't have to have lived through war to know that injustice anywhere is a threat to justice everywhere.
+
+Whether you're fighting for equal pay in the workplace, for better education in your community, for an end to violence against women, for action on climate change, or for any other cause you believe in - your voice matters.
+
+But having a voice is not enough. You have to use it. You have to be willing to speak up, even when it's uncomfortable. You have to be willing to challenge authority, even when it's risky. You have to be willing to stand up for others, even when it's not popular.
+
+Women's leadership is not just about putting women in positions of power - though that is important. It's about bringing different values and perspectives to leadership. It's about leading with empathy and compassion. It's about prioritizing collaboration over competition, inclusion over exclusion, long-term thinking over short-term gains.
+
+The world needs this kind of leadership now more than ever. We face challenges that cannot be solved by the old ways of thinking, by the old models of leadership that have dominated for too long.
+
+We need leaders who understand that true strength comes not from dominating others, but from empowering them. We need leaders who understand that real security comes not from building walls, but from building bridges. We need leaders who understand that lasting prosperity comes not from exploiting resources, but from sharing them.
+
+As you leave Barnard and enter the world, you will have many opportunities to lead. Some of you will become CEOs, politicians, judges, professors. Others will lead in their communities, in their families, in their chosen fields.
+
+But all of you have the opportunity to be leaders in the fight for justice, equality, and peace. All of you have the opportunity to use your voices, your talents, your education to make the world a better place.
+
+Don't wait for permission. Don't wait for someone else to solve the problems you see. Don't wait for the perfect moment or the perfect opportunity.
+
+Start where you are. Use what you have. Do what you can.
+
+The women of Liberia didn't wait for someone else to bring peace to our country. We organized ourselves. We found our voices. We demanded change. And we got it.
+
+You have even more tools at your disposal than we did. You have better education, more resources, greater access to information and networks. You have the power of social media to organize and mobilize. You have a global platform to make your voices heard.
+
+Use these tools. Use your privilege. Use your education. Use your voice.
+
+The world needs your leadership. The world needs your perspective. The world needs your commitment to justice and equality.
+
+Don't let us down. Don't let yourselves down. Don't let the next generation down.
+
+Go out there and change the world. We're counting on you.
+
+Congratulations, Class of 2012. Now go make us proud.`
   }
 ];
