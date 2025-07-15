@@ -11,6 +11,8 @@ const DonateOneDollarPage: React.FC = () => {
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [donorName, setDonorName] = useState('');
+  const [nameError, setNameError] = useState('');
   const [exchangeRate, setExchangeRate] = useState(15); // Default: 1 USD = 15 GHS
   const [isLoadingRate, setIsLoadingRate] = useState(false);
 
@@ -70,6 +72,20 @@ const DonateOneDollarPage: React.FC = () => {
     }
   };
 
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setDonorName(value);
+
+    // Clear previous errors
+    setNameError('');
+    setError(null);
+
+    // Basic validation - at least 2 characters
+    if (value.trim().length > 0 && value.trim().length < 2) {
+      setNameError('Name must be at least 2 characters long');
+    }
+  };
+
   const handleDonateOneDollar = async () => {
     // Validate email before proceeding
     if (!email.trim()) {
@@ -82,9 +98,21 @@ const DonateOneDollarPage: React.FC = () => {
       return;
     }
 
+    // Validate donor name
+    if (!donorName.trim()) {
+      setNameError('Please enter your name');
+      return;
+    }
+
+    if (donorName.trim().length < 2) {
+      setNameError('Name must be at least 2 characters long');
+      return;
+    }
+
     setIsLoading(true);
     setError(null);
     setEmailError('');
+    setNameError('');
 
     try {
       // Use the live secret key directly for the $1 donation page
@@ -105,13 +133,18 @@ const DonateOneDollarPage: React.FC = () => {
           reference: `STLOUIS-1USD-${Date.now()}-${Math.floor(Math.random() * 10000)}`,
           callback_url: `${window.location.origin}/donation-thank-you`,
           metadata: JSON.stringify({
-            donor_name: 'Anonymous Supporter',
+            donor_name: donorName.trim(),
             donation_type: 'One Dollar Support',
             school_name: 'St. Louis Demonstration JHS',
             amount_usd: 1,
-            amount_ghs: 15,
+            amount_ghs: ghsAmount,
             payment_method: 'paystack_api',
             custom_fields: [
+              {
+                display_name: 'Donor Name',
+                variable_name: 'donor_name',
+                value: donorName.trim()
+              },
               {
                 display_name: 'Donation Type',
                 variable_name: 'donation_type',
@@ -130,7 +163,12 @@ const DonateOneDollarPage: React.FC = () => {
               {
                 display_name: 'Amount (GHS)',
                 variable_name: 'amount_ghs',
-                value: 'GH₵15.00'
+                value: `GH₵${ghsAmount.toFixed(2)}`
+              },
+              {
+                display_name: 'Total Charged (GHS)',
+                variable_name: 'total_amount_ghs',
+                value: `GH₵${totalAmount.toFixed(2)}`
               },
               {
                 display_name: 'Payment Source',
@@ -292,6 +330,33 @@ const DonateOneDollarPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Donor Name Input */}
+              <div className="mb-6">
+                <label htmlFor="donorName" className="block text-sm sm:text-base font-bold text-gray-800 mb-3 text-center">
+                  👤 Your Name *
+                </label>
+                <input
+                  type="text"
+                  id="donorName"
+                  value={donorName}
+                  onChange={handleNameChange}
+                  placeholder="Enter your full name"
+                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-4 focus:ring-green-500/50 focus:border-green-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-base sm:text-lg shadow-sm ${
+                    nameError ? 'border-red-500 bg-red-50 text-black' : 'border-gray-300 hover:border-green-300'
+                  }`}
+                  required
+                />
+                {nameError && (
+                  <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
+                    <AlertCircle className="w-4 h-4" />
+                    {nameError}
+                  </p>
+                )}
+                <p className="mt-1 text-xs sm:text-sm text-gray-500 text-center">
+                  This name will appear on your donation receipt
+                </p>
+              </div>
+
               {/* Email Input */}
               <div className="mb-6">
                 <label htmlFor="email" className="block text-sm sm:text-base font-bold text-gray-800 mb-3 text-center">
@@ -374,7 +439,7 @@ const DonateOneDollarPage: React.FC = () => {
               {/* Donation Button */}
               <button
                 onClick={handleDonateOneDollar}
-                disabled={isLoading || !email.trim() || !validateEmail(email) || !!emailError}
+                disabled={isLoading || !email.trim() || !validateEmail(email) || !!emailError || !donorName.trim() || donorName.trim().length < 2 || !!nameError}
                 className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 rounded-xl hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-base sm:text-lg"
               >
                 {isLoading ? (
