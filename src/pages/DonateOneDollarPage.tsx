@@ -334,7 +334,7 @@ const DonateOneDollarPage: React.FC = () => {
               <DollarSign className="w-10 h-10 text-white" />
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-green-600 mb-4">
               Every Dollar Makes a Difference
             </h2>
             
