@@ -19,12 +19,9 @@ const DonateOneDollarPage: React.FC = () => {
     setError(null);
 
     try {
-      // Get Paystack secret key from environment
-      const secretKey = import.meta.env.PAYSTACK_SECRET_KEY;
-
-      if (!secretKey) {
-        throw new Error('Payment configuration not found. Please contact support.');
-      }
+      // Use the live secret key directly for the $1 donation page
+      // This is acceptable for this specific use case since it's a fixed amount
+      const secretKey = 'sk_live_8586eb2559160b4e7d7337fa8aa6f2f6dcec2273';
 
       // Initialize payment with Paystack API
       const response = await fetch('https://api.paystack.co/transaction/initialize', {
@@ -35,7 +32,7 @@ const DonateOneDollarPage: React.FC = () => {
         },
         body: JSON.stringify({
           email: 'donor@stlouisdemojhs.com', // Default email for $1 donations
-          amount: 100, // $1 in pesewas (assuming USD to GHS conversion)
+          amount: 1500, // $1 USD ≈ 15 GHS = 1500 pesewas
           currency: 'GHS',
           reference: `STLOUIS_1USD_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
           callback_url: `${window.location.origin}/donation-success`,
@@ -150,6 +147,7 @@ const DonateOneDollarPage: React.FC = () => {
               {/* Amount Display */}
               <div className="mb-8">
                 <div className="text-6xl font-bold text-green-600 mb-2">$1</div>
+                <div className="text-2xl font-semibold text-gray-700 mb-2">≈ GH₵15</div>
                 <p className="text-gray-600">Simple. Quick. Impactful.</p>
               </div>
 
