@@ -427,24 +427,7 @@ const DonateOneDollarPage: React.FC = () => {
                 <p className="text-sm sm:text-base text-gray-600 font-medium text-center">✨ Simple. Quick. Impactful. ✨</p>
               </div>
 
-              {/* Impact Statement */}
-              <div className="bg-green-50 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 border border-green-200">
-                <h3 className="text-base sm:text-lg font-bold text-green-800 mb-4 text-center">🎯 Your Donation Helps Provide:</h3>
-                <div className="grid grid-cols-1 gap-3 text-sm sm:text-base text-green-700">
-                  <div className="flex items-center justify-center gap-3 bg-white p-3 rounded-lg shadow-sm">
-                    <span className="text-lg">📚</span>
-                    <span className="font-medium">School supplies</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-3 bg-white p-3 rounded-lg shadow-sm">
-                    <span className="text-lg">📖</span>
-                    <span className="font-medium">Learning materials</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-3 bg-white p-3 rounded-lg shadow-sm">
-                    <span className="text-lg">🤝</span>
-                    <span className="font-medium">Student support</span>
-                  </div>
-                </div>
-              </div>
+
 
               {/* Donor Name Input */}
               <div className="mb-6">
@@ -500,28 +483,27 @@ const DonateOneDollarPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Fee Breakdown */}
-              <div className="bg-white rounded-xl p-4 sm:p-6 mb-6 border-2 border-green-200 shadow-lg">
-                <h4 className="text-base sm:text-lg font-bold text-green-800 mb-4 text-center">💰 Payment Breakdown</h4>
-                <div className="space-y-3 text-sm sm:text-base">
-                  <div className="flex justify-between items-center text-gray-800 bg-gray-50 p-3 rounded-lg">
-                    <span className="font-medium">Donation amount:</span>
-                    <span className="font-bold text-green-600">GH₵{ghsAmount.toFixed(2)}</span>
+              {/* Compact Fee Breakdown */}
+              <div className="bg-white rounded-lg p-3 mb-4 border border-green-200 shadow-sm">
+                <div className="text-center mb-2">
+                  <span className="text-sm font-bold text-green-800">💰 Payment Summary</span>
+                </div>
+                <div className="space-y-1 text-xs">
+                  <div className="flex justify-between items-center text-gray-700">
+                    <span>Donation:</span>
+                    <span className="font-semibold text-green-600">GH₵{ghsAmount.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between items-center text-gray-800 bg-gray-50 p-3 rounded-lg">
-                    <span className="font-medium">Paystack fee (1.5%):</span>
-                    <span className="font-bold text-orange-600">GH₵{paystackFee.toFixed(2)}</span>
+                  <div className="flex justify-between items-center text-gray-700">
+                    <span>Fee (1.5%):</span>
+                    <span className="font-semibold text-orange-600">GH₵{paystackFee.toFixed(2)}</span>
                   </div>
-                  <div className="border-t-2 border-green-300 pt-3 mt-3">
-                    <div className="flex justify-between items-center bg-green-100 p-4 rounded-lg">
-                      <span className="font-bold text-green-800 text-base sm:text-lg">Total charge:</span>
-                      <span className="font-black text-green-800 text-lg sm:text-xl">GH₵{totalAmount.toFixed(2)}</span>
+                  <div className="border-t border-green-200 pt-1 mt-1">
+                    <div className="flex justify-between items-center bg-green-50 px-2 py-1 rounded">
+                      <span className="font-bold text-green-800 text-sm">Total:</span>
+                      <span className="font-black text-green-800 text-sm">GH₵{totalAmount.toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
-                <p className="text-xs sm:text-sm text-green-700 mt-3 text-center font-medium bg-green-50 p-2 rounded-lg">
-                  💳 Processing fees ensure secure payment handling
-                </p>
               </div>
 
               {/* Error Display */}
