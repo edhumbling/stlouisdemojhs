@@ -319,8 +319,10 @@ const DonateOneDollarPage: React.FC = () => {
       </div>
 
       {/* Main Content - Edge to Edge */}
-      <div className="py-6 sm:py-12">
+      <div className="pb-6 sm:pb-12">
         <div className="px-3 sm:px-4">
+          {/* Desktop: Centered smaller container, Mobile: Full width */}
+          <div className="lg:max-w-2xl lg:mx-auto">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -538,7 +540,7 @@ const DonateOneDollarPage: React.FC = () => {
               <button
                 onClick={handleDonateOneDollar}
                 disabled={isLoading || !email.trim() || !validateEmail(email) || !!emailError || !donorName.trim() || donorName.trim().length < 2 || !!nameError}
-                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-base sm:text-lg"
+                className="w-full lg:w-auto lg:mx-auto lg:px-12 lg:py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-base lg:text-base sm:text-lg rounded-lg"
               >
                 {isLoading ? (
                   <>
@@ -621,6 +623,7 @@ const DonateOneDollarPage: React.FC = () => {
               </div>
             </div>
           </motion.div>
+          </div>
         </div>
       </div>
     </div>

@@ -552,7 +552,7 @@ const DonationPage: React.FC = () => {
       </div>
 
       {/* Optimized Header Section - Red Love Theme with Background Image */}
-      <motion.section className="py-6 sm:py-8 relative overflow-hidden">
+      <motion.section className="pb-6 sm:pb-8 relative overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
