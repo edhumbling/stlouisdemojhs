@@ -550,6 +550,28 @@ const AISearchPage: React.FC = () => {
       openExternally: true
     },
     {
+      id: 'intern3-chat',
+      name: 'Intern3 Chat',
+      url: 'https://intern3.chat',
+      description: 'Advanced AI chat platform with Intern3 model capabilities and intelligent conversation',
+      icon: <img src="https://intern3.chat/favicon.ico" alt="Intern3 Chat" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=I3'; }} />,
+      color: 'from-emerald-500 to-green-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'lmarena',
+      name: 'LMArena AI',
+      url: 'https://lmarena.ai',
+      description: 'Large language model arena for comparing and testing different AI models and capabilities',
+      icon: <img src="https://lmarena.ai/favicon.ico" alt="LMArena" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=LM'; }} />,
+      color: 'from-amber-500 to-orange-600',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
       id: 'gizai',
       name: 'GizAI',
       url: 'https://www.giz.ai/',
