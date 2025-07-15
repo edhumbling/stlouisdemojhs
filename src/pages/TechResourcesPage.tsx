@@ -47,19 +47,25 @@ interface TechResource {
 
 const TechResourcesPage: React.FC = () => {
   const navigate = useNavigate();
-  const { setShowHeader } = useHeader();
+  const { setShowHeader, setShowFooter } = useHeader();
   const [isLoading, setIsLoading] = useState(true);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  // Configure header
+  // Configure header and footer
   useEffect(() => {
     setShowHeader(true);
+    setShowFooter(false); // Hide footer on Tech Resources page
 
     // Simulate loading
     const timer = setTimeout(() => setIsLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, [setShowHeader]);
+
+    // Cleanup: restore footer when leaving page
+    return () => {
+      clearTimeout(timer);
+      setShowFooter(true);
+    };
+  }, [setShowHeader, setShowFooter]);
 
   // Handle back navigation
   const handleBack = () => {

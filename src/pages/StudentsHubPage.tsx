@@ -79,7 +79,7 @@ const StudentsHubPage: React.FC = () => {
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const navigate = useNavigate();
-  const { setShowHeader } = useHeader();
+  const { setShowHeader, setShowFooter } = useHeader();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [openLofiId, setOpenLofiId] = useState<string | null>(null);
   const [currentSection, setCurrentSection] = useState<string | null>(null);
@@ -272,19 +272,22 @@ const StudentsHubPage: React.FC = () => {
     return () => clearTimeout(loadingTimer);
   }, []);
 
-  // Control header visibility based on whether we're viewing an individual resource
+  // Control header and footer visibility based on whether we're viewing an individual resource
   useEffect(() => {
     if (selectedResource) {
       setShowHeader(false);
+      setShowFooter(false);
     } else {
       setShowHeader(true);
+      setShowFooter(false); // Hide footer on main StudentsHub page
     }
 
-    // Cleanup: ensure header is shown when component unmounts
+    // Cleanup: ensure header is shown and footer is restored when component unmounts
     return () => {
       setShowHeader(true);
+      setShowFooter(true);
     };
-  }, [selectedResource, setShowHeader]);
+  }, [selectedResource, setShowHeader, setShowFooter]);
 
   // 📚 CATEGORIZED STUDENTS HUB RESOURCES 📚
   // Organized by learning areas for better navigation and discovery
