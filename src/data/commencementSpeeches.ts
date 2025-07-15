@@ -4780,5 +4780,403 @@ You have everything you need to be champions. The only question is: are you will
 The world is waiting for your excellence. Don't keep it waiting too long.
 
 Congratulations, Class of 2017. Now go out there and show the world what champions look like.`
+  },
+  {
+    id: 41,
+    speaker: "Ava DuVernay",
+    title: "The Power of Storytelling and Social Change",
+    university: "UCLA",
+    year: 2019,
+    excerpt: "Your job is not to be perfect. Your job is not to be liked. Your job is to be useful. To be a force for good. To tell stories that matter and create change that lasts.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Your job is to be useful, not perfect",
+      "Tell stories that create lasting change",
+      "Use your platform to amplify marginalized voices",
+      "Art and activism can work hand in hand"
+    ],
+    fullText: `Chancellor Block, distinguished faculty, proud families, and graduates of UCLA's Class of 2019,
+
+Thank you for this incredible honor. Standing here at UCLA, an institution that has been at the forefront of innovation in film and media, I'm reminded of the power we have as storytellers to shape culture and create change.
+
+Your job is not to be perfect. Your job is not to be liked. Your job is to be useful. To be a force for good. To tell stories that matter and create change that lasts.
+
+When I started my career in film, I was told many things about what I could and couldn't do. I was told that films about Black women wouldn't sell internationally. I was told that audiences weren't interested in stories about social justice. I was told that I should focus on making "universal" stories – which really meant stories about white people.
+
+But I refused to accept those limitations. I chose to tell the stories I wanted to tell, the stories I felt needed to be told, regardless of what the market research said.
+
+Tell stories that create lasting change. When I made "Selma," I wasn't just making a historical drama. I was making a film about the power of organized resistance, about the importance of voting rights, about the ongoing struggle for equality. I wanted audiences to leave the theater not just entertained, but activated.
+
+When I created "When They See Us," I wasn't just telling the story of the Central Park Five. I was exposing the flaws in our criminal justice system, the way racism infects every level of law enforcement, the devastating impact of wrongful convictions on families and communities.
+
+These weren't easy stories to tell. They required extensive research, difficult conversations, and the willingness to confront uncomfortable truths. But they were necessary stories. Stories that needed to be told to create understanding, to build empathy, to inspire action.
+
+Use your platform to amplify marginalized voices. Whatever field you enter, whatever success you achieve, remember that with platform comes responsibility. You have the power to decide whose stories get told, whose voices get heard, whose experiences get validated.
+
+In my production company, ARRAY, we've made it a priority to work with filmmakers from underrepresented communities. We've distributed films by women directors, directors of color, LGBTQ+ directors – filmmakers whose stories might not otherwise find an audience.
+
+This isn't charity. This is good business. These filmmakers bring fresh perspectives, untold stories, and authentic voices that audiences are hungry for. When we expand our definition of whose stories matter, we create better art and a more inclusive industry.
+
+Art and activism can work hand in hand. Some people think that art should be separate from politics, that entertainment should just be entertainment. I disagree. Art has always been political. Art has always been a tool for social change.
+
+The question is not whether your art will be political – the question is what politics it will serve. Will it serve the status quo, or will it challenge it? Will it comfort the comfortable, or will it comfort the afflicted?
+
+I choose to use my art to challenge systems of oppression, to give voice to the voiceless, to shine light on injustice. That's not because I'm an activist who happens to make films – it's because I'm a filmmaker who understands the power of storytelling to change hearts and minds.
+
+But you don't have to be a filmmaker to tell stories that matter. Whatever your profession, you have the opportunity to shape narratives, to challenge assumptions, to create change.
+
+If you're a journalist, you can choose which stories to cover and how to cover them. If you're a teacher, you can choose which voices to include in your curriculum. If you're a business leader, you can choose which communities to invest in and which causes to support.
+
+If you're a doctor, you can advocate for health equity. If you're a lawyer, you can fight for criminal justice reform. If you're an engineer, you can design technology that serves all communities, not just privileged ones.
+
+The key is to understand that your work is not separate from your values. Your career is not separate from your conscience. Your success is not separate from your responsibility to others.
+
+I want to talk specifically to the women and people of color in the audience. You will face unique challenges in your careers. You will encounter people who question your qualifications, who underestimate your abilities, who try to limit your opportunities.
+
+Don't let them. Don't shrink yourself to make others comfortable. Don't dim your light to avoid casting shadows on others. Don't apologize for taking up space that you've earned.
+
+You belong in every room you enter. You deserve every opportunity you pursue. You have every right to dream as big as anyone else.
+
+But also remember that your success is not just about you. When you succeed, you open doors for others. When you excel, you expand possibilities for the next generation. When you break barriers, you make it easier for others to follow.
+
+So succeed loudly. Excel visibly. Break barriers boldly. And then reach back and pull others up with you.
+
+The entertainment industry is changing. Audiences are demanding more diverse stories, more authentic voices, more inclusive representation. This creates opportunities for storytellers who have been marginalized or ignored.
+
+But change doesn't happen automatically. It happens because people like you demand it, create it, and sustain it. It happens because you refuse to accept the way things have always been and insist on the way things should be.
+
+As you leave UCLA and enter the world, remember that you are not just pursuing careers – you are shaping culture. You are not just telling stories – you are creating the narratives that will define our society.
+
+Make sure those narratives are inclusive. Make sure those stories are truthful. Make sure that culture reflects the full diversity and complexity of human experience.
+
+The world needs your voices. The world needs your stories. The world needs your vision of what's possible.
+
+Don't wait for permission to tell the stories you want to tell. Don't wait for someone else to create the opportunities you want to have. Don't wait for the perfect moment to start making change.
+
+Start now. Start where you are. Start with what you have. Start with the belief that your voice matters, that your story matters, that your vision of a better world is worth fighting for.
+
+Be useful. Be a force for good. Tell stories that matter. Create change that lasts.
+
+The future of storytelling is in your hands. Make it beautiful. Make it truthful. Make it transformative.
+
+Congratulations, Class of 2019. Now go out there and change the world, one story at a time.`
+  },
+  {
+    id: 42,
+    speaker: "Kobe Bryant",
+    title: "The Mamba Mentality",
+    university: "USC",
+    year: 2017,
+    excerpt: "The most important thing is to try and inspire people so that they can be great at whatever they want to do. Mamba mentality is about approaching everything you do with the same level of obsession and dedication.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Approach everything with obsession and dedication",
+      "Inspire others to be great at what they do",
+      "Continuous improvement is the key to excellence",
+      "Legacy is about the impact you have on others"
+    ],
+    fullText: `President Nikias, distinguished faculty, proud families, and graduates of USC's Class of 2017,
+
+Thank you for this incredible honor. Being here at USC, surrounded by so much talent and potential, reminds me why I'm so passionate about inspiring the next generation to achieve greatness.
+
+The most important thing is to try and inspire people so that they can be great at whatever they want to do. Mamba mentality is about approaching everything you do with the same level of obsession and dedication.
+
+When people ask me about the Mamba Mentality, they often think it's just about basketball. But it's not. It's about approaching every aspect of your life with the same relentless pursuit of excellence that I brought to the game.
+
+Mamba Mentality is about being obsessed with the process of improvement. It's about waking up every day and asking yourself: How can I get better? What can I learn today that I didn't know yesterday? How can I push myself beyond my comfort zone?
+
+When I was playing, I didn't just practice during team practice. I was in the gym at 4 AM, working on my footwork, my shooting, my conditioning. I studied film for hours, analyzing not just my own game but the games of the greatest players in history. I was obsessed with understanding every detail of what made champions great.
+
+But here's what I learned: talent is not enough. Natural ability is not enough. Even hard work is not enough if it's not focused, if it's not purposeful, if it's not relentless.
+
+Continuous improvement is the key to excellence. You have to be willing to fail, to look foolish, to be uncomfortable. You have to be willing to start over, to rebuild, to reimagine what's possible.
+
+I remember when I first entered the NBA straight from high school. I was 17 years old, playing against men who had been perfecting their craft for years. I was overmatched, overwhelmed, and often embarrassed.
+
+But instead of being discouraged, I was inspired. Every time someone scored on me, every time I missed a shot, every time I made a mistake, I saw it as information. I saw it as data that I could use to get better.
+
+I studied Hakeem Olajuwon's footwork until I could replicate his moves. I watched Michael Jordan's film until I understood his decision-making process. I worked with coaches, trainers, and mentors who could help me see my blind spots and address my weaknesses.
+
+This obsession with improvement didn't end when I retired from basketball. When I decided to tell stories through film, I approached it with the same mentality. I studied the greatest filmmakers, I learned about storytelling, I immersed myself in the craft.
+
+When "Dear Basketball" won an Academy Award, people were surprised. They said, "How did a basketball player win an Oscar?" But it wasn't magic. It was the same process I had always used: identify what you want to achieve, study the best, work relentlessly to improve, and never be satisfied with good enough.
+
+Inspire others to be great at what they do. But the Mamba Mentality isn't just about personal achievement. It's about using your excellence to inspire others to find their own excellence.
+
+Throughout my career, I tried to mentor young players, to share what I had learned, to help them avoid the mistakes I had made. I wanted them to understand that greatness wasn't about being better than someone else – it was about being better than you were yesterday.
+
+Now, as I work with young athletes through my foundation and my business ventures, I see the same principle apply. When you commit to excellence, when you refuse to accept mediocrity, you give others permission to do the same.
+
+Legacy is about the impact you have on others. Your legacy isn't just what you accomplish – it's what you inspire others to accomplish. It's not just about the trophies you win – it's about the people you help along the way.
+
+I want my daughters to understand this. I want them to know that they can achieve anything they set their minds to, but only if they're willing to put in the work. Only if they're willing to be obsessed with getting better. Only if they're willing to embrace the Mamba Mentality in whatever they choose to do.
+
+As you leave USC and enter the world, you're going to face challenges that will test your commitment to excellence. You're going to encounter setbacks that will make you question whether the effort is worth it. You're going to meet people who will tell you to lower your standards, to be realistic, to settle for good enough.
+
+Don't listen to them. Don't compromise your vision of what's possible. Don't accept mediocrity in any area of your life.
+
+Whether you become doctors, lawyers, teachers, entrepreneurs, artists, or anything else, approach it with the Mamba Mentality. Be obsessed with getting better. Study the best in your field. Work when others are sleeping. Practice when others are playing. Learn when others are complaining.
+
+But remember: the goal isn't to be perfect. The goal is to be better. The goal is to maximize your potential. The goal is to inspire others to do the same.
+
+You have been given an incredible education here at USC. You have been equipped with knowledge, skills, and opportunities that most people in the world don't have. But education is just the beginning. What you do with that education, how you apply it, how you use it to make a difference – that's what will define your legacy.
+
+The world needs people who are committed to excellence. The world needs people who refuse to accept the status quo. The world needs people who are willing to work harder, dream bigger, and achieve more than anyone thought possible.
+
+You can be those people. You have the tools. You have the knowledge. You have the opportunity. The only question is: Do you have the mentality?
+
+Do you have the obsession with improvement? Do you have the willingness to fail and get back up? Do you have the commitment to inspire others through your example?
+
+If you do, then there's no limit to what you can achieve. There's no dream too big, no goal too ambitious, no challenge too difficult.
+
+Embrace the Mamba Mentality. Be obsessed with greatness. Inspire others to be great. And never, ever be satisfied with anything less than your best.
+
+The world is waiting to see what you can do. Don't disappoint it.
+
+Congratulations, Class of 2017. Now go out there and show the world what champions look like.`
+  },
+  {
+    id: 43,
+    speaker: "Mindy Kaling",
+    title: "Confidence and Authenticity",
+    university: "Dartmouth College",
+    year: 2018,
+    excerpt: "You can't have it all, but you can have the things that really matter to you. And thinking that way, I think, is really freeing. Because you're not trying to be everything to everyone.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "You can't have it all, but you can have what matters",
+      "Confidence comes from being authentically yourself",
+      "Don't try to be everything to everyone",
+      "Success is about creating your own path"
+    ],
+    fullText: `President Hanlon, distinguished faculty, proud families, and graduates of Dartmouth's Class of 2018,
+
+Thank you so much for having me here today. When I was asked to give this speech, I was honored and terrified in equal measure. Honored because Dartmouth is an incredible institution, and terrified because I had to follow some pretty impressive speakers. But then I remembered: I went to Dartmouth too, and if they let me graduate, they'll probably let me give a speech.
+
+You can't have it all, but you can have the things that really matter to you. And thinking that way, I think, is really freeing. Because you're not trying to be everything to everyone.
+
+I want to start by talking about something that I think a lot of you are probably thinking about right now: what comes next. You're graduating from one of the best colleges in the world, and everyone expects you to have it all figured out. But here's a secret: nobody has it all figured out. Not even the people who seem like they do.
+
+When I graduated from Dartmouth, I had no idea what I wanted to do with my life. I knew I loved comedy and writing, but I had no clear path to making that into a career. I moved to New York, then to Los Angeles, and I took whatever jobs I could get while I tried to figure it out.
+
+I worked as a production assistant on late-night TV shows. I performed in improv groups for audiences of five people. I wrote spec scripts that nobody read. I got rejected from jobs I really wanted. I got hired for jobs I didn't want.
+
+But through all of that, I was learning something important: success isn't about following someone else's path. It's about creating your own path, based on what matters to you.
+
+Confidence comes from being authentically yourself. When I first started working in television, I tried to be what I thought people wanted me to be. I tried to write like other writers, to be funny like other comedians, to look like other actresses.
+
+But it wasn't working. I wasn't getting the opportunities I wanted, and I wasn't feeling fulfilled by the work I was doing. It wasn't until I started being authentically myself – writing from my own experience, embracing my own perspective, being confident in my own voice – that things started to change.
+
+When I created "The Mindy Project," I wasn't trying to make a show that would appeal to everyone. I was trying to make a show that reflected my own experience as a woman of color in America, my own sense of humor, my own perspective on relationships and career and family.
+
+Some people loved it. Some people didn't get it. Some people criticized it for not being representative enough, or for being too specific to my experience. But I learned that you can't please everyone, and trying to do so will only dilute your voice and your vision.
+
+Don't try to be everything to everyone. This is especially important for women and people of color, who are often expected to represent entire communities or to be role models for everyone who looks like them.
+
+I've been asked to be the spokesperson for Indian-Americans, for women in comedy, for working mothers, for people who love carbs. And while I'm honored by these requests, I've learned that I can't be everything to everyone. I can only be myself, and hope that by being authentically myself, I can inspire others to be authentically themselves.
+
+This doesn't mean being selfish or ignoring your responsibilities to others. It means understanding that you can't be effective if you're trying to be someone you're not. It means recognizing that your unique perspective and experience are valuable, not something to be hidden or minimized.
+
+Success is about creating your own path. There's no one right way to build a career or live a life. The path that worked for your parents might not work for you. The path that worked for your classmates might not work for you. The path that society expects you to take might not work for you.
+
+And that's okay. In fact, it's more than okay – it's necessary. The world needs people who are willing to forge new paths, to challenge conventional wisdom, to create new possibilities.
+
+When I was starting out, there weren't many examples of people who looked like me succeeding in comedy and television. I couldn't point to a clear role model and say, "I want to do what she did." I had to figure it out as I went along.
+
+That was scary, but it was also liberating. It meant I could define success on my own terms. It meant I could create the kind of career I wanted, rather than trying to fit into someone else's definition of success.
+
+I want to talk specifically to the women in the audience. You're going to face unique challenges in your careers. You're going to be asked to choose between ambition and likability, between success and family, between being assertive and being agreeable.
+
+These are false choices. You don't have to choose between being successful and being a good person. You don't have to choose between having a career and having a family. You don't have to choose between being confident and being kind.
+
+But you do have to make choices about what matters most to you. You do have to decide what you're willing to sacrifice and what you're not. You do have to be honest about your priorities and your values.
+
+For me, that meant accepting that I couldn't have a traditional work-life balance while I was building my career. It meant missing some social events and family gatherings because I was working. It meant saying no to some opportunities so I could say yes to others.
+
+But it also meant that when I did achieve success, it was on my own terms. It meant that I could create opportunities for other people who looked like me. It meant that I could tell stories that hadn't been told before.
+
+As you leave Dartmouth and enter the world, you're going to face pressure to conform, to play it safe, to follow the expected path. You're going to encounter people who will try to put you in a box, who will tell you what you can and can't do based on their assumptions about who you are.
+
+Don't let them. Don't shrink yourself to fit into someone else's expectations. Don't apologize for taking up space. Don't dim your light to make others comfortable.
+
+Be confident in your abilities. Be proud of your accomplishments. Be unapologetic about your ambitions. Be authentic in your relationships. Be generous with your success.
+
+And remember: you can't have it all, but you can have the things that really matter to you. Figure out what those things are, and then go after them with everything you've got.
+
+The world needs your voice. The world needs your perspective. The world needs your unique contribution to the conversation.
+
+Don't wait for permission to speak up. Don't wait for someone else to create opportunities for you. Don't wait for the perfect moment to start pursuing your dreams.
+
+Start now. Start where you are. Start with what you have. Start with the confidence that you belong here, that you deserve success, that you have something valuable to offer the world.
+
+Congratulations, Class of 2018. I can't wait to see what you do next.`
+  },
+  {
+    id: 44,
+    speaker: "Dwayne Johnson",
+    title: "Be the Hardest Worker in the Room",
+    university: "University of Miami",
+    year: 2009,
+    excerpt: "Success isn't always about greatness. It's about consistency. Consistent hard work leads to success. Greatness will come. Be the hardest worker in the room.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Consistency in hard work leads to success",
+      "Be the hardest worker in every room",
+      "Failure is your friend and teacher",
+      "Stay humble and grateful for opportunities"
+    ],
+    fullText: `President Shalala, distinguished faculty, proud families, and graduates of the University of Miami Class of 2009,
+
+Thank you for this incredible honor. Being back here at the U, where I played football and learned so many valuable lessons, brings back amazing memories. But more importantly, it reminds me of the foundation that was built here – a foundation of hard work, perseverance, and never giving up on your dreams.
+
+Success isn't always about greatness. It's about consistency. Consistent hard work leads to success. Greatness will come. Be the hardest worker in the room.
+
+I want to share something with you that might surprise you. When I was sitting where you're sitting today, I had no idea what I wanted to do with my life. I thought I was going to play professional football. That was my dream, my plan, my entire identity.
+
+But life had other plans. I went undrafted. I played in the Canadian Football League for a few months before being cut. I moved back home to Tampa with seven dollars in my pocket, sleeping on a mattress on the floor of my dad's apartment.
+
+I was 23 years old, and I felt like a complete failure. Everything I had worked for, everything I had dreamed of, was gone. I was lost, broke, and honestly, pretty depressed.
+
+But that failure became the best thing that ever happened to me. Because it forced me to discover who I really was, not who I thought I was supposed to be.
+
+Failure is your friend and teacher. I know that sounds crazy, but hear me out. Failure teaches you things that success never can. It teaches you resilience. It teaches you humility. It teaches you that you're stronger than you think you are.
+
+When I got cut from the football team, I could have given up. I could have felt sorry for myself. I could have blamed others for my situation. Instead, I decided to use that failure as fuel.
+
+I started training harder than I ever had before. Not for football – that dream was over – but for whatever came next. I didn't know what that would be, but I knew that when the opportunity came, I wanted to be ready.
+
+That opportunity came when my dad, who was a professional wrestler, suggested I try wrestling. I had never considered it before, but I was willing to try anything. I threw myself into it with the same intensity I had brought to football.
+
+Be the hardest worker in every room. In wrestling, I made it my mission to be the first one in the gym and the last one to leave. I studied tapes of the greatest wrestlers. I worked on my character, my promos, my in-ring skills. I treated every match, every appearance, every opportunity like it was the most important thing I'd ever do.
+
+And you know what? It worked. Not immediately, but gradually. I started getting better opportunities, bigger matches, more recognition. But even as I achieved success in wrestling, I never stopped working, never stopped learning, never stopped trying to improve.
+
+When I decided to transition to acting, I applied the same principle. I was the hardest worker in every acting class, on every movie set, in every audition room. I studied the craft, I worked with coaches, I took risks with roles that other people thought were beneath me.
+
+People told me I'd never be a leading man because I didn't look like a traditional movie star. They said I was too big, too ethnic, too much of a wrestler to be taken seriously as an actor.
+
+But I didn't let their limitations become my limitations. I kept working, kept improving, kept believing in myself even when others didn't.
+
+Stay humble and grateful for opportunities. Success can be dangerous if it makes you forget where you came from or how hard you had to work to get where you are. I never want to forget that feeling of having seven dollars in my pocket, of feeling like I had failed at everything I had tried.
+
+That memory keeps me humble. It reminds me that success is not guaranteed, that it can be taken away as quickly as it was given. It motivates me to keep working, to keep earning my success every single day.
+
+It also makes me grateful for every opportunity I get. When I'm on a movie set at 4 AM, when I'm doing my 15th interview of the day, when I'm traveling to another city for another appearance, I remember that kid with seven dollars who would have done anything for these opportunities.
+
+Gratitude is not just about being polite or saying thank you. Gratitude is about recognizing that your success is not just about you. It's about all the people who believed in you, who gave you chances, who helped you along the way.
+
+For me, that includes my parents, who supported me even when I was struggling. It includes coaches and trainers who saw potential in me when I couldn't see it in myself. It includes fans who embraced me and gave me the platform I have today.
+
+As you leave the University of Miami and enter the world, you're going to face your own challenges and setbacks. You're going to have moments when you question whether you're on the right path, whether you have what it takes, whether your dreams are realistic.
+
+In those moments, remember this: your current situation is not your final destination. Where you are today is not where you have to stay. Your past does not define your future.
+
+But your response to challenges will define your character. Your willingness to work when others won't will determine your success. Your ability to stay humble and grateful will determine your happiness.
+
+Be the hardest worker in the room, but also be the most grateful person in the room. Be the most prepared person in the room, but also be the most humble person in the room. Be the most ambitious person in the room, but also be the most generous person in the room.
+
+Success is not just about what you achieve for yourself. It's about what you do for others. It's about using your platform, your resources, your influence to make a positive impact on the world.
+
+I've been blessed with opportunities that I never could have imagined when I was sitting where you are today. But with those opportunities comes responsibility – the responsibility to give back, to lift others up, to use my success to create opportunities for others.
+
+Whatever field you enter, whatever success you achieve, remember that responsibility. Remember that your success is not just about you. It's about everyone who invested in you, everyone who believed in you, everyone who will be inspired by your example.
+
+Work hard. Stay humble. Be grateful. And never, ever give up on your dreams, even when they change, even when they seem impossible, even when everyone else tells you they're not realistic.
+
+The world needs what you have to offer. The world needs your work ethic, your passion, your unique perspective. Don't hold back. Don't play small. Don't let anyone convince you that you don't belong.
+
+You graduated from the University of Miami. You've already proven that you can achieve great things. Now go out there and prove it again, and again, and again.
+
+Be the hardest worker in the room. Greatness will come.
+
+Congratulations, Class of 2009. Now go make us proud.`
+  },
+  {
+    id: 45,
+    speaker: "Shonda Rhimes",
+    title: "Dreams and Doing",
+    university: "University of Southern California",
+    year: 2014,
+    excerpt: "Dreams are lovely. But they are just dreams. Fleeting, ephemeral, pretty. But dreams do not come true just because you dream them. It's hard work that makes things happen. It's hard work that creates change.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Dreams without action are just fantasies",
+      "Hard work is what makes things happen",
+      "Don't wait for permission to pursue your goals",
+      "Create the change you want to see"
+    ],
+    fullText: `Dean Garrett, distinguished faculty, proud families, and graduates of USC's Class of 2014,
+
+Thank you for this incredible honor. Being here at USC, where I learned the craft of storytelling that would define my career, feels like coming home. But more than that, it feels like an opportunity to share some hard-won truths with the next generation of storytellers and changemakers.
+
+Dreams are lovely. But they are just dreams. Fleeting, ephemeral, pretty. But dreams do not come true just because you dream them. It's hard work that makes things happen. It's hard work that creates change.
+
+I want to start with a confession: I hate the phrase "follow your dreams." I hate it because it's passive. It suggests that all you have to do is dream, and somehow, magically, those dreams will come true.
+
+That's not how it works. Dreams are the starting point, not the destination. Dreams are the inspiration, not the implementation. Dreams are the "what" – but you have to figure out the "how."
+
+When I was sitting where you are today, I had a dream of becoming a television writer. But I didn't just dream about it. I worked toward it. I wrote spec scripts. I took meetings. I pitched ideas. I got rejected. A lot.
+
+I wrote pilot after pilot that didn't get picked up. I had meetings where executives told me my ideas weren't commercial enough, weren't broad enough, weren't what audiences wanted to see.
+
+But I kept working. I kept writing. I kept believing that if I worked hard enough, if I got good enough, if I persisted long enough, eventually someone would say yes.
+
+Don't wait for permission to pursue your goals. Here's something I learned early in my career: nobody is going to give you permission to be great. Nobody is going to hand you your dream job. Nobody is going to invite you to the table – you have to pull up your own chair.
+
+When I created "Grey's Anatomy," I wasn't trying to revolutionize television. I was just trying to tell stories that I wanted to see, stories about complex, flawed, interesting characters who happened to be doctors.
+
+I didn't ask for permission to make the cast diverse. I didn't ask for permission to write strong female characters. I didn't ask for permission to tackle difficult social issues. I just did it.
+
+And you know what happened? People responded. Audiences connected with these characters and these stories in ways that surprised everyone, including me.
+
+But it almost didn't happen. The network was nervous about the show. They didn't think audiences would connect with it. They wanted me to make changes that would have fundamentally altered what the show was about.
+
+I could have compromised. I could have made the changes they wanted. I could have played it safe.
+
+Instead, I fought for my vision. I argued for my characters. I insisted on telling the stories I believed needed to be told.
+
+It was scary. It was risky. It could have ended my career before it really began. But I believed in what I was doing, and I was willing to work as hard as necessary to make it succeed.
+
+Hard work is what makes things happen. I want to be clear about what I mean by hard work. I don't just mean putting in long hours, though that's part of it. I mean being willing to do the work that others won't do. I mean being willing to fail, to learn from that failure, and to try again.
+
+I mean being willing to write the 10th draft when everyone else stops at the third. I mean being willing to take notes, to accept criticism, to constantly improve your craft.
+
+I mean being willing to say no to opportunities that don't align with your values, even when saying yes would be easier or more profitable.
+
+When "Grey's Anatomy" became successful, I was offered many opportunities to create similar shows. Networks wanted me to replicate the formula, to create "Grey's Anatomy" in different settings with different characters.
+
+But I didn't want to repeat myself. I wanted to challenge myself, to tell different kinds of stories, to explore different themes and characters.
+
+So I created "Scandal," a show about a Black woman who was powerful, complex, and flawed. Networks were nervous about it. They didn't think audiences would accept a Black woman as the lead of a primetime drama.
+
+But I believed in the story, and I was willing to work to make it succeed. And it did succeed, breaking barriers and opening doors for other shows with diverse leads.
+
+Create the change you want to see. Success is not just about personal achievement. It's about using your success to create opportunities for others, to tell stories that haven't been told, to challenge systems that need to be challenged.
+
+In my shows, I've made it a priority to hire diverse writers, directors, and crew members. I've told stories about characters who are often marginalized or ignored in mainstream media. I've used my platform to address social issues that matter to me.
+
+This isn't charity. This is good business. Diverse voices create better stories. Different perspectives lead to more interesting characters. Inclusive storytelling reaches broader audiences.
+
+But more than that, it's the right thing to do. When you achieve success, you have a responsibility to use that success to make the world a little bit better than you found it.
+
+As you leave USC and enter the world, you're going to face challenges that will test your commitment to your dreams. You're going to encounter people who will tell you that your ideas aren't good enough, that your vision isn't commercial enough, that you should lower your expectations.
+
+Don't listen to them. Don't let their limitations become your limitations. Don't let their fear become your fear.
+
+But also don't just dream. Do. Work. Create. Build. Fight for what you believe in. Make the change you want to see in the world.
+
+The entertainment industry needs fresh voices, new perspectives, different stories. But it's not going to hand you opportunities just because you deserve them. You have to create those opportunities. You have to earn them through hard work, persistence, and excellence.
+
+You have been given an incredible education here at USC. You have been equipped with the tools and knowledge you need to succeed. But tools are only valuable if you use them. Knowledge is only powerful if you apply it.
+
+So go out there and apply it. Use your education to tell stories that matter. Use your skills to create change. Use your voice to speak for those who don't have one.
+
+Dream big, but work bigger. Imagine the impossible, but do the possible. Envision the future, but build it one day at a time.
+
+The world is waiting for your stories. The world is waiting for your vision. The world is waiting for your contribution.
+
+Don't keep it waiting too long.
+
+Congratulations, Class of 2014. Now stop dreaming and start doing.`
   }
 ];
