@@ -28,8 +28,7 @@ import { useNavigate } from 'react-router-dom';
 import { useHeader } from '../contexts/HeaderContext';
 import ShimmerLoader from '../components/common/ShimmerLoader';
 import SEOHead from '../components/seo/SEOHead';
-import SmartSearchBar from '../components/search/SmartSearchBar';
-import { SearchableItem, FilterOption } from '../types/search';
+import SmartSearchBar, { SearchableItem, FilterOption } from '../components/common/SmartSearchBar';
 
 interface TechResource {
   id: string;
