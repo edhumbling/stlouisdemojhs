@@ -47,24 +47,29 @@ interface TechResource {
 
 const TechResourcesPage: React.FC = () => {
   const navigate = useNavigate();
-  const { setHeaderConfig } = useHeader();
+  const { setShowHeader } = useHeader();
   const [isLoading, setIsLoading] = useState(true);
   const [searchResults, setSearchResults] = useState<SearchableItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   // Configure header
   useEffect(() => {
-    setHeaderConfig({
-      showBackButton: true,
-      title: 'Tech Resources',
-      backgroundColor: 'bg-black',
-      textColor: 'text-white'
-    });
+    setShowHeader(true);
 
     // Simulate loading
     const timer = setTimeout(() => setIsLoading(false), 1500);
     return () => clearTimeout(timer);
-  }, [setHeaderConfig]);
+  }, [setShowHeader]);
+
+  // Handle back navigation
+  const handleBack = () => {
+    navigate('/students-hub', {
+      state: {
+        scrollToSection: '🎓 Academic Resources',
+        returnFromCardContent: true
+      }
+    });
+  };
 
   // Tech resources data based on scraped content
   const techResources: TechResource[] = [
@@ -420,6 +425,25 @@ const TechResourcesPage: React.FC = () => {
       />
 
       <div className="min-h-screen bg-black text-white">
+        {/* Back Button Bar */}
+        <div className="bg-gradient-to-r from-cyan-900 via-cyan-800 to-cyan-900 py-3 sm:py-4">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={handleBack}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-cyan-700/50 hover:bg-cyan-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-cyan-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                Tech Resources
+              </h1>
+            </div>
+          </div>
+        </div>
+
         <main className="flex-1 py-6 sm:py-8">
           <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
             {/* Header */}
