@@ -31,16 +31,18 @@ const DonateOneDollarPage: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: 'donor@stlouisdemojhs.com', // Default email for $1 donations
-          amount: 1500, // $1 USD ≈ 15 GHS = 1500 pesewas
+          email: 'edhumbling@gmail.com',
+          amount: 1500, // GH₵15 in pesewas (1500 pesewas = 15 cedis ≈ $1 USD)
           currency: 'GHS',
-          reference: `STLOUIS_1USD_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
+          reference: `STLOUIS-1USD-${Date.now()}-${Math.floor(Math.random() * 10000)}`,
           callback_url: `${window.location.origin}/donation-success`,
-          metadata: {
+          metadata: JSON.stringify({
             donor_name: 'Anonymous Supporter',
             donation_type: 'One Dollar Support',
             school_name: 'St. Louis Demonstration JHS',
             amount_usd: 1,
+            amount_ghs: 15,
+            payment_method: 'paystack_api',
             custom_fields: [
               {
                 display_name: 'Donation Type',
@@ -48,7 +50,7 @@ const DonateOneDollarPage: React.FC = () => {
                 value: 'One Dollar Support'
               },
               {
-                display_name: 'School',
+                display_name: 'School Name',
                 variable_name: 'school_name',
                 value: 'St. Louis Demonstration JHS'
               },
@@ -56,9 +58,19 @@ const DonateOneDollarPage: React.FC = () => {
                 display_name: 'Amount (USD)',
                 variable_name: 'amount_usd',
                 value: '$1.00'
+              },
+              {
+                display_name: 'Amount (GHS)',
+                variable_name: 'amount_ghs',
+                value: 'GH₵15.00'
+              },
+              {
+                display_name: 'Payment Source',
+                variable_name: 'payment_source',
+                value: 'Website - One Dollar Page'
               }
             ]
-          }
+          })
         }),
       });
 
@@ -68,16 +80,46 @@ const DonateOneDollarPage: React.FC = () => {
 
       const result = await response.json();
 
-      if (result.status && result.data.authorization_url) {
+      // Check both HTTP status and Paystack response status
+      if (result.status === true && result.data?.authorization_url) {
+        // Log successful initialization for debugging
+        console.log('Payment initialized successfully:', {
+          reference: result.data.reference,
+          access_code: result.data.access_code
+        });
+
         // Redirect to Paystack checkout
         window.location.href = result.data.authorization_url;
       } else {
-        throw new Error(result.message || 'Failed to initialize payment');
+        // Handle Paystack API errors
+        const errorMessage = result.message || 'Failed to initialize payment';
+        console.error('Paystack API Error:', result);
+        throw new Error(errorMessage);
       }
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Payment initialization failed';
+      let errorMessage = 'Payment initialization failed';
+
+      if (err instanceof Error) {
+        errorMessage = err.message;
+      } else if (typeof err === 'string') {
+        errorMessage = err;
+      }
+
+      // Provide user-friendly error messages
+      if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError')) {
+        errorMessage = 'Network error. Please check your internet connection and try again.';
+      } else if (errorMessage.includes('401')) {
+        errorMessage = 'Payment service configuration error. Please contact support.';
+      } else if (errorMessage.includes('400')) {
+        errorMessage = 'Invalid payment request. Please try again.';
+      }
+
       setError(errorMessage);
-      console.error('Payment error:', err);
+      console.error('Payment initialization error:', {
+        error: err,
+        message: errorMessage,
+        timestamp: new Date().toISOString()
+      });
     } finally {
       setIsLoading(false);
     }
