@@ -318,11 +318,10 @@ const DonateOneDollarPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content - Edge to Edge */}
-      <div className="py-6 sm:py-8">
-        <div className="px-3 sm:px-4">
-          {/* Desktop: Centered smaller container, Mobile: Full width */}
-          <div className="lg:max-w-2xl lg:mx-auto">
+      {/* Main Content - Gallery Page Style (No Wrapper Padding) */}
+      <div className="px-3 sm:px-4 py-6 sm:py-8">
+        {/* Desktop: Centered smaller container, Mobile: Full width */}
+        <div className="lg:max-w-2xl lg:mx-auto">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -623,7 +622,6 @@ const DonateOneDollarPage: React.FC = () => {
               </div>
             </div>
           </motion.div>
-          </div>
         </div>
       </div>
     </div>
