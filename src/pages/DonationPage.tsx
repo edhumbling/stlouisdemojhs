@@ -521,7 +521,7 @@ const DonationPage: React.FC = () => {
         transition={{ duration: 0.4, ease: 'easeOut' }}
       >
       {/* Back Button and Title Section - Red Love Theme */}
-      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
+      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3 pt-16">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <Link
