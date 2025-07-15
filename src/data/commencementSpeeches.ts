@@ -5582,5 +5582,737 @@ Don't let us down. Don't let yourselves down. Don't let the next generation down
 Go out there and change the world. We're counting on you.
 
 Congratulations, Class of 2012. Now go make us proud.`
+  },
+  {
+    id: 51,
+    speaker: "Rishi Sunak",
+    title: "Innovation and Public Service",
+    university: "Oxford University",
+    year: 2022,
+    excerpt: "Innovation without purpose is just clever technology. True innovation solves real problems for real people and makes the world a better place for everyone.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Innovation must have purpose and solve real problems",
+      "Public service is about serving others, not yourself",
+      "Technology should bridge divides, not create them",
+      "Young people are the key to solving global challenges"
+    ],
+    fullText: `Vice-Chancellor Richardson, distinguished faculty, proud families, and graduates of Oxford University's Class of 2022,
+
+Thank you for this great honor. Standing here at Oxford, where I was privileged to study and where I learned that education is not just about acquiring knowledge, but about developing the wisdom to use that knowledge for good.
+
+Innovation without purpose is just clever technology. True innovation solves real problems for real people and makes the world a better place for everyone.
+
+When I was studying here at Oxford, I was fascinated by technology and finance. I could see how these fields were rapidly evolving, how they had the potential to transform economies and societies. But I also learned that technology and finance are tools - and like any tools, their value depends on how they are used.
+
+During my time in the private sector, I saw how technology could create incredible wealth and opportunity. I saw how financial innovation could help businesses grow and create jobs. But I also saw how these same tools could widen inequality, exclude people from opportunity, and sometimes cause more harm than good.
+
+Public service is about serving others, not yourself. When I decided to enter politics, it wasn't because I was seeking power or prestige. It was because I believed that those of us who have been fortunate enough to receive excellent educations and to succeed in our careers have a responsibility to give back.
+
+Public service, at its best, is about using your skills and experience to solve problems that affect everyone, especially those who don't have the same advantages you've had.
+
+When the COVID-19 pandemic hit, we faced unprecedented challenges. Businesses were closing, people were losing their jobs, families were struggling to pay their bills. We had to act quickly and decisively to protect people's livelihoods and to support the economy.
+
+The programs we implemented - like the furlough scheme and business support grants - weren't perfect, but they helped millions of people get through the crisis. They showed me the power of government to make a real difference in people's lives when it acts with purpose and urgency.
+
+Technology should bridge divides, not create them. One of the biggest challenges we face today is ensuring that the benefits of technological progress are shared broadly, not concentrated among a privileged few.
+
+We've seen how digital technology can connect people across the globe, how it can democratize access to information and opportunity. But we've also seen how it can create new forms of inequality, how it can exclude people who don't have access to digital skills or infrastructure.
+
+As leaders in technology, finance, and other fields, you have a responsibility to ensure that innovation serves everyone, not just those who can afford it. You have a responsibility to think about the social and ethical implications of your work, not just the technical and financial ones.
+
+Young people are the key to solving global challenges. The problems facing our world today - climate change, inequality, technological disruption, geopolitical instability - are complex and interconnected. They require fresh thinking, new approaches, and the energy and idealism that young people bring.
+
+But they also require experience, wisdom, and the ability to work within existing systems to create change. They require people who can bridge the gap between innovation and implementation, between ideas and action.
+
+You are uniquely positioned to be those bridge-builders. You have been educated at one of the world's finest universities. You have access to cutting-edge knowledge and global networks. You understand both the potential and the perils of rapid change.
+
+But you also have something that previous generations sometimes lack: a deep understanding of the urgency of the challenges we face and a refusal to accept that things have to be the way they've always been.
+
+Use that understanding. Use your education. Use your energy and idealism. But also be willing to work within existing systems, to build coalitions, to find practical solutions to complex problems.
+
+The world needs innovators, but it also needs implementers. It needs people who can dream big, but also people who can make those dreams reality.
+
+As you leave Oxford and enter the world, you will have many opportunities to make a difference. Some of you will become entrepreneurs and create new companies that solve important problems. Some will become researchers and make breakthrough discoveries. Some will enter public service and work to improve government and society.
+
+Whatever path you choose, remember that success is not just about what you achieve for yourself. It's about what you contribute to others. It's about using your talents and opportunities to make the world a better place.
+
+The challenges facing our world are daunting, but they are not insurmountable. With the right combination of innovation and purpose, of idealism and pragmatism, of individual excellence and collective action, we can solve them.
+
+You have been given extraordinary opportunities. Use them wisely. Use them generously. Use them to build a future that works for everyone.
+
+Congratulations, Class of 2022. The future is in your hands.`
+  },
+  {
+    id: 52,
+    speaker: "Jacinda Ardern",
+    title: "Empathy in Leadership",
+    university: "Harvard University",
+    year: 2022,
+    excerpt: "Politics and political leadership in the past decade has been characterized by a deficit of empathy. But empathy is not weakness - it is strength. It is what allows us to connect with others and to build the trust necessary for effective leadership.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Empathy is strength, not weakness in leadership",
+      "Trust is the foundation of effective governance",
+      "Kindness and strength can coexist",
+      "Young leaders must reject cynicism and embrace hope"
+    ],
+    fullText: `President Bacow, distinguished faculty, proud families, and graduates of Harvard University's Class of 2022,
+
+Thank you for this incredible honor. It is wonderful to be here at Harvard, an institution that has produced so many leaders who have shaped our world, and to speak to the next generation of leaders who will shape our future.
+
+Politics and political leadership in the past decade has been characterized by a deficit of empathy. But empathy is not weakness - it is strength. It is what allows us to connect with others and to build the trust necessary for effective leadership.
+
+When I became Prime Minister of New Zealand, I was determined to lead differently. I wanted to show that you could be both strong and kind, that you could make tough decisions while still caring deeply about people, that you could be effective while still being empathetic.
+
+This approach was tested early in my tenure. Just months after I became Prime Minister, we faced the Christchurch terrorist attack - one of the darkest days in New Zealand's history. In that moment, I had to decide how to respond, how to lead our country through grief and trauma.
+
+I chose to respond with empathy and compassion. I chose to embrace our Muslim community, to reject the hatred that had motivated the attack, to show the world that New Zealand would not be divided by fear.
+
+Some people criticized this approach. They said I was being too emotional, too soft, that I should focus on security and punishment rather than healing and unity.
+
+But I believed then, and I believe now, that empathy was exactly what our country needed. It was what allowed us to come together as one people, to support those who were grieving, to show the world that love is stronger than hate.
+
+Trust is the foundation of effective governance. In a democracy, leaders derive their authority not from force or fear, but from the consent of the governed. And that consent depends on trust - trust that leaders will act in the public interest, trust that they will tell the truth, trust that they will keep their promises.
+
+But trust has been eroding in many democracies around the world. People have lost faith in their leaders, in their institutions, in the very idea that government can be a force for good.
+
+This erosion of trust is dangerous for democracy. When people don't trust their leaders, they become cynical about politics. When they become cynical about politics, they disengage from the democratic process. And when they disengage from the democratic process, democracy itself is weakened.
+
+As future leaders, you have a responsibility to rebuild that trust. You have a responsibility to show that leadership can be honest, transparent, and accountable. You have a responsibility to prove that government can be effective, responsive, and caring.
+
+Kindness and strength can coexist. One of the most persistent myths in politics is that you have to choose between being kind and being strong, between being compassionate and being effective.
+
+This is a false choice. Some of the strongest leaders in history have also been the most compassionate. Some of the most effective policies have been motivated by kindness and empathy.
+
+When we implemented our COVID-19 response in New Zealand, we were guided by a simple principle: we would do whatever it took to protect people's lives and health. This meant making difficult decisions, implementing strict measures, asking people to make sacrifices.
+
+But we approached these decisions with kindness and empathy. We communicated clearly and honestly with people. We provided support for those who were struggling. We acknowledged the difficulty of what we were asking people to do.
+
+This approach worked. New Zealand had one of the lowest death rates from COVID-19 in the world. But more than that, we maintained public trust and social cohesion throughout the crisis.
+
+Young leaders must reject cynicism and embrace hope. One of the biggest challenges facing democracy today is cynicism - the belief that politics is inherently corrupt, that leaders are only interested in power, that government can't solve problems.
+
+This cynicism is understandable. People have been let down by leaders who promised change but delivered more of the same. They have seen politicians who seem more interested in winning elections than in governing effectively.
+
+But cynicism is also dangerous. When people become cynical about politics, they stop believing that change is possible. When they stop believing that change is possible, they stop working for change.
+
+As young leaders, you have a choice. You can accept the cynicism of previous generations, or you can reject it. You can perpetuate the politics of division and negativity, or you can create a new kind of politics based on hope and possibility.
+
+I encourage you to choose hope. I encourage you to believe that politics can be a force for good, that government can solve problems, that leaders can make a positive difference in people's lives.
+
+But choosing hope is not enough. You also have to act on that hope. You have to be willing to enter the arena, to take risks, to fight for what you believe in.
+
+You have to be willing to lead with empathy and compassion, even when others tell you it's naive or weak. You have to be willing to tell the truth, even when it's politically inconvenient. You have to be willing to put the public interest ahead of your own interests.
+
+The world needs leaders who can bring people together rather than drive them apart. The world needs leaders who can inspire hope rather than exploit fear. The world needs leaders who can solve problems rather than just talk about them.
+
+You can be those leaders. You have been educated at one of the world's finest institutions. You have been given the tools and knowledge you need to make a difference.
+
+But more importantly, you have the opportunity to show that a different kind of leadership is possible. You have the opportunity to prove that empathy is strength, that kindness is power, that hope is more powerful than fear.
+
+The future of democracy depends on leaders like you. The future of our world depends on leaders like you.
+
+Don't let us down.
+
+Congratulations, Class of 2022. Now go out there and lead with empathy.`
+  },
+  {
+    id: 53,
+    speaker: "Ursula von der Leyen",
+    title: "European Unity and Global Leadership",
+    university: "London School of Economics",
+    year: 2021,
+    excerpt: "In a world of increasing complexity and uncertainty, we need leaders who can build bridges, not walls. We need leaders who understand that our strength comes from our unity, not from our divisions.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Build bridges, not walls in leadership",
+      "Strength comes from unity, not division",
+      "Europe's role in global challenges",
+      "Multilateralism is essential for solving global problems"
+    ],
+    fullText: `Director Puttnam, distinguished faculty, proud families, and graduates of the London School of Economics Class of 2021,
+
+Thank you for this great honor. It is wonderful to be here at LSE, an institution that has long been at the forefront of thinking about economics, politics, and society, and that has produced so many leaders who have shaped our world.
+
+In a world of increasing complexity and uncertainty, we need leaders who can build bridges, not walls. We need leaders who understand that our strength comes from our unity, not from our divisions.
+
+As President of the European Commission, I have seen firsthand how much we can achieve when we work together across borders, across cultures, across political differences. I have also seen how much we lose when we turn inward, when we give in to nationalism and populism.
+
+The COVID-19 pandemic was a test of our ability to work together in the face of a global crisis. At first, there was a temptation for countries to go it alone, to close borders, to hoard vaccines and medical supplies.
+
+But we quickly learned that viruses don't respect borders, that no country can solve a pandemic on its own, that we are only as strong as our weakest link.
+
+Europe chose cooperation over competition. We created a common procurement program for vaccines. We shared resources and expertise. We supported each other through the darkest days of the crisis.
+
+This approach worked. Europe not only protected its own citizens but also became the world's largest exporter of vaccines, helping to protect people around the globe.
+
+Strength comes from unity, not division. This lesson applies not just to pandemics but to all the major challenges we face: climate change, technological disruption, economic inequality, geopolitical instability.
+
+These challenges are too big for any one country to solve alone. They require collective action, shared responsibility, and the willingness to put the common good ahead of narrow national interests.
+
+Europe has shown that it is possible to maintain national identity while also working together for common goals. We have shown that sovereignty is not diminished by cooperation - it is enhanced by it.
+
+When we work together, we can achieve things that none of us could achieve alone. We can set global standards for data protection, for environmental protection, for human rights. We can stand up to authoritarian regimes and defend democratic values. We can provide a model for how different countries and cultures can live and work together in peace and prosperity.
+
+Europe's role in global challenges cannot be underestimated. As the world's largest trading bloc and one of its most prosperous regions, Europe has both the opportunity and the responsibility to lead on global issues.
+
+We are leading the fight against climate change with our Green Deal, which aims to make Europe the first climate-neutral continent by 2050. We are setting new standards for digital rights and artificial intelligence. We are promoting democracy and human rights around the world.
+
+But we cannot do this alone. We need partners who share our values and our commitment to multilateralism. We need young leaders who understand that the challenges of the 21st century require 21st-century solutions.
+
+Multilateralism is essential for solving global problems. Some people argue that multilateralism is slow, inefficient, that it's easier to act unilaterally. But this is short-sighted thinking.
+
+Yes, multilateralism can be messy. Yes, it requires compromise and patience. But it is the only way to address problems that affect all of us.
+
+Climate change doesn't stop at borders. Pandemics don't respect sovereignty. Economic crises spread from country to country. Cyber attacks can target anyone, anywhere.
+
+These problems require global solutions, and global solutions require global cooperation. They require institutions that can bring countries together, that can facilitate dialogue and negotiation, that can enforce agreements and hold countries accountable.
+
+The European Union is one such institution. The United Nations is another. The World Health Organization, the World Trade Organization, NATO - these institutions are not perfect, but they are essential.
+
+As future leaders, you have a choice. You can embrace multilateralism and work to strengthen international institutions, or you can turn inward and try to go it alone.
+
+I urge you to choose multilateralism. I urge you to choose cooperation over competition, dialogue over confrontation, bridges over walls.
+
+The world needs leaders who can work across differences, who can find common ground, who can build consensus around shared challenges and shared solutions.
+
+You have been educated at one of the world's great universities. You have been exposed to different ideas, different perspectives, different ways of thinking about the world.
+
+Use that education. Use those perspectives. Use your knowledge and skills to build a better world - a world that is more peaceful, more prosperous, more sustainable, more just.
+
+The challenges we face are daunting, but they are not insurmountable. With the right leadership, with the right approach, with the right commitment to working together, we can solve them.
+
+You are that leadership. You are the generation that will determine whether we rise to meet these challenges or whether we allow them to overwhelm us.
+
+Choose to rise. Choose to lead. Choose to build bridges.
+
+The future of Europe, and the future of the world, depends on it.
+
+Congratulations, Class of 2021. Now go out there and build a better world.`
+  },
+  {
+    id: 54,
+    speaker: "Volodymyr Zelenskyy",
+    title: "Courage in the Face of Adversity",
+    university: "Kyiv School of Economics",
+    year: 2023,
+    excerpt: "Courage is not the absence of fear. Courage is acting in spite of fear. It is standing up for what is right, even when the cost is high, even when the odds are against you.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Courage is acting despite fear",
+      "Stand up for what is right regardless of cost",
+      "Leadership is about serving your people",
+      "Democracy must be defended by each generation"
+    ],
+    fullText: `Rector Piontkivsky, distinguished faculty, proud families, and graduates of Kyiv School of Economics Class of 2023,
+
+Thank you for this honor. Speaking to you today, in our beloved Ukraine, in our capital Kyiv, fills me with both pride and hope. Pride in what we have accomplished together, and hope for what you will accomplish in the years to come.
+
+Courage is not the absence of fear. Courage is acting in spite of fear. It is standing up for what is right, even when the cost is high, even when the odds are against you.
+
+Over the past year, our nation has faced its greatest test since independence. We have been invaded by a much larger neighbor that sought to erase our identity, to destroy our democracy, to subjugate our people.
+
+Many people around the world expected us to fall within days. They underestimated the courage of the Ukrainian people. They underestimated our determination to defend our freedom, our democracy, our right to exist as an independent nation.
+
+But we did not fall. We stood. We fought. We showed the world what courage looks like.
+
+This courage was not limited to our soldiers on the front lines, though their bravery has been extraordinary. It was shown by doctors who continued to treat patients under bombardment. By teachers who conducted classes in bomb shelters. By farmers who planted crops despite the danger. By students like you who continued your studies even as air raid sirens interrupted your lectures.
+
+Stand up for what is right regardless of cost. When I was elected President, I promised to serve the people of Ukraine, to defend our constitution, to protect our sovereignty. When the invasion began, I had a choice: I could flee to safety, or I could stay and fight for my country.
+
+The choice was easy. My place was here, with my people, defending our homeland. Not because I am particularly brave, but because it was the right thing to do.
+
+Leadership is not about personal glory or comfort. Leadership is about serving others, about putting the needs of your people above your own needs, about doing what is right even when it is difficult.
+
+You will face your own moments of choice in your careers and your lives. Moments when you have to decide between what is easy and what is right, between what is profitable and what is ethical, between what is popular and what is necessary.
+
+In those moments, remember the example of Ukraine. Remember that courage is contagious, that standing up for what is right inspires others to do the same.
+
+Leadership is about serving your people. Before I became President, I was an entertainer. I made people laugh. I brought joy to their lives. But when my country needed me to serve in a different way, I answered that call.
+
+You don't have to be a politician to be a leader. You don't have to hold office to serve your people. Whatever career you choose, whatever path you take, you can be a leader by serving others, by working for the common good, by standing up for those who cannot stand up for themselves.
+
+Ukraine needs leaders in every field: in business, in technology, in education, in healthcare, in the arts. We need leaders who will rebuild our economy, who will modernize our institutions, who will help us take our place among the developed nations of the world.
+
+But we also need leaders who will remember the values we have fought for: democracy, freedom, human dignity, the rule of law. We need leaders who will ensure that the sacrifices made to defend these values were not in vain.
+
+Democracy must be defended by each generation. Democracy is not a given. It is not something that, once achieved, can be taken for granted. It must be defended, nurtured, and renewed by each generation.
+
+We have learned this lesson the hard way. We have seen how quickly democracy can be threatened, how fragile our freedoms can be, how important it is to have citizens who are willing to defend democratic values.
+
+You are inheriting a democracy that has been tested by fire and has emerged stronger. But your job is not just to preserve this democracy - it is to improve it, to make it more inclusive, more responsive, more effective.
+
+Use your education, your energy, your idealism to build a better Ukraine. Use your skills to solve the problems we face: corruption, inequality, environmental degradation, economic development.
+
+But also use your voices to defend the values we hold dear. Speak out against injustice. Stand up for the vulnerable. Defend the rights of minorities. Protect freedom of speech, freedom of the press, freedom of assembly.
+
+These freedoms are not abstract concepts. They are the foundation of everything we have built, everything we have fought for, everything we hope to achieve.
+
+The world has watched Ukraine with admiration over the past year. They have seen our courage, our resilience, our determination. They have seen that a small nation can stand up to a much larger aggressor, that democracy can triumph over authoritarianism, that right can prevail over might.
+
+But the world is also watching to see what we do next. They want to see if we can rebuild better than before, if we can create a more just and prosperous society, if we can become a model for other nations.
+
+You are the generation that will determine the answer to these questions. You are the ones who will rebuild our country, who will shape our future, who will show the world what Ukraine can become.
+
+This is both a tremendous opportunity and a tremendous responsibility. The choices you make, the careers you build, the values you uphold - all of this will determine not just your own futures, but the future of our nation.
+
+I have confidence in you. I have seen the courage of the Ukrainian people. I have seen what we can accomplish when we work together, when we stand united, when we refuse to give up.
+
+You have that same courage. You have that same determination. You have the education, the skills, and the opportunities to build the Ukraine of our dreams.
+
+Don't waste those opportunities. Don't take your freedoms for granted. Don't forget the price that was paid for your right to sit here today, to study what you want to study, to pursue the careers you want to pursue.
+
+Use your freedom wisely. Use your education purposefully. Use your talents generously.
+
+Build a Ukraine that is worthy of the sacrifices made to defend it. Build a Ukraine that is prosperous, democratic, and just. Build a Ukraine that serves as an example to the world.
+
+The future is in your hands. Make it a future we can all be proud of.
+
+Slava Ukraini! Congratulations, Class of 2023.`
+  },
+  {
+    id: 55,
+    speaker: "Abiy Ahmed",
+    title: "Unity and Reconciliation",
+    university: "Addis Ababa University",
+    year: 2019,
+    excerpt: "True leadership is not about winning at all costs. It is about bringing people together, healing divisions, and building a future where everyone can thrive.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "True leadership brings people together",
+      "Reconciliation is essential for lasting peace",
+      "Africa's potential is unlimited",
+      "Young people are Africa's greatest resource"
+    ],
+    fullText: `President Admasu, distinguished faculty, proud families, and graduates of Addis Ababa University's Class of 2019,
+
+Thank you for this great honor. It is wonderful to be here at Ethiopia's premier university, an institution that has educated so many of our nation's leaders and that continues to be a beacon of learning and progress in Africa.
+
+True leadership is not about winning at all costs. It is about bringing people together, healing divisions, and building a future where everyone can thrive.
+
+When I became Prime Minister, Ethiopia was facing serious challenges. We had ethnic tensions, political divisions, economic difficulties. Many people had lost hope in the possibility of change, in the possibility of a better future.
+
+But I believed then, and I believe now, that these challenges are not insurmountable. I believed that with the right leadership, with the right approach, we could overcome our differences and build a stronger, more united Ethiopia.
+
+The key was to choose reconciliation over revenge, dialogue over confrontation, hope over despair.
+
+Reconciliation is essential for lasting peace. You cannot build a strong nation on a foundation of hatred and division. You cannot achieve prosperity when people are fighting each other instead of working together.
+
+Reconciliation does not mean forgetting the past or ignoring injustices. It means acknowledging what happened, learning from it, and choosing to move forward together rather than remaining trapped in cycles of conflict.
+
+We have made significant progress in Ethiopia over the past few years. We have released political prisoners, allowed exiled opposition groups to return, opened up political space for dialogue and debate.
+
+We have also worked to improve relations with our neighbors, particularly Eritrea. For twenty years, our two countries were locked in a bitter conflict that served no one's interests. By choosing peace over war, dialogue over hostility, we have opened new possibilities for cooperation and development.
+
+This earned us international recognition, including the Nobel Peace Prize. But the real reward is not the prize itself - it is the knowledge that we have chosen the path of peace, that we have given our children a chance to grow up in a more peaceful world.
+
+Africa's potential is unlimited. Too often, Africa is portrayed as a continent of problems - poverty, conflict, disease, corruption. But this narrative is incomplete and unfair.
+
+Africa is a continent of incredible potential. We have abundant natural resources, a young and growing population, rich cultural traditions, and increasingly, better governance and stronger institutions.
+
+Ethiopia itself is a perfect example of this potential. We are one of the fastest-growing economies in the world. We are investing heavily in infrastructure, education, and technology. We are becoming a hub for manufacturing and services in East Africa.
+
+But our greatest resource is not our land or our minerals - it is our people. It is young people like you, who are educated, ambitious, and determined to build a better future.
+
+Young people are Africa's greatest resource. More than 60% of Africa's population is under the age of 25. This is not a burden - it is an opportunity. It is a demographic dividend that, if properly harnessed, can drive unprecedented growth and development.
+
+But this dividend will only be realized if we invest in young people, if we provide them with quality education, if we create opportunities for them to use their talents and energy.
+
+You are the generation that will determine Africa's future. You are the ones who will lead our countries, who will build our economies, who will solve our problems.
+
+But you are also the generation that can transcend the divisions that have held us back. You are less bound by ethnic, religious, and national prejudices than previous generations. You are more connected to each other and to the world. You have access to information and opportunities that your parents could only dream of.
+
+Use these advantages. Use your education, your energy, your idealism to build a better Africa. But also use your understanding of our shared humanity to bridge divides, to heal wounds, to bring people together.
+
+The challenges facing Africa are real and serious. We still have too much poverty, too much inequality, too much conflict. We still struggle with corruption, weak institutions, and inadequate infrastructure.
+
+But these challenges are not permanent. They can be overcome with the right leadership, the right policies, and the right commitment from all of us.
+
+As you leave this university and enter the world, you will have many opportunities to contribute to this effort. Some of you will become political leaders, others will become business leaders, still others will become leaders in civil society, in academia, in the arts.
+
+Whatever path you choose, remember that leadership is not about personal advancement. It is about service to others. It is about using your talents and opportunities to make life better for your fellow citizens.
+
+Be leaders who bring people together rather than drive them apart. Be leaders who choose dialogue over confrontation, reconciliation over revenge, hope over despair.
+
+Be proud of your African identity, but also be citizens of the world. Learn from other countries and cultures, but also share the wisdom and values of our own traditions.
+
+Work for the development of Ethiopia and Africa, but also work for peace and justice everywhere. The challenges facing humanity - climate change, inequality, technological disruption - affect all of us, and they require all of us to work together to solve them.
+
+You have been given extraordinary opportunities. You have been educated at one of Africa's finest universities. You have access to knowledge, networks, and resources that most people in the world do not have.
+
+Use these opportunities wisely. Use them to serve others. Use them to build a better Ethiopia, a better Africa, a better world.
+
+The future is in your hands. Make it a future of peace, prosperity, and unity.
+
+Congratulations, Class of 2019. Now go out there and make us proud.`
+  },
+  {
+    id: 56,
+    speaker: "Tsai Ing-wen",
+    title: "Democracy and Innovation",
+    university: "National Taiwan University",
+    year: 2020,
+    excerpt: "Democracy is not just a political system - it is a way of life. It is about respecting different opinions, protecting minority rights, and working together to solve common problems.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Democracy is a way of life, not just a political system",
+      "Innovation thrives in free societies",
+      "Taiwan's role in the global community",
+      "Technology should serve democratic values"
+    ],
+    fullText: `President Kuan, distinguished faculty, proud families, and graduates of National Taiwan University's Class of 2020,
+
+Thank you for this honor. It is wonderful to be here at Taiwan's premier university, an institution that has been at the forefront of education and research for nearly a century, and that has produced so many leaders who have shaped our nation's development.
+
+Democracy is not just a political system - it is a way of life. It is about respecting different opinions, protecting minority rights, and working together to solve common problems.
+
+Taiwan's democratic transformation over the past few decades has been one of the most remarkable stories in modern history. We have gone from authoritarian rule to vibrant democracy, from a closed society to an open one, from isolation to active participation in the global community.
+
+This transformation was not easy. It required courage from those who fought for democratic reforms, wisdom from those who managed the transition, and patience from all of us as we learned how to live and work together in a democratic society.
+
+But the result has been extraordinary. Today, Taiwan is recognized around the world as a model of democracy in Asia. We have free and fair elections, a free press, an independent judiciary, and a vibrant civil society.
+
+More importantly, we have shown that democracy and Chinese culture are not incompatible, that Confucian values and democratic principles can coexist and reinforce each other.
+
+Innovation thrives in free societies. One of the great advantages of democracy is that it creates an environment where innovation can flourish. When people are free to think, to question, to experiment, they are more likely to come up with new ideas and new solutions to old problems.
+
+Taiwan is a perfect example of this. Our democratic transformation coincided with our emergence as a global leader in technology and innovation. This is not a coincidence.
+
+Our technology sector has thrived because we have created an environment where entrepreneurs can take risks, where researchers can pursue their curiosity, where students like you can dream big and work to make those dreams reality.
+
+We have become a global leader in semiconductors, in information technology, in biotechnology, and increasingly, in artificial intelligence and other emerging technologies.
+
+But our innovation is not just about technology. We have also innovated in governance, in social policy, in environmental protection. We have shown that a small island can have a big impact on the world.
+
+Taiwan's role in the global community is unique and important. Despite the political challenges we face, despite attempts to isolate us from international organizations, we have found ways to contribute to the global community and to share our experiences and expertise with others.
+
+During the COVID-19 pandemic, we demonstrated the effectiveness of our democratic institutions and our technological capabilities. We were able to control the spread of the virus while maintaining our democratic freedoms and our economic vitality.
+
+We shared our experiences and our resources with other countries. We showed that democracy and public health are not incompatible, that transparency and trust are essential for effective pandemic response.
+
+We have also been a leader in promoting digital democracy, using technology to enhance citizen participation and government transparency. Our digital minister, Audrey Tang, has pioneered new approaches to online consultation and collaborative governance.
+
+Technology should serve democratic values. As we continue to develop new technologies, we must ensure that they serve democratic values rather than undermining them.
+
+Artificial intelligence, big data, and other emerging technologies have enormous potential to improve our lives and solve important problems. But they also pose risks to privacy, to human autonomy, to democratic governance.
+
+We must be thoughtful about how we develop and deploy these technologies. We must ensure that they are used to empower people, not to control them. We must ensure that they enhance democracy rather than threatening it.
+
+This is particularly important as we face increasing competition from authoritarian regimes that use technology for surveillance and control. We must show that democratic societies can harness the power of technology while preserving human freedom and dignity.
+
+As you leave this university and enter the world, you will have many opportunities to contribute to Taiwan's continued development and to the global community.
+
+Some of you will become entrepreneurs and create new companies that drive innovation and economic growth. Some will become researchers and make breakthrough discoveries. Some will enter public service and work to improve our government and our society.
+
+Whatever path you choose, remember that you are inheritors of a precious legacy - the legacy of democracy, of freedom, of the rule of law. But you are also responsible for preserving and strengthening that legacy for future generations.
+
+Use your education, your talents, your energy to build a better Taiwan and a better world. But also use your voices to defend democratic values, to promote human rights, to stand up for those who are oppressed.
+
+The world is watching Taiwan. They are watching to see if a small democracy can thrive in a challenging international environment. They are watching to see if we can continue to innovate and grow while maintaining our democratic values.
+
+You are the generation that will determine the answer to these questions. You are the ones who will shape Taiwan's future and its role in the world.
+
+I have confidence in you. I have seen what young Taiwanese can accomplish when they set their minds to it. I have seen your creativity, your determination, your commitment to making the world a better place.
+
+Use these qualities. Use your education. Use your opportunities to build a future that is worthy of the sacrifices made by previous generations to give you the freedom and opportunities you have today.
+
+Taiwan's best days are ahead of us, and they will be shaped by what you do with your lives and your careers.
+
+Make us proud. Make the world a better place.
+
+Congratulations, Class of 2020.`
+  },
+  {
+    id: 57,
+    speaker: "Narendra Modi",
+    title: "Digital India and Global Leadership",
+    university: "Indian Institute of Technology Delhi",
+    year: 2018,
+    excerpt: "Technology is not just about making life easier - it is about making life better for everyone. When we use technology to solve problems, to connect people, to create opportunities, we are using it for its highest purpose.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Technology should make life better for everyone",
+      "India's role in global technological leadership",
+      "Innovation with inclusion",
+      "Youth are the drivers of change"
+    ],
+    fullText: `Director Sharma, distinguished faculty, proud families, and graduates of IIT Delhi's Class of 2018,
+
+Namaste and congratulations to all of you. It is wonderful to be here at IIT Delhi, one of India's premier institutions of technology and innovation, and to speak to the brightest minds of our nation.
+
+Technology is not just about making life easier - it is about making life better for everyone. When we use technology to solve problems, to connect people, to create opportunities, we are using it for its highest purpose.
+
+India is in the midst of a digital revolution. We are transforming from a developing nation to a digitally empowered society. We are using technology not just to catch up with the developed world, but to leapfrog ahead and show new possibilities.
+
+Our Digital India initiative is not just about building digital infrastructure - though that is important. It is about using technology to deliver government services more efficiently, to connect rural areas to urban opportunities, to provide financial services to the unbanked, to deliver education and healthcare to remote areas.
+
+We have shown that technology can be a great equalizer. Through initiatives like Aadhaar, we have given digital identity to over a billion people. Through Jan Dhan Yojana, we have brought hundreds of millions of people into the formal banking system. Through digital payments, we have made financial transactions easier and more transparent.
+
+India's role in global technological leadership is growing every day. We are no longer just consumers of technology - we are creators and innovators. Indian engineers and entrepreneurs are leading companies around the world. Indian startups are solving problems not just for India, but for the entire world.
+
+But our greatest strength is not just our technical skills - it is our ability to innovate with inclusion. We don't just ask "can we build this?" We ask "how can we build this in a way that benefits everyone, especially the poor and marginalized?"
+
+Innovation with inclusion means developing solutions that are affordable, accessible, and appropriate for our conditions. It means thinking about how technology can serve the farmer in rural Punjab, the small shopkeeper in Mumbai, the student in a remote village in Odisha.
+
+This approach has led to remarkable innovations. We have developed the world's most cost-effective space program. We have created digital payment systems that work on the simplest mobile phones. We have built telemedicine networks that connect patients in remote areas with specialists in major cities.
+
+Youth are the drivers of change. India has the largest youth population in the world. This is our greatest asset. You are the generation that will determine whether India becomes a developed nation, whether we achieve our goal of becoming a $5 trillion economy.
+
+But this demographic dividend will only be realized if we invest in education, if we create opportunities for young people to use their talents, if we encourage innovation and entrepreneurship.
+
+You have been educated at one of the world's finest technical institutions. You have been given the tools and knowledge to solve complex problems, to create new technologies, to build successful companies.
+
+But I want you to think bigger than just personal success. I want you to think about how you can use your talents to solve India's problems, to contribute to India's development, to help India take its rightful place as a global leader.
+
+We need engineers who will build smart cities that are sustainable and livable. We need technologists who will develop solutions for clean energy, for water conservation, for waste management. We need entrepreneurs who will create jobs and opportunities for millions of young Indians.
+
+We also need innovators who will help India lead in emerging technologies like artificial intelligence, blockchain, quantum computing, biotechnology. These technologies will shape the future of the world, and India must be at the forefront of their development.
+
+But as we embrace new technologies, we must also be mindful of their impact on society. We must ensure that technology serves humanity, not the other way around. We must ensure that the benefits of technological progress are shared broadly, not concentrated among a few.
+
+This is particularly important as we develop artificial intelligence and automation. These technologies have enormous potential to improve productivity and solve complex problems. But they also pose risks to employment and could increase inequality if not managed properly.
+
+We must develop these technologies in a way that augments human capabilities rather than replacing them. We must ensure that workers are retrained and reskilled as technology changes the nature of work. We must create new opportunities even as old ones disappear.
+
+India has always been a land of innovation. From the concept of zero to the game of chess, from Ayurveda to yoga, we have given many gifts to the world. Now, in the digital age, we have the opportunity to once again be a source of innovation and wisdom for the world.
+
+But innovation is not just about technology. It is also about finding new ways to organize society, new approaches to governance, new solutions to age-old problems of poverty, inequality, and environmental degradation.
+
+As you go out into the world, I encourage you to be innovators in the broadest sense. Be innovators who use technology to solve real problems. Be innovators who think about the social and environmental impact of your work. Be innovators who are guided by values as well as by market forces.
+
+Remember that you are not just engineers or technologists - you are citizens of India and citizens of the world. You have a responsibility to use your talents not just for personal gain, but for the common good.
+
+The world is watching India. They want to see if we can achieve rapid economic growth while also addressing poverty and inequality. They want to see if we can become a technological superpower while also being a responsible global citizen.
+
+You are the generation that will determine the answer to these questions. You are the ones who will build the India of the future.
+
+I have great confidence in you. I have seen what young Indians can accomplish when they set their minds to it. I have seen your creativity, your determination, your commitment to excellence.
+
+Use these qualities. Use your education. Use your opportunities to build an India that is prosperous, inclusive, and sustainable. Build an India that is a source of pride for all of us and a force for good in the world.
+
+The future belongs to those who can imagine it and then work to make it reality. You have the imagination. You have the skills. You have the opportunity.
+
+Now go out there and build the future.
+
+Jai Hind! Congratulations, Class of 2018.`
+  },
+  {
+    id: 58,
+    speaker: "Emmanuel Macron",
+    title: "European Values and Global Responsibility",
+    university: "Sorbonne University",
+    year: 2019,
+    excerpt: "We must choose between nationalism and patriotism. Nationalism is a betrayal of patriotism. By saying 'our interests first, who cares about the others,' we erase what a nation holds dearest, what gives it life, what makes it great: its moral values.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Choose patriotism over nationalism",
+      "Moral values define a nation's greatness",
+      "Europe's role in defending multilateralism",
+      "Young people must lead the fight for democracy"
+    ],
+    fullText: `Rector Andro, distinguished faculty, proud families, and graduates of Sorbonne University's Class of 2019,
+
+Thank you for this great honor. It is wonderful to be here at the Sorbonne, this temple of knowledge and enlightenment that has shaped French intellectual life for centuries and continues to be a beacon of learning and critical thinking.
+
+We must choose between nationalism and patriotism. Nationalism is a betrayal of patriotism. By saying 'our interests first, who cares about the others,' we erase what a nation holds dearest, what gives it life, what makes it great: its moral values.
+
+France has always been at its best when it has stood for universal values - liberty, equality, fraternity. These are not just French values - they are human values. They are the values that inspired the Declaration of the Rights of Man and of the Citizen, that motivated the Resistance during World War II, that guide us today as we face new challenges.
+
+True patriotism is not about turning inward or building walls. True patriotism is about being proud of your country's values and working to share those values with the world. It is about understanding that your nation's greatness comes not from dominating others, but from inspiring them.
+
+Moral values define a nation's greatness. In an age of rising authoritarianism, of increasing cynicism about democracy, of growing inequality and environmental crisis, it is tempting to retreat into narrow self-interest, to abandon our commitment to universal values.
+
+But this would be a grave mistake. It is precisely in times of crisis that our values matter most. It is precisely when the world seems to be falling apart that we must hold fast to the principles that can bring it back together.
+
+France has a special responsibility in this regard. We are the country of the Enlightenment, of human rights, of the belief that reason and dialogue can triumph over prejudice and violence. We are the country that has always believed that politics should be guided by moral principles, not just by power.
+
+Europe's role in defending multilateralism has never been more important. We live in a world where international institutions are under attack, where the rules-based international order is being challenged, where some leaders prefer the law of the jungle to the rule of law.
+
+Europe must be the champion of multilateralism, of international cooperation, of the belief that global problems require global solutions. We must show that it is possible for different nations to work together while maintaining their distinct identities and interests.
+
+The European Union is not perfect, but it is the most successful example in history of nations choosing cooperation over conflict, dialogue over war, shared sovereignty over narrow nationalism.
+
+We have shown that former enemies can become partners, that economic integration can lead to political cooperation, that diversity can be a source of strength rather than division.
+
+But the European project is not complete. We must continue to deepen our integration, to strengthen our institutions, to extend our values and our influence in the world.
+
+Young people must lead the fight for democracy. Democracy is under threat around the world. Authoritarian leaders are using technology to control their populations, spreading disinformation to undermine trust in democratic institutions, exploiting economic anxiety and cultural fears to gain power.
+
+But democracy's greatest threat may not come from its enemies - it may come from the apathy of its friends. Too many people, especially young people, are disengaging from politics, losing faith in democratic institutions, believing that their voices don't matter.
+
+This is dangerous. Democracy requires active participation. It requires citizens who are informed, engaged, and committed to the common good. It requires people who are willing to vote, to run for office, to speak out against injustice.
+
+You are the generation that will determine whether democracy survives and thrives in the 21st century. You are the ones who will decide whether we retreat into authoritarianism and nationalism or advance toward greater freedom and cooperation.
+
+I have faith in you. I have seen the energy and idealism of young Europeans. I have seen your commitment to fighting climate change, to promoting equality, to defending human rights. I have seen your ability to organize, to mobilize, to create change.
+
+But you must do more than protest. You must also participate. You must run for office, work in government, join political parties, engage with the democratic process even when it is frustrating and imperfect.
+
+Democracy is not a spectator sport. It requires active participation from all of us, but especially from young people who have the most at stake in the future we are building.
+
+The challenges facing Europe and the world are enormous: climate change, technological disruption, economic inequality, migration, terrorism, the rise of authoritarianism. These challenges cannot be solved by any one country acting alone. They require European cooperation and global coordination.
+
+But they also require a new generation of leaders who understand that politics is not just about winning elections - it is about solving problems, serving the public good, defending democratic values.
+
+You have been educated at one of Europe's finest universities. You have been exposed to the best of human knowledge and culture. You have been given the tools to think critically, to analyze complex problems, to communicate effectively.
+
+Use these tools. Use your education to become informed citizens, effective leaders, and defenders of democracy. Use your knowledge to solve problems, your skills to serve others, your voices to speak truth to power.
+
+The future of Europe, and the future of democracy, depends on you. Don't let us down.
+
+Vive la France! Vive l'Europe! Congratulations, Class of 2019.`
+  },
+  {
+    id: 59,
+    speaker: "Cyril Ramaphosa",
+    title: "Building a Better South Africa",
+    university: "University of Cape Town",
+    year: 2021,
+    excerpt: "We must build a South Africa that works for all its people, not just a privileged few. This means confronting the legacy of apartheid, addressing inequality, and creating opportunities for everyone to thrive.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Build a South Africa that works for all",
+      "Confront the legacy of apartheid honestly",
+      "Address inequality through inclusive growth",
+      "Young people are key to transformation"
+    ],
+    fullText: `Vice-Chancellor Phakeng, distinguished faculty, proud families, and graduates of the University of Cape Town's Class of 2021,
+
+Thank you for this honor. It is wonderful to be here at UCT, one of Africa's leading universities and an institution that has played such an important role in South Africa's struggle for freedom and democracy.
+
+We must build a South Africa that works for all its people, not just a privileged few. This means confronting the legacy of apartheid, addressing inequality, and creating opportunities for everyone to thrive.
+
+Twenty-seven years after the end of apartheid, South Africa remains one of the most unequal societies in the world. This is not acceptable. It is not the South Africa that Nelson Mandela dreamed of, that Oliver Tambo fought for, that so many heroes and heroines sacrificed their lives to achieve.
+
+We have made progress since 1994. We have built a democratic constitution that protects human rights. We have created institutions that are accountable to the people. We have expanded access to education, healthcare, and basic services.
+
+But we have not done enough to address the fundamental economic inequalities that were created by centuries of colonialism and apartheid. Too many South Africans still live in poverty. Too many young people are unemployed. Too many families struggle to make ends meet.
+
+Confront the legacy of apartheid honestly. We cannot build a better future if we do not honestly confront our past. Apartheid was not just a political system - it was an economic system designed to benefit a white minority at the expense of the black majority.
+
+It created patterns of inequality that persist to this day. It concentrated land ownership in the hands of a few. It denied quality education to the majority. It excluded black South Africans from the mainstream economy.
+
+These patterns did not disappear with the end of apartheid. They require deliberate action to address. They require policies that redistribute wealth, that create opportunities for those who were previously excluded, that ensure that the benefits of economic growth are shared by all.
+
+This is not about punishing anyone for the sins of the past. It is about creating a more just and equitable society for the future. It is about ensuring that all South Africans, regardless of race or background, have the opportunity to reach their full potential.
+
+Address inequality through inclusive growth. Economic growth alone is not enough. We need growth that creates jobs, that reduces poverty, that expands opportunities for all South Africans.
+
+This means investing in education and skills development. It means supporting small businesses and entrepreneurs. It means building infrastructure that connects rural areas to urban markets. It means creating an environment where businesses can thrive while also contributing to social development.
+
+We are working to implement policies that will achieve this kind of inclusive growth. We are investing in renewable energy to create jobs and address climate change. We are supporting the development of new industries like cannabis and hemp. We are working to improve the ease of doing business while also ensuring that businesses contribute to transformation.
+
+But government cannot do this alone. We need partnerships with business, with civil society, with universities like UCT. We need all South Africans to work together to build the country we want to see.
+
+Young people are key to transformation. South Africa has a young population, with more than half of our people under the age of 35. This is our greatest asset, but it is also our greatest challenge.
+
+Too many young South Africans are unemployed. Too many are not in education, employment, or training. This is not just an economic problem - it is a social and political problem that threatens the stability of our democracy.
+
+But young people are also the key to our transformation. You are less burdened by the prejudices of the past. You are more connected to global trends and opportunities. You have access to technology and information that previous generations could not imagine.
+
+You are the generation that can finally realize the dream of a non-racial, non-sexist, democratic, and prosperous South Africa. But this will require you to be actively engaged in the process of transformation.
+
+Don't just complain about the problems you see - work to solve them. Don't just criticize the government - get involved in politics and help make it better. Don't just focus on your own success - think about how you can contribute to the success of your community and your country.
+
+As you leave UCT and enter the world, you will have many opportunities to make a difference. Some of you will become entrepreneurs and create businesses that provide jobs and solve problems. Some will become professionals and use your skills to serve your communities. Some will enter public service and work to improve government and society.
+
+Whatever path you choose, remember that you have a responsibility to contribute to the transformation of our country. You have been privileged to receive a world-class education at one of Africa's leading universities. With that privilege comes responsibility.
+
+Use your education to serve others. Use your skills to solve problems. Use your voice to speak out against injustice and inequality. Use your talents to build the South Africa that we all want to see.
+
+The challenges facing our country are real and serious. We still have high levels of poverty, unemployment, and inequality. We still struggle with corruption and weak governance in some areas. We still face the legacy of apartheid and the ongoing effects of colonialism.
+
+But these challenges are not insurmountable. They can be overcome with the right leadership, the right policies, and the right commitment from all of us.
+
+South Africa has overcome greater challenges before. We ended apartheid peacefully. We built a democratic constitution. We created a society where people of all races can live and work together.
+
+Now we must complete the transformation. We must build an economy that works for all. We must create a society where everyone has the opportunity to thrive. We must realize the full potential of our rainbow nation.
+
+You are the generation that can make this happen. You have the education, the skills, and the opportunities to build the South Africa of our dreams.
+
+Don't waste those opportunities. Don't take your freedom for granted. Don't forget the sacrifices that were made to give you the opportunities you have today.
+
+Use your freedom wisely. Use your education purposefully. Use your talents generously.
+
+Build a South Africa that Mandela would be proud of. Build a South Africa that works for all its people. Build a South Africa that is a beacon of hope for the rest of Africa and the world.
+
+The future is in your hands. Make it a future we can all be proud of.
+
+Congratulations, Class of 2021. Now go out there and transform our country.`
+  },
+  {
+    id: 60,
+    speaker: "Justin Trudeau",
+    title: "Diversity as Strength",
+    university: "University of Toronto",
+    year: 2017,
+    excerpt: "Diversity is not a burden to be borne, but a benefit to be shared. When we embrace our differences, when we celebrate what makes each of us unique, we become stronger as a society.",
+    image: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png",
+    keyPoints: [
+      "Diversity is a benefit to be shared",
+      "Embrace differences to become stronger",
+      "Canada's role as a global example",
+      "Young people must lead on inclusion"
+    ],
+    fullText: `President Gertler, distinguished faculty, proud families, and graduates of the University of Toronto's Class of 2017,
+
+Thank you for this great honor. It is wonderful to be here at the University of Toronto, one of Canada's finest institutions and a place that has contributed so much to our nation's intellectual and cultural life.
+
+Diversity is not a burden to be borne, but a benefit to be shared. When we embrace our differences, when we celebrate what makes each of us unique, we become stronger as a society.
+
+Canada has always been a nation of immigrants, a country built by people who came here from around the world seeking a better life for themselves and their families. This diversity is not an accident - it is our greatest strength.
+
+When I look out at this graduating class, I see the future of Canada. I see young people from every corner of the world, from every background imaginable, united by their commitment to learning, to excellence, to making a positive difference in the world.
+
+This is what makes Canada special. This is what makes us strong. Not our natural resources, not our geography, but our people - and the fact that we have learned to live and work together despite our differences.
+
+Embrace differences to become stronger. In a world that often seems divided by fear and prejudice, Canada offers a different model. We show that it is possible for people of different races, religions, and cultures to live together in peace and prosperity.
+
+But this doesn't happen automatically. It requires effort, understanding, and a commitment to the values that bind us together: respect for human dignity, belief in equality, commitment to the rule of law, and dedication to the common good.
+
+It also requires us to confront our own history honestly. Canada is not perfect. We have made mistakes. We have not always lived up to our ideals. The treatment of Indigenous peoples, the turning away of Jewish refugees during World War II, the internment of Japanese Canadians - these are dark chapters in our history that we must acknowledge and learn from.
+
+But we have also shown the capacity to learn, to grow, to become better. We have apologized for past wrongs. We have worked to build more inclusive institutions. We have committed ourselves to reconciliation with Indigenous peoples.
+
+Canada's role as a global example has never been more important. At a time when many countries are turning inward, when walls are being built instead of bridges, when fear is being used to divide people, Canada stands as an example of what is possible when we choose hope over fear, inclusion over exclusion.
+
+The world is watching us. They want to see if a diverse, multicultural democracy can thrive in the 21st century. They want to see if we can maintain our openness and generosity while also ensuring security and prosperity for our citizens.
+
+We have a responsibility to show that we can. We have a responsibility to prove that diversity is indeed our strength, that immigration is a benefit not a burden, that multiculturalism works.
+
+But this responsibility doesn't rest with government alone. It rests with all of us, and especially with young people like you who will shape Canada's future.
+
+Young people must lead on inclusion. You are the most diverse, most educated, most connected generation in Canadian history. You have grown up in a Canada that is more open, more inclusive, more accepting than the Canada your parents and grandparents knew.
+
+But you have also grown up in a world where these values are under attack, where populism and nationalism are on the rise, where some people are trying to turn back the clock on progress.
+
+You cannot take our diversity and inclusion for granted. You cannot assume that the progress we have made is permanent. You must actively defend these values, promote them, and work to extend them to others.
+
+This means standing up to racism and discrimination wherever you encounter it. It means speaking out against hate speech and violence. It means working to ensure that everyone, regardless of their background, has the opportunity to succeed in Canada.
+
+It also means engaging with the world beyond our borders. Canada's diversity gives us unique advantages in international relations. We have connections to every region of the world through our diaspora communities. We have credibility as a nation that practices what it preaches about human rights and democracy.
+
+Use these advantages. Use your global connections to build bridges between Canada and other countries. Use your understanding of different cultures to help solve international problems. Use your commitment to Canadian values to promote peace, democracy, and human rights around the world.
+
+As you leave the University of Toronto and enter the world, you will have many opportunities to make a difference. Some of you will become business leaders and create companies that reflect Canadian values of diversity and inclusion. Some will become researchers and make discoveries that benefit all humanity. Some will enter public service and work to make government more effective and responsive.
+
+Whatever path you choose, remember that you are ambassadors for Canada and for Canadian values. You have a responsibility to show the world what we stand for, to demonstrate that diversity really is our strength.
+
+The challenges facing Canada and the world are significant. Climate change, technological disruption, economic inequality, political polarization - these are complex problems that will require innovative solutions and collaborative approaches.
+
+But I have confidence that your generation can meet these challenges. You have the education, the skills, and the global perspective needed to solve complex problems. You have the energy and idealism to drive positive change.
+
+Most importantly, you have the values - the commitment to diversity, inclusion, and human dignity - that will guide you in making the right choices as you work to build a better world.
+
+Canada needs your talents, your energy, your commitment to our shared values. The world needs your leadership, your innovation, your dedication to making life better for all people.
+
+Don't let us down. Use your education, your opportunities, your privileges to make a positive difference. Show the world that Canada's way - the way of diversity, inclusion, and respect for human dignity - is not just the right way, but the winning way.
+
+The future belongs to countries and societies that can harness the talents of all their people, that can bring together different perspectives and experiences to solve common problems, that can build bridges instead of walls.
+
+Canada is such a country. You are the generation that will prove it.
+
+Congratulations, Class of 2017. Now go out there and make us proud.`
   }
 ];
