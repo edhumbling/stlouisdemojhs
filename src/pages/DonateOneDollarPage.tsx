@@ -299,9 +299,9 @@ const DonateOneDollarPage: React.FC = () => {
         }
       `}</style>
 
-      {/* Back Button and Title Section */}
+      {/* Back Button and Title Section - Edge to Edge */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4">
-        <div className="container mx-auto px-4">
+        <div className="px-3 sm:px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleBack}
@@ -318,9 +318,9 @@ const DonateOneDollarPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-12">
-        <div className="max-w-lg sm:max-w-2xl mx-auto">
+      {/* Main Content - Edge to Edge */}
+      <div className="py-6 sm:py-12">
+        <div className="px-3 sm:px-4">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -371,8 +371,8 @@ const DonateOneDollarPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Amount Slider */}
-                <div className="bg-white rounded-xl p-4 sm:p-6 border-2 border-green-200 shadow-lg mb-4">
+                {/* Amount Slider - Edge to Edge */}
+                <div className="bg-white p-4 sm:p-6 border-t-2 border-b-2 border-green-200 shadow-lg mb-4">
                   <h3 className="text-base sm:text-lg font-bold text-green-800 mb-4 text-center">
                     🎚️ Choose Your Amount
                   </h3>
@@ -440,7 +440,7 @@ const DonateOneDollarPage: React.FC = () => {
                   value={donorName}
                   onChange={handleNameChange}
                   placeholder="Enter your full name"
-                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-4 focus:ring-green-500/50 focus:border-green-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-base sm:text-lg shadow-sm ${
+                  className={`w-full px-4 py-4 border-2 focus:ring-4 focus:ring-green-500/50 focus:border-green-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-base sm:text-lg shadow-sm ${
                     nameError ? 'border-red-500 bg-red-50 text-black' : 'border-gray-300 hover:border-green-300'
                   }`}
                   required
@@ -467,7 +467,7 @@ const DonateOneDollarPage: React.FC = () => {
                   value={email}
                   onChange={handleEmailChange}
                   placeholder="Enter your email address"
-                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-4 focus:ring-green-500/50 focus:border-green-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-base sm:text-lg shadow-sm ${
+                  className={`w-full px-4 py-4 border-2 focus:ring-4 focus:ring-green-500/50 focus:border-green-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-base sm:text-lg shadow-sm ${
                     emailError ? 'border-red-500 bg-red-50 text-black' : 'border-gray-300 hover:border-green-300'
                   }`}
                   required
@@ -483,8 +483,8 @@ const DonateOneDollarPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Compact Fee Breakdown */}
-              <div className="bg-white rounded-lg p-3 mb-4 border border-green-200 shadow-sm">
+              {/* Compact Fee Breakdown - Edge to Edge */}
+              <div className="bg-white p-3 mb-4 border-t border-b border-green-200 shadow-sm">
                 <div className="text-center mb-2">
                   <span className="text-sm font-bold text-green-800">💰 Payment Summary</span>
                 </div>
@@ -538,7 +538,7 @@ const DonateOneDollarPage: React.FC = () => {
               <button
                 onClick={handleDonateOneDollar}
                 disabled={isLoading || !email.trim() || !validateEmail(email) || !!emailError || !donorName.trim() || donorName.trim().length < 2 || !!nameError}
-                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 rounded-xl hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-base sm:text-lg"
+                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-base sm:text-lg"
               >
                 {isLoading ? (
                   <>
@@ -583,38 +583,38 @@ const DonateOneDollarPage: React.FC = () => {
               <p className="font-medium text-green-600">100% of donations go directly to school development</p>
             </div>
 
-            {/* Disclaimer */}
-            <div className="bg-white rounded-xl p-4 sm:p-6 mt-6 border-2 border-blue-200 shadow-lg">
+            {/* Disclaimer - Edge to Edge */}
+            <div className="bg-white p-4 sm:p-6 mt-6 border-t-2 border-b-2 border-blue-200 shadow-lg">
               <h4 className="text-base sm:text-lg font-bold text-blue-800 mb-4 text-center flex items-center justify-center gap-2">
                 <span>ℹ️</span>
                 <span>Important Information</span>
               </h4>
               <div className="text-xs sm:text-sm text-gray-800 space-y-2 sm:space-y-3">
-                <div className="flex items-start gap-2 bg-blue-50 p-2 sm:p-3 rounded-lg">
+                <div className="flex items-start gap-2 bg-blue-50 p-2 sm:p-3 border-l-4 border-blue-400">
                   <span className="text-blue-600 font-bold">💱</span>
                   <p className="font-medium">Exchange rates are updated in real-time but may vary slightly at payment time</p>
                 </div>
-                <div className="flex items-start gap-2 bg-orange-50 p-2 sm:p-3 rounded-lg">
+                <div className="flex items-start gap-2 bg-orange-50 p-2 sm:p-3 border-l-4 border-orange-400">
                   <span className="text-orange-600 font-bold">💳</span>
                   <p className="font-medium">Paystack processing fees (1.5%) are added to ensure secure payment handling</p>
                 </div>
-                <div className="flex items-start gap-2 bg-green-50 p-2 sm:p-3 rounded-lg">
+                <div className="flex items-start gap-2 bg-green-50 p-2 sm:p-3 border-l-4 border-green-400">
                   <span className="text-green-600 font-bold">🔒</span>
                   <p className="font-medium">All transactions are processed securely through Paystack's encrypted platform</p>
                 </div>
-                <div className="flex items-start gap-2 bg-purple-50 p-2 sm:p-3 rounded-lg">
+                <div className="flex items-start gap-2 bg-purple-50 p-2 sm:p-3 border-l-4 border-purple-400">
                   <span className="text-purple-600 font-bold">📧</span>
                   <p className="font-medium">Donation receipts will be sent to your email address within 24 hours</p>
                 </div>
-                <div className="flex items-start gap-2 bg-yellow-50 p-2 sm:p-3 rounded-lg">
+                <div className="flex items-start gap-2 bg-yellow-50 p-2 sm:p-3 border-l-4 border-yellow-400">
                   <span className="text-yellow-600 font-bold">�</span>
                   <p className="font-medium">For questions about your donation, contact us at <span className="text-blue-600 font-bold">contact@stlouisdemojhs.com</span></p>
                 </div>
-                <div className="flex items-start gap-2 bg-red-50 p-2 sm:p-3 rounded-lg">
+                <div className="flex items-start gap-2 bg-red-50 p-2 sm:p-3 border-l-4 border-red-400">
                   <span className="text-red-600 font-bold">⚠️</span>
                   <p className="font-medium">This donation is voluntary and non-refundable once processed</p>
                 </div>
-                <div className="flex items-start gap-2 bg-gray-50 p-2 sm:p-3 rounded-lg">
+                <div className="flex items-start gap-2 bg-gray-50 p-2 sm:p-3 border-l-4 border-gray-400">
                   <span className="text-gray-600 font-bold">🏫</span>
                   <p className="font-medium">St. Louis Demonstration JHS is a registered educational institution in Ghana</p>
                 </div>
