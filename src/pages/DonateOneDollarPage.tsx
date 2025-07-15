@@ -625,8 +625,8 @@ const DonateOneDollarPage: React.FC = () => {
                   <p className="font-medium">Donation receipts will be sent to your email address within 24 hours</p>
                 </div>
                 <div className="flex items-start gap-2 bg-yellow-50 p-2 sm:p-3 rounded-lg">
-                  <span className="text-yellow-600 font-bold">📞</span>
-                  <p className="font-medium">For questions about your donation, contact us at <span className="text-blue-600 font-bold">edhumbling@gmail.com</span></p>
+                  <span className="text-yellow-600 font-bold">�</span>
+                  <p className="font-medium">For questions about your donation, contact us at <span className="text-blue-600 font-bold">contact@stlouisdemojhs.com</span></p>
                 </div>
                 <div className="flex items-start gap-2 bg-red-50 p-2 sm:p-3 rounded-lg">
                   <span className="text-red-600 font-bold">⚠️</span>
