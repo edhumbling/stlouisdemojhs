@@ -224,8 +224,8 @@ const DonateOneDollarPage: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="max-w-2xl mx-auto">
+      <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-12">
+        <div className="max-w-lg sm:max-w-2xl mx-auto">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -255,47 +255,47 @@ const DonateOneDollarPage: React.FC = () => {
           >
             <div className="text-center">
               {/* Amount Display */}
-              <div className="mb-8">
-                <div className="text-6xl font-bold text-green-600 mb-2">$1</div>
-                <div className="text-2xl font-semibold text-gray-700 mb-2">
+              <div className="mb-6 sm:mb-8 text-center">
+                <div className="text-4xl sm:text-6xl font-bold text-green-600 mb-2">💵 $1</div>
+                <div className="text-xl sm:text-2xl font-semibold text-gray-700 mb-2">
                   {isLoadingRate ? (
-                    <span className="flex items-center gap-2">
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      Loading rate...
+                    <span className="flex items-center justify-center gap-2">
+                      <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
+                      <span className="text-sm sm:text-base">Loading rate...</span>
                     </span>
                   ) : (
                     `≈ GH₵${ghsAmount.toFixed(2)}`
                   )}
                 </div>
-                <div className="text-sm text-gray-500 mb-2">
-                  Exchange rate: 1 USD = {exchangeRate} GHS
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 bg-gray-100 inline-block px-3 py-1 rounded-full">
+                  📊 Rate: 1 USD = {exchangeRate} GHS
                 </div>
-                <p className="text-gray-600">Simple. Quick. Impactful.</p>
+                <p className="text-sm sm:text-base text-gray-600 font-medium">✨ Simple. Quick. Impactful. ✨</p>
               </div>
 
               {/* Impact Statement */}
-              <div className="bg-green-50 rounded-xl p-6 mb-8">
-                <h3 className="text-lg font-semibold text-green-800 mb-3">Your $1 Helps Provide:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-green-700">
-                  <div className="flex items-center gap-2">
-                    <Heart className="w-4 h-4" />
-                    <span>School supplies</span>
+              <div className="bg-green-50 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 border border-green-200">
+                <h3 className="text-base sm:text-lg font-bold text-green-800 mb-4 text-center">🎯 Your $1 Helps Provide:</h3>
+                <div className="grid grid-cols-1 gap-3 text-sm sm:text-base text-green-700">
+                  <div className="flex items-center justify-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                    <span className="text-lg">📚</span>
+                    <span className="font-medium">School supplies</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Heart className="w-4 h-4" />
-                    <span>Learning materials</span>
+                  <div className="flex items-center justify-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                    <span className="text-lg">📖</span>
+                    <span className="font-medium">Learning materials</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Heart className="w-4 h-4" />
-                    <span>Student support</span>
+                  <div className="flex items-center justify-center gap-3 bg-white p-3 rounded-lg shadow-sm">
+                    <span className="text-lg">🤝</span>
+                    <span className="font-medium">Student support</span>
                   </div>
                 </div>
               </div>
 
               {/* Email Input */}
               <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
+                <label htmlFor="email" className="block text-sm sm:text-base font-bold text-gray-800 mb-3 text-center">
+                  📧 Email Address *
                 </label>
                 <input
                   type="email"
@@ -303,8 +303,8 @@ const DonateOneDollarPage: React.FC = () => {
                   value={email}
                   onChange={handleEmailChange}
                   placeholder="Enter your email address"
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors text-gray-900 bg-white placeholder-gray-500 ${
-                    emailError ? 'border-red-500 bg-red-50' : 'border-gray-300'
+                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-4 focus:ring-green-500/50 focus:border-green-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-base sm:text-lg shadow-sm ${
+                    emailError ? 'border-red-500 bg-red-50 text-black' : 'border-gray-300 hover:border-green-300'
                   }`}
                   required
                 />
@@ -320,26 +320,26 @@ const DonateOneDollarPage: React.FC = () => {
               </div>
 
               {/* Fee Breakdown */}
-              <div className="bg-blue-50 rounded-lg p-4 mb-6 border border-blue-200">
-                <h4 className="text-sm font-semibold text-blue-800 mb-3">Payment Breakdown</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between text-gray-700">
-                    <span>Donation amount:</span>
-                    <span>GH₵{ghsAmount.toFixed(2)}</span>
+              <div className="bg-white rounded-xl p-4 sm:p-6 mb-6 border-2 border-green-200 shadow-lg">
+                <h4 className="text-base sm:text-lg font-bold text-green-800 mb-4 text-center">💰 Payment Breakdown</h4>
+                <div className="space-y-3 text-sm sm:text-base">
+                  <div className="flex justify-between items-center text-gray-800 bg-gray-50 p-3 rounded-lg">
+                    <span className="font-medium">Donation amount:</span>
+                    <span className="font-bold text-green-600">GH₵{ghsAmount.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-gray-700">
-                    <span>Paystack processing fee (1.5%):</span>
-                    <span>GH₵{paystackFee.toFixed(2)}</span>
+                  <div className="flex justify-between items-center text-gray-800 bg-gray-50 p-3 rounded-lg">
+                    <span className="font-medium">Paystack fee (1.5%):</span>
+                    <span className="font-bold text-orange-600">GH₵{paystackFee.toFixed(2)}</span>
                   </div>
-                  <div className="border-t border-blue-300 pt-2 mt-2">
-                    <div className="flex justify-between font-semibold text-blue-800">
-                      <span>Total charge:</span>
-                      <span>GH₵{totalAmount.toFixed(2)}</span>
+                  <div className="border-t-2 border-green-300 pt-3 mt-3">
+                    <div className="flex justify-between items-center bg-green-100 p-4 rounded-lg">
+                      <span className="font-bold text-green-800 text-base sm:text-lg">Total charge:</span>
+                      <span className="font-black text-green-800 text-lg sm:text-xl">GH₵{totalAmount.toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
-                <p className="text-xs text-blue-600 mt-2">
-                  * Processing fees help cover secure payment handling
+                <p className="text-xs sm:text-sm text-green-700 mt-3 text-center font-medium bg-green-50 p-2 rounded-lg">
+                  💳 Processing fees ensure secure payment handling
                 </p>
               </div>
 
@@ -375,7 +375,7 @@ const DonateOneDollarPage: React.FC = () => {
               <button
                 onClick={handleDonateOneDollar}
                 disabled={isLoading || !email.trim() || !validateEmail(email) || !!emailError}
-                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 px-8 rounded-xl hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-3"
+                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 rounded-xl hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-base sm:text-lg"
               >
                 {isLoading ? (
                   <>
@@ -421,16 +421,40 @@ const DonateOneDollarPage: React.FC = () => {
             </div>
 
             {/* Disclaimer */}
-            <div className="bg-gray-50 rounded-lg p-4 mt-6 border border-gray-200">
-              <h4 className="text-sm font-semibold text-gray-800 mb-2">Important Information</h4>
-              <div className="text-xs text-gray-600 space-y-1">
-                <p>• Exchange rates are updated in real-time but may vary slightly at payment time</p>
-                <p>• Paystack processing fees (1.5%) are added to ensure secure payment handling</p>
-                <p>• All transactions are processed securely through Paystack's encrypted platform</p>
-                <p>• Donation receipts will be sent to your email address within 24 hours</p>
-                <p>• For questions about your donation, contact us at edhumbling@gmail.com</p>
-                <p>• This donation is voluntary and non-refundable once processed</p>
-                <p>• St. Louis Demonstration JHS is a registered educational institution in Ghana</p>
+            <div className="bg-white rounded-xl p-4 sm:p-6 mt-6 border-2 border-blue-200 shadow-lg">
+              <h4 className="text-base sm:text-lg font-bold text-blue-800 mb-4 text-center flex items-center justify-center gap-2">
+                <span>ℹ️</span>
+                <span>Important Information</span>
+              </h4>
+              <div className="text-xs sm:text-sm text-gray-800 space-y-2 sm:space-y-3">
+                <div className="flex items-start gap-2 bg-blue-50 p-2 sm:p-3 rounded-lg">
+                  <span className="text-blue-600 font-bold">💱</span>
+                  <p className="font-medium">Exchange rates are updated in real-time but may vary slightly at payment time</p>
+                </div>
+                <div className="flex items-start gap-2 bg-orange-50 p-2 sm:p-3 rounded-lg">
+                  <span className="text-orange-600 font-bold">💳</span>
+                  <p className="font-medium">Paystack processing fees (1.5%) are added to ensure secure payment handling</p>
+                </div>
+                <div className="flex items-start gap-2 bg-green-50 p-2 sm:p-3 rounded-lg">
+                  <span className="text-green-600 font-bold">🔒</span>
+                  <p className="font-medium">All transactions are processed securely through Paystack's encrypted platform</p>
+                </div>
+                <div className="flex items-start gap-2 bg-purple-50 p-2 sm:p-3 rounded-lg">
+                  <span className="text-purple-600 font-bold">📧</span>
+                  <p className="font-medium">Donation receipts will be sent to your email address within 24 hours</p>
+                </div>
+                <div className="flex items-start gap-2 bg-yellow-50 p-2 sm:p-3 rounded-lg">
+                  <span className="text-yellow-600 font-bold">📞</span>
+                  <p className="font-medium">For questions about your donation, contact us at <span className="text-blue-600 font-bold">edhumbling@gmail.com</span></p>
+                </div>
+                <div className="flex items-start gap-2 bg-red-50 p-2 sm:p-3 rounded-lg">
+                  <span className="text-red-600 font-bold">⚠️</span>
+                  <p className="font-medium">This donation is voluntary and non-refundable once processed</p>
+                </div>
+                <div className="flex items-start gap-2 bg-gray-50 p-2 sm:p-3 rounded-lg">
+                  <span className="text-gray-600 font-bold">🏫</span>
+                  <p className="font-medium">St. Louis Demonstration JHS is a registered educational institution in Ghana</p>
+                </div>
               </div>
             </div>
           </motion.div>

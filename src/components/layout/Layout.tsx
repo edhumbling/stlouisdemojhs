@@ -48,6 +48,7 @@ const Layout: React.FC = () => {
     '/career-reel-resources',
     '/money-smart-links',
     '/donate',
+    '/donate-one-dollar',
     '/donate-paypal',
     '/donate-uk-bank',
     '/donate-us-bank',
