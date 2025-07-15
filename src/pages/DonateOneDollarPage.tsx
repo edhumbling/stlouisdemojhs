@@ -11,10 +11,45 @@ const DonateOneDollarPage: React.FC = () => {
   const [success, setSuccess] = useState(false);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [exchangeRate, setExchangeRate] = useState(15); // Default: 1 USD = 15 GHS
+  const [isLoadingRate, setIsLoadingRate] = useState(false);
+
+  // Calculate amounts
+  const usdAmount = 1;
+  const ghsAmount = Math.round(usdAmount * exchangeRate * 100) / 100; // Round to 2 decimal places
+  const paystackFee = Math.round(ghsAmount * 0.015 * 100) / 100; // 1.5% Paystack fee
+  const totalAmount = Math.round((ghsAmount + paystackFee) * 100) / 100;
+  const totalAmountPesewas = Math.round(totalAmount * 100); // Convert to pesewas
 
   const handleBack = () => {
     navigate(-1);
   };
+
+  // Fetch current USD to GHS exchange rate
+  const fetchExchangeRate = async () => {
+    setIsLoadingRate(true);
+    try {
+      // Using a free exchange rate API
+      const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+      const data = await response.json();
+
+      if (data.rates && data.rates.GHS) {
+        const rate = Math.round(data.rates.GHS * 100) / 100; // Round to 2 decimal places
+        setExchangeRate(rate);
+        console.log(`Exchange rate updated: 1 USD = ${rate} GHS`);
+      }
+    } catch (error) {
+      console.warn('Failed to fetch exchange rate, using default:', error);
+      // Keep default rate of 15 GHS
+    } finally {
+      setIsLoadingRate(false);
+    }
+  };
+
+  // Fetch exchange rate on component mount
+  React.useEffect(() => {
+    fetchExchangeRate();
+  }, []);
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -65,7 +100,7 @@ const DonateOneDollarPage: React.FC = () => {
         },
         body: JSON.stringify({
           email: email.trim(),
-          amount: 1500, // GH₵15 in pesewas (1500 pesewas = 15 cedis ≈ $1 USD)
+          amount: totalAmountPesewas, // Total amount including Paystack fees in pesewas
           currency: 'GHS',
           reference: `STLOUIS-1USD-${Date.now()}-${Math.floor(Math.random() * 10000)}`,
           callback_url: `${window.location.origin}/donation-thank-you`,
@@ -222,7 +257,19 @@ const DonateOneDollarPage: React.FC = () => {
               {/* Amount Display */}
               <div className="mb-8">
                 <div className="text-6xl font-bold text-green-600 mb-2">$1</div>
-                <div className="text-2xl font-semibold text-gray-700 mb-2">≈ GH₵15</div>
+                <div className="text-2xl font-semibold text-gray-700 mb-2">
+                  {isLoadingRate ? (
+                    <span className="flex items-center gap-2">
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Loading rate...
+                    </span>
+                  ) : (
+                    `≈ GH₵${ghsAmount.toFixed(2)}`
+                  )}
+                </div>
+                <div className="text-sm text-gray-500 mb-2">
+                  Exchange rate: 1 USD = {exchangeRate} GHS
+                </div>
                 <p className="text-gray-600">Simple. Quick. Impactful.</p>
               </div>
 
@@ -256,7 +303,7 @@ const DonateOneDollarPage: React.FC = () => {
                   value={email}
                   onChange={handleEmailChange}
                   placeholder="Enter your email address"
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors text-gray-900 bg-white placeholder-gray-500 ${
                     emailError ? 'border-red-500 bg-red-50' : 'border-gray-300'
                   }`}
                   required
@@ -269,6 +316,30 @@ const DonateOneDollarPage: React.FC = () => {
                 )}
                 <p className="mt-1 text-xs text-gray-500">
                   We'll send your donation receipt to this email address
+                </p>
+              </div>
+
+              {/* Fee Breakdown */}
+              <div className="bg-blue-50 rounded-lg p-4 mb-6 border border-blue-200">
+                <h4 className="text-sm font-semibold text-blue-800 mb-3">Payment Breakdown</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between text-gray-700">
+                    <span>Donation amount:</span>
+                    <span>GH₵{ghsAmount.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between text-gray-700">
+                    <span>Paystack processing fee (1.5%):</span>
+                    <span>GH₵{paystackFee.toFixed(2)}</span>
+                  </div>
+                  <div className="border-t border-blue-300 pt-2 mt-2">
+                    <div className="flex justify-between font-semibold text-blue-800">
+                      <span>Total charge:</span>
+                      <span>GH₵{totalAmount.toFixed(2)}</span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-xs text-blue-600 mt-2">
+                  * Processing fees help cover secure payment handling
                 </p>
               </div>
 
@@ -314,7 +385,7 @@ const DonateOneDollarPage: React.FC = () => {
                 ) : (
                   <>
                     <Heart className="w-5 h-5" />
-                    Donate $1 Now
+                    Donate $1 (GH₵{totalAmount.toFixed(2)})
                   </>
                 )}
               </button>
@@ -343,10 +414,24 @@ const DonateOneDollarPage: React.FC = () => {
               </button>
             </p>
             
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-500 space-y-2">
               <p>St. Louis Demonstration JHS</p>
               <p>P.O. Box 3041, Mbrom-Kumasi, Ghana</p>
-              <p>100% of donations go directly to school development</p>
+              <p className="font-medium text-green-600">100% of donations go directly to school development</p>
+            </div>
+
+            {/* Disclaimer */}
+            <div className="bg-gray-50 rounded-lg p-4 mt-6 border border-gray-200">
+              <h4 className="text-sm font-semibold text-gray-800 mb-2">Important Information</h4>
+              <div className="text-xs text-gray-600 space-y-1">
+                <p>• Exchange rates are updated in real-time but may vary slightly at payment time</p>
+                <p>• Paystack processing fees (1.5%) are added to ensure secure payment handling</p>
+                <p>• All transactions are processed securely through Paystack's encrypted platform</p>
+                <p>• Donation receipts will be sent to your email address within 24 hours</p>
+                <p>• For questions about your donation, contact us at edhumbling@gmail.com</p>
+                <p>• This donation is voluntary and non-refundable once processed</p>
+                <p>• St. Louis Demonstration JHS is a registered educational institution in Ghana</p>
+              </div>
             </div>
           </motion.div>
         </div>
