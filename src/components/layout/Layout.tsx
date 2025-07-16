@@ -97,14 +97,9 @@ const Layout: React.FC = () => {
   ];
   const shouldShowBreadcrumbs = !noBreadcrumbPages.includes(location.pathname);
 
-  // Pages that should not have top padding (content can go under header)
-  const noTopPaddingPages = [
-    '/',
-    '/donate',
-    '/donate-one-dollar',
-    '/gallery'
-  ];
-  const shouldHaveTopPadding = !noTopPaddingPages.includes(location.pathname) && showHeader;
+  // Homepage should not have top padding (content can go under header)
+  const isHomePage = location.pathname === '/';
+  const shouldHaveTopPadding = !isHomePage && showHeader;
 
   // Determine breadcrumb theme based on page
   const darkBreadcrumbPages = [
