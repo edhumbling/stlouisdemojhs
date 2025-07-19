@@ -309,10 +309,16 @@ export const breadcrumbRoutes: Record<string, BreadcrumbRoute> = {
   },
 
   // Media & Communication
-  '/news': { 
-    name: 'News & Events', 
-    path: '/news', 
+  '/news': {
+    name: 'News & Events',
+    path: '/news',
     description: 'Latest school news, events, and announcements',
+    category: 'media'
+  },
+  '/blog': {
+    name: 'Blog',
+    path: '/blog',
+    description: 'Latest news, updates, and articles from St. Louis Demonstration JHS',
     category: 'media'
   },
   '/gallery': { 
