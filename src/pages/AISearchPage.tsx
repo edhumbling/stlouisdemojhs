@@ -760,6 +760,16 @@ const AISearchPage: React.FC = () => {
       color: 'from-emerald-600 to-green-600',
       glowColor: '#10b981',
       hasWhiteBackground: true
+    },
+    {
+      id: 'usewhisper',
+      name: 'UseWhisper',
+      url: 'https://usewhisper.io/',
+      description: 'AI-powered speech-to-text transcription service with high accuracy',
+      icon: <img src="https://usewhisper.io/favicon.ico" alt="UseWhisper" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=UW'; }} />,
+      color: 'from-purple-500 to-violet-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
     }
   ];
 
