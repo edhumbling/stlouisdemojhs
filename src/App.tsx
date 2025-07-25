@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
 import { HeaderProvider } from './contexts/HeaderContext';
+import { LoadingProvider } from './contexts/LoadingContext';
+import GlobalLoadingScreen from './components/common/GlobalLoadingScreen';
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -102,6 +104,7 @@ import FinancialLibraryViewerPage from './pages/FinancialLibraryViewerPage';
 import ShopGalleryPage from './pages/ShopGalleryPage';
 import CareersListPage from './pages/CareersListPage';
 import TechResourcesPage from './pages/TechResourcesPage';
+import LoadingTestPage from './pages/LoadingTestPage';
 
 // Note: Scroll position management is now handled by useEnhancedNavigation hook
 
@@ -115,7 +118,9 @@ const App: React.FC = () => {
   return (
     <HelmetProvider>
       <HeaderProvider>
-        <Router>
+        <LoadingProvider>
+          <Router>
+            <GlobalLoadingScreen />
             <Routes>
         {/* Main layout with nested routes */}
         <Route path="/" element={<Layout />}>
@@ -163,6 +168,7 @@ const App: React.FC = () => {
           <Route path="shop" element={<ShopGalleryPage />} />
           <Route path="careers-list" element={<CareersListPage />} />
           <Route path="/tech-resources" element={<TechResourcesPage />} />
+          <Route path="loading-test" element={<LoadingTestPage />} />
           <Route path="sponsorship" element={<SponsorshipPage />} /> {/* New Route */}
           <Route path="pta" element={<PTAPage />} />
           <Route path="media" element={<MediaPage />} />
@@ -243,7 +249,8 @@ const App: React.FC = () => {
         {/* Global catch-all route for direct access to non-existent routes */}
         <Route path="*" element={<NotFoundPage />} />
             </Routes>
-        </Router>
+          </Router>
+        </LoadingProvider>
       </HeaderProvider>
     </HelmetProvider>
   );
