@@ -4,9 +4,11 @@ import Header from './Header';
 import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
 import UnifiedBreadcrumb from '../common/Breadcrumb';
+import ScrollProgressIndicator from '../common/ScrollProgressIndicator';
 
 import { useHeader } from '../../contexts/HeaderContext';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
+import { shouldShowScrollIndicator, getScrollIndicatorColor } from '../../config/readingPages';
 
 const Layout: React.FC = () => {
   const location = useLocation();
@@ -121,12 +123,25 @@ const Layout: React.FC = () => {
   ];
   const breadcrumbTheme = darkBreadcrumbPages.some(page => location.pathname.startsWith(page)) ? 'dark' : 'light';
 
+  // Determine if scroll indicator should be shown
+  const showScrollIndicator = shouldShowScrollIndicator(location.pathname);
+  const scrollIndicatorColor = getScrollIndicatorColor(location.pathname);
+
 
 
 
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
+      {/* Orange Scroll Progress Indicator for Reading Pages */}
+      {showScrollIndicator && (
+        <ScrollProgressIndicator
+          color={scrollIndicatorColor}
+          height="h-1"
+          className="z-50"
+        />
+      )}
+
       {showHeader && <Header />}
 
       {/* Unified Google-Optimized Breadcrumb Navigation */}
