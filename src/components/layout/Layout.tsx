@@ -105,7 +105,12 @@ const Layout: React.FC = () => {
     '/apply-now',
     '/donate',
     '/donate-one-dollar',
-    '/learnhub'
+    '/learnhub',
+    '/educational-guide',
+    '/educational-pathway-guide',
+    '/tech-resources',
+    '/career-reel-resources',
+    '/dream-hive-resources'
   ];
   const shouldHaveTopPadding = !noTopPaddingPages.includes(location.pathname) && showHeader;
 

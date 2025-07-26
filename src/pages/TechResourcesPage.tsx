@@ -431,8 +431,8 @@ const TechResourcesPage: React.FC = () => {
       />
 
       <div className="min-h-screen bg-black text-white">
-        {/* Back Button Bar */}
-        <div className="bg-gradient-to-r from-cyan-900 via-cyan-800 to-cyan-900 py-3 sm:py-4">
+        {/* Back Button Bar - With proper spacing from header */}
+        <div className="bg-gradient-to-r from-cyan-900 via-cyan-800 to-cyan-900 py-3 sm:py-4 mt-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button

@@ -84,8 +84,8 @@ const EducationalGuidePage: React.FC = () => {
         footer { display: none !important; }
       `}</style>
 
-      {/* Header with Back Button */}
-      <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 py-2 sm:py-3">
+      {/* Header with Back Button - With proper spacing from header */}
+      <div className="bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 py-2 sm:py-3 mt-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button

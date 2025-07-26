@@ -342,8 +342,8 @@ const CareerReelResourcesPage: React.FC = () => {
   if (selectedResource) {
     return (
       <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
-        {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 pt-20 pb-2 sm:pb-3">
+        {/* Header with Back Button - With proper spacing from header */}
+        <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 pt-20 pb-2 sm:pb-3 mt-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -482,8 +482,8 @@ const CareerReelResourcesPage: React.FC = () => {
         pageType="students-hub"
         useGalleryImages={true}
       />
-      {/* Header with Back Button */}
-      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
+      {/* Header with Back Button - With proper spacing from header */}
+      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3 mt-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button

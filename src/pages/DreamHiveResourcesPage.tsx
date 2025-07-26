@@ -171,8 +171,8 @@ const DreamHiveResourcesPage: React.FC = () => {
   if (selectedResource) {
     return (
       <div className="fixed inset-0 z-[9999] bg-black" style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}>
-        {/* Header */}
-        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 sm:py-5 shadow-2xl border-b border-purple-700/50">
+        {/* Header - With proper spacing from header */}
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 sm:py-5 shadow-2xl border-b border-purple-700/50 mt-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -306,8 +306,8 @@ const DreamHiveResourcesPage: React.FC = () => {
         pageType="students-hub"
         useGalleryImages={true}
       />
-      {/* Header with Back Button */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+      {/* Header with Back Button - With proper spacing from header */}
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 mt-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
