@@ -350,8 +350,8 @@ const DonateOneDollarPage: React.FC = () => {
         }
       `}</style>
 
-      {/* Enhanced Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-emerald-900 via-green-800 to-emerald-900 py-4 sm:py-5 shadow-2xl">
+      {/* Enhanced Back Button and Title Section - With proper spacing from header */}
+      <div className="bg-gradient-to-r from-emerald-900 via-green-800 to-emerald-900 py-4 sm:py-5 shadow-2xl mt-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
