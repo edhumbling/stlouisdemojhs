@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Heart, DollarSign, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Heart, DollarSign, Loader2, CheckCircle, AlertCircle, Sparkles, Gift, Shield, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
@@ -265,7 +265,7 @@ const DonateOneDollarPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50">
       <SEOHead
         title="Choose Your Donation Amount | Support St. Louis Demonstration JHS"
         description="Make a custom donation to support St. Louis Demonstration JHS. Choose any amount from $1 to $1000 to help us provide quality education for our students."
@@ -275,111 +275,213 @@ const DonateOneDollarPage: React.FC = () => {
         pageType="donation"
       />
 
-      {/* Custom Slider Styles */}
+      {/* Enhanced Slider Styles */}
       <style>{`
         .slider::-webkit-slider-thumb {
           appearance: none;
-          height: 24px;
-          width: 24px;
+          height: 28px;
+          width: 28px;
           border-radius: 50%;
-          background: #10b981;
+          background: linear-gradient(135deg, #10b981, #059669);
           cursor: pointer;
-          border: 3px solid #ffffff;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+          border: 4px solid #ffffff;
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4), 0 2px 8px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+          transform: scale(1.1);
+          box-shadow: 0 6px 16px rgba(16, 185, 129, 0.6), 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .slider::-moz-range-thumb {
-          height: 24px;
-          width: 24px;
+          height: 28px;
+          width: 28px;
           border-radius: 50%;
-          background: #10b981;
+          background: linear-gradient(135deg, #10b981, #059669);
           cursor: pointer;
-          border: 3px solid #ffffff;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+          border: 4px solid #ffffff;
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4), 0 2px 8px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+        }
+
+        .slider::-moz-range-thumb:hover {
+          transform: scale(1.1);
+          box-shadow: 0 6px 16px rgba(16, 185, 129, 0.6), 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .amount-card {
+          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+          border: 2px solid transparent;
+          background-clip: padding-box;
+          position: relative;
+        }
+
+        .amount-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: inherit;
+          padding: 2px;
+          background: linear-gradient(135deg, #10b981, #059669, #047857);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask-composite: exclude;
+        }
+
+        .floating-hearts {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .pulse-glow {
+          animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+          from { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+          to { box-shadow: 0 0 30px rgba(16, 185, 129, 0.8); }
         }
       `}</style>
 
-      {/* Back Button and Title Section - Original Style */}
-      <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
+      {/* Enhanced Back Button and Title Section */}
+      <div className="bg-gradient-to-r from-emerald-900 via-green-800 to-emerald-900 py-4 sm:py-5 shadow-2xl">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
               onClick={handleBack}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-green-700/50 hover:bg-green-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-green-500/30"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-700/60 hover:bg-emerald-600/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-emerald-500/40 hover:scale-105 active:scale-95"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={18} />
               <span>Back</span>
             </button>
 
-            <h1 className="text-xl md:text-2xl font-bold text-white">
-              💵 Choose Your Donation Amount
-            </h1>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center w-10 h-10 bg-emerald-600/80 rounded-full shadow-lg">
+                <DollarSign className="w-5 h-5 text-white" />
+              </div>
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
+                💝 Choose Your Donation Amount
+              </h1>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Main Content - Gallery Page Style (No Wrapper Padding) */}
-      <div className="px-3 sm:px-4 py-6 sm:py-8">
-        {/* Desktop: Centered smaller container, Mobile: Full width */}
-        <div className="lg:max-w-2xl lg:mx-auto">
-          {/* Hero Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8 sm:mb-12"
-          >
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-4 sm:mb-6 shadow-2xl">
-              <DollarSign className="w-10 h-10 text-white" />
-            </div>
-            
-            <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-green-600 mb-3 sm:mb-4">
-              Every Dollar Makes a Difference
-            </h2>
-
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-xl mx-auto px-4 sm:px-0">
-              Support St. Louis Demonstration JHS with just $1. Your small contribution joins with others to create a big impact on our students' education.
+      {/* Trust Banner */}
+      <div className="bg-gradient-to-r from-emerald-600 to-green-600 py-3 shadow-lg">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="text-white font-semibold text-sm sm:text-base flex items-center justify-center gap-2">
+              <Shield className="w-4 h-4" />
+              <span>🛡️ 100% of donations go directly to school development</span>
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="px-4 sm:px-6 py-8 sm:py-12">
+        {/* Desktop: Centered container, Mobile: Full width */}
+        <div className="max-w-4xl mx-auto">
+          {/* Hero Section with Floating Elements */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12 relative"
+          >
+            {/* Floating Hearts Background */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="floating-hearts absolute top-4 left-4 text-2xl opacity-20" style={{ animationDelay: '0s' }}>💖</div>
+              <div className="floating-hearts absolute top-8 right-8 text-xl opacity-15" style={{ animationDelay: '1s' }}>💕</div>
+              <div className="floating-hearts absolute bottom-4 left-8 text-3xl opacity-25" style={{ animationDelay: '2s' }}>💝</div>
+              <div className="floating-hearts absolute top-12 left-1/2 text-lg opacity-20" style={{ animationDelay: '0.5s' }}>💗</div>
+            </div>
+
+            <div className="relative z-10">
+              <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full mb-6 shadow-2xl pulse-glow">
+                <Gift className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-4">
+                Every Dollar Makes a Difference
+              </h2>
+
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto mb-6">
+                Support St. Louis Demonstration JHS with just $1. Your small contribution joins with others to create a big impact on our students' education.
+              </p>
+
+              <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                  <span>Secure Payment</span>
+                </div>
+                <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                  <span>Instant Receipt</span>
+                </div>
+                <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                  <span>Tax Deductible</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Donation Card */}
+          {/* Enhanced Donation Card */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-white rounded-3xl shadow-2xl p-8 sm:p-10 border border-gray-100 relative overflow-hidden"
           >
-            <div className="text-center">
-              {/* Amount Selection */}
-              <div className="mb-6 sm:mb-8">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-500 rounded-full -translate-x-16 -translate-y-16"></div>
+              <div className="absolute bottom-0 right-0 w-24 h-24 bg-green-500 rounded-full translate-x-12 translate-y-12"></div>
+            </div>
+
+            <div className="relative z-10">
+              {/* Amount Selection Section */}
+              <div className="mb-8">
                 {/* Amount Display */}
-                <div className="text-center mb-6">
-                  <div className="text-4xl sm:text-6xl font-bold text-green-600 mb-2">
+                <div className="text-center mb-8">
+                  <div className="text-5xl sm:text-7xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-3">
                     💵 ${usdAmount.toFixed(usdAmount % 1 === 0 ? 0 : 2)}
                   </div>
-                  <div className="text-xl sm:text-2xl font-semibold text-gray-700 mb-2">
+                  <div className="text-xl sm:text-2xl font-semibold text-gray-700 mb-3">
                     {isLoadingRate ? (
                       <span className="flex items-center justify-center gap-2">
-                        <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
-                        <span className="text-sm sm:text-base">Loading rate...</span>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Loading rate...</span>
                       </span>
                     ) : (
                       `≈ GH₵${ghsAmount.toFixed(2)}`
                     )}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-500 mb-3 bg-gray-100 inline-block px-3 py-1 rounded-full">
+                  <div className="text-sm text-gray-500 bg-gray-100 inline-block px-4 py-2 rounded-full font-medium">
                     📊 Rate: 1 USD = {exchangeRate} GHS
                   </div>
                 </div>
 
-                {/* Amount Slider - Edge to Edge */}
-                <div className="bg-white p-4 sm:p-6 border-t-2 border-b-2 border-green-200 shadow-lg mb-4">
-                  <h3 className="text-base sm:text-lg font-bold text-green-800 mb-4 text-center">
-                    🎚️ Choose Your Amount
+                {/* Enhanced Amount Slider */}
+                <div className="bg-gradient-to-br from-gray-50 to-white p-6 sm:p-8 rounded-2xl border-2 border-emerald-200 shadow-lg mb-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-emerald-800 mb-6 text-center flex items-center justify-center gap-2">
+                    <Sparkles className="w-5 h-5" />
+                    <span>Choose Your Amount</span>
                   </h3>
 
                   {/* Slider */}
-                  <div className="mb-4">
+                  <div className="mb-6">
                     <input
                       type="range"
                       min="1"
@@ -387,24 +489,25 @@ const DonateOneDollarPage: React.FC = () => {
                       step="1"
                       value={usdAmount}
                       onChange={handleSliderChange}
-                      className="w-full h-3 bg-green-200 rounded-lg appearance-none cursor-pointer slider"
+                      className="w-full h-4 bg-emerald-200 rounded-full appearance-none cursor-pointer slider"
                       style={{
                         background: `linear-gradient(to right, #10b981 0%, #10b981 ${((usdAmount - 1) / 999) * 100}%, #d1fae5 ${((usdAmount - 1) / 999) * 100}%, #d1fae5 100%)`
                       }}
                     />
-                    <div className="flex justify-between text-xs text-gray-500 mt-1">
+                    <div className="flex justify-between text-sm text-gray-600 mt-2 font-medium">
                       <span>$1</span>
                       <span>$1000</span>
                     </div>
                   </div>
 
                   {/* Custom Amount Input */}
-                  <div className="flex items-center gap-3">
-                    <label htmlFor="customAmount" className="text-sm font-medium text-gray-700 whitespace-nowrap">
-                      💰 Custom:
+                  <div className="flex items-center gap-4">
+                    <label htmlFor="customAmount" className="text-base font-semibold text-gray-700 whitespace-nowrap flex items-center gap-2">
+                      <DollarSign className="w-4 h-4 text-emerald-600" />
+                      <span>Custom Amount:</span>
                     </label>
                     <div className="flex-1 relative">
-                      <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-medium">$</span>
+                      <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 font-semibold">$</span>
                       <input
                         type="number"
                         id="customAmount"
@@ -414,94 +517,100 @@ const DonateOneDollarPage: React.FC = () => {
                         value={customAmountInput}
                         onChange={handleAmountInputChange}
                         onBlur={handleAmountInputBlur}
-                        className="w-full pl-8 pr-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 text-black font-medium"
+                        className="w-full pl-8 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-emerald-500/30 focus:border-emerald-500 text-black font-semibold text-lg transition-all duration-300"
                         placeholder="Enter amount"
                       />
                     </div>
                   </div>
 
-                  <p className="text-xs text-gray-500 text-center mt-3">
+                  <p className="text-sm text-gray-600 text-center mt-4">
                     💡 Slide or type any amount from $1 to $1000
                   </p>
                 </div>
 
-                <p className="text-sm sm:text-base text-gray-600 font-medium text-center">✨ Simple. Quick. Impactful. ✨</p>
-              </div>
-
-
-
-              {/* Donor Name Input */}
-              <div className="mb-6">
-                <label htmlFor="donorName" className="block text-sm sm:text-base font-bold text-gray-800 mb-3 text-center">
-                  👤 Your Name *
-                </label>
-                <input
-                  type="text"
-                  id="donorName"
-                  value={donorName}
-                  onChange={handleNameChange}
-                  placeholder="Enter your full name"
-                  className={`w-full px-4 py-4 border-2 focus:ring-4 focus:ring-green-500/50 focus:border-green-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-base sm:text-lg shadow-sm ${
-                    nameError ? 'border-red-500 bg-red-50 text-black' : 'border-gray-300 hover:border-green-300'
-                  }`}
-                  required
-                />
-                {nameError && (
-                  <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
-                    <AlertCircle className="w-4 h-4" />
-                    {nameError}
-                  </p>
-                )}
-                <p className="mt-1 text-xs sm:text-sm text-gray-500 text-center">
-                  This name will appear on your donation receipt
-                </p>
-              </div>
-
-              {/* Email Input */}
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-sm sm:text-base font-bold text-gray-800 mb-3 text-center">
-                  📧 Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={handleEmailChange}
-                  placeholder="Enter your email address"
-                  className={`w-full px-4 py-4 border-2 focus:ring-4 focus:ring-green-500/50 focus:border-green-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-base sm:text-lg shadow-sm ${
-                    emailError ? 'border-red-500 bg-red-50 text-black' : 'border-gray-300 hover:border-green-300'
-                  }`}
-                  required
-                />
-                {emailError && (
-                  <p className="mt-2 text-sm text-red-600 flex items-center gap-1">
-                    <AlertCircle className="w-4 h-4" />
-                    {emailError}
-                  </p>
-                )}
-                <p className="mt-1 text-xs text-gray-500">
-                  We'll send your donation receipt to this email address
-                </p>
-              </div>
-
-              {/* Compact Fee Breakdown - Edge to Edge */}
-              <div className="bg-white p-3 mb-4 border-t border-b border-green-200 shadow-sm">
-                <div className="text-center mb-2">
-                  <span className="text-sm font-bold text-green-800">💰 Payment Summary</span>
+                <div className="text-center">
+                  <p className="text-base text-gray-700 font-semibold">✨ Simple. Quick. Impactful. ✨</p>
                 </div>
-                <div className="space-y-1 text-xs">
+              </div>
+
+              {/* Enhanced Form Fields */}
+              <div className="space-y-6">
+                {/* Donor Name Input */}
+                <div>
+                  <label htmlFor="donorName" className="block text-base font-bold text-gray-800 mb-3 text-center">
+                    👤 Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="donorName"
+                    value={donorName}
+                    onChange={handleNameChange}
+                    placeholder="Enter your full name"
+                    className={`w-full px-5 py-4 border-2 focus:ring-4 focus:ring-emerald-500/30 focus:border-emerald-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-lg rounded-xl shadow-sm ${
+                      nameError ? 'border-red-500 bg-red-50 text-black' : 'border-gray-300 hover:border-emerald-300'
+                    }`}
+                    required
+                  />
+                  {nameError && (
+                    <p className="mt-2 text-sm text-red-600 flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4" />
+                      {nameError}
+                    </p>
+                  )}
+                  <p className="mt-2 text-sm text-gray-500 text-center">
+                    This name will appear on your donation receipt
+                  </p>
+                </div>
+
+                {/* Email Input */}
+                <div>
+                  <label htmlFor="email" className="block text-base font-bold text-gray-800 mb-3 text-center">
+                    📧 Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={handleEmailChange}
+                    placeholder="Enter your email address"
+                    className={`w-full px-5 py-4 border-2 focus:ring-4 focus:ring-emerald-500/30 focus:border-emerald-500 transition-all duration-300 text-black bg-white placeholder-gray-400 font-medium text-lg rounded-xl shadow-sm ${
+                      emailError ? 'border-red-500 bg-red-50 text-black' : 'border-gray-300 hover:border-emerald-300'
+                    }`}
+                    required
+                  />
+                  {emailError && (
+                    <p className="mt-2 text-sm text-red-600 flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4" />
+                      {emailError}
+                    </p>
+                  )}
+                  <p className="mt-2 text-sm text-gray-500 text-center">
+                    We'll send your donation receipt to this email address
+                  </p>
+                </div>
+              </div>
+
+              {/* Enhanced Payment Summary */}
+              <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-6 rounded-2xl border-2 border-emerald-200 my-8">
+                <div className="text-center mb-4">
+                  <span className="text-lg font-bold text-emerald-800 flex items-center justify-center gap-2">
+                    <Shield className="w-5 h-5" />
+                    <span>Payment Summary</span>
+                  </span>
+                </div>
+                <div className="space-y-3">
                   <div className="flex justify-between items-center text-gray-700">
-                    <span>Donation:</span>
-                    <span className="font-semibold text-green-600">GH₵{ghsAmount.toFixed(2)}</span>
+                    <span className="font-medium">Donation:</span>
+                    <span className="font-bold text-emerald-600 text-lg">GH₵{ghsAmount.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between items-center text-gray-700">
-                    <span>Fee (1.5%):</span>
-                    <span className="font-semibold text-orange-600">GH₵{paystackFee.toFixed(2)}</span>
+                    <span className="font-medium">Processing Fee (1.5%):</span>
+                    <span className="font-bold text-orange-600">GH₵{paystackFee.toFixed(2)}</span>
                   </div>
-                  <div className="border-t border-green-200 pt-1 mt-1">
-                    <div className="flex justify-between items-center bg-green-50 px-2 py-1 rounded">
-                      <span className="font-bold text-green-800 text-sm">Total:</span>
-                      <span className="font-black text-green-800 text-sm">GH₵{totalAmount.toFixed(2)}</span>
+                  <div className="border-t-2 border-emerald-200 pt-3 mt-3">
+                    <div className="flex justify-between items-center bg-emerald-100 px-4 py-3 rounded-xl">
+                      <span className="font-bold text-emerald-800 text-lg">Total:</span>
+                      <span className="font-black text-emerald-800 text-xl">GH₵{totalAmount.toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
@@ -512,11 +621,11 @@ const DonateOneDollarPage: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6"
+                  className="bg-red-50 border-2 border-red-200 rounded-xl p-4 mb-6"
                 >
-                  <div className="flex items-center gap-2 text-red-600">
-                    <AlertCircle className="w-5 h-5" />
-                    <p className="font-medium">{error}</p>
+                  <div className="flex items-center gap-3 text-red-600">
+                    <AlertCircle className="w-6 h-6" />
+                    <p className="font-semibold">{error}</p>
                   </div>
                 </motion.div>
               )}
@@ -526,98 +635,108 @@ const DonateOneDollarPage: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6"
+                  className="bg-emerald-50 border-2 border-emerald-200 rounded-xl p-4 mb-6"
                 >
-                  <div className="flex items-center gap-2 text-green-600">
-                    <CheckCircle className="w-5 h-5" />
-                    <p className="font-medium">Redirecting to secure payment...</p>
+                  <div className="flex items-center gap-3 text-emerald-600">
+                    <CheckCircle className="w-6 h-6" />
+                    <p className="font-semibold">Redirecting to secure payment...</p>
                   </div>
                 </motion.div>
               )}
 
-              {/* Donation Button */}
+              {/* Enhanced Donation Button */}
               <button
                 onClick={handleDonateOneDollar}
                 disabled={isLoading || !email.trim() || !validateEmail(email) || !!emailError || !donorName.trim() || donorName.trim().length < 2 || !!nameError}
-                className="w-full lg:w-auto lg:mx-auto lg:px-12 lg:py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-base lg:text-base sm:text-lg rounded-lg"
+                className="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white font-bold py-5 px-8 hover:from-emerald-700 hover:to-green-700 focus:ring-4 focus:ring-emerald-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 text-lg rounded-xl"
               >
                 {isLoading ? (
                   <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <Loader2 className="w-6 h-6 animate-spin" />
                     Processing...
                   </>
                 ) : (
                   <>
-                    <Heart className="w-5 h-5" />
+                    <Heart className="w-6 h-6" />
                     Donate ${usdAmount.toFixed(usdAmount % 1 === 0 ? 0 : 2)} (GH₵{totalAmount.toFixed(2)})
                   </>
                 )}
               </button>
 
               {/* Security Notice */}
-              <p className="text-xs text-gray-500 mt-4">
-                🔒 Secure payment powered by Paystack. Your transaction is protected and encrypted.
-              </p>
+              <div className="text-center mt-6">
+                <p className="text-sm text-gray-600 flex items-center justify-center gap-2">
+                  <Shield className="w-4 h-4 text-emerald-600" />
+                  <span>Secure payment powered by Paystack. Your transaction is protected and encrypted.</span>
+                </p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Additional Info */}
+          {/* Enhanced Additional Info */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mt-8"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mt-12"
           >
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-700 mb-6 text-lg">
               Want to donate a different amount?{' '}
               <button
                 onClick={() => navigate('/donate')}
-                className="text-green-600 hover:text-green-700 font-medium underline"
+                className="text-emerald-600 hover:text-emerald-700 font-semibold underline hover:no-underline transition-all duration-300"
               >
                 Visit our main donation page
               </button>
             </p>
             
-            <div className="text-sm text-gray-500 space-y-2">
-              <p>St. Louis Demonstration JHS</p>
+            <div className="text-base text-gray-600 space-y-2 mb-8">
+              <p className="font-semibold">St. Louis Demonstration JHS</p>
               <p>P.O. Box 3041, Mbrom-Kumasi, Ghana</p>
-              <p className="font-medium text-green-600">100% of donations go directly to school development</p>
+              <p className="font-bold text-emerald-600 text-lg">100% of donations go directly to school development</p>
             </div>
 
-            {/* Disclaimer - Edge to Edge */}
-            <div className="bg-white p-4 sm:p-6 mt-6 border-t-2 border-b-2 border-blue-200 shadow-lg">
-              <h4 className="text-base sm:text-lg font-bold text-blue-800 mb-4 text-center flex items-center justify-center gap-2">
-                <span>ℹ️</span>
-                <span>Important Information</span>
-              </h4>
-              <div className="text-xs sm:text-sm text-gray-800 space-y-2 sm:space-y-3">
-                <div className="flex items-start gap-2 bg-blue-50 p-2 sm:p-3 border-l-4 border-blue-400">
-                  <span className="text-blue-600 font-bold">💱</span>
-                  <p className="font-medium">Exchange rates are updated in real-time but may vary slightly at payment time</p>
+            {/* Enhanced Information Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <div className="bg-white p-6 rounded-2xl border-2 border-blue-200 shadow-lg">
+                <h4 className="text-lg font-bold text-blue-800 mb-4 text-center flex items-center justify-center gap-2">
+                  <span>ℹ️</span>
+                  <span>Important Information</span>
+                </h4>
+                <div className="text-sm text-gray-800 space-y-3">
+                  <div className="flex items-start gap-3 bg-blue-50 p-3 border-l-4 border-blue-400 rounded-r-lg">
+                    <span className="text-blue-600 font-bold text-lg">💱</span>
+                    <p className="font-medium">Exchange rates are updated in real-time but may vary slightly at payment time</p>
+                  </div>
+                  <div className="flex items-start gap-3 bg-orange-50 p-3 border-l-4 border-orange-400 rounded-r-lg">
+                    <span className="text-orange-600 font-bold text-lg">💳</span>
+                    <p className="font-medium">Paystack processing fees (1.5%) are added to ensure secure payment handling</p>
+                  </div>
+                  <div className="flex items-start gap-3 bg-emerald-50 p-3 border-l-4 border-emerald-400 rounded-r-lg">
+                    <span className="text-emerald-600 font-bold text-lg">🔒</span>
+                    <p className="font-medium">All transactions are processed securely through Paystack's encrypted platform</p>
+                  </div>
                 </div>
-                <div className="flex items-start gap-2 bg-orange-50 p-2 sm:p-3 border-l-4 border-orange-400">
-                  <span className="text-orange-600 font-bold">💳</span>
-                  <p className="font-medium">Paystack processing fees (1.5%) are added to ensure secure payment handling</p>
-                </div>
-                <div className="flex items-start gap-2 bg-green-50 p-2 sm:p-3 border-l-4 border-green-400">
-                  <span className="text-green-600 font-bold">🔒</span>
-                  <p className="font-medium">All transactions are processed securely through Paystack's encrypted platform</p>
-                </div>
-                <div className="flex items-start gap-2 bg-purple-50 p-2 sm:p-3 border-l-4 border-purple-400">
-                  <span className="text-purple-600 font-bold">📧</span>
-                  <p className="font-medium">Donation receipts will be sent to your email address within 24 hours</p>
-                </div>
-                <div className="flex items-start gap-2 bg-yellow-50 p-2 sm:p-3 border-l-4 border-yellow-400">
-                  <span className="text-yellow-600 font-bold">�</span>
-                  <p className="font-medium">For questions about your donation, contact us at <span className="text-blue-600 font-bold">contact@stlouisdemojhs.com</span></p>
-                </div>
-                <div className="flex items-start gap-2 bg-red-50 p-2 sm:p-3 border-l-4 border-red-400">
-                  <span className="text-red-600 font-bold">⚠️</span>
-                  <p className="font-medium">This donation is voluntary and non-refundable once processed</p>
-                </div>
-                <div className="flex items-start gap-2 bg-gray-50 p-2 sm:p-3 border-l-4 border-gray-400">
-                  <span className="text-gray-600 font-bold">🏫</span>
-                  <p className="font-medium">St. Louis Demonstration JHS is a registered educational institution in Ghana</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl border-2 border-purple-200 shadow-lg">
+                <h4 className="text-lg font-bold text-purple-800 mb-4 text-center flex items-center justify-center gap-2">
+                  <span>📋</span>
+                  <span>Additional Details</span>
+                </h4>
+                <div className="text-sm text-gray-800 space-y-3">
+                  <div className="flex items-start gap-3 bg-purple-50 p-3 border-l-4 border-purple-400 rounded-r-lg">
+                    <span className="text-purple-600 font-bold text-lg">📧</span>
+                    <p className="font-medium">Donation receipts will be sent to your email address within 24 hours</p>
+                  </div>
+                  <div className="flex items-start gap-3 bg-yellow-50 p-3 border-l-4 border-yellow-400 rounded-r-lg">
+                    <span className="text-yellow-600 font-bold text-lg">💬</span>
+                    <p className="font-medium">For questions about your donation, contact us at <span className="text-blue-600 font-bold">contact@stlouisdemojhs.com</span></p>
+                  </div>
+                  <div className="flex items-start gap-3 bg-red-50 p-3 border-l-4 border-red-400 rounded-r-lg">
+                    <span className="text-red-600 font-bold text-lg">⚠️</span>
+                    <p className="font-medium">This donation is voluntary and non-refundable once processed</p>
+                  </div>
                 </div>
               </div>
             </div>
