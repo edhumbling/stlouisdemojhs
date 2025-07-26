@@ -110,7 +110,8 @@ const Layout: React.FC = () => {
     '/educational-pathway-guide',
     '/tech-resources',
     '/career-reel-resources',
-    '/dream-hive-resources'
+    '/dream-hive-resources',
+    '/ai'
   ];
   const shouldHaveTopPadding = !noTopPaddingPages.includes(location.pathname) && showHeader;
 
