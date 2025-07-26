@@ -414,8 +414,8 @@ const DonateOneDollarPage: React.FC = () => {
                 Every Dollar Makes a Difference
               </h2>
 
-              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto mb-6">
-                Support St. Louis Demonstration JHS with just $1. Your small contribution joins with others to create a big impact on our students' education.
+              <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed max-w-2xl mx-auto mb-6 px-4 font-medium">
+                💝 Support St. Louis Demonstration JHS with just $1. Your small contribution joins with others to create a big impact on our students' education.
               </p>
 
               <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
