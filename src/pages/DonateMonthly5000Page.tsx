@@ -41,6 +41,23 @@ const DonateMonthly5000Page: React.FC = () => {
       )}
 
       <div className="min-h-screen bg-black">
+        {/* Full Screen Embedded Payment Form */}
+        <div className="w-full" style={{ height: 'calc(100vh - 60px)' }}>
+          <iframe
+            src="https://paystack.shop/pay/stlouis5000"
+            className="w-full h-full border-0"
+            title="Monthly Support ₵5000 - Sovereign One"
+            allow="payment *"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-popups-to-escape-sandbox"
+            loading="lazy"
+            style={{
+              border: 0,
+              width: '100%',
+              height: '100%',
+              display: 'block'
+            }}
+          />
+        </div>
         {/* Header with Back Button */}
         <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 py-2 sm:py-3">
           <div className="container mx-auto px-4">
@@ -67,7 +84,6 @@ const DonateMonthly5000Page: React.FC = () => {
             </div>
           </div>
         </div>
-
         {/* Announcement Bar - Attached to Back Bar */}
         <div className="bg-green-600 py-3">
           <div className="container mx-auto px-4">
@@ -77,24 +93,6 @@ const DonateMonthly5000Page: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Full Screen Embedded Payment Form */}
-        <div className="w-full" style={{ height: 'calc(100vh - 60px)' }}>
-          <iframe
-            src="https://paystack.shop/pay/stlouis5000"
-            className="w-full h-full border-0"
-            title="Monthly Support ₵5000 - Sovereign One"
-            allow="payment *"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-popups-to-escape-sandbox"
-            loading="lazy"
-            style={{
-              border: 0,
-              width: '100%',
-              height: '100%',
-              display: 'block'
-            }}
-          />
         </div>
       </div>
     </>

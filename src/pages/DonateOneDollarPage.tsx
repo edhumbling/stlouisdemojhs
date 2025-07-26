@@ -350,42 +350,6 @@ const DonateOneDollarPage: React.FC = () => {
         }
       `}</style>
 
-      {/* Enhanced Back Button and Title Section */}
-      <div className="bg-gradient-to-r from-emerald-900 via-green-800 to-emerald-900 py-4 sm:py-5 shadow-2xl">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <button
-              onClick={handleBack}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-700/60 hover:bg-emerald-600/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-emerald-500/40 hover:scale-105 active:scale-95"
-            >
-              <ArrowLeft size={18} />
-              <span>Back</span>
-            </button>
-
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 bg-emerald-600/80 rounded-full shadow-lg">
-                <DollarSign className="w-5 h-5 text-white" />
-              </div>
-              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
-                💝 Choose Your Donation Amount
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Trust Banner */}
-      <div className="bg-gradient-to-r from-emerald-600 to-green-600 py-3 shadow-lg">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <p className="text-white font-semibold text-sm sm:text-base flex items-center justify-center gap-2">
-              <Shield className="w-4 h-4" />
-              <span>🛡️ 100% of donations go directly to school development</span>
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Main Content */}
       <div className="px-4 sm:px-6 py-8 sm:py-12">
         {/* Desktop: Centered container, Mobile: Full width */}
@@ -436,6 +400,40 @@ const DonateOneDollarPage: React.FC = () => {
               </div>
             </div>
           </motion.div>
+
+          {/* Enhanced Back Button and Title Section */}
+          <div className="bg-gradient-to-r from-emerald-900 via-green-800 to-emerald-900 py-4 sm:py-5 shadow-2xl">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center gap-4 sm:gap-6">
+                <button
+                  onClick={handleBack}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-700/60 hover:bg-emerald-600/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-emerald-500/40 hover:scale-105 active:scale-95"
+                >
+                  <ArrowLeft size={18} />
+                  <span>Back</span>
+                </button>
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-10 h-10 bg-emerald-600/80 rounded-full shadow-lg">
+                    <DollarSign className="w-5 h-5 text-white" />
+                  </div>
+                  <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
+                    💝 Choose Your Donation Amount
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Trust Banner */}
+          <div className="bg-gradient-to-r from-emerald-600 to-green-600 py-3 shadow-lg">
+            <div className="container mx-auto px-4">
+              <div className="text-center">
+                <p className="text-white font-semibold text-sm sm:text-base flex items-center justify-center gap-2">
+                  <Shield className="w-4 h-4" />
+                  <span>🛡️ 100% of donations go directly to school development</span>
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* Enhanced Donation Card */}
           <motion.div

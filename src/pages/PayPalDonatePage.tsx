@@ -34,24 +34,24 @@ const PayPalDonatePage: React.FC = () => {
         pageType="donation"
         useGalleryImages={true}
       />
-      {/* Top Bar - Back Button and Title */}
-      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <button
-              onClick={() => navigate(-1)}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
-            >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-              <span>Back</span>
-            </button>
-            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-              💝 Donate with PayPal
-            </h1>
+      <main className="flex-grow w-full px-0 sm:px-0 pt-6 pb-24 max-w-3xl mx-auto">
+        {/* Top Bar - Back Button and Title */}
+        <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <button
+                onClick={() => navigate(-1)}
+                className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
+              >
+                <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+                <span>Back</span>
+              </button>
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+                💝 Donate with PayPal
+              </h1>
+            </div>
           </div>
         </div>
-      </div>
-      <main className="flex-grow w-full px-0 sm:px-0 pt-6 pb-24 max-w-3xl mx-auto">
         <section className="mb-8 px-4 sm:px-8">
           <h2 className="text-xl sm:text-2xl font-bold text-blue-900 flex items-center gap-2 mb-4">
             <Heart className="text-blue-700" size={28} />

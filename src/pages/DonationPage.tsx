@@ -520,37 +520,6 @@ const DonationPage: React.FC = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
       >
-      {/* Back Button and Title Section - Original Style */}
-      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-4 sm:gap-6">
-            <Link
-              to="/"
-              onClick={() => triggerHapticFeedback('light')}
-              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
-            >
-              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
-              <span>Back</span>
-            </Link>
-
-            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-              💝 Donate with Love
-            </h1>
-          </div>
-        </div>
-      </div>
-
-      {/* Announcement Bar - Attached to Back Bar */}
-      <div className="bg-green-600 py-3">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <p className="text-white font-semibold text-sm sm:text-base">
-              🛡️ 100% of donations received are directed to the School for development
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Optimized Header Section - Red Love Theme with Background Image */}
       <motion.section className="pb-6 sm:pb-8 relative overflow-hidden">
         {/* Background Image with Overlay */}
@@ -565,7 +534,6 @@ const DonationPage: React.FC = () => {
           {/* Overlay to maintain readability and love theme */}
           <div className="absolute inset-0 bg-gradient-to-br from-red-600/70 via-pink-600/70 to-red-700/70"></div>
         </div>
-
         {/* Floating 3D Love Emojis */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Simple 3D Love Emojis using Unicode with CSS 3D effects */}
@@ -610,7 +578,6 @@ const DonationPage: React.FC = () => {
             💘
           </div>
         </div>
-
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -912,6 +879,35 @@ const DonationPage: React.FC = () => {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Back Button and Title Section - Original Style */}
+      <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <Link
+              to="/"
+              onClick={() => triggerHapticFeedback('light')}
+              className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-red-700/50 hover:bg-red-600/70 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base backdrop-blur-sm border border-red-500/30 flex-shrink-0"
+            >
+              <ArrowLeft size={16} className="sm:w-5 sm:h-5" />
+              <span>Back</span>
+            </Link>
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+              💝 Donate with Love
+            </h1>
+          </div>
+        </div>
+      </div>
+      {/* Announcement Bar - Attached to Back Bar */}
+      <div className="bg-green-600 py-3">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="text-white font-semibold text-sm sm:text-base">
+              🛡️ 100% of donations received are directed to the School for development
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Main Content - Natural Scrolling Payment Form - White Background */}
       <motion.section
