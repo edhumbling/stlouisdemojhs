@@ -673,7 +673,7 @@ const DonateOneDollarPage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Enhanced Additional Info */}
+          {/* Concise Additional Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -696,47 +696,29 @@ const DonateOneDollarPage: React.FC = () => {
               <p className="font-bold text-emerald-600 text-lg">100% of donations go directly to school development</p>
             </div>
 
-            {/* Enhanced Information Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              <div className="bg-white p-6 rounded-2xl border-2 border-blue-200 shadow-lg">
-                <h4 className="text-lg font-bold text-blue-800 mb-4 text-center flex items-center justify-center gap-2">
-                  <span>ℹ️</span>
-                  <span>Important Information</span>
-                </h4>
-                <div className="text-sm text-gray-800 space-y-3">
-                  <div className="flex items-start gap-3 bg-blue-50 p-3 border-l-4 border-blue-400 rounded-r-lg">
-                    <span className="text-blue-600 font-bold text-lg">💱</span>
-                    <p className="font-medium">Exchange rates are updated in real-time but may vary slightly at payment time</p>
-                  </div>
-                  <div className="flex items-start gap-3 bg-orange-50 p-3 border-l-4 border-orange-400 rounded-r-lg">
-                    <span className="text-orange-600 font-bold text-lg">💳</span>
-                    <p className="font-medium">Paystack processing fees (1.5%) are added to ensure secure payment handling</p>
-                  </div>
-                  <div className="flex items-start gap-3 bg-emerald-50 p-3 border-l-4 border-emerald-400 rounded-r-lg">
-                    <span className="text-emerald-600 font-bold text-lg">🔒</span>
-                    <p className="font-medium">All transactions are processed securely through Paystack's encrypted platform</p>
-                  </div>
+            {/* Quick Info Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+              <div className="bg-white p-4 rounded-xl border border-emerald-200 shadow-sm">
+                <div className="text-center">
+                  <div className="text-2xl mb-2">💱</div>
+                  <p className="text-sm font-semibold text-gray-800">Real-time rates</p>
+                  <p className="text-xs text-gray-600">Updated exchange rates</p>
                 </div>
               </div>
-
-              <div className="bg-white p-6 rounded-2xl border-2 border-purple-200 shadow-lg">
-                <h4 className="text-lg font-bold text-purple-800 mb-4 text-center flex items-center justify-center gap-2">
-                  <span>📋</span>
-                  <span>Additional Details</span>
-                </h4>
-                <div className="text-sm text-gray-800 space-y-3">
-                  <div className="flex items-start gap-3 bg-purple-50 p-3 border-l-4 border-purple-400 rounded-r-lg">
-                    <span className="text-purple-600 font-bold text-lg">📧</span>
-                    <p className="font-medium">Donation receipts will be sent to your email address within 24 hours</p>
-                  </div>
-                  <div className="flex items-start gap-3 bg-yellow-50 p-3 border-l-4 border-yellow-400 rounded-r-lg">
-                    <span className="text-yellow-600 font-bold text-lg">💬</span>
-                    <p className="font-medium">For questions about your donation, contact us at <span className="text-blue-600 font-bold">contact@stlouisdemojhs.com</span></p>
-                  </div>
-                  <div className="flex items-start gap-3 bg-red-50 p-3 border-l-4 border-red-400 rounded-r-lg">
-                    <span className="text-red-600 font-bold text-lg">⚠️</span>
-                    <p className="font-medium">This donation is voluntary and non-refundable once processed</p>
-                  </div>
+              
+              <div className="bg-white p-4 rounded-xl border border-emerald-200 shadow-sm">
+                <div className="text-center">
+                  <div className="text-2xl mb-2">🔒</div>
+                  <p className="text-sm font-semibold text-gray-800">Secure payment</p>
+                  <p className="text-xs text-gray-600">Paystack encrypted</p>
+                </div>
+              </div>
+              
+              <div className="bg-white p-4 rounded-xl border border-emerald-200 shadow-sm">
+                <div className="text-center">
+                  <div className="text-2xl mb-2">📧</div>
+                  <p className="text-sm font-semibold text-gray-800">Email receipt</p>
+                  <p className="text-xs text-gray-600">Within 24 hours</p>
                 </div>
               </div>
             </div>
