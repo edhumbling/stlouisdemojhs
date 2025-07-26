@@ -2943,8 +2943,8 @@ const StudentsHubPage: React.FC = () => {
 
     return (
       <div className="min-h-screen bg-black">
-        {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4">
+        {/* Header with Back Button - With proper spacing from header */}
+        <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-3 sm:py-4 mt-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -3026,8 +3026,8 @@ const StudentsHubPage: React.FC = () => {
   if (pageLoading) {
     return (
       <div className="min-h-screen bg-black">
-        {/* Header Shimmer */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+        {/* Header Shimmer - With proper spacing from header */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 mt-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <ShimmerLoader variant="silver" width="w-20" height="h-10" className="rounded-lg" />
@@ -3243,8 +3243,8 @@ const StudentsHubPage: React.FC = () => {
         }}
       />
       <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
-        {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-2 sm:py-3">
+        {/* Header with Back Button - With proper spacing from header */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-2 sm:py-3 mt-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
@@ -3707,8 +3707,8 @@ const StudentsHubPage: React.FC = () => {
   if (selectedResource) {
     return (
       <div className="min-h-screen bg-black">
-        {/* Header with Back Button */}
-        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
+        {/* Header with Back Button - With proper spacing from header */}
+        <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 mt-4">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 sm:gap-6">
               <button
