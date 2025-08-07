@@ -770,6 +770,17 @@ const AISearchPage: React.FC = () => {
       color: 'from-purple-500 to-violet-600',
       glowColor: '#8b5cf6',
       hasWhiteBackground: true
+    },
+    {
+      id: 'gpt-oss',
+      name: 'GPT-OSS',
+      url: 'https://gpt-oss.com/',
+      description: 'Open-source GPT platform with multiple AI models and free access',
+      icon: <img src="https://gpt-oss.com/favicon.ico" alt="GPT-OSS" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=GPT'; }} />,
+      color: 'from-emerald-500 to-green-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true,
+      openExternally: true
     }
   ];
 
