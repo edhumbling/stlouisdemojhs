@@ -1139,6 +1139,15 @@ const StudentsHubPage: React.FC = () => {
         openInNewTab: true
       },
       {
+        id: 1005,
+        title: "Exa Coding Demo",
+        description: "Try Exa's interactive AI-powered coding demo and assistant!",
+        url: "https://codingdemo.exa.ai/",
+        icon: <Code className="w-5 h-5" />,
+        color: "#2563EB",
+        openInNewTab: true
+      },
+      {
         id: 25,
         title: "Windsurf",
         description: "Advanced AI coding assistant for seamless development experience!",
