@@ -2159,6 +2159,20 @@ const AILearningPage: React.FC = () => {
                 Explore the best AI resources from GitHub repositories to world-class educational content! 🌟
               </p>
 
+              <div className="bg-blue-900/20 rounded-lg p-4 border border-blue-700/30">
+                <h4 className="text-base sm:text-lg font-semibold text-blue-300 mb-4 text-center">🎓 AI Literacy Resources</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-blue-800/30 rounded-lg p-3 border border-blue-600/30">
+                    <h5 className="font-semibold text-blue-300 text-sm mb-2">Google AI Literacy</h5>
+                    <p className="text-xs text-blue-100 mb-2">Build AI knowledge and literacy with free resources for students, teachers, and families.</p>
+                    <a href="https://ai.google/literacy" target="_blank" rel="noopener noreferrer"
+                       className="text-xs text-blue-300 hover:text-blue-200 underline">
+                      ai.google/literacy
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               <div className="bg-purple-900/20 rounded-lg p-4 border border-purple-700/30">
                 <h4 className="text-base sm:text-lg font-semibold text-purple-300 mb-4 text-center">🏛️ Leading AGI Research Labs</h4>
                 <p className="text-xs sm:text-sm text-gray-100 text-center mb-4">
