@@ -319,21 +319,6 @@ const Hero: React.FC = () => {
           setInstallComplete(true);
           setIsInstalling(false);
 
-          // Show success notification
-          if ('Notification' in window && Notification.permission === 'granted') {
-            new Notification('🎉 St. Louis Demo. J.H.S App Installed!', {
-              body: 'The app has been added to your device. Check your home screen or app drawer.',
-              icon: '/applogo.png',
-              badge: '/applogo.png',
-              tag: 'pwa-install-complete',
-              requireInteraction: true,
-              actions: [
-                { action: 'open', title: 'Open App' },
-                { action: 'close', title: 'Close' }
-              ]
-            });
-          }
-
           // Auto-hide completion message after 5 seconds
           setTimeout(() => {
             setInstallComplete(false);
@@ -359,14 +344,7 @@ const Hero: React.FC = () => {
     }
   };
 
-  // Request notification permission for better UX
-  useEffect(() => {
-    if ('Notification' in window && Notification.permission === 'default') {
-      Notification.requestPermission().then(permission => {
-        console.log('Notification permission:', permission);
-      });
-    }
-  }, []);
+  // Notification permission request removed
 
   return (
     <section className="relative min-h-[100svh] h-screen flex items-center overflow-hidden hero-section">
