@@ -129,6 +129,24 @@ const Hero: React.FC = () => {
       setInstallComplete(true);
       console.log('PWA was installed');
 
+      // Attempt to immediately launch the installed PWA window
+      try {
+        const message = { type: 'LAUNCH_APP', url: '/' } as const;
+        if (navigator.serviceWorker?.controller) {
+          navigator.serviceWorker.controller.postMessage(message);
+        } else if (navigator.serviceWorker) {
+          navigator.serviceWorker.ready.then((reg) => {
+            reg.active?.postMessage(message);
+          });
+        }
+        // Best-effort: close the current tab after triggering launch (may be ignored by some browsers)
+        setTimeout(() => {
+          try { window.close(); } catch {}
+        }, 300);
+      } catch (e) {
+        console.warn('Auto-launch after install failed:', e);
+      }
+
       // Auto-hide completion message after 5 seconds
       setTimeout(() => {
         setInstallComplete(false);
@@ -318,6 +336,20 @@ const Hero: React.FC = () => {
         setTimeout(() => {
           setInstallComplete(true);
           setIsInstalling(false);
+
+          // Fallback attempt to launch installed PWA in case appinstalled event is delayed
+          try {
+            const message = { type: 'LAUNCH_APP', url: '/' } as const;
+            if (navigator.serviceWorker?.controller) {
+              navigator.serviceWorker.controller.postMessage(message);
+            } else if (navigator.serviceWorker) {
+              navigator.serviceWorker.ready.then((reg) => {
+                reg.active?.postMessage(message);
+              });
+            }
+          } catch (e) {
+            console.warn('Fallback auto-launch failed:', e);
+          }
 
           // Auto-hide completion message after 5 seconds
           setTimeout(() => {

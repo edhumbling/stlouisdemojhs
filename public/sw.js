@@ -89,4 +89,16 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+// Allow the page to request opening the app window after install
+self.addEventListener('message', (event) => {
+  if (!event || !event.data) return;
+  const { type, url } = event.data;
+  if (type === 'LAUNCH_APP') {
+    const targetUrl = url || '/';
+    event.waitUntil(
+      self.clients.openWindow(targetUrl)
+    );
+  }
+});
+
 // Notification system removed
