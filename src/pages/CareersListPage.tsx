@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Briefcase, X, Search } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowLeft, Briefcase, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 
@@ -7773,7 +7773,6 @@ const careersData: Record<string, Career[]> = {
 const CareersListPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedLetter, setSelectedLetter] = useState<string>('A');
-  const [selectedCareer, setSelectedCareer] = useState<Career | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Hide footer on this page
@@ -7815,7 +7814,6 @@ const CareersListPage: React.FC = () => {
   const handleLetterClick = (letter: string) => {
     if (availableLetters.includes(letter)) {
       setSelectedLetter(letter);
-      setSelectedCareer(null);
       setSearchQuery(''); // Clear search when selecting letter
     }
   };
@@ -7824,13 +7822,8 @@ const CareersListPage: React.FC = () => {
     setSearchQuery(e.target.value);
   };
 
-  const handleCareerClick = (career: Career) => {
-    setSelectedCareer(career);
-  };
-
-  const closeCareerModal = () => {
-    setSelectedCareer(null);
-  };
+  const getPerplexityUrl = (careerName: string) =>
+    `https://www.perplexity.ai/search?q=${encodeURIComponent(`${careerName} career`)}`;
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -7928,18 +7921,20 @@ const CareersListPage: React.FC = () => {
               {/* Raw document style layout - 2 columns on mobile, more on larger screens */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3 text-left">
                 {filteredCareers.map((career, index) => (
-                  <motion.button
+                  <motion.a
                     key={career.name}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2, delay: index * 0.02 }}
-                    onClick={() => handleCareerClick(career)}
+                    href={getPerplexityUrl(career.name)}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-left hover:bg-gray-800/30 p-2 rounded transition-colors duration-200 group"
                   >
                     <h3 className="text-white text-sm sm:text-base font-normal underline decoration-gray-500 hover:decoration-blue-400 transition-colors duration-200 group-hover:text-blue-300 leading-relaxed">
                       {career.name}
                     </h3>
-                  </motion.button>
+                  </motion.a>
                 ))}
               </div>
             </div>
@@ -7966,42 +7961,7 @@ const CareersListPage: React.FC = () => {
       </div>
 
       {/* Career Detail Modal */}
-      <AnimatePresence>
-        {selectedCareer && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={closeCareerModal}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-gray-900 rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-gray-700"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl sm:text-2xl font-bold text-white">
-                  {selectedCareer.name}
-                </h3>
-                <button
-                  onClick={closeCareerModal}
-                  className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
-                >
-                  <X size={20} className="text-gray-400" />
-                </button>
-              </div>
-              <div className="prose prose-invert max-w-none">
-                <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
-                  {selectedCareer.description}
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <AnimatePresence></AnimatePresence>
     </div>
   );
 };
