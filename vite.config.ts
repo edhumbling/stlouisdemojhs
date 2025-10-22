@@ -6,7 +6,13 @@ export default defineConfig({
   plugins: [react()],
   base: '/',
   optimizeDeps: {
-    include: ['framer-motion', 'react', 'react-dom', 'react-router-dom', 'lucide-react']
+    include: ['framer-motion', 'react', 'react-dom', 'react-router-dom', 'lucide-react'],
+    // Pre-bundle dependencies for faster page loads
+    exclude: []
+  },
+  // Enable aggressive code splitting for faster initial load
+  esbuild: {
+    logOverride: { 'this-is-undefined-in-esm': 'silent' }
   },
   define: {
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
@@ -31,26 +37,42 @@ export default defineConfig({
         assetFileNames: 'assets/[name]-[hash].[ext]',
         manualChunks(id) {
           if (id.includes('node_modules')) {
+            // Group core React libraries together for better caching
             if (id.includes('react') || id.includes('react-dom')) {
               return 'vendor-react';
             }
             if (id.includes('react-router')) {
               return 'vendor-router';
             }
+            // Defer animations to separate chunk - not critical for initial render
             if (id.includes('framer-motion')) {
               return 'vendor-animations';
             }
+            // Icons in separate chunk - loaded as needed
             if (id.includes('lucide-react')) {
               return 'vendor-icons';
             }
+            // Material UI in separate chunk - heavy library
             if (id.includes('@mui') || id.includes('@emotion')) {
               return 'vendor-mui';
             }
+            // Helmet for SEO
+            if (id.includes('react-helmet')) {
+              return 'vendor-seo';
+            }
             return 'vendor-other';
           }
+          // Split pages into individual chunks for lazy loading
           if (id.includes('src/pages/')) {
             const pageName = id.split('src/pages/')[1].split('.')[0].toLowerCase();
             return `page-${pageName}`;
+          }
+          // Split large component sections
+          if (id.includes('src/components/home/')) {
+            return 'components-home';
+          }
+          if (id.includes('src/components/chatbot/')) {
+            return 'components-chatbot';
           }
         }
       }

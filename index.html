@@ -60,10 +60,17 @@
   <link rel="dns-prefetch" href="//www.googletagmanager.com" />
   <link rel="dns-prefetch" href="//connect.facebook.net" />
 
-  <!-- Fonts -->
+  <!-- Fonts - Optimized loading with font-display swap for faster render -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Anton&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Anton&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet" />
+  </noscript>
 
   <!-- Geo and Location Meta -->
   <meta name="geo.region" content="GH" />
@@ -90,30 +97,61 @@
   <!-- Bing Webmaster Tools Verification -->
   <meta name="msvalidate.01" content="65299BB5AB2F255A66AB23A677D8A9EA" />
 
-  <!-- Google AdSense -->
+  <!-- Google AdSense - Deferred for faster page load -->
   <meta name="google-adsense-account" content="ca-pub-3612569845845172">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3612569845845172"
-    crossorigin="anonymous"></script>
+  <script>
+    // Defer AdSense loading until page is interactive
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var adsScript = document.createElement('script');
+        adsScript.async = true;
+        adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3612569845845172';
+        adsScript.crossOrigin = 'anonymous';
+        document.head.appendChild(adsScript);
+      }, 1000);
+    });
+  </script>
 
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-M82SVKTZ');</script>
+  <!-- Google Tag Manager - Deferred -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    // Defer GTM loading
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || []; w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+          }); 
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; 
+          j.async = true; 
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; 
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M82SVKTZ');
+      }, 500);
+    });
+  </script>
   <!-- End Google Tag Manager -->
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SVFNXDWG0"></script>
+  <!-- Google Analytics (gtag.js) - Deferred -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-9SVFNXDWG0');
+    
+    // Defer GA loading
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-9SVFNXDWG0';
+        document.head.appendChild(gaScript);
+        
+        gaScript.onload = function() {
+          gtag('js', new Date());
+          gtag('config', 'G-9SVFNXDWG0');
+        };
+      }, 500);
+    });
   </script>
 
 </head>
@@ -126,7 +164,7 @@
 
   <div id="root"></div>
 
-  <!-- Loading Screen -->
+  <!-- Enhanced Fluid Loading Screen -->
   <style>
     #loading-screen {
       position: fixed;
@@ -134,13 +172,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #000;
+      background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       z-index: 9999999;
-      transition: opacity 0.5s ease-out;
+      transition: opacity 0.6s ease-out;
+      overflow: hidden;
     }
 
     #loading-screen.loaded {
@@ -148,63 +187,306 @@
       pointer-events: none;
     }
 
-    .loading-logo {
-      width: 120px;
-      height: 120px;
-      margin-bottom: 24px;
-      animation: pulse 2s ease-in-out infinite;
+    /* Animated background waves */
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      border-radius: 45%;
+      opacity: 0.15;
     }
 
-    .loading-text {
-      color: #fff;
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 16px;
+    .wave-1 {
+      background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+      animation: wave 8s ease-in-out infinite;
     }
 
-    .loading-spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid rgba(255, 255, 255, 0.1);
-      border-top-color: #10b981;
+    .wave-2 {
+      background: linear-gradient(45deg, #10b981, #3b82f6);
+      animation: wave 6s ease-in-out infinite 1s;
+    }
+
+    .wave-3 {
+      background: linear-gradient(45deg, #8b5cf6, #ec4899);
+      animation: wave 10s ease-in-out infinite 2s;
+    }
+
+    @keyframes wave {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      }
+      33% {
+        transform: translate(-50%, -50%) rotate(120deg) scale(1.1);
+      }
+      66% {
+        transform: translate(-50%, -50%) rotate(240deg) scale(0.9);
+      }
+    }
+
+    /* Floating particles */
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 50%;
-      animation: spin 1s linear infinite;
+      animation: float 4s ease-in-out infinite;
     }
 
-    @keyframes pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
         opacity: 1;
       }
-
-      50% {
-        transform: scale(1.05);
-        opacity: 0.8;
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(20px);
+        opacity: 0;
       }
     }
 
-    @keyframes spin {
-      to {
+    /* Central loading container */
+    .loading-container {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Fluid circular loader */
+    .fluid-loader {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 32px;
+    }
+
+    .fluid-circle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      animation: rotate 2s linear infinite;
+    }
+
+    .fluid-circle-1 {
+      border-top-color: #3b82f6;
+      border-right-color: #3b82f6;
+      animation-duration: 1.5s;
+    }
+
+    .fluid-circle-2 {
+      border-bottom-color: #10b981;
+      border-left-color: #10b981;
+      animation-duration: 2s;
+      animation-direction: reverse;
+    }
+
+    .fluid-circle-3 {
+      width: 90%;
+      height: 90%;
+      top: 5%;
+      left: 5%;
+      border-right-color: #8b5cf6;
+      border-bottom-color: #8b5cf6;
+      animation-duration: 2.5s;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
         transform: rotate(360deg);
+      }
+    }
+
+    /* Logo in center */
+    .loading-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      animation: pulse-glow 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5));
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5));
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.8));
+      }
+    }
+
+    /* Loading text */
+    .loading-text {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-align: center;
+      animation: fade-pulse 2s ease-in-out infinite;
+      letter-spacing: 1px;
+    }
+
+    @keyframes fade-pulse {
+      0%, 100% {
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* Animated dots */
+    .loading-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      border-radius: 50%;
+      animation: bounce-dot 1.4s ease-in-out infinite;
+    }
+
+    .dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce-dot {
+      0%, 80%, 100% {
+        transform: scale(0.8) translateY(0);
+        opacity: 0.5;
+      }
+      40% {
+        transform: scale(1.2) translateY(-10px);
+        opacity: 1;
+      }
+    }
+
+    /* Progress bar */
+    .progress-bar-container {
+      width: 200px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #10b981, #8b5cf6);
+      background-size: 200% 100%;
+      animation: progress 1.5s ease-in-out infinite;
+      border-radius: 10px;
+    }
+
+    @keyframes progress {
+      0% {
+        width: 0%;
+        background-position: 0% 50%;
+      }
+      50% {
+        width: 70%;
+        background-position: 100% 50%;
+      }
+      100% {
+        width: 100%;
+        background-position: 0% 50%;
       }
     }
   </style>
   <div id="loading-screen">
-    <img src="/favicon-32x32.png" alt="Loading" class="loading-logo">
-    <div class="loading-text">St. Louis Demo JHS</div>
-    <div class="loading-spinner"></div>
+    <!-- Animated background waves -->
+    <div class="wave wave-1"></div>
+    <div class="wave wave-2"></div>
+    <div class="wave wave-3"></div>
+
+    <!-- Floating particles -->
+    <script>
+      // Create random floating particles
+      for (let i = 0; i < 15; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 4 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        document.getElementById('loading-screen').appendChild(particle);
+      }
+    </script>
+
+    <!-- Central loading area -->
+    <div class="loading-container">
+      <div class="fluid-loader">
+        <div class="fluid-circle fluid-circle-1"></div>
+        <div class="fluid-circle fluid-circle-2"></div>
+        <div class="fluid-circle fluid-circle-3"></div>
+        <img src="/applogo.png" alt="Loading" class="loading-logo">
+      </div>
+      <div class="loading-text">St. Louis Demo JHS</div>
+      <div class="loading-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
   </div>
   <script>
-    window.addEventListener('load', function () {
+    // Enhanced loading screen removal
+    let loadStartTime = Date.now();
+    let minLoadTime = 800; // Minimum time to show the animation
+
+    function removeLoadingScreen() {
+      const elapsed = Date.now() - loadStartTime;
+      const remainingTime = Math.max(0, minLoadTime - elapsed);
+      
       setTimeout(function () {
-        document.getElementById('loading-screen').classList.add('loaded');
-        setTimeout(function () {
-          document.getElementById('loading-screen').remove();
-        }, 500);
-      }, 100);
-    });
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          loadingScreen.classList.add('loaded');
+          setTimeout(function () {
+            loadingScreen.remove();
+          }, 600);
+        }
+      }, remainingTime);
+    }
+
+    // Remove loading screen when page is fully loaded
+    if (document.readyState === 'complete') {
+      removeLoadingScreen();
+    } else {
+      window.addEventListener('load', removeLoadingScreen);
+    }
+
+    // Fallback: Remove after 5 seconds max
+    setTimeout(removeLoadingScreen, 5000);
   </script>
 
   <script type="module" src="/src/main.tsx"></script>
