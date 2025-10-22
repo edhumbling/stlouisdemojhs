@@ -16,19 +16,20 @@ export class GeminiService implements GeminiServiceInterface {
   }
 
   /**
-   * Generate AI response using Gemini API
+   * Generate AI response using Gemini API with source information
    */
   async generateResponse(
     userMessage: string,
     context: string[],
-    conversationHistory: Message[]
+    conversationHistory: Message[],
+    contextSources?: Array<{ title: string; source: string; category: string }>
   ): Promise<string> {
     try {
       // Check rate limiting
       this.checkRateLimit();
 
       // Format the request
-      const request = this.formatRequest(userMessage, context, conversationHistory);
+      const request = this.formatRequest(userMessage, context, conversationHistory, contextSources);
 
       // Make API call
       const response = await fetch(`${this.baseURL}?key=${this.apiKey}`, {
@@ -51,16 +52,20 @@ export class GeminiService implements GeminiServiceInterface {
   }
 
   /**
-   * Format request payload for Gemini API
+   * Format request payload for Gemini API with source tracking
    */
   private formatRequest(
     userMessage: string,
     context: string[],
-    history: Message[]
+    history: Message[],
+    contextSources?: Array<{ title: string; source: string; category: string }>
   ): GeminiRequest {
-    // Build context string
+    // Build context string with source attribution
     const contextStr = context.length > 0
-      ? context.map((chunk, i) => `[Source ${i + 1}]: ${chunk}`).join('\n\n')
+      ? context.map((chunk, i) => {
+          const sourceInfo = contextSources?.[i];
+          return `[Source ${i + 1}: ${sourceInfo?.title || 'Unknown'} - ${sourceInfo?.source || 'School Website'}]: ${chunk}`;
+        }).join('\n\n')
       : 'No specific context available.';
 
     // Build conversation history string

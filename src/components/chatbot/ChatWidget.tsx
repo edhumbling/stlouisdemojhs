@@ -1,11 +1,9 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
 import { ChatWidgetProps } from '../../types/chatbot';
 
 /**
  * ChatWidget - Hovering button that triggers the Louis AI Chatbot
- * Positioned on the left side of the viewport with green message icon
- * Responsive design: 70px (desktop), 64px (mobile)
+ * Floats globally in the bottom-right corner on every page
  */
 const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
   return (
@@ -14,57 +12,57 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
         @keyframes louisPulse {
           0%, 100% {
             transform: scale(1);
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4), 0 8px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 28px rgba(59, 130, 246, 0.35), 0 12px 48px rgba(8, 12, 20, 0.55);
           }
           50% {
             transform: scale(1.05);
-            box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6), 0 10px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.55), 0 18px 60px rgba(8, 12, 20, 0.65);
           }
         }
 
         .louis-chat-widget {
           position: fixed !important;
-          left: 24px !important;
-          bottom: 24px !important;
-          z-index: 999999 !important;
-          width: 70px;
-          height: 70px;
-          border-radius: 50%;
-          border: none;
-          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-          box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4), 0 8px 40px rgba(0, 0, 0, 0.2);
+          right: clamp(16px, 3vw, 28px) !important;
+          bottom: clamp(16px, 3vh, 28px) !important;
+          z-index: 2147483000 !important;
+          width: 72px;
+          height: 72px;
+          border-radius: 20px;
+          border: 1px solid rgba(59, 130, 246, 0.25);
+          background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(30, 64, 175, 0.92));
+          box-shadow: 0 6px 28px rgba(59, 130, 246, 0.35), 0 12px 48px rgba(8, 12, 20, 0.55);
           cursor: pointer;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
           padding: 0;
-          overflow: visible;
-          animation: louisPulse 2s ease-in-out infinite;
+          overflow: hidden;
+          animation: louisPulse 2.6s ease-in-out infinite;
           pointer-events: auto;
         }
 
         .louis-chat-widget:hover {
           animation: none;
-          transform: scale(1.1);
-          box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5), 0 10px 50px rgba(0, 0, 0, 0.3);
+          transform: translateY(-4px) scale(1.05);
+          box-shadow: 0 14px 42px rgba(59, 130, 246, 0.45), 0 26px 70px rgba(8, 12, 20, 0.7);
         }
 
         .louis-chat-widget:active {
-          transform: scale(0.95);
+          transform: scale(0.97);
         }
 
         .louis-chat-widget-icon {
-          color: #ffffff;
-          margin-bottom: 2px;
+          margin-bottom: 6px;
+          filter: drop-shadow(0 4px 8px rgba(8, 12, 20, 0.35));
         }
 
         .louis-chat-widget-label {
-          color: #ffffff;
-          font-size: 9px;
+          color: rgba(226, 232, 240, 0.92);
+          font-size: 10px;
           font-weight: 700;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.6px;
           text-transform: uppercase;
         }
 
@@ -78,28 +76,27 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
         /* Tablet styles */
         @media (max-width: 1024px) {
           .louis-chat-widget {
-            left: 20px !important;
-            bottom: 20px !important;
-            width: 66px;
-            height: 66px;
+            right: clamp(16px, 4vw, 24px) !important;
+            bottom: clamp(16px, 4vh, 24px) !important;
+            width: 68px;
+            height: 68px;
           }
 
           .louis-chat-widget-label {
-            font-size: 8.5px;
+            font-size: 9px;
           }
         }
 
         /* Mobile styles */
         @media (max-width: 768px) {
           .louis-chat-widget {
-            left: 16px !important;
-            bottom: 16px !important;
             width: 64px;
             height: 64px;
+            border-radius: 18px;
           }
 
           .louis-chat-widget-label {
-            font-size: 8px;
+            font-size: 9px;
           }
         }
       `}</style>
@@ -109,7 +106,12 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
         aria-label="Open Louis AI Assistant"
         aria-expanded={isOpen}
       >
-        <MessageCircle size={28} className="louis-chat-widget-icon" strokeWidth={2.5} />
+        <img 
+          src="/ai bot.png" 
+          alt="Louis AI" 
+          className="louis-chat-widget-icon"
+          style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+        />
         <span className="louis-chat-widget-label">Louis AI</span>
       </button>
     </>

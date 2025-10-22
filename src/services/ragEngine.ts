@@ -1,5 +1,6 @@
 import { ContentChunk, RAGEngineInterface } from '../types/chatbot';
 import { CHATBOT_CONFIG } from '../config/chatbot';
+import { getAllKnowledge, KnowledgeChunk } from '../data/knowledgeBase';
 
 /**
  * RAG Engine - Retrieval-Augmented Generation system
@@ -84,162 +85,79 @@ export class RAGEngine implements RAGEngineInterface {
   }
 
   /**
-   * Index static content about St. Louis Demo JHS
+   * Index comprehensive content from knowledge base
    */
   private indexStaticContent(): void {
-    const staticContent = [
-      {
-        id: 'about-school',
-        source: 'About Page',
-        content: `St. Louis Demonstration Junior High School is a premier educational institution in Ghana. 
-        We provide quality education with modern facilities, experienced teachers, and comprehensive academic programs. 
-        Our school focuses on academic excellence, character development, and preparing students for success.`,
+    // Load comprehensive knowledge base
+    const knowledgeChunks: KnowledgeChunk[] = getAllKnowledge();
+    
+    // Convert knowledge chunks to content chunks for RAG system
+    const contentChunks: ContentChunk[] = knowledgeChunks.map(chunk => ({
+      id: chunk.id,
+      source: chunk.source,
+      content: chunk.content,
         metadata: {
-          title: 'About St. Louis Demo JHS',
-          category: 'General Information',
-          keywords: ['school', 'education', 'ghana', 'jhs', 'about'],
-        },
+        title: chunk.title,
+        category: chunk.category,
+        keywords: chunk.keywords,
+        priority: chunk.priority,
       },
-      {
-        id: 'academics',
-        source: 'Academics Page',
-        content: `Our academic curriculum includes English Language, Mathematics, Integrated Science, Social Studies, 
-        Religious and Moral Education, Ghanaian Language, French, Career Technology, Computing/ICT, Creative Arts & Design, 
-        and Music. We offer comprehensive programs in STEM education, robotics, and technology.`,
-        metadata: {
-          title: 'Academic Programs',
-          category: 'Academics',
-          keywords: ['curriculum', 'subjects', 'stem', 'academics', 'programs'],
-        },
-      },
-      {
-        id: 'admissions',
-        source: 'Admissions Page',
-        content: `Admissions to St. Louis Demo JHS are open throughout the year. We welcome students who are eager to learn 
-        and grow. The admission process includes application submission, entrance assessment, and interview. 
-        We offer scholarships and financial aid to qualified students.`,
-        metadata: {
-          title: 'Admissions Information',
-          category: 'Admissions',
-          keywords: ['admission', 'enrollment', 'apply', 'scholarship', 'financial aid'],
-        },
-      },
-      {
-        id: 'stem-programs',
-        source: 'STEM Page',
-        content: `St. Louis Demo JHS offers cutting-edge STEM programs including robotics, space exploration, 
-        coding, and technology education. Our STEM labs are equipped with modern tools and resources. 
-        Students participate in competitions, projects, and hands-on learning experiences.`,
-        metadata: {
-          title: 'STEM Programs',
-          category: 'Programs',
-          keywords: ['stem', 'robotics', 'technology', 'science', 'coding', 'space'],
-        },
-      },
-      {
-        id: 'facilities',
-        source: 'About Page',
-        content: `Our school features modern classrooms, science laboratories, computer labs, library, 
-        sports facilities, and a conducive learning environment. We have well-equipped STEM labs, 
-        robotics workshop, and multimedia resources for enhanced learning.`,
-        metadata: {
-          title: 'School Facilities',
-          category: 'Facilities',
-          keywords: ['facilities', 'labs', 'library', 'classroom', 'equipment'],
-        },
-      },
-      {
-        id: 'faculty',
-        source: 'Faculty Page',
-        content: `Our dedicated faculty consists of experienced and qualified teachers who are passionate about education. 
-        They provide personalized attention, mentorship, and guidance to help students achieve their full potential. 
-        Our staff includes subject specialists, counselors, and support staff.`,
-        metadata: {
-          title: 'Faculty and Staff',
-          category: 'Faculty',
-          keywords: ['teachers', 'faculty', 'staff', 'educators', 'mentors'],
-        },
-      },
-      {
-        id: 'extracurricular',
-        source: 'Students Hub',
-        content: `Students can participate in various extracurricular activities including sports, music, drama, 
-        debate, science clubs, robotics club, and community service. We encourage holistic development through 
-        diverse activities beyond academics.`,
-        metadata: {
-          title: 'Extracurricular Activities',
-          category: 'Activities',
-          keywords: ['activities', 'clubs', 'sports', 'music', 'extracurricular'],
-        },
-      },
-      {
-        id: 'career-guidance',
-        source: 'Educational Guide',
-        content: `We provide comprehensive career guidance and educational pathway planning. Students receive counseling 
-        on SHS placement, university options, scholarship opportunities, and career choices. Our resources include 
-        information on nursing institutions, teacher training, universities, TVET schools, and professional institutes.`,
-        metadata: {
-          title: 'Career Guidance',
-          category: 'Guidance',
-          keywords: ['career', 'guidance', 'university', 'scholarship', 'shs', 'pathway'],
-        },
-      },
-      {
-        id: 'values',
-        source: 'About Page',
-        content: `St. Louis Demo JHS is built on core values of excellence, integrity, respect, responsibility, 
-        and innovation. We emphasize character education, leadership development, and moral values alongside 
-        academic achievement.`,
-        metadata: {
-          title: 'School Values',
-          category: 'Values',
-          keywords: ['values', 'character', 'integrity', 'leadership', 'excellence'],
-        },
-      },
-      {
-        id: 'contact',
-        source: 'Contact Page',
-        content: `You can contact St. Louis Demo JHS through our website contact form, visit us in person, 
-        or reach out via phone or email. We welcome inquiries from prospective students, parents, and partners. 
-        Our staff is available to answer questions and provide information.`,
-        metadata: {
-          title: 'Contact Information',
-          category: 'Contact',
-          keywords: ['contact', 'reach', 'visit', 'inquire', 'information'],
-        },
-      },
-    ];
+    }));
 
-    this.contentIndex.push(...staticContent);
+    this.contentIndex.push(...contentChunks);
+    
+    console.log(`✅ Indexed ${contentChunks.length} knowledge chunks from comprehensive knowledge base`);
+    console.log(`📚 Categories: ${[...new Set(knowledgeChunks.map(k => k.category))].join(', ')}`);
   }
 
   /**
-   * Calculate relevance score for a content chunk
+   * Calculate relevance score for a content chunk with enhanced scoring
    */
   private calculateRelevance(queryWords: string[], chunk: ContentChunk): number {
     let score = 0;
     const contentLower = chunk.content.toLowerCase();
     const titleLower = chunk.metadata.title?.toLowerCase() || '';
+    const categoryLower = chunk.metadata.category?.toLowerCase() || '';
     const keywords = chunk.metadata.keywords || [];
+    const priority = (chunk.metadata as any).priority || 5;
 
     // Check query words in content
     queryWords.forEach(word => {
-      // Title match (highest weight)
-      if (titleLower.includes(word)) {
-        score += 10;
+      // Exact title match (highest weight)
+      if (titleLower === word) {
+        score += 20;
+      } else if (titleLower.includes(word)) {
+        score += 12;
       }
 
-      // Keyword match (high weight)
-      if (keywords.some(keyword => keyword.includes(word))) {
-        score += 5;
+      // Category match (high weight for relevant sections)
+      if (categoryLower.includes(word)) {
+        score += 8;
       }
 
-      // Content match (base weight)
-      const contentMatches = (contentLower.match(new RegExp(word, 'g')) || []).length;
-      score += contentMatches * 2;
+      // Exact keyword match (very high weight)
+      if (keywords.some(keyword => keyword.toLowerCase() === word)) {
+        score += 15;
+      }
+      // Partial keyword match (high weight)
+      else if (keywords.some(keyword => keyword.toLowerCase().includes(word))) {
+        score += 7;
+      }
+
+      // Content match (base weight, with frequency consideration)
+      const contentMatches = (contentLower.match(new RegExp(`\\b${word}\\b`, 'gi')) || []).length;
+      score += Math.min(contentMatches * 3, 15); // Cap at 15 to prevent over-weighting
     });
 
-    return score;
+    // Boost score based on content priority (1-10 scale)
+    score *= (1 + (priority / 20)); // 5% to 50% boost based on priority
+
+    // Bonus for comprehensive content (longer, more detailed answers)
+    const contentLength = chunk.content.length;
+    if (contentLength > 500) score += 2;
+    if (contentLength > 1000) score += 3;
+
+    return Math.round(score);
   }
 
   /**

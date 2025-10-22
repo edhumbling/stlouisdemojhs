@@ -13,61 +13,67 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ onClose }) => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 24px;
-          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          padding: clamp(18px, 3vw, 26px);
+          background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.9));
+          border-bottom: 1px solid rgba(148, 163, 184, 0.18);
           flex-shrink: 0;
+          box-shadow: 0 12px 32px rgba(8, 12, 20, 0.45);
         }
 
         .louis-chat-header-content {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 14px;
         }
 
         .louis-chat-header-logo {
-          width: 32px;
-          height: 32px;
+          width: 40px;
+          height: 40px;
           object-fit: contain;
+          border-radius: 14px;
+          background: rgba(30, 41, 59, 0.65);
+          padding: 6px;
+          box-shadow: 0 12px 28px rgba(8, 12, 20, 0.35);
         }
 
         .louis-chat-header-text {
           display: flex;
           flex-direction: column;
+          gap: 4px;
         }
 
         .louis-chat-header-title {
-          font-size: 1.25rem;
+          font-size: clamp(1.1rem, 2.8vw, 1.45rem);
           font-weight: 700;
-          color: #ffffff;
-          line-height: 1.2;
+          color: #f8fafc;
           margin: 0;
         }
 
         .louis-chat-header-subtitle {
-          font-size: 0.875rem;
-          color: rgba(255, 255, 255, 0.8);
+          font-size: clamp(0.82rem, 2.2vw, 0.95rem);
+          color: rgba(226, 232, 240, 0.7);
           margin: 0;
-          margin-top: 2px;
         }
 
         .louis-chat-header-close {
-          background: rgba(255, 255, 255, 0.1);
-          border: none;
-          border-radius: 8px;
-          width: 40px;
-          height: 40px;
+          background: rgba(51, 65, 85, 0.55);
+          border: 1px solid rgba(148, 163, 184, 0.32);
+          border-radius: 14px;
+          width: 44px;
+          height: 44px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
           transition: all 0.2s ease;
-          color: #ffffff;
+          color: #e2e8f0;
+          box-shadow: 0 10px 26px rgba(8, 12, 20, 0.35);
         }
 
         .louis-chat-header-close:hover {
-          background: rgba(255, 255, 255, 0.2);
-          transform: scale(1.05);
+          background: rgba(59, 130, 246, 0.25);
+          border-color: rgba(59, 130, 246, 0.45);
+          transform: translateY(-2px);
         }
 
         .louis-chat-header-close:active {
@@ -76,15 +82,12 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ onClose }) => {
 
         @media (max-width: 768px) {
           .louis-chat-header {
-            padding: 16px;
+            padding: 18px;
           }
 
-          .louis-chat-header-title {
-            font-size: 1.125rem;
-          }
-
-          .louis-chat-header-subtitle {
-            font-size: 0.8125rem;
+          .louis-chat-header-logo {
+            width: 36px;
+            height: 36px;
           }
         }
       `}</style>
@@ -92,7 +95,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ onClose }) => {
       <div className="louis-chat-header">
         <div className="louis-chat-header-content">
           <img
-            src="/favicon-32x32.png"
+            src="/ai bot.png"
             alt="Louis AI"
             className="louis-chat-header-logo"
           />

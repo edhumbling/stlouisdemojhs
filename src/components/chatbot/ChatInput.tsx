@@ -43,54 +43,59 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled }) => {
     <>
       <style>{`
         .louis-chat-input-container {
-          padding: 16px 24px;
-          background: #1f1f1f;
-          border-top: 1px solid #333333;
+          padding: clamp(14px, 2.6vw, 24px);
+          background: rgba(8, 12, 20, 0.95);
+          border-top: 1px solid rgba(148, 163, 184, 0.18);
           flex-shrink: 0;
+          box-shadow: 0 -12px 36px rgba(8, 12, 20, 0.6);
         }
 
-        .louis-chat-input-wrapper {
+        .louis-chat-input-inner {
+          width: 100%;
+          max-width: 820px;
+          margin: 0 auto;
+          background: rgba(15, 23, 42, 0.7);
+          border: 1px solid rgba(148, 163, 184, 0.22);
+          border-radius: 22px;
+          padding: clamp(12px, 2.4vw, 18px);
           display: flex;
           gap: 12px;
           align-items: flex-end;
+          backdrop-filter: blur(8px);
         }
 
         .louis-chat-input-textarea {
           flex: 1;
-          background: #2a2a2a;
-          border: 1px solid #333333;
-          border-radius: 12px;
-          padding: 12px 16px;
-          color: #ffffff;
+          background: transparent;
+          border: none;
+          color: #e2e8f0;
           font-size: 1rem;
           font-family: inherit;
-          line-height: 1.5;
+          line-height: 1.6;
           resize: none;
           min-height: 48px;
-          max-height: 120px;
-          transition: border-color 0.2s ease;
+          max-height: 140px;
         }
 
         .louis-chat-input-textarea:focus {
           outline: none;
-          border-color: #3b82f6;
         }
 
         .louis-chat-input-textarea:disabled {
-          opacity: 0.5;
+          opacity: 0.45;
           cursor: not-allowed;
         }
 
         .louis-chat-input-textarea::placeholder {
-          color: #666666;
+          color: rgba(148, 163, 184, 0.55);
         }
 
         .louis-chat-input-button {
-          background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+          background: linear-gradient(135deg, rgba(59, 130, 246, 0.95), rgba(37, 99, 235, 0.95));
           border: none;
-          border-radius: 12px;
-          width: 48px;
-          height: 48px;
+          border-radius: 16px;
+          width: 50px;
+          height: 50px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -98,15 +103,16 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled }) => {
           transition: all 0.2s ease;
           color: #ffffff;
           flex-shrink: 0;
+          box-shadow: 0 12px 26px rgba(37, 99, 235, 0.35);
         }
 
         .louis-chat-input-button:hover:not(:disabled) {
-          transform: scale(1.05);
-          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 16px 36px rgba(37, 99, 235, 0.45);
         }
 
         .louis-chat-input-button:active:not(:disabled) {
-          transform: scale(0.95);
+          transform: scale(0.96);
         }
 
         .louis-chat-input-button:disabled {
@@ -115,24 +121,20 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled }) => {
         }
 
         @media (max-width: 768px) {
-          .louis-chat-input-container {
-            padding: 12px 16px;
-          }
-
-          .louis-chat-input-textarea {
-            font-size: 0.9375rem;
-            padding: 10px 14px;
+          .louis-chat-input-inner {
+            border-radius: 18px;
+            gap: 10px;
           }
 
           .louis-chat-input-button {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
           }
         }
       `}</style>
 
       <div className="louis-chat-input-container">
-        <div className="louis-chat-input-wrapper">
+        <div className="louis-chat-input-inner">
           <textarea
             ref={textareaRef}
             value={message}

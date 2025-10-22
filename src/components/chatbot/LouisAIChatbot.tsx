@@ -95,15 +95,23 @@ const LouisAIChatbot: React.FC = () => {
       // Retrieve relevant context from RAG engine
       const contextChunks = await ragEngine.search(content, 5);
       const context = contextChunks.map(chunk => chunk.content);
+      
+      // Extract source information for citations
+      const contextSources = contextChunks.map(chunk => ({
+        title: chunk.metadata.title || 'School Information',
+        source: chunk.source || 'School Website',
+        category: chunk.metadata.category || 'General',
+      }));
 
-      // Generate AI response
+      // Generate AI response with source information
       const aiResponse = await geminiService.generateResponse(
         content,
         context,
-        messages
+        messages,
+        contextSources
       );
 
-      // Create AI message
+      // Create AI message with source citations
       const aiMessage: Message = {
         id: `msg-${Date.now()}-assistant`,
         role: 'assistant',
@@ -111,6 +119,7 @@ const LouisAIChatbot: React.FC = () => {
         timestamp: new Date(),
         metadata: {
           retrievedContext: context,
+          sources: contextSources,
         },
       };
 

@@ -46,69 +46,70 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
   return (
     <>
       <style>{`
-        @keyframes slideInLeft {
-          from {
-            transform: translateX(-100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
+        @keyframes louisOverlayFade {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
 
-        @keyframes fadeIn {
+        @keyframes louisPanelPop {
           from {
             opacity: 0;
+            transform: translateY(24px) scale(0.98);
           }
           to {
             opacity: 1;
+            transform: translateY(0) scale(1);
           }
         }
 
         .louis-chat-overlay {
           position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          inset: 0;
           width: 100vw;
           height: 100vh;
-          z-index: 10000;
-          background: rgba(0, 0, 0, 0.85);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-          animation: fadeIn 0.3s ease-out;
-          overflow: hidden;
+          z-index: 100000;
+          background: linear-gradient(135deg, rgba(12, 18, 28, 0.95), rgba(8, 12, 20, 0.92));
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          animation: louisOverlayFade 0.25s ease-out;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: clamp(12px, 3vw, 32px);
         }
 
         .louis-chat-panel {
-          position: fixed;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          height: 100vh;
-          max-width: 480px;
-          background: #1f1f1f;
-          box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+          position: relative;
+          width: min(960px, 100%);
+          height: min(92vh, 860px);
+          background: rgba(8, 12, 20, 0.92);
+          border: 1px solid rgba(148, 163, 184, 0.15);
+          border-radius: clamp(0px, 2vw, 28px);
+          box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
           display: flex;
           flex-direction: column;
-          animation: slideInLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           overflow: hidden;
+          animation: louisPanelPop 0.28s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        @media (prefers-reduced-motion: reduce) {
-          .louis-chat-overlay,
+        @media (max-width: 1024px) {
           .louis-chat-panel {
-            animation: none;
+            width: 95vw;
+            height: 90vh;
           }
         }
 
         @media (max-width: 768px) {
+          .louis-chat-overlay {
+            padding: 0;
+          }
+
           .louis-chat-panel {
-            max-width: 100%;
             width: 100vw;
+            height: 100vh;
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
           }
         }
       `}</style>

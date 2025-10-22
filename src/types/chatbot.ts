@@ -2,6 +2,14 @@
  * TypeScript type definitions for Louis AI Chatbot
  */
 
+// Source citation information
+export interface SourceCitation {
+  title: string;
+  source: string;
+  category: string;
+  url?: string;
+}
+
 // Message types
 export interface Message {
   id: string;
@@ -10,6 +18,7 @@ export interface Message {
   timestamp: Date;
   metadata?: {
     retrievedContext?: string[];
+    sources?: SourceCitation[];
     tokensUsed?: number;
   };
 }
@@ -31,6 +40,7 @@ export interface ContentChunk {
     title?: string;
     category?: string;
     keywords?: string[];
+    priority?: number; // 1-10 scale, higher = more important
   };
   embedding?: number[];
 }
@@ -67,6 +77,7 @@ export interface UserMessageProps {
 export interface AIMessageProps {
   content: string;
   timestamp: Date;
+  sources?: SourceCitation[];
 }
 
 export interface ChatInputProps {
@@ -85,7 +96,8 @@ export interface GeminiServiceInterface {
   generateResponse(
     userMessage: string,
     context: string[],
-    conversationHistory: Message[]
+    conversationHistory: Message[],
+    contextSources?: Array<{ title: string; source: string; category: string }>
   ): Promise<string>;
 }
 
