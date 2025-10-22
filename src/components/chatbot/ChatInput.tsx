@@ -1,5 +1,4 @@
 import React, { useState, useRef, KeyboardEvent } from 'react';
-import { Send } from 'lucide-react';
 import { ChatInputProps } from '../../types/chatbot';
 
 /**
@@ -43,38 +42,35 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled }) => {
     <>
       <style>{`
         .louis-chat-input-container {
-          padding: clamp(14px, 2.6vw, 24px);
-          background: rgba(8, 12, 20, 0.95);
-          border-top: 1px solid rgba(148, 163, 184, 0.18);
+          padding: 12px;
+          background: #0f0f0f;
+          border-top: 1px solid #222;
           flex-shrink: 0;
-          box-shadow: 0 -12px 36px rgba(8, 12, 20, 0.6);
         }
 
         .louis-chat-input-inner {
-          width: 100%;
-          max-width: 820px;
+          max-width: 740px;
           margin: 0 auto;
-          background: rgba(15, 23, 42, 0.7);
-          border: 1px solid rgba(148, 163, 184, 0.22);
-          border-radius: 22px;
-          padding: clamp(12px, 2.4vw, 18px);
+          background: #1a1a1a;
+          border: 1px solid #2a2a2a;
+          border-radius: 10px;
+          padding: 8px 10px;
           display: flex;
-          gap: 12px;
+          gap: 8px;
           align-items: flex-end;
-          backdrop-filter: blur(8px);
         }
 
         .louis-chat-input-textarea {
           flex: 1;
           background: transparent;
           border: none;
-          color: #e2e8f0;
-          font-size: 1rem;
+          color: #e5e5e5;
+          font-size: 0.875rem;
           font-family: inherit;
-          line-height: 1.6;
+          line-height: 1.5;
           resize: none;
-          min-height: 48px;
-          max-height: 140px;
+          min-height: 36px;
+          max-height: 120px;
         }
 
         .louis-chat-input-textarea:focus {
@@ -82,54 +78,40 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled }) => {
         }
 
         .louis-chat-input-textarea:disabled {
-          opacity: 0.45;
+          opacity: 0.4;
           cursor: not-allowed;
         }
 
         .louis-chat-input-textarea::placeholder {
-          color: rgba(148, 163, 184, 0.55);
+          color: #666;
         }
 
         .louis-chat-input-button {
-          background: linear-gradient(135deg, rgba(59, 130, 246, 0.95), rgba(37, 99, 235, 0.95));
+          background: #2563eb;
           border: none;
-          border-radius: 16px;
-          width: 50px;
-          height: 50px;
+          border-radius: 6px;
+          width: 36px;
+          height: 36px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: all 0.2s ease;
-          color: #ffffff;
+          transition: all 0.15s ease;
+          color: #fff;
           flex-shrink: 0;
-          box-shadow: 0 12px 26px rgba(37, 99, 235, 0.35);
         }
 
         .louis-chat-input-button:hover:not(:disabled) {
-          transform: translateY(-2px) scale(1.05);
-          box-shadow: 0 16px 36px rgba(37, 99, 235, 0.45);
+          background: #3b82f6;
         }
 
         .louis-chat-input-button:active:not(:disabled) {
-          transform: scale(0.96);
+          transform: scale(0.95);
         }
 
         .louis-chat-input-button:disabled {
-          opacity: 0.5;
+          opacity: 0.4;
           cursor: not-allowed;
-        }
-
-        @media (max-width: 768px) {
-          .louis-chat-input-inner {
-            border-radius: 18px;
-            gap: 10px;
-          }
-
-          .louis-chat-input-button {
-            width: 46px;
-            height: 46px;
-          }
         }
       `}</style>
 
@@ -152,7 +134,9 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend, disabled }) => {
             className="louis-chat-input-button"
             aria-label="Send message"
           >
-            <Send size={20} />
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+            </svg>
           </button>
         </div>
       </div>

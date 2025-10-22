@@ -1,5 +1,4 @@
 import React from 'react';
-import { X } from 'lucide-react';
 import { ChatHeaderProps } from '../../types/chatbot';
 
 /**
@@ -13,82 +12,65 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ onClose }) => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: clamp(18px, 3vw, 26px);
-          background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.9));
-          border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+          padding: 12px 16px;
+          background: #0f0f0f;
+          border-bottom: 1px solid #222;
           flex-shrink: 0;
-          box-shadow: 0 12px 32px rgba(8, 12, 20, 0.45);
         }
 
         .louis-chat-header-content {
           display: flex;
           align-items: center;
-          gap: 14px;
+          gap: 10px;
         }
 
         .louis-chat-header-logo {
-          width: 40px;
-          height: 40px;
+          width: 32px;
+          height: 32px;
           object-fit: contain;
-          border-radius: 14px;
-          background: rgba(30, 41, 59, 0.65);
-          padding: 6px;
-          box-shadow: 0 12px 28px rgba(8, 12, 20, 0.35);
+          border-radius: 8px;
         }
 
         .louis-chat-header-text {
           display: flex;
           flex-direction: column;
-          gap: 4px;
         }
 
         .louis-chat-header-title {
-          font-size: clamp(1.1rem, 2.8vw, 1.45rem);
-          font-weight: 700;
-          color: #f8fafc;
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: #fff;
           margin: 0;
         }
 
         .louis-chat-header-subtitle {
-          font-size: clamp(0.82rem, 2.2vw, 0.95rem);
-          color: rgba(226, 232, 240, 0.7);
+          font-size: 0.75rem;
+          color: #888;
           margin: 0;
         }
 
         .louis-chat-header-close {
-          background: rgba(51, 65, 85, 0.55);
-          border: 1px solid rgba(148, 163, 184, 0.32);
-          border-radius: 14px;
-          width: 44px;
-          height: 44px;
+          background: transparent;
+          border: 1px solid #333;
+          border-radius: 6px;
+          width: 32px;
+          height: 32px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: all 0.2s ease;
-          color: #e2e8f0;
-          box-shadow: 0 10px 26px rgba(8, 12, 20, 0.35);
+          transition: all 0.15s ease;
+          color: #999;
         }
 
         .louis-chat-header-close:hover {
-          background: rgba(59, 130, 246, 0.25);
-          border-color: rgba(59, 130, 246, 0.45);
-          transform: translateY(-2px);
+          background: #1a1a1a;
+          border-color: #444;
+          color: #fff;
         }
 
         .louis-chat-header-close:active {
-          transform: scale(0.95);
-        }
-
-        @media (max-width: 768px) {
-          .louis-chat-header {
-            padding: 18px;
-          }
-
-          .louis-chat-header-logo {
-            width: 36px;
-            height: 36px;
-          }
+          transform: scale(0.96);
         }
       `}</style>
 
@@ -111,7 +93,9 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ onClose }) => {
           className="louis-chat-header-close"
           aria-label="Close chat"
         >
-          <X size={20} />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
         </button>
       </div>
     </>

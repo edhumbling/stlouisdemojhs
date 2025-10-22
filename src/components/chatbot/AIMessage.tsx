@@ -37,49 +37,43 @@ const AIMessage: React.FC<AIMessageProps> = ({ content, timestamp, sources }) =>
       <style>{`
         .louis-ai-message-container {
           display: flex;
-          justify-content: flex-start;
+          gap: 10px;
           align-items: flex-start;
-          gap: 16px;
         }
 
         .louis-ai-message-avatar {
-          width: 42px;
-          height: 42px;
-          border-radius: 16px;
+          width: 28px;
+          height: 28px;
+          border-radius: 6px;
           object-fit: contain;
-          background: rgba(30, 41, 59, 0.85);
-          padding: 6px;
-          box-shadow: 0 8px 22px rgba(15, 23, 42, 0.35);
+          flex-shrink: 0;
         }
 
         .louis-ai-message {
-          max-width: 100%;
           flex: 1;
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 6px;
         }
 
         .louis-ai-message-bubble {
-          background: linear-gradient(135deg, rgba(30, 41, 59, 0.92), rgba(17, 24, 39, 0.96));
-          color: rgba(226, 232, 240, 0.96);
-          padding: clamp(14px, 3vw, 18px) clamp(18px, 3.5vw, 24px);
-          border-radius: 20px;
-          font-size: 1.02rem;
-          line-height: 1.75;
+          background: #1a1a1a;
+          color: #e5e5e5;
+          padding: 10px 14px;
+          border-radius: 10px;
+          font-size: 0.875rem;
+          line-height: 1.6;
           word-wrap: break-word;
-          border: 1px solid rgba(148, 163, 184, 0.2);
-          box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
-          backdrop-filter: blur(4px);
+          border: 1px solid #2a2a2a;
         }
 
         .louis-ai-message-bubble strong {
-          color: #ffffff;
+          color: #fff;
           font-weight: 600;
         }
 
         .louis-ai-message-bubble em {
-          color: rgba(148, 163, 184, 0.95);
+          color: #999;
           font-style: italic;
         }
 
@@ -87,38 +81,28 @@ const AIMessage: React.FC<AIMessageProps> = ({ content, timestamp, sources }) =>
           display: flex;
           flex-wrap: wrap;
           align-items: center;
-          gap: 10px;
-          padding: 12px 16px;
-          background: rgba(37, 99, 235, 0.12);
-          border-radius: 14px;
-          border: 1px solid rgba(59, 130, 246, 0.22);
-          backdrop-filter: blur(6px);
+          gap: 8px;
+          padding: 6px 10px;
+          background: rgba(59, 130, 246, 0.08);
+          border-radius: 6px;
+          border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .louis-ai-sources-title {
-          color: rgba(191, 219, 254, 0.9);
+          color: #999;
           font-weight: 600;
-          font-size: 0.78rem;
+          font-size: 0.7rem;
           text-transform: uppercase;
-          letter-spacing: 0.6px;
-          margin-right: 6px;
+          letter-spacing: 0.5px;
         }
 
         .louis-ai-source-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
           color: #60a5fa;
           text-decoration: underline;
-          text-underline-offset: 3px;
-          font-size: 0.88rem;
-          font-weight: 600;
-          transition: color 0.2s ease;
-        }
-
-        .louis-ai-source-link::before {
-          content: '↗';
+          text-underline-offset: 2px;
           font-size: 0.75rem;
+          font-weight: 500;
+          transition: color 0.15s ease;
         }
 
         .louis-ai-source-link:hover {
@@ -126,31 +110,9 @@ const AIMessage: React.FC<AIMessageProps> = ({ content, timestamp, sources }) =>
         }
 
         .louis-ai-message-time {
-          font-size: 0.78rem;
-          color: rgba(148, 163, 184, 0.6);
-          margin-top: 2px;
-          padding-left: 6px;
-        }
-
-        @media (max-width: 768px) {
-          .louis-ai-message-container {
-            gap: 12px;
-          }
-
-          .louis-ai-message-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 12px;
-          }
-
-          .louis-ai-message-bubble {
-            font-size: 0.95rem;
-            line-height: 1.65;
-          }
-
-          .louis-ai-source-link {
-            font-size: 0.8rem;
-          }
+          font-size: 0.7rem;
+          color: #666;
+          padding-left: 2px;
         }
       `}</style>
 

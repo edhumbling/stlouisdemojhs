@@ -46,71 +46,37 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
   return (
     <>
       <style>{`
-        @keyframes louisOverlayFade {
+        @keyframes overlayFade {
           from { opacity: 0; }
           to { opacity: 1; }
         }
 
-        @keyframes louisPanelPop {
-          from {
-            opacity: 0;
-            transform: translateY(24px) scale(0.98);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
         .louis-chat-overlay {
-          position: fixed;
-          inset: 0;
-          width: 100vw;
-          height: 100vh;
-          z-index: 100000;
-          background: linear-gradient(135deg, rgba(12, 18, 28, 0.95), rgba(8, 12, 20, 0.92));
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
-          animation: louisOverlayFade 0.25s ease-out;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: clamp(12px, 3vw, 32px);
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          z-index: 2147483646 !important;
+          background: rgba(0, 0, 0, 0.75) !important;
+          backdrop-filter: blur(8px) !important;
+          -webkit-backdrop-filter: blur(8px) !important;
+          animation: overlayFade 0.2s ease-out !important;
+          overflow: hidden !important;
         }
 
         .louis-chat-panel {
-          position: relative;
-          width: min(960px, 100%);
-          height: min(92vh, 860px);
-          background: rgba(8, 12, 20, 0.92);
-          border: 1px solid rgba(148, 163, 184, 0.15);
-          border-radius: clamp(0px, 2vw, 28px);
-          box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-          animation: louisPanelPop 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        @media (max-width: 1024px) {
-          .louis-chat-panel {
-            width: 95vw;
-            height: 90vh;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .louis-chat-overlay {
-            padding: 0;
-          }
-
-          .louis-chat-panel {
-            width: 100vw;
-            height: 100vh;
-            border-radius: 0;
-            border-left: none;
-            border-right: none;
-          }
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          background: #0a0a0a !important;
+          display: flex !important;
+          flex-direction: column !important;
+          overflow: hidden !important;
         }
       `}</style>
 

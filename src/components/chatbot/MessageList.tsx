@@ -20,137 +20,117 @@ const MessageList: React.FC<MessageListProps> = ({ messages, isLoading }) => {
         .louis-message-list {
           flex: 1;
           overflow-y: auto;
-          padding: clamp(16px, 3vw, 32px);
-          background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.08), transparent 45%),
-                      radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.08), transparent 42%),
-                      rgba(10, 14, 22, 0.92);
+          padding: 12px;
+          background: #0a0a0a;
         }
 
         .louis-message-list::-webkit-scrollbar {
-          width: 10px;
+          width: 6px;
         }
 
         .louis-message-list::-webkit-scrollbar-track {
-          background: rgba(15, 23, 42, 0.35);
+          background: #1a1a1a;
         }
 
         .louis-message-list::-webkit-scrollbar-thumb {
-          background: linear-gradient(135deg, rgba(59, 130, 246, 0.65), rgba(37, 99, 235, 0.85));
-          border-radius: 999px;
+          background: #333;
+          border-radius: 3px;
         }
 
         .louis-message-list::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(135deg, rgba(59, 130, 246, 0.85), rgba(29, 78, 216, 0.95));
+          background: #444;
         }
 
         .louis-message-stream {
-          width: 100%;
-          max-width: 820px;
+          max-width: 740px;
           margin: 0 auto;
           display: flex;
           flex-direction: column;
-          gap: clamp(12px, 2vw, 20px);
+          gap: 12px;
         }
 
         .louis-welcome-message {
           text-align: center;
-          padding: clamp(32px, 6vw, 56px);
-          color: rgba(226, 232, 240, 0.85);
-          background: linear-gradient(145deg, rgba(37, 99, 235, 0.12), rgba(13, 148, 136, 0.1));
-          border-radius: 24px;
-          border: 1px solid rgba(148, 163, 184, 0.18);
-          box-shadow: 0 18px 48px rgba(15, 23, 42, 0.35);
+          padding: 24px 16px;
+          color: #aaa;
         }
 
         .louis-welcome-title {
-          font-size: clamp(1.4rem, 3vw, 1.8rem);
-          font-weight: 700;
-          color: #ffffff;
-          margin-bottom: 16px;
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: #fff;
+          margin-bottom: 8px;
         }
 
         .louis-welcome-text {
-          font-size: clamp(0.95rem, 2.2vw, 1.05rem);
-          line-height: 1.7;
-          margin-bottom: 28px;
+          font-size: 0.85rem;
+          line-height: 1.5;
+          margin-bottom: 16px;
         }
 
         .louis-welcome-suggestions {
           display: grid;
-          gap: 12px;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 8px;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         }
 
         .louis-welcome-suggestion {
-          background: rgba(15, 23, 42, 0.55);
-          border: 1px solid rgba(148, 163, 184, 0.2);
-          border-radius: 16px;
-          padding: 16px 18px;
+          background: #1a1a1a;
+          border: 1px solid #2a2a2a;
+          border-radius: 8px;
+          padding: 10px 12px;
           text-align: left;
-          color: rgba(226, 232, 240, 0.92);
-          font-size: 0.95rem;
-          transition: all 0.2s ease;
+          color: #ccc;
+          font-size: 0.8rem;
+          transition: all 0.15s ease;
         }
 
         .louis-welcome-suggestion:hover {
-          background: rgba(30, 41, 59, 0.75);
-          border-color: rgba(59, 130, 246, 0.4);
-          transform: translateY(-2px);
+          background: #222;
+          border-color: #3b82f6;
         }
 
         .louis-loading-indicator {
           display: flex;
           align-items: center;
-          gap: 14px;
-          padding: 14px 18px;
-          margin: 12px auto 0;
-          background: rgba(30, 41, 59, 0.8);
-          border: 1px solid rgba(148, 163, 184, 0.22);
-          border-radius: 14px;
-          max-width: 220px;
-          backdrop-filter: blur(6px);
+          gap: 8px;
+          padding: 8px 12px;
+          background: #1a1a1a;
+          border: 1px solid #2a2a2a;
+          border-radius: 8px;
+          max-width: fit-content;
         }
 
         .louis-loading-avatar {
-          width: 30px;
-          height: 30px;
-          border-radius: 12px;
+          width: 24px;
+          height: 24px;
+          border-radius: 6px;
           object-fit: contain;
         }
 
         .louis-loading-dots {
           display: flex;
-          gap: 6px;
+          gap: 4px;
         }
 
         .louis-loading-dot {
-          width: 8px;
-          height: 8px;
+          width: 6px;
+          height: 6px;
           border-radius: 50%;
-          background: rgba(59, 130, 246, 0.85);
-          animation: louisLoadingDot 1.4s ease-in-out infinite;
+          background: #3b82f6;
+          animation: dotBounce 1.2s ease-in-out infinite;
         }
 
         .louis-loading-dot:nth-child(1) { animation-delay: 0s; }
-        .louis-loading-dot:nth-child(2) { animation-delay: 0.18s; }
-        .louis-loading-dot:nth-child(3) { animation-delay: 0.32s; }
+        .louis-loading-dot:nth-child(2) { animation-delay: 0.15s; }
+        .louis-loading-dot:nth-child(3) { animation-delay: 0.3s; }
 
-        @keyframes louisLoadingDot {
-          0%, 80%, 100% {
-            opacity: 0.28;
-            transform: scale(0.7);
-          }
-          40% {
-            opacity: 1;
-            transform: scale(1);
-          }
+        @keyframes dotBounce {
+          0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+          40% { opacity: 1; transform: scale(1); }
         }
 
         @media (max-width: 768px) {
-          .louis-message-list {
-            padding: 18px 14px 20px;
-          }
-
           .louis-welcome-suggestions {
             grid-template-columns: 1fr;
           }
@@ -163,13 +143,13 @@ const MessageList: React.FC<MessageListProps> = ({ messages, isLoading }) => {
             <div className="louis-welcome-message">
               <h3 className="louis-welcome-title">👋 Welcome to Louis AI!</h3>
               <p className="louis-welcome-text">
-                I’m here to help you explore St. Louis Demonstration JHS. Ask about academics, admissions, programs, facilities, or anything else you’d like to discover!
+                I'm here to help you explore St. Louis Demonstration JHS. Ask about academics, admissions, programs, facilities, or anything else!
               </p>
               <div className="louis-welcome-suggestions">
                 <div className="louis-welcome-suggestion">💡 What makes St. Louis Demo JHS unique?</div>
-                <div className="louis-welcome-suggestion">📚 Show me the subjects offered at the school.</div>
+                <div className="louis-welcome-suggestion">📚 Show me the subjects offered</div>
                 <div className="louis-welcome-suggestion">🎓 How do I apply for admission?</div>
-                <div className="louis-welcome-suggestion">🤖 Tell me about the STEM & robotics programs.</div>
+                <div className="louis-welcome-suggestion">🤖 Tell me about STEM programs</div>
               </div>
             </div>
           ) : (
