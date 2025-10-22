@@ -74,6 +74,14 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
         className="louis-chat-widget"
         aria-label="Open Louis AI Assistant"
         type="button"
+        style={{
+          position: 'fixed',
+          left: '20px',
+          bottom: '20px',
+          zIndex: 999999999,
+          width: '56px',
+          height: '56px',
+        }}
       >
         <img src="/ai bot.png" alt="Louis AI" />
       </button>
