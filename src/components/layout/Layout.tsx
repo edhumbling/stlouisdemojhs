@@ -5,10 +5,6 @@ import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
 import UnifiedBreadcrumb from '../common/Breadcrumb';
 import ScrollProgressIndicator from '../common/ScrollProgressIndicator';
-import { lazy, Suspense } from 'react';
-
-const LouisAIChatbot = lazy(() => import('../chatbot/LouisAIChatbot'));
-
 import { useHeader } from '../../contexts/HeaderContext';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
 import { shouldShowScrollIndicator, getScrollIndicatorColor } from '../../config/readingPages';
@@ -169,11 +165,6 @@ const Layout: React.FC = () => {
 
       {/* Global Scroll Button - Always visible like taskbar time */}
       <ScrollButton />
-
-      {/* Louis AI Chatbot - Global assistant */}
-      <Suspense fallback={null}>
-        <LouisAIChatbot />
-      </Suspense>
     </div>
   );
 };
