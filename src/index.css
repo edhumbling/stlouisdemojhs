@@ -868,3 +868,32 @@ a[href*="worldremit"] {
 .text-primary-600 {
   @apply text-gray-300;
 }
+
+/* Louis AI Chatbot - Global Visibility Enforcement */
+/* Ensure chatbot is always visible above all content */
+.louis-chat-widget,
+.louis-chat-overlay,
+.louis-chat-panel {
+  position: fixed !important;
+  z-index: 999999999 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure chatbot widget is never hidden by any parent container */
+body > div[data-chatbot-portal],
+#root ~ div[data-chatbot-portal] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 999999999 !important;
+}
+
+body > div[data-chatbot-portal] > *,
+#root ~ div[data-chatbot-portal] > * {
+  pointer-events: auto !important;
+}

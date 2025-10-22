@@ -59,12 +59,13 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
           bottom: 0 !important;
           width: 100vw !important;
           height: 100vh !important;
-          z-index: 2147483646 !important;
+          z-index: 999999998 !important;
           background: rgba(0, 0, 0, 0.75) !important;
           backdrop-filter: blur(8px) !important;
           -webkit-backdrop-filter: blur(8px) !important;
           animation: overlayFade 0.2s ease-out !important;
           overflow: hidden !important;
+          isolation: isolate !important;
         }
 
         .louis-chat-panel {

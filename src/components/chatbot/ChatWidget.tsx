@@ -26,7 +26,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
           position: fixed !important;
           left: 20px !important;
           bottom: 20px !important;
-          z-index: 2147483647 !important;
+          z-index: 999999999 !important;
           width: 56px !important;
           height: 56px !important;
           border-radius: 50% !important;
@@ -39,6 +39,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
           animation: floatPulse 2.5s ease-in-out infinite !important;
           pointer-events: auto !important;
           transition: transform 0.2s ease !important;
+          isolation: isolate !important;
         }
 
         .louis-chat-widget:hover {
