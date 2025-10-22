@@ -1,10 +1,11 @@
 import React from 'react';
+import { MessageCircle } from 'lucide-react';
 import { ChatWidgetProps } from '../../types/chatbot';
 
 /**
  * ChatWidget - Hovering button that triggers the Louis AI Chatbot
- * Positioned on the left side of the viewport with St. Louis favicon logo
- * Responsive design: 64px (desktop), 56px (mobile)
+ * Positioned on the left side of the viewport with green message icon
+ * Responsive design: 70px (desktop), 64px (mobile)
  */
 const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
   return (
@@ -13,11 +14,11 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
         @keyframes louisPulse {
           0%, 100% {
             transform: scale(1);
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4), 0 8px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4), 0 8px 40px rgba(0, 0, 0, 0.2);
           }
           50% {
             transform: scale(1.05);
-            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.6), 0 10px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6), 0 10px 50px rgba(0, 0, 0, 0.3);
           }
         }
 
@@ -26,36 +27,44 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
           left: 24px;
           bottom: 24px;
           z-index: 9999;
-          width: 64px;
-          height: 64px;
+          width: 70px;
+          height: 70px;
           border-radius: 50%;
           border: none;
-          background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-          box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4), 0 8px 40px rgba(0, 0, 0, 0.2);
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4), 0 8px 40px rgba(0, 0, 0, 0.2);
           cursor: pointer;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           padding: 0;
-          overflow: hidden;
+          overflow: visible;
           animation: louisPulse 2s ease-in-out infinite;
         }
 
         .louis-chat-widget:hover {
           animation: none;
           transform: scale(1.1);
-          box-shadow: 0 6px 30px rgba(59, 130, 246, 0.5), 0 10px 50px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5), 0 10px 50px rgba(0, 0, 0, 0.3);
         }
 
         .louis-chat-widget:active {
           transform: scale(0.95);
         }
 
-        .louis-chat-widget img {
-          width: 36px;
-          height: 36px;
-          object-fit: contain;
+        .louis-chat-widget-icon {
+          color: #ffffff;
+          margin-bottom: 2px;
+        }
+
+        .louis-chat-widget-label {
+          color: #ffffff;
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
         }
 
         /* Respect reduced motion preference */
@@ -70,13 +79,12 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
           .louis-chat-widget {
             left: 20px;
             bottom: 20px;
-            width: 60px;
-            height: 60px;
+            width: 66px;
+            height: 66px;
           }
 
-          .louis-chat-widget img {
-            width: 34px;
-            height: 34px;
+          .louis-chat-widget-label {
+            font-size: 8.5px;
           }
         }
 
@@ -85,13 +93,12 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
           .louis-chat-widget {
             left: 16px;
             bottom: 16px;
-            width: 56px;
-            height: 56px;
+            width: 64px;
+            height: 64px;
           }
 
-          .louis-chat-widget img {
-            width: 32px;
-            height: 32px;
+          .louis-chat-widget-label {
+            font-size: 8px;
           }
         }
       `}</style>
@@ -101,10 +108,8 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
         aria-label="Open Louis AI Assistant"
         aria-expanded={isOpen}
       >
-        <img
-          src="/favicon-32x32.png"
-          alt="Louis AI"
-        />
+        <MessageCircle size={28} className="louis-chat-widget-icon" strokeWidth={2.5} />
+        <span className="louis-chat-widget-label">Louis AI</span>
       </button>
     </>
   );

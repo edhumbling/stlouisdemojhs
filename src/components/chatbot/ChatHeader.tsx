@@ -14,7 +14,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ onClose }) => {
           align-items: center;
           justify-content: space-between;
           padding: 24px;
-          background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
           flex-shrink: 0;
         }

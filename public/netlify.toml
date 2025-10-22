@@ -1,0 +1,20 @@
+# Netlify configuration file
+
+# Redirect non-www to www
+[[redirects]]
+  from = "http://stlouisdemojhs.com/*"
+  to = "https://www.stlouisdemojhs.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://stlouisdemojhs.com/*"
+  to = "https://www.stlouisdemojhs.com/:splat"
+  status = 301
+  force = true
+
+# SPA fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

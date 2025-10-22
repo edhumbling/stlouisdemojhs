@@ -14,7 +14,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
   messages,
   onSendMessage,
   isLoading,
-  error,
+
 }) => {
   // Prevent body scrolling when panel is open
   useEffect(() => {
@@ -72,11 +72,14 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
           left: 0;
           right: 0;
           bottom: 0;
+          width: 100vw;
+          height: 100vh;
           z-index: 10000;
           background: rgba(0, 0, 0, 0.85);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
           animation: fadeIn 0.3s ease-out;
+          overflow: hidden;
         }
 
         .louis-chat-panel {
@@ -85,12 +88,14 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
           left: 0;
           bottom: 0;
           width: 100%;
+          height: 100vh;
           max-width: 480px;
           background: #1f1f1f;
           box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
           display: flex;
           flex-direction: column;
           animation: slideInLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          overflow: hidden;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -103,6 +108,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
         @media (max-width: 768px) {
           .louis-chat-panel {
             max-width: 100%;
+            width: 100vw;
           }
         }
       `}</style>

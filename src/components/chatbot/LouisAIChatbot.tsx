@@ -114,19 +114,19 @@ const LouisAIChatbot: React.FC = () => {
 
       // Add AI message to chat
       setMessages(prev => [...prev, aiMessage]);
-    } catch (err: any) {
+    } catch (err) {
       console.error('Error generating response:', err);
       
       // Create error message
       const errorMessage: Message = {
         id: `msg-${Date.now()}-assistant`,
         role: 'assistant',
-        content: err.message || 'I encountered an error. Please try again.',
+        content: (err as Error).message || 'I encountered an error. Please try again.',
         timestamp: new Date(),
       };
       
       setMessages(prev => [...prev, errorMessage]);
-      setError(err.message);
+      setError((err as Error).message || 'An error occurred');
     } finally {
       setIsLoading(false);
     }

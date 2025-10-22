@@ -1,0 +1,18 @@
+# Apache .htaccess file for traditional hosting
+
+# Enable RewriteEngine
+RewriteEngine On
+
+# Redirect non-www to www with 301 permanent redirect
+RewriteCond %{HTTP_HOST} ^stlouisdemojhs\.com$ [NC]
+RewriteRule ^(.*)$ https://www.stlouisdemojhs.com/$1 [R=301,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^www\.stlouisdemojhs\.com$ [NC]
+RewriteRule ^(.*)$ https://www.stlouisdemojhs.com/$1 [R=301,L]
+
+# SPA fallback - redirect all requests to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L]
