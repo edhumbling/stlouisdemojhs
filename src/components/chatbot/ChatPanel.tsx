@@ -14,7 +14,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
   messages,
   onSendMessage,
   isLoading,
-
+  onSuggestionClick,
 }) => {
   // Prevent body scrolling when panel is open
   useEffect(() => {
@@ -84,7 +84,11 @@ const ChatPanel: React.FC<ChatPanelProps> = ({
       <div className="louis-chat-overlay" onClick={onClose}>
         <div className="louis-chat-panel" onClick={(e) => e.stopPropagation()}>
           <ChatHeader onClose={onClose} />
-          <MessageList messages={messages} isLoading={isLoading} />
+          <MessageList 
+            messages={messages} 
+            isLoading={isLoading}
+            onSuggestionClick={onSuggestionClick || onSendMessage}
+          />
           <ChatInput onSend={onSendMessage} disabled={isLoading} />
         </div>
       </div>

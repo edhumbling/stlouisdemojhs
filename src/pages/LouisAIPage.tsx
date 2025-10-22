@@ -1,30 +1,30 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { createPortal } from 'react-dom';
-import { Message } from '../../types/chatbot';
-import ChatWidget from './ChatWidget';
-import ChatPanel from './ChatPanel';
-import { ragEngine } from '../../services/ragEngine';
-import { geminiService } from '../../services/geminiService';
-import { chatStorage } from '../../services/chatStorage';
-import { EDUCATIONAL_KEYWORDS } from '../../config/chatbot';
+import { Helmet } from 'react-helmet-async';
+import { Message } from '../types/chatbot';
+import ChatHeader from '../components/chatbot/ChatHeader';
+import MessageList from '../components/chatbot/MessageList';
+import ChatInput from '../components/chatbot/ChatInput';
+import { ragEngine } from '../services/ragEngine';
+import { geminiService } from '../services/geminiService';
+import { chatStorage } from '../services/chatStorage';
+import { EDUCATIONAL_KEYWORDS } from '../config/chatbot';
+import { useNavigate } from 'react-router-dom';
 
 /**
- * LouisAIChatbot - Main chatbot component
- * Coordinates between UI components and services
- * Uses React Portal to render outside the Layout DOM hierarchy
+ * LouisAIPage - Dedicated full-screen page for Louis AI chatbot
+ * Provides an immersive chat experience without the widget interface
  */
-const LouisAIChatbot: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const LouisAIPage: React.FC = () => {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   // Initialize RAG engine on mount
   useEffect(() => {
     const initializeRAG = async () => {
       try {
         await ragEngine.initialize();
-        console.log('Louis AI Chatbot initialized');
+        console.log('Louis AI Page initialized');
       } catch (err) {
         console.error('Failed to initialize chatbot:', err);
       }
@@ -74,7 +74,6 @@ const LouisAIChatbot: React.FC = () => {
     // Add user message to chat
     setMessages(prev => [...prev, userMessage]);
     setIsLoading(true);
-    setError(null);
 
     try {
       // Check if query is educational
@@ -137,42 +136,51 @@ const LouisAIChatbot: React.FC = () => {
       };
       
       setMessages(prev => [...prev, errorMessage]);
-      setError((err as Error).message || 'An error occurred');
     } finally {
       setIsLoading(false);
     }
   }, [isLoading, messages]);
 
   /**
-   * Toggle chatbot open/closed
+   * Handle closing the page (navigate back)
    */
-  const toggleChat = () => {
-    setIsOpen(prev => !prev);
+  const handleClose = () => {
+    navigate(-1);
   };
 
-  /**
-   * Close chatbot
-   */
-  const closeChat = () => {
-    setIsOpen(false);
-  };
-
-  // Render chatbot using portal to escape Layout DOM hierarchy
-  return createPortal(
+  return (
     <>
-      <ChatWidget onClick={toggleChat} isOpen={isOpen} />
-      <ChatPanel
-        isOpen={isOpen}
-        onClose={closeChat}
-        messages={messages}
-        onSendMessage={handleSendMessage}
-        isLoading={isLoading}
-        error={error}
-        onSuggestionClick={handleSendMessage}
-      />
-    </>,
-    document.body
+      <Helmet>
+        <title>Louis AI - Your Educational Assistant | St. Louis Demo JHS</title>
+        <meta name="description" content="Chat with Louis AI, your intelligent educational assistant for St. Louis Demonstration JHS. Get instant answers about academics, admissions, programs, and more." />
+      </Helmet>
+
+      <style>{`
+        .louis-ai-page {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: #0a0a0a;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          z-index: 9999;
+        }
+      `}</style>
+
+      <div className="louis-ai-page">
+        <ChatHeader onClose={handleClose} />
+        <MessageList 
+          messages={messages} 
+          isLoading={isLoading}
+          onSuggestionClick={handleSendMessage}
+        />
+        <ChatInput onSend={handleSendMessage} disabled={isLoading} />
+      </div>
+    </>
   );
 };
 
-export default LouisAIChatbot;
+export default LouisAIPage;

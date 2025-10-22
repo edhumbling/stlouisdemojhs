@@ -6,8 +6,25 @@ import AIMessage from './AIMessage';
 /**
  * MessageList - Scrollable container displaying conversation history
  */
-const MessageList: React.FC<MessageListProps> = ({ messages, isLoading }) => {
+const MessageList: React.FC<MessageListProps> = ({ messages, isLoading, onSuggestionClick }) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Pre-defined suggestion queries
+  const suggestions = [
+    '💡 What makes St. Louis Demo JHS unique?',
+    '📚 Show me the subjects offered',
+    '🎓 How do I apply for admission?',
+    '🤖 Tell me about STEM programs',
+  ];
+
+  // Handle suggestion click
+  const handleSuggestionClick = (suggestion: string) => {
+    // Remove emoji and send the query
+    const query = suggestion.replace(/^[^\s]+\s/, '');
+    if (onSuggestionClick) {
+      onSuggestionClick(query);
+    }
+  };
 
   // Auto-scroll to latest message
   useEffect(() => {
@@ -83,11 +100,18 @@ const MessageList: React.FC<MessageListProps> = ({ messages, isLoading }) => {
           color: #ccc;
           font-size: 0.8rem;
           transition: all 0.15s ease;
+          cursor: pointer;
+          user-select: none;
         }
 
         .louis-welcome-suggestion:hover {
           background: #222;
           border-color: #3b82f6;
+          transform: translateY(-1px);
+        }
+
+        .louis-welcome-suggestion:active {
+          transform: translateY(0);
         }
 
         .louis-loading-indicator {
@@ -146,10 +170,15 @@ const MessageList: React.FC<MessageListProps> = ({ messages, isLoading }) => {
                 I'm here to help you explore St. Louis Demonstration JHS. Ask about academics, admissions, programs, facilities, or anything else!
               </p>
               <div className="louis-welcome-suggestions">
-                <div className="louis-welcome-suggestion">💡 What makes St. Louis Demo JHS unique?</div>
-                <div className="louis-welcome-suggestion">📚 Show me the subjects offered</div>
-                <div className="louis-welcome-suggestion">🎓 How do I apply for admission?</div>
-                <div className="louis-welcome-suggestion">🤖 Tell me about STEM programs</div>
+                {suggestions.map((suggestion, index) => (
+                  <div
+                    key={index}
+                    className="louis-welcome-suggestion"
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
+                    {suggestion}
+                  </div>
+                ))}
               </div>
             </div>
           ) : (

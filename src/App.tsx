@@ -19,6 +19,7 @@ import DonateOneDollarPage from './pages/DonateOneDollarPage';
 import NewsPage from './pages/NewsPage';
 import CalendarPage from './pages/CalendarPage';
 import AISearchPage from './pages/AISearchPage';
+import LouisAIPage from './pages/LouisAIPage';
 import STEMPage from './pages/STEMPage';
 import RoboticsPage from './pages/RoboticsPage';
 import SpaceExplorationPage from './pages/SpaceExplorationPage';
@@ -166,6 +167,7 @@ const App: React.FC = () => {
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
           <Route path="ai" element={<AILearningPage />} />
+          <Route path="louis-ai" element={<LouisAIPage />} />
           <Route path="advice-speeches" element={<AdviceSpeechesPage />} />
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="apply-now" element={<ApplyNowPage />} />

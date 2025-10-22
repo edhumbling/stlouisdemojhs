@@ -58,6 +58,7 @@ export interface ChatPanelProps {
   onSendMessage: (message: string) => Promise<void>;
   isLoading: boolean;
   error: string | null;
+  onSuggestionClick?: (query: string) => void;
 }
 
 export interface ChatHeaderProps {
@@ -67,6 +68,7 @@ export interface ChatHeaderProps {
 export interface MessageListProps {
   messages: Message[];
   isLoading: boolean;
+  onSuggestionClick?: (query: string) => void;
 }
 
 export interface UserMessageProps {
