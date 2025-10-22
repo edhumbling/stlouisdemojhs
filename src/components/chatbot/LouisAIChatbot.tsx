@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { Message } from '../../types/chatbot';
 import ChatWidget from './ChatWidget';
 import ChatPanel from './ChatPanel';
@@ -10,6 +11,7 @@ import { EDUCATIONAL_KEYWORDS } from '../../config/chatbot';
 /**
  * LouisAIChatbot - Main chatbot component
  * Coordinates between UI components and services
+ * Uses React Portal to render outside the Layout DOM hierarchy
  */
 const LouisAIChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -146,7 +148,8 @@ const LouisAIChatbot: React.FC = () => {
     setIsOpen(false);
   };
 
-  return (
+  // Render chatbot using portal to escape Layout DOM hierarchy
+  return createPortal(
     <>
       <ChatWidget onClick={toggleChat} isOpen={isOpen} />
       <ChatPanel
@@ -157,7 +160,8 @@ const LouisAIChatbot: React.FC = () => {
         isLoading={isLoading}
         error={error}
       />
-    </>
+    </>,
+    document.body
   );
 };
 

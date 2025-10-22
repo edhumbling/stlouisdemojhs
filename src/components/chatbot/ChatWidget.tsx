@@ -23,10 +23,10 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
         }
 
         .louis-chat-widget {
-          position: fixed;
-          left: 24px;
-          bottom: 24px;
-          z-index: 9999;
+          position: fixed !important;
+          left: 24px !important;
+          bottom: 24px !important;
+          z-index: 999999 !important;
           width: 70px;
           height: 70px;
           border-radius: 50%;
@@ -42,6 +42,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
           padding: 0;
           overflow: visible;
           animation: louisPulse 2s ease-in-out infinite;
+          pointer-events: auto;
         }
 
         .louis-chat-widget:hover {
@@ -77,8 +78,8 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
         /* Tablet styles */
         @media (max-width: 1024px) {
           .louis-chat-widget {
-            left: 20px;
-            bottom: 20px;
+            left: 20px !important;
+            bottom: 20px !important;
             width: 66px;
             height: 66px;
           }
@@ -91,8 +92,8 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ onClick, isOpen }) => {
         /* Mobile styles */
         @media (max-width: 768px) {
           .louis-chat-widget {
-            left: 16px;
-            bottom: 16px;
+            left: 16px !important;
+            bottom: 16px !important;
             width: 64px;
             height: 64px;
           }
