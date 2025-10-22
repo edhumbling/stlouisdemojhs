@@ -157,26 +157,6 @@ const LouisAIChatbot: React.FC = () => {
     setIsOpen(false);
   };
 
-  // Create a portal container with proper attributes for global visibility
-  const portalContainer = React.useMemo(() => {
-    let container = document.querySelector('[data-chatbot-portal]') as HTMLElement;
-    if (!container) {
-      container = document.createElement('div');
-      container.setAttribute('data-chatbot-portal', 'true');
-      container.style.cssText = `
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        pointer-events: none !important;
-        z-index: 999999999 !important;
-      `;
-      document.body.appendChild(container);
-    }
-    return container;
-  }, []);
-
   // Render chatbot using portal to escape Layout DOM hierarchy
   return createPortal(
     <>
@@ -190,7 +170,7 @@ const LouisAIChatbot: React.FC = () => {
         error={error}
       />
     </>,
-    portalContainer
+    document.body
   );
 };
 

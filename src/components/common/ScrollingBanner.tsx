@@ -14,7 +14,7 @@ const ScrollingBanner: React.FC<ScrollingBannerProps> = ({ text, className = '' 
         <motion.div
           className="inline-block"
           animate={{
-            x: [0, -100 + '%'],
+            x: ['0%', '-100%'],
           }}
           transition={{
             x: {
