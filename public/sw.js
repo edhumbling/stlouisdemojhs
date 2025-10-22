@@ -1,4 +1,4 @@
-const CACHE_NAME = 'st-louis-demo-jhs-v7';
+const CACHE_NAME = 'st-louis-demo-jhs-v8-chatbot-fix';
 const urlsToCache = [
   '/',
   '/manifest.json',
@@ -49,19 +49,45 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Fetch event
+// Fetch event - Network first for JS/CSS, cache first for images
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        if (response) {
+  const url = new URL(event.request.url);
+  
+  // Network-first strategy for JS, CSS, and HTML files
+  if (url.pathname.endsWith('.js') || url.pathname.endsWith('.css') || url.pathname.endsWith('.html') || url.pathname === '/') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          // Clone the response before caching
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
           return response;
-        }
-        return fetch(event.request);
-      }
-    )
-  );
+        })
+        .catch(() => {
+          // Fallback to cache if network fails
+          return caches.match(event.request);
+        })
+    );
+  } else {
+    // Cache-first strategy for images and other assets
+    event.respondWith(
+      caches.match(event.request)
+        .then((response) => {
+          if (response) {
+            return response;
+          }
+          return fetch(event.request).then((response) => {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+            return response;
+          });
+        })
+    );
+  }
 });
 
 // Activate event - Fast activation
