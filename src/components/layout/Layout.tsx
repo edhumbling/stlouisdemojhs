@@ -5,6 +5,7 @@ import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
 import UnifiedBreadcrumb from '../common/Breadcrumb';
 import ScrollProgressIndicator from '../common/ScrollProgressIndicator';
+import LouisAIChatbot from '../chatbot/LouisAIChatbot';
 
 import { useHeader } from '../../contexts/HeaderContext';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
@@ -166,6 +167,9 @@ const Layout: React.FC = () => {
 
       {/* Global Scroll Button - Always visible like taskbar time */}
       <ScrollButton />
+
+      {/* Louis AI Chatbot - Global assistant */}
+      <LouisAIChatbot />
     </div>
   );
 };
