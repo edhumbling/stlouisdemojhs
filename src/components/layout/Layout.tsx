@@ -5,7 +5,9 @@ import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
 import UnifiedBreadcrumb from '../common/Breadcrumb';
 import ScrollProgressIndicator from '../common/ScrollProgressIndicator';
-import LouisAIChatbot from '../chatbot/LouisAIChatbot';
+import { lazy, Suspense } from 'react';
+
+const LouisAIChatbot = lazy(() => import('../chatbot/LouisAIChatbot'));
 
 import { useHeader } from '../../contexts/HeaderContext';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
@@ -169,7 +171,9 @@ const Layout: React.FC = () => {
       <ScrollButton />
 
       {/* Louis AI Chatbot - Global assistant */}
-      <LouisAIChatbot />
+      <Suspense fallback={null}>
+        <LouisAIChatbot />
+      </Suspense>
     </div>
   );
 };
