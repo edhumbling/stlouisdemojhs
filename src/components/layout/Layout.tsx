@@ -134,8 +134,9 @@ const Layout: React.FC = () => {
   const showScrollIndicator = shouldShowScrollIndicator(location.pathname);
   const scrollIndicatorColor = getScrollIndicatorColor(location.pathname);
 
-
-
+  // Pages that should not show the scroll button
+  const noScrollButtonPages = ['/louis-ai'];
+  const shouldShowScrollButton = !noScrollButtonPages.includes(location.pathname);
 
 
   return (
@@ -165,7 +166,7 @@ const Layout: React.FC = () => {
       {shouldShowFooter && <Footer />}
 
       {/* Global Scroll Button - Always visible like taskbar time */}
-      <ScrollButton />
+      {shouldShowScrollButton && <ScrollButton />}
     </div>
   );
 };

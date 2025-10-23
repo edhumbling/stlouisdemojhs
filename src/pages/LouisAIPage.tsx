@@ -1,6 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Mic } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import SEOHead from '../components/seo/SEOHead';
 import geminiService from '../services/geminiService';
 import ragEngine from '../services/ragEngine';
@@ -175,31 +180,71 @@ const LouisAIPage: React.FC = () => {
                         </div>
                       </div>
                     ) : (
-                      /* Assistant Message - Grok Style */
+                      /* Assistant Message - Grok Style with Markdown */
                       <div className="flex gap-2 sm:gap-3 mb-3 sm:mb-4">
                         <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-1">
                           <img src="/applogo.png" alt="Louis" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="text-white/90 text-sm sm:text-[15px] leading-relaxed mb-2 sm:mb-3">
-                            {message.content}
+                          <div className="text-white/90 text-sm sm:text-[15px] leading-relaxed mb-2 sm:mb-3 prose prose-invert prose-sm sm:prose-base max-w-none">
+                            <ReactMarkdown
+                              remarkPlugins={[remarkGfm, remarkMath]}
+                              rehypePlugins={[rehypeKatex]}
+                              components={{
+                                p: ({ children }) => <p className="mb-3 leading-7">{children}</p>,
+                                ul: ({ children }) => <ul className="mb-3 ml-4 list-disc space-y-1">{children}</ul>,
+                                ol: ({ children }) => <ol className="mb-3 ml-4 list-decimal space-y-1">{children}</ol>,
+                                li: ({ children }) => <li className="leading-6">{children}</li>,
+                                strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
+                                em: ({ children }) => <em className="italic text-white/95">{children}</em>,
+                                code: ({ children }) => <code className="bg-[#2a2a2a] px-1.5 py-0.5 rounded text-yellow-300 text-sm">{children}</code>,
+                                pre: ({ children }) => <pre className="bg-[#2a2a2a] p-3 rounded-lg overflow-x-auto mb-3 text-sm">{children}</pre>,
+                                h1: ({ children }) => <h1 className="text-lg sm:text-xl font-bold mb-2 text-white">{children}</h1>,
+                                h2: ({ children }) => <h2 className="text-base sm:text-lg font-bold mb-2 text-white">{children}</h2>,
+                                h3: ({ children }) => <h3 className="text-sm sm:text-base font-semibold mb-2 text-white">{children}</h3>,
+                                a: ({ href, children }) => (
+                                  <a
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-400 hover:text-yellow-300 underline transition-colors"
+                                  >
+                                    {children}
+                                  </a>
+                                ),
+                                blockquote: ({ children }) => (
+                                  <blockquote className="border-l-4 border-blue-500 pl-4 italic text-white/80 mb-3">
+                                    {children}
+                                  </blockquote>
+                                ),
+                              }}
+                            >
+                              {message.content}
+                            </ReactMarkdown>
                           </div>
 
-                          {/* Sources - Grok Style */}
+                          {/* Sources - Blue/Yellow Hyperlinks */}
                           {message.sources && message.sources.length > 0 && (
-                            <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 sm:mt-3">
-                              {message.sources.map((source, idx) => (
-                                <a
-                                  key={idx}
-                                  href={source.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#2a2a2a] hover:bg-[#333333] text-white/80 hover:text-white rounded-full text-[10px] sm:text-xs transition-colors duration-150 border border-[#3a3a3a]"
-                                >
-                                  <span className="text-xs sm:text-sm">📚</span>
-                                  <span className="truncate max-w-[120px] sm:max-w-none">{source.displayName}</span>
-                                </a>
-                              ))}
+                            <div className="mt-3 pt-3 border-t border-[#2a2a2a]">
+                              <div className="flex items-center gap-2 mb-2">
+                                <span className="text-xs text-white/50 uppercase tracking-wide font-semibold">Sources:</span>
+                              </div>
+                              <div className="flex flex-wrap gap-2">
+                                {message.sources.map((source, idx) => (
+                                  <a
+                                    key={idx}
+                                    href={source.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1.5 text-blue-400 hover:text-yellow-300 transition-colors duration-200 text-xs sm:text-sm underline decoration-blue-400/50 hover:decoration-yellow-300"
+                                  >
+                                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                    <span className="truncate max-w-[150px] sm:max-w-[200px]">{source.displayName}</span>
+                                  </a>
+                                ))}
+                              </div>
                             </div>
                           )}
                         </div>
