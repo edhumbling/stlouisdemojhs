@@ -207,16 +207,16 @@ const LouisAIPage: React.FC = () => {
 
       {/* Messages Container */}
       <div className="flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
+        <div className="max-w-3xl mx-auto px-3 sm:px-4 py-1">
           {messages.length === 0 ? (
             /* Welcome Screen - Grok Style */
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-center py-4 sm:py-6"
+              className="text-center py-0"
             >
               {/* Logo */}
-              <div className="flex justify-center items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <div className="flex justify-center items-center gap-2 sm:gap-3 mb-1">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center">
                   <img src="/applogo.png" alt="Louis Ai" className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
                 </div>
@@ -224,7 +224,7 @@ const LouisAIPage: React.FC = () => {
               </div>
 
               {/* Greeting */}
-              <p className="text-base sm:text-lg text-white/70 mb-4 sm:mb-6">{getGreeting()}. How can I help you today?</p>
+              <p className="text-base sm:text-lg text-white/70 mb-2">{getGreeting()}. How can I help you today?</p>
 
 
               {/* Suggested Prompts */}
