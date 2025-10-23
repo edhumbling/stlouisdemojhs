@@ -101,11 +101,107 @@ const LouisAIPage: React.FC = () => {
   const suggestedPrompts = getDailyPrompts();
 
   const handlePromptClick = async (prompt: string) => {
+    // Set the input and immediately submit
     setInput(prompt);
-    // Directly submitting, creating a synthetic event
-    const fakeEvent = { preventDefault: () => {} } as React.FormEvent;
-    // We need to ensure the state update is processed before submitting
-    await handleSubmit(fakeEvent);
+    
+    // Create a user message immediately
+    const userMessage: Message = {
+      id: `user-${Date.now()}`,
+      role: 'user',
+      content: prompt,
+      timestamp: new Date(),
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      // Use RAG to find relevant content
+      const ragResult = await ragEngine.search(prompt);
+
+      // Get conversation history for context
+      const conversationHistory = messages.slice(-6).map(msg => ({
+        role: msg.role === 'user' ? 'user' as const : 'model' as const,
+        parts: [{ text: msg.content }],
+      }));
+
+      // Generate response using Gemini
+      const response = await geminiService.generateResponse(
+        prompt,
+        ragResult.context,
+        conversationHistory,
+        ragResult.sources
+      );
+
+      // Extract sources for citation - only show if there are relevant sources
+      const sources = getUniqueSources(
+        ragResult.chunks.map(chunk => ({
+          title: chunk.title,
+          source: chunk.source,
+          category: chunk.category,
+        }))
+      );
+
+      // Only include sources if:
+      // 1. There are sources available
+      // 2. The query seems to be asking for factual information (not casual conversation)
+      // 3. The response contains specific information that would benefit from citations
+      const shouldShowSources = sources.length > 0 && (
+        prompt.toLowerCase().includes('what') ||
+        prompt.toLowerCase().includes('how') ||
+        prompt.toLowerCase().includes('when') ||
+        prompt.toLowerCase().includes('where') ||
+        prompt.toLowerCase().includes('who') ||
+        prompt.toLowerCase().includes('tell me') ||
+        prompt.toLowerCase().includes('about') ||
+        prompt.toLowerCase().includes('information') ||
+        prompt.toLowerCase().includes('details') ||
+        prompt.toLowerCase().includes('requirements') ||
+        prompt.toLowerCase().includes('contact') ||
+        prompt.toLowerCase().includes('admission') ||
+        prompt.toLowerCase().includes('programs') ||
+        prompt.toLowerCase().includes('facilities') ||
+        prompt.toLowerCase().includes('history')
+      );
+
+      const assistantMessage: Message = {
+        id: `assistant-${Date.now()}`,
+        role: 'assistant',
+        content: response,
+        timestamp: new Date(),
+        sources: shouldShowSources ? sources : undefined,
+      };
+
+      setMessages(prev => [...prev, assistantMessage]);
+    } catch (err) {
+      console.error('Error generating response:', err);
+
+      let errorMessageContent = 'I apologize, but I encountered an error processing your request. Please try again.';
+      let isRetryable = false;
+      if (err instanceof Error) {
+        if (err.message === 'SERVICE_UNAVAILABLE') {
+          errorMessageContent = 'The AI is currently experiencing high traffic. Please try your request again in a few moments.';
+          isRetryable = true;
+        } else {
+          setError(err.message); // Set specific error for debugging if needed
+        }
+      } else {
+        setError('An unknown error occurred. Please try again.');
+      }
+      
+      const errorMessage: Message = {
+        id: `error-${Date.now()}`,
+        role: 'assistant',
+        content: errorMessageContent,
+        timestamp: new Date(),
+        isRetryable,
+        originalQuery: isRetryable ? prompt : undefined,
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -442,10 +538,18 @@ const LouisAIPage: React.FC = () => {
                   <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                     <img src="/applogo.png" alt="Louis Ai" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                   </div>
-                  <div className="flex gap-1 sm:gap-1.5 items-center mt-1.5 sm:mt-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex gap-1 sm:gap-1.5 items-center mb-2">
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                    </div>
+                    {/* Shimmering Thinking text */}
+                    <div className="text-xs sm:text-sm text-white/60 animate-pulse">
+                      <span className="inline-block bg-gradient-to-r from-white/20 via-white/40 to-white/20 bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
+                        Thinking...
+                      </span>
+                    </div>
                   </div>
                 </motion.div>
               )}
