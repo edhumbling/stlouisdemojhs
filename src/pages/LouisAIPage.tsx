@@ -355,11 +355,8 @@ const LouisAIPage: React.FC = () => {
       <div className="sticky top-0 z-30 bg-[#1a1a1a] border-b border-[#2a2a2a]">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            {/* Left side - Logo and New Chat button */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center">
-                <img src="/applogo.png" alt="Louis Ai" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
-              </div>
+            {/* Left side - New Chat button (far left on desktop) */}
+            <div className="flex items-center">
               <button
                 onClick={startNewConversation}
                 className="flex items-center gap-2 px-3 py-2 bg-[#2a2a2a] hover:bg-[#333333] text-white/80 rounded-lg border border-[#3a3a3a] transition-colors duration-200 text-sm"
@@ -370,8 +367,11 @@ const LouisAIPage: React.FC = () => {
               </button>
             </div>
 
-            {/* Center - Title */}
-            <div className="flex-1 text-center">
+            {/* Center - Logo and Title */}
+            <div className="flex items-center gap-3 flex-1 justify-center">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center">
+                <img src="/applogo.png" alt="Louis Ai" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+              </div>
               <h1 className="text-lg sm:text-xl font-bold text-white">Louis AI</h1>
             </div>
 
@@ -544,10 +544,10 @@ const LouisAIPage: React.FC = () => {
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                     </div>
-                    {/* Shimmering Thinking text */}
-                    <div className="text-xs sm:text-sm text-white/60 animate-pulse">
-                      <span className="inline-block bg-gradient-to-r from-white/20 via-white/40 to-white/20 bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
-                        Thinking...
+                    {/* Shimmering Thinking text with three dots */}
+                    <div className="text-xs sm:text-sm text-white/60">
+                      <span className="inline-block bg-gradient-to-r from-transparent via-silver-400/60 to-transparent bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
+                        Thinking<span className="animate-pulse">...</span>
                       </span>
                     </div>
                   </div>

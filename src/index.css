@@ -4,6 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Shimmer animation for thinking text */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, rgba(192, 192, 192, 0.6), transparent);
+  background-size: 200% 100%;
+}
+
 /* Facebook Section Static Gallery Strips */
 .gallery-strip {
   position: absolute;
