@@ -137,7 +137,7 @@ const LouisAIPage: React.FC = () => {
         ragResult.sources
       );
 
-      // Extract sources for citation
+      // Extract sources for citation - only show if there are relevant sources
       const sources = getUniqueSources(
         ragResult.chunks.map(chunk => ({
           title: chunk.title,
@@ -146,12 +146,34 @@ const LouisAIPage: React.FC = () => {
         }))
       );
 
+      // Only include sources if:
+      // 1. There are sources available
+      // 2. The query seems to be asking for factual information (not casual conversation)
+      // 3. The response contains specific information that would benefit from citations
+      const shouldShowSources = sources.length > 0 && (
+        userMessage.content.toLowerCase().includes('what') ||
+        userMessage.content.toLowerCase().includes('how') ||
+        userMessage.content.toLowerCase().includes('when') ||
+        userMessage.content.toLowerCase().includes('where') ||
+        userMessage.content.toLowerCase().includes('who') ||
+        userMessage.content.toLowerCase().includes('tell me') ||
+        userMessage.content.toLowerCase().includes('about') ||
+        userMessage.content.toLowerCase().includes('information') ||
+        userMessage.content.toLowerCase().includes('details') ||
+        userMessage.content.toLowerCase().includes('requirements') ||
+        userMessage.content.toLowerCase().includes('contact') ||
+        userMessage.content.toLowerCase().includes('admission') ||
+        userMessage.content.toLowerCase().includes('programs') ||
+        userMessage.content.toLowerCase().includes('facilities') ||
+        userMessage.content.toLowerCase().includes('history')
+      );
+
       const assistantMessage: Message = {
         id: `assistant-${Date.now()}`,
         role: 'assistant',
         content: response,
         timestamp: new Date(),
-        sources: sources.length > 0 ? sources : undefined,
+        sources: shouldShowSources ? sources : undefined,
       };
 
       setMessages(prev => [...prev, assistantMessage]);
