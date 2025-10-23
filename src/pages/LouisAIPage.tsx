@@ -213,10 +213,10 @@ const LouisAIPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-center py-12 sm:py-20"
+              className="text-center py-4 sm:py-6"
             >
               {/* Logo */}
-              <div className="flex justify-center items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="flex justify-center items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center">
                   <img src="/applogo.png" alt="Louis Ai" className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
                 </div>
@@ -224,7 +224,7 @@ const LouisAIPage: React.FC = () => {
               </div>
 
               {/* Greeting */}
-              <p className="text-base sm:text-lg text-white/70 mb-8 sm:mb-12">{getGreeting()}. How can I help you today?</p>
+              <p className="text-base sm:text-lg text-white/70 mb-4 sm:mb-6">{getGreeting()}. How can I help you today?</p>
 
 
               {/* Suggested Prompts */}
