@@ -37,6 +37,28 @@ const LouisAIPage: React.FC = () => {
     inputRef.current?.focus();
   }, []);
 
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good morning";
+    if (hour < 18) return "Good afternoon";
+    return "Good evening";
+  };
+
+  const suggestedPrompts = [
+    "What are the admission requirements?",
+    "Tell me about St. Louis JHS's history.",
+    "What STEM programs are available?",
+    "How can I contact the school?",
+  ];
+
+  const handlePromptClick = (prompt: string) => {
+    setInput(prompt);
+    // Directly submitting, creating a synthetic event
+    const fakeEvent = { preventDefault: () => {} } as React.FormEvent;
+    // We need to ensure the state update is processed before submitting
+    setTimeout(() => handleSubmit(fakeEvent), 0);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
@@ -140,22 +162,26 @@ const LouisAIPage: React.FC = () => {
               className="text-center py-12 sm:py-20"
             >
               {/* Logo */}
-              <div className="flex justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+              <div className="flex justify-center items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center">
                   <img src="/applogo.png" alt="Louis Ai" className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
                 </div>
                 <h1 className="text-3xl sm:text-4xl font-bold text-white">Louis Ai</h1>
               </div>
 
-              {/* Quick Action Buttons */}
+              {/* Greeting */}
+              <p className="text-base sm:text-lg text-white/70 mb-8 sm:mb-12">{getGreeting()}. How can I help you today?</p>
+
+
+              {/* Suggested Prompts */}
               <div className="flex flex-wrap justify-center gap-2 sm:gap-3 px-4">
-                {quickActions.map((action, index) => (
+                {suggestedPrompts.map((prompt, index) => (
                   <button
                     key={index}
-                    className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#2a2a2a] hover:bg-[#333333] text-white rounded-full border border-[#3a3a3a] transition-colors duration-200 text-xs sm:text-sm"
+                    onClick={() => handlePromptClick(prompt)}
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#2a2a2a] hover:bg-[#333333] text-white/80 rounded-full border border-[#3a3a3a] transition-colors duration-200 text-xs sm:text-sm"
                   >
-                    <span className="text-sm sm:text-base">{action.icon}</span>
-                    <span className="hidden sm:inline">{action.label}</span>
+                    {prompt}
                   </button>
                 ))}
               </div>
