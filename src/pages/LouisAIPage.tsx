@@ -217,7 +217,7 @@ const LouisAIPage: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col h-screen bg-[#1a1a1a] overflow-hidden">
+    <div className="min-h-screen bg-[#1a1a1a] pt-16">
       <SEOHead
         title="Louis AI - Your Intelligent School Assistant | St. Louis Demo JHS"
         description="Chat with Louis AI, your intelligent assistant for St. Louis Demonstration JHS. Get instant, accurate answers about admissions, academics, facilities, and everything about our school."
@@ -228,7 +228,7 @@ const LouisAIPage: React.FC = () => {
       />
 
       {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="h-[calc(100vh-4rem-80px)] overflow-y-auto pb-20">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {messages.length === 0 ? (
             /* Welcome Screen - Grok Style */
@@ -394,7 +394,7 @@ const LouisAIPage: React.FC = () => {
       </div>
 
       {/* Input Area - Grok Style - Mobile Optimized */}
-      <div className="border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom">
+      <div className="border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-6">
           <form onSubmit={handleSubmit} className="relative">
             <div className="relative flex items-center">
