@@ -44,19 +44,63 @@ const LouisAIPage: React.FC = () => {
     return "Good evening";
   };
 
-  const suggestedPrompts = [
+  const getDailyPrompts = () => {
+    const dayOfWeek = new Date().getDay();
+    const prompts = {
+      0: [ // Sunday
     "What are the admission requirements?",
     "Tell me about St. Louis JHS's history.",
     "What STEM programs are available?",
-    "How can I contact the school?",
-  ];
+        "How can I contact the school?"
+      ],
+      1: [ // Monday
+        "What extracurricular activities are available?",
+        "Tell me about the school's mission and values.",
+        "What are the school hours?",
+        "How can I apply for admission?"
+      ],
+      2: [ // Tuesday
+        "What academic programs are offered?",
+        "Tell me about the school's facilities.",
+        "What support services are available?",
+        "How can I schedule a visit?"
+      ],
+      3: [ // Wednesday
+        "What are the school's achievements?",
+        "Tell me about the faculty and staff.",
+        "What technology resources are available?",
+        "How can I get involved in school activities?"
+      ],
+      4: [ // Thursday
+        "What are the school's policies?",
+        "Tell me about the school's community involvement.",
+        "What resources are available for parents?",
+        "How can I stay updated with school news?"
+      ],
+      5: [ // Friday
+        "What are the school's upcoming events?",
+        "Tell me about the school's partnerships.",
+        "What opportunities are available for students?",
+        "How can I support the school?"
+      ],
+      6: [ // Saturday
+        "What are the school's traditions?",
+        "Tell me about the school's alumni network.",
+        "What are the school's future plans?",
+        "How can I learn more about the school?"
+      ]
+    };
+    return prompts[dayOfWeek as keyof typeof prompts];
+  };
 
-  const handlePromptClick = (prompt: string) => {
+  const suggestedPrompts = getDailyPrompts();
+
+  const handlePromptClick = async (prompt: string) => {
     setInput(prompt);
     // Directly submitting, creating a synthetic event
     const fakeEvent = { preventDefault: () => {} } as React.FormEvent;
     // We need to ensure the state update is processed before submitting
-    setTimeout(() => handleSubmit(fakeEvent), 0);
+    await handleSubmit(fakeEvent);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
