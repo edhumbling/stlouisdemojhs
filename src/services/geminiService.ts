@@ -33,15 +33,91 @@ export interface GeminiResponse {
 
 class GeminiService {
   private apiKey: string;
+  private backupApiKey: string;
+  private secondBackupApiKey: string;
+  private thirdBackupApiKey: string;
   private apiEndpoint: string;
+  private currentKeyIndex: number = 0;
 
   constructor() {
     this.apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
+    this.backupApiKey = import.meta.env.VITE_GEMINI_BACKUP_API_KEY || '';
+    this.secondBackupApiKey = import.meta.env.VITE_GEMINI_SECOND_BACKUP_API_KEY || 'AIzaSyB37s1tv6tmN7gA2JF0KEVfHNS4xp41W94';
+    this.thirdBackupApiKey = import.meta.env.VITE_GEMINI_THIRD_BACKUP_API_KEY || 'AIzaSyDH5UGgVEBX0JIut3rzBMKq40q_lGM7KAU';
     this.apiEndpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
     
-    if (!this.apiKey) {
-      console.warn('⚠️ Gemini API key not found. Please set VITE_GEMINI_API_KEY in your environment variables.');
+    if (!this.apiKey && !this.backupApiKey && !this.secondBackupApiKey && !this.thirdBackupApiKey) {
+      console.warn('⚠️ No Gemini API keys found. Please set VITE_GEMINI_API_KEY and/or backup API key environment variables.');
+    } else if (!this.apiKey && this.backupApiKey) {
+      console.warn('⚠️ Primary Gemini API key not found. Using backup key.');
+      this.apiKey = this.backupApiKey;
     }
+  }
+
+  /**
+   * Get the current API key (primary, backup, second backup, or third backup)
+   */
+  private getCurrentApiKey(): string {
+    switch (this.currentKeyIndex) {
+      case 0:
+        return this.apiKey;
+      case 1:
+        return this.backupApiKey;
+      case 2:
+        return this.secondBackupApiKey;
+      case 3:
+        return this.thirdBackupApiKey;
+      default:
+        return this.apiKey;
+    }
+  }
+
+  /**
+   * Check if a backup API key is available for the current key index
+   */
+  private hasBackupKeyAvailable(): boolean {
+    if (this.currentKeyIndex === 0 && this.backupApiKey) {
+      return true;
+    } else if (this.currentKeyIndex === 1 && this.secondBackupApiKey) {
+      return true;
+    } else if (this.currentKeyIndex === 2 && this.thirdBackupApiKey) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Get current API key status for debugging
+   */
+  public getApiKeyStatus(): { currentKey: number; totalKeys: number; hasBackup: boolean } {
+    return {
+      currentKey: this.currentKeyIndex + 1,
+      totalKeys: [this.apiKey, this.backupApiKey, this.secondBackupApiKey, this.thirdBackupApiKey].filter(key => key).length,
+      hasBackup: this.hasBackupKeyAvailable()
+    };
+  }
+
+  /**
+   * Switch to next available API key
+   */
+  private switchToBackupKey(): void {
+    const previousKeyIndex = this.currentKeyIndex;
+    
+    if (this.currentKeyIndex === 0 && this.backupApiKey) {
+      this.currentKeyIndex = 1;
+      console.log(`🔄 Switched from primary key to first backup key (Key 1 → Key 2)`);
+    } else if (this.currentKeyIndex === 1 && this.secondBackupApiKey) {
+      this.currentKeyIndex = 2;
+      console.log(`🔄 Switched from first backup to second backup key (Key 2 → Key 3)`);
+    } else if (this.currentKeyIndex === 2 && this.thirdBackupApiKey) {
+      this.currentKeyIndex = 3;
+      console.log(`🔄 Switched from second backup to third backup key (Key 3 → Key 4)`);
+    } else {
+      console.error(`❌ No backup key available for current key index ${this.currentKeyIndex + 1}`);
+      throw new Error('No backup API key available');
+    }
+    
+    console.log(`✅ Now using API key ${this.currentKeyIndex + 1} (was ${previousKeyIndex + 1})`);
   }
 
   /**
@@ -51,9 +127,11 @@ class GeminiService {
     userMessage: string,
     context: string = '',
     conversationHistory: GeminiMessage[] = [],
-    sources: string[] = []
+    sources: string[] = [],
+    retryCount: number = 0
   ): Promise<string> {
-    if (!this.apiKey) {
+    const currentApiKey = this.getCurrentApiKey();
+    if (!currentApiKey) {
       throw new Error('Gemini API key is not configured. Please set VITE_GEMINI_API_KEY environment variable.');
     }
 
@@ -106,18 +184,44 @@ class GeminiService {
         ]
       };
 
-      const response = await fetch(`${this.apiEndpoint}?key=${this.apiKey}`, {
+      const response = await fetch(`${this.apiEndpoint}?key=${currentApiKey}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
         },
         body: JSON.stringify(requestBody),
+        cache: 'no-cache'
       });
 
       if (!response.ok) {
         if (response.status === 503) {
           throw new Error('SERVICE_UNAVAILABLE');
         }
+        
+        // Check for rate limiting, quota issues, and other recoverable errors - automatically switch to backup key
+        if (response.status === 429 || response.status === 403 || response.status === 400) {
+          const errorData = await response.json().catch(() => ({}));
+          const errorMessage = errorData.error?.message || '';
+          
+          console.log(`🔄 API Key ${this.currentKeyIndex + 1} encountered error (${response.status}): ${errorMessage}`);
+          
+          // Check if backup key is available and switch automatically
+          if (this.hasBackupKeyAvailable() && retryCount < 3) {
+            this.switchToBackupKey();
+            console.log(`✅ Switched to backup key ${this.currentKeyIndex + 1}, retrying request... (attempt ${retryCount + 1})`);
+            
+            // Retry with backup key
+            return this.generateResponse(userMessage, context, conversationHistory, sources, retryCount + 1);
+          } else {
+            // No more backup keys available or max retries reached
+            console.error(`❌ All API keys exhausted or max retries reached (${retryCount}/3)`);
+            throw new Error('SERVICE_UNAVAILABLE');
+          }
+        }
+        
         const errorData = await response.json().catch(() => ({}));
         throw new Error(`Gemini API error: ${response.status} - ${JSON.stringify(errorData)}`);
       }
