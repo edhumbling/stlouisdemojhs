@@ -33,58 +33,14 @@ export interface GeminiResponse {
 
 class GeminiService {
   private apiKey: string;
-  private backupApiKey: string;
-  private secondBackupApiKey: string;
-  private thirdBackupApiKey: string;
   private apiEndpoint: string;
-  private currentKeyIndex: number = 0;
 
   constructor() {
     this.apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
-    this.backupApiKey = import.meta.env.VITE_GEMINI_BACKUP_API_KEY || '';
-    this.secondBackupApiKey = import.meta.env.VITE_GEMINI_SECOND_BACKUP_API_KEY || 'AIzaSyB37s1tv6tmN7gA2JF0KEVfHNS4xp41W94';
-    this.thirdBackupApiKey = import.meta.env.VITE_GEMINI_THIRD_BACKUP_API_KEY || 'AIzaSyDH5UGgVEBX0JIut3rzBMKq40q_lGM7KAU';
     this.apiEndpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
     
-    if (!this.apiKey && !this.backupApiKey && !this.secondBackupApiKey && !this.thirdBackupApiKey) {
-      console.warn('⚠️ No Gemini API keys found. Please set VITE_GEMINI_API_KEY and/or backup API key environment variables.');
-    } else if (!this.apiKey && this.backupApiKey) {
-      console.warn('⚠️ Primary Gemini API key not found. Using backup key.');
-      this.apiKey = this.backupApiKey;
-    }
-  }
-
-  /**
-   * Get the current API key (primary, backup, second backup, or third backup)
-   */
-  private getCurrentApiKey(): string {
-    switch (this.currentKeyIndex) {
-      case 0:
-        return this.apiKey;
-      case 1:
-        return this.backupApiKey;
-      case 2:
-        return this.secondBackupApiKey;
-      case 3:
-        return this.thirdBackupApiKey;
-      default:
-        return this.apiKey;
-    }
-  }
-
-  /**
-   * Switch to next available API key
-   */
-  private switchToBackupKey(): void {
-    if (this.currentKeyIndex === 0 && this.backupApiKey) {
-      this.currentKeyIndex = 1;
-      console.log('🔄 Switched to first backup Gemini API key due to primary key quota/credit issues.');
-    } else if (this.currentKeyIndex === 1 && this.secondBackupApiKey) {
-      this.currentKeyIndex = 2;
-      console.log('🔄 Switched to second backup Gemini API key due to first backup key quota/credit issues.');
-    } else if (this.currentKeyIndex === 2 && this.thirdBackupApiKey) {
-      this.currentKeyIndex = 3;
-      console.log('🔄 Switched to third backup Gemini API key due to second backup key quota/credit issues.');
+    if (!this.apiKey) {
+      console.warn('⚠️ Gemini API key not found. Please set VITE_GEMINI_API_KEY in your environment variables.');
     }
   }
 
@@ -97,8 +53,7 @@ class GeminiService {
     conversationHistory: GeminiMessage[] = [],
     sources: string[] = []
   ): Promise<string> {
-    const currentApiKey = this.getCurrentApiKey();
-    if (!currentApiKey) {
+    if (!this.apiKey) {
       throw new Error('Gemini API key is not configured. Please set VITE_GEMINI_API_KEY environment variable.');
     }
 
@@ -151,7 +106,7 @@ class GeminiService {
         ]
       };
 
-      const response = await fetch(`${this.apiEndpoint}?key=${currentApiKey}`, {
+      const response = await fetch(`${this.apiEndpoint}?key=${this.apiKey}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -163,24 +118,6 @@ class GeminiService {
         if (response.status === 503) {
           throw new Error('SERVICE_UNAVAILABLE');
         }
-        
-        // Check for quota/credit issues and switch to backup key
-        if (response.status === 429 || response.status === 403) {
-          const errorData = await response.json().catch(() => ({}));
-          const errorMessage = errorData.error?.message || '';
-          
-          // Check if it's a quota/credit issue and backup key is available
-          if (errorMessage.includes('quota') || errorMessage.includes('credit') || errorMessage.includes('billing')) {
-            if ((this.currentKeyIndex === 0 && this.backupApiKey) || 
-                (this.currentKeyIndex === 1 && this.secondBackupApiKey) ||
-                (this.currentKeyIndex === 2 && this.thirdBackupApiKey)) {
-              this.switchToBackupKey();
-              // Retry with backup key
-              return this.generateResponse(userMessage, context, conversationHistory, sources);
-            }
-          }
-        }
-        
         const errorData = await response.json().catch(() => ({}));
         throw new Error(`Gemini API error: ${response.status} - ${JSON.stringify(errorData)}`);
       }

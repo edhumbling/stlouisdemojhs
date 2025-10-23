@@ -382,7 +382,7 @@ const LouisAIPage: React.FC = () => {
       </div>
 
       {/* Messages Container */}
-      <div className="h-[calc(100vh-140px)] overflow-y-auto pb-20 pt-16">
+      <div className="h-[calc(100vh-140px)] overflow-y-auto pb-20">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {messages.length === 0 ? (
             /* Welcome Screen - Grok Style */
@@ -544,9 +544,11 @@ const LouisAIPage: React.FC = () => {
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                     </div>
-                    {/* Fixed Thinking text */}
+                    {/* Shimmering Thinking text with three dots */}
                     <div className="text-xs sm:text-sm text-white/60">
-                      Thinking...
+                      <span className="inline-block bg-gradient-to-r from-transparent via-silver-400/60 to-transparent bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
+                        Thinking<span className="animate-pulse">...</span>
+                      </span>
                     </div>
                   </div>
                 </motion.div>
