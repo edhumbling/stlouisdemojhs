@@ -113,12 +113,22 @@ const LouisAIPage: React.FC = () => {
       setMessages(prev => [...prev, assistantMessage]);
     } catch (err) {
       console.error('Error generating response:', err);
-      setError(err instanceof Error ? err.message : 'An error occurred. Please try again.');
+
+      let errorMessageContent = 'I apologize, but I encountered an error processing your request. Please try again.';
+      if (err instanceof Error) {
+        if (err.message === 'SERVICE_UNAVAILABLE') {
+          errorMessageContent = 'The AI is currently experiencing high traffic. Please try your request again in a few moments.';
+        } else {
+          setError(err.message); // Set specific error for debugging if needed
+        }
+      } else {
+        setError('An unknown error occurred. Please try again.');
+      }
       
       const errorMessage: Message = {
         id: `error-${Date.now()}`,
         role: 'assistant',
-        content: 'I apologize, but I encountered an error processing your request. Please try again.',
+        content: errorMessageContent,
         timestamp: new Date(),
       };
       setMessages(prev => [...prev, errorMessage]);

@@ -115,6 +115,9 @@ class GeminiService {
       });
 
       if (!response.ok) {
+        if (response.status === 503) {
+          throw new Error('SERVICE_UNAVAILABLE');
+        }
         const errorData = await response.json().catch(() => ({}));
         throw new Error(`Gemini API error: ${response.status} - ${JSON.stringify(errorData)}`);
       }
