@@ -1,4 +1,6 @@
-const CACHE_NAME = 'st-louis-demo-jhs-v8-chatbot-fix';
+// Update this version number with each deployment to force cache refresh
+const CACHE_VERSION = '2025-10-23-louis-ai-v1.0.0';
+const CACHE_NAME = `st-louis-demo-jhs-${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
   '/manifest.json',
@@ -90,14 +92,16 @@ self.addEventListener('fetch', (event) => {
   }
 });
 
-// Activate event - Fast activation
+// Activate event - Fast activation with cache cleanup
 self.addEventListener('activate', (event) => {
   console.log('🎯 St. Louis Demo. J.H.S PWA activating...');
+  console.log('📦 New cache version:', CACHE_VERSION);
 
   event.waitUntil(
     Promise.all([
-      // Clean up old caches
+      // Clean up ALL old caches to force fresh content
       caches.keys().then((cacheNames) => {
+        console.log('🔍 Found caches:', cacheNames);
         return Promise.all(
           cacheNames.map((cacheName) => {
             if (cacheName !== CACHE_NAME) {
@@ -111,6 +115,17 @@ self.addEventListener('activate', (event) => {
       self.clients.claim()
     ]).then(async () => {
       console.log('✅ St. Louis Demo. J.H.S PWA activated and ready!');
+      console.log('✨ Cache cleaned - users will get fresh content!');
+      
+      // Notify all clients to reload for new version
+      const clients = await self.clients.matchAll();
+      clients.forEach(client => {
+        client.postMessage({
+          type: 'NEW_VERSION_ACTIVATED',
+          version: CACHE_VERSION,
+          message: 'New version available! Refresh to get the latest updates.'
+        });
+      });
     })
   );
 });

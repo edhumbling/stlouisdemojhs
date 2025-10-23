@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Sparkles, ArrowLeft, BookOpen, Zap } from 'lucide-react';
+import { Send, Mic } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEOHead from '../components/seo/SEOHead';
-import { useNavigate } from 'react-router-dom';
 import geminiService from '../services/geminiService';
 import ragEngine from '../services/ragEngine';
 import { getUniqueSources } from '../utils/pageMapping';
@@ -16,13 +15,12 @@ interface Message {
 }
 
 const LouisAIPage: React.FC = () => {
-  const navigate = useNavigate();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -102,29 +100,21 @@ const LouisAIPage: React.FC = () => {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
       e.preventDefault();
       handleSubmit(e);
     }
   };
 
-  const suggestedQuestions = [
-    "Where is the school located?",
-    "What subjects do you teach?",
-    "How can I apply for admission?",
-    "What STEM programs do you offer?",
-    "Tell me about your facilities",
-    "What are the school fees?",
+  const quickActions = [
+    { icon: "🔍", label: "DeepSearch", action: () => {} },
+    { icon: "🎨", label: "Create Images", action: () => {} },
+    { icon: "📁", label: "Try Projects", action: () => {} },
   ];
 
-  const handleSuggestedQuestion = (question: string) => {
-    setInput(question);
-    inputRef.current?.focus();
-  };
-
   return (
-    <div className="flex flex-col h-screen bg-white overflow-hidden">
+    <div className="flex flex-col h-screen bg-[#1a1a1a] overflow-hidden pt-16">
       <SEOHead
         title="Louis AI - Your Intelligent School Assistant | St. Louis Demo JHS"
         description="Chat with Louis AI, your intelligent assistant for St. Louis Demonstration JHS. Get instant, accurate answers about admissions, academics, facilities, and everything about our school."
@@ -134,199 +124,115 @@ const LouisAIPage: React.FC = () => {
         pageType="ai-search"
       />
 
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white shadow-lg">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <button
-            onClick={() => navigate(-1)}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all duration-200 font-medium"
-          >
-            <ArrowLeft size={20} />
-            <span className="hidden sm:inline">Back</span>
-          </button>
-          
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-              <Sparkles className="text-yellow-300" size={24} />
-            </div>
-            <div>
-              <h1 className="text-xl sm:text-2xl font-bold">Louis AI</h1>
-              <p className="text-xs sm:text-sm text-white/90">Your Intelligent School Assistant</p>
-            </div>
-          </div>
-
-          <div className="w-20 sm:w-24"></div> {/* Spacer for balance */}
-        </div>
-      </div>
-
       {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {messages.length === 0 ? (
-            /* Welcome Screen */
+            /* Welcome Screen - Grok Style */
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-center py-12"
+              className="text-center py-12 sm:py-20"
             >
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-6 shadow-lg">
-                <Sparkles className="text-white" size={40} />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Welcome to Louis AI
-              </h2>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                I'm your intelligent assistant for St. Louis Demonstration JHS. Ask me anything about our school!
-              </p>
-
-              {/* Suggested Questions */}
-              <div className="mt-12">
-                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">
-                  Try asking about:
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-3xl mx-auto">
-                  {suggestedQuestions.map((question, index) => (
-                    <motion.button
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      onClick={() => handleSuggestedQuestion(question)}
-                      className="p-4 bg-white rounded-xl shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200 text-left border border-gray-200 group"
-                    >
-                      <div className="flex items-start gap-3">
-                        <Zap size={18} className="text-purple-500 mt-1 flex-shrink-0 group-hover:text-purple-600" />
-                        <span className="text-sm text-gray-700 group-hover:text-gray-900">
-                          {question}
-                        </span>
-                      </div>
-                    </motion.button>
-                  ))}
+              {/* Logo */}
+              <div className="flex justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-12">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center">
+                  <img src="/applogo.png" alt="Louis" className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
                 </div>
+                <h1 className="text-3xl sm:text-4xl font-bold text-white">Louis</h1>
               </div>
 
-              {/* Feature Highlights */}
-              <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-3">
-                    <BookOpen className="text-blue-600" size={24} />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Comprehensive Knowledge</h4>
-                  <p className="text-sm text-gray-600">Trained on all school information</p>
-                </div>
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full mb-3">
-                    <Sparkles className="text-purple-600" size={24} />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Smart & Accurate</h4>
-                  <p className="text-sm text-gray-600">Powered by advanced AI</p>
-                </div>
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-pink-100 rounded-full mb-3">
-                    <Zap className="text-pink-600" size={24} />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Source Citations</h4>
-                  <p className="text-sm text-gray-600">See where info comes from</p>
-                </div>
+              {/* Quick Action Buttons */}
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 px-4">
+                {quickActions.map((action, index) => (
+                  <button
+                    key={index}
+                    className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#2a2a2a] hover:bg-[#333333] text-white rounded-full border border-[#3a3a3a] transition-colors duration-200 text-xs sm:text-sm"
+                  >
+                    <span className="text-sm sm:text-base">{action.icon}</span>
+                    <span className="hidden sm:inline">{action.label}</span>
+                  </button>
+                ))}
               </div>
             </motion.div>
           ) : (
-            /* Message List */
-            <div className="space-y-6">
+            /* Message List - Grok Style */
+            <div className="space-y-3 sm:space-y-4 pb-4 sm:pb-8">
               <AnimatePresence>
-                {messages.map((message, index) => (
+                {messages.map((message) => (
                   <motion.div
                     key={message.id}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    transition={{ duration: 0.2 }}
+                    className="w-full"
                   >
-                    <div className={`max-w-3xl ${message.role === 'user' ? 'w-auto' : 'w-full'}`}>
-                      {message.role === 'user' ? (
-                        /* User Message */
-                        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl px-5 py-3 shadow-md inline-block">
-                          <p className="text-base whitespace-pre-wrap">{message.content}</p>
+                    {message.role === 'user' ? (
+                      /* User Message - Grok Style */
+                      <div className="flex justify-end mb-3 sm:mb-4">
+                        <div className="bg-[#2a2a2a] text-white rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 max-w-[85%] sm:max-w-[80%]">
+                          <p className="text-sm sm:text-[15px] leading-relaxed">{message.content}</p>
                         </div>
-                      ) : (
-                        /* Assistant Message */
-                        <div className="bg-white rounded-2xl px-5 py-4 shadow-md border border-gray-200">
-                          <div className="flex items-start gap-3 mb-2">
-                            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                              <Sparkles className="text-white" size={16} />
-                            </div>
-                            <div className="flex-1">
-                              <div className="font-semibold text-gray-900 mb-1">Louis AI</div>
-                              <div className="text-gray-800 text-base whitespace-pre-wrap leading-relaxed">
-                                {message.content}
-                              </div>
-                            </div>
+                      </div>
+                    ) : (
+                      /* Assistant Message - Grok Style */
+                      <div className="flex gap-2 sm:gap-3 mb-3 sm:mb-4">
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-1">
+                          <img src="/applogo.png" alt="Louis" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-white/90 text-sm sm:text-[15px] leading-relaxed mb-2 sm:mb-3">
+                            {message.content}
                           </div>
 
-                          {/* Sources/Citations */}
+                          {/* Sources - Grok Style */}
                           {message.sources && message.sources.length > 0 && (
-                            <div className="mt-4 pt-3 border-t border-gray-200">
-                              <div className="flex items-center gap-2 mb-2">
-                                <BookOpen size={14} className="text-gray-500" />
-                                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wide">
-                                  Sources:
-                                </span>
-                              </div>
-                              <div className="flex flex-wrap gap-2">
-                                {message.sources.map((source, idx) => (
-                                  <a
-                                    key={idx}
-                                    href={source.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 px-3 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-full text-xs font-medium transition-colors duration-150 border border-blue-200"
-                                  >
-                                    {source.displayName}
-                                  </a>
-                                ))}
-                              </div>
+                            <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 sm:mt-3">
+                              {message.sources.map((source, idx) => (
+                                <a
+                                  key={idx}
+                                  href={source.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-[#2a2a2a] hover:bg-[#333333] text-white/80 hover:text-white rounded-full text-[10px] sm:text-xs transition-colors duration-150 border border-[#3a3a3a]"
+                                >
+                                  <span className="text-xs sm:text-sm">📚</span>
+                                  <span className="truncate max-w-[120px] sm:max-w-none">{source.displayName}</span>
+                                </a>
+                              ))}
                             </div>
                           )}
                         </div>
-                      )}
-
-                      {/* Timestamp */}
-                      <div className={`text-xs text-gray-400 mt-1 px-2 ${message.role === 'user' ? 'text-right' : 'text-left'}`}>
-                        {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </div>
-                    </div>
+                    )}
                   </motion.div>
                 ))}
               </AnimatePresence>
 
-              {/* Loading Indicator */}
+              {/* Loading Indicator - Grok Style */}
               {isLoading && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="flex justify-start"
+                  className="flex gap-2 sm:gap-3 mb-3 sm:mb-4"
                 >
-                  <div className="bg-white rounded-2xl px-5 py-4 shadow-md border border-gray-200">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                        <Sparkles className="text-white animate-pulse" size={16} />
-                      </div>
-                      <div className="flex gap-1">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                      </div>
-                    </div>
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <img src="/applogo.png" alt="Louis" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                  </div>
+                  <div className="flex gap-1 sm:gap-1.5 items-center mt-1.5 sm:mt-2">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                   </div>
                 </motion.div>
               )}
 
-              {/* Error Message */}
+              {/* Error Message - Grok Style */}
               {error && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-700"
+                  className="bg-red-900/20 border border-red-700/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-red-400"
                 >
                   {error}
                 </motion.div>
@@ -338,49 +244,57 @@ const LouisAIPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Input Area */}
-      <div className="border-t border-gray-200 bg-white shadow-lg">
-        <div className="max-w-4xl mx-auto px-4 py-4">
+      {/* Input Area - Grok Style - Mobile Optimized */}
+      <div className="border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom">
+        <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-6">
           <form onSubmit={handleSubmit} className="relative">
-            <div className="relative flex items-end gap-2">
-              <div className="flex-1 relative">
-                <textarea
-                  ref={inputRef}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Ask me anything about St. Louis Demo JHS..."
-                  rows={1}
-                  disabled={isLoading}
-                  className="w-full px-4 py-3 pr-12 rounded-2xl border-2 border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none resize-none text-base transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
-                  style={{
-                    minHeight: '52px',
-                    maxHeight: '200px',
-                  }}
-                  onInput={(e) => {
-                    const target = e.target as HTMLTextAreaElement;
-                    target.style.height = 'auto';
-                    target.style.height = `${Math.min(target.scrollHeight, 200)}px`;
-                  }}
-                />
-              </div>
-              
+            <div className="relative">
+              {/* Attachment Button */}
               <button
-                type="submit"
-                disabled={!input.trim() || isLoading}
-                className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 disabled:hover:scale-100"
+                type="button"
+                className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80 transition-colors"
               >
-                {isLoading ? (
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                ) : (
-                  <Send size={20} />
-                )}
+                <svg width="18" height="18" className="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
+                </svg>
               </button>
-            </div>
 
-            <p className="text-xs text-gray-500 mt-2 text-center">
-              Press <kbd className="px-1.5 py-0.5 bg-gray-100 border border-gray-300 rounded text-xs">Enter</kbd> to send, <kbd className="px-1.5 py-0.5 bg-gray-100 border border-gray-300 rounded text-xs">Shift + Enter</kbd> for new line
-            </p>
+              <input
+                ref={inputRef}
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="What do you want to know?"
+                disabled={isLoading}
+                className="w-full pl-10 sm:pl-12 pr-20 sm:pr-24 py-3 sm:py-4 bg-[#2a2a2a] border border-[#3a3a3a] rounded-full text-white placeholder-white/40 focus:outline-none focus:border-[#4a4a4a] transition-colors text-sm sm:text-[15px] disabled:opacity-50"
+              />
+
+              {/* Right Side Buttons */}
+              <div className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 sm:gap-2">
+                {/* Auto Mode Selector - Hidden on mobile */}
+                <button
+                  type="button"
+                  className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-transparent hover:bg-[#333333] text-white/70 hover:text-white rounded-full transition-colors text-sm"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  </svg>
+                  <span>Auto</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+
+                {/* Voice Button */}
+                <button
+                  type="button"
+                  className="p-1.5 sm:p-2 hover:bg-[#333333] rounded-full transition-colors text-white/70 hover:text-white"
+                >
+                  <Mic size={16} className="sm:w-[18px] sm:h-[18px]" />
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -389,3 +303,4 @@ const LouisAIPage: React.FC = () => {
 };
 
 export default LouisAIPage;
+

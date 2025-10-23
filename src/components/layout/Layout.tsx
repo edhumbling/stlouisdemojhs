@@ -38,6 +38,7 @@ const Layout: React.FC = () => {
     '/calendar',
     '/ai-search',
     '/ai',
+    '/louis-ai',
     '/stem-deep-learning',
     '/schedule-visit',
     '/learnhub',
