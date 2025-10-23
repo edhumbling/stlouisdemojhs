@@ -27,9 +27,12 @@ const LouisAIPage: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-scroll to bottom when new messages arrive
+  // Auto-scroll to bottom only when user sends a message, not when AI responds
   useEffect(() => {
+    // Only auto-scroll if the last message is from the user
+    if (messages.length > 0 && messages[messages.length - 1].role === 'user') {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [messages]);
 
   // Auto-focus input on mount
