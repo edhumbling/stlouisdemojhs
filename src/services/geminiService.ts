@@ -69,7 +69,7 @@ class GeminiService {
         },
         {
           role: 'model',
-          parts: [{ text: 'I understand. I am Louis AI, the intelligent assistant for St. Louis Demonstration JHS. I will provide accurate, helpful responses based on the school website data and cite my sources.' }]
+          parts: [{ text: 'I understand. I am Louis AI, the intelligent assistant for St. Louis Demonstration JHS. I will provide accurate, helpful responses based on the school website data.' }]
         },
         ...conversationHistory,
         {
@@ -140,9 +140,14 @@ class GeminiService {
    * Build the system prompt with context and instructions
    */
   private buildSystemPrompt(context: string, sources: string[]): string {
-    const sourcesText = sources.length > 0 
-      ? `\n\nInformation retrieved from these pages:\n${sources.map(s => `- ${s}`).join('\n')}`
-      : '';
+    // Clean the context by removing source references and numbers
+    const cleanContext = context
+      .replace(/\[Source \d+: [^\]]+\]/g, '') // Remove [Source 1: page] references
+      .replace(/Title: [^\n]+\n/g, '') // Remove Title: lines
+      .replace(/Category: [^\n]+\n/g, '') // Remove Category: lines
+      .replace(/\n---\n\n/g, '\n\n') // Clean up separators
+      .replace(/\n{3,}/g, '\n\n') // Remove excessive line breaks
+      .trim();
 
     return `You are Louis AI, an intelligent and friendly assistant for St. Louis Demonstration Junior High School (St. Louis Demo JHS) in Kumasi, Ghana.
 
@@ -159,11 +164,11 @@ YOUR ROLE:
 - Answer questions about the school accurately using the provided context
 - Provide helpful, educational, and encouraging responses
 - Be friendly, professional, and student-focused
-- Cite specific information from the context when available
 - If you don't know something, acknowledge it honestly
+- Do NOT mention sources, citations, or reference numbers in your responses
 
 CONTEXT FROM SCHOOL WEBSITE:
-${context}${sourcesText}
+${cleanContext}
 
 FORMATTING GUIDELINES (IMPORTANT):
 1. Use **markdown formatting** for better readability
@@ -184,6 +189,7 @@ CONTENT GUIDELINES:
 6. If the question is unrelated to the school, politely redirect to school-related topics
 7. Never make up information - only use what's in the context
 8. End responses with a helpful follow-up question or offer to help further
+9. **IMPORTANT: Do not include any source references, citations, or numbers in your response text**
 
 EXAMPLE FORMAT:
 **Main Topic**
