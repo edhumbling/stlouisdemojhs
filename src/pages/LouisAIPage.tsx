@@ -174,12 +174,12 @@ const LouisAIPage: React.FC = () => {
 
 
               {/* Suggested Prompts */}
-              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 px-4">
+              <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-3 px-4">
                 {suggestedPrompts.map((prompt, index) => (
                   <button
                     key={index}
                     onClick={() => handlePromptClick(prompt)}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 bg-[#2a2a2a] hover:bg-[#333333] text-white/80 rounded-full border border-[#3a3a3a] transition-colors duration-200 text-xs sm:text-sm"
+                    className="text-center px-3 py-2 bg-[#2a2a2a] hover:bg-[#333333] text-white/80 rounded-lg border border-[#3a3a3a] transition-colors duration-200 text-xs sm:text-sm sm:rounded-full sm:px-4 sm:py-1.5"
                   >
                     {prompt}
                   </button>
