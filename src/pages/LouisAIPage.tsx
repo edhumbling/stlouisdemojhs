@@ -382,7 +382,7 @@ const LouisAIPage: React.FC = () => {
       </div>
 
       {/* Messages Container */}
-      <div className="h-[calc(100vh-140px)] overflow-y-auto pb-20">
+      <div className="h-[calc(100vh-140px)] overflow-y-auto pb-20 pt-16">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {messages.length === 0 ? (
             /* Welcome Screen - Grok Style */
@@ -391,13 +391,8 @@ const LouisAIPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center py-12 sm:py-20"
             >
-              {/* Logo */}
-              <div className="flex justify-center items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center">
-                  <img src="/applogo.png" alt="Louis Ai" className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
-                </div>
-                <h1 className="text-3xl sm:text-4xl font-bold text-white">Louis Ai</h1>
-              </div>
+              {/* Title */}
+              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">It's me Louis Ai!</h1>
 
               {/* Greeting */}
               <p className="text-base sm:text-lg text-white/70 mb-8 sm:mb-12">{getGreeting()}. How can I help you today?</p>
@@ -544,11 +539,9 @@ const LouisAIPage: React.FC = () => {
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                     </div>
-                    {/* Shimmering Thinking text with three dots */}
+                    {/* Fixed Thinking text */}
                     <div className="text-xs sm:text-sm text-white/60">
-                      <span className="inline-block bg-gradient-to-r from-transparent via-silver-400/60 to-transparent bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
-                        Thinking<span className="animate-pulse">...</span>
-                      </span>
+                      Thinking...
                     </div>
                   </div>
                 </motion.div>
