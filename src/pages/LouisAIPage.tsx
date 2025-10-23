@@ -280,8 +280,8 @@ const LouisAIPage: React.FC = () => {
                     {message.role === 'user' ? (
                       /* User Message - Grok Style */
                       <div className="flex justify-end mb-3 sm:mb-4">
-                        <div className="bg-[#2a2a2a] text-white rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 max-w-[85%] sm:max-w-[80%]">
-                          <p className="text-sm sm:text-[15px] leading-relaxed">{message.content}</p>
+                        <div className="bg-[#2a2a2a] text-white rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 max-w-[85%] sm:max-w-[80%] break-words overflow-wrap-anywhere">
+                          <p className="text-sm sm:text-[15px] leading-relaxed break-words">{message.content}</p>
                         </div>
                       </div>
                     ) : (
@@ -290,35 +290,35 @@ const LouisAIPage: React.FC = () => {
                         <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-1">
                           <img src="/applogo.png" alt="Louis Ai" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="text-white/90 text-sm sm:text-[15px] leading-relaxed mb-2 sm:mb-3 prose prose-invert prose-sm sm:prose-base max-w-none">
+                        <div className="flex-1 min-w-0 break-words overflow-wrap-anywhere">
+                          <div className="text-white/90 text-sm sm:text-[15px] leading-relaxed mb-2 sm:mb-3 prose prose-invert prose-sm sm:prose-base max-w-none break-words">
                             <ReactMarkdown
                               remarkPlugins={[remarkGfm, remarkMath]}
                               rehypePlugins={[rehypeKatex]}
                               components={{
-                                p: ({ children }) => <p className="mb-3 leading-7">{children}</p>,
-                                ul: ({ children }) => <ul className="mb-3 ml-4 list-disc space-y-1">{children}</ul>,
-                                ol: ({ children }) => <ol className="mb-3 ml-4 list-decimal space-y-1">{children}</ol>,
-                                li: ({ children }) => <li className="leading-6">{children}</li>,
-                                strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
-                                em: ({ children }) => <em className="italic text-white/95">{children}</em>,
-                                code: ({ children }) => <code className="bg-[#2a2a2a] px-1.5 py-0.5 rounded text-yellow-300 text-sm">{children}</code>,
-                                pre: ({ children }) => <pre className="bg-[#2a2a2a] p-3 rounded-lg overflow-x-auto mb-3 text-sm">{children}</pre>,
-                                h1: ({ children }) => <h1 className="text-lg sm:text-xl font-bold mb-2 text-white">{children}</h1>,
-                                h2: ({ children }) => <h2 className="text-base sm:text-lg font-bold mb-2 text-white">{children}</h2>,
-                                h3: ({ children }) => <h3 className="text-sm sm:text-base font-semibold mb-2 text-white">{children}</h3>,
+                                p: ({ children }) => <p className="mb-3 leading-7 break-words">{children}</p>,
+                                ul: ({ children }) => <ul className="mb-3 ml-4 list-disc space-y-1 break-words">{children}</ul>,
+                                ol: ({ children }) => <ol className="mb-3 ml-4 list-decimal space-y-1 break-words">{children}</ol>,
+                                li: ({ children }) => <li className="leading-6 break-words">{children}</li>,
+                                strong: ({ children }) => <strong className="font-semibold text-white break-words">{children}</strong>,
+                                em: ({ children }) => <em className="italic text-white/95 break-words">{children}</em>,
+                                code: ({ children }) => <code className="bg-[#2a2a2a] px-1.5 py-0.5 rounded text-yellow-300 text-sm break-words">{children}</code>,
+                                pre: ({ children }) => <pre className="bg-[#2a2a2a] p-3 rounded-lg overflow-x-auto mb-3 text-sm break-words">{children}</pre>,
+                                h1: ({ children }) => <h1 className="text-lg sm:text-xl font-bold mb-2 text-white break-words">{children}</h1>,
+                                h2: ({ children }) => <h2 className="text-base sm:text-lg font-bold mb-2 text-white break-words">{children}</h2>,
+                                h3: ({ children }) => <h3 className="text-sm sm:text-base font-semibold mb-2 text-white break-words">{children}</h3>,
                                 a: ({ href, children }) => (
                                   <a
                                     href={href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-yellow-400 hover:text-yellow-300 italic underline transition-colors"
+                                    className="text-yellow-400 hover:text-yellow-300 italic underline transition-colors break-words"
                                   >
                                     {children}
                                   </a>
                                 ),
                                 blockquote: ({ children }) => (
-                                  <blockquote className="border-l-4 border-blue-500 pl-4 italic text-white/80 mb-3">
+                                  <blockquote className="border-l-4 border-blue-500 pl-4 italic text-white/80 mb-3 break-words">
                                     {children}
                                   </blockquote>
                                 ),
@@ -334,19 +334,19 @@ const LouisAIPage: React.FC = () => {
                               <div className="flex items-center gap-2 mb-2">
                                 <span className="text-xs text-white/50 uppercase tracking-wide font-semibold">Sources:</span>
                               </div>
-                              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 break-words">
                                 {message.sources.map((source, idx) => (
                                   <React.Fragment key={idx}>
                                   <a
                                     href={source.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                      className="inline-flex items-center gap-1.5 text-yellow-400 hover:text-yellow-300 italic underline transition-colors duration-200 text-xs sm:text-sm decoration-yellow-400/50 hover:decoration-yellow-300"
+                                      className="inline-flex items-center gap-1.5 text-yellow-400 hover:text-yellow-300 italic underline transition-colors duration-200 text-xs sm:text-sm decoration-yellow-400/50 hover:decoration-yellow-300 break-words"
                                   >
-                                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                     </svg>
-                                    <span className="truncate max-w-[150px] sm:max-w-[200px]">{source.displayName}</span>
+                                    <span className="break-words max-w-[120px] sm:max-w-[180px]">{source.displayName}</span>
                                   </a>
                                     {idx < message.sources.length - 1 && <span className="text-white/50">,</span>}
                                   </React.Fragment>
