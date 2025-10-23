@@ -119,7 +119,7 @@ const LouisAIPage: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col h-screen bg-[#1a1a1a] overflow-hidden pt-16">
+    <div className="flex flex-col h-screen bg-[#1a1a1a] overflow-hidden">
       <SEOHead
         title="Louis AI - Your Intelligent School Assistant | St. Louis Demo JHS"
         description="Chat with Louis AI, your intelligent assistant for St. Louis Demonstration JHS. Get instant, accurate answers about admissions, academics, facilities, and everything about our school."
@@ -142,9 +142,9 @@ const LouisAIPage: React.FC = () => {
               {/* Logo */}
               <div className="flex justify-center items-center gap-2 sm:gap-3 mb-8 sm:mb-12">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center">
-                  <img src="/applogo.png" alt="Louis" className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
+                  <img src="/applogo.png" alt="Louis Ai" className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
                 </div>
-                <h1 className="text-3xl sm:text-4xl font-bold text-white">Louis</h1>
+                <h1 className="text-3xl sm:text-4xl font-bold text-white">Louis Ai</h1>
               </div>
 
               {/* Quick Action Buttons */}
@@ -183,7 +183,7 @@ const LouisAIPage: React.FC = () => {
                       /* Assistant Message - Grok Style with Markdown */
                       <div className="flex gap-2 sm:gap-3 mb-3 sm:mb-4">
                         <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 sm:mt-1">
-                          <img src="/applogo.png" alt="Louis" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                          <img src="/applogo.png" alt="Louis Ai" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="text-white/90 text-sm sm:text-[15px] leading-relaxed mb-2 sm:mb-3 prose prose-invert prose-sm sm:prose-base max-w-none">
@@ -229,10 +229,10 @@ const LouisAIPage: React.FC = () => {
                               <div className="flex items-center gap-2 mb-2">
                                 <span className="text-xs text-white/50 uppercase tracking-wide font-semibold">Sources:</span>
                               </div>
-                              <div className="flex flex-wrap gap-2">
+                              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                                 {message.sources.map((source, idx) => (
+                                  <React.Fragment key={idx}>
                                   <a
-                                    key={idx}
                                     href={source.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -243,6 +243,8 @@ const LouisAIPage: React.FC = () => {
                                     </svg>
                                     <span className="truncate max-w-[150px] sm:max-w-[200px]">{source.displayName}</span>
                                   </a>
+                                    {idx < message.sources.length - 1 && <span className="text-white/50">,</span>}
+                                  </React.Fragment>
                                 ))}
                               </div>
                             </div>
@@ -262,7 +264,7 @@ const LouisAIPage: React.FC = () => {
                   className="flex gap-2 sm:gap-3 mb-3 sm:mb-4"
                 >
                   <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <img src="/applogo.png" alt="Louis" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                    <img src="/applogo.png" alt="Louis Ai" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                   </div>
                   <div className="flex gap-1 sm:gap-1.5 items-center mt-1.5 sm:mt-2">
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
@@ -293,17 +295,7 @@ const LouisAIPage: React.FC = () => {
       <div className="border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-6">
           <form onSubmit={handleSubmit} className="relative">
-            <div className="relative">
-              {/* Attachment Button */}
-              <button
-                type="button"
-                className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80 transition-colors"
-              >
-                <svg width="18" height="18" className="sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
-                </svg>
-              </button>
-
+            <div className="relative flex items-center">
               <input
                 ref={inputRef}
                 type="text"
@@ -312,32 +304,25 @@ const LouisAIPage: React.FC = () => {
                 onKeyDown={handleKeyDown}
                 placeholder="What do you want to know?"
                 disabled={isLoading}
-                className="w-full pl-10 sm:pl-12 pr-20 sm:pr-24 py-3 sm:py-4 bg-[#2a2a2a] border border-[#3a3a3a] rounded-full text-white placeholder-white/40 focus:outline-none focus:border-[#4a4a4a] transition-colors text-sm sm:text-[15px] disabled:opacity-50"
+                className="w-full pl-4 sm:pl-6 pr-12 sm:pr-14 py-3 sm:py-4 bg-[#2a2a2a] border border-[#3a3a3a] rounded-full text-white placeholder-white/40 focus:outline-none focus:border-[#4a4a4a] transition-colors text-sm sm:text-[15px] disabled:opacity-50"
               />
 
               {/* Right Side Buttons */}
-              <div className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 sm:gap-2">
-                {/* Auto Mode Selector - Hidden on mobile */}
-                <button
-                  type="button"
-                  className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-transparent hover:bg-[#333333] text-white/70 hover:text-white rounded-full transition-colors text-sm"
+              <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center">
+                <AnimatePresence>
+                  {input.trim() && !isLoading && (
+                    <motion.button
+                      type="submit"
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      exit={{ scale: 0.5, opacity: 0 }}
+                      transition={{ duration: 0.15 }}
+                      className="p-2 bg-blue-600 hover:bg-blue-700 rounded-full text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                  </svg>
-                  <span>Auto</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </button>
-
-                {/* Voice Button */}
-                <button
-                  type="button"
-                  className="p-1.5 sm:p-2 hover:bg-[#333333] rounded-full transition-colors text-white/70 hover:text-white"
-                >
-                  <Mic size={16} className="sm:w-[18px] sm:h-[18px]" />
-                </button>
+                      <Send size={16} className="sm:w-[18px] sm:h-[18px]" />
+                    </motion.button>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
           </form>
