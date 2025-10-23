@@ -544,11 +544,9 @@ const LouisAIPage: React.FC = () => {
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
                     <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                     </div>
-                    {/* Shimmering Thinking text with three dots */}
+                    {/* Fixed Thinking text */}
                     <div className="text-xs sm:text-sm text-white/60">
-                      <span className="inline-block bg-gradient-to-r from-transparent via-silver-400/60 to-transparent bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
-                        Thinking<span className="animate-pulse">...</span>
-                      </span>
+                      Thinking...
                     </div>
                   </div>
                 </motion.div>
