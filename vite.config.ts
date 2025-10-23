@@ -1,9 +1,35 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+import { readFileSync, writeFileSync } from 'fs';
+
+// Custom plugin to inject build timestamp into service worker
+const serviceWorkerTimestampPlugin = () => {
+  return {
+    name: 'service-worker-timestamp',
+    // This hook runs after the bundle is written to disk
+    writeBundle: (options: any) => {
+      const swPath = resolve(options.dir || 'dist', 'sw.js');
+      try {
+        let swContent = readFileSync(swPath, 'utf-8');
+        const timestamp = new Date().toISOString();
+        swContent = swContent.replace(/_BUILD_TIMESTAMP_/g, timestamp);
+        writeFileSync(swPath, swContent);
+        console.log(`✅ Service worker version updated with timestamp: ${timestamp}`);
+      } catch (error) {
+        console.error('❌ Error updating service worker version:', error);
+      }
+    },
+  };
+};
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    serviceWorkerTimestampPlugin() // Add our custom plugin here
+  ],
   base: '/',
   optimizeDeps: {
     include: ['framer-motion', 'react', 'react-dom', 'react-router-dom', 'lucide-react'],
