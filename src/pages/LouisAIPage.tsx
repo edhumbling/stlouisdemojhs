@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic } from 'lucide-react';
+import { Send, Mic, Plus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -228,6 +228,16 @@ const LouisAIPage: React.FC = () => {
     await handleSubmit(fakeEvent);
   };
 
+  const startNewConversation = () => {
+    setMessages([]);
+    setInput('');
+    setError(null);
+    // Focus on input after clearing
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
+  };
+
   const quickActions = [
     { icon: "🔍", label: "DeepSearch", action: () => {} },
     { icon: "🎨", label: "Create Images", action: () => {} },
@@ -245,8 +255,38 @@ const LouisAIPage: React.FC = () => {
         pageType="ai-search"
       />
 
+      {/* Louis AI Header */}
+      <div className="sticky top-0 z-30 bg-[#1a1a1a] border-b border-[#2a2a2a]">
+        <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
+          <div className="flex items-center justify-between">
+            {/* Left side - Logo and New Chat button */}
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center">
+                <img src="/applogo.png" alt="Louis Ai" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
+              </div>
+              <button
+                onClick={startNewConversation}
+                className="flex items-center gap-2 px-3 py-2 bg-[#2a2a2a] hover:bg-[#333333] text-white/80 rounded-lg border border-[#3a3a3a] transition-colors duration-200 text-sm"
+                title="Start new conversation"
+              >
+                <Plus size={16} />
+                <span className="hidden sm:inline">New Chat</span>
+              </button>
+            </div>
+
+            {/* Center - Title */}
+            <div className="flex-1 text-center">
+              <h1 className="text-lg sm:text-xl font-bold text-white">Louis AI</h1>
+            </div>
+
+            {/* Right side - Placeholder for future features */}
+            <div className="w-20 sm:w-24"></div>
+          </div>
+        </div>
+      </div>
+
       {/* Messages Container */}
-      <div className="h-[calc(100vh-80px)] overflow-y-auto pb-20">
+      <div className="h-[calc(100vh-140px)] overflow-y-auto pb-20">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {messages.length === 0 ? (
             /* Welcome Screen - Grok Style */
