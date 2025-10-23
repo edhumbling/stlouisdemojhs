@@ -34,16 +34,18 @@ export interface GeminiResponse {
 class GeminiService {
   private apiKey: string;
   private backupApiKey: string;
+  private secondBackupApiKey: string;
   private apiEndpoint: string;
   private currentKeyIndex: number = 0;
 
   constructor() {
     this.apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
     this.backupApiKey = import.meta.env.VITE_GEMINI_BACKUP_API_KEY || '';
+    this.secondBackupApiKey = import.meta.env.VITE_GEMINI_SECOND_BACKUP_API_KEY || 'AIzaSyB37s1tv6tmN7gA2JF0KEVfHNS4xp41W94';
     this.apiEndpoint = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
     
-    if (!this.apiKey && !this.backupApiKey) {
-      console.warn('⚠️ No Gemini API keys found. Please set VITE_GEMINI_API_KEY and/or VITE_GEMINI_BACKUP_API_KEY environment variables.');
+    if (!this.apiKey && !this.backupApiKey && !this.secondBackupApiKey) {
+      console.warn('⚠️ No Gemini API keys found. Please set VITE_GEMINI_API_KEY and/or backup API key environment variables.');
     } else if (!this.apiKey && this.backupApiKey) {
       console.warn('⚠️ Primary Gemini API key not found. Using backup key.');
       this.apiKey = this.backupApiKey;
@@ -51,19 +53,31 @@ class GeminiService {
   }
 
   /**
-   * Get the current API key (primary or backup)
+   * Get the current API key (primary, backup, or second backup)
    */
   private getCurrentApiKey(): string {
-    return this.currentKeyIndex === 0 ? this.apiKey : this.backupApiKey;
+    switch (this.currentKeyIndex) {
+      case 0:
+        return this.apiKey;
+      case 1:
+        return this.backupApiKey;
+      case 2:
+        return this.secondBackupApiKey;
+      default:
+        return this.apiKey;
+    }
   }
 
   /**
-   * Switch to backup API key
+   * Switch to next available API key
    */
   private switchToBackupKey(): void {
-    if (this.currentKeyIndex === 0) {
+    if (this.currentKeyIndex === 0 && this.backupApiKey) {
       this.currentKeyIndex = 1;
-      console.log('🔄 Switched to backup Gemini API key due to primary key quota/credit issues.');
+      console.log('🔄 Switched to first backup Gemini API key due to primary key quota/credit issues.');
+    } else if (this.currentKeyIndex === 1 && this.secondBackupApiKey) {
+      this.currentKeyIndex = 2;
+      console.log('🔄 Switched to second backup Gemini API key due to first backup key quota/credit issues.');
     }
   }
 
@@ -150,7 +164,8 @@ class GeminiService {
           
           // Check if it's a quota/credit issue and backup key is available
           if (errorMessage.includes('quota') || errorMessage.includes('credit') || errorMessage.includes('billing')) {
-            if (this.currentKeyIndex === 0 && this.backupApiKey) {
+            if ((this.currentKeyIndex === 0 && this.backupApiKey) || 
+                (this.currentKeyIndex === 1 && this.secondBackupApiKey)) {
               this.switchToBackupKey();
               // Retry with backup key
               return this.generateResponse(userMessage, context, conversationHistory, sources);
