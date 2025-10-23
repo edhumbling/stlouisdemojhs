@@ -7,7 +7,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import SEOHead from '../components/seo/SEOHead';
-import geminiService from '../services/geminiService';
+import unifiedAIService from '../services/unifiedAIService';
 import ragEngine from '../services/ragEngine';
 import { getUniqueSources } from '../utils/pageMapping';
 
@@ -126,8 +126,8 @@ const LouisAIPage: React.FC = () => {
         parts: [{ text: msg.content }],
       }));
 
-      // Generate response using Gemini
-      const response = await geminiService.generateResponse(
+      // Generate response using Unified AI Service
+      const response = await unifiedAIService.generateResponse(
         prompt,
         ragResult.context,
         conversationHistory,
@@ -180,8 +180,8 @@ const LouisAIPage: React.FC = () => {
       let errorMessageContent = 'I apologize, but I encountered an error processing your request. Please try again.';
       let isRetryable = false;
       if (err instanceof Error) {
-        if (err.message === 'SERVICE_UNAVAILABLE') {
-          errorMessageContent = 'The AI is currently experiencing high traffic. Please try your request again in a few moments.';
+        if (err.message === 'SERVICE_UNAVAILABLE' || err.message === 'HIGH_TRAFFIC') {
+          errorMessageContent = 'We are currently experiencing high traffic. Please come back later.';
           isRetryable = true;
         } else {
           setError(err.message); // Set specific error for debugging if needed
@@ -230,8 +230,8 @@ const LouisAIPage: React.FC = () => {
         parts: [{ text: msg.content }],
       }));
 
-      // Generate response using Gemini
-      const response = await geminiService.generateResponse(
+      // Generate response using Unified AI Service
+      const response = await unifiedAIService.generateResponse(
         userMessage.content,
         ragResult.context,
         conversationHistory,
@@ -284,8 +284,8 @@ const LouisAIPage: React.FC = () => {
       let errorMessageContent = 'I apologize, but I encountered an error processing your request. Please try again.';
       let isRetryable = false;
       if (err instanceof Error) {
-        if (err.message === 'SERVICE_UNAVAILABLE') {
-          errorMessageContent = 'The AI is currently experiencing high traffic. Please try your request again in a few moments.';
+        if (err.message === 'SERVICE_UNAVAILABLE' || err.message === 'HIGH_TRAFFIC') {
+          errorMessageContent = 'We are currently experiencing high traffic. Please come back later.';
           isRetryable = true;
         } else {
           setError(err.message); // Set specific error for debugging if needed

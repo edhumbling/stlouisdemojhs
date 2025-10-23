@@ -198,7 +198,7 @@ class GeminiService {
 
       if (!response.ok) {
         if (response.status === 503) {
-          throw new Error('SERVICE_UNAVAILABLE');
+          throw new Error('HIGH_TRAFFIC');
         }
         
         // Check for rate limiting, quota issues, and other recoverable errors - automatically switch to backup key
@@ -218,7 +218,7 @@ class GeminiService {
           } else {
             // No more backup keys available or max retries reached
             console.error(`❌ All API keys exhausted or max retries reached (${retryCount}/3)`);
-            throw new Error('SERVICE_UNAVAILABLE');
+          throw new Error('SERVICE_UNAVAILABLE');
           }
         }
         

@@ -66,8 +66,8 @@ class UnifiedAIService {
         return this.generateResponse(userMessage, context, conversationHistory, sources);
       }
       
-      // If all services fail, provide a helpful error message
-      throw new Error('SERVICE_UNAVAILABLE');
+      // If all services fail, provide a user-friendly high traffic message
+      throw new Error('HIGH_TRAFFIC');
     }
   }
 
