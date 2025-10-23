@@ -108,6 +108,7 @@ import ShopGalleryPage from './pages/ShopGalleryPage';
 import CareersListPage from './pages/CareersListPage';
 import TechResourcesPage from './pages/TechResourcesPage';
 import LoadingTestPage from './pages/LoadingTestPage';
+import LouisAIPage from './pages/LouisAIPage';
 
 // Note: Scroll position management is now handled by useEnhancedNavigation hook
 
@@ -205,6 +206,9 @@ const App: React.FC = () => {
 
           {/* Social Media Preview Tool */}
           <Route path="/social-preview" element={<SocialPreviewPage />} />
+
+          {/* Louis AI Assistant */}
+          <Route path="/louis-ai" element={<LouisAIPage />} />
 
           {/* Legal Pages */}
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
