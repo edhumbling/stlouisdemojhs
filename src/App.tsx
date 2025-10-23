@@ -167,7 +167,6 @@ const App: React.FC = () => {
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="ai-search" element={<AISearchPage />} />
           <Route path="ai" element={<AILearningPage />} />
-          <Route path="louis-ai" element={<LouisAIPage />} />
           <Route path="advice-speeches" element={<AdviceSpeechesPage />} />
           <Route path="gallery" element={<GalleryPage />} />
           <Route path="apply-now" element={<ApplyNowPage />} />
@@ -233,6 +232,7 @@ const App: React.FC = () => {
         </Route>
 
         {/* Standalone pages without Layout (no header/footer) */}
+        <Route path="/louis-ai" element={<LouisAIPage />} />
         <Route path="/stem" element={<STEMPage />} />
         <Route path="/robotics" element={<RoboticsPage />} />
         <Route path="/space-exploration" element={<SpaceExplorationPage />} />
