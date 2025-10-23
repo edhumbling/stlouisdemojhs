@@ -427,7 +427,7 @@ const LouisAIPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Input Area - Grok Style - Mobile Optimized */}
+      {/* Input Area - Dynamic Design */}
       <div className="border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-6">
           <form onSubmit={handleSubmit} className="relative">
@@ -438,12 +438,16 @@ const LouisAIPage: React.FC = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="What do you want to know?"
+                placeholder="Message..."
                 disabled={isLoading}
-                className="w-full pl-4 sm:pl-6 pr-12 sm:pr-14 py-3 sm:py-4 bg-[#2a2a2a] border border-[#3a3a3a] rounded-full text-white placeholder-white/40 focus:outline-none focus:border-[#4a4a4a] transition-colors text-sm sm:text-[15px] disabled:opacity-50"
+                className={`w-full pl-4 sm:pl-6 pr-12 sm:pr-14 transition-all duration-300 ease-in-out bg-[#2a2a2a] border border-[#3a3a3a] text-white placeholder-white/40 focus:outline-none focus:border-[#4a4a4a] disabled:opacity-50 ${
+                  input.length > 50 
+                    ? 'py-4 sm:py-6 rounded-2xl text-base sm:text-lg' 
+                    : 'py-3 sm:py-4 rounded-full text-sm sm:text-[15px]'
+                }`}
               />
 
-              {/* Right Side Buttons */}
+              {/* Dynamic Arrow Button */}
               <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center">
                 <AnimatePresence>
                   {input.trim() && !isLoading && (
@@ -452,10 +456,27 @@ const LouisAIPage: React.FC = () => {
                       initial={{ scale: 0.5, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       exit={{ scale: 0.5, opacity: 0 }}
-                      transition={{ duration: 0.15 }}
-                      className="p-2 bg-blue-600 hover:bg-blue-700 rounded-full text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      transition={{ duration: 0.2 }}
+                      className={`transition-all duration-300 ease-in-out ${
+                        input.length > 50
+                          ? 'p-3 rounded-xl'
+                          : 'p-2 rounded-full'
+                      } ${
+                        input.trim() 
+                          ? 'bg-white hover:bg-gray-100 text-gray-800' 
+                          : 'bg-[#3a3a3a] text-gray-400'
+                      }`}
+                    >
+                      <svg 
+                        className={`transition-all duration-300 ${
+                          input.length > 50 ? 'w-5 h-5' : 'w-4 h-4'
+                        }`} 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
                 >
-                      <Send size={16} className="sm:w-[18px] sm:h-[18px]" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
                     </motion.button>
                   )}
                 </AnimatePresence>
