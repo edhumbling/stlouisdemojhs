@@ -113,8 +113,63 @@ import LouisAIPage from './pages/LouisAIPage';
 // Note: Scroll position management is now handled by useEnhancedNavigation hook
 
 const App: React.FC = () => {
-  // Cache busting for fresh deployments
+  // Clear cache and cookies on page refresh
   React.useEffect(() => {
+    const clearWebsiteData = async () => {
+      try {
+        // Clear all cookies
+        document.cookie.split(";").forEach((c) => {
+          const eqPos = c.indexOf("=");
+          const name = eqPos > -1 ? c.substr(0, eqPos) : c;
+          document.cookie = `${name.trim()}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+          document.cookie = `${name.trim()}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${window.location.hostname}`;
+          document.cookie = `${name.trim()}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.${window.location.hostname}`;
+        });
+
+        // Clear localStorage
+        localStorage.clear();
+
+        // Clear sessionStorage
+        sessionStorage.clear();
+
+        // Clear IndexedDB
+        if ('indexedDB' in window) {
+          const databases = await indexedDB.databases();
+          await Promise.all(
+            databases.map(db => {
+              if (db.name) {
+                return new Promise((resolve, reject) => {
+                  const deleteReq = indexedDB.deleteDatabase(db.name);
+                  deleteReq.onsuccess = () => resolve(true);
+                  deleteReq.onerror = () => reject(deleteReq.error);
+                });
+              }
+            })
+          );
+        }
+
+        // Clear cache storage if available
+        if ('caches' in window) {
+          const cacheNames = await caches.keys();
+          await Promise.all(
+            cacheNames.map(cacheName => caches.delete(cacheName))
+          );
+        }
+
+        console.log('🧹 Website cache and cookies cleared on refresh');
+      } catch (error) {
+        console.warn('⚠️ Some cache clearing operations failed:', error);
+      }
+    };
+
+    // Only clear on page refresh, not on initial load
+    const isRefresh = performance.navigation?.type === 1 || 
+                     (performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming)?.type === 'reload';
+    
+    if (isRefresh) {
+      clearWebsiteData();
+    }
+
     console.log('🚀 St. Louis Demo JHS - Fresh deployment loaded v2024-01-30-001');
     console.log('✅ MayaMiles AI with SuperChat functionality ready');
   }, []);
