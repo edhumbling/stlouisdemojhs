@@ -235,7 +235,7 @@ const LouisAIPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#1a1a1a] pt-16">
+    <div className="min-h-screen bg-[#1a1a1a]">
       <SEOHead
         title="Louis AI - Your Intelligent School Assistant | St. Louis Demo JHS"
         description="Chat with Louis AI, your intelligent assistant for St. Louis Demonstration JHS. Get instant, accurate answers about admissions, academics, facilities, and everything about our school."
@@ -246,7 +246,7 @@ const LouisAIPage: React.FC = () => {
       />
 
       {/* Messages Container */}
-      <div className="h-[calc(100vh-4rem-80px)] overflow-y-auto pb-20">
+      <div className="h-[calc(100vh-80px)] overflow-y-auto pb-20">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {messages.length === 0 ? (
             /* Welcome Screen - Grok Style */
