@@ -1,12 +1,12 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
 import { HeaderProvider } from './contexts/HeaderContext';
 import { LoadingProvider } from './contexts/LoadingContext';
-import GlobalLoadingScreen from './components/common/GlobalLoadingScreen';
 
-const LouisAIChatbot = lazy(() => import('./components/chatbot/LouisAIChatbot'));
+
+
 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -19,7 +19,7 @@ import DonateOneDollarPage from './pages/DonateOneDollarPage';
 import NewsPage from './pages/NewsPage';
 import CalendarPage from './pages/CalendarPage';
 import AISearchPage from './pages/AISearchPage';
-import LouisAIPage from './pages/LouisAIPage';
+
 import STEMPage from './pages/STEMPage';
 import RoboticsPage from './pages/RoboticsPage';
 import SpaceExplorationPage from './pages/SpaceExplorationPage';
@@ -123,13 +123,6 @@ const App: React.FC = () => {
       <HeaderProvider>
         <LoadingProvider>
           <Router>
-            <GlobalLoadingScreen />
-            
-            {/* Louis AI Chatbot - Global assistant, rendered outside Layout */}
-            <Suspense fallback={null}>
-              <LouisAIChatbot />
-            </Suspense>
-            
             <Routes>
         {/* Main layout with nested routes */}
         <Route path="/" element={<Layout />}>
@@ -232,7 +225,6 @@ const App: React.FC = () => {
         </Route>
 
         {/* Standalone pages without Layout (no header/footer) */}
-        <Route path="/louis-ai" element={<LouisAIPage />} />
         <Route path="/stem" element={<STEMPage />} />
         <Route path="/robotics" element={<RoboticsPage />} />
         <Route path="/space-exploration" element={<SpaceExplorationPage />} />
