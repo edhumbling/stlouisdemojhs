@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic, Plus, MicOff, Volume2 } from 'lucide-react';
+import { Send, Mic, Plus, MicOff, Volume2, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -13,6 +13,7 @@ import ragEngine from '../services/ragEngine';
 import speechToTextService from '../services/speechToTextService';
 import whisperService from '../services/whisperService';
 import microphonePermissionService from '../services/microphonePermissionService';
+import exaService from '../services/exaService';
 import { getUniqueSources } from '../utils/pageMapping';
 
 interface Message {
@@ -37,6 +38,7 @@ const LouisAIPage: React.FC = () => {
   const [whisperSupported, setWhisperSupported] = useState(false);
   const [realtimeTranscript, setRealtimeTranscript] = useState('');
   const [showThinking, setShowThinking] = useState<{ [messageId: string]: boolean }>({});
+  const [isInternetSearch, setIsInternetSearch] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -369,6 +371,27 @@ const LouisAIPage: React.FC = () => {
     setError(null);
 
     try {
+      let response: string;
+      let sources: any[] = [];
+      let shouldShowSources = false;
+
+      if (isInternetSearch) {
+        // Use Exa AI for internet search
+        console.log('🌐 Using internet search via Exa AI');
+        
+        // Get conversation history for context
+        const conversationHistory = messages.slice(-6).map(msg => ({
+          role: msg.role === 'user' ? 'user' as const : 'model' as const,
+          parts: [{ text: msg.content }],
+        }));
+
+        response = await exaService.generateResponse(
+          userMessage.content,
+          '', // No local context for internet search
+          conversationHistory,
+          []
+        );
+      } else {
       // Use RAG to find relevant content
       const ragResult = await ragEngine.search(userMessage.content);
 
@@ -378,16 +401,18 @@ const LouisAIPage: React.FC = () => {
         parts: [{ text: msg.content }],
       }));
 
-      // Generate response using Unified AI Service
-      const response = await unifiedAIService.generateResponse(
+        // Generate response using Unified AI Service with thinking mode
+        const { response: aiResponse, thinking } = await unifiedAIService.generateResponseWithThinking(
         userMessage.content,
         ragResult.context,
         conversationHistory,
         ragResult.sources
       );
 
+        response = aiResponse;
+
       // Extract sources for citation - only show if there are relevant sources
-      const sources = getUniqueSources(
+        sources = getUniqueSources(
         ragResult.chunks.map(chunk => ({
           title: chunk.title,
           source: chunk.source,
@@ -399,7 +424,7 @@ const LouisAIPage: React.FC = () => {
       // 1. There are sources available
       // 2. The query seems to be asking for factual information (not casual conversation)
       // 3. The response contains specific information that would benefit from citations
-      const shouldShowSources = sources.length > 0 && (
+        shouldShowSources = sources.length > 0 && (
         userMessage.content.toLowerCase().includes('what') ||
         userMessage.content.toLowerCase().includes('how') ||
         userMessage.content.toLowerCase().includes('when') ||
@@ -416,6 +441,7 @@ const LouisAIPage: React.FC = () => {
         userMessage.content.toLowerCase().includes('facilities') ||
         userMessage.content.toLowerCase().includes('history')
       );
+      }
 
       const assistantMessage: Message = {
         id: `assistant-${Date.now()}`,
@@ -491,6 +517,10 @@ const LouisAIPage: React.FC = () => {
       ...prev,
       [messageId]: !prev[messageId]
     }));
+  };
+
+  const toggleInternetSearch = () => {
+    setIsInternetSearch(prev => !prev);
   };
 
   const quickActions = [
@@ -851,6 +881,23 @@ const LouisAIPage: React.FC = () => {
 
                   {/* Action Buttons */}
                   <div className="flex items-center gap-1 mr-2 sm:mr-3">
+                    {/* Internet Search Button */}
+                    <button
+                      type="button"
+                      onClick={toggleInternetSearch}
+                      disabled={isLoading}
+                      className={`p-2 transition-all duration-300 ease-in-out rounded-full ${
+                        isLoading
+                          ? 'text-white/40 cursor-not-allowed'
+                          : isInternetSearch
+                          ? 'text-blue-400 hover:text-blue-300 bg-blue-500/20'
+                          : 'text-white/60 hover:text-white/80'
+                      }`}
+                      title={isInternetSearch ? 'Disable internet search' : 'Enable internet search'}
+                    >
+                      <Globe size={16} />
+                    </button>
+
                     {/* Microphone Button */}
                     {(speechSupported || whisperSupported) && (
                       <button
