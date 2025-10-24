@@ -52,6 +52,8 @@ class OpenRouterService {
       console.warn('⚠️ No OpenRouter API key found. Please set VITE_OPENROUTER_API_KEY environment variable.');
     } else {
       console.log('🤖 OpenRouter Service initialized with DeepSeek Chat v3 model');
+      console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
+      console.log('🌐 Endpoint:', this.apiEndpoint);
     }
   }
 

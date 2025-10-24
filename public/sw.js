@@ -1,5 +1,5 @@
 // Update this version number with each deployment to force cache refresh
-const CACHE_VERSION = '2025-01-27-cache-fix-v1.0.2';
+const CACHE_VERSION = '2025-01-27-cors-fix-v1.0.3';
 const CACHE_NAME = `st-louis-demo-jhs-${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
@@ -61,7 +61,7 @@ self.addEventListener('fetch', (event) => {
   }
   
   // Force fresh content for all dynamic content
-  if (url.pathname.endsWith('.js') || url.pathname.endsWith('.css') || url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname.includes('/api/')) {
+  if (url.pathname.endsWith('.js') || url.pathname.endsWith('.css') || url.pathname.endsWith('.html') || url.pathname === '/') {
     event.respondWith(
       fetch(event.request, {
         cache: 'no-cache',
@@ -82,6 +82,9 @@ self.addEventListener('fetch', (event) => {
           return new Response('Network error', { status: 503 });
         })
     );
+  } else if (url.hostname === 'openrouter.ai' || url.pathname.includes('/api/')) {
+    // Don't interfere with external API calls - let them pass through normally
+    return;
   } else {
     // Cache-first strategy for static assets only
     event.respondWith(
