@@ -23,8 +23,8 @@ VITE_OPENROUTER_API_KEY=sk-or-v1-b8bb14a68f9315a0f1c726c59e1277545cf0aa007117a23
 
 ## 📊 Service Configuration
 
-### **AI Service: OpenRouter with Hermes 3**
-- Model: `nousresearch/hermes-3-llama-3.1-405b:free`
+### **AI Service: OpenRouter with DeepSeek Chat v3**
+- Model: `deepseek/deepseek-chat-v3-0324:free`
 - High-quality responses for educational content
 - Free tier available with excellent performance
 - Reliable API with excellent uptime
