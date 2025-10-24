@@ -39,7 +39,7 @@ class ExaService {
 
   constructor() {
     this.apiKey = '0aa7c589-a676-42ce-968f-1f2870a66755';
-    this.apiEndpoint = 'https://api.exa.ai/v1/chat/completions';
+    this.apiEndpoint = 'https://api.exa.ai/openai/v1/chat/completions';
     
     console.log('🌐 Exa AI Service initialized for internet search');
     console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
