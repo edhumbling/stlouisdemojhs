@@ -661,6 +661,10 @@ const LouisAIPage: React.FC = () => {
                                     {children}
                                   </blockquote>
                                 ),
+                                // Math components for LaTeX rendering
+                                math: ({ children }) => <span className="math-inline">{children}</span>,
+                                inlineMath: ({ children }) => <span className="math-inline">{children}</span>,
+                                blockMath: ({ children }) => <div className="math-block my-4">{children}</div>,
                               }}
                             >
                               {message.content}

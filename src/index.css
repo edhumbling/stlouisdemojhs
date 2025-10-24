@@ -885,5 +885,63 @@ a[href*="worldremit"] {
   @apply text-gray-300;
 }
 
+/* Math equation styling for LaTeX rendering */
+.math-inline {
+  display: inline-block;
+  margin: 0 2px;
+  padding: 2px 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  font-family: 'KaTeX_Math', 'Times New Roman', serif;
+}
+
+.math-block {
+  display: block;
+  margin: 16px 0;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  border-left: 3px solid #3b82f6;
+  text-align: center;
+  font-family: 'KaTeX_Math', 'Times New Roman', serif;
+}
+
+/* Ensure KaTeX math elements are properly styled */
+.katex {
+  font-size: 1.1em;
+  color: #ffffff;
+}
+
+.katex-display {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.katex-display .katex {
+  font-size: 1.2em;
+}
+
+/* Math equation responsive design */
+@media (max-width: 768px) {
+  .math-inline {
+    font-size: 0.9em;
+    padding: 1px 3px;
+  }
+  
+  .math-block {
+    margin: 12px 0;
+    padding: 8px;
+    font-size: 0.95em;
+  }
+  
+  .katex {
+    font-size: 1em;
+  }
+  
+  .katex-display .katex {
+    font-size: 1.1em;
+  }
+}
+
 /* Louis AI Chatbot - Global Visibility Enforcement */
 /* Ensure chatbot is always visible above all content */
