@@ -1019,14 +1019,26 @@ const LouisAIPage: React.FC = () => {
                 
                 {/* Input Content */}
                 <div className="flex items-center w-full">
-                  {/* Plus Icon */}
-                  <button
-                    type="button"
-                    className="ml-3 sm:ml-4 p-1 text-white/60 hover:text-white/80 transition-colors"
-                    title="Add attachment"
+                  {/* Plus Icon - Image Upload */}
+                  <label
+                    htmlFor="image-upload"
+                    className={`ml-3 sm:ml-4 p-1 transition-colors cursor-pointer ${
+                      selectedImage
+                        ? 'text-green-400 hover:text-green-300'
+                        : 'text-white/60 hover:text-white/80'
+                    }`}
+                    title={selectedImage ? 'Image selected - Click to change' : 'Upload image for analysis'}
                   >
                     <Plus size={16} />
-                  </button>
+                    <input
+                      id="image-upload"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="hidden"
+                      disabled={isLoading}
+                    />
+                  </label>
 
                   {/* Input Field or Waveform */}
                   <div className="flex-1 mx-2 sm:mx-3">
@@ -1052,29 +1064,6 @@ const LouisAIPage: React.FC = () => {
 
                   {/* Action Buttons */}
                   <div className="flex items-center gap-1 mr-2 sm:mr-3">
-                    {/* Image Upload Button */}
-                    <label
-                      htmlFor="image-upload"
-                      className={`p-2 transition-all duration-300 ease-in-out rounded-full cursor-pointer ${
-                        isLoading
-                          ? 'text-white/40 cursor-not-allowed'
-                          : selectedImage
-                          ? 'text-green-400 hover:text-green-300 bg-green-500/20'
-                          : 'text-white/60 hover:text-white/80'
-                      }`}
-                      title={selectedImage ? 'Image selected - Click to change' : 'Upload image for analysis'}
-                    >
-                      <Plus size={16} />
-                      <input
-                        id="image-upload"
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        className="hidden"
-                        disabled={isLoading}
-                      />
-                    </label>
-
                     {/* Internet Search Button */}
                     <button
                       type="button"
