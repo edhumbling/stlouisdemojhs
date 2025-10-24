@@ -13,14 +13,29 @@ interface OpenRouterRequest {
   messages: OpenRouterMessage[];
   temperature?: number;
   max_tokens?: number;
+  top_p?: number;
+  frequency_penalty?: number;
+  presence_penalty?: number;
+  user?: string;
 }
 
 interface OpenRouterResponse {
+  id: string;
   choices: Array<{
+    finish_reason: string | null;
     message: {
-      content: string;
+      role: string;
+      content: string | null;
     };
   }>;
+  created: number;
+  model: string;
+  object: string;
+  usage?: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+  };
 }
 
 class OpenRouterService {
@@ -82,7 +97,11 @@ class OpenRouterService {
         model: this.model,
         messages,
         temperature: 0.7,
-        max_tokens: 2048
+        max_tokens: 2048,
+        top_p: 0.9,
+        frequency_penalty: 0.1,
+        presence_penalty: 0.1,
+        user: 'stlouisdemojhs-user'
       };
 
       const response = await fetch(this.apiEndpoint, {
@@ -117,8 +136,22 @@ class OpenRouterService {
         throw new Error('No response generated from OpenRouter API');
       }
 
-      const generatedText = data.choices[0].message.content;
-      return generatedText;
+      const choice = data.choices[0];
+      if (!choice.message.content) {
+        throw new Error('Empty response from OpenRouter API');
+      }
+
+      // Log usage statistics if available
+      if (data.usage) {
+        console.log('📊 OpenRouter Usage:', {
+          prompt_tokens: data.usage.prompt_tokens,
+          completion_tokens: data.usage.completion_tokens,
+          total_tokens: data.usage.total_tokens,
+          model: data.model
+        });
+      }
+
+      return choice.message.content;
 
     } catch (error) {
       console.error('❌ OpenRouter API Error:', error);
@@ -210,6 +243,26 @@ Remember: You are representing St. Louis Demonstration JHS, so always be profess
     } catch (error) {
       console.error('❌ OpenRouter API test failed:', error);
       return false;
+    }
+  }
+
+  public async getGenerationStats(generationId: string): Promise<any> {
+    try {
+      const response = await fetch(`https://openrouter.ai/api/v1/generation?id=${generationId}`, {
+        headers: {
+          'Authorization': `Bearer ${this.apiKey}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch generation stats: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error('❌ Failed to get generation stats:', error);
+      throw error;
     }
   }
 }
