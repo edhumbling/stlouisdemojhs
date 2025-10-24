@@ -7,6 +7,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import SEOHead from '../components/seo/SEOHead';
+import AudioWaveform from '../components/AudioWaveform';
 import unifiedAIService from '../services/unifiedAIService';
 import ragEngine from '../services/ragEngine';
 import speechToTextService from '../services/speechToTextService';
@@ -645,20 +646,26 @@ const LouisAIPage: React.FC = () => {
                 </motion.div>
               )}
 
-              {/* Recording Status Indicator */}
+              {/* ChatGPT-style Recording Status */}
               {(isRecording || isListening) && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-green-900/20 border border-green-700/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-green-400 flex items-center justify-between gap-2"
+                  className="bg-[#2a2a2a] border border-[#3a3a3a] rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-white/80 flex items-center justify-between gap-2"
                 >
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span>{realtimeTranscript || 'Recording... Speak now (up to 3 minutes)'}</span>
+                    <div className="flex items-center gap-1">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                    </div>
+                    <span className="text-white/60">
+                      {realtimeTranscript || 'Listening...'}
+                    </span>
                   </div>
                   <button
                     onClick={handleStopListening}
-                    className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white text-xs rounded-md transition-colors"
+                    className="px-3 py-1 bg-red-500/20 hover:bg-red-500/30 text-red-400 text-xs rounded-md transition-colors border border-red-500/30"
                   >
                     Stop
                   </button>
@@ -687,91 +694,100 @@ const LouisAIPage: React.FC = () => {
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-6">
           <form onSubmit={handleSubmit} className="relative">
             <div className="relative flex items-center">
+              {/* ChatGPT-style Input Field */}
+              <div className={`w-full transition-all duration-300 ease-in-out bg-[#2a2a2a] border border-[#3a3a3a] text-white focus-within:border-[#4a4a4a] disabled:opacity-50 ${
+                (realtimeTranscript || input).length > 50 
+                  ? 'py-4 sm:py-6 rounded-2xl text-base sm:text-lg' 
+                  : 'py-3 sm:py-4 rounded-full text-sm sm:text-[15px]'
+              } ${realtimeTranscript ? 'border-green-500/50 bg-green-900/10' : ''}`}>
+                
+                {/* Input Content */}
+                <div className="flex items-center w-full">
+                  {/* Plus Icon */}
+                  <button
+                    type="button"
+                    className="ml-3 sm:ml-4 p-1 text-white/60 hover:text-white/80 transition-colors"
+                    title="Add attachment"
+                  >
+                    <Plus size={16} />
+                  </button>
+
+                  {/* Input Field or Waveform */}
+                  <div className="flex-1 mx-2 sm:mx-3">
+                    {isRecording || isListening ? (
+                      /* Audio Waveform Visualization */
+                      <div className="flex items-center h-6">
+                        <AudioWaveform isActive={isRecording || isListening} />
+                      </div>
+                    ) : (
+                      /* Text Input */
               <input
                 ref={inputRef}
                 type="text"
-                value={realtimeTranscript || input}
+                        value={realtimeTranscript || input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder={realtimeTranscript ? realtimeTranscript : "Message..."}
+                        placeholder={realtimeTranscript ? realtimeTranscript : "Message..."}
                 disabled={isLoading}
-                className={`w-full pl-4 sm:pl-6 pr-20 sm:pr-24 transition-all duration-300 ease-in-out bg-[#2a2a2a] border border-[#3a3a3a] text-white placeholder-white/40 focus:outline-none focus:border-[#4a4a4a] disabled:opacity-50 ${
-                  (realtimeTranscript || input).length > 50 
-                    ? 'py-4 sm:py-6 rounded-2xl text-base sm:text-lg' 
-                    : 'py-3 sm:py-4 rounded-full text-sm sm:text-[15px]'
-                } ${realtimeTranscript ? 'border-green-500/50 bg-green-900/10' : ''}`}
-              />
+                        className="w-full bg-transparent text-white placeholder-white/40 focus:outline-none"
+                      />
+                    )}
+                  </div>
 
-              {/* Speech-to-Text Button */}
-              {(speechSupported || whisperSupported) && (
-                <button
-                  type="button"
-                  onClick={isListening || isRecording ? handleStopListening : handleStartListening}
-                  disabled={isLoading}
-                  className={`absolute right-12 sm:right-14 top-1/2 -translate-y-1/2 p-2 sm:p-3 transition-all duration-300 ease-in-out rounded-full ${
-                    isLoading
-                      ? 'bg-[#3a3a3a] text-white/40 cursor-not-allowed'
-                      : isRecording
-                      ? 'bg-green-500 hover:bg-green-600 text-white hover:scale-105 animate-pulse shadow-lg shadow-green-500/50'
-                      : isListening
-                      ? 'bg-red-500 hover:bg-red-600 text-white hover:scale-105 animate-pulse shadow-lg shadow-red-500/50'
-                      : 'bg-[#4a4a4a] hover:bg-[#5a5a5a] text-white hover:scale-105'
-                  }`}
-                  title={
-                    isRecording 
-                      ? 'Recording... Click to stop' 
-                      : isListening 
-                      ? 'Stop recording' 
-                      : 'Start voice input'
-                  }
-                >
-                  {isRecording ? (
-                    <div className="flex items-center gap-1">
-                      <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                      <Mic size={16} className="transition-transform duration-200" />
-                    </div>
-                  ) : isListening ? (
-                    <MicOff size={16} className="transition-transform duration-200" />
-                  ) : (
-                    <Mic size={16} className="transition-transform duration-200" />
-                  )}
-                </button>
-              )}
+                  {/* Action Buttons */}
+                  <div className="flex items-center gap-1 mr-2 sm:mr-3">
+                    {/* Microphone Button */}
+                    {(speechSupported || whisperSupported) && (
+                      <button
+                        type="button"
+                        onClick={isListening || isRecording ? handleStopListening : handleStartListening}
+                        disabled={isLoading}
+                        className={`p-2 transition-all duration-300 ease-in-out rounded-full ${
+                          isLoading
+                            ? 'text-white/40 cursor-not-allowed'
+                            : isRecording
+                            ? 'text-green-400 hover:text-green-300'
+                            : isListening
+                            ? 'text-red-400 hover:text-red-300'
+                            : 'text-white/60 hover:text-white/80'
+                        }`}
+                        title={
+                          isRecording 
+                            ? 'Recording... Click to stop' 
+                            : isListening 
+                            ? 'Stop recording' 
+                            : 'Start voice input'
+                        }
+                      >
+                        {isRecording || isListening ? (
+                          <MicOff size={16} />
+                        ) : (
+                          <Mic size={16} />
+                        )}
+                      </button>
+                    )}
 
-              {/* Dynamic Arrow Button */}
-              <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center">
-                <AnimatePresence>
+                    {/* Send Button */}
                   {input.trim() && !isLoading && (
-                    <motion.button
+                      <button
                       type="submit"
-                      initial={{ scale: 0.5, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      exit={{ scale: 0.5, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className={`transition-all duration-300 ease-in-out ${
-                        input.length > 50
-                          ? 'p-3 rounded-xl'
-                          : 'p-2 rounded-full'
-                      } ${
-                        input.trim() 
-                          ? 'bg-white hover:bg-gray-100 text-gray-800' 
-                          : 'bg-[#3a3a3a] text-gray-400'
-                      }`}
-                    >
-                      <svg 
-                        className={`transition-all duration-300 ${
-                          input.length > 50 ? 'w-5 h-5' : 'w-4 h-4'
-                        }`} 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                      </svg>
-                    </motion.button>
+                        className="p-2 bg-white hover:bg-gray-100 text-gray-800 rounded-full transition-all duration-300 ease-in-out hover:scale-105"
+                        title="Send message"
+                      >
+                        <Send size={16} />
+                      </button>
+                    )}
+
+                    {/* Processing Indicator */}
+                    {isLoading && (
+                      <div className="p-2 text-white/60">
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white/80 rounded-full animate-spin"></div>
+                      </div>
                   )}
-                </AnimatePresence>
+                  </div>
+                </div>
               </div>
+
             </div>
           </form>
         </div>
