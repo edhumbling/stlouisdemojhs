@@ -15,6 +15,7 @@ import speechToTextService from '../services/speechToTextService';
 import whisperService from '../services/whisperService';
 import microphonePermissionService from '../services/microphonePermissionService';
 import groqCompoundService from '../services/groqCompoundService';
+import groqVisionService from '../services/groqVisionService';
 import { getUniqueSources } from '../utils/pageMapping';
 
 interface Message {
@@ -40,6 +41,8 @@ const LouisAIPage: React.FC = () => {
   const [realtimeTranscript, setRealtimeTranscript] = useState('');
   const [showThinking, setShowThinking] = useState<{ [messageId: string]: boolean }>({});
   const [isInternetSearch, setIsInternetSearch] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -371,6 +374,38 @@ const LouisAIPage: React.FC = () => {
     setIsLoading(true);
     setError(null);
 
+    // Handle image analysis if image is selected
+    if (selectedImage) {
+      try {
+        const imageData = await groqVisionService.fileToBase64(selectedImage);
+        const response = await groqVisionService.analyzeImage(
+          imageData,
+          input.trim() || "What's in this image?",
+          messages.slice(-6).map(msg => ({
+            role: msg.role === 'user' ? 'user' as const : 'model' as const,
+            parts: [{ text: msg.content }],
+          }))
+        );
+
+        const assistantMessage: Message = {
+          id: `assistant-${Date.now()}`,
+          role: 'assistant',
+          content: response,
+          timestamp: new Date(),
+        };
+
+        setMessages(prev => [...prev, assistantMessage]);
+        removeImage(); // Clear image after analysis
+        return;
+      } catch (err) {
+        console.error('Error analyzing image:', err);
+        setError('Failed to analyze image. Please try again.');
+        return;
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
     try {
       let response: string;
       let sources: any[] = [];
@@ -525,6 +560,32 @@ const LouisAIPage: React.FC = () => {
 
   const toggleInternetSearch = () => {
     setIsInternetSearch(prev => !prev);
+  };
+
+  // Image handling functions
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const validation = groqVisionService.validateImageFile(file);
+      if (!validation.valid) {
+        setError(validation.error || 'Invalid image file');
+        return;
+      }
+
+      setSelectedImage(file);
+      
+      // Create preview
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImagePreview(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const removeImage = () => {
+    setSelectedImage(null);
+    setImagePreview(null);
   };
 
   // Custom component to render LaTeX equations
@@ -912,8 +973,40 @@ const LouisAIPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Input Area - Dynamic Design */}
+      {/* Image Preview */}
+      {imagePreview && (
       <div className="border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40">
+          <div className="max-w-3xl mx-auto px-3 sm:px-4 py-2">
+            <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-white/80">Image selected for analysis:</span>
+                <button
+                  onClick={removeImage}
+                  className="text-white/60 hover:text-white/80 text-sm"
+                >
+                  Remove
+                </button>
+              </div>
+              <div className="flex items-center gap-3">
+                <img
+                  src={imagePreview}
+                  alt="Selected for analysis"
+                  className="w-12 h-12 object-cover rounded border border-gray-600"
+                />
+                <div className="flex-1">
+                  <p className="text-sm text-white/90">{selectedImage?.name}</p>
+                  <p className="text-xs text-white/60">
+                    {((selectedImage?.size || 0) / 1024 / 1024).toFixed(2)} MB
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Input Area - Dynamic Design */}
+      <div className={`border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40 ${imagePreview ? 'mt-20' : ''}`}>
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-6">
           <form onSubmit={handleSubmit} className="relative">
             <div className="relative flex items-center">
@@ -959,6 +1052,29 @@ const LouisAIPage: React.FC = () => {
 
                   {/* Action Buttons */}
                   <div className="flex items-center gap-1 mr-2 sm:mr-3">
+                    {/* Image Upload Button */}
+                    <label
+                      htmlFor="image-upload"
+                      className={`p-2 transition-all duration-300 ease-in-out rounded-full cursor-pointer ${
+                        isLoading
+                          ? 'text-white/40 cursor-not-allowed'
+                          : selectedImage
+                          ? 'text-green-400 hover:text-green-300 bg-green-500/20'
+                          : 'text-white/60 hover:text-white/80'
+                      }`}
+                      title={selectedImage ? 'Image selected - Click to change' : 'Upload image for analysis'}
+                    >
+                      <Plus size={16} />
+                      <input
+                        id="image-upload"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="hidden"
+                        disabled={isLoading}
+                      />
+                    </label>
+
                     {/* Internet Search Button */}
                     <button
                       type="button"
