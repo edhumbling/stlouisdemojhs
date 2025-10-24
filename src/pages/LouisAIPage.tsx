@@ -136,6 +136,9 @@ const LouisAIPage: React.FC = () => {
   const suggestedPrompts = getDailyPrompts();
 
   const handlePromptClick = async (prompt: string) => {
+    // Set the input and immediately submit
+    setInput(prompt);
+    
     // Create a user message immediately
     const userMessage: Message = {
       id: `user-${Date.now()}`,
