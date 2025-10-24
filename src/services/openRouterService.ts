@@ -72,18 +72,30 @@ class OpenRouterService {
   ): Promise<string> {
     // Try primary model first (Qwen3-32B)
     try {
-      return await this.makeApiRequest(userMessage, context, conversationHistory, sources, this.primaryModel);
+      const fullResponse = await this.makeApiRequest(userMessage, context, conversationHistory, sources, this.primaryModel);
+      // Strip thinking content silently
+      return this.stripThinkingContent(fullResponse);
     } catch (error) {
       console.warn('⚠️ Primary model (Qwen3-32B) failed, trying fallback (GPT-20B):', error);
       
       // Try fallback model (GPT-20B)
       try {
-        return await this.makeApiRequest(userMessage, context, conversationHistory, sources, this.fallbackModel);
+        const fullResponse = await this.makeApiRequest(userMessage, context, conversationHistory, sources, this.fallbackModel);
+        // Strip thinking content silently
+        return this.stripThinkingContent(fullResponse);
       } catch (fallbackError) {
         console.error('❌ Both primary and fallback models failed');
         throw fallbackError;
       }
     }
+  }
+
+  /**
+   * Strip thinking content from response silently
+   */
+  private stripThinkingContent(fullResponse: string): string {
+    // Remove <think>...</think> tags and their content
+    return fullResponse.replace(/<think>[\s\S]*?<\/redacted_reasoning>\s*/g, '').trim();
   }
 
   /**
@@ -97,13 +109,13 @@ class OpenRouterService {
   ): Promise<{ response: string; thinking: string }> {
     const fullResponse = await this.generateResponse(userMessage, context, conversationHistory, sources);
     
-    // Parse thinking content from response
-    const thinkingMatch = fullResponse.match(/<thinking>([\s\S]*?)<\/thinking>/);
+    // Parse thinking content from response using <think> tags
+    const thinkingMatch = fullResponse.match(/<think>([\s\S]*?)<\/redacted_reasoning>/);
     const thinking = thinkingMatch ? thinkingMatch[1].trim() : '';
     
-    // Extract the final response (everything after </thinking> or the full response if no thinking tags)
+    // Extract the final response (everything after </think> or the full response if no thinking tags)
     const response = thinkingMatch 
-      ? fullResponse.replace(/<thinking>[\s\S]*?<\/thinking>\s*/, '').trim()
+      ? fullResponse.replace(/<think>[\s\S]*?<\/redacted_reasoning>\s*/, '').trim()
       : fullResponse;
     
     return { response, thinking };
@@ -231,9 +243,9 @@ ${cleanContext ? `\nRELEVANT SCHOOL DATA:\n${cleanContext}\n` : ''}
 
 THINKING MODE:
 When responding, you should show your thinking process by using the following format:
-<thinking>
+<think>
 [Your internal reasoning, analysis, and thought process here]
-</thinking>
+</think>
 
 [Your final response to the user]
 
