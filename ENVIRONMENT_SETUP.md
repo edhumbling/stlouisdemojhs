@@ -23,9 +23,9 @@ VITE_GROQ_API_KEY=your_groq_api_key_here
 
 ## 📊 Service Configuration
 
-### **AI Service: Groq Platform with Llama Guard**
-- Model: `meta-llama/llama-guard-4-12b`
-- Advanced content moderation and safety features
+### **AI Service: Groq Platform with GPT-20B**
+- Model: `openai/gpt-oss-20b`
+- Advanced language understanding and generation
 - OpenAI-compatible API format
 - Fast inference with Groq's optimized infrastructure
 

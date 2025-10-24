@@ -46,12 +46,12 @@ class OpenRouterService {
   constructor() {
     this.apiKey = import.meta.env.VITE_GROQ_API_KEY || 'your_groq_api_key_here';
     this.apiEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
-    this.model = 'meta-llama/llama-guard-4-12b';
+    this.model = 'openai/gpt-oss-20b';
     
     if (!this.apiKey) {
       console.warn('⚠️ No Groq API key found. Please set VITE_GROQ_API_KEY environment variable.');
     } else {
-      console.log('🤖 Groq Service initialized with Llama Guard 4-12B model');
+      console.log('🤖 Groq Service initialized with GPT-20B model');
       console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
       console.log('🌐 Endpoint:', this.apiEndpoint);
       console.log('🔍 Full API Key for debugging:', this.apiKey);
