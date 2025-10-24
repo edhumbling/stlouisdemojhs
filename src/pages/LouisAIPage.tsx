@@ -183,6 +183,9 @@ const LouisAIPage: React.FC = () => {
         if (err.message === 'SERVICE_UNAVAILABLE' || err.message === 'HIGH_TRAFFIC' || err.message === 'NETWORK_ERROR') {
           errorMessageContent = 'We are currently experiencing high traffic. Please come back later.';
           isRetryable = true;
+        } else if (err.message === 'API_KEY_INVALID') {
+          errorMessageContent = 'We are currently experiencing technical difficulties. Please try again later.';
+          isRetryable = true;
         } else {
           setError(err.message); // Set specific error for debugging if needed
         }
@@ -286,6 +289,9 @@ const LouisAIPage: React.FC = () => {
       if (err instanceof Error) {
         if (err.message === 'SERVICE_UNAVAILABLE' || err.message === 'HIGH_TRAFFIC' || err.message === 'NETWORK_ERROR') {
           errorMessageContent = 'We are currently experiencing high traffic. Please come back later.';
+          isRetryable = true;
+        } else if (err.message === 'API_KEY_INVALID') {
+          errorMessageContent = 'We are currently experiencing technical difficulties. Please try again later.';
           isRetryable = true;
         } else {
           setError(err.message); // Set specific error for debugging if needed

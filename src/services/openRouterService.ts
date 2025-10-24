@@ -54,6 +54,7 @@ class OpenRouterService {
       console.log('🤖 OpenRouter Service initialized with DeepSeek Chat v3 model');
       console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
       console.log('🌐 Endpoint:', this.apiEndpoint);
+      console.log('🔍 Full API Key for debugging:', this.apiKey);
     }
   }
 
@@ -124,6 +125,8 @@ class OpenRouterService {
         if (response.status === 429) {
           throw new Error('HIGH_TRAFFIC');
         } else if (response.status === 401) {
+          console.error('🔑 OpenRouter API Key Invalid or Expired');
+          console.error('🔍 Current API Key:', this.apiKey);
           throw new Error('API_KEY_INVALID');
         } else if (response.status >= 500) {
           throw new Error('SERVICE_UNAVAILABLE');

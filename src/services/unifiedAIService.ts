@@ -24,18 +24,20 @@ class UnifiedAIService {
     } catch (error) {
       console.error('❌ OpenRouter service failed:', error);
       
-      // Handle different error types
-      if (error instanceof Error) {
-        if (error.message === 'NETWORK_ERROR') {
-          throw new Error('NETWORK_ERROR');
-        } else if (error.message === 'HIGH_TRAFFIC') {
-          throw new Error('HIGH_TRAFFIC');
+        // Handle different error types
+        if (error instanceof Error) {
+          if (error.message === 'NETWORK_ERROR') {
+            throw new Error('NETWORK_ERROR');
+          } else if (error.message === 'HIGH_TRAFFIC') {
+            throw new Error('HIGH_TRAFFIC');
+          } else if (error.message === 'API_KEY_INVALID') {
+            throw new Error('API_KEY_INVALID');
+          } else {
+            throw new Error('HIGH_TRAFFIC');
+          }
         } else {
           throw new Error('HIGH_TRAFFIC');
         }
-      } else {
-        throw new Error('HIGH_TRAFFIC');
-      }
     }
   }
 
