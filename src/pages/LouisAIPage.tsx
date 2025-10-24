@@ -566,7 +566,7 @@ const LouisAIPage: React.FC = () => {
   };
 
   // Image handling functions
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
     if (files.length === 0) return;
 
