@@ -39,7 +39,7 @@ class ExaService {
 
   constructor() {
     this.apiKey = '0aa7c589-a676-42ce-968f-1f2870a66755';
-    this.apiEndpoint = 'https://api.exa.ai/chat/completions';
+    this.apiEndpoint = 'https://api.exa.ai/v1/chat/completions';
     
     console.log('🌐 Exa AI Service initialized for internet search');
     console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
@@ -90,7 +90,7 @@ class ExaService {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': this.apiKey
+        'Authorization': `Bearer ${this.apiKey}`
       },
       body: JSON.stringify(requestBody)
     });
@@ -103,7 +103,7 @@ class ExaService {
         throw new Error('HIGH_TRAFFIC');
       } else if (response.status === 401) {
         console.error('🔑 Exa AI Key Invalid or Expired');
-        console.error('🔍 Current API Key:', this.apiKey);
+        console.error('🔍 Current API Key:', this.apiKey.substring(0, 20) + '...');
         console.error('📊 Error Details:', errorData);
         throw new Error('API_KEY_INVALID');
       } else if (response.status >= 500) {
