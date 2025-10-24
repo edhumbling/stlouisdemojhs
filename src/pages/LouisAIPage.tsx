@@ -180,7 +180,7 @@ const LouisAIPage: React.FC = () => {
       let errorMessageContent = 'I apologize, but I encountered an error processing your request. Please try again.';
       let isRetryable = false;
       if (err instanceof Error) {
-        if (err.message === 'SERVICE_UNAVAILABLE' || err.message === 'HIGH_TRAFFIC') {
+        if (err.message === 'SERVICE_UNAVAILABLE' || err.message === 'HIGH_TRAFFIC' || err.message === 'NETWORK_ERROR') {
           errorMessageContent = 'We are currently experiencing high traffic. Please come back later.';
           isRetryable = true;
         } else {
@@ -284,7 +284,7 @@ const LouisAIPage: React.FC = () => {
       let errorMessageContent = 'I apologize, but I encountered an error processing your request. Please try again.';
       let isRetryable = false;
       if (err instanceof Error) {
-        if (err.message === 'SERVICE_UNAVAILABLE' || err.message === 'HIGH_TRAFFIC') {
+        if (err.message === 'SERVICE_UNAVAILABLE' || err.message === 'HIGH_TRAFFIC' || err.message === 'NETWORK_ERROR') {
           errorMessageContent = 'We are currently experiencing high traffic. Please come back later.';
           isRetryable = true;
         } else {

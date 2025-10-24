@@ -50,6 +50,12 @@ class OpenRouterService {
     sources: string[] = []
   ): Promise<string> {
     try {
+      console.log('🚀 OpenRouter API Request:', {
+        model: this.model,
+        endpoint: this.apiEndpoint,
+        hasApiKey: !!this.apiKey,
+        messageLength: userMessage.length
+      });
       // Build system prompt with context
       const systemPrompt = this.buildSystemPrompt(context, sources);
       
@@ -81,14 +87,15 @@ class OpenRouterService {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.apiKey}`,
-          'HTTP-Referer': 'https://stlouisdemojhs.com',
+          'Referer': 'https://stlouisdemojhs.com',
           'X-Title': 'St. Louis Demo JHS',
           'Cache-Control': 'no-cache, no-store, must-revalidate',
           'Pragma': 'no-cache',
           'Expires': '0'
         },
         body: JSON.stringify(requestBody),
-        cache: 'no-cache'
+        cache: 'no-cache',
+        mode: 'cors'
       });
 
       if (!response.ok) {
@@ -117,7 +124,16 @@ class OpenRouterService {
 
     } catch (error) {
       console.error('❌ OpenRouter API Error:', error);
-      throw error;
+      
+      // Handle different types of errors
+      if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+        console.error('🌐 Network error - possible CORS or connectivity issue');
+        throw new Error('NETWORK_ERROR');
+      } else if (error instanceof Error) {
+        throw error;
+      } else {
+        throw new Error('UNKNOWN_ERROR');
+      }
     }
   }
 
@@ -183,6 +199,20 @@ Remember: You are representing St. Louis Demonstration JHS, so always be profess
       model: this.model,
       endpoint: this.apiEndpoint
     };
+  }
+
+  /**
+   * Test API connection with a simple request
+   */
+  public async testConnection(): Promise<boolean> {
+    try {
+      const testResponse = await this.generateResponse('Hello, this is a test message.');
+      console.log('✅ OpenRouter API test successful:', testResponse.substring(0, 50) + '...');
+      return true;
+    } catch (error) {
+      console.error('❌ OpenRouter API test failed:', error);
+      return false;
+    }
   }
 }
 

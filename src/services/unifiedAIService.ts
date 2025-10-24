@@ -24,8 +24,18 @@ class UnifiedAIService {
     } catch (error) {
       console.error('❌ OpenRouter service failed:', error);
       
-      // If OpenRouter fails, provide a user-friendly high traffic message
-      throw new Error('HIGH_TRAFFIC');
+      // Handle different error types
+      if (error instanceof Error) {
+        if (error.message === 'NETWORK_ERROR') {
+          throw new Error('NETWORK_ERROR');
+        } else if (error.message === 'HIGH_TRAFFIC') {
+          throw new Error('HIGH_TRAFFIC');
+        } else {
+          throw new Error('HIGH_TRAFFIC');
+        }
+      } else {
+        throw new Error('HIGH_TRAFFIC');
+      }
     }
   }
 
