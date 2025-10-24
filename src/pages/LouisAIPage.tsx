@@ -32,6 +32,7 @@ const LouisAIPage: React.FC = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(false);
   const [whisperSupported, setWhisperSupported] = useState(false);
+  const [realtimeTranscript, setRealtimeTranscript] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -234,14 +235,18 @@ const LouisAIPage: React.FC = () => {
     try {
       setIsListening(true);
       setError(null);
+      setRealtimeTranscript('');
       
       if (whisperSupported) {
         // Use Whisper API for better accuracy
         await handleWhisperRecording();
       } else if (speechSupported) {
-        // Use browser speech recognition
-        const transcript = await speechToTextService.startListening();
+        // Use browser speech recognition with real-time feedback
+        const transcript = await speechToTextService.startListening((interimText) => {
+          setRealtimeTranscript(interimText);
+        });
         setInput(transcript);
+        setRealtimeTranscript('');
         setIsListening(false);
       } else {
         throw new Error('Speech recognition not supported');
@@ -256,14 +261,25 @@ const LouisAIPage: React.FC = () => {
   const handleWhisperRecording = async () => {
     try {
       setIsRecording(true);
+      setRealtimeTranscript('Listening...');
+      console.log('🎤 Starting real-time recording...');
+      
+      // Start recording with real-time feedback
       const audioFile = await whisperService.recordAudio(180000); // 3 minutes
+      
+      console.log('🎤 Recording completed, transcribing...');
+      setRealtimeTranscript('Transcribing...');
       const transcript = await whisperService.transcribeAudio(audioFile);
+      
+      console.log('🎤 Transcription completed:', transcript);
       setInput(transcript);
+      setRealtimeTranscript('');
       setIsRecording(false);
       setIsListening(false);
     } catch (error) {
       console.error('❌ Whisper recording error:', error);
       setError('Audio recording failed. Please try typing your message.');
+      setRealtimeTranscript('');
       setIsRecording(false);
       setIsListening(false);
     }
@@ -623,6 +639,18 @@ const LouisAIPage: React.FC = () => {
                 </motion.div>
               )}
 
+              {/* Recording Status Indicator */}
+              {isRecording && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-green-900/20 border border-green-700/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-green-400 flex items-center gap-2"
+                >
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <span>{realtimeTranscript || 'Recording... Speak now (up to 3 minutes)'}</span>
+                </motion.div>
+              )}
+
               {/* Error Message - Grok Style */}
               {error && (
                 <motion.div
@@ -648,16 +676,16 @@ const LouisAIPage: React.FC = () => {
               <input
                 ref={inputRef}
                 type="text"
-                value={input}
+                value={realtimeTranscript || input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Message..."
+                placeholder={realtimeTranscript ? realtimeTranscript : "Message..."}
                 disabled={isLoading}
                 className={`w-full pl-4 sm:pl-6 pr-20 sm:pr-24 transition-all duration-300 ease-in-out bg-[#2a2a2a] border border-[#3a3a3a] text-white placeholder-white/40 focus:outline-none focus:border-[#4a4a4a] disabled:opacity-50 ${
-                  input.length > 50 
+                  (realtimeTranscript || input).length > 50 
                     ? 'py-4 sm:py-6 rounded-2xl text-base sm:text-lg' 
                     : 'py-3 sm:py-4 rounded-full text-sm sm:text-[15px]'
-                }`}
+                } ${realtimeTranscript ? 'border-green-500/50 bg-green-900/10' : ''}`}
               />
 
               {/* Speech-to-Text Button */}
@@ -669,13 +697,26 @@ const LouisAIPage: React.FC = () => {
                   className={`absolute right-12 sm:right-14 top-1/2 -translate-y-1/2 p-2 sm:p-3 transition-all duration-300 ease-in-out rounded-full ${
                     isLoading
                       ? 'bg-[#3a3a3a] text-white/40 cursor-not-allowed'
-                      : isListening || isRecording
-                      ? 'bg-red-500 hover:bg-red-600 text-white hover:scale-105 animate-pulse'
+                      : isRecording
+                      ? 'bg-green-500 hover:bg-green-600 text-white hover:scale-105 animate-pulse shadow-lg shadow-green-500/50'
+                      : isListening
+                      ? 'bg-red-500 hover:bg-red-600 text-white hover:scale-105 animate-pulse shadow-lg shadow-red-500/50'
                       : 'bg-[#4a4a4a] hover:bg-[#5a5a5a] text-white hover:scale-105'
                   }`}
-                  title={isListening || isRecording ? 'Stop recording' : 'Start voice input'}
+                  title={
+                    isRecording 
+                      ? 'Recording... Click to stop' 
+                      : isListening 
+                      ? 'Stop recording' 
+                      : 'Start voice input'
+                  }
                 >
-                  {isListening || isRecording ? (
+                  {isRecording ? (
+                    <div className="flex items-center gap-1">
+                      <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                      <Mic size={16} className="transition-transform duration-200" />
+                    </div>
+                  ) : isListening ? (
                     <MicOff size={16} className="transition-transform duration-200" />
                   ) : (
                     <Mic size={16} className="transition-transform duration-200" />

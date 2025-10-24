@@ -98,9 +98,9 @@ class SpeechToTextService {
   }
 
   /**
-   * Start listening for speech
+   * Start listening for speech with real-time callbacks
    */
-  public startListening(): Promise<string> {
+  public startListening(onInterimResult?: (text: string) => void): Promise<string> {
     return new Promise((resolve, reject) => {
       if (!this.isSupported || !this.recognition) {
         reject(new Error('Speech recognition not supported'));
@@ -134,8 +134,9 @@ class SpeechToTextService {
         }
 
         // Emit interim results for real-time feedback
-        if (interimTranscript) {
+        if (interimTranscript && onInterimResult) {
           console.log('🎤 Interim transcript:', interimTranscript);
+          onInterimResult(finalTranscript + interimTranscript);
         }
       };
 

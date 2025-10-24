@@ -110,7 +110,7 @@ class WhisperService {
   }
 
   /**
-   * Record audio from microphone
+   * Record audio from microphone with real-time feedback
    */
   public async recordAudio(duration: number = 180000): Promise<File> {
     return new Promise((resolve, reject) => {
@@ -118,14 +118,29 @@ class WhisperService {
         .then(stream => {
           const mediaRecorder = new MediaRecorder(stream);
           const audioChunks: Blob[] = [];
+          let recordingStartTime = Date.now();
+
+          console.log('🎤 MediaRecorder started, recording for', duration / 1000, 'seconds');
 
           mediaRecorder.ondataavailable = (event) => {
-            audioChunks.push(event.data);
+            if (event.data.size > 0) {
+              audioChunks.push(event.data);
+              console.log('🎤 Audio data chunk received:', event.data.size, 'bytes');
+            }
+          };
+
+          mediaRecorder.onstart = () => {
+            console.log('🎤 Recording started at:', new Date().toISOString());
           };
 
           mediaRecorder.onstop = () => {
+            const recordingDuration = Date.now() - recordingStartTime;
+            console.log('🎤 Recording stopped after:', recordingDuration, 'ms');
+            
             const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
             const audioFile = new File([audioBlob], 'recording.wav', { type: 'audio/wav' });
+            
+            console.log('🎤 Audio file created:', audioFile.size, 'bytes');
             stream.getTracks().forEach(track => track.stop());
             resolve(audioFile);
           };
@@ -136,10 +151,11 @@ class WhisperService {
             reject(new Error('Audio recording failed'));
           };
 
-          mediaRecorder.start();
+          mediaRecorder.start(1000); // Collect data every second for real-time feedback
           
           // Stop recording after specified duration
           setTimeout(() => {
+            console.log('🎤 Auto-stopping recording after', duration / 1000, 'seconds');
             mediaRecorder.stop();
           }, duration);
         })
