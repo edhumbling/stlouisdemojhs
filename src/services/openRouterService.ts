@@ -56,6 +56,8 @@ class OpenRouterService {
         hasApiKey: !!this.apiKey,
         messageLength: userMessage.length
       });
+      
+      // Note: Using minimal headers to avoid CORS preflight issues
       // Build system prompt with context
       const systemPrompt = this.buildSystemPrompt(context, sources);
       
@@ -88,10 +90,7 @@ class OpenRouterService {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.apiKey}`,
           'Referer': 'https://stlouisdemojhs.com',
-          'X-Title': 'St. Louis Demo JHS',
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
+          'X-Title': 'St. Louis Demo JHS'
         },
         body: JSON.stringify(requestBody),
         cache: 'no-cache',
