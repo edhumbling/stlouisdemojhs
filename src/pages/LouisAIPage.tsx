@@ -41,8 +41,8 @@ const LouisAIPage: React.FC = () => {
   const [realtimeTranscript, setRealtimeTranscript] = useState('');
   const [showThinking, setShowThinking] = useState<{ [messageId: string]: boolean }>({});
   const [isInternetSearch, setIsInternetSearch] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<File | null>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [selectedImages, setSelectedImages] = useState<File[]>([]);
+  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -374,13 +374,16 @@ const LouisAIPage: React.FC = () => {
     setIsLoading(true);
     setError(null);
 
-    // Handle image analysis if image is selected
-    if (selectedImage) {
+    // Handle image analysis if images are selected
+    if (selectedImages.length > 0) {
       try {
-        const imageData = await groqVisionService.fileToBase64(selectedImage);
-        const response = await groqVisionService.analyzeImage(
-          imageData,
-          input.trim() || "What's in this image?",
+        const imageDataArray = await Promise.all(
+          selectedImages.map(file => groqVisionService.fileToBase64(file))
+        );
+        
+        const response = await groqVisionService.analyzeImages(
+          imageDataArray,
+          input.trim() || "What's in these images?",
           messages.slice(-6).map(msg => ({
             role: msg.role === 'user' ? 'user' as const : 'model' as const,
             parts: [{ text: msg.content }],
@@ -395,11 +398,11 @@ const LouisAIPage: React.FC = () => {
         };
 
         setMessages(prev => [...prev, assistantMessage]);
-        removeImage(); // Clear image after analysis
+        removeAllImages(); // Clear images after analysis
         return;
       } catch (err) {
-        console.error('Error analyzing image:', err);
-        setError('Failed to analyze image. Please try again.');
+        console.error('Error analyzing images:', err);
+        setError('Failed to analyze images. Please try again.');
         return;
       } finally {
         setIsLoading(false);
@@ -564,28 +567,54 @@ const LouisAIPage: React.FC = () => {
 
   // Image handling functions
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const validation = groqVisionService.validateImageFile(file);
-      if (!validation.valid) {
-        setError(validation.error || 'Invalid image file');
-        return;
-      }
+    const files = Array.from(event.target.files || []);
+    if (files.length === 0) return;
 
-      setSelectedImage(file);
-      
-      // Create preview
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setImagePreview(e.target?.result as string);
-      };
-      reader.readAsDataURL(file);
+    // Check if adding these files would exceed the 5 image limit
+    if (selectedImages.length + files.length > 5) {
+      setError('Maximum 5 images allowed per request');
+      return;
+    }
+
+    const validFiles: File[] = [];
+    const validPreviews: string[] = [];
+
+    for (const file of files) {
+      const validation = groqVisionService.validateImageFile(file);
+      if (validation.valid) {
+        // Check resolution asynchronously
+        const resolutionValidation = await groqVisionService.validateImageResolution(file);
+        if (resolutionValidation.valid) {
+          validFiles.push(file);
+          
+          // Create preview
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const preview = e.target?.result as string;
+            setImagePreviews(prev => [...prev, preview]);
+          };
+          reader.readAsDataURL(file);
+        } else {
+          setError(resolutionValidation.error || 'Invalid image resolution');
+        }
+      } else {
+        setError(validation.error || 'Invalid image file');
+      }
+    }
+
+    if (validFiles.length > 0) {
+      setSelectedImages(prev => [...prev, ...validFiles]);
     }
   };
 
-  const removeImage = () => {
-    setSelectedImage(null);
-    setImagePreview(null);
+  const removeImage = (index: number) => {
+    setSelectedImages(prev => prev.filter((_, i) => i !== index));
+    setImagePreviews(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const removeAllImages = () => {
+    setSelectedImages([]);
+    setImagePreviews([]);
   };
 
   // Custom component to render LaTeX equations
@@ -973,48 +1002,58 @@ const LouisAIPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Image Preview - Protruding Design */}
-      {imagePreview && (
+      {/* Image Preview - Above Input Bar */}
+      {imagePreviews.length > 0 && (
         <div className="fixed bottom-0 left-0 right-0 z-50">
           <div className="max-w-3xl mx-auto px-3 sm:px-4 pb-2">
-            <div className="relative">
-              {/* Square Image Preview */}
-              <div className="relative w-20 h-20 mx-auto">
-                <img
-                  src={imagePreview}
-                  alt="Selected for analysis"
-                  className="w-full h-full object-cover rounded-lg border border-gray-600 shadow-lg"
-                />
-                
-                {/* Edit Button */}
-                <button
-                  onClick={() => document.getElementById('image-upload')?.click()}
-                  className="absolute -top-1 -right-1 w-6 h-6 bg-gray-300 hover:bg-gray-200 rounded-full flex items-center justify-center shadow-lg transition-colors"
-                  title="Edit image"
+            <div className="flex flex-wrap justify-center gap-2">
+              {imagePreviews.map((preview, index) => (
+                <div key={index} className="relative w-16 h-16">
+                  <img
+                    src={preview}
+                    alt={`Selected image ${index + 1}`}
+                    className="w-full h-full object-cover rounded-lg border border-gray-600 shadow-lg"
+                  />
+                  
+                  {/* Remove Button */}
+                  <button
+                    onClick={() => removeImage(index)}
+                    className="absolute -top-1 -right-1 w-5 h-5 bg-gray-300 hover:bg-gray-200 rounded-full flex items-center justify-center shadow-lg transition-colors"
+                    title="Remove image"
+                  >
+                    <svg className="w-2.5 h-2.5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              ))}
+              
+              {/* Add More Button */}
+              {imagePreviews.length < 5 && (
+                <label
+                  htmlFor="image-upload"
+                  className="w-16 h-16 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-300 transition-colors"
+                  title="Add more images"
                 >
-                  <svg className="w-3 h-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                  </svg>
-                </button>
-                
-                {/* Remove Button */}
-                <button
-                  onClick={removeImage}
-                  className="absolute -top-1 -right-7 w-6 h-6 bg-gray-300 hover:bg-gray-200 rounded-full flex items-center justify-center shadow-lg transition-colors"
-                  title="Remove image"
-                >
-                  <svg className="w-3 h-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
+                  <Plus size={20} className="text-gray-400" />
+                  <input
+                    id="image-upload"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={handleImageUpload}
+                    className="hidden"
+                    disabled={isLoading}
+                  />
+                </label>
+              )}
             </div>
           </div>
         </div>
       )}
 
       {/* Input Area - Dynamic Design */}
-      <div className={`border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40 ${imagePreview ? 'pb-24' : ''}`}>
+      <div className={`border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40 ${imagePreviews.length > 0 ? 'pb-24' : ''}`}>
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-6">
           <form onSubmit={handleSubmit} className="relative">
             <div className="relative flex items-center">
@@ -1031,17 +1070,18 @@ const LouisAIPage: React.FC = () => {
                   <label
                     htmlFor="image-upload"
                     className={`ml-3 sm:ml-4 p-1 transition-colors cursor-pointer ${
-                      selectedImage
+                      selectedImages.length > 0
                         ? 'text-green-400 hover:text-green-300'
                         : 'text-white/60 hover:text-white/80'
                     }`}
-                    title={selectedImage ? 'Image selected - Click to change' : 'Upload image for analysis'}
+                    title={selectedImages.length > 0 ? `${selectedImages.length} image(s) selected - Click to add more` : 'Upload images for analysis'}
                   >
                     <Plus size={16} />
                     <input
                       id="image-upload"
                       type="file"
                       accept="image/*"
+                      multiple
                       onChange={handleImageUpload}
                       className="hidden"
                       disabled={isLoading}

@@ -57,18 +57,18 @@ class GroqVisionService {
   }
 
   /**
-   * Analyze an image using Groq Vision API
+   * Analyze multiple images using Groq Vision API
    */
-  async analyzeImage(
-    imageData: string, // Base64 encoded image or URL
-    userMessage: string = "What's in this image?",
+  async analyzeImages(
+    imageDataArray: string[], // Array of base64 encoded images or URLs
+    userMessage: string = "What's in these images?",
     conversationHistory: any[] = []
   ): Promise<string> {
     console.log('👁️ Groq Vision Request:', {
       endpoint: this.apiEndpoint,
       hasApiKey: !!this.apiKey,
       messageLength: userMessage.length,
-      hasImage: !!imageData
+      imageCount: imageDataArray.length
     });
     
     // Build conversation messages
@@ -94,12 +94,12 @@ class GroqVisionService {
             type: 'text',
             text: userMessage
           },
-          {
-            type: 'image_url',
+          ...imageDataArray.map(imageData => ({
+            type: 'image_url' as const,
             image_url: {
               url: imageData.startsWith('data:') ? imageData : `data:image/jpeg;base64,${imageData}`
             }
-          }
+          }))
         ]
       }
     ];
@@ -228,7 +228,7 @@ Remember: You are representing St. Louis Demonstration JHS, so always be profess
   }
 
   /**
-   * Validate image file
+   * Validate image file according to Groq Vision limits
    */
   validateImageFile(file: File): { valid: boolean; error?: string } {
     // Check file type
@@ -237,13 +237,37 @@ Remember: You are representing St. Louis Demonstration JHS, so always be profess
       return { valid: false, error: 'Please upload a valid image file (JPEG, PNG, GIF, or WebP)' };
     }
 
-    // Check file size (4MB limit for base64)
+    // Check file size (4MB limit for base64 encoded images per Groq docs)
     const maxSize = 4 * 1024 * 1024; // 4MB
     if (file.size > maxSize) {
       return { valid: false, error: 'Image file is too large. Please upload an image smaller than 4MB' };
     }
 
     return { valid: true };
+  }
+
+  /**
+   * Validate image resolution asynchronously
+   */
+  async validateImageResolution(file: File): Promise<{ valid: boolean; error?: string }> {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        const totalPixels = img.width * img.height;
+        const maxPixels = 33 * 1024 * 1024; // 33 megapixels
+        if (totalPixels > maxPixels) {
+          resolve({ valid: false, error: 'Image resolution is too high. Please upload an image with less than 33 megapixels' });
+        } else {
+          resolve({ valid: true });
+        }
+        URL.revokeObjectURL(img.src);
+      };
+      img.onerror = () => {
+        resolve({ valid: false, error: 'Invalid image file' });
+        URL.revokeObjectURL(img.src);
+      };
+      img.src = URL.createObjectURL(file);
+    });
   }
 
   /**
