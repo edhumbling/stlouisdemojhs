@@ -5,8 +5,8 @@
 Create a `.env` file in your project root with the following variables:
 
 ```bash
-# DeepSeek API Configuration
-VITE_DEEPSEEK_API_KEY=sk-fbc36b72981b4937ad44ff8e20e63ba5
+# Groq API Configuration
+VITE_GROQ_API_KEY=your_groq_api_key_here
 ```
 
 ## 🚀 Quick Start
@@ -23,11 +23,11 @@ VITE_DEEPSEEK_API_KEY=sk-fbc36b72981b4937ad44ff8e20e63ba5
 
 ## 📊 Service Configuration
 
-### **AI Service: DeepSeek Platform Direct API**
-- Model: `deepseek-chat` (DeepSeek-V3.2-Exp)
-- Direct access to DeepSeek's latest model
+### **AI Service: Groq Platform with Llama Guard**
+- Model: `meta-llama/llama-guard-4-12b`
+- Advanced content moderation and safety features
 - OpenAI-compatible API format
-- Advanced reasoning and problem-solving capabilities
+- Fast inference with Groq's optimized infrastructure
 
 ## 🎯 Benefits
 
