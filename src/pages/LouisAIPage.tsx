@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic, Plus } from 'lucide-react';
+import { Send, Mic, Plus, MicOff, Volume2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -9,6 +9,8 @@ import 'katex/dist/katex.min.css';
 import SEOHead from '../components/seo/SEOHead';
 import unifiedAIService from '../services/unifiedAIService';
 import ragEngine from '../services/ragEngine';
+import speechToTextService from '../services/speechToTextService';
+import whisperService from '../services/whisperService';
 import { getUniqueSources } from '../utils/pageMapping';
 
 interface Message {
@@ -26,6 +28,10 @@ const LouisAIPage: React.FC = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isListening, setIsListening] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+  const [speechSupported, setSpeechSupported] = useState(false);
+  const [whisperSupported, setWhisperSupported] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -40,6 +46,20 @@ const LouisAIPage: React.FC = () => {
   // Auto-focus input on mount
   useEffect(() => {
     inputRef.current?.focus();
+  }, []);
+
+  // Initialize speech services
+  useEffect(() => {
+    setSpeechSupported(speechToTextService.isSpeechSupported());
+    setWhisperSupported(whisperService.hasApiKey());
+    
+    if (speechToTextService.isSpeechSupported()) {
+      console.log('🎤 Browser speech recognition supported');
+    }
+    
+    if (whisperService.hasApiKey()) {
+      console.log('🎤 Whisper via Groq API available');
+    }
   }, []);
 
   const getGreeting = () => {
@@ -205,6 +225,56 @@ const LouisAIPage: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Speech-to-text functions
+  const handleStartListening = async () => {
+    if (isListening || isLoading) return;
+    
+    try {
+      setIsListening(true);
+      setError(null);
+      
+      if (whisperSupported) {
+        // Use Whisper API for better accuracy
+        await handleWhisperRecording();
+      } else if (speechSupported) {
+        // Use browser speech recognition
+        const transcript = await speechToTextService.startListening();
+        setInput(transcript);
+        setIsListening(false);
+      } else {
+        throw new Error('Speech recognition not supported');
+      }
+    } catch (error) {
+      console.error('❌ Speech recognition error:', error);
+      setError('Speech recognition failed. Please try typing your message.');
+      setIsListening(false);
+    }
+  };
+
+  const handleWhisperRecording = async () => {
+    try {
+      setIsRecording(true);
+      const audioFile = await whisperService.recordAudio(10000); // 10 seconds
+      const transcript = await whisperService.transcribeAudio(audioFile);
+      setInput(transcript);
+      setIsRecording(false);
+      setIsListening(false);
+    } catch (error) {
+      console.error('❌ Whisper recording error:', error);
+      setError('Audio recording failed. Please try typing your message.');
+      setIsRecording(false);
+      setIsListening(false);
+    }
+  };
+
+  const handleStopListening = () => {
+    if (speechSupported && !whisperSupported) {
+      speechToTextService.stopListening();
+    }
+    setIsListening(false);
+    setIsRecording(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -583,12 +653,35 @@ const LouisAIPage: React.FC = () => {
                 onKeyDown={handleKeyDown}
                 placeholder="Message..."
                 disabled={isLoading}
-                className={`w-full pl-4 sm:pl-6 pr-12 sm:pr-14 transition-all duration-300 ease-in-out bg-[#2a2a2a] border border-[#3a3a3a] text-white placeholder-white/40 focus:outline-none focus:border-[#4a4a4a] disabled:opacity-50 ${
+                className={`w-full pl-4 sm:pl-6 pr-20 sm:pr-24 transition-all duration-300 ease-in-out bg-[#2a2a2a] border border-[#3a3a3a] text-white placeholder-white/40 focus:outline-none focus:border-[#4a4a4a] disabled:opacity-50 ${
                   input.length > 50 
                     ? 'py-4 sm:py-6 rounded-2xl text-base sm:text-lg' 
                     : 'py-3 sm:py-4 rounded-full text-sm sm:text-[15px]'
                 }`}
               />
+
+              {/* Speech-to-Text Button */}
+              {(speechSupported || whisperSupported) && (
+                <button
+                  type="button"
+                  onClick={isListening || isRecording ? handleStopListening : handleStartListening}
+                  disabled={isLoading}
+                  className={`absolute right-12 sm:right-14 top-1/2 -translate-y-1/2 p-2 sm:p-3 transition-all duration-300 ease-in-out rounded-full ${
+                    isLoading
+                      ? 'bg-[#3a3a3a] text-white/40 cursor-not-allowed'
+                      : isListening || isRecording
+                      ? 'bg-red-500 hover:bg-red-600 text-white hover:scale-105 animate-pulse'
+                      : 'bg-[#4a4a4a] hover:bg-[#5a5a5a] text-white hover:scale-105'
+                  }`}
+                  title={isListening || isRecording ? 'Stop recording' : 'Start voice input'}
+                >
+                  {isListening || isRecording ? (
+                    <MicOff size={16} className="transition-transform duration-200" />
+                  ) : (
+                    <Mic size={16} className="transition-transform duration-200" />
+                  )}
+                </button>
+              )}
 
               {/* Dynamic Arrow Button */}
               <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center">

@@ -101,8 +101,9 @@ const content = choice.message.content;
 ### **Model Configuration**
 - **Primary Model**: `openai/gpt-oss-20b` (20 billion parameters)
 - **Fallback Model**: `openai/gpt-oss-120b` (120 billion parameters)
+- **Speech Model**: `whisper-large-v3` (speech-to-text)
 - **Provider**: OpenAI (via Groq)
-- **Capabilities**: Advanced language understanding, generation, reasoning
+- **Capabilities**: Advanced language understanding, generation, reasoning, speech recognition
 - **Speed**: Ultra-fast inference via Groq's optimized infrastructure
 - **Reliability**: Automatic fallback ensures high availability
 
@@ -226,6 +227,28 @@ if (data.usage) {
 - **No Data Storage**: Conversations not stored permanently
 - **Secure Transmission**: HTTPS for all API calls
 - **User Anonymization**: No personal data collection
+
+## 🎤 Speech-to-Text Integration
+
+### **Whisper Large V3 Model**
+- **Model**: `whisper-large-v3`
+- **Provider**: Groq (same API key as AI service)
+- **Capabilities**: Advanced speech recognition and transcription
+- **Languages**: Multi-language support with high accuracy
+- **Integration**: Seamless voice input for Louis AI chatbot
+
+### **Speech Features**
+- **Voice Input**: Users can speak instead of typing
+- **Real-time Transcription**: Live speech-to-text conversion
+- **Multi-language**: Support for multiple languages
+- **High Accuracy**: Advanced Whisper model for precise transcription
+- **Accessibility**: Enhanced user experience for all users
+
+### **Implementation**
+- **Browser Support**: Fallback to browser speech recognition
+- **API Integration**: Whisper via Groq for advanced features
+- **Error Handling**: Graceful fallback between speech methods
+- **User Interface**: Microphone button with visual feedback
 
 ## 🔄 Fallback System
 

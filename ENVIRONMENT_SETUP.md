@@ -5,7 +5,7 @@
 Create a `.env` file in your project root with the following variables:
 
 ```bash
-# Groq API Configuration
+# Groq API Configuration (for both AI and Speech-to-Text)
 VITE_GROQ_API_KEY=your_groq_api_key_here
 ```
 
@@ -29,10 +29,19 @@ VITE_GROQ_API_KEY=your_groq_api_key_here
 - OpenAI-compatible API format
 - Fast inference with Groq's optimized infrastructure
 
+### **Speech-to-Text Service: Whisper via Groq**
+- Model: `whisper-large-v3`
+- Advanced speech recognition and transcription
+- Multi-language support
+- High accuracy audio processing
+- Same API key as AI service
+
 ## 🎯 Benefits
 
 - ✅ **Simple Setup**: Only one API key needed
 - ✅ **High Performance**: Fast, reliable responses
-- ✅ **Cost Effective**: Free tier available
+- ✅ **Speech Recognition**: Voice input with Whisper API
+- ✅ **Cost Effective**: Free tiers available
 - ✅ **Educational Focus**: Optimized for school information
-- ✅ **Easy Maintenance**: Single service to manage
+- ✅ **Easy Maintenance**: Single API key for both services
+- ✅ **Accessibility**: Voice input for better user experience
