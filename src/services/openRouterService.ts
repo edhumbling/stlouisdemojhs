@@ -44,7 +44,7 @@ class OpenRouterService {
   private model: string;
 
   constructor() {
-    this.apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
+    this.apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
     this.apiEndpoint = 'https://openrouter.ai/api/v1/chat/completions';
     this.model = 'deepseek/deepseek-chat-v3-0324:free';
     
@@ -125,8 +125,9 @@ class OpenRouterService {
         if (response.status === 429) {
           throw new Error('HIGH_TRAFFIC');
         } else if (response.status === 401) {
-          console.error('🔑 OpenRouter API Key Invalid or Expired');
+          console.error('🔑 OpenRouter API Key Invalid, Expired, or User Not Found');
           console.error('🔍 Current API Key:', this.apiKey);
+          console.error('📊 Error Details:', errorData);
           throw new Error('API_KEY_INVALID');
         } else if (response.status >= 500) {
           throw new Error('SERVICE_UNAVAILABLE');
