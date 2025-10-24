@@ -7,7 +7,7 @@ import openRouterService from './openRouterService';
 
 class UnifiedAIService {
   constructor() {
-    console.log('🤖 Unified AI Service initialized with OpenRouter (DeepSeek)');
+    console.log('🤖 Unified AI Service initialized with OpenRouter (Hermes 3)');
   }
 
   /**

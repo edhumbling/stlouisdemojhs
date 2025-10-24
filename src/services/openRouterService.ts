@@ -31,12 +31,12 @@ class OpenRouterService {
   constructor() {
     this.apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
     this.apiEndpoint = 'https://openrouter.ai/api/v1/chat/completions';
-    this.model = 'deepseek/deepseek-r1-0528:free';
+    this.model = 'nousresearch/hermes-3-llama-3.1-405b:free';
     
     if (!this.apiKey) {
       console.warn('⚠️ No OpenRouter API key found. Please set VITE_OPENROUTER_API_KEY environment variable.');
     } else {
-      console.log('🤖 OpenRouter Service initialized with DeepSeek model');
+      console.log('🤖 OpenRouter Service initialized with Hermes 3 model');
     }
   }
 
@@ -81,6 +81,8 @@ class OpenRouterService {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.apiKey}`,
+          'HTTP-Referer': 'https://stlouisdemojhs.com',
+          'X-Title': 'St. Louis Demo JHS',
           'Cache-Control': 'no-cache, no-store, must-revalidate',
           'Pragma': 'no-cache',
           'Expires': '0'
