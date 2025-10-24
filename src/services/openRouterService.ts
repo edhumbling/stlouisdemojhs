@@ -47,13 +47,13 @@ class OpenRouterService {
   constructor() {
     this.apiKey = import.meta.env.VITE_GROQ_API_KEY || 'your_groq_api_key_here';
     this.apiEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
-    this.primaryModel = 'openai/gpt-oss-20b';
-    this.fallbackModel = 'openai/gpt-oss-120b';
+    this.primaryModel = 'qwen/qwen3-32b';
+    this.fallbackModel = 'openai/gpt-oss-20b';
     
     if (!this.apiKey) {
       console.warn('⚠️ No Groq API key found. Please set VITE_GROQ_API_KEY environment variable.');
     } else {
-      console.log('🤖 Groq Service initialized with GPT-20B (primary) and GPT-120B (fallback)');
+      console.log('🤖 Groq Service initialized with Qwen3-32B (primary) and GPT-20B (fallback)');
       console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
       console.log('🌐 Endpoint:', this.apiEndpoint);
       console.log('🎯 Primary Model:', this.primaryModel);
@@ -62,7 +62,7 @@ class OpenRouterService {
   }
 
   /**
-   * Generate a response using Groq API with fallback to GPT-120B
+   * Generate a response using Groq API with Qwen3-32B primary and GPT-20B fallback
    */
   async generateResponse(
     userMessage: string,
@@ -70,13 +70,13 @@ class OpenRouterService {
     conversationHistory: any[] = [],
     sources: string[] = []
   ): Promise<string> {
-    // Try primary model first (GPT-20B)
+    // Try primary model first (Qwen3-32B)
     try {
       return await this.makeApiRequest(userMessage, context, conversationHistory, sources, this.primaryModel);
     } catch (error) {
-      console.warn('⚠️ Primary model (GPT-20B) failed, trying fallback (GPT-120B):', error);
+      console.warn('⚠️ Primary model (Qwen3-32B) failed, trying fallback (GPT-20B):', error);
       
-      // Try fallback model (GPT-120B)
+      // Try fallback model (GPT-20B)
       try {
         return await this.makeApiRequest(userMessage, context, conversationHistory, sources, this.fallbackModel);
       } catch (fallbackError) {
@@ -84,6 +84,29 @@ class OpenRouterService {
         throw fallbackError;
       }
     }
+  }
+
+  /**
+   * Generate a response with thinking mode support
+   */
+  async generateResponseWithThinking(
+    userMessage: string,
+    context: string = '',
+    conversationHistory: any[] = [],
+    sources: string[] = []
+  ): Promise<{ response: string; thinking: string }> {
+    const fullResponse = await this.generateResponse(userMessage, context, conversationHistory, sources);
+    
+    // Parse thinking content from response
+    const thinkingMatch = fullResponse.match(/<thinking>([\s\S]*?)<\/thinking>/);
+    const thinking = thinkingMatch ? thinkingMatch[1].trim() : '';
+    
+    // Extract the final response (everything after </thinking> or the full response if no thinking tags)
+    const response = thinkingMatch 
+      ? fullResponse.replace(/<thinking>[\s\S]*?<\/thinking>\s*/, '').trim()
+      : fullResponse;
+    
+    return { response, thinking };
   }
 
   /**
@@ -205,6 +228,21 @@ YOUR ROLE:
 
 SCHOOL INFORMATION:
 ${cleanContext ? `\nRELEVANT SCHOOL DATA:\n${cleanContext}\n` : ''}
+
+THINKING MODE:
+When responding, you should show your thinking process by using the following format:
+<thinking>
+[Your internal reasoning, analysis, and thought process here]
+</thinking>
+
+[Your final response to the user]
+
+The thinking section should contain:
+- Your analysis of the question
+- How you're using the provided context
+- Your reasoning process
+- Any considerations or alternatives you're weighing
+- Your confidence level in the information
 
 RESPONSE GUIDELINES:
 1. **Be Helpful**: Provide clear, accurate, and useful information
