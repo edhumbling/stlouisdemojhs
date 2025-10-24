@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
+import katex from 'katex';
 import SEOHead from '../components/seo/SEOHead';
 import AudioWaveform from '../components/AudioWaveform';
 import unifiedAIService from '../services/unifiedAIService';
@@ -526,6 +527,55 @@ const LouisAIPage: React.FC = () => {
     setIsInternetSearch(prev => !prev);
   };
 
+  // Custom component to render LaTeX equations
+  const renderLatex = (text: string) => {
+    try {
+      // Check if the text contains LaTeX commands
+      if (text.includes('\\') || text.includes('$')) {
+        // Clean up the text and try to render with KaTeX
+        let cleanText = text;
+        
+        // Handle common LaTeX patterns
+        if (text.includes('\\boxed')) {
+          // Extract content from \boxed{...}
+          const boxedMatch = text.match(/\\boxed\{([^}]+)\}/);
+          if (boxedMatch) {
+            cleanText = boxedMatch[1];
+          }
+        }
+        
+        // Handle chemical equations with semicolons
+        if (cleanText.includes(';')) {
+          cleanText = cleanText.replace(/;/g, ' ');
+        }
+        
+        // Handle text commands
+        cleanText = cleanText.replace(/\\text\{([^}]+)\}/g, '$1');
+        
+        // Handle subscripts and superscripts
+        cleanText = cleanText.replace(/_(\d+)/g, '_{$1}');
+        cleanText = cleanText.replace(/\^(\d+)/g, '^{$1}');
+        
+        // Handle arrows
+        cleanText = cleanText.replace(/\\longrightarrow/g, '\\rightarrow');
+        
+        console.log('Processing LaTeX:', cleanText);
+        
+        // Try to render with KaTeX
+        const html = katex.renderToString(cleanText, {
+          throwOnError: false,
+          displayMode: false,
+          strict: false
+        });
+        return <span dangerouslySetInnerHTML={{ __html: html }} className="math-inline" />;
+      }
+      return text;
+    } catch (error) {
+      console.warn('LaTeX rendering error:', error);
+      return text;
+    }
+  };
+
 
   const quickActions = [
     { icon: "🔍", label: "DeepSearch", action: () => {} },
@@ -635,7 +685,11 @@ const LouisAIPage: React.FC = () => {
                               remarkPlugins={[remarkGfm, remarkMath]}
                               rehypePlugins={[rehypeKatex]}
                               components={{
-                                p: ({ children }) => <p className="mb-3 leading-7 break-words">{children}</p>,
+                                p: ({ children }) => {
+                                  // Check if children contain LaTeX and render accordingly
+                                  const content = typeof children === 'string' ? children : children?.toString() || '';
+                                  return <p className="mb-3 leading-7 break-words">{renderLatex(content)}</p>;
+                                },
                                 ul: ({ children }) => <ul className="mb-3 ml-4 list-disc space-y-1 break-words">{children}</ul>,
                                 ol: ({ children }) => <ol className="mb-3 ml-4 list-decimal space-y-1 break-words">{children}</ol>,
                                 li: ({ children }) => <li className="leading-6 break-words">{children}</li>,
@@ -662,9 +716,25 @@ const LouisAIPage: React.FC = () => {
                                   </blockquote>
                                 ),
                                 // Math components for LaTeX rendering
-                                math: ({ children }) => <span className="math-inline">{children}</span>,
-                                inlineMath: ({ children }) => <span className="math-inline">{children}</span>,
-                                blockMath: ({ children }) => <div className="math-block my-4">{children}</div>,
+                                math: ({ children }) => {
+                                  console.log('Math component rendered:', children);
+                                  return <span className="math-inline">{children}</span>;
+                                },
+                                inlineMath: ({ children }) => {
+                                  console.log('Inline math component rendered:', children);
+                                  return <span className="math-inline">{children}</span>;
+                                },
+                                blockMath: ({ children }) => {
+                                  console.log('Block math component rendered:', children);
+                                  return <div className="math-block my-4">{children}</div>;
+                                },
+                                // Custom text component to handle LaTeX in regular text
+                                text: ({ children }) => {
+                                  if (typeof children === 'string' && (children.includes('\\') || children.includes('$'))) {
+                                    return renderLatex(children);
+                                  }
+                                  return children;
+                                },
                               }}
                             >
                               {message.content}
