@@ -239,6 +239,7 @@ if (data.usage) {
 
 ### **Speech Features**
 - **Voice Input**: Users can speak instead of typing
+- **Long Recording**: Up to 3 minutes of continuous speech
 - **Real-time Transcription**: Live speech-to-text conversion
 - **Multi-language**: Support for multiple languages
 - **High Accuracy**: Advanced Whisper model for precise transcription

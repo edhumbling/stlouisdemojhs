@@ -256,7 +256,7 @@ const LouisAIPage: React.FC = () => {
   const handleWhisperRecording = async () => {
     try {
       setIsRecording(true);
-      const audioFile = await whisperService.recordAudio(10000); // 10 seconds
+      const audioFile = await whisperService.recordAudio(180000); // 3 minutes
       const transcript = await whisperService.transcribeAudio(audioFile);
       setInput(transcript);
       setIsRecording(false);

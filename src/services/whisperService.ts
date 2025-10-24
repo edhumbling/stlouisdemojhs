@@ -112,7 +112,7 @@ class WhisperService {
   /**
    * Record audio from microphone
    */
-  public async recordAudio(duration: number = 10000): Promise<File> {
+  public async recordAudio(duration: number = 180000): Promise<File> {
     return new Promise((resolve, reject) => {
       navigator.mediaDevices.getUserMedia({ audio: true })
         .then(stream => {
