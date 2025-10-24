@@ -12,6 +12,9 @@ interface ExaRequest {
   model: string;
   messages: ExaMessage[];
   stream: boolean;
+  extra_body?: {
+    text: boolean;
+  };
 }
 
 interface ExaResponse {
@@ -39,7 +42,7 @@ class ExaService {
 
   constructor() {
     this.apiKey = '0aa7c589-a676-42ce-968f-1f2870a66755';
-    this.apiEndpoint = 'https://api.exa.ai/openai/v1/chat/completions';
+    this.apiEndpoint = 'https://api.exa.ai/chat/completions';
     
     console.log('🌐 Exa AI Service initialized for internet search');
     console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
@@ -83,14 +86,17 @@ class ExaService {
     const requestBody: ExaRequest = {
       model: 'exa',
       messages,
-      stream: false
+      stream: false,
+      extra_body: {
+        text: true
+      }
     };
 
     const response = await fetch(this.apiEndpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.apiKey}`
+        'x-api-key': this.apiKey
       },
       body: JSON.stringify(requestBody)
     });
