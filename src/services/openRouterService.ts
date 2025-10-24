@@ -17,6 +17,8 @@ interface OpenRouterRequest {
   frequency_penalty?: number;
   presence_penalty?: number;
   user?: string;
+  reasoning_format?: 'parsed' | 'raw' | 'hidden';
+  reasoning_effort?: 'none' | 'default';
 }
 
 interface OpenRouterResponse {
@@ -47,13 +49,13 @@ class OpenRouterService {
   constructor() {
     this.apiKey = import.meta.env.VITE_GROQ_API_KEY || 'your_groq_api_key_here';
     this.apiEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
-    this.primaryModel = 'moonshotai/kimi-k2-instruct-0905';
-    this.fallbackModels = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'];
+    this.primaryModel = 'qwen/qwen3-32b';
+    this.fallbackModels = ['moonshotai/kimi-k2-instruct-0905', 'openai/gpt-oss-120b', 'openai/gpt-oss-20b'];
     
     if (!this.apiKey) {
       console.warn('⚠️ No Groq API key found. Please set VITE_GROQ_API_KEY environment variable.');
     } else {
-      console.log('🤖 Groq Service initialized with Kimi K2 (primary) and GPT-120B, GPT-20B (fallbacks)');
+      console.log('🤖 Groq Service initialized with Qwen3-32B (primary) and Kimi K2, GPT-120B, GPT-20B (fallbacks)');
       console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
       console.log('🌐 Endpoint:', this.apiEndpoint);
       console.log('🎯 Primary Model:', this.primaryModel);
@@ -174,7 +176,12 @@ class OpenRouterService {
       top_p: 0.9,
       frequency_penalty: 0.1,
       presence_penalty: 0.1,
-      user: 'stlouisdemojhs-user'
+      user: 'stlouisdemojhs-user',
+      // Add reasoning format parameters for Qwen3-32B
+      ...(model === 'qwen/qwen3-32b' && {
+        reasoning_format: 'hidden',
+        reasoning_effort: 'default'
+      })
     };
 
     const response = await fetch(this.apiEndpoint, {

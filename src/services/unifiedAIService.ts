@@ -7,7 +7,7 @@ import openRouterService from './openRouterService';
 
 class UnifiedAIService {
   constructor() {
-    console.log('🤖 Unified AI Service initialized with Groq (Kimi K2 primary, GPT-120B, GPT-20B fallbacks)');
+    console.log('🤖 Unified AI Service initialized with Groq (Qwen3-32B primary, Kimi K2, GPT-120B, GPT-20B fallbacks)');
   }
 
   /**
