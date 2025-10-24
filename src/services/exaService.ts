@@ -3,36 +3,36 @@
  * Uses Exa AI API for internet search and real-time information
  */
 
-interface ExaMessage {
-  role: 'user' | 'assistant' | 'system';
-  content: string;
+interface ExaSearchRequest {
+  query: string;
+  type?: 'auto' | 'neural' | 'keyword' | 'fast';
+  numResults?: number;
+  text?: boolean;
+  context?: boolean;
 }
 
-interface ExaRequest {
-  model: string;
-  messages: ExaMessage[];
-  stream: boolean;
-  extra_body?: {
-    text: boolean;
-  };
+interface ExaSearchResult {
+  title: string;
+  url: string;
+  publishedDate?: string;
+  author?: string;
+  text?: string;
+  summary?: string;
+  highlights?: string[];
 }
 
-interface ExaResponse {
-  id: string;
-  choices: Array<{
-    finish_reason: string | null;
-    message: {
-      role: string;
-      content: string | null;
-    };
-  }>;
-  created: number;
-  model: string;
-  object: string;
-  usage?: {
-    prompt_tokens: number;
-    completion_tokens: number;
-    total_tokens: number;
+interface ExaSearchResponse {
+  requestId: string;
+  resolvedSearchType: 'neural' | 'keyword';
+  results: ExaSearchResult[];
+  searchType: 'auto' | 'neural' | 'keyword';
+  context?: string;
+  costDollars: {
+    total: number;
+    breakDown: Array<{
+      search: number;
+      contents: number;
+    }>;
   };
 }
 
@@ -42,7 +42,7 @@ class ExaService {
 
   constructor() {
     this.apiKey = '0aa7c589-a676-42ce-968f-1f2870a66755';
-    this.apiEndpoint = 'https://api.exa.ai/chat/completions';
+    this.apiEndpoint = 'https://api.exa.ai/search';
     
     console.log('🌐 Exa AI Service initialized for internet search');
     console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
@@ -58,38 +58,18 @@ class ExaService {
     conversationHistory: any[] = [],
     sources: string[] = []
   ): Promise<string> {
-    console.log('🚀 Exa AI Request:', {
+    console.log('🚀 Exa AI Search Request:', {
       endpoint: this.apiEndpoint,
       hasApiKey: !!this.apiKey,
-      messageLength: userMessage.length
+      query: userMessage
     });
     
-    // Build system prompt with context
-    const systemPrompt = this.buildSystemPrompt(context, sources);
-    
-    // Build conversation messages
-    const messages: ExaMessage[] = [
-      {
-        role: 'system',
-        content: systemPrompt
-      },
-      ...conversationHistory.map(msg => ({
-        role: msg.role === 'user' ? 'user' as const : 'assistant' as const,
-        content: msg.parts[0].text
-      })),
-      {
-        role: 'user',
-        content: userMessage
-      }
-    ];
-
-    const requestBody: ExaRequest = {
-      model: 'exa',
-      messages,
-      stream: false,
-      extra_body: {
-        text: true
-      }
+    const requestBody: ExaSearchRequest = {
+      query: userMessage,
+      type: 'auto',
+      numResults: 10,
+      text: true,
+      context: true
     };
 
     const response = await fetch(this.apiEndpoint, {
@@ -119,101 +99,50 @@ class ExaService {
       }
     }
 
-    const data: ExaResponse = await response.json();
+    const data: ExaSearchResponse = await response.json();
 
-    if (!data.choices || data.choices.length === 0) {
-      throw new Error('No response generated from Exa AI');
+    if (!data.results || data.results.length === 0) {
+      throw new Error('No search results found from Exa AI');
     }
 
-    const choice = data.choices[0];
-    if (!choice.message.content) {
-      throw new Error('Empty response from Exa AI');
+    // Log search statistics
+    console.log('📊 Exa AI Search Results:', {
+      requestId: data.requestId,
+      searchType: data.resolvedSearchType,
+      numResults: data.results.length,
+      cost: data.costDollars.total
+    });
+
+    // Format the search results into a comprehensive response
+    let responseText = `Based on my search of current information:\n\n`;
+    
+    // Add context if available
+    if (data.context) {
+      responseText += data.context + '\n\n';
     }
 
-    // Log usage statistics if available
-    if (data.usage) {
-      console.log('📊 Exa AI Usage:', {
-        prompt_tokens: data.usage.prompt_tokens,
-        completion_tokens: data.usage.completion_tokens,
-        total_tokens: data.usage.total_tokens,
-        model: data.model
-      });
-    }
+    // Add individual results
+    data.results.forEach((result, index) => {
+      responseText += `**${index + 1}. ${result.title}**\n`;
+      if (result.url) {
+        responseText += `Source: ${result.url}\n`;
+      }
+      if (result.summary) {
+        responseText += `Summary: ${result.summary}\n`;
+      }
+      if (result.text && result.text.length > 0) {
+        const textPreview = result.text.substring(0, 500);
+        responseText += `Content: ${textPreview}${result.text.length > 500 ? '...' : ''}\n`;
+      }
+      if (result.publishedDate) {
+        responseText += `Published: ${new Date(result.publishedDate).toLocaleDateString()}\n`;
+      }
+      responseText += '\n';
+    });
 
-    return choice.message.content;
+    return responseText;
   }
 
-  /**
-   * Build the system prompt with context and instructions
-   */
-  private buildSystemPrompt(context: string, sources: string[]): string {
-    const cleanContext = context
-      .replace(/\[Source \d+: [^\]]+\]/g, '') // Remove [Source 1: page] references
-      .replace(/Title: [^\n]+\n/g, '') // Remove title lines
-      .replace(/Category: [^\n]+\n/g, '') // Remove category lines
-      .replace(/\n---\n\n/g, '\n\n') // Clean up separators
-      .replace(/\n{3,}/g, '\n\n'); // Remove excessive line breaks
-
-    return `You are Louis AI, the intelligent assistant for St. Louis Demonstration Junior High School in Kumasi, Ghana, with access to real-time internet information.
-
-YOUR ROLE:
-- You are a helpful, knowledgeable assistant for students, parents, and visitors
-- You provide accurate information about the school, its programs, and services
-- You have access to real-time internet information to provide current and up-to-date answers
-- You are friendly, professional, and encouraging
-- You help with academic guidance, admissions, and general school information
-
-SCHOOL INFORMATION:
-${cleanContext ? `\nRELEVANT SCHOOL DATA:\n${cleanContext}\n` : ''}
-
-INTERNET SEARCH CAPABILITIES:
-- You can search the internet for real-time information
-- Use current data to provide accurate, up-to-date answers
-- Combine school information with current internet data when relevant
-- Always verify information and provide reliable sources
-
-THINKING MODE:
-When responding, you should show your thinking process by using the following format:
-<think>
-[Your internal reasoning, analysis, and thought process here]
-</think>
-
-[Your final response to the user]
-
-The thinking section should contain:
-- Your analysis of the question
-- How you're using the provided context and internet information
-- Your reasoning process
-- Any considerations or alternatives you're weighing
-- Your confidence level in the information
-
-RESPONSE GUIDELINES:
-1. **Be Helpful**: Provide clear, accurate, and useful information
-2. **Be Professional**: Maintain a respectful and educational tone
-3. **Be Encouraging**: Motivate students and support their learning journey
-4. **Be Specific**: Use the school data and internet information to give detailed answers
-5. **Be Friendly**: Show enthusiasm for education and student success
-6. **Be Current**: Use real-time internet data when relevant
-
-CONTENT GUIDELINES:
-1. **Accuracy**: Only provide information you're certain about
-2. **Relevance**: Focus on school-related topics and educational guidance
-3. **Completeness**: Give comprehensive answers when possible
-4. **Clarity**: Use clear, simple language appropriate for students
-5. **Encouragement**: Motivate and inspire students in their educational journey
-6. **Professionalism**: Maintain appropriate boundaries and educational focus
-7. **Cultural Sensitivity**: Be respectful of Ghanaian culture and values
-8. **Educational Focus**: Emphasize learning, growth, and academic success
-9. **IMPORTANT: Do not include any source references, citations, or numbers in your response text**
-
-RESPONSE FORMAT:
-- Start with a warm greeting when appropriate
-- Provide clear, structured information
-- End with encouragement or next steps when relevant
-- Keep responses conversational and engaging
-
-Remember: You are representing St. Louis Demonstration JHS, so always be professional, helpful, and encouraging. Your goal is to support students, parents, and the school community with accurate and useful information, enhanced by real-time internet search capabilities.`;
-  }
 
   /**
    * Get API status
