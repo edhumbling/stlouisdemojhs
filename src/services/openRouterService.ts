@@ -57,7 +57,8 @@ class OpenRouterService {
         messageLength: userMessage.length
       });
       
-      // Note: Using minimal headers to avoid CORS preflight issues
+      // Note: Following OpenRouter documentation at https://openrouter.ai/docs/quickstart
+      // Using recommended headers for app attribution and rankings
       // Build system prompt with context
       const systemPrompt = this.buildSystemPrompt(context, sources);
       
@@ -92,9 +93,7 @@ class OpenRouterService {
           'HTTP-Referer': 'https://stlouisdemojhs.com',
           'X-Title': 'St. Louis Demo JHS'
         },
-        body: JSON.stringify(requestBody),
-        cache: 'no-cache',
-        mode: 'cors'
+        body: JSON.stringify(requestBody)
       });
 
       if (!response.ok) {
