@@ -235,16 +235,19 @@ const LouisAIPage: React.FC = () => {
     try {
       setIsListening(true);
       setError(null);
-      setRealtimeTranscript('');
+      setRealtimeTranscript('Listening...');
       
       if (whisperSupported) {
         // Use Whisper API for better accuracy
         await handleWhisperRecording();
       } else if (speechSupported) {
         // Use browser speech recognition with real-time feedback
+        console.log('🎤 Starting browser speech recognition...');
         const transcript = await speechToTextService.startListening((interimText) => {
+          console.log('🎤 Interim result:', interimText);
           setRealtimeTranscript(interimText);
         });
+        console.log('🎤 Final transcript:', transcript);
         setInput(transcript);
         setRealtimeTranscript('');
         setIsListening(false);
@@ -254,6 +257,7 @@ const LouisAIPage: React.FC = () => {
     } catch (error) {
       console.error('❌ Speech recognition error:', error);
       setError('Speech recognition failed. Please try typing your message.');
+      setRealtimeTranscript('');
       setIsListening(false);
     }
   };
@@ -286,11 +290,13 @@ const LouisAIPage: React.FC = () => {
   };
 
   const handleStopListening = () => {
+    console.log('🎤 Stopping speech recognition...');
     if (speechSupported && !whisperSupported) {
       speechToTextService.stopListening();
     }
     setIsListening(false);
     setIsRecording(false);
+    setRealtimeTranscript('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -640,14 +646,22 @@ const LouisAIPage: React.FC = () => {
               )}
 
               {/* Recording Status Indicator */}
-              {isRecording && (
+              {(isRecording || isListening) && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-green-900/20 border border-green-700/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-green-400 flex items-center gap-2"
+                  className="bg-green-900/20 border border-green-700/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-green-400 flex items-center justify-between gap-2"
                 >
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span>{realtimeTranscript || 'Recording... Speak now (up to 3 minutes)'}</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span>{realtimeTranscript || 'Recording... Speak now (up to 3 minutes)'}</span>
+                  </div>
+                  <button
+                    onClick={handleStopListening}
+                    className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white text-xs rounded-md transition-colors"
+                  >
+                    Stop
+                  </button>
                 </motion.div>
               )}
 

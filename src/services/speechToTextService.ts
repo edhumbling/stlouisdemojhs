@@ -114,6 +114,13 @@ class SpeechToTextService {
 
       let finalTranscript = '';
       let interimTranscript = '';
+      let timeoutId: NodeJS.Timeout;
+
+      // Set a timeout to prevent getting stuck
+      timeoutId = setTimeout(() => {
+        console.log('🎤 Speech recognition timeout, stopping...');
+        this.recognition!.stop();
+      }, 30000); // 30 second timeout
 
       this.recognition!.onstart = () => {
         console.log('🎤 Speech recognition started');
@@ -128,27 +135,32 @@ class SpeechToTextService {
           
           if (event.results[i].isFinal) {
             finalTranscript += transcript;
+            console.log('🎤 Final transcript part:', transcript);
           } else {
             interimTranscript += transcript;
+            console.log('🎤 Interim transcript part:', transcript);
           }
         }
 
         // Emit interim results for real-time feedback
-        if (interimTranscript && onInterimResult) {
-          console.log('🎤 Interim transcript:', interimTranscript);
-          onInterimResult(finalTranscript + interimTranscript);
+        if (onInterimResult) {
+          const currentText = finalTranscript + interimTranscript;
+          console.log('🎤 Sending interim result:', currentText);
+          onInterimResult(currentText);
         }
       };
 
       this.recognition!.onerror = (event: SpeechRecognitionErrorEvent) => {
         console.error('❌ Speech recognition error:', event.error);
         this.isListening = false;
+        clearTimeout(timeoutId);
         reject(new Error(`Speech recognition error: ${event.error}`));
       };
 
       this.recognition!.onend = () => {
         console.log('🎤 Speech recognition ended');
         this.isListening = false;
+        clearTimeout(timeoutId);
         
         if (finalTranscript.trim()) {
           console.log('🎤 Final transcript:', finalTranscript);
