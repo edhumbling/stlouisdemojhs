@@ -7,11 +7,11 @@ import openRouterService from './openRouterService';
 
 class UnifiedAIService {
   constructor() {
-    console.log('🤖 Unified AI Service initialized with OpenRouter (DeepSeek Chat v3)');
+    console.log('🤖 Unified AI Service initialized with DeepSeek Platform (DeepSeek-V3.2-Exp)');
   }
 
   /**
-   * Generate response using OpenRouter API
+   * Generate response using DeepSeek API
    */
   async generateResponse(
     userMessage: string,
@@ -22,7 +22,7 @@ class UnifiedAIService {
     try {
       return await openRouterService.generateResponse(userMessage, context, conversationHistory, sources);
     } catch (error) {
-      console.error('❌ OpenRouter service failed:', error);
+        console.error('❌ DeepSeek service failed:', error);
       
         // Handle different error types
         if (error instanceof Error) {

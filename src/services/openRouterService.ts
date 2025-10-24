@@ -44,14 +44,14 @@ class OpenRouterService {
   private model: string;
 
   constructor() {
-    this.apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
-    this.apiEndpoint = 'https://openrouter.ai/api/v1/chat/completions';
-    this.model = 'deepseek/deepseek-chat-v3-0324:free';
+    this.apiKey = import.meta.env.VITE_DEEPSEEK_API_KEY || 'sk-fbc36b72981b4937ad44ff8e20e63ba5';
+    this.apiEndpoint = 'https://api.deepseek.com/chat/completions';
+    this.model = 'deepseek-chat';
     
     if (!this.apiKey) {
-      console.warn('⚠️ No OpenRouter API key found. Please set VITE_OPENROUTER_API_KEY environment variable.');
+      console.warn('⚠️ No DeepSeek API key found. Please set VITE_DEEPSEEK_API_KEY environment variable.');
     } else {
-      console.log('🤖 OpenRouter Service initialized with DeepSeek Chat v3 model');
+      console.log('🤖 DeepSeek Service initialized with DeepSeek-V3.2-Exp model');
       console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
       console.log('🌐 Endpoint:', this.apiEndpoint);
       console.log('🔍 Full API Key for debugging:', this.apiKey);
@@ -59,7 +59,7 @@ class OpenRouterService {
   }
 
   /**
-   * Generate a response using OpenRouter API
+   * Generate a response using DeepSeek API
    */
   async generateResponse(
     userMessage: string,
@@ -68,15 +68,15 @@ class OpenRouterService {
     sources: string[] = []
   ): Promise<string> {
     try {
-      console.log('🚀 OpenRouter API Request:', {
+      console.log('🚀 DeepSeek API Request:', {
         model: this.model,
         endpoint: this.apiEndpoint,
         hasApiKey: !!this.apiKey,
         messageLength: userMessage.length
       });
       
-      // Note: Following OpenRouter documentation at https://openrouter.ai/docs/quickstart
-      // Using recommended headers for app attribution and rankings
+      // Note: Using DeepSeek API directly with OpenAI-compatible format
+      // Headers for DeepSeek API authentication
       // Build system prompt with context
       const systemPrompt = this.buildSystemPrompt(context, sources);
       
@@ -111,45 +111,43 @@ class OpenRouterService {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${this.apiKey}`,
-          'Content-Type': 'application/json',
-          'HTTP-Referer': 'https://stlouisdemojhs.com',
-          'X-Title': 'St. Louis Demo JHS'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(requestBody)
       });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        console.error('❌ OpenRouter API Error:', response.status, errorData);
+        console.error('❌ DeepSeek API Error:', response.status, errorData);
         
         if (response.status === 429) {
           throw new Error('HIGH_TRAFFIC');
         } else if (response.status === 401) {
-          console.error('🔑 OpenRouter API Key Invalid, Expired, or User Not Found');
+          console.error('🔑 DeepSeek API Key Invalid or Expired');
           console.error('🔍 Current API Key:', this.apiKey);
           console.error('📊 Error Details:', errorData);
           throw new Error('API_KEY_INVALID');
         } else if (response.status >= 500) {
           throw new Error('SERVICE_UNAVAILABLE');
         } else {
-          throw new Error(`OpenRouter API error: ${response.status} - ${JSON.stringify(errorData)}`);
+          throw new Error(`DeepSeek API error: ${response.status} - ${JSON.stringify(errorData)}`);
         }
       }
 
       const data: OpenRouterResponse = await response.json();
 
       if (!data.choices || data.choices.length === 0) {
-        throw new Error('No response generated from OpenRouter API');
+        throw new Error('No response generated from DeepSeek API');
       }
 
       const choice = data.choices[0];
       if (!choice.message.content) {
-        throw new Error('Empty response from OpenRouter API');
+        throw new Error('Empty response from DeepSeek API');
       }
 
       // Log usage statistics if available
       if (data.usage) {
-        console.log('📊 OpenRouter Usage:', {
+        console.log('📊 DeepSeek Usage:', {
           prompt_tokens: data.usage.prompt_tokens,
           completion_tokens: data.usage.completion_tokens,
           total_tokens: data.usage.total_tokens,
@@ -160,7 +158,7 @@ class OpenRouterService {
       return choice.message.content;
 
     } catch (error) {
-      console.error('❌ OpenRouter API Error:', error);
+      console.error('❌ DeepSeek API Error:', error);
       
       // Handle different types of errors
       if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
@@ -244,33 +242,14 @@ Remember: You are representing St. Louis Demonstration JHS, so always be profess
   public async testConnection(): Promise<boolean> {
     try {
       const testResponse = await this.generateResponse('Hello, this is a test message.');
-      console.log('✅ OpenRouter API test successful:', testResponse.substring(0, 50) + '...');
+      console.log('✅ DeepSeek API test successful:', testResponse.substring(0, 50) + '...');
       return true;
     } catch (error) {
-      console.error('❌ OpenRouter API test failed:', error);
+      console.error('❌ DeepSeek API test failed:', error);
       return false;
     }
   }
 
-  public async getGenerationStats(generationId: string): Promise<any> {
-    try {
-      const response = await fetch(`https://openrouter.ai/api/v1/generation?id=${generationId}`, {
-        headers: {
-          'Authorization': `Bearer ${this.apiKey}`,
-          'Content-Type': 'application/json'
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch generation stats: ${response.status}`);
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error('❌ Failed to get generation stats:', error);
-      throw error;
-    }
-  }
 }
 
 // Export singleton instance
