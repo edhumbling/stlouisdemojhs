@@ -27,6 +27,7 @@ interface Message {
   isRetryable?: boolean;
   originalQuery?: string;
   thinking?: string;
+  images?: string[]; // Base64 image data for previews
 }
 
 const LouisAIPage: React.FC = () => {
@@ -43,6 +44,7 @@ const LouisAIPage: React.FC = () => {
   const [isInternetSearch, setIsInternetSearch] = useState(false);
   const [selectedImages, setSelectedImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+  const [isPlusClicked, setIsPlusClicked] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -367,6 +369,7 @@ const LouisAIPage: React.FC = () => {
       role: 'user',
       content: input.trim(),
       timestamp: new Date(),
+      images: selectedImages.length > 0 ? imagePreviews : undefined,
     };
 
     setMessages(prev => [...prev, userMessage]);
@@ -395,6 +398,7 @@ const LouisAIPage: React.FC = () => {
           role: 'assistant',
           content: response,
           timestamp: new Date(),
+          images: imagePreviews, // Include the analyzed images
         };
 
         setMessages(prev => [...prev, assistantMessage]);
@@ -617,6 +621,35 @@ const LouisAIPage: React.FC = () => {
     setImagePreviews([]);
   };
 
+  const handlePlusClick = () => {
+    setIsPlusClicked(true);
+    // Reset highlight after animation
+    setTimeout(() => setIsPlusClicked(false), 200);
+  };
+
+  // Custom tooltip component
+  const CustomTooltip = ({ children, text }: { children: React.ReactNode; text: string }) => {
+    const [showTooltip, setShowTooltip] = useState(false);
+    
+    return (
+      <div 
+        className="relative"
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+      >
+        {children}
+        {showTooltip && (
+          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-50">
+            <div className="bg-black text-white text-xs px-2 py-1 rounded-md shadow-lg whitespace-nowrap">
+              {text}
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-black"></div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   // Custom component to render LaTeX equations
   const renderLatex = (text: string) => {
     try {
@@ -760,6 +793,19 @@ const LouisAIPage: React.FC = () => {
                       /* User Message - Grok Style */
                       <div className="flex justify-end mb-3 sm:mb-4">
                         <div className="bg-[#2a2a2a] text-white rounded-2xl px-3 sm:px-4 py-2 sm:py-2.5 max-w-[85%] sm:max-w-[80%] break-words overflow-wrap-anywhere">
+                          {/* Image Previews */}
+                          {message.images && message.images.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mb-3">
+                              {message.images.map((image, index) => (
+                                <img
+                                  key={index}
+                                  src={image}
+                                  alt={`Uploaded image ${index + 1}`}
+                                  className="w-16 h-16 object-cover rounded-lg border border-gray-600"
+                                />
+                              ))}
+                            </div>
+                          )}
                           <p className="text-sm sm:text-[15px] leading-relaxed break-words">{message.content}</p>
                         </div>
                       </div>
@@ -770,14 +816,38 @@ const LouisAIPage: React.FC = () => {
                           <img src="/applogo.png" alt="Louis Ai" className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                         </div>
                         <div className="flex-1 min-w-0 break-words overflow-wrap-anywhere">
+                          {/* Image Previews for Assistant Messages */}
+                          {message.images && message.images.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mb-3">
+                              {message.images.map((image, index) => (
+                                <img
+                                  key={index}
+                                  src={image}
+                                  alt={`Analyzed image ${index + 1}`}
+                                  className="w-16 h-16 object-cover rounded-lg border border-gray-600"
+                                />
+                              ))}
+                            </div>
+                          )}
                           <div className="text-white/90 text-sm sm:text-[15px] leading-relaxed mb-2 sm:mb-3 prose prose-invert prose-sm sm:prose-base max-w-none break-words">
                             <ReactMarkdown
                               remarkPlugins={[remarkGfm, remarkMath]}
                               rehypePlugins={[rehypeKatex]}
                               components={{
                                 p: ({ children }) => {
-                                  // Check if children contain LaTeX and render accordingly
-                                  const content = typeof children === 'string' ? children : children?.toString() || '';
+                                  // Safely convert children to string, handling objects properly
+                                  let content = '';
+                                  if (typeof children === 'string') {
+                                    content = children;
+                                  } else if (Array.isArray(children)) {
+                                    content = children.map(child => 
+                                      typeof child === 'string' ? child : 
+                                      typeof child === 'object' && child !== null ? JSON.stringify(child) : 
+                                      String(child)
+                                    ).join('');
+                                  } else if (children !== null && children !== undefined) {
+                                    content = typeof children === 'object' ? JSON.stringify(children, null, 2) : String(children);
+                                  }
                                   return <p className="mb-3 leading-7 break-words">{renderLatex(content)}</p>;
                                 },
                                 ul: ({ children }) => <ul className="mb-3 ml-4 list-disc space-y-1 break-words">{children}</ul>,
@@ -1015,37 +1085,58 @@ const LouisAIPage: React.FC = () => {
                     className="w-full h-full object-cover rounded-lg border border-gray-600 shadow-lg"
                   />
                   
+                  {/* Edit Button */}
+                  <CustomTooltip text="Edit image">
+                    <button
+                      onClick={() => document.getElementById('image-upload')?.click()}
+                      className="absolute -top-1 -right-6 w-4 h-4 bg-white hover:bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:scale-110"
+                    >
+                      <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                      </svg>
+                    </button>
+                  </CustomTooltip>
+
                   {/* Remove Button */}
-                  <button
-                    onClick={() => removeImage(index)}
-                    className="absolute -top-1 -right-1 w-5 h-5 bg-gray-300 hover:bg-gray-200 rounded-full flex items-center justify-center shadow-lg transition-colors"
-                    title="Remove image"
-                  >
-                    <svg className="w-2.5 h-2.5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
+                  <CustomTooltip text="Remove image">
+                    <button
+                      onClick={() => removeImage(index)}
+                      className="absolute -top-1 -right-1 w-4 h-4 bg-white hover:bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:scale-110"
+                    >
+                      <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </CustomTooltip>
                 </div>
               ))}
               
               {/* Add More Button */}
               {imagePreviews.length < 5 && (
-                <label
-                  htmlFor="image-upload"
-                  className="w-16 h-16 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-300 transition-colors"
-                  title="Add more images"
-                >
-                  <Plus size={20} className="text-gray-400" />
-                  <input
-                    id="image-upload"
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={handleImageUpload}
-                    className="hidden"
-                    disabled={isLoading}
-                  />
-                </label>
+                <CustomTooltip text="Add more images">
+                  <label
+                    htmlFor="image-upload"
+                    onClick={handlePlusClick}
+                    className={`w-16 h-16 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-300 transition-all duration-200 ${
+                      isPlusClicked 
+                        ? 'bg-blue-500/20 border-blue-400 scale-105' 
+                        : ''
+                    }`}
+                  >
+                    <Plus size={20} className={`text-gray-400 transition-colors ${
+                      isPlusClicked ? 'text-blue-400' : ''
+                    }`} />
+                    <input
+                      id="image-upload"
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      onChange={handleImageUpload}
+                      className="hidden"
+                      disabled={isLoading}
+                    />
+                  </label>
+                </CustomTooltip>
               )}
             </div>
           </div>
@@ -1069,10 +1160,15 @@ const LouisAIPage: React.FC = () => {
                   {/* Plus Icon - Image Upload */}
                   <label
                     htmlFor="image-upload"
-                    className={`ml-3 sm:ml-4 p-1 transition-colors cursor-pointer ${
+                    onClick={handlePlusClick}
+                    className={`ml-3 sm:ml-4 p-1 transition-all duration-200 cursor-pointer ${
                       selectedImages.length > 0
                         ? 'text-green-400 hover:text-green-300'
                         : 'text-white/60 hover:text-white/80'
+                    } ${
+                      isPlusClicked 
+                        ? 'bg-blue-500/30 scale-110 text-blue-300' 
+                        : ''
                     }`}
                     title={selectedImages.length > 0 ? `${selectedImages.length} image(s) selected - Click to add more` : 'Upload images for analysis'}
                   >
