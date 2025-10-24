@@ -834,22 +834,7 @@ const LouisAIPage: React.FC = () => {
                               remarkPlugins={[remarkGfm, remarkMath]}
                               rehypePlugins={[rehypeKatex]}
                               components={{
-                                p: ({ children }) => {
-                                  // Safely convert children to string, handling objects properly
-                                  let content = '';
-                                  if (typeof children === 'string') {
-                                    content = children;
-                                  } else if (Array.isArray(children)) {
-                                    content = children.map(child => 
-                                      typeof child === 'string' ? child : 
-                                      typeof child === 'object' && child !== null ? JSON.stringify(child) : 
-                                      String(child)
-                                    ).join('');
-                                  } else if (children !== null && children !== undefined) {
-                                    content = typeof children === 'object' ? JSON.stringify(children, null, 2) : String(children);
-                                  }
-                                  return <p className="mb-3 leading-7 break-words">{renderLatex(content)}</p>;
-                                },
+                                p: ({ children }) => <p className="mb-3 leading-7 break-words">{children}</p>,
                                 ul: ({ children }) => <ul className="mb-3 ml-4 list-disc space-y-1 break-words">{children}</ul>,
                                 ol: ({ children }) => <ol className="mb-3 ml-4 list-decimal space-y-1 break-words">{children}</ol>,
                                 li: ({ children }) => <li className="leading-6 break-words">{children}</li>,
