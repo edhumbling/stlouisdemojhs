@@ -44,7 +44,7 @@ class OpenRouterService {
   private model: string;
 
   constructor() {
-    this.apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
+    this.apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
     this.apiEndpoint = 'https://openrouter.ai/api/v1/chat/completions';
     this.model = 'deepseek/deepseek-chat-v3-0324:free';
     
