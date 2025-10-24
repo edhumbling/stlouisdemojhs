@@ -42,27 +42,27 @@ class OpenRouterService {
   private apiKey: string;
   private apiEndpoint: string;
   private primaryModel: string;
-  private fallbackModel: string;
+  private fallbackModels: string[];
 
   constructor() {
     this.apiKey = import.meta.env.VITE_GROQ_API_KEY || 'your_groq_api_key_here';
     this.apiEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
-    this.primaryModel = 'qwen/qwen3-32b';
-    this.fallbackModel = 'openai/gpt-oss-20b';
+    this.primaryModel = 'moonshotai/kimi-k2-instruct-0905';
+    this.fallbackModels = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'];
     
     if (!this.apiKey) {
       console.warn('⚠️ No Groq API key found. Please set VITE_GROQ_API_KEY environment variable.');
     } else {
-      console.log('🤖 Groq Service initialized with Qwen3-32B (primary) and GPT-20B (fallback)');
+      console.log('🤖 Groq Service initialized with Kimi K2 (primary) and GPT-120B, GPT-20B (fallbacks)');
       console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
       console.log('🌐 Endpoint:', this.apiEndpoint);
       console.log('🎯 Primary Model:', this.primaryModel);
-      console.log('🔄 Fallback Model:', this.fallbackModel);
+      console.log('🔄 Fallback Models:', this.fallbackModels.join(', '));
     }
   }
 
   /**
-   * Generate a response using Groq API with Qwen3-32B primary and GPT-20B fallback
+   * Generate a response using Groq API with Kimi K2 primary and multiple fallbacks
    */
   async generateResponse(
     userMessage: string,
@@ -70,23 +70,32 @@ class OpenRouterService {
     conversationHistory: any[] = [],
     sources: string[] = []
   ): Promise<string> {
-    // Try primary model first (Qwen3-32B)
+    // Try primary model first (Kimi K2)
     try {
       const fullResponse = await this.makeApiRequest(userMessage, context, conversationHistory, sources, this.primaryModel);
       // Strip thinking content silently
       return this.stripThinkingContent(fullResponse);
     } catch (error) {
-      console.warn('⚠️ Primary model (Qwen3-32B) failed, trying fallback (GPT-20B):', error);
+      console.warn('⚠️ Primary model (Kimi K2) failed, trying fallbacks:', error);
       
-      // Try fallback model (GPT-20B)
+      // Try each fallback model in order
+      for (let i = 0; i < this.fallbackModels.length; i++) {
+        const fallbackModel = this.fallbackModels[i];
       try {
-        const fullResponse = await this.makeApiRequest(userMessage, context, conversationHistory, sources, this.fallbackModel);
-        // Strip thinking content silently
-        return this.stripThinkingContent(fullResponse);
+          console.log(`🔄 Trying fallback ${i + 1}/${this.fallbackModels.length}: ${fallbackModel}`);
+          const fullResponse = await this.makeApiRequest(userMessage, context, conversationHistory, sources, fallbackModel);
+          // Strip thinking content silently
+          return this.stripThinkingContent(fullResponse);
       } catch (fallbackError) {
-        console.error('❌ Both primary and fallback models failed');
+          console.warn(`⚠️ Fallback model ${fallbackModel} failed:`, fallbackError);
+          if (i === this.fallbackModels.length - 1) {
+            console.error('❌ All models failed');
         throw fallbackError;
       }
+    }
+      }
+      
+      throw new Error('All models failed');
     }
   }
 
@@ -95,7 +104,7 @@ class OpenRouterService {
    */
   private stripThinkingContent(fullResponse: string): string {
     // Remove <think>...</think> tags and their content
-    return fullResponse.replace(/<think>[\s\S]*?<\/redacted_reasoning>\s*/g, '').trim();
+    return fullResponse.replace(/<think>[\s\S]*?<\/think>\s*/g, '').trim();
   }
 
   /**
@@ -110,12 +119,12 @@ class OpenRouterService {
     const fullResponse = await this.generateResponse(userMessage, context, conversationHistory, sources);
     
     // Parse thinking content from response using <think> tags
-    const thinkingMatch = fullResponse.match(/<think>([\s\S]*?)<\/redacted_reasoning>/);
+    const thinkingMatch = fullResponse.match(/<think>([\s\S]*?)<\/think>/);
     const thinking = thinkingMatch ? thinkingMatch[1].trim() : '';
     
     // Extract the final response (everything after </think> or the full response if no thinking tags)
     const response = thinkingMatch 
-      ? fullResponse.replace(/<think>[\s\S]*?<\/redacted_reasoning>\s*/, '').trim()
+      ? fullResponse.replace(/<think>[\s\S]*?<\/think>\s*/, '').trim()
       : fullResponse;
     
     return { response, thinking };
@@ -289,13 +298,13 @@ Remember: You are representing St. Louis Demonstration JHS, so always be profess
   public getApiStatus(): { 
     hasApiKey: boolean; 
     primaryModel: string;
-    fallbackModel: string;
+    fallbackModels: string[];
     endpoint: string;
   } {
     return {
       hasApiKey: !!this.apiKey,
       primaryModel: this.primaryModel,
-      fallbackModel: this.fallbackModel,
+      fallbackModels: this.fallbackModels,
       endpoint: this.apiEndpoint
     };
   }

@@ -23,6 +23,7 @@ interface Message {
   sources?: Array<{ title: string; url: string; displayName: string; category: string }>;
   isRetryable?: boolean;
   originalQuery?: string;
+  thinking?: string;
 }
 
 const LouisAIPage: React.FC = () => {
@@ -35,6 +36,7 @@ const LouisAIPage: React.FC = () => {
   const [speechSupported, setSpeechSupported] = useState(false);
   const [whisperSupported, setWhisperSupported] = useState(false);
   const [realtimeTranscript, setRealtimeTranscript] = useState('');
+  const [showThinking, setShowThinking] = useState<{ [messageId: string]: boolean }>({});
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -136,10 +138,7 @@ const LouisAIPage: React.FC = () => {
   const suggestedPrompts = getDailyPrompts();
 
   const handlePromptClick = async (prompt: string) => {
-    // Set the input and immediately submit
-    setInput(prompt);
-    
-    // Create a user message immediately
+    // Create a user message immediately without setting input
     const userMessage: Message = {
       id: `user-${Date.now()}`,
       role: 'user',
@@ -161,8 +160,8 @@ const LouisAIPage: React.FC = () => {
         parts: [{ text: msg.content }],
       }));
 
-      // Generate response using Unified AI Service (thinking content is automatically stripped)
-      const response = await unifiedAIService.generateResponse(
+      // Generate response using Unified AI Service with thinking mode
+      const { response, thinking } = await unifiedAIService.generateResponseWithThinking(
         prompt,
         ragResult.context,
         conversationHistory,
@@ -206,6 +205,7 @@ const LouisAIPage: React.FC = () => {
         content: response,
         timestamp: new Date(),
         sources: shouldShowSources ? sources : undefined,
+        thinking: thinking,
       };
 
       setMessages(prev => [...prev, assistantMessage]);
@@ -479,10 +479,18 @@ const LouisAIPage: React.FC = () => {
     setMessages([]);
     setInput('');
     setError(null);
+    setShowThinking({});
     // Focus on input after clearing
     setTimeout(() => {
       inputRef.current?.focus();
     }, 100);
+  };
+
+  const toggleThinking = (messageId: string) => {
+    setShowThinking(prev => ({
+      ...prev,
+      [messageId]: !prev[messageId]
+    }));
   };
 
   const quickActions = [
@@ -625,6 +633,60 @@ const LouisAIPage: React.FC = () => {
                             </ReactMarkdown>
                           </div>
 
+                          {/* Thinking Mode Display with Faded Background */}
+                          {message.thinking && (
+                            <div className="mt-3 pt-3 border-t border-[#2a2a2a]">
+                              <button
+                                onClick={() => toggleThinking(message.id)}
+                                className="flex items-center gap-2 text-xs text-white/60 hover:text-white/80 transition-colors duration-200 mb-2"
+                              >
+                                <svg 
+                                  className={`w-3 h-3 transition-transform duration-200 ${showThinking[message.id] ? 'rotate-90' : ''}`} 
+                                  fill="none" 
+                                  stroke="currentColor" 
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                                {showThinking[message.id] ? 'Hide' : 'Show'} AI thinking process
+                              </button>
+                              
+                              {showThinking[message.id] && (
+                                <motion.div
+                                  initial={{ opacity: 0, height: 0 }}
+                                  animate={{ opacity: 1, height: 'auto' }}
+                                  exit={{ opacity: 0, height: 0 }}
+                                  className="relative"
+                                >
+                                  {/* Faded background overlay */}
+                                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 pointer-events-none z-10"></div>
+                                  
+                                  {/* Thinking content with faded background */}
+                                  <div className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-lg p-3 text-xs text-white/50 leading-relaxed relative overflow-hidden">
+                                    <div className="font-medium text-white/60 mb-2 flex items-center gap-2">
+                                      <span>🤔</span>
+                                      <span>AI Thinking Process:</span>
+                                    </div>
+                                    <div className="whitespace-pre-wrap break-words relative z-0">
+                                      {message.thinking}
+                                    </div>
+                                    
+                                    {/* Fade overlay that can be clicked to reveal */}
+                                    {!showThinking[message.id] && (
+                                      <div 
+                                        className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60 cursor-pointer z-20"
+                                        onClick={() => toggleThinking(message.id)}
+                                      >
+                                        <div className="absolute bottom-2 left-2 right-2 text-center">
+                                          <span className="text-white/40 text-xs">Click to reveal thinking...</span>
+                                        </div>
+                                      </div>
+                                    )}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </div>
+                          )}
 
                           {/* Sources - Blue/Yellow Hyperlinks */}
                           {message.sources && message.sources.length > 0 && (
