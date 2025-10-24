@@ -23,11 +23,11 @@ VITE_OPENROUTER_API_KEY=sk-or-v1-b8bb14a68f9315a0f1c726c59e1277545cf0aa007117a23
 
 ## 📊 Service Configuration
 
-### **AI Service: OpenRouter with DeepSeek Chat v3**
-- Model: `deepseek/deepseek-chat-v3-0324:free`
-- High-quality responses for educational content
+### **AI Service: OpenRouter with DeepSeek R1T2 Chimera**
+- Model: `tngtech/deepseek-r1t2-chimera:free`
+- Advanced reasoning and problem-solving capabilities
 - Free tier available with excellent performance
-- Reliable API with excellent uptime
+- Latest DeepSeek R1T2 model with enhanced intelligence
 
 ## 🎯 Benefits
 
