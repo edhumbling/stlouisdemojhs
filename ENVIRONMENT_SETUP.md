@@ -5,11 +5,8 @@
 Create a `.env` file in your project root with the following variables:
 
 ```bash
-# Gemini API Configuration
-VITE_GEMINI_API_KEY=your_gemini_api_key_here
-VITE_GEMINI_BACKUP_API_KEY=your_backup_gemini_key_here
-VITE_GEMINI_SECOND_BACKUP_API_KEY=your_second_backup_gemini_key_here
-VITE_GEMINI_THIRD_BACKUP_API_KEY=your_third_backup_gemini_key_here
+# OpenRouter API Configuration
+VITE_OPENROUTER_API_KEY=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
 ```
 
 ## 🚀 Quick Start
@@ -26,14 +23,16 @@ VITE_GEMINI_THIRD_BACKUP_API_KEY=your_third_backup_gemini_key_here
 
 ## 📊 Service Configuration
 
-### **AI Service: Gemini**
-- Primary API key with 3 backup keys
-- Automatic switching on rate limits
+### **AI Service: OpenRouter with DeepSeek**
+- Model: `deepseek/deepseek-r1-0528:free`
 - High-quality responses for educational content
+- Free tier available with good performance
+- Reliable API with excellent uptime
 
 ## 🎯 Benefits
 
-- ✅ **Maximum Reliability**: Multiple API keys for failover
-- ✅ **Automatic Failover**: Seamless switching between keys
-- ✅ **Rate Limit Protection**: Multiple backup options
-- ✅ **High Performance**: Optimized for educational use
+- ✅ **Simple Setup**: Only one API key needed
+- ✅ **High Performance**: Fast, reliable responses
+- ✅ **Cost Effective**: Free tier available
+- ✅ **Educational Focus**: Optimized for school information
+- ✅ **Easy Maintenance**: Single service to manage

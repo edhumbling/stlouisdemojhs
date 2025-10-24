@@ -1,18 +1,17 @@
 /**
  * Unified AI Service
- * Uses Gemini AI service with fallback to knowledge bank RAG
+ * Uses OpenRouter API with DeepSeek model for AI responses
  */
 
-import geminiService from './geminiService';
-import fallbackRAGService from './fallbackRAGService';
+import openRouterService from './openRouterService';
 
 class UnifiedAIService {
   constructor() {
-    console.log('🤖 Unified AI Service initialized with Gemini');
+    console.log('🤖 Unified AI Service initialized with OpenRouter (DeepSeek)');
   }
 
   /**
-   * Generate response using Gemini AI service with fallback to knowledge bank
+   * Generate response using OpenRouter API
    */
   async generateResponse(
     userMessage: string,
@@ -21,38 +20,20 @@ class UnifiedAIService {
     sources: string[] = []
   ): Promise<string> {
     try {
-      // Try Gemini AI service first
-      return await geminiService.generateResponse(userMessage, context, conversationHistory, sources);
+      return await openRouterService.generateResponse(userMessage, context, conversationHistory, sources);
     } catch (error) {
-      console.error('❌ Gemini service failed:', error);
-      console.log('🔄 Switching to fallback knowledge bank RAG...');
+      console.error('❌ OpenRouter service failed:', error);
       
-      try {
-        // Fallback to knowledge bank RAG
-        const fallbackResponse = await fallbackRAGService.generateResponse(
-          userMessage, 
-          context, 
-          conversationHistory, 
-          sources
-        );
-        
-        console.log('✅ Fallback RAG response generated successfully');
-        return fallbackResponse;
-        
-      } catch (fallbackError) {
-        console.error('❌ Fallback RAG also failed:', fallbackError);
-        
-        // If both fail, provide a user-friendly high traffic message
-        throw new Error('HIGH_TRAFFIC');
-      }
+      // If OpenRouter fails, provide a user-friendly high traffic message
+      throw new Error('HIGH_TRAFFIC');
     }
   }
 
   /**
-   * Get Gemini API key status
+   * Get OpenRouter API status
    */
-  public getGeminiStatus() {
-    return geminiService.getApiKeyStatus();
+  public getApiStatus() {
+    return openRouterService.getApiStatus();
   }
 
   /**
@@ -60,13 +41,6 @@ class UnifiedAIService {
    */
   public resetFailures(): void {
     console.log('🔄 Service failures reset');
-  }
-
-  /**
-   * Get knowledge bank statistics
-   */
-  public getKnowledgeStats() {
-    return fallbackRAGService.getKnowledgeStats();
   }
 }
 
