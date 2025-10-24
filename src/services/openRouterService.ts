@@ -46,12 +46,12 @@ class OpenRouterService {
   constructor() {
     this.apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
     this.apiEndpoint = 'https://openrouter.ai/api/v1/chat/completions';
-    this.model = 'tngtech/deepseek-r1t2-chimera:free';
+    this.model = 'deepseek/deepseek-chat-v3-0324:free';
     
     if (!this.apiKey) {
       console.warn('⚠️ No OpenRouter API key found. Please set VITE_OPENROUTER_API_KEY environment variable.');
     } else {
-      console.log('🤖 OpenRouter Service initialized with DeepSeek R1T2 Chimera model');
+      console.log('🤖 OpenRouter Service initialized with DeepSeek Chat v3 model');
       console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
       console.log('🌐 Endpoint:', this.apiEndpoint);
       console.log('🔍 Full API Key for debugging:', this.apiKey);
