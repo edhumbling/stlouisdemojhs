@@ -226,9 +226,7 @@ const LouisAIPage: React.FC = () => {
   const suggestedPrompts = getDailyPrompts();
 
   const handlePromptClick = async (prompt: string) => {
-    // Set the input and immediately submit
-    setInput(prompt);
-    
+    // Don't set the input - send the prompt directly
     // Create a user message immediately
     const userMessage: Message = {
       id: `user-${Date.now()}`,
@@ -268,27 +266,8 @@ const LouisAIPage: React.FC = () => {
         }))
       );
 
-      // Only include sources if:
-      // 1. There are sources available
-      // 2. The query seems to be asking for factual information (not casual conversation)
-      // 3. The response contains specific information that would benefit from citations
-      const shouldShowSources = sources.length > 0 && (
-        prompt.toLowerCase().includes('what') ||
-        prompt.toLowerCase().includes('how') ||
-        prompt.toLowerCase().includes('when') ||
-        prompt.toLowerCase().includes('where') ||
-        prompt.toLowerCase().includes('who') ||
-        prompt.toLowerCase().includes('tell me') ||
-        prompt.toLowerCase().includes('about') ||
-        prompt.toLowerCase().includes('information') ||
-        prompt.toLowerCase().includes('details') ||
-        prompt.toLowerCase().includes('requirements') ||
-        prompt.toLowerCase().includes('contact') ||
-        prompt.toLowerCase().includes('admission') ||
-        prompt.toLowerCase().includes('programs') ||
-        prompt.toLowerCase().includes('facilities') ||
-        prompt.toLowerCase().includes('history')
-      );
+      // Smart source relevance: Only show sources that are actually relevant to the response content
+      const shouldShowSources = sources.length > 0 && isResponseFactual(response) && areSourcesRelevantToResponse(response, ragResult.chunks);
 
       const assistantMessage: Message = {
         id: `assistant-${Date.now()}`,
@@ -329,6 +308,10 @@ const LouisAIPage: React.FC = () => {
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
+      // Auto-focus input for seamless typing
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
     }
   };
 
@@ -527,6 +510,10 @@ const LouisAIPage: React.FC = () => {
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
+      // Auto-focus input for seamless typing
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
     }
   };
 
