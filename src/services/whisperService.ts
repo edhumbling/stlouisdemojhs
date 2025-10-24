@@ -3,6 +3,8 @@
  * Uses OpenAI's Whisper API for advanced speech recognition
  */
 
+import microphonePermissionService from './microphonePermissionService';
+
 interface WhisperRequest {
   model: string;
   file: File;
@@ -109,61 +111,87 @@ class WhisperService {
     }
   }
 
+  private mediaRecorder: MediaRecorder | null = null;
+  private audioStream: MediaStream | null = null;
+
   /**
    * Record audio from microphone with real-time feedback
    */
   public async recordAudio(duration: number = 180000): Promise<File> {
-    return new Promise((resolve, reject) => {
-      navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(stream => {
-          const mediaRecorder = new MediaRecorder(stream);
-          const audioChunks: Blob[] = [];
-          let recordingStartTime = Date.now();
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Check microphone permission first
+        const hasPermission = await microphonePermissionService.initialize();
+        if (!hasPermission) {
+          throw new Error('Microphone permission not granted');
+        }
 
-          console.log('🎤 MediaRecorder started, recording for', duration / 1000, 'seconds');
+        // Get user media (should work without prompt if permission is saved)
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        
+        this.audioStream = stream;
+        this.mediaRecorder = new MediaRecorder(stream);
+        const audioChunks: Blob[] = [];
+        let recordingStartTime = Date.now();
 
-          mediaRecorder.ondataavailable = (event) => {
-            if (event.data.size > 0) {
-              audioChunks.push(event.data);
-              console.log('🎤 Audio data chunk received:', event.data.size, 'bytes');
-            }
-          };
+        console.log('🎤 MediaRecorder started, recording for', duration / 1000, 'seconds');
 
-          mediaRecorder.onstart = () => {
-            console.log('🎤 Recording started at:', new Date().toISOString());
-          };
+        this.mediaRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            audioChunks.push(event.data);
+            console.log('🎤 Audio data chunk received:', event.data.size, 'bytes');
+          }
+        };
 
-          mediaRecorder.onstop = () => {
-            const recordingDuration = Date.now() - recordingStartTime;
-            console.log('🎤 Recording stopped after:', recordingDuration, 'ms');
-            
-            const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-            const audioFile = new File([audioBlob], 'recording.wav', { type: 'audio/wav' });
-            
-            console.log('🎤 Audio file created:', audioFile.size, 'bytes');
-            stream.getTracks().forEach(track => track.stop());
-            resolve(audioFile);
-          };
+        this.mediaRecorder.onstart = () => {
+          console.log('🎤 Recording started at:', new Date().toISOString());
+        };
 
-          mediaRecorder.onerror = (event) => {
-            console.error('❌ MediaRecorder error:', event);
-            stream.getTracks().forEach(track => track.stop());
-            reject(new Error('Audio recording failed'));
-          };
-
-          mediaRecorder.start(1000); // Collect data every second for real-time feedback
+        this.mediaRecorder.onstop = () => {
+          const recordingDuration = Date.now() - recordingStartTime;
+          console.log('🎤 Recording stopped after:', recordingDuration, 'ms');
           
-          // Stop recording after specified duration
-          setTimeout(() => {
-            console.log('🎤 Auto-stopping recording after', duration / 1000, 'seconds');
-            mediaRecorder.stop();
-          }, duration);
-        })
-        .catch(error => {
-          console.error('❌ Microphone access denied:', error);
-          reject(new Error('Microphone access denied'));
-        });
+          const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+          const audioFile = new File([audioBlob], 'recording.wav', { type: 'audio/wav' });
+          
+          console.log('🎤 Audio file created:', audioFile.size, 'bytes');
+          stream.getTracks().forEach(track => track.stop());
+          this.audioStream = null;
+          this.mediaRecorder = null;
+          resolve(audioFile);
+        };
+
+        this.mediaRecorder.onerror = (event) => {
+          console.error('❌ MediaRecorder error:', event);
+          stream.getTracks().forEach(track => track.stop());
+          this.audioStream = null;
+          this.mediaRecorder = null;
+          reject(new Error('Audio recording failed'));
+        };
+
+        this.mediaRecorder.start(1000); // Collect data every second for real-time feedback
+        
+        // Stop recording after specified duration
+        setTimeout(() => {
+          console.log('🎤 Auto-stopping recording after', duration / 1000, 'seconds');
+          this.stopRecording();
+        }, duration);
+
+      } catch (error) {
+        console.error('❌ Microphone access denied:', error);
+        reject(new Error('Microphone access denied'));
+      }
     });
+  }
+
+  /**
+   * Stop the current recording
+   */
+  public stopRecording(): void {
+    if (this.mediaRecorder && this.mediaRecorder.state === 'recording') {
+      console.log('🎤 Manually stopping recording...');
+      this.mediaRecorder.stop();
+    }
   }
 
   /**

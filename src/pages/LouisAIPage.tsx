@@ -12,6 +12,7 @@ import unifiedAIService from '../services/unifiedAIService';
 import ragEngine from '../services/ragEngine';
 import speechToTextService from '../services/speechToTextService';
 import whisperService from '../services/whisperService';
+import microphonePermissionService from '../services/microphonePermissionService';
 import { getUniqueSources } from '../utils/pageMapping';
 
 interface Message {
@@ -52,16 +53,28 @@ const LouisAIPage: React.FC = () => {
 
   // Initialize speech services
   useEffect(() => {
-    setSpeechSupported(speechToTextService.isSpeechSupported());
-    setWhisperSupported(whisperService.hasApiKey());
-    
-    if (speechToTextService.isSpeechSupported()) {
-      console.log('🎤 Browser speech recognition supported');
-    }
-    
-    if (whisperService.hasApiKey()) {
-      console.log('🎤 Whisper via Groq API available');
-    }
+    const initializeSpeechServices = async () => {
+      setSpeechSupported(speechToTextService.isSpeechSupported());
+      setWhisperSupported(whisperService.hasApiKey());
+      
+      if (speechToTextService.isSpeechSupported()) {
+        console.log('🎤 Browser speech recognition supported');
+      }
+      
+      if (whisperService.hasApiKey()) {
+        console.log('🎤 Whisper via Groq API available');
+        
+        // Check microphone permission
+        const hasPermission = await microphonePermissionService.initialize();
+        if (hasPermission) {
+          console.log('🎤 Microphone permission already granted');
+        } else {
+          console.log('🎤 Microphone permission not granted - will request when needed');
+        }
+      }
+    };
+
+    initializeSpeechServices();
   }, []);
 
   const getGreeting = () => {
@@ -239,6 +252,16 @@ const LouisAIPage: React.FC = () => {
       setRealtimeTranscript('Listening...');
       
       if (whisperSupported) {
+        // Check microphone permission first
+        const hasPermission = await microphonePermissionService.initialize();
+        if (!hasPermission) {
+          // Request permission
+          const granted = await microphonePermissionService.requestMicrophonePermission();
+          if (!granted) {
+            throw new Error('Microphone permission denied');
+          }
+        }
+        
         // Use Whisper API for better accuracy
         await handleWhisperRecording();
       } else if (speechSupported) {
@@ -257,7 +280,11 @@ const LouisAIPage: React.FC = () => {
       }
     } catch (error) {
       console.error('❌ Speech recognition error:', error);
-      setError('Speech recognition failed. Please try typing your message.');
+      if (error instanceof Error && error.message.includes('permission')) {
+        setError('Microphone permission is required for voice input. Please allow microphone access and try again.');
+      } else {
+        setError('Speech recognition failed. Please try typing your message.');
+      }
       setRealtimeTranscript('');
       setIsListening(false);
     }
@@ -274,13 +301,15 @@ const LouisAIPage: React.FC = () => {
       
       console.log('🎤 Recording completed, transcribing...');
       setRealtimeTranscript('Transcribing...');
+      setIsRecording(false);
+      setIsListening(false);
+      
+      // Process the audio file
       const transcript = await whisperService.transcribeAudio(audioFile);
       
       console.log('🎤 Transcription completed:', transcript);
       setInput(transcript);
       setRealtimeTranscript('');
-      setIsRecording(false);
-      setIsListening(false);
     } catch (error) {
       console.error('❌ Whisper recording error:', error);
       setError('Audio recording failed. Please try typing your message.');
@@ -290,14 +319,37 @@ const LouisAIPage: React.FC = () => {
     }
   };
 
-  const handleStopListening = () => {
+  const handleStopListening = async () => {
     console.log('🎤 Stopping speech recognition...');
-    if (speechSupported && !whisperSupported) {
+    
+    if (whisperSupported && isRecording) {
+      // Stop Whisper recording and process the audio
+      try {
+        whisperService.stopRecording();
+        setRealtimeTranscript('Processing...');
+        setIsRecording(false);
+        setIsListening(false);
+        
+        // The recording will be processed in the handleWhisperRecording function
+        // which will automatically transcribe and set the input
+      } catch (error) {
+        console.error('❌ Error stopping Whisper recording:', error);
+        setError('Failed to stop recording. Please try again.');
+        setIsRecording(false);
+        setIsListening(false);
+        setRealtimeTranscript('');
+      }
+    } else if (speechSupported && !whisperSupported) {
+      // Stop browser speech recognition
       speechToTextService.stopListening();
+      setIsListening(false);
+      setRealtimeTranscript('');
+    } else {
+      // Fallback
+      setIsListening(false);
+      setIsRecording(false);
+      setRealtimeTranscript('');
     }
-    setIsListening(false);
-    setIsRecording(false);
-    setRealtimeTranscript('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
