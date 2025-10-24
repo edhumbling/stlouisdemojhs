@@ -395,26 +395,53 @@ const LouisAIPage: React.FC = () => {
         }))
       );
 
-      // Only include sources if:
-      // 1. There are sources available
-      // 2. The query seems to be asking for factual information (not casual conversation)
-      // 3. The response contains specific information that would benefit from citations
+      // Only include sources if the response contains factual information that needs backing up
       const shouldShowSources = sources.length > 0 && (
-        userMessage.content.toLowerCase().includes('what') ||
-        userMessage.content.toLowerCase().includes('how') ||
-        userMessage.content.toLowerCase().includes('when') ||
-        userMessage.content.toLowerCase().includes('where') ||
-        userMessage.content.toLowerCase().includes('who') ||
-        userMessage.content.toLowerCase().includes('tell me') ||
-        userMessage.content.toLowerCase().includes('about') ||
-        userMessage.content.toLowerCase().includes('information') ||
-        userMessage.content.toLowerCase().includes('details') ||
-        userMessage.content.toLowerCase().includes('requirements') ||
-        userMessage.content.toLowerCase().includes('contact') ||
-        userMessage.content.toLowerCase().includes('admission') ||
-        userMessage.content.toLowerCase().includes('programs') ||
-        userMessage.content.toLowerCase().includes('facilities') ||
-        userMessage.content.toLowerCase().includes('history')
+        // Check if the response contains specific factual information
+        response.includes('St. Louis') ||
+        response.includes('Kumasi') ||
+        response.includes('Ghana') ||
+        response.includes('1977') ||
+        response.includes('admission') ||
+        response.includes('program') ||
+        response.includes('facility') ||
+        response.includes('academic') ||
+        response.includes('curriculum') ||
+        response.includes('requirement') ||
+        response.includes('fee') ||
+        response.includes('contact') ||
+        response.includes('phone') ||
+        response.includes('email') ||
+        response.includes('address') ||
+        response.includes('website') ||
+        // Check if response contains specific dates, numbers, or factual details
+        /\d{4}/.test(response) || // Contains years
+        /\$\d+/.test(response) || // Contains currency
+        /\+233/.test(response) || // Contains phone numbers
+        /@/.test(response) || // Contains email addresses
+        /www\./.test(response) || // Contains website URLs
+        // Check if response contains school-specific information
+        response.toLowerCase().includes('school') ||
+        response.toLowerCase().includes('student') ||
+        response.toLowerCase().includes('teacher') ||
+        response.toLowerCase().includes('class') ||
+        response.toLowerCase().includes('grade') ||
+        response.toLowerCase().includes('subject') ||
+        response.toLowerCase().includes('course')
+      ) && !(
+        // Don't show sources for casual greetings or conversational responses
+        response.toLowerCase().includes('hello') ||
+        response.toLowerCase().includes('hi there') ||
+        response.toLowerCase().includes('thanks for asking') ||
+        response.toLowerCase().includes('how can i help') ||
+        response.toLowerCase().includes('how are you') ||
+        response.toLowerCase().includes('good morning') ||
+        response.toLowerCase().includes('good afternoon') ||
+        response.toLowerCase().includes('good evening') ||
+        response.toLowerCase().includes('i\'m doing great') ||
+        response.toLowerCase().includes('i\'m here to help') ||
+        response.toLowerCase().includes('welcome') ||
+        response.toLowerCase().includes('nice to meet you')
       );
 
       const assistantMessage: Message = {
