@@ -1,5 +1,5 @@
 // Update this version number with each deployment to force cache refresh
-const CACHE_VERSION = '2025-10-23-louis-ai-v1.0.0';
+const CACHE_VERSION = '2025-01-27-cache-fix-v1.0.2';
 const CACHE_NAME = `st-louis-demo-jhs-${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
@@ -51,29 +51,39 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Fetch event - Network first for JS/CSS, cache first for images
+// Fetch event - Aggressive cache invalidation for fresh content
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   
-  // Network-first strategy for JS, CSS, and HTML files
-  if (url.pathname.endsWith('.js') || url.pathname.endsWith('.css') || url.pathname.endsWith('.html') || url.pathname === '/') {
+  // Skip chrome-extension and other unsupported schemes
+  if (url.protocol === 'chrome-extension:' || url.protocol === 'moz-extension:' || url.protocol === 'ms-browser-extension:') {
+    return; // Don't handle extension requests
+  }
+  
+  // Force fresh content for all dynamic content
+  if (url.pathname.endsWith('.js') || url.pathname.endsWith('.css') || url.pathname.endsWith('.html') || url.pathname === '/' || url.pathname.includes('/api/')) {
     event.respondWith(
-      fetch(event.request)
+      fetch(event.request, {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache'
+        }
+      })
         .then((response) => {
-          // Clone the response before caching
-          const responseToCache = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
+          // Don't cache dynamic content
           return response;
         })
         .catch(() => {
-          // Fallback to cache if network fails
+          // Only fallback to cache for critical resources
+          if (url.pathname === '/' || url.pathname.endsWith('.html')) {
           return caches.match(event.request);
+          }
+          return new Response('Network error', { status: 503 });
         })
     );
   } else {
-    // Cache-first strategy for images and other assets
+    // Cache-first strategy for static assets only
     event.respondWith(
       caches.match(event.request)
         .then((response) => {
@@ -81,10 +91,15 @@ self.addEventListener('fetch', (event) => {
             return response;
           }
           return fetch(event.request).then((response) => {
+            // Only cache static assets and avoid extension schemes
+            if (response.ok && 
+                url.protocol === 'https:' && 
+                (url.pathname.endsWith('.png') || url.pathname.endsWith('.jpg') || url.pathname.endsWith('.jpeg') || url.pathname.endsWith('.gif') || url.pathname.endsWith('.svg') || url.pathname.endsWith('.ico'))) {
             const responseToCache = response.clone();
             caches.open(CACHE_NAME).then((cache) => {
               cache.put(event.request, responseToCache);
             });
+            }
             return response;
           });
         })
