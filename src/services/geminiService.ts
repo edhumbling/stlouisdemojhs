@@ -197,33 +197,30 @@ class GeminiService {
       });
 
       if (!response.ok) {
-        if (response.status === 503) {
-          throw new Error('HIGH_TRAFFIC');
-        }
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.error?.message || '';
         
-        // Check for rate limiting, quota issues, and other recoverable errors - automatically switch to backup key
-        if (response.status === 429 || response.status === 403 || response.status === 400) {
-          const errorData = await response.json().catch(() => ({}));
-          const errorMessage = errorData.error?.message || '';
+        console.log(`🔄 API Key ${this.currentKeyIndex + 1} encountered error (${response.status}): ${errorMessage}`);
+        
+        // Try ALL available backup keys before giving up
+        if (this.hasBackupKeyAvailable() && retryCount < 3) {
+          this.switchToBackupKey();
+          console.log(`✅ Switched to backup key ${this.currentKeyIndex + 1}, retrying request... (attempt ${retryCount + 1})`);
           
-          console.log(`🔄 API Key ${this.currentKeyIndex + 1} encountered error (${response.status}): ${errorMessage}`);
+          // Retry with backup key
+          return this.generateResponse(userMessage, context, conversationHistory, sources, retryCount + 1);
+        } else {
+          // No more backup keys available or max retries reached
+          console.error(`❌ All API keys exhausted or max retries reached (${retryCount}/3)`);
+          console.log(`🔍 Tried keys: ${this.currentKeyIndex + 1}/${[this.apiKey, this.backupApiKey, this.secondBackupApiKey, this.thirdBackupApiKey].filter(key => key).length}`);
           
-          // Check if backup key is available and switch automatically
-          if (this.hasBackupKeyAvailable() && retryCount < 3) {
-            this.switchToBackupKey();
-            console.log(`✅ Switched to backup key ${this.currentKeyIndex + 1}, retrying request... (attempt ${retryCount + 1})`);
-            
-            // Retry with backup key
-            return this.generateResponse(userMessage, context, conversationHistory, sources, retryCount + 1);
+          // Only throw HIGH_TRAFFIC if we've tried all keys
+          if (response.status === 503 || response.status === 429 || response.status === 403 || response.status === 400) {
+            throw new Error('HIGH_TRAFFIC');
           } else {
-            // No more backup keys available or max retries reached
-            console.error(`❌ All API keys exhausted or max retries reached (${retryCount}/3)`);
-          throw new Error('SERVICE_UNAVAILABLE');
+        throw new Error(`Gemini API error: ${response.status} - ${JSON.stringify(errorData)}`);
           }
         }
-        
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(`Gemini API error: ${response.status} - ${JSON.stringify(errorData)}`);
       }
 
       const data: GeminiResponse = await response.json();
