@@ -973,32 +973,40 @@ const LouisAIPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Image Preview */}
+      {/* Image Preview - Protruding Design */}
       {imagePreview && (
-      <div className="border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40">
-          <div className="max-w-3xl mx-auto px-3 sm:px-4 py-2">
-            <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-white/80">Image selected for analysis:</span>
-                <button
-                  onClick={removeImage}
-                  className="text-white/60 hover:text-white/80 text-sm"
-                >
-                  Remove
-                </button>
-              </div>
-              <div className="flex items-center gap-3">
+        <div className="fixed bottom-0 left-0 right-0 z-50">
+          <div className="max-w-3xl mx-auto px-3 sm:px-4 pb-2">
+            <div className="relative">
+              {/* Square Image Preview */}
+              <div className="relative w-20 h-20 mx-auto">
                 <img
                   src={imagePreview}
                   alt="Selected for analysis"
-                  className="w-12 h-12 object-cover rounded border border-gray-600"
+                  className="w-full h-full object-cover rounded-lg border border-gray-600 shadow-lg"
                 />
-                <div className="flex-1">
-                  <p className="text-sm text-white/90">{selectedImage?.name}</p>
-                  <p className="text-xs text-white/60">
-                    {((selectedImage?.size || 0) / 1024 / 1024).toFixed(2)} MB
-                  </p>
-                </div>
+                
+                {/* Edit Button */}
+                <button
+                  onClick={() => document.getElementById('image-upload')?.click()}
+                  className="absolute -top-1 -right-1 w-6 h-6 bg-gray-300 hover:bg-gray-200 rounded-full flex items-center justify-center shadow-lg transition-colors"
+                  title="Edit image"
+                >
+                  <svg className="w-3 h-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </button>
+                
+                {/* Remove Button */}
+                <button
+                  onClick={removeImage}
+                  className="absolute -top-1 -right-7 w-6 h-6 bg-gray-300 hover:bg-gray-200 rounded-full flex items-center justify-center shadow-lg transition-colors"
+                  title="Remove image"
+                >
+                  <svg className="w-3 h-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
@@ -1006,7 +1014,7 @@ const LouisAIPage: React.FC = () => {
       )}
 
       {/* Input Area - Dynamic Design */}
-      <div className={`border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40 ${imagePreview ? 'mt-20' : ''}`}>
+      <div className={`border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40 ${imagePreview ? 'pb-24' : ''}`}>
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-6">
           <form onSubmit={handleSubmit} className="relative">
             <div className="relative flex items-center">
