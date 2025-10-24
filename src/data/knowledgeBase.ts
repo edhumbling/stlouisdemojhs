@@ -1468,30 +1468,6 @@ export const schoolKnowledgeBase: KnowledgeChunk[] = [
 
   },
 
-  // ===== CURRENT SCHOOL LEADERSHIP =====
-
-  {
-
-    id: 'current-headmistress',
-
-    category: 'Administration & Leadership',
-
-    title: 'Current Headmistress Information',
-
-    content: `The current headmistress of St. Louis Demonstration Junior High School is [NAME TO BE UPDATED]. 
-
-    For the most current information about the school's leadership, including the headmistress, please contact the school directly at +233 20 870 5290 or visit the school office during business hours.
-
-    The school administration is committed to providing quality education and maintaining the high standards that St. Louis Demonstration JHS is known for.`,
-
-    keywords: ['headmistress', 'principal', 'current', 'leadership', 'administration', 'head', 'director', 'who is', 'current head', 'school head'],
-
-    source: 'School Administration',
-
-    priority: 9,
-
-  },
-
 ];
 
 

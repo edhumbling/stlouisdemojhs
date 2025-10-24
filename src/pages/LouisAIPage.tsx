@@ -84,96 +84,6 @@ const LouisAIPage: React.FC = () => {
     return "Good evening";
   };
 
-  // Helper method to check if response contains factual information
-  const isResponseFactual = (response: string): boolean => {
-    const responseLower = response.toLowerCase();
-    
-    // Check for conversational responses that don't need sources
-    const conversationalPhrases = [
-      'sounds good', 'glad to hear', 'if you have any other questions',
-      'if there\'s anything else', 'just let me know', 'i\'m here to help',
-      'i\'m all ears', 'thanks for asking', 'how can i help', 'hello',
-      'hi there', 'good morning', 'good afternoon', 'good evening',
-      'welcome', 'nice to meet you', 'i\'m doing great', 'how are you',
-      'anything else', 'quick fact', 'programs, admissions', 'extracurriculars',
-      'class schedules', 'let me know', 'feel free to ask', 'happy to help'
-    ];
-    
-    // If response is purely conversational, don't show sources
-    if (conversationalPhrases.some(phrase => responseLower.includes(phrase)) && 
-        !containsSpecificFacts(response)) {
-      return false;
-    }
-    
-    // Check if response contains specific factual information
-    return containsSpecificFacts(response);
-  };
-
-  // Helper method to check if response contains specific facts
-  const containsSpecificFacts = (response: string): boolean => {
-    return (
-      // School-specific facts
-      response.includes('St. Louis Demonstration') ||
-      response.includes('1977') || // Founding year
-      response.includes('Kumasi') || // Location
-      response.includes('Ashanti') || // Region
-      response.includes('+233') || // Phone number
-      response.includes('@') || // Email
-      response.includes('www.') || // Website
-      /\d{4}/.test(response) || // Any year
-      /\$\d+/.test(response) || // Currency amounts
-      response.toLowerCase().includes('admission requirements') ||
-      response.toLowerCase().includes('tuition fee') ||
-      response.toLowerCase().includes('application deadline') ||
-      response.toLowerCase().includes('curriculum') ||
-      response.toLowerCase().includes('facilities include') ||
-      response.toLowerCase().includes('founded in') ||
-      response.toLowerCase().includes('established in') ||
-      response.toLowerCase().includes('located at') ||
-      response.toLowerCase().includes('contact us at') ||
-      response.toLowerCase().includes('visit our website') ||
-      response.toLowerCase().includes('phone number') ||
-      response.toLowerCase().includes('email address') ||
-      response.toLowerCase().includes('address') ||
-      response.toLowerCase().includes('programs') ||
-      response.toLowerCase().includes('academic') ||
-      response.toLowerCase().includes('facilities') ||
-      response.toLowerCase().includes('requirements')
-    );
-  };
-
-  // Helper method to check if sources are relevant to the response
-  const areSourcesRelevantToResponse = (response: string, chunks: any[]): boolean => {
-    if (!chunks || chunks.length === 0) return false;
-    
-    const responseLower = response.toLowerCase();
-    
-    // Check if any chunk content is actually mentioned in the response
-    return chunks.some(chunk => {
-      const chunkContent = chunk.content.toLowerCase();
-      const chunkTitle = chunk.title.toLowerCase();
-      const chunkCategory = chunk.category.toLowerCase();
-      
-      // Check if response mentions specific details from the chunk
-      return (
-        // Check for specific facts from chunks
-        (chunkContent.includes('1977') && responseLower.includes('1977')) ||
-        (chunkContent.includes('kumasi') && responseLower.includes('kumasi')) ||
-        (chunkContent.includes('ashanti') && responseLower.includes('ashanti')) ||
-        (chunkContent.includes('+233') && responseLower.includes('+233')) ||
-        (chunkContent.includes('@') && responseLower.includes('@')) ||
-        (chunkContent.includes('www.') && responseLower.includes('www.')) ||
-        // Check for topic relevance
-        (chunkTitle.includes('admission') && responseLower.includes('admission')) ||
-        (chunkTitle.includes('contact') && responseLower.includes('contact')) ||
-        (chunkTitle.includes('academic') && responseLower.includes('academic')) ||
-        (chunkTitle.includes('facilities') && responseLower.includes('facilities')) ||
-        (chunkCategory.includes('contact') && responseLower.includes('contact')) ||
-        (chunkCategory.includes('academic') && responseLower.includes('academic'))
-      );
-    });
-  };
-
   const getDailyPrompts = () => {
     const dayOfWeek = new Date().getDay();
     const prompts = {
@@ -226,7 +136,9 @@ const LouisAIPage: React.FC = () => {
   const suggestedPrompts = getDailyPrompts();
 
   const handlePromptClick = async (prompt: string) => {
-    // Don't set the input - send the prompt directly
+    // Set the input and immediately submit
+    setInput(prompt);
+    
     // Create a user message immediately
     const userMessage: Message = {
       id: `user-${Date.now()}`,
@@ -266,8 +178,27 @@ const LouisAIPage: React.FC = () => {
         }))
       );
 
-      // Smart source relevance: Only show sources that are actually relevant to the response content
-      const shouldShowSources = sources.length > 0 && isResponseFactual(response) && areSourcesRelevantToResponse(response, ragResult.chunks);
+      // Only include sources if:
+      // 1. There are sources available
+      // 2. The query seems to be asking for factual information (not casual conversation)
+      // 3. The response contains specific information that would benefit from citations
+      const shouldShowSources = sources.length > 0 && (
+        prompt.toLowerCase().includes('what') ||
+        prompt.toLowerCase().includes('how') ||
+        prompt.toLowerCase().includes('when') ||
+        prompt.toLowerCase().includes('where') ||
+        prompt.toLowerCase().includes('who') ||
+        prompt.toLowerCase().includes('tell me') ||
+        prompt.toLowerCase().includes('about') ||
+        prompt.toLowerCase().includes('information') ||
+        prompt.toLowerCase().includes('details') ||
+        prompt.toLowerCase().includes('requirements') ||
+        prompt.toLowerCase().includes('contact') ||
+        prompt.toLowerCase().includes('admission') ||
+        prompt.toLowerCase().includes('programs') ||
+        prompt.toLowerCase().includes('facilities') ||
+        prompt.toLowerCase().includes('history')
+      );
 
       const assistantMessage: Message = {
         id: `assistant-${Date.now()}`,
@@ -308,10 +239,6 @@ const LouisAIPage: React.FC = () => {
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
-      // Auto-focus input for seamless typing
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 100);
     }
   };
 
@@ -468,8 +395,27 @@ const LouisAIPage: React.FC = () => {
         }))
       );
 
-      // Smart source relevance: Only show sources that are actually relevant to the response content
-      const shouldShowSources = sources.length > 0 && isResponseFactual(response) && areSourcesRelevantToResponse(response, ragResult.chunks);
+      // Only include sources if:
+      // 1. There are sources available
+      // 2. The query seems to be asking for factual information (not casual conversation)
+      // 3. The response contains specific information that would benefit from citations
+      const shouldShowSources = sources.length > 0 && (
+        userMessage.content.toLowerCase().includes('what') ||
+        userMessage.content.toLowerCase().includes('how') ||
+        userMessage.content.toLowerCase().includes('when') ||
+        userMessage.content.toLowerCase().includes('where') ||
+        userMessage.content.toLowerCase().includes('who') ||
+        userMessage.content.toLowerCase().includes('tell me') ||
+        userMessage.content.toLowerCase().includes('about') ||
+        userMessage.content.toLowerCase().includes('information') ||
+        userMessage.content.toLowerCase().includes('details') ||
+        userMessage.content.toLowerCase().includes('requirements') ||
+        userMessage.content.toLowerCase().includes('contact') ||
+        userMessage.content.toLowerCase().includes('admission') ||
+        userMessage.content.toLowerCase().includes('programs') ||
+        userMessage.content.toLowerCase().includes('facilities') ||
+        userMessage.content.toLowerCase().includes('history')
+      );
 
       const assistantMessage: Message = {
         id: `assistant-${Date.now()}`,
@@ -510,10 +456,6 @@ const LouisAIPage: React.FC = () => {
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
-      // Auto-focus input for seamless typing
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 100);
     }
   };
 
