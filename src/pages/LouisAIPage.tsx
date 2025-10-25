@@ -1074,7 +1074,7 @@ const LouisAIPage: React.FC = () => {
                   <CustomTooltip text="Edit image">
                     <button
                       onClick={() => document.getElementById('image-upload')?.click()}
-                      className="absolute -top-1 -right-6 w-4 h-4 bg-white hover:bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:scale-110"
+                      className="absolute -top-1 left-1/2 transform -translate-x-1/2 -translate-x-3 w-4 h-4 bg-white hover:bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:scale-110"
                     >
                       <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -1086,7 +1086,7 @@ const LouisAIPage: React.FC = () => {
                   <CustomTooltip text="Remove image">
                     <button
                       onClick={() => removeImage(index)}
-                      className="absolute -top-1 -right-1 w-4 h-4 bg-white hover:bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:scale-110"
+                      className="absolute -top-1 left-1/2 transform -translate-x-1/2 translate-x-3 w-4 h-4 bg-white hover:bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:scale-110"
                     >
                       <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
