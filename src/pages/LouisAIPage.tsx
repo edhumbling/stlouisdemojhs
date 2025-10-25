@@ -66,21 +66,22 @@ const LouisAIPage: React.FC = () => {
     setConversationHistory(history);
   }, []);
 
-  // Save conversation to history whenever messages change
-  useEffect(() => {
-    if (messages.length > 0) {
-      // Only save if we have both user and assistant messages
-      const hasUserMessage = messages.some(msg => msg.role === 'user');
-      const hasAssistantMessage = messages.some(msg => msg.role === 'assistant');
+  // Save conversation to history when assistant responds
+  const saveConversationToHistory = (messages: Message[]) => {
+    if (messages.length >= 2) {
+      const lastMessage = messages[messages.length - 1];
+      const secondLastMessage = messages[messages.length - 2];
       
-      if (hasUserMessage && hasAssistantMessage) {
+      // Only save if the last two messages are user and assistant
+      if (lastMessage.role === 'assistant' && secondLastMessage.role === 'user') {
         historyService.saveConversation(messages);
         // Update conversation history state
         const history = historyService.getHistory();
         setConversationHistory(history);
       }
     }
-  }, [messages]);
+  };
+
 
   // Handle escape key to close history panel
   useEffect(() => {
@@ -257,7 +258,7 @@ const LouisAIPage: React.FC = () => {
       setMessages(prev => {
         const updatedMessages = [...prev, assistantMessage];
         // Save conversation to history
-        historyService.saveConversation(updatedMessages);
+        saveConversationToHistory(updatedMessages);
         return updatedMessages;
       });
       
@@ -451,7 +452,7 @@ const LouisAIPage: React.FC = () => {
         setMessages(prev => {
         const updatedMessages = [...prev, assistantMessage];
         // Save conversation to history
-        historyService.saveConversation(updatedMessages);
+        saveConversationToHistory(updatedMessages);
         return updatedMessages;
       });
         
@@ -557,7 +558,7 @@ const LouisAIPage: React.FC = () => {
       setMessages(prev => {
         const updatedMessages = [...prev, assistantMessage];
         // Save conversation to history
-        historyService.saveConversation(updatedMessages);
+        saveConversationToHistory(updatedMessages);
         return updatedMessages;
       });
       
