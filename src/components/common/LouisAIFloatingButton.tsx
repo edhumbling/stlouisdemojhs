@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X } from 'lucide-react';
 
 const LouisAIFloatingButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const location = useLocation();
+  
+  // Don't show the floating button on the Louis AI page itself
+  if (location.pathname === '/louis-ai') {
+    return null;
+  }
 
   return (
     <motion.div
