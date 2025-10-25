@@ -17,7 +17,7 @@ import microphonePermissionService from '../services/microphonePermissionService
 import groqCompoundService from '../services/groqCompoundService';
 import groqVisionService from '../services/groqVisionService';
 import historyService from '../services/historyService';
-import ttsService from '../services/ttsService';
+import { ttsService } from '../services/ttsService';
 import { getUniqueSources } from '../utils/pageMapping';
 
 interface Message {
