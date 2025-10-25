@@ -32,7 +32,7 @@ class TTSService {
   /**
    * Convert text to speech using Groq's playai-tts model
    */
-  async textToSpeech(text: string, voice: string = 'Aaliyah-PlayAI'): Promise<ArrayBuffer> {
+  async textToSpeech(text: string, voice: string = 'Fritz-PlayAI'): Promise<ArrayBuffer> {
     if (!this.apiKey) {
       throw new Error('Groq API key not found. Please set VITE_GROQ_API_KEY in your environment variables.');
     }
@@ -76,6 +76,18 @@ class TTSService {
   }
 
   /**
+   * Get available English voices
+   */
+  getAvailableVoices(): string[] {
+    return [
+      'Arista-PlayAI', 'Atlas-PlayAI', 'Basil-PlayAI', 'Briggs-PlayAI', 'Calum-PlayAI',
+      'Celeste-PlayAI', 'Cheyenne-PlayAI', 'Chip-PlayAI', 'Cillian-PlayAI', 'Deedee-PlayAI',
+      'Fritz-PlayAI', 'Gail-PlayAI', 'Indigo-PlayAI', 'Mamaw-PlayAI', 'Mason-PlayAI',
+      'Mikail-PlayAI', 'Mitch-PlayAI', 'Quinn-PlayAI', 'Thunder-PlayAI'
+    ];
+  }
+
+  /**
    * Play audio from ArrayBuffer
    */
   async playAudio(audioBuffer: ArrayBuffer): Promise<void> {
@@ -86,35 +98,32 @@ class TTSService {
       
       const audio = new Audio(audioUrl);
       
-      // Wait for audio to be ready before playing
+      // Simple playback without complex event handling
       return new Promise((resolve, reject) => {
-        const handleCanPlay = () => {
+        audio.oncanplay = () => {
           console.log('🎵 Audio ready, starting playback...');
           audio.play()
             .then(() => {
               console.log('🎵 Audio playback started');
               resolve();
             })
-            .catch(reject);
+            .catch((error) => {
+              console.error('Audio play error:', error);
+              URL.revokeObjectURL(audioUrl);
+              reject(error);
+            });
         };
 
-        const handleError = (error: Event) => {
-          console.error('Audio playback error:', error);
+        audio.onerror = (error) => {
+          console.error('Audio loading error:', error);
           URL.revokeObjectURL(audioUrl);
           reject(error);
         };
 
-        // Wait for audio to be ready
-        audio.addEventListener('canplay', handleCanPlay, { once: true });
-        audio.addEventListener('error', handleError, { once: true });
-        
-        // Load the audio
-        audio.load();
-        
-        // Clean up the URL after playing
-        audio.addEventListener('ended', () => {
+        audio.onended = () => {
+          console.log('🎵 Audio playback completed');
           URL.revokeObjectURL(audioUrl);
-        });
+        };
       });
     } catch (error) {
       console.error('Audio playback error:', error);
