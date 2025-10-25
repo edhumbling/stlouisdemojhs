@@ -15,6 +15,7 @@ import speechToTextService from '../services/speechToTextService';
 import whisperService from '../services/whisperService';
 import microphonePermissionService from '../services/microphonePermissionService';
 import groqCompoundService from '../services/groqCompoundService';
+import groqCompoundMiniService from '../services/groqCompoundMiniService';
 import groqVisionService from '../services/groqVisionService';
 import { ttsService } from '../services/ttsService';
 import { getUniqueSources } from '../utils/pageMapping';
@@ -43,7 +44,7 @@ const LouisAIPage: React.FC = () => {
   const [whisperSupported, setWhisperSupported] = useState(false);
   const [realtimeTranscript, setRealtimeTranscript] = useState('');
   const [showThinking, setShowThinking] = useState<{ [messageId: string]: boolean }>({});
-  const [isInternetSearch, setIsInternetSearch] = useState(false);
+  const [isInternetSearch, setIsInternetSearch] = useState(true);
   const [selectedImages, setSelectedImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const [isPlusClicked, setIsPlusClicked] = useState(false);
@@ -446,7 +447,7 @@ const LouisAIPage: React.FC = () => {
       let thinking: string = '';
 
       if (isInternetSearch) {
-        // Use Groq Compound for internet search
+        // Try Groq Compound for internet search first, then fallback to Compound Mini
         console.log('🌐 Using internet search via Groq Compound');
         
         // Get conversation history for context
@@ -455,12 +456,35 @@ const LouisAIPage: React.FC = () => {
           parts: [{ text: msg.content }],
         }));
 
+        try {
         response = await groqCompoundService.generateResponse(
           userMessage.content,
           '', // No local context for internet search
           conversationHistory,
           []
         );
+        } catch (compoundError) {
+          console.log('⚠️ Groq Compound failed, trying Compound Mini fallback');
+          try {
+            response = await groqCompoundMiniService.generateResponse(
+              userMessage.content,
+              '', // No local context for internet search
+              conversationHistory,
+              []
+            );
+          } catch (compoundMiniError) {
+            console.error('❌ Both Compound models failed, falling back to unified AI service');
+            // Fall back to unified AI service if both Compound models fail
+            const { response: aiResponse, thinking: aiThinking } = await unifiedAIService.generateResponseWithThinking(
+              userMessage.content,
+              '', // No local context for internet search
+              conversationHistory,
+              []
+            );
+            response = aiResponse;
+            thinking = aiThinking;
+          }
+        }
       } else {
       // Use RAG to find relevant content
       const ragResult = await ragEngine.search(userMessage.content);
