@@ -819,11 +819,18 @@ const LouisAIPage: React.FC = () => {
     <div className="min-h-screen bg-[#1a1a1a]">
       <SEOHead
         title="Louis AI - Your Intelligent School Assistant | St. Louis Demo JHS"
-        description="Chat with Louis AI, your intelligent assistant for St. Louis Demonstration JHS. Get instant, accurate answers about admissions, academics, facilities, and everything about our school."
-        keywords="Louis AI, school assistant, AI chatbot, student help, school information, smart assistant"
+        description="Meet Louis AI - your intelligent school assistant at St. Louis Demonstration JHS. Get instant, accurate answers about admissions, academics, school life, and everything you need to know about our prestigious junior high school in Ghana."
+        keywords="Louis AI, school assistant, AI chatbot, student help, school information, smart assistant, St. Louis Demo JHS, Ghana education, AI assistant"
         url="/louis-ai"
         type="website"
-        pageType="ai-search"
+        pageType="louis-ai"
+        image="/ai bot.png"
+        socialImagePreferences={{
+          facebook: "/ai bot.png",
+          twitter: "/ai bot.png",
+          linkedin: "/ai bot.png",
+          whatsapp: "/ai bot.png"
+        }}
       />
 
       {/* Louis AI Header */}

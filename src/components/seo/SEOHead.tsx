@@ -20,7 +20,7 @@ interface SEOHeadProps {
   alternateLanguages?: Array<{ hreflang: string; href: string }>;
   structuredData?: object;
   // New props for dynamic social media images
-  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'contact' | 'about' | 'academics' | 'admissions' | 'faculty' | 'alumni' | 'media' | 'donation' | 'legal';
+  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'louis-ai' | 'contact' | 'about' | 'academics' | 'admissions' | 'faculty' | 'alumni' | 'media' | 'donation' | 'legal';
   useGalleryImages?: boolean;
   socialImagePreferences?: {
     facebook?: string;
@@ -41,6 +41,7 @@ const getPageDescription = (pageType: string, customDescription?: string): strin
     gallery: "Explore the vibrant life at St. Louis Demonstration JHS through our comprehensive photo gallery. Witness our students' academic achievements, campus events, modern facilities, and the dynamic learning environment that makes our school special.",
     news: "Stay updated with the latest news, events, and achievements from St. Louis Demonstration JHS. Discover upcoming activities, academic milestones, student accomplishments, and important announcements from our school community.",
     'ai-search': "Experience the future of learning with our AI-powered educational search platform. Find personalized study materials, academic resources, and learning tools tailored specifically for St. Louis Demonstration JHS students.",
+    'louis-ai': "Meet Louis AI - your intelligent school assistant at St. Louis Demonstration JHS. Get instant, accurate answers about admissions, academics, school life, and everything you need to know about our prestigious junior high school in Ghana.",
     contact: "Connect with St. Louis Demonstration JHS - Ghana's leading junior high school. Find our location, contact information, admission details, and schedule a visit to experience our exceptional educational environment firsthand.",
     about: "Learn about St. Louis Demonstration JHS - our rich history, educational mission, core values, and unwavering commitment to providing quality junior high school education that shapes future leaders in Ghana.",
     academics: "Discover our comprehensive academic programs at St. Louis Demonstration JHS. From core subjects to specialized courses, we offer rigorous curriculum designed to challenge and inspire students while building strong foundations for future success.",
@@ -115,6 +116,12 @@ const getOptimalSocialImage = (
       twitter: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('presentations'))?.src || defaultImage,
       linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('collaborative'))?.src || defaultImage,
       whatsapp: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('interactive'))?.src || defaultImage,
+    },
+    'louis-ai': {
+      facebook: "/ai bot.png",
+      twitter: "/ai bot.png", 
+      linkedin: "/ai bot.png",
+      whatsapp: "/ai bot.png",
     },
     contact: {
       facebook: galleryImages.find(img => img.category === 'Campus Life')?.src || defaultImage,
