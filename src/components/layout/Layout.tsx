@@ -115,7 +115,16 @@ const Layout: React.FC = () => {
   ];
   
   // Pages that should have pt-10 padding
-  const pt10Pages = ['/louis-ai'];
+  const pt10Pages = [
+    '/louis-ai',
+    '/about',
+    '/academics', 
+    '/news',
+    '/admissions',
+    '/faculty',
+    '/staff-resources',
+    '/alumni'
+  ];
   
   const shouldHaveTopPadding = !noTopPaddingPages.includes(location.pathname) && showHeader;
   const shouldHavePt10 = pt10Pages.includes(location.pathname);
