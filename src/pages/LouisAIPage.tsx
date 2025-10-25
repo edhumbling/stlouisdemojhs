@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic, Plus, MicOff, Globe, Info, Copy, Volume2, VolumeX, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { Send, Mic, Plus, MicOff, Globe, Info, Copy, Volume2, VolumeX, ThumbsUp, ThumbsDown, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
