@@ -748,7 +748,7 @@ const LouisAIPage: React.FC = () => {
       </div>
 
       {/* Messages Container */}
-      <div className="h-[calc(100vh-140px)] overflow-y-auto pb-20 pt-16">
+      <div className={`h-[calc(100vh-140px)] overflow-y-auto pb-20 pt-16 ${imagePreviews.length > 0 ? 'pb-32' : ''}`}>
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {messages.length === 0 ? (
             /* Welcome Screen - Grok Style */
@@ -1059,7 +1059,7 @@ const LouisAIPage: React.FC = () => {
 
       {/* Image Preview - Above Input Bar */}
       {imagePreviews.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 z-50">
+        <div className="fixed bottom-0 left-0 right-0 z-50" style={{ bottom: '80px' }}>
           <div className="max-w-3xl mx-auto px-3 sm:px-4 pb-2">
             <div className="flex flex-wrap justify-center gap-2">
               {imagePreviews.map((preview, index) => (
@@ -1073,7 +1073,7 @@ const LouisAIPage: React.FC = () => {
                   {/* Edit Button */}
                   <CustomTooltip text="Edit image">
                     <button
-                      onClick={() => document.getElementById('image-upload')?.click()}
+                      onClick={() => document.getElementById('image-upload-more')?.click()}
                       className="absolute -top-1 left-1/2 transform -translate-x-1/2 -translate-x-3 w-4 h-4 bg-white hover:bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:scale-110"
                     >
                       <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1129,7 +1129,7 @@ const LouisAIPage: React.FC = () => {
       )}
 
       {/* Input Area - Dynamic Design */}
-      <div className={`border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40 ${imagePreviews.length > 0 ? 'pb-24' : ''}`}>
+      <div className={`border-t border-[#2a2a2a] bg-[#1a1a1a] safe-area-bottom fixed bottom-0 left-0 right-0 z-40`}>
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-6">
           <form onSubmit={handleSubmit} className="relative">
             <div className="relative flex items-center">
