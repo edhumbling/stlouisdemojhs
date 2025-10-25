@@ -834,7 +834,7 @@ const LouisAIPage: React.FC = () => {
       />
 
       {/* Louis AI Header */}
-      <div className="sticky top-0 z-30 bg-[#1a1a1a] border-b border-[#2a2a2a] -mt-16 pt-16 relative">
+      <div className="sticky top-0 z-30 bg-[#1a1a1a] border-b border-[#2a2a2a] -mt-11 pt-11 relative">
         {/* White border line at the very top as marking */}
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-white border-t border-white"></div>
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
