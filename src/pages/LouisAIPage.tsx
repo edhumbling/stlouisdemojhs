@@ -1505,12 +1505,12 @@ const LouisAIPage: React.FC = () => {
               } ${realtimeTranscript ? 'border-green-500/50 bg-green-900/10' : ''}`}>
                 
                 {/* Input Content */}
-                <div className="flex items-end w-full">
+                <div className="flex items-center w-full">
                   {/* Plus Icon - Image Upload */}
                   <label
                     htmlFor="image-upload"
                     onClick={handlePlusClick}
-                    className={`ml-3 sm:ml-4 p-1 transition-all duration-300 cursor-pointer rounded-full ${
+                    className={`ml-3 sm:ml-4 p-1 transition-all duration-300 cursor-pointer rounded-full flex items-center justify-center ${
                       selectedImages.length > 0
                         ? 'text-green-400 hover:text-green-300'
                         : 'text-white/60 hover:text-white/80'
@@ -1521,7 +1521,7 @@ const LouisAIPage: React.FC = () => {
                     }`}
                     title={selectedImages.length > 0 ? `${selectedImages.length} image(s) selected - Click to add more` : 'Upload images for analysis'}
                   >
-                    <Plus size={16} />
+                    <Plus size={16} weight="bold" />
                     <input
                       id="image-upload"
                       type="file"
@@ -1534,7 +1534,7 @@ const LouisAIPage: React.FC = () => {
                   </label>
 
                   {/* Input Field or Waveform */}
-                  <div className="flex-1 mx-2 sm:mx-3 flex items-end">
+                  <div className="flex-1 mx-2 sm:mx-3 flex items-center">
                     {isRecording || isListening ? (
                       /* Audio Waveform Visualization */
                       <div className="flex items-center h-6">
@@ -1549,7 +1549,7 @@ const LouisAIPage: React.FC = () => {
                 onKeyDown={handleKeyDown}
                         placeholder={realtimeTranscript ? realtimeTranscript : "Message..."}
                 disabled={isLoading}
-                        className="w-full bg-transparent text-white placeholder-white/40 focus:outline-none resize-none overflow-hidden max-h-[120px] leading-5 self-end"
+                        className="w-full bg-transparent text-white placeholder-white/40 focus:outline-none resize-none overflow-hidden max-h-[120px] leading-5"
                         style={{
                           height: '20px',
                           minHeight: '20px',
