@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic, Plus, MicOff, Volume2, Globe, History, Copy, VolumeX } from 'lucide-react';
+import { Send, Mic, Plus, MicOff, Globe, History, Copy } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -17,7 +17,6 @@ import microphonePermissionService from '../services/microphonePermissionService
 import groqCompoundService from '../services/groqCompoundService';
 import groqVisionService from '../services/groqVisionService';
 import historyService from '../services/historyService';
-import { ttsService } from '../services/ttsService';
 import { getUniqueSources } from '../utils/pageMapping';
 
 interface Message {
@@ -49,7 +48,6 @@ const LouisAIPage: React.FC = () => {
   const [isPlusClicked, setIsPlusClicked] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [conversationHistory, setConversationHistory] = useState<any[]>([]);
-  const [playingAudio, setPlayingAudio] = useState<string | null>(null);
   const [copiedMessage, setCopiedMessage] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -67,6 +65,22 @@ const LouisAIPage: React.FC = () => {
     const history = historyService.getHistory();
     setConversationHistory(history);
   }, []);
+
+  // Save conversation to history whenever messages change
+  useEffect(() => {
+    if (messages.length > 0) {
+      // Only save if we have both user and assistant messages
+      const hasUserMessage = messages.some(msg => msg.role === 'user');
+      const hasAssistantMessage = messages.some(msg => msg.role === 'assistant');
+      
+      if (hasUserMessage && hasAssistantMessage) {
+        historyService.saveConversation(messages);
+        // Update conversation history state
+        const history = historyService.getHistory();
+        setConversationHistory(history);
+      }
+    }
+  }, [messages]);
 
   // Handle escape key to close history panel
   useEffect(() => {
@@ -240,7 +254,12 @@ const LouisAIPage: React.FC = () => {
         thinking: thinking,
       };
 
-      setMessages(prev => [...prev, assistantMessage]);
+      setMessages(prev => {
+        const updatedMessages = [...prev, assistantMessage];
+        // Save conversation to history
+        historyService.saveConversation(updatedMessages);
+        return updatedMessages;
+      });
       
       // Save to history
       const updatedMessages = [...messages, userMessage, assistantMessage];
@@ -429,7 +448,12 @@ const LouisAIPage: React.FC = () => {
           images: imagePreviews, // Include the analyzed images
         };
 
-        setMessages(prev => [...prev, assistantMessage]);
+        setMessages(prev => {
+        const updatedMessages = [...prev, assistantMessage];
+        // Save conversation to history
+        historyService.saveConversation(updatedMessages);
+        return updatedMessages;
+      });
         
         // Save to history
         const updatedMessages = [...messages, userMessage, assistantMessage];
@@ -530,7 +554,12 @@ const LouisAIPage: React.FC = () => {
         thinking: thinking,
       };
 
-      setMessages(prev => [...prev, assistantMessage]);
+      setMessages(prev => {
+        const updatedMessages = [...prev, assistantMessage];
+        // Save conversation to history
+        historyService.saveConversation(updatedMessages);
+        return updatedMessages;
+      });
       
       // Save to history
       const updatedMessages = [...messages, userMessage, assistantMessage];
@@ -675,18 +704,6 @@ const LouisAIPage: React.FC = () => {
     }
   };
 
-  const readAloud = async (text: string, messageId: string) => {
-    try {
-      setPlayingAudio(messageId);
-      const audioData = await ttsService.textToSpeech(text, 'alloy', 1.0);
-      await ttsService.playAudio(audioData);
-    } catch (err) {
-      console.error('Failed to read aloud:', err);
-      setError('Failed to read aloud. Please try again.');
-    } finally {
-      setPlayingAudio(null);
-    }
-  };
 
   // Custom tooltip component
   const CustomTooltip = ({ children, text }: { children: React.ReactNode; text: string }) => {
