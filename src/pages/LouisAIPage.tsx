@@ -120,7 +120,7 @@ const LouisAIPage: React.FC = () => {
   useEffect(() => {
     const textarea = inputRef.current as HTMLTextAreaElement;
     if (textarea) {
-      textarea.style.height = 'auto';
+      textarea.style.height = '20px';
       textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
     }
   }, [input, realtimeTranscript]);
@@ -1549,15 +1549,15 @@ const LouisAIPage: React.FC = () => {
                 onKeyDown={handleKeyDown}
                         placeholder={realtimeTranscript ? realtimeTranscript : "Message..."}
                 disabled={isLoading}
-                        className="w-full bg-transparent text-white placeholder-white/40 focus:outline-none resize-none overflow-hidden min-h-[20px] max-h-[120px] leading-5 self-end"
+                        className="w-full bg-transparent text-white placeholder-white/40 focus:outline-none resize-none overflow-hidden max-h-[120px] leading-5 self-end"
                         style={{
-                          height: 'auto',
+                          height: '20px',
                           minHeight: '20px',
                           maxHeight: '120px'
                         }}
                         onInput={(e) => {
                           const target = e.target as HTMLTextAreaElement;
-                          target.style.height = 'auto';
+                          target.style.height = '20px';
                           target.style.height = Math.min(target.scrollHeight, 120) + 'px';
                         }}
                       />
