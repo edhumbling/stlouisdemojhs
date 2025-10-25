@@ -159,7 +159,7 @@ const Header: React.FC = () => {
                     School
                     <ChevronDown
                       size={14}
-                      className={`transition-transform duration-100 ${isSchoolDropdownOpen ? 'rotate-180' : ''}`}
+                      className="transition-transform duration-100"
                     />
                   </button>
 
@@ -177,7 +177,7 @@ const Header: React.FC = () => {
                         }}
                         onMouseEnter={() => setIsSchoolDropdownOpen(true)}
                         onMouseLeave={() => setIsSchoolDropdownOpen(false)}
-                        className="absolute top-full left-0 mt-3 w-[600px] min-h-[280px] bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden z-[9999]"
+                        className="absolute top-full left-0 mt-3 w-[480px] min-h-[320px] bg-black/95 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/30 overflow-hidden z-[9999]"
                         style={{
                           position: 'absolute',
                           top: '100%',
@@ -199,93 +199,104 @@ const Header: React.FC = () => {
                           <p className="text-gray-300 text-xs mt-1">Learn about our institution</p>
                         </motion.div>
 
-                        {/* Horizontal Layout with Beautiful Dividers */}
-                        <div className="flex gap-0 p-3 relative min-h-[200px]">
-                          {/* Vertical Dividers between items */}
-                          {schoolDropdownItems.map((_, index) => (
-                            index < schoolDropdownItems.length - 1 && (
-                              <div
-                                key={`divider-${index}`}
-                                className="absolute top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent z-10"
-                                style={{ left: `${((index + 1) / schoolDropdownItems.length) * 100}%` }}
-                              />
-                            )
-                          ))}
+                        {/* Three-Column Vertical Layout - Compact & Unique Design */}
+                        <div className="p-4">
+                          {/* Header */}
+                          <div className="text-center mb-4">
+                            <h3 className="text-white/90 text-sm font-semibold mb-1">School Information</h3>
+                            <div className="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-green-400 mx-auto rounded-full"></div>
+                          </div>
 
+                          {/* Three-Column Grid */}
+                          <div className="grid grid-cols-3 gap-3">
                           {schoolDropdownItems.map((item, index) => (
                             <motion.div
                               key={item.path}
-                              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                                initial={{ opacity: 0, y: 15, scale: 0.95 }}
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               transition={{
-                                duration: 0.3,
-                                delay: index * 0.08,
+                                  duration: 0.4,
+                                  delay: index * 0.05,
                                 ease: [0.4, 0.0, 0.2, 1]
                               }}
                               whileHover={{
-                                scale: 1.02,
+                                  scale: 1.03,
+                                  y: -2,
                                 transition: { duration: 0.2 }
                               }}
-                              whileTap={{ scale: 0.98 }}
-                              className="relative z-20 flex-1"
+                                whileTap={{ scale: 0.97 }}
+                                className="relative group"
                             >
                               <Link
                                 to={item.path}
-                                className="flex flex-col items-center p-3 mx-1 hover:bg-white/10 rounded-xl transition-all duration-300 group relative overflow-hidden h-full min-h-[160px]"
+                                  className="block p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-all duration-300 border border-white/10 hover:border-white/20 relative overflow-hidden"
                                 onClick={() => {
                                   setIsSchoolDropdownOpen(false);
                                   window.scrollTo({ top: 0, behavior: 'instant' });
                                 }}
                               >
-                                {/* Hover Background Effect */}
+                                  {/* Animated Background Gradient */}
                                 <motion.div
-                                  className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-green-500/10 rounded-xl opacity-0 group-hover:opacity-100"
+                                    className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-green-500/5 opacity-0 group-hover:opacity-100"
                                   initial={false}
-                                  animate={{ opacity: 0 }}
                                   whileHover={{ opacity: 1 }}
                                   transition={{ duration: 0.3 }}
                                 />
 
-                                {/* Image with Enhanced Hover Effect */}
-                                <motion.div
-                                  className="w-8 h-8 rounded-lg overflow-hidden mb-1.5 flex-shrink-0 relative"
-                                  whileHover={{ scale: 1.1 }}
-                                  transition={{ duration: 0.3, ease: "easeOut" }}
-                                >
+                                  {/* Content Container */}
+                                  <div className="relative z-10">
+                                    {/* Icon/Image */}
+                                    <div className="flex items-center mb-2">
+                                      <div className="w-6 h-6 rounded-md overflow-hidden mr-2 flex-shrink-0">
                                   <img
                                     src={item.image}
                                     alt={item.label}
                                     className="w-full h-full object-cover"
                                   />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                </motion.div>
-
-                                {/* Content */}
-                                <div className="text-center relative z-10 flex-1">
-                                  <motion.h4
-                                    className="text-white font-semibold text-xs mb-1 group-hover:text-blue-300 transition-colors duration-300"
-                                    whileHover={{ y: -1 }}
-                                    transition={{ duration: 0.2 }}
-                                  >
+                                      </div>
+                                      <h4 className="text-white text-xs font-medium group-hover:text-blue-300 transition-colors duration-300 truncate">
                                     {item.label}
-                                  </motion.h4>
+                                      </h4>
+                                    </div>
+
+                                    {/* Description */}
                                   <p className="text-gray-400 text-[10px] leading-tight group-hover:text-gray-300 transition-colors duration-300 line-clamp-2">
                                     {item.description}
                                   </p>
-                                </div>
 
-                                {/* Subtle Border Glow on Hover */}
+                                    {/* Hover Arrow Indicator */}
+                                    <motion.div
+                                      className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                      initial={false}
+                                      whileHover={{ x: 2 }}
+                                      transition={{ duration: 0.2 }}
+                                    >
+                                      <svg className="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                      </svg>
+                                    </motion.div>
+
+                                    {/* Subtle Glow Effect */}
                                 <motion.div
-                                  className="absolute inset-0 rounded-xl border border-blue-400/0 group-hover:border-blue-400/30"
+                                      className="absolute inset-0 rounded-lg border border-blue-400/0 group-hover:border-blue-400/20"
                                   initial={false}
                                   whileHover={{
-                                    boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
+                                        boxShadow: "0 0 15px rgba(59, 130, 246, 0.2)",
                                     transition: { duration: 0.3 }
                                   }}
                                 />
+                                  </div>
                               </Link>
                             </motion.div>
                           ))}
+                          </div>
+
+                          {/* Footer */}
+                          <div className="mt-4 pt-3 border-t border-white/10">
+                            <p className="text-center text-gray-400 text-[10px]">
+                              Explore our comprehensive school resources
+                            </p>
+                          </div>
                         </div>
                       </motion.div>
                     )}
@@ -421,7 +432,7 @@ const Header: React.FC = () => {
                     ${isHomePage ? 'text-white' : 'text-white'}
                   `}>
                     Contact
-                    <ChevronDown size={16} className="ml-1 transition-transform duration-150 group-hover:rotate-180" />
+                    <ChevronDown size={16} className="ml-1 transition-transform duration-150" />
                   </button>
 
                   <AnimatePresence>
