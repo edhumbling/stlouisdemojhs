@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic, Plus, MicOff, Globe, History, Copy } from 'lucide-react';
+import { Send, Mic, Plus, MicOff, Globe, History, Copy, Volume2, VolumeX } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -17,6 +17,7 @@ import microphonePermissionService from '../services/microphonePermissionService
 import groqCompoundService from '../services/groqCompoundService';
 import groqVisionService from '../services/groqVisionService';
 import historyService from '../services/historyService';
+import { ttsService } from '../services/ttsService';
 import { getUniqueSources } from '../utils/pageMapping';
 
 interface Message {
@@ -49,7 +50,7 @@ const LouisAIPage: React.FC = () => {
   const [showHistory, setShowHistory] = useState(false);
   const [conversationHistory, setConversationHistory] = useState<any[]>([]);
   const [copiedMessage, setCopiedMessage] = useState<string | null>(null);
-  const [playingAudio] = useState<string | null>(null); // Dummy state to prevent build errors
+  const [playingAudio, setPlayingAudio] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -706,6 +707,19 @@ const LouisAIPage: React.FC = () => {
     }
   };
 
+  // Read aloud function
+  const readAloud = async (text: string, messageId: string) => {
+    try {
+      setPlayingAudio(messageId);
+      const audioBuffer = await ttsService.textToSpeech(text);
+      await ttsService.playAudio(audioBuffer);
+    } catch (error) {
+      console.error('TTS error:', error);
+    } finally {
+      setPlayingAudio(null);
+    }
+  };
+
 
   // Custom tooltip component
   const CustomTooltip = ({ children, text }: { children: React.ReactNode; text: string }) => {
@@ -1279,6 +1293,40 @@ const LouisAIPage: React.FC = () => {
                               </button>
                             </div>
                           )}
+
+                          {/* Copy and Read Aloud Buttons */}
+                          <div className="mt-3 pt-3 border-t border-[#2a2a2a]">
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => copyToClipboard(message.content, message.id)}
+                                className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors duration-200 ${
+                                  copiedMessage === message.id
+                                    ? 'bg-green-600 text-white'
+                                    : 'bg-[#2a2a2a] text-white/70 hover:bg-[#3a3a3a] hover:text-white'
+                                }`}
+                              >
+                                <Copy className="w-3 h-3" />
+                                {copiedMessage === message.id ? 'Copied!' : 'Copy'}
+                              </button>
+                              
+                              <button
+                                onClick={() => readAloud(message.content, message.id)}
+                                disabled={playingAudio === message.id}
+                                className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors duration-200 ${
+                                  playingAudio === message.id
+                                    ? 'bg-blue-600 text-white animate-pulse'
+                                    : 'bg-[#2a2a2a] text-white/70 hover:bg-[#3a3a3a] hover:text-white'
+                                }`}
+                              >
+                                {playingAudio === message.id ? (
+                                  <VolumeX className="w-3 h-3" />
+                                ) : (
+                                  <Volume2 className="w-3 h-3" />
+                                )}
+                                {playingAudio === message.id ? 'Playing...' : 'Read Aloud'}
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     )}
