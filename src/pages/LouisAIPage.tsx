@@ -966,7 +966,7 @@ const LouisAIPage: React.FC = () => {
       )}
 
       {/* Messages Container */}
-      <div className={`h-[calc(100vh-140px)] overflow-y-auto pb-20 pt-11 ${imagePreviews.length > 0 ? 'pb-32' : ''}`}>
+      <div className={`flex-grow overflow-y-auto pb-20 pt-11 ${imagePreviews.length > 0 ? 'pb-32' : ''}`}>
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {messages.length === 0 ? (
             /* Welcome Screen - Grok Style */
@@ -979,7 +979,7 @@ const LouisAIPage: React.FC = () => {
               <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">It's me Louis Ai!</h1>
 
               {/* Greeting */}
-              <p className="text-base sm:text-lg text-white/70 mb-8 sm:mb-12">{getGreeting()}. How can I help you today?</p>
+              <p className="text-base sm:text-lg text-white/70 mb-8 sm:mb-12 whitespace-nowrap overflow-hidden text-ellipsis">{getGreeting()}. How can I help you today?</p>
 
 
               {/* Suggested Prompts */}
