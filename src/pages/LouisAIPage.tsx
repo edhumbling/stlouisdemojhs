@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic, Plus, MicOff, Volume2, Globe, History } from 'lucide-react';
+import { Send, Mic, Plus, MicOff, Volume2, Globe, History, Copy, VolumeX } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -17,6 +17,7 @@ import microphonePermissionService from '../services/microphonePermissionService
 import groqCompoundService from '../services/groqCompoundService';
 import groqVisionService from '../services/groqVisionService';
 import historyService from '../services/historyService';
+import ttsService from '../services/ttsService';
 import { getUniqueSources } from '../utils/pageMapping';
 
 interface Message {
@@ -48,6 +49,8 @@ const LouisAIPage: React.FC = () => {
   const [isPlusClicked, setIsPlusClicked] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [conversationHistory, setConversationHistory] = useState<any[]>([]);
+  const [playingAudio, setPlayingAudio] = useState<string | null>(null);
+  const [copiedMessage, setCopiedMessage] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -58,6 +61,24 @@ const LouisAIPage: React.FC = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
+
+  // Load conversation history on component mount
+  useEffect(() => {
+    const history = historyService.getHistory();
+    setConversationHistory(history);
+  }, []);
+
+  // Handle escape key to close history panel
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && showHistory) {
+        setShowHistory(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [showHistory]);
 
   // Auto-focus input on mount
   useEffect(() => {
@@ -643,6 +664,30 @@ const LouisAIPage: React.FC = () => {
     setTimeout(() => setIsPlusClicked(false), 300);
   };
 
+  // Copy and TTS functions
+  const copyToClipboard = async (text: string, messageId: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedMessage(messageId);
+      setTimeout(() => setCopiedMessage(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy text:', err);
+    }
+  };
+
+  const readAloud = async (text: string, messageId: string) => {
+    try {
+      setPlayingAudio(messageId);
+      const audioData = await ttsService.textToSpeech(text, 'alloy', 1.0);
+      await ttsService.playAudio(audioData);
+    } catch (err) {
+      console.error('Failed to read aloud:', err);
+      setError('Failed to read aloud. Please try again.');
+    } finally {
+      setPlayingAudio(null);
+    }
+  };
+
   // Custom tooltip component
   const CustomTooltip = ({ children, text }: { children: React.ReactNode; text: string }) => {
     const [showTooltip, setShowTooltip] = useState(false);
@@ -671,6 +716,13 @@ const LouisAIPage: React.FC = () => {
     const [categorizedHistory, setCategorizedHistory] = useState(historyService.getCategorizedHistory());
     const [editingTitle, setEditingTitle] = useState<string | null>(null);
     const [newTitle, setNewTitle] = useState('');
+
+    // Refresh history when panel opens
+    useEffect(() => {
+      if (showHistory) {
+        setCategorizedHistory(historyService.getCategorizedHistory());
+      }
+    }, [showHistory]);
 
     const refreshHistory = () => {
       setCategorizedHistory(historyService.getCategorizedHistory());
@@ -915,8 +967,14 @@ const LouisAIPage: React.FC = () => {
 
       {/* History Panel */}
       {showHistory && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm">
-          <div className="fixed right-0 top-0 h-full w-80 bg-[#1a1a1a] border-l border-[#2a2a2a] shadow-2xl">
+        <div 
+          className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+          onClick={() => setShowHistory(false)}
+        >
+          <div 
+            className="fixed right-0 top-0 h-full w-80 bg-[#1a1a1a] border-l border-[#2a2a2a] shadow-2xl pt-16"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="p-4 border-b border-[#2a2a2a]">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-white">Conversation History</h2>
@@ -1075,6 +1133,34 @@ const LouisAIPage: React.FC = () => {
                             >
                               {message.content}
                             </ReactMarkdown>
+                          </div>
+
+                          {/* Copy and Read Aloud Icons */}
+                          <div className="flex items-center gap-2 mt-3">
+                            <button
+                              onClick={() => copyToClipboard(message.content, message.id)}
+                              className={`p-2 rounded-full transition-all duration-200 ${
+                                copiedMessage === message.id
+                                  ? 'bg-green-500/20 text-green-400'
+                                  : 'text-white/40 hover:text-white/60 hover:bg-white/10'
+                              }`}
+                              title="Copy text"
+                            >
+                              <Copy size={16} />
+                            </button>
+                            
+                            <button
+                              onClick={() => readAloud(message.content, message.id)}
+                              disabled={playingAudio === message.id}
+                              className={`p-2 rounded-full transition-all duration-200 ${
+                                playingAudio === message.id
+                                  ? 'bg-blue-500/20 text-blue-400'
+                                  : 'text-white/40 hover:text-white/60 hover:bg-white/10'
+                              } ${playingAudio === message.id ? 'animate-pulse' : ''}`}
+                              title="Read aloud"
+                            >
+                              {playingAudio === message.id ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                            </button>
                           </div>
 
                           {/* Thinking Mode Display with Faded Background */}
