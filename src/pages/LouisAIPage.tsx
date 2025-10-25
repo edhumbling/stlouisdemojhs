@@ -860,7 +860,7 @@ const LouisAIPage: React.FC = () => {
       {/* Info Modal */}
       {showInfo && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-8 sm:pt-16 bg-black/20 backdrop-blur-sm"
           onClick={() => setShowInfo(false)}
         >
           <div 
@@ -979,7 +979,7 @@ const LouisAIPage: React.FC = () => {
               <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">It's me Louis Ai!</h1>
 
               {/* Greeting */}
-              <p className="text-base sm:text-lg text-white/70 mb-8 sm:mb-12 whitespace-nowrap overflow-hidden text-ellipsis">{getGreeting()}. How can I help you today?</p>
+              <p className="text-sm sm:text-lg text-white/70 mb-8 sm:mb-12">{getGreeting()}. How can I help you today?</p>
 
 
               {/* Suggested Prompts */}
