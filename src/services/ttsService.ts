@@ -9,7 +9,7 @@ export interface TTSRequest {
   model: string;
   input: string;
   voice: string;
-  speed: number;
+  response_format: string;
 }
 
 export interface TTSResponse {
@@ -32,7 +32,7 @@ class TTSService {
   /**
    * Convert text to speech using Groq's playai-tts model
    */
-  async textToSpeech(text: string, voice: string = 'alloy', speed: number = 1.0): Promise<ArrayBuffer> {
+  async textToSpeech(text: string, voice: string = 'Aaliyah-PlayAI'): Promise<ArrayBuffer> {
     if (!this.apiKey) {
       throw new Error('Groq API key not found. Please set VITE_GROQ_API_KEY in your environment variables.');
     }
@@ -41,7 +41,7 @@ class TTSService {
       model: 'playai-tts',
       input: text,
       voice: voice,
-      speed: speed
+      response_format: 'wav'
     };
 
     try {
@@ -72,7 +72,7 @@ class TTSService {
    */
   async playAudio(audioBuffer: ArrayBuffer): Promise<void> {
     try {
-      const blob = new Blob([audioBuffer], { type: 'audio/mpeg' });
+      const blob = new Blob([audioBuffer], { type: 'audio/wav' });
       const audioUrl = URL.createObjectURL(blob);
       
       const audio = new Audio(audioUrl);
