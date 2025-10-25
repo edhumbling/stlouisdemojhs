@@ -119,15 +119,18 @@ const Layout: React.FC = () => {
     '/louis-ai',
     '/about',
     '/academics', 
-    '/news',
     '/admissions',
     '/faculty',
     '/staff-resources',
     '/alumni'
   ];
   
+  // Pages that should have pt-16 padding
+  const pt16Pages = ['/news'];
+  
   const shouldHaveTopPadding = !noTopPaddingPages.includes(location.pathname) && showHeader;
   const shouldHavePt10 = pt10Pages.includes(location.pathname);
+  const shouldHavePt16 = pt16Pages.includes(location.pathname);
 
   // Determine breadcrumb theme based on page
   const darkBreadcrumbPages = [
@@ -174,7 +177,7 @@ const Layout: React.FC = () => {
         />
       )}
 
-      <main className={`flex-grow ${shouldHavePt10 ? 'pt-10' : shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
+      <main className={`flex-grow ${shouldHavePt10 ? 'pt-10' : shouldHavePt16 ? 'pt-16' : shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
         <Outlet />
       </main>
       {shouldShowFooter && <Footer />}
