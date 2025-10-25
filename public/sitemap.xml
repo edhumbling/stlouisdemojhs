@@ -62,6 +62,19 @@
   </url>
 
   <url>
+    <loc>https://stlouisdemojhs.com/louis-ai</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <mobile:mobile/>
+    <image:image>
+      <image:loc>https://stlouisdemojhs.com/ai bot.png</image:loc>
+      <image:title>Louis AI - Intelligent School Assistant</image:title>
+      <image:caption>Meet Louis AI, your intelligent school assistant at St. Louis Demonstration JHS</image:caption>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://stlouisdemojhs.com/gallery</loc>
     <lastmod>2025-10-01</lastmod>
     <changefreq>weekly</changefreq>

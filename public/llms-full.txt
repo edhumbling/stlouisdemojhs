@@ -48,6 +48,7 @@ Our Science, Technology, Engineering, and Mathematics program emphasizes hands-o
 Rooted in Catholic values, our character education program focuses on moral development, ethical decision-making, and community service. Students learn the importance of integrity, compassion, and social responsibility.
 
 **AI Integration:**
+- Louis AI: Intelligent school assistant providing instant, accurate answers about admissions, academics, school life, and everything about St. Louis Demonstration JHS
 - MayaMiles AI Learning Assistant with Maya (female voice) and Miles (male voice)
 - SuperChat integration with supermemory.chat for text-based learning
 - AI-powered search across all school resources
@@ -98,6 +99,7 @@ We welcome partnerships with organizations and individuals committed to educatio
 ## Educational Resources & Technology
 
 ### AI-Powered Learning Tools
+- Louis AI: Intelligent school assistant for instant answers about school information, admissions, and academics
 - MayaMiles AI Assistant: Personalized learning with voice interaction
 - SuperChat Integration: Full-screen access to advanced learning platforms
 - AI Search: Intelligent search across educational resources

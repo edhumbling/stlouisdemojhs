@@ -41,6 +41,8 @@ Allow: /students-hub
 Allow: /students-hub/*
 Allow: /ai
 Allow: /ai/*
+Allow: /louis-ai
+Allow: /louis-ai/*
 Allow: /donate
 Allow: /donate/*
 Allow: /media

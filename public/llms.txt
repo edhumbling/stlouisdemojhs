@@ -51,6 +51,7 @@
 ## Educational Resources & Tools
 
 **AI-Powered Learning:**
+- Louis AI (/louis-ai): Intelligent school assistant providing instant, accurate answers about admissions, academics, school life, and everything about St. Louis Demonstration JHS
 - MayaMiles AI Assistant: Personalized learning with Maya (female voice) and Miles (male voice)
 - SuperChat Integration: Full-screen iframe access to supermemory.chat for text-based learning
 - AI Search (/ai-search): Advanced search functionality across school resources
@@ -93,6 +94,7 @@
 **Progressive Web App (PWA):** Installable web application with offline capabilities, optimized for all devices with touch-friendly interface and fast loading speeds.
 
 **AI Integration:**
+- Louis AI: Intelligent school assistant for instant answers about school information, admissions, and academics
 - MayaMiles AI learning assistant (Maya female voice, Miles male voice)
 - SuperChat integration with supermemory.chat
 - AI-powered search across all school resources
@@ -110,6 +112,7 @@
 - Homepage (/) - School overview and news
 - News (/news) - Latest announcements
 - STEM (/stem) - Science and technology programs
+- Louis AI (/louis-ai) - Intelligent school assistant
 - Learn Hub (/learnhub) - Educational resources
 - Gallery (/gallery) - Photo collections
 
