@@ -107,7 +107,7 @@ const NewsPage: React.FC = () => {
         }}
       />
       {/* Back Button and Title Section - Below Header */}
-      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 mt-16">
+      <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-4 sm:gap-6">
             <button
