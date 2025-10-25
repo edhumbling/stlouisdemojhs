@@ -1095,34 +1095,6 @@ const LouisAIPage: React.FC = () => {
                   </CustomTooltip>
                 </div>
               ))}
-              
-              {/* Add More Button - Always visible when less than 5 images */}
-              {imagePreviews.length < 5 && (
-                <CustomTooltip text="Add more images">
-                  <label
-                    htmlFor="image-upload"
-                    onClick={handlePlusClick}
-                    className={`w-16 h-16 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-300 transition-all duration-300 ${
-                      isPlusClicked 
-                        ? 'bg-blue-500/20 border-blue-400 scale-105 shadow-lg' 
-                        : ''
-                    }`}
-                  >
-                    <Plus size={20} className={`text-gray-400 transition-colors ${
-                      isPlusClicked ? 'text-blue-400' : ''
-                    }`} />
-                    <input
-                      id="image-upload"
-                      type="file"
-                      accept="image/*"
-                      multiple
-                      onChange={handleImageUpload}
-                      className="hidden"
-                      disabled={isLoading}
-                    />
-                  </label>
-                </CustomTooltip>
-              )}
             </div>
           </div>
         </div>
