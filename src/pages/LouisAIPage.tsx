@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic, Plus, MicOff, Volume2, Globe } from 'lucide-react';
+import { Send, Mic, Plus, MicOff, Volume2, Globe, History } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -16,6 +16,7 @@ import whisperService from '../services/whisperService';
 import microphonePermissionService from '../services/microphonePermissionService';
 import groqCompoundService from '../services/groqCompoundService';
 import groqVisionService from '../services/groqVisionService';
+import historyService from '../services/historyService';
 import { getUniqueSources } from '../utils/pageMapping';
 
 interface Message {
@@ -45,6 +46,8 @@ const LouisAIPage: React.FC = () => {
   const [selectedImages, setSelectedImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const [isPlusClicked, setIsPlusClicked] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
+  const [conversationHistory, setConversationHistory] = useState<any[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -217,6 +220,10 @@ const LouisAIPage: React.FC = () => {
       };
 
       setMessages(prev => [...prev, assistantMessage]);
+      
+      // Save to history
+      const updatedMessages = [...messages, userMessage, assistantMessage];
+      historyService.saveConversation(updatedMessages);
     } catch (err) {
       console.error('Error generating response:', err);
 
@@ -402,6 +409,11 @@ const LouisAIPage: React.FC = () => {
         };
 
         setMessages(prev => [...prev, assistantMessage]);
+        
+        // Save to history
+        const updatedMessages = [...messages, userMessage, assistantMessage];
+        historyService.saveConversation(updatedMessages);
+        
         removeAllImages(); // Clear images after analysis
         return;
       } catch (err) {
@@ -498,6 +510,10 @@ const LouisAIPage: React.FC = () => {
       };
 
       setMessages(prev => [...prev, assistantMessage]);
+      
+      // Save to history
+      const updatedMessages = [...messages, userMessage, assistantMessage];
+      historyService.saveConversation(updatedMessages);
     } catch (err) {
       console.error('Error generating response:', err);
 
@@ -650,6 +666,148 @@ const LouisAIPage: React.FC = () => {
     );
   };
 
+  // History Panel Component
+  const HistoryPanel = () => {
+    const [categorizedHistory, setCategorizedHistory] = useState(historyService.getCategorizedHistory());
+    const [editingTitle, setEditingTitle] = useState<string | null>(null);
+    const [newTitle, setNewTitle] = useState('');
+
+    const refreshHistory = () => {
+      setCategorizedHistory(historyService.getCategorizedHistory());
+    };
+
+    const loadConversation = (conversationId: string) => {
+      const conversation = historyService.loadConversation(conversationId);
+      if (conversation) {
+        setMessages(conversation.messages);
+        setShowHistory(false);
+      }
+    };
+
+    const deleteConversation = (conversationId: string) => {
+      historyService.deleteConversation(conversationId);
+      refreshHistory();
+    };
+
+    const clearAllHistory = () => {
+      if (window.confirm('Are you sure you want to clear all conversation history?')) {
+        historyService.clearAllHistory();
+        refreshHistory();
+      }
+    };
+
+    const startEditingTitle = (conversationId: string, currentTitle: string) => {
+      setEditingTitle(conversationId);
+      setNewTitle(currentTitle);
+    };
+
+    const saveTitle = (conversationId: string) => {
+      historyService.updateConversationTitle(conversationId, newTitle);
+      setEditingTitle(null);
+      setNewTitle('');
+      refreshHistory();
+    };
+
+    const cancelEditing = () => {
+      setEditingTitle(null);
+      setNewTitle('');
+    };
+
+    const formatTime = (timestamp: Date) => {
+      return new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    };
+
+    const renderConversationList = (conversations: any[], title: string) => {
+      if (conversations.length === 0) return null;
+
+      return (
+        <div className="mb-6">
+          <h3 className="text-sm font-medium text-white/60 mb-3 px-4">{title}</h3>
+          <div className="space-y-1">
+            {conversations.map((conversation) => (
+              <div key={conversation.id} className="group">
+                <div className="px-4 py-3 hover:bg-white/5 transition-colors cursor-pointer"
+                     onClick={() => loadConversation(conversation.id)}>
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1 min-w-0">
+                      {editingTitle === conversation.id ? (
+                        <input
+                          type="text"
+                          value={newTitle}
+                          onChange={(e) => setNewTitle(e.target.value)}
+                          onBlur={() => saveTitle(conversation.id)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') saveTitle(conversation.id);
+                            if (e.key === 'Escape') cancelEditing();
+                          }}
+                          className="w-full bg-transparent text-white text-sm border-b border-white/20 focus:border-white/40 outline-none"
+                          autoFocus
+                        />
+                      ) : (
+                        <p className="text-white text-sm truncate">{conversation.title}</p>
+                      )}
+                      <p className="text-white/40 text-xs mt-1">{formatTime(conversation.timestamp)}</p>
+                    </div>
+                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          startEditingTitle(conversation.id, conversation.title);
+                        }}
+                        className="p-1 text-white/40 hover:text-white/60 hover:bg-white/10 rounded"
+                        title="Edit title"
+                      >
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          deleteConversation(conversation.id);
+                        }}
+                        className="p-1 text-white/40 hover:text-red-400 hover:bg-red-500/10 rounded"
+                        title="Delete conversation"
+                      >
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    };
+
+    return (
+      <div className="p-4">
+        <div className="mb-4">
+          <button
+            onClick={clearAllHistory}
+            className="w-full px-3 py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-colors text-sm"
+          >
+            Clear All History
+          </button>
+        </div>
+        
+        {renderConversationList(categorizedHistory.today, 'Today')}
+        {renderConversationList(categorizedHistory.thisWeek, 'This Week')}
+        {renderConversationList(categorizedHistory.thisMonth, 'This Month')}
+        {renderConversationList(categorizedHistory.older, 'Older')}
+        
+        {Object.values(categorizedHistory).every(arr => arr.length === 0) && (
+          <div className="text-center py-8">
+            <p className="text-white/40 text-sm">No conversation history yet</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   // Custom component to render LaTeX equations
   const renderLatex = (text: string) => {
     try {
@@ -741,11 +899,44 @@ const LouisAIPage: React.FC = () => {
               <h1 className="text-lg sm:text-xl font-bold text-white">Louis AI</h1>
             </div>
 
-            {/* Right side - Placeholder for future features */}
-            <div className="w-20 sm:w-24"></div>
+            {/* Right side - History Icon */}
+            <div className="w-20 sm:w-24 flex justify-end">
+              <button
+                onClick={() => setShowHistory(!showHistory)}
+                className="p-2 text-white/60 hover:text-white/80 hover:bg-white/10 rounded-full transition-all duration-200"
+                title="View conversation history"
+              >
+                <History size={20} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* History Panel */}
+      {showHistory && (
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm">
+          <div className="fixed right-0 top-0 h-full w-80 bg-[#1a1a1a] border-l border-[#2a2a2a] shadow-2xl">
+            <div className="p-4 border-b border-[#2a2a2a]">
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-semibold text-white">Conversation History</h2>
+                <button
+                  onClick={() => setShowHistory(false)}
+                  className="p-1 text-white/60 hover:text-white/80 hover:bg-white/10 rounded"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <div className="h-full overflow-y-auto">
+              <HistoryPanel />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Messages Container */}
       <div className={`h-[calc(100vh-140px)] overflow-y-auto pb-20 pt-16 ${imagePreviews.length > 0 ? 'pb-32' : ''}`}>
