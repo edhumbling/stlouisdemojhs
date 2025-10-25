@@ -1073,7 +1073,7 @@ const LouisAIPage: React.FC = () => {
                   {/* Edit Button */}
                   <CustomTooltip text="Edit image">
                     <button
-                      onClick={() => document.getElementById('image-upload-more')?.click()}
+                      onClick={() => document.getElementById('image-upload')?.click()}
                       className="absolute -top-1 left-1/2 transform -translate-x-1/2 -translate-x-3 w-4 h-4 bg-white hover:bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center shadow-md transition-all duration-200 hover:scale-110"
                     >
                       <svg className="w-2 h-2 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1100,7 +1100,7 @@ const LouisAIPage: React.FC = () => {
               {imagePreviews.length < 5 && (
                 <CustomTooltip text="Add more images">
                   <label
-                    htmlFor="image-upload-more"
+                    htmlFor="image-upload"
                     onClick={handlePlusClick}
                     className={`w-16 h-16 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-300 transition-all duration-300 ${
                       isPlusClicked 
@@ -1112,7 +1112,7 @@ const LouisAIPage: React.FC = () => {
                       isPlusClicked ? 'text-blue-400' : ''
                     }`} />
                     <input
-                      id="image-upload-more"
+                      id="image-upload"
                       type="file"
                       accept="image/*"
                       multiple
