@@ -624,7 +624,7 @@ const LouisAIPage: React.FC = () => {
   const handlePlusClick = () => {
     setIsPlusClicked(true);
     // Reset highlight after animation
-    setTimeout(() => setIsPlusClicked(false), 200);
+    setTimeout(() => setIsPlusClicked(false), 300);
   };
 
   // Custom tooltip component
@@ -1096,15 +1096,15 @@ const LouisAIPage: React.FC = () => {
                 </div>
               ))}
               
-              {/* Add More Button */}
+              {/* Add More Button - Always visible when less than 5 images */}
               {imagePreviews.length < 5 && (
                 <CustomTooltip text="Add more images">
                   <label
-                    htmlFor="image-upload"
+                    htmlFor="image-upload-more"
                     onClick={handlePlusClick}
-                    className={`w-16 h-16 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-300 transition-all duration-200 ${
+                    className={`w-16 h-16 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center cursor-pointer hover:border-gray-300 transition-all duration-300 ${
                       isPlusClicked 
-                        ? 'bg-blue-500/20 border-blue-400 scale-105' 
+                        ? 'bg-blue-500/20 border-blue-400 scale-105 shadow-lg' 
                         : ''
                     }`}
                   >
@@ -1112,7 +1112,7 @@ const LouisAIPage: React.FC = () => {
                       isPlusClicked ? 'text-blue-400' : ''
                     }`} />
                     <input
-                      id="image-upload"
+                      id="image-upload-more"
                       type="file"
                       accept="image/*"
                       multiple
@@ -1146,13 +1146,13 @@ const LouisAIPage: React.FC = () => {
                   <label
                     htmlFor="image-upload"
                     onClick={handlePlusClick}
-                    className={`ml-3 sm:ml-4 p-1 transition-all duration-200 cursor-pointer ${
+                    className={`ml-3 sm:ml-4 p-1 transition-all duration-300 cursor-pointer rounded-full ${
                       selectedImages.length > 0
                         ? 'text-green-400 hover:text-green-300'
                         : 'text-white/60 hover:text-white/80'
                     } ${
                       isPlusClicked 
-                        ? 'bg-blue-500/30 scale-110 text-blue-300' 
+                        ? 'bg-blue-500/50 scale-110 text-blue-200 shadow-lg' 
                         : ''
                     }`}
                     title={selectedImages.length > 0 ? `${selectedImages.length} image(s) selected - Click to add more` : 'Upload images for analysis'}
