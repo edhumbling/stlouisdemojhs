@@ -12,7 +12,7 @@ class UnifiedAIService {
   }
 
   /**
-   * Generate response using Groq API with occasional website visiting
+   * Generate response using primary model with Groq Compound as fallback
    */
   async generateResponse(
     userMessage: string,
@@ -21,26 +21,21 @@ class UnifiedAIService {
     sources: string[] = []
   ): Promise<string> {
     try {
-      // Occasionally use Groq Compound with website visiting (20% chance)
-      const shouldUseWebsiteVisiting = Math.random() < 0.2;
-      
-      if (shouldUseWebsiteVisiting) {
-        console.log('🌐 Using Groq Compound with website visiting for enhanced response');
-        
-        // Add St. Louis website URL to the message for website visiting
-        const enhancedMessage = `${userMessage}\n\nPlease visit the St. Louis Demonstration JHS website at https://stlouisdemojhs.com to get the most current information about the school.`;
-        
-        try {
-          return await groqCompoundService.generateResponse(enhancedMessage, context, conversationHistory, sources);
-        } catch (compoundError) {
-          console.log('⚠️ Groq Compound failed, falling back to primary service');
-          // Fall back to primary service if Compound fails
-        }
-      }
-      
+      // Use primary OpenRouter service first
       return await openRouterService.generateResponse(userMessage, context, conversationHistory, sources);
     } catch (error) {
-        console.error('❌ Groq service failed:', error);
+        console.error('❌ Primary service failed, trying Groq Compound fallback:', error);
+      
+        // Try Groq Compound as fallback with website visiting
+        try {
+          console.log('🌐 Using Groq Compound as fallback with website visiting');
+          
+          // Add St. Louis website URL to the message for website visiting
+          const enhancedMessage = `${userMessage}\n\nPlease visit the St. Louis Demonstration JHS website at https://stlouisdemojhs.com to get the most current information about the school.`;
+          
+          return await groqCompoundService.generateResponse(enhancedMessage, context, conversationHistory, sources);
+        } catch (compoundError) {
+          console.error('❌ Groq Compound fallback also failed:', compoundError);
       
         // Handle different error types
         if (error instanceof Error) {
@@ -55,12 +50,13 @@ class UnifiedAIService {
           }
         } else {
           throw new Error('HIGH_TRAFFIC');
+          }
         }
     }
   }
 
   /**
-   * Generate response with thinking mode support and occasional website visiting
+   * Generate response with thinking mode support and Groq Compound as fallback
    */
   async generateResponseWithThinking(
     userMessage: string,
@@ -69,30 +65,25 @@ class UnifiedAIService {
     sources: string[] = []
   ): Promise<{ response: string; thinking: string }> {
     try {
-      // Occasionally use Groq Compound with website visiting (20% chance)
-      const shouldUseWebsiteVisiting = Math.random() < 0.2;
+      // Use primary OpenRouter service first
+      return await openRouterService.generateResponseWithThinking(userMessage, context, conversationHistory, sources);
+    } catch (error) {
+        console.error('❌ Primary service failed, trying Groq Compound fallback:', error);
       
-      if (shouldUseWebsiteVisiting) {
-        console.log('🌐 Using Groq Compound with website visiting for enhanced thinking response');
-        
-        // Add St. Louis website URL to the message for website visiting
-        const enhancedMessage = `${userMessage}\n\nPlease visit the St. Louis Demonstration JHS website at https://stlouisdemojhs.com to get the most current information about the school.`;
-        
+        // Try Groq Compound as fallback with website visiting
         try {
+          console.log('🌐 Using Groq Compound as fallback with website visiting');
+          
+          // Add St. Louis website URL to the message for website visiting
+          const enhancedMessage = `${userMessage}\n\nPlease visit the St. Louis Demonstration JHS website at https://stlouisdemojhs.com to get the most current information about the school.`;
+          
           const compoundResponse = await groqCompoundService.generateResponse(enhancedMessage, context, conversationHistory, sources);
           return {
             response: compoundResponse,
             thinking: "I visited the St. Louis Demonstration JHS website to get the most current information for this response."
           };
         } catch (compoundError) {
-          console.log('⚠️ Groq Compound failed, falling back to primary service');
-          // Fall back to primary service if Compound fails
-        }
-      }
-      
-      return await openRouterService.generateResponseWithThinking(userMessage, context, conversationHistory, sources);
-    } catch (error) {
-        console.error('❌ Groq service failed:', error);
+          console.error('❌ Groq Compound fallback also failed:', compoundError);
       
         // Handle different error types
         if (error instanceof Error) {
@@ -107,6 +98,7 @@ class UnifiedAIService {
           }
         } else {
           throw new Error('HIGH_TRAFFIC');
+          }
         }
     }
   }
