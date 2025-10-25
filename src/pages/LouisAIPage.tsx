@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic, Plus, MicOff, Globe, History, Copy, Volume2, VolumeX } from 'lucide-react';
+import { Send, Mic, Plus, MicOff, Globe, Info, Copy, Volume2, VolumeX } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -16,7 +16,6 @@ import whisperService from '../services/whisperService';
 import microphonePermissionService from '../services/microphonePermissionService';
 import groqCompoundService from '../services/groqCompoundService';
 import groqVisionService from '../services/groqVisionService';
-import historyService from '../services/historyService';
 import { ttsService } from '../services/ttsService';
 import { getUniqueSources } from '../utils/pageMapping';
 
@@ -48,8 +47,7 @@ const LouisAIPage: React.FC = () => {
   const [selectedImages, setSelectedImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const [isPlusClicked, setIsPlusClicked] = useState(false);
-  const [showHistory, setShowHistory] = useState(false);
-  const [conversationHistory, setConversationHistory] = useState<any[]>([]);
+  const [showInfo, setShowInfo] = useState(false);
   const [copiedMessage, setCopiedMessage] = useState<string | null>(null);
   const [playingAudio, setPlayingAudio] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -63,52 +61,20 @@ const LouisAIPage: React.FC = () => {
     }
   }, [messages]);
 
-  // Load conversation history on component mount
-  useEffect(() => {
-    const history = historyService.getHistory();
-    setConversationHistory(history);
-  }, []);
-
-  // Save conversation to history when assistant responds
-  const saveConversationToHistory = (messages: Message[]) => {
-    if (messages.length >= 2) {
-      const lastMessage = messages[messages.length - 1];
-      const secondLastMessage = messages[messages.length - 2];
-      
-      // Only save if the last two messages are user and assistant
-      if (lastMessage.role === 'assistant' && secondLastMessage.role === 'user') {
-        // Check if this is a new conversation (no existing conversation with these messages)
-        const existingHistory = historyService.getHistory();
-        const isNewConversation = !existingHistory.some(entry => 
-          entry.messages.length === messages.length && 
-          entry.messages.every((msg, index) => 
-            msg.id === messages[index].id && 
-            msg.content === messages[index].content
-          )
-        );
-        
-        if (isNewConversation) {
-        historyService.saveConversation(messages);
-        // Update conversation history state
-        const history = historyService.getHistory();
-        setConversationHistory(history);
-        }
-      }
-    }
-  };
 
 
-  // Handle escape key to close history panel
+
+  // Handle escape key to close info panel
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && showHistory) {
-        setShowHistory(false);
+      if (event.key === 'Escape' && showInfo) {
+        setShowInfo(false);
       }
     };
 
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
-  }, [showHistory]);
+  }, [showInfo]);
 
   // Auto-focus input on mount and initialize session
   useEffect(() => {
@@ -282,8 +248,6 @@ const LouisAIPage: React.FC = () => {
 
       setMessages(prev => {
         const updatedMessages = [...prev, assistantMessage];
-        // Save conversation to history
-        saveConversationToHistory(updatedMessages);
         return updatedMessages;
       });
       
@@ -473,8 +437,6 @@ const LouisAIPage: React.FC = () => {
 
         setMessages(prev => {
         const updatedMessages = [...prev, assistantMessage];
-        // Save conversation to history
-        saveConversationToHistory(updatedMessages);
         return updatedMessages;
       });
         
@@ -576,8 +538,6 @@ const LouisAIPage: React.FC = () => {
 
       setMessages(prev => {
         const updatedMessages = [...prev, assistantMessage];
-        // Save conversation to history
-        saveConversationToHistory(updatedMessages);
         return updatedMessages;
       });
       
@@ -780,158 +740,9 @@ const LouisAIPage: React.FC = () => {
       <div className="w-1 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></div>
       <div className="w-1 h-3 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '450ms' }}></div>
       <div className="w-1 h-4 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '600ms' }}></div>
-    </div>
-  );
-
-  // History Panel Component
-  const HistoryPanel = () => {
-    const [categorizedHistory, setCategorizedHistory] = useState(historyService.getCategorizedHistory());
-    const [editingTitle, setEditingTitle] = useState<string | null>(null);
-    const [newTitle, setNewTitle] = useState('');
-
-    // Refresh history when panel opens
-    useEffect(() => {
-      if (showHistory) {
-        setCategorizedHistory(historyService.getCategorizedHistory());
-      }
-    }, [showHistory]);
-
-    const refreshHistory = () => {
-      setCategorizedHistory(historyService.getCategorizedHistory());
-    };
-
-    const loadConversation = (conversationId: string) => {
-      const conversation = historyService.loadConversation(conversationId);
-      if (conversation) {
-        setMessages(conversation.messages);
-        setCurrentSessionId(conversationId);
-        setShowHistory(false);
-      }
-    };
-
-    const deleteConversation = (conversationId: string) => {
-      historyService.deleteConversation(conversationId);
-      refreshHistory();
-    };
-
-    const clearAllHistory = () => {
-      if (window.confirm('Are you sure you want to clear all conversation history?')) {
-        historyService.clearAllHistory();
-        refreshHistory();
-      }
-    };
-
-    const startEditingTitle = (conversationId: string, currentTitle: string) => {
-      setEditingTitle(conversationId);
-      setNewTitle(currentTitle);
-    };
-
-    const saveTitle = (conversationId: string) => {
-      historyService.updateConversationTitle(conversationId, newTitle);
-      setEditingTitle(null);
-      setNewTitle('');
-      refreshHistory();
-    };
-
-    const cancelEditing = () => {
-      setEditingTitle(null);
-      setNewTitle('');
-    };
-
-    const formatTime = (timestamp: Date) => {
-      return new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    };
-
-    const renderConversationList = (conversations: any[], title: string) => {
-      if (conversations.length === 0) return null;
-
-      return (
-        <div className="mb-6">
-          <h3 className="text-sm font-medium text-white/60 mb-3 px-4">{title}</h3>
-          <div className="space-y-1">
-            {conversations.map((conversation) => (
-              <div key={conversation.id} className="group">
-                <div className="px-4 py-3 hover:bg-white/5 transition-colors cursor-pointer"
-                     onClick={() => loadConversation(conversation.id)}>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1 min-w-0">
-                      {editingTitle === conversation.id ? (
-                        <input
-                          type="text"
-                          value={newTitle}
-                          onChange={(e) => setNewTitle(e.target.value)}
-                          onBlur={() => saveTitle(conversation.id)}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter') saveTitle(conversation.id);
-                            if (e.key === 'Escape') cancelEditing();
-                          }}
-                          className="w-full bg-transparent text-white text-sm border-b border-white/20 focus:border-white/40 outline-none"
-                          autoFocus
-                        />
-                      ) : (
-                        <p className="text-white text-sm truncate">{conversation.title}</p>
-                      )}
-                      <p className="text-white/40 text-xs mt-1">{formatTime(conversation.timestamp)}</p>
-                    </div>
-                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          startEditingTitle(conversation.id, conversation.title);
-                        }}
-                        className="p-1 text-white/40 hover:text-white/60 hover:bg-white/10 rounded"
-                        title="Edit title"
-                      >
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                        </svg>
-                      </button>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          deleteConversation(conversation.id);
-                        }}
-                        className="p-1 text-white/40 hover:text-red-400 hover:bg-red-500/10 rounded"
-                        title="Delete conversation"
-                      >
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       );
-    };
 
-    return (
-      <div className="p-4">
-        <div className="mb-4">
-          <button
-            onClick={clearAllHistory}
-            className="w-full px-3 py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-colors text-sm"
-          >
-            Clear All History
-          </button>
-        </div>
-        
-        {renderConversationList(categorizedHistory.today, 'Today')}
-        {renderConversationList(categorizedHistory.thisWeek, 'This Week')}
-        {renderConversationList(categorizedHistory.thisMonth, 'This Month')}
-        {renderConversationList(categorizedHistory.older, 'Older')}
-        
-        {Object.values(categorizedHistory).every(arr => arr.length === 0) && (
-          <div className="text-center py-8">
-            <p className="text-white/40 text-sm">No conversation history yet</p>
-          </div>
-        )}
-      </div>
-    );
-  };
 
   // Custom component to render LaTeX equations
   const renderLatex = (text: string) => {
@@ -1024,25 +835,25 @@ const LouisAIPage: React.FC = () => {
               <h1 className="text-lg sm:text-xl font-bold text-white">Louis AI</h1>
             </div>
 
-            {/* Right side - History Icon */}
+            {/* Right side - Info Icon */}
             <div className="w-20 sm:w-24 flex justify-end">
               <button
-                onClick={() => setShowHistory(!showHistory)}
+                onClick={() => setShowInfo(!showInfo)}
                 className="p-2 text-white/60 hover:text-white/80 hover:bg-white/10 rounded-full transition-all duration-200"
-                title="View conversation history"
+                title="About Louis AI"
               >
-                <History size={20} />
+                <Info size={20} />
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* History Panel */}
-      {showHistory && (
+      {/* Info Panel */}
+      {showInfo && (
         <div 
           className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
-          onClick={() => setShowHistory(false)}
+          onClick={() => setShowInfo(false)}
         >
           <div 
             className="fixed right-0 top-0 h-full w-80 bg-[#1a1a1a] border-l border-[#2a2a2a] shadow-2xl pt-16"
@@ -1050,9 +861,9 @@ const LouisAIPage: React.FC = () => {
           >
             <div className="p-4 border-b border-[#2a2a2a]">
               <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-white">Conversation History</h2>
+                <h2 className="text-lg font-semibold text-white">About Louis AI</h2>
                 <button
-                  onClick={() => setShowHistory(false)}
+                  onClick={() => setShowInfo(false)}
                   className="p-1 text-white/60 hover:text-white/80 hover:bg-white/10 rounded"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1062,8 +873,84 @@ const LouisAIPage: React.FC = () => {
               </div>
             </div>
             
-            <div className="h-full overflow-y-auto">
-              <HistoryPanel />
+            <div className="h-full overflow-y-auto p-6">
+              <div className="space-y-6">
+                {/* Louis AI Logo and Title */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img src="/applogo.png" alt="Louis AI" className="w-10 h-10 object-contain" />
+            </div>
+                  <h3 className="text-xl font-bold text-white mb-2">Louis AI</h3>
+                  <p className="text-white/70 text-sm">Your Intelligent School Assistant</p>
+                </div>
+
+                {/* About Section */}
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">About</h4>
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    Louis AI is an advanced conversational AI assistant designed specifically for St. Louis Demonstration JHS. 
+                    It provides intelligent responses about school information, academics, admissions, and educational guidance.
+                  </p>
+                </div>
+
+                {/* Features */}
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">Features</h4>
+                  <ul className="space-y-2 text-sm text-white/80">
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                      Voice input and text-to-speech
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                      Image analysis capabilities
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                      Internet search integration
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                      Educational content filtering
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                      Real-time conversation
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Developer Info */}
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">Developer</h4>
+                  <div className="bg-[#2a2a2a] rounded-lg p-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">EH</span>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">Emmanuel Humbling</p>
+                        <p className="text-white/60 text-sm">AI Developer</p>
+                      </div>
+                    </div>
+                    <p className="text-white/80 text-sm mb-3">
+                      Built by <strong>AIDEL</strong> - Artificial Intelligence Development Experimental Labs
+                    </p>
+                    <a 
+                      href="https://linkedin.com/in/edhumbling" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm"
+                    >
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                      Connect on LinkedIn
+                    </a>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
