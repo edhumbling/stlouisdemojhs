@@ -4,6 +4,7 @@
  */
 
 import openRouterService from './openRouterService';
+import groqCompoundService from './groqCompoundService';
 
 class UnifiedAIService {
   constructor() {
@@ -11,7 +12,7 @@ class UnifiedAIService {
   }
 
   /**
-   * Generate response using Groq API
+   * Generate response using Groq API with occasional website visiting
    */
   async generateResponse(
     userMessage: string,
@@ -20,6 +21,23 @@ class UnifiedAIService {
     sources: string[] = []
   ): Promise<string> {
     try {
+      // Occasionally use Groq Compound with website visiting (20% chance)
+      const shouldUseWebsiteVisiting = Math.random() < 0.2;
+      
+      if (shouldUseWebsiteVisiting) {
+        console.log('🌐 Using Groq Compound with website visiting for enhanced response');
+        
+        // Add St. Louis website URL to the message for website visiting
+        const enhancedMessage = `${userMessage}\n\nPlease visit the St. Louis Demonstration JHS website at https://stlouisdemojhs.com to get the most current information about the school.`;
+        
+        try {
+          return await groqCompoundService.generateResponse(enhancedMessage, context, conversationHistory, sources);
+        } catch (compoundError) {
+          console.log('⚠️ Groq Compound failed, falling back to primary service');
+          // Fall back to primary service if Compound fails
+        }
+      }
+      
       return await openRouterService.generateResponse(userMessage, context, conversationHistory, sources);
     } catch (error) {
         console.error('❌ Groq service failed:', error);
@@ -42,7 +60,7 @@ class UnifiedAIService {
   }
 
   /**
-   * Generate response with thinking mode support
+   * Generate response with thinking mode support and occasional website visiting
    */
   async generateResponseWithThinking(
     userMessage: string,
@@ -51,6 +69,27 @@ class UnifiedAIService {
     sources: string[] = []
   ): Promise<{ response: string; thinking: string }> {
     try {
+      // Occasionally use Groq Compound with website visiting (20% chance)
+      const shouldUseWebsiteVisiting = Math.random() < 0.2;
+      
+      if (shouldUseWebsiteVisiting) {
+        console.log('🌐 Using Groq Compound with website visiting for enhanced thinking response');
+        
+        // Add St. Louis website URL to the message for website visiting
+        const enhancedMessage = `${userMessage}\n\nPlease visit the St. Louis Demonstration JHS website at https://stlouisdemojhs.com to get the most current information about the school.`;
+        
+        try {
+          const compoundResponse = await groqCompoundService.generateResponse(enhancedMessage, context, conversationHistory, sources);
+          return {
+            response: compoundResponse,
+            thinking: "I visited the St. Louis Demonstration JHS website to get the most current information for this response."
+          };
+        } catch (compoundError) {
+          console.log('⚠️ Groq Compound failed, falling back to primary service');
+          // Fall back to primary service if Compound fails
+        }
+      }
+      
       return await openRouterService.generateResponseWithThinking(userMessage, context, conversationHistory, sources);
     } catch (error) {
         console.error('❌ Groq service failed:', error);
