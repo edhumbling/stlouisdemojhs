@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
 import { HeaderProvider } from './contexts/HeaderContext';
 import { LoadingProvider } from './contexts/LoadingContext';
+import LouisAIFloatingButton from './components/common/LouisAIFloatingButton';
 
 
 
@@ -310,6 +311,9 @@ const App: React.FC = () => {
         {/* Global catch-all route for direct access to non-existent routes */}
         <Route path="*" element={<NotFoundPage />} />
             </Routes>
+            
+            {/* Global Louis AI Floating Button */}
+            <LouisAIFloatingButton />
           </Router>
         </LoadingProvider>
       </HeaderProvider>
