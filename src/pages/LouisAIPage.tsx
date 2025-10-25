@@ -1505,12 +1505,12 @@ const LouisAIPage: React.FC = () => {
               } ${realtimeTranscript ? 'border-green-500/50 bg-green-900/10' : ''}`}>
                 
                 {/* Input Content */}
-                <div className="flex items-start w-full">
+                <div className="flex items-end w-full">
                   {/* Plus Icon - Image Upload */}
                   <label
                     htmlFor="image-upload"
                     onClick={handlePlusClick}
-                    className={`ml-3 sm:ml-4 p-1 transition-all duration-300 cursor-pointer rounded-full mt-1 ${
+                    className={`ml-3 sm:ml-4 p-1 transition-all duration-300 cursor-pointer rounded-full ${
                       selectedImages.length > 0
                         ? 'text-green-400 hover:text-green-300'
                         : 'text-white/60 hover:text-white/80'
@@ -1534,7 +1534,7 @@ const LouisAIPage: React.FC = () => {
                   </label>
 
                   {/* Input Field or Waveform */}
-                  <div className="flex-1 mx-2 sm:mx-3">
+                  <div className="flex-1 mx-2 sm:mx-3 flex items-end">
                     {isRecording || isListening ? (
                       /* Audio Waveform Visualization */
                       <div className="flex items-center h-6">
@@ -1549,7 +1549,7 @@ const LouisAIPage: React.FC = () => {
                 onKeyDown={handleKeyDown}
                         placeholder={realtimeTranscript ? realtimeTranscript : "Message..."}
                 disabled={isLoading}
-                        className="w-full bg-transparent text-white placeholder-white/40 focus:outline-none resize-none overflow-hidden min-h-[20px] max-h-[120px] leading-5"
+                        className="w-full bg-transparent text-white placeholder-white/40 focus:outline-none resize-none overflow-hidden min-h-[20px] max-h-[120px] leading-5 self-end"
                         style={{
                           height: 'auto',
                           minHeight: '20px',
@@ -1565,7 +1565,7 @@ const LouisAIPage: React.FC = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex items-start gap-1 mr-2 sm:mr-3 mt-1">
+                  <div className="flex items-center gap-1 mr-2 sm:mr-3">
                     {/* Internet Search Button */}
                     <button
                       type="button"
