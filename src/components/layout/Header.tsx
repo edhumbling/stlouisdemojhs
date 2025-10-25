@@ -322,7 +322,13 @@ const Header: React.FC = () => {
                           )}
                           <span
                             className={`relative z-10 ${isActive ? 'lg:text-yellow-300' : ''}`}
-                            style={isActive ? { textShadow: '0 0 8px #fde047, 0 0 16px #fde04799' } : {}}
+                            style={
+                              isActive 
+                                ? { textShadow: '0 0 8px #fde047, 0 0 16px #fde04799' } 
+                                : link.label === 'Louis AI' 
+                                  ? { textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 16px rgba(251, 146, 60, 0.6), 0 0 24px rgba(251, 146, 60, 0.4)' }
+                                  : {}
+                            }
                           >
                             {link.label}
                           </span>
@@ -345,6 +351,13 @@ const Header: React.FC = () => {
                             <span className="absolute -top-1 -right-1 flex h-3 w-3">
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                               <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-r from-green-600 to-blue-600 shadow-[0_0_10px_rgba(34,197,94,0.8),0_0_20px_rgba(34,197,94,0.6),0_0_30px_rgba(34,197,94,0.4)] animate-pulse"></span>
+                            </span>
+                          )}
+                          {/* Red dot glow indicator for Louis AI */}
+                          {link.label === 'Louis AI' && (
+                            <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
                             </span>
                           )}
                         </>
@@ -613,6 +626,11 @@ const Header: React.FC = () => {
                           : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
                         }
                       `}
+                      style={
+                        link.label === 'Louis AI' 
+                          ? { textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 16px rgba(251, 146, 60, 0.6), 0 0 24px rgba(251, 146, 60, 0.4)' }
+                          : {}
+                      }
                     >
                       {getIcon(link.label)}
                       {link.label}
@@ -635,6 +653,13 @@ const Header: React.FC = () => {
                         <span className="absolute top-0.5 right-0.5 flex h-1.5 w-1.5">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gradient-to-r from-green-600 to-blue-600 shadow-[0_0_6px_rgba(34,197,94,0.8)] animate-pulse"></span>
+                        </span>
+                      )}
+                      {/* Red dot glow indicator for Louis AI - Mobile */}
+                      {link.label === 'Louis AI' && (
+                        <span className="absolute top-0.5 right-0.5 flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-600 shadow-[0_0_6px_rgba(239,68,68,0.8)] animate-pulse"></span>
                         </span>
                       )}
                     </NavLink>
@@ -667,6 +692,47 @@ const Header: React.FC = () => {
                 >
                   <FileText size={14} className="mr-1.5" />
                   Apply Now
+                </NavLink>
+              </motion.div>
+
+              {/* Chat with Louis AI - Glowing green button */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2, delay: (navLinks.length + schoolDropdownItems.length + 1) * 0.05 }}
+              >
+                <NavLink
+                  to="/louis-ai"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    // Only scroll to top for new page visits, not when returning
+                    if (!sessionStorage.getItem(`scrollPosition_/louis-ai`)) {
+                      window.scrollTo({ top: 0, behavior: 'instant' });
+                    }
+                  }}
+                  className={({ isActive }) => `
+                    flex items-center justify-center py-2 md:py-3 px-2 md:px-3 font-medium rounded-lg text-xs md:text-sm relative transition-all duration-200
+                    ${isActive
+                      ? 'bg-green-500/20 text-orange-300 border border-green-400/30'
+                      : 'bg-green-500/10 text-orange-300 border border-green-400/30 hover:bg-green-500/20 hover:border-green-400/50 shadow-lg hover:shadow-green-500/25'
+                    }
+                    shadow-green-500/20 hover:shadow-green-500/30
+                  `}
+                  style={{ textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 16px rgba(251, 146, 60, 0.6), 0 0 24px rgba(251, 146, 60, 0.4)' }}
+                >
+                  <div className="relative">
+                    <img
+                      src="/ai bot.png"
+                      alt="Louis AI"
+                      className="w-4 h-4 mr-1.5 object-contain"
+                    />
+                    {/* Red dot glow indicator for Louis AI */}
+                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
+                    </span>
+                  </div>
+                  Chat with Louis AI
                 </NavLink>
               </motion.div>
 
