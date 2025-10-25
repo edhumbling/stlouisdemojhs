@@ -160,7 +160,7 @@ const Layout: React.FC = () => {
         />
       )}
 
-      <main className={`flex-grow ${shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
+      <main className="flex-grow pt-10 overflow-x-hidden">
         <Outlet />
       </main>
       {shouldShowFooter && <Footer />}
