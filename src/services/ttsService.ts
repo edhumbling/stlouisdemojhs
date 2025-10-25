@@ -19,6 +19,7 @@ export interface TTSResponse {
 class TTSService {
   private apiKey: string;
   private apiEndpoint: string;
+  private currentAudio: HTMLAudioElement | null = null;
 
   constructor() {
     this.apiKey = apiKey;
@@ -95,10 +96,15 @@ class TTSService {
   async playAudio(audioBuffer: ArrayBuffer): Promise<void> {
     try {
       console.log('🎵 Preparing audio for playback...');
+      
+      // Stop any currently playing audio
+      this.stopAudio();
+      
       const blob = new Blob([audioBuffer], { type: 'audio/wav' });
       const audioUrl = URL.createObjectURL(blob);
       
       const audio = new Audio(audioUrl);
+      this.currentAudio = audio;
       
       // Simple playback without complex event handling
       return new Promise((resolve, reject) => {
@@ -112,6 +118,7 @@ class TTSService {
             .catch((error) => {
               console.error('Audio play error:', error);
               URL.revokeObjectURL(audioUrl);
+              this.currentAudio = null;
               reject(error);
             });
         };
@@ -119,18 +126,39 @@ class TTSService {
         audio.onerror = (error) => {
           console.error('Audio loading error:', error);
           URL.revokeObjectURL(audioUrl);
+          this.currentAudio = null;
           reject(error);
         };
 
         audio.onended = () => {
           console.log('🎵 Audio playback completed');
           URL.revokeObjectURL(audioUrl);
+          this.currentAudio = null;
         };
       });
     } catch (error) {
       console.error('Audio playback error:', error);
       throw error;
     }
+  }
+
+  /**
+   * Stop currently playing audio
+   */
+  stopAudio(): void {
+    if (this.currentAudio) {
+      console.log('🎵 Stopping audio playback...');
+      this.currentAudio.pause();
+      this.currentAudio.currentTime = 0;
+      this.currentAudio = null;
+    }
+  }
+
+  /**
+   * Check if audio is currently playing
+   */
+  isPlaying(): boolean {
+    return this.currentAudio !== null && !this.currentAudio.paused;
   }
 }
 

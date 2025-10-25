@@ -37,6 +37,7 @@ const LouisAIPage: React.FC = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
   const [isListening, setIsListening] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(false);
@@ -76,10 +77,22 @@ const LouisAIPage: React.FC = () => {
       
       // Only save if the last two messages are user and assistant
       if (lastMessage.role === 'assistant' && secondLastMessage.role === 'user') {
+        // Check if this is a new conversation (no existing conversation with these messages)
+        const existingHistory = historyService.getHistory();
+        const isNewConversation = !existingHistory.some(entry => 
+          entry.messages.length === messages.length && 
+          entry.messages.every((msg, index) => 
+            msg.id === messages[index].id && 
+            msg.content === messages[index].content
+          )
+        );
+        
+        if (isNewConversation) {
         historyService.saveConversation(messages);
         // Update conversation history state
         const history = historyService.getHistory();
         setConversationHistory(history);
+        }
       }
     }
   };
@@ -97,9 +110,10 @@ const LouisAIPage: React.FC = () => {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [showHistory]);
 
-  // Auto-focus input on mount
+  // Auto-focus input on mount and initialize session
   useEffect(() => {
     inputRef.current?.focus();
+    setCurrentSessionId(`session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
   }, []);
 
   // Initialize speech services
@@ -264,9 +278,6 @@ const LouisAIPage: React.FC = () => {
         return updatedMessages;
       });
       
-      // Save to history
-      const updatedMessages = [...messages, userMessage, assistantMessage];
-      historyService.saveConversation(updatedMessages);
     } catch (err) {
       console.error('Error generating response:', err);
 
@@ -458,9 +469,6 @@ const LouisAIPage: React.FC = () => {
         return updatedMessages;
       });
         
-        // Save to history
-        const updatedMessages = [...messages, userMessage, assistantMessage];
-        historyService.saveConversation(updatedMessages);
         
         removeAllImages(); // Clear images after analysis
         return;
@@ -564,9 +572,6 @@ const LouisAIPage: React.FC = () => {
         return updatedMessages;
       });
       
-      // Save to history
-      const updatedMessages = [...messages, userMessage, assistantMessage];
-      historyService.saveConversation(updatedMessages);
     } catch (err) {
       console.error('Error generating response:', err);
 
@@ -621,6 +626,7 @@ const LouisAIPage: React.FC = () => {
     setInput('');
     setError(null);
     setShowThinking({});
+    setCurrentSessionId(`session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
     // Focus on input after clearing
     setTimeout(() => {
       inputRef.current?.focus();
@@ -710,6 +716,19 @@ const LouisAIPage: React.FC = () => {
   // Read aloud function
   const readAloud = async (text: string, messageId: string) => {
     try {
+      // If this message is already playing, stop it
+      if (playingAudio === messageId) {
+        ttsService.stopAudio();
+        setPlayingAudio(null);
+        return;
+      }
+      
+      // Stop any other playing audio
+      if (playingAudio) {
+        ttsService.stopAudio();
+        setPlayingAudio(null);
+      }
+      
       setPlayingAudio(messageId);
       const audioBuffer = await ttsService.textToSpeech(text);
       await ttsService.playAudio(audioBuffer);
@@ -744,6 +763,17 @@ const LouisAIPage: React.FC = () => {
     );
   };
 
+  // Audio wave animation component
+  const AudioWaveAnimation = () => (
+    <div className="flex items-center gap-1">
+      <div className="w-1 h-3 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }}></div>
+      <div className="w-1 h-4 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }}></div>
+      <div className="w-1 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></div>
+      <div className="w-1 h-3 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '450ms' }}></div>
+      <div className="w-1 h-4 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '600ms' }}></div>
+    </div>
+  );
+
   // History Panel Component
   const HistoryPanel = () => {
     const [categorizedHistory, setCategorizedHistory] = useState(historyService.getCategorizedHistory());
@@ -765,6 +795,7 @@ const LouisAIPage: React.FC = () => {
       const conversation = historyService.loadConversation(conversationId);
       if (conversation) {
         setMessages(conversation.messages);
+        setCurrentSessionId(conversationId);
         setShowHistory(false);
       }
     };
@@ -1184,15 +1215,21 @@ const LouisAIPage: React.FC = () => {
                             
                             <button
                               onClick={() => readAloud(message.content, message.id)}
-                              disabled={playingAudio === message.id}
                               className={`p-2 rounded-full transition-all duration-200 ${
                                 playingAudio === message.id
-                                  ? 'bg-blue-500/20 text-blue-400'
+                                  ? 'bg-blue-500/30 text-blue-300 shadow-lg shadow-blue-500/20'
                                   : 'text-white/40 hover:text-white/60 hover:bg-white/10'
                               } ${playingAudio === message.id ? 'animate-pulse' : ''}`}
-                              title="Read aloud"
+                              title={playingAudio === message.id ? 'Stop reading' : 'Read aloud'}
                             >
-                              {playingAudio === message.id ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                              {playingAudio === message.id ? (
+                                <div className="flex items-center gap-1">
+                                  <VolumeX size={16} />
+                                  <AudioWaveAnimation />
+                                </div>
+                              ) : (
+                                <Volume2 size={16} />
+                              )}
                             </button>
                           </div>
 
@@ -1311,19 +1348,21 @@ const LouisAIPage: React.FC = () => {
                               
                               <button
                                 onClick={() => readAloud(message.content, message.id)}
-                                disabled={playingAudio === message.id}
-                                className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors duration-200 ${
+                                className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-200 ${
                                   playingAudio === message.id
-                                    ? 'bg-blue-600 text-white animate-pulse'
+                                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30 animate-pulse'
                                     : 'bg-[#2a2a2a] text-white/70 hover:bg-[#3a3a3a] hover:text-white'
                                 }`}
                               >
                                 {playingAudio === message.id ? (
+                                  <div className="flex items-center gap-1">
                                   <VolumeX className="w-3 h-3" />
+                                    <AudioWaveAnimation />
+                                  </div>
                                 ) : (
                                   <Volume2 className="w-3 h-3" />
                                 )}
-                                {playingAudio === message.id ? 'Playing...' : 'Read Aloud'}
+                                {playingAudio === message.id ? 'Stop Reading' : 'Read Aloud'}
                               </button>
                             </div>
                           </div>
