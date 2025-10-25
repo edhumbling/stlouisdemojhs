@@ -49,6 +49,7 @@ const LouisAIPage: React.FC = () => {
   const [showHistory, setShowHistory] = useState(false);
   const [conversationHistory, setConversationHistory] = useState<any[]>([]);
   const [copiedMessage, setCopiedMessage] = useState<string | null>(null);
+  const [playingAudio] = useState<string | null>(null); // Dummy state to prevent build errors
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
