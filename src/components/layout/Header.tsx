@@ -292,6 +292,54 @@ const Header: React.FC = () => {
                   </AnimatePresence>
                 </li>
 
+                {/* Louis AI - Desktop Only */}
+                <li>
+                  <NavLink
+                    to="/louis-ai"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                    className={({ isActive }) => `
+                      relative font-medium text-sm transition-colors duration-300 hover:text-accent-500
+                      ${isHomePage
+                        ? (isActive ? 'text-yellow-300' : 'text-white')
+                        : (isActive ? 'text-accent-300' : 'text-white')
+                      }
+                      ${isActive ? 'nav-glass-glow lg:text-yellow-300' : ''}
+                    `}
+                    style={{ textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 16px rgba(251, 146, 60, 0.6), 0 0 24px rgba(251, 146, 60, 0.4)' }}
+                  >
+                    {({ isActive }) => (
+                      <>
+                        {isActive && (
+                          <motion.div
+                            className="absolute inset-0 rounded-lg bg-gradient-to-r from-yellow-400/20 to-orange-400/20"
+                            layoutId="activeNav"
+                            initial={false}
+                            whileHover={{
+                              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
+                              transition: { duration: 0.3 }
+                            }}
+                          />
+                        )}
+                        <span
+                          className={`relative z-10 ${isActive ? 'lg:text-yellow-300' : ''}`}
+                          style={
+                            isActive 
+                              ? { textShadow: '0 0 8px #fde047, 0 0 16px #fde04799' } 
+                              : { textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 16px rgba(251, 146, 60, 0.6), 0 0 24px rgba(251, 146, 60, 0.4)' }
+                          }
+                        >
+                          Louis AI
+                        </span>
+                        {/* Red dot glow indicator for Louis AI */}
+                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
+                        </span>
+                      </>
+                    )}
+                  </NavLink>
+                </li>
+
                 {/* Regular Navigation Links */}
                 {navLinks.map((link) => (
                   <li key={link.path}>
@@ -528,32 +576,6 @@ const Header: React.FC = () => {
           className="bg-black/85 backdrop-blur-lg border-t border-white/10 max-h-[80vh] overflow-y-auto"
         >
           <div className="p-3 md:p-6">
-            {/* Home Link - Mobile with Icon */}
-            <div className="mb-3 md:mb-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.2 }}
-              >
-                <NavLink
-                  to="/"
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                  }}
-                  className={({ isActive }) => `
-                    flex items-center justify-center py-2 md:py-3 px-3 md:px-4 font-medium rounded-lg text-sm md:text-base relative transition-all duration-200
-                    ${isActive
-                      ? 'bg-yellow-500/20 text-yellow-300 border border-yellow-400/30'
-                      : 'text-white/90 hover:bg-white/10 border border-transparent hover:border-white/20'
-                    }
-                  `}
-                >
-                  <Home size={16} className="mr-2 md:w-5 md:h-5" />
-                  Home
-                </NavLink>
-              </motion.div>
-            </div>
 
             {/* School Section - Mobile (No Arrows) - Smaller Containers */}
             <div className="mb-2 md:mb-4">
@@ -695,46 +717,48 @@ const Header: React.FC = () => {
                 </NavLink>
               </motion.div>
 
-              {/* Chat with Louis AI - Glowing green button */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.2, delay: (navLinks.length + schoolDropdownItems.length + 1) * 0.05 }}
-              >
-                <NavLink
-                  to="/louis-ai"
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    // Only scroll to top for new page visits, not when returning
-                    if (!sessionStorage.getItem(`scrollPosition_/louis-ai`)) {
-                      window.scrollTo({ top: 0, behavior: 'instant' });
-                    }
-                  }}
-                  className={({ isActive }) => `
-                    flex items-center justify-center py-2 md:py-3 px-2 md:px-3 font-medium rounded-lg text-xs md:text-sm relative transition-all duration-200
-                    ${isActive
-                      ? 'bg-green-500/20 text-orange-300 border border-green-400/30'
-                      : 'bg-green-500/10 text-orange-300 border border-green-400/30 hover:bg-green-500/20 hover:border-green-400/50 shadow-lg hover:shadow-green-500/25'
-                    }
-                    shadow-green-500/20 hover:shadow-green-500/30
-                  `}
-                  style={{ textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 16px rgba(251, 146, 60, 0.6), 0 0 24px rgba(251, 146, 60, 0.4)' }}
+              {/* Chat with Louis AI - Centered Glowing green button */}
+              <div className="flex justify-center">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.2, delay: (navLinks.length + schoolDropdownItems.length + 1) * 0.05 }}
                 >
-                  <div className="relative">
-                    <img
-                      src="/ai bot.png"
-                      alt="Louis AI"
-                      className="w-4 h-4 mr-1.5 object-contain"
-                    />
-                    {/* Red dot glow indicator for Louis AI */}
-                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
-                    </span>
-                  </div>
-                  Chat with Louis AI
-                </NavLink>
-              </motion.div>
+                  <NavLink
+                    to="/louis-ai"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      // Only scroll to top for new page visits, not when returning
+                      if (!sessionStorage.getItem(`scrollPosition_/louis-ai`)) {
+                        window.scrollTo({ top: 0, behavior: 'instant' });
+                      }
+                    }}
+                    className={({ isActive }) => `
+                      flex items-center justify-center py-2 md:py-3 px-2 md:px-3 font-medium rounded-lg text-xs md:text-sm relative transition-all duration-200
+                      ${isActive
+                        ? 'bg-green-500/20 text-orange-300 border border-green-400/30'
+                        : 'bg-green-500/10 text-orange-300 border border-green-400/30 hover:bg-green-500/20 hover:border-green-400/50 shadow-lg hover:shadow-green-500/25'
+                      }
+                      shadow-green-500/20 hover:shadow-green-500/30
+                    `}
+                    style={{ textShadow: '0 0 8px rgba(251, 146, 60, 0.8), 0 0 16px rgba(251, 146, 60, 0.6), 0 0 24px rgba(251, 146, 60, 0.4)' }}
+                  >
+                    <div className="relative">
+                      <img
+                        src="/ai bot.png"
+                        alt="Louis AI"
+                        className="w-4 h-4 mr-1.5 object-contain"
+                      />
+                      {/* Red dot glow indicator for Louis AI */}
+                      <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8),0_0_20px_rgba(239,68,68,0.6),0_0_30px_rgba(239,68,68,0.4)] animate-pulse"></span>
+                      </span>
+                    </div>
+                    Chat with Louis AI
+                  </NavLink>
+                </motion.div>
+              </div>
 
               {/* "Become a Sponsor" link removed from mobile nav */}
             </div>
