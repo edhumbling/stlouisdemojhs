@@ -51,7 +51,7 @@ class GroqVisionService {
     this.apiKey = import.meta.env.VITE_GROQ_API_KEY || 'your_groq_api_key_here';
     this.apiEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
     
-    console.log('👁️ Groq Vision Service initialized for image analysis');
+    console.log('👁️ Groq Vision Service initialized for image analysis (Maverick primary, Scout fallback)');
     console.log('🔑 API Key:', this.apiKey ? `${this.apiKey.substring(0, 20)}...` : 'Not set');
     console.log('🌐 Endpoint:', this.apiEndpoint);
   }
@@ -104,8 +104,17 @@ class GroqVisionService {
       }
     ];
 
+    // Try primary model first
+    const primaryModel = 'meta-llama/llama-4-maverick-17b-128e-instruct';
+    const fallbackModel = 'meta-llama/llama-4-scout-17b-16e-instruct';
+    
+    let response: Response;
+    let data: VisionResponse;
+    
+    try {
+      // Try primary model
     const requestBody: VisionRequest = {
-      model: 'meta-llama/llama-4-maverick-17b-128e-instruct',
+        model: primaryModel,
       messages,
       temperature: 1,
       max_completion_tokens: 1024,
@@ -114,7 +123,7 @@ class GroqVisionService {
       stop: null
     };
 
-    const response = await fetch(this.apiEndpoint, {
+      response = await fetch(this.apiEndpoint, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${this.apiKey}`,
@@ -124,8 +133,36 @@ class GroqVisionService {
     });
 
     if (!response.ok) {
+        throw new Error(`Primary model failed with status ${response.status}`);
+      }
+
+      data = await response.json();
+    } catch (primaryError) {
+      console.log('⚠️ Primary vision model failed, trying Scout fallback');
+      
+      // Try fallback model
+      const fallbackRequestBody: VisionRequest = {
+        model: fallbackModel,
+        messages,
+        temperature: 1,
+        max_completion_tokens: 1024,
+        top_p: 1,
+        stream: false,
+        stop: null
+      };
+
+      response = await fetch(this.apiEndpoint, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.apiKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(fallbackRequestBody)
+    });
+
+    if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      console.error('❌ Groq Vision Error:', response.status, errorData);
+        console.error('❌ Groq Vision Error (both models failed):', response.status, errorData);
       
       if (response.status === 429) {
         throw new Error('HIGH_TRAFFIC');
@@ -141,7 +178,8 @@ class GroqVisionService {
       }
     }
 
-    const data: VisionResponse = await response.json();
+      data = await response.json();
+    }
 
     if (!data.choices || data.choices.length === 0) {
       throw new Error('No response generated from Groq Vision');
@@ -276,11 +314,13 @@ Remember: You are representing St. Louis Demonstration JHS, so always be profess
   public getApiStatus(): { 
     hasApiKey: boolean; 
     model: string;
+    fallbackModel: string;
     endpoint: string;
   } {
     return {
       hasApiKey: !!this.apiKey,
       model: 'meta-llama/llama-4-maverick-17b-128e-instruct',
+      fallbackModel: 'meta-llama/llama-4-scout-17b-16e-instruct',
       endpoint: this.apiEndpoint
     };
   }
@@ -292,7 +332,7 @@ Remember: You are representing St. Louis Demonstration JHS, so always be profess
     try {
       // Create a simple test image (1x1 pixel)
       const testImageData = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==';
-      const testResponse = await this.analyzeImage(testImageData, 'What do you see in this image?');
+      const testResponse = await this.analyzeImages([testImageData], 'What do you see in this image?');
       console.log('✅ Groq Vision test successful:', testResponse.substring(0, 50) + '...');
       return true;
     } catch (error) {
