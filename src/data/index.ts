@@ -1,7 +1,6 @@
 import { NavLink, DropdownItem, Event, NewsItem, StaffMember, Program, GalleryImage, Testimonial } from '../types';
 
 export const navLinks: NavLink[] = [
-  { label: 'News', path: '/news' },
   { label: 'STEM/TVET', path: '/stem' },
   { label: 'Louis AI', path: '/louis-ai' },
   { label: 'Students Hub', path: '/learnhub' },
@@ -22,6 +21,12 @@ export const schoolDropdownItems: DropdownItem[] = [
     path: '/academics',
     description: 'Explore our comprehensive academic programs and curriculum',
     image: 'https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/IMG_6993.HEIC'
+  },
+  {
+    label: 'News',
+    path: '/news',
+    description: 'Stay updated with the latest news, events, and achievements from our school',
+    image: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   {
     label: 'Admissions',
