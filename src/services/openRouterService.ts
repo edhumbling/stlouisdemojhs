@@ -50,12 +50,18 @@ class OpenRouterService {
     this.apiKey = import.meta.env.VITE_GROQ_API_KEY || 'your_groq_api_key_here';
     this.apiEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
     this.primaryModel = 'qwen/qwen3-32b';
-    this.fallbackModels = ['moonshotai/kimi-k2-instruct-0905', 'openai/gpt-oss-120b', 'openai/gpt-oss-20b'];
+    this.fallbackModels = [
+      'moonshotai/kimi-k2-instruct-0905', 
+      'openai/gpt-oss-120b', 
+      'openai/gpt-oss-20b',
+      'meta-llama/llama-3.1-8b-instant',
+      'meta-llama/llama-3.3-70b-versatile'
+    ];
     
     if (!this.apiKey) {
       console.warn('⚠️ No Groq API key found. Please set VITE_GROQ_API_KEY environment variable.');
     } else {
-      console.log('🤖 Groq Service initialized with Qwen3-32B (primary) and Kimi K2, GPT-120B, GPT-20B (fallbacks)');
+      console.log('🤖 Groq Service initialized with Qwen3-32B (primary) and Kimi K2, GPT-120B, GPT-20B, Llama-3.1-8B, Llama-3.3-70B (fallbacks)');
       console.log('🔑 API Key:', this.apiKey.substring(0, 20) + '...');
       console.log('🌐 Endpoint:', this.apiEndpoint);
       console.log('🎯 Primary Model:', this.primaryModel);
@@ -78,7 +84,12 @@ class OpenRouterService {
       // Strip thinking content silently
       return this.stripThinkingContent(fullResponse);
     } catch (error) {
+      // Handle quick fallback errors silently for primary model
+      if (error instanceof Error && error.message === 'QUICK_FALLBACK') {
+        console.log('🔄 Quick fallback for primary model - trying fallbacks silently');
+      } else {
       console.warn('⚠️ Primary model (Kimi K2) failed, trying fallbacks:', error);
+      }
       
       // Try each fallback model in order
       for (let i = 0; i < this.fallbackModels.length; i++) {
@@ -89,6 +100,12 @@ class OpenRouterService {
           // Strip thinking content silently
           return this.stripThinkingContent(fullResponse);
       } catch (fallbackError) {
+          // Handle quick fallback errors silently
+          if (fallbackError instanceof Error && fallbackError.message === 'QUICK_FALLBACK') {
+            console.log(`🔄 Quick fallback for ${fallbackModel} - trying next model silently`);
+            continue;
+          }
+          
           console.warn(`⚠️ Fallback model ${fallbackModel} failed:`, fallbackError);
           if (i === this.fallbackModels.length - 1) {
             console.error('❌ All models failed');
@@ -195,11 +212,16 @@ class OpenRouterService {
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
+      
+      // Quick fallback for specific errors without showing error to user
+      if (response.status === 413 || response.status === 400 || response.status === 429) {
+        console.log(`🔄 Quick fallback triggered for status ${response.status} - switching to next model silently`);
+        throw new Error('QUICK_FALLBACK');
+      }
+      
       console.error('❌ Groq API Error:', response.status, errorData);
       
-      if (response.status === 429) {
-        throw new Error('HIGH_TRAFFIC');
-      } else if (response.status === 401) {
+      if (response.status === 401) {
         console.error('🔑 Groq API Key Invalid or Expired');
         console.error('🔍 Current API Key:', this.apiKey);
         console.error('📊 Error Details:', errorData);

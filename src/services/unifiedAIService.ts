@@ -8,7 +8,7 @@ import groqCompoundService from './groqCompoundService';
 
 class UnifiedAIService {
   constructor() {
-    console.log('🤖 Unified AI Service initialized with Groq (Qwen3-32B primary, Kimi K2, GPT-120B, GPT-20B fallbacks)');
+    console.log('🤖 Unified AI Service initialized with Groq (Qwen3-32B primary, Kimi K2, GPT-120B, GPT-20B, Llama-3.1-8B, Llama-3.3-70B fallbacks)');
   }
 
   /**
