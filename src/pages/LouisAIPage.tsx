@@ -129,32 +129,32 @@ const LouisAIPage: React.FC = () => {
     const dayOfWeek = new Date().getDay();
     const prompts = {
       0: [ // Sunday
-        "📋 Admission requirements",
-        "🏛️ School history"
+        "What are the admission requirements for St. Louis Demo JHS?",
+        "Can you tell me about the school's history and founding?"
       ],
       1: [ // Monday
-        "🎯 Extracurricular activities",
-        "💫 Mission & values"
+        "What extracurricular activities are available for students?",
+        "What are the school's mission and core values?"
       ],
       2: [ // Tuesday
-        "📚 Academic programs",
-        "🏢 School facilities"
+        "What academic programs and subjects are offered?",
+        "What facilities and resources does the school have?"
       ],
       3: [ // Wednesday
-        "🏆 School achievements",
-        "👥 Faculty & staff"
+        "What achievements and awards has the school received?",
+        "Who are the faculty and staff members?"
       ],
       4: [ // Thursday
-        "📜 School policies",
-        "🤝 Community involvement"
+        "What are the school's policies and rules?",
+        "How does the school engage with the community?"
       ],
       5: [ // Friday
-        "📅 Upcoming events",
-        "🤝 School partnerships"
+        "What upcoming events and activities are planned?",
+        "What partnerships does the school have with other organizations?"
       ],
       6: [ // Saturday
-        "🎭 School traditions",
-        "👨‍🎓 Alumni network"
+        "What traditions and customs does the school celebrate?",
+        "How can I connect with the alumni network?"
       ]
     };
     return prompts[dayOfWeek as keyof typeof prompts];
