@@ -120,55 +120,41 @@ const LouisAIPage: React.FC = () => {
 
   const getGreeting = () => {
     const hour = new Date().getHours();
-    if (hour < 12) return "Good morning";
-    if (hour < 18) return "Good afternoon";
-    return "Good evening";
+    if (hour < 12) return "Good morning! ☀️";
+    if (hour < 18) return "Good afternoon! 🌤️";
+    return "Good evening! 🌙";
   };
 
   const getDailyPrompts = () => {
     const dayOfWeek = new Date().getDay();
     const prompts = {
       0: [ // Sunday
-    "What are the admission requirements?",
-    "Tell me about St. Louis JHS's history.",
-    "What STEM programs are available?",
-        "How can I contact the school?"
+        "📋 Admission requirements",
+        "🏛️ School history"
       ],
       1: [ // Monday
-        "What extracurricular activities are available?",
-        "Tell me about the school's mission and values.",
-        "What are the school hours?",
-        "How can I apply for admission?"
+        "🎯 Extracurricular activities",
+        "💫 Mission & values"
       ],
       2: [ // Tuesday
-        "What academic programs are offered?",
-        "Tell me about the school's facilities.",
-        "What support services are available?",
-        "How can I schedule a visit?"
+        "📚 Academic programs",
+        "🏢 School facilities"
       ],
       3: [ // Wednesday
-        "What are the school's achievements?",
-        "Tell me about the faculty and staff.",
-        "What technology resources are available?",
-        "How can I get involved in school activities?"
+        "🏆 School achievements",
+        "👥 Faculty & staff"
       ],
       4: [ // Thursday
-        "What are the school's policies?",
-        "Tell me about the school's community involvement.",
-        "What resources are available for parents?",
-        "How can I stay updated with school news?"
+        "📜 School policies",
+        "🤝 Community involvement"
       ],
       5: [ // Friday
-        "What are the school's upcoming events?",
-        "Tell me about the school's partnerships.",
-        "What opportunities are available for students?",
-        "How can I support the school?"
+        "📅 Upcoming events",
+        "🤝 School partnerships"
       ],
       6: [ // Saturday
-        "What are the school's traditions?",
-        "Tell me about the school's alumni network.",
-        "What are the school's future plans?",
-        "How can I learn more about the school?"
+        "🎭 School traditions",
+        "👨‍🎓 Alumni network"
       ]
     };
     return prompts[dayOfWeek as keyof typeof prompts];
@@ -834,9 +820,7 @@ const LouisAIPage: React.FC = () => {
       />
 
       {/* Louis AI Header */}
-      <div className="sticky top-0 z-30 bg-[#1a1a1a] border-b border-[#2a2a2a] -mt-8 pt-8 relative">
-        {/* White border line at the very top as marking */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-white border-t border-white"></div>
+      <div className="sticky top-0 z-30 bg-[#1a1a1a] border-b border-[#2a2a2a] -mt-8 pt-8">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Left side - New Chat button (far left on desktop) */}
@@ -982,7 +966,7 @@ const LouisAIPage: React.FC = () => {
       )}
 
       {/* Messages Container */}
-      <div className={`h-[calc(100vh-140px)] overflow-y-auto pb-20 pt-16 ${imagePreviews.length > 0 ? 'pb-32' : ''}`}>
+      <div className={`h-[calc(100vh-140px)] overflow-y-auto pb-20 pt-11 ${imagePreviews.length > 0 ? 'pb-32' : ''}`}>
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {messages.length === 0 ? (
             /* Welcome Screen - Grok Style */
@@ -999,12 +983,12 @@ const LouisAIPage: React.FC = () => {
 
 
               {/* Suggested Prompts */}
-              <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-3 px-4">
+              <div className="grid grid-cols-2 gap-1.5 sm:flex sm:flex-wrap sm:justify-center sm:gap-3 px-2">
                 {suggestedPrompts.map((prompt, index) => (
                   <button
                     key={index}
                     onClick={() => handlePromptClick(prompt)}
-                    className="text-center px-3 py-2 bg-[#2a2a2a] hover:bg-[#333333] text-white/80 rounded-lg border border-[#3a3a3a] transition-colors duration-200 text-xs sm:text-sm sm:rounded-full sm:px-4 sm:py-1.5"
+                    className="text-center px-2 py-1.5 bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] hover:from-[#333333] hover:to-[#2a2a2a] text-white/90 rounded-xl border border-[#3a3a3a] hover:border-[#4a4a4a] transition-all duration-300 text-[10px] sm:text-xs sm:rounded-full sm:px-3 sm:py-1.5 shadow-sm hover:shadow-md hover:scale-105"
                   >
                     {prompt}
                   </button>
