@@ -1499,7 +1499,7 @@ const LouisAIPage: React.FC = () => {
             <div className="relative flex items-center">
               {/* ChatGPT-style Input Field */}
               <div className={`w-full transition-all duration-300 ease-in-out bg-[#2a2a2a] border border-[#3a3a3a] text-white focus-within:border-[#4a4a4a] disabled:opacity-50 ${
-                (realtimeTranscript || input).length > 50 
+                (realtimeTranscript || input).length > 40 
                   ? 'py-3 sm:py-4 rounded-2xl text-base sm:text-lg' 
                   : 'py-3 sm:py-4 rounded-full text-sm sm:text-[15px]'
               } ${realtimeTranscript ? 'border-green-500/50 bg-green-900/10' : ''}`}>
