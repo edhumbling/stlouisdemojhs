@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Mic, Plus, MicOff, Globe, Info, Copy, Volume2, VolumeX } from 'lucide-react';
+import { Send, Mic, Plus, MicOff, Globe, Info, Copy, Volume2, VolumeX, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -50,6 +50,7 @@ const LouisAIPage: React.FC = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [copiedMessage, setCopiedMessage] = useState<string | null>(null);
   const [playingAudio, setPlayingAudio] = useState<string | null>(null);
+  const [messageVotes, setMessageVotes] = useState<{ [messageId: string]: 'up' | 'down' | null }>({});
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -708,6 +709,20 @@ const LouisAIPage: React.FC = () => {
     }
   };
 
+  // Vote handling functions
+  const handleVote = (messageId: string, voteType: 'up' | 'down') => {
+    setMessageVotes(prev => {
+      const currentVote = prev[messageId];
+      if (currentVote === voteType) {
+        // If clicking the same vote, remove it
+        return { ...prev, [messageId]: null };
+      } else {
+        // Set new vote
+        return { ...prev, [messageId]: voteType };
+      }
+    });
+  };
+
 
   // Custom tooltip component
   const CustomTooltip = ({ children, text }: { children: React.ReactNode; text: string }) => {
@@ -1095,7 +1110,7 @@ const LouisAIPage: React.FC = () => {
                             </ReactMarkdown>
                           </div>
 
-                          {/* Copy and Read Aloud Icons */}
+                          {/* Response Action Icons */}
                           <div className="flex items-center gap-2 mt-3">
                             <button
                               onClick={() => copyToClipboard(message.content, message.id)}
@@ -1107,6 +1122,30 @@ const LouisAIPage: React.FC = () => {
                               title="Copy text"
                             >
                               <Copy size={16} />
+                            </button>
+                            
+                            <button
+                              onClick={() => handleVote(message.id, 'up')}
+                              className={`p-2 rounded-full transition-all duration-200 ${
+                                messageVotes[message.id] === 'up'
+                                  ? 'bg-green-500/20 text-green-400'
+                                  : 'text-white/40 hover:text-white/60 hover:bg-white/10'
+                              }`}
+                              title="Upvote"
+                            >
+                              <ThumbsUp size={16} />
+                            </button>
+                            
+                            <button
+                              onClick={() => handleVote(message.id, 'down')}
+                              className={`p-2 rounded-full transition-all duration-200 ${
+                                messageVotes[message.id] === 'down'
+                                  ? 'bg-red-500/20 text-red-400'
+                                  : 'text-white/40 hover:text-white/60 hover:bg-white/10'
+                              }`}
+                              title="Downvote"
+                            >
+                              <ThumbsDown size={16} />
                             </button>
                             
                             <button
@@ -1227,41 +1266,6 @@ const LouisAIPage: React.FC = () => {
                             </div>
                           )}
 
-                          {/* Copy and Read Aloud Buttons */}
-                          <div className="mt-3 pt-3 border-t border-[#2a2a2a]">
-                            <div className="flex items-center gap-2">
-                              <button
-                                onClick={() => copyToClipboard(message.content, message.id)}
-                                className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors duration-200 ${
-                                  copiedMessage === message.id
-                                    ? 'bg-green-600 text-white'
-                                    : 'bg-[#2a2a2a] text-white/70 hover:bg-[#3a3a3a] hover:text-white'
-                                }`}
-                              >
-                                <Copy className="w-3 h-3" />
-                                {copiedMessage === message.id ? 'Copied!' : 'Copy'}
-                              </button>
-                              
-                              <button
-                                onClick={() => readAloud(message.content, message.id)}
-                                className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-200 ${
-                                  playingAudio === message.id
-                                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30 animate-pulse'
-                                    : 'bg-[#2a2a2a] text-white/70 hover:bg-[#3a3a3a] hover:text-white'
-                                }`}
-                              >
-                                {playingAudio === message.id ? (
-                                  <div className="flex items-center gap-1">
-                                  <VolumeX className="w-3 h-3" />
-                                    <AudioWaveAnimation />
-                                  </div>
-                                ) : (
-                                  <Volume2 className="w-3 h-3" />
-                                )}
-                                {playingAudio === message.id ? 'Stop Reading' : 'Read Aloud'}
-                              </button>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     )}
