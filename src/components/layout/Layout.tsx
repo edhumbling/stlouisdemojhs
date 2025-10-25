@@ -113,7 +113,12 @@ const Layout: React.FC = () => {
     '/dream-hive-resources',
     '/ai'
   ];
+  
+  // Pages that should have pt-10 padding
+  const pt10Pages = ['/louis-ai'];
+  
   const shouldHaveTopPadding = !noTopPaddingPages.includes(location.pathname) && showHeader;
+  const shouldHavePt10 = pt10Pages.includes(location.pathname);
 
   // Determine breadcrumb theme based on page
   const darkBreadcrumbPages = [
@@ -160,7 +165,7 @@ const Layout: React.FC = () => {
         />
       )}
 
-      <main className="flex-grow pt-10 overflow-x-hidden">
+      <main className={`flex-grow ${shouldHavePt10 ? 'pt-10' : shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
         <Outlet />
       </main>
       {shouldShowFooter && <Footer />}
