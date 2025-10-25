@@ -864,100 +864,96 @@ const LouisAIPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Info Panel */}
+      {/* Info Modal */}
       {showInfo && (
         <div 
-          className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
           onClick={() => setShowInfo(false)}
         >
           <div 
-            className="fixed right-0 top-0 h-full w-80 bg-[#1a1a1a] border-l border-[#2a2a2a] shadow-2xl pt-16"
+            className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md max-h-[90vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-4 border-b border-[#2a2a2a]">
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-white">About Louis AI</h2>
+            <div className="p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-white">About Louis AI</h3>
                 <button
                   onClick={() => setShowInfo(false)}
-                  className="p-1 text-white/60 hover:text-white/80 hover:bg-white/10 rounded"
+                  className="text-white/40 hover:text-white/60 transition-colors p-1"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <X size={18} />
                 </button>
               </div>
-            </div>
-            
-            <div className="h-full overflow-y-auto p-4 sm:p-6">
-              <div className="space-y-4 sm:space-y-6">
+
+              <div className="space-y-4">
                 {/* Louis AI Logo and Title */}
                 <div className="text-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <img src="/applogo.png" alt="Louis AI" className="w-6 h-6 sm:w-10 sm:h-10 object-contain" />
+                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3">
+                    <img src="/applogo.png" alt="Louis AI" className="w-6 h-6 object-contain" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-1">Louis AI</h3>
+                  <p className="text-white/70 text-xs">Your Intelligent School Assistant</p>
             </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">Louis AI</h3>
-                  <p className="text-white/70 text-xs sm:text-sm">Your Intelligent School Assistant</p>
-                </div>
-
+            
                 {/* About Section */}
                 <div>
-                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">About</h4>
-                  <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
+                  <h4 className="text-sm font-semibold text-white mb-2">About</h4>
+                  <p className="text-white/80 text-xs leading-relaxed">
                     Louis AI is an advanced conversational AI assistant designed specifically for St. Louis Demonstration JHS. 
                     It provides intelligent responses about school information, academics, admissions, and educational guidance.
                   </p>
-                </div>
+            </div>
 
                 {/* Features */}
                 <div>
-                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Features</h4>
-                  <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-white/80">
+                  <h4 className="text-sm font-semibold text-white mb-2">Features</h4>
+                  <ul className="space-y-1.5 text-xs text-white/80">
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full"></span>
+                      <div className="w-1 h-1 bg-blue-400 rounded-full flex-shrink-0"></div>
                       Voice input and text-to-speech
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full"></span>
+                      <div className="w-1 h-1 bg-blue-400 rounded-full flex-shrink-0"></div>
                       Image analysis capabilities
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full"></span>
+                      <div className="w-1 h-1 bg-blue-400 rounded-full flex-shrink-0"></div>
                       Internet search integration
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full"></span>
+                      <div className="w-1 h-1 bg-blue-400 rounded-full flex-shrink-0"></div>
                       Educational content filtering
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full"></span>
+                      <div className="w-1 h-1 bg-blue-400 rounded-full flex-shrink-0"></div>
                       Real-time conversation
                     </li>
                   </ul>
                 </div>
 
                 {/* Developer Info */}
-                <div className="pb-4">
-                  <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Developer</h4>
-                  <div className="bg-black border border-[#2a2a2a] rounded-lg p-3 sm:p-4">
-                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-xs sm:text-sm">EH</span>
+                <div>
+                  <h4 className="text-sm font-semibold text-white mb-2">Developer</h4>
+                  <div className="bg-black border border-[#2a2a2a] rounded-lg p-3">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold text-xs">EH</span>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-white font-medium text-sm sm:text-base truncate">Emmanuel Humbling</p>
-                        <p className="text-white/60 text-xs sm:text-sm">AI Developer</p>
+                        <p className="text-white font-medium text-xs truncate">Emmanuel Humbling</p>
+                        <p className="text-white/60 text-xs">AI Developer</p>
                       </div>
                     </div>
-                    <p className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">
+                    <p className="text-white/80 text-xs mb-2 leading-relaxed">
                       Built by <strong>AIDEL</strong> - Artificial Intelligence Development Experimental Labs
                     </p>
                     <a 
                       href="https://linkedin.com/in/edhumbling" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 sm:gap-2 text-blue-400 hover:text-blue-300 transition-colors text-xs sm:text-sm"
+                      className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors text-xs"
                     >
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                       </svg>
                       <span className="truncate">Connect on LinkedIn</span>
