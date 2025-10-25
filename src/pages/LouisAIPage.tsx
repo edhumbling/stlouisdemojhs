@@ -53,7 +53,7 @@ const LouisAIPage: React.FC = () => {
   const [copiedMessage, setCopiedMessage] = useState<string | null>(null);
   const [playingAudio, setPlayingAudio] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
 
   // Auto-scroll to bottom only when user sends a message, not when AI responds
   useEffect(() => {
@@ -115,6 +115,15 @@ const LouisAIPage: React.FC = () => {
     inputRef.current?.focus();
     setCurrentSessionId(`session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
   }, []);
+
+  // Auto-resize textarea when input changes
+  useEffect(() => {
+    const textarea = inputRef.current as HTMLTextAreaElement;
+    if (textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+    }
+  }, [input, realtimeTranscript]);
 
   // Initialize speech services
   useEffect(() => {
@@ -605,8 +614,8 @@ const LouisAIPage: React.FC = () => {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSubmit(e);
     }
@@ -1491,17 +1500,17 @@ const LouisAIPage: React.FC = () => {
               {/* ChatGPT-style Input Field */}
               <div className={`w-full transition-all duration-300 ease-in-out bg-[#2a2a2a] border border-[#3a3a3a] text-white focus-within:border-[#4a4a4a] disabled:opacity-50 ${
                 (realtimeTranscript || input).length > 50 
-                  ? 'py-4 sm:py-6 rounded-2xl text-base sm:text-lg' 
+                  ? 'py-3 sm:py-4 rounded-2xl text-base sm:text-lg' 
                   : 'py-3 sm:py-4 rounded-full text-sm sm:text-[15px]'
               } ${realtimeTranscript ? 'border-green-500/50 bg-green-900/10' : ''}`}>
                 
                 {/* Input Content */}
-                <div className="flex items-center w-full">
+                <div className="flex items-start w-full">
                   {/* Plus Icon - Image Upload */}
                   <label
                     htmlFor="image-upload"
                     onClick={handlePlusClick}
-                    className={`ml-3 sm:ml-4 p-1 transition-all duration-300 cursor-pointer rounded-full ${
+                    className={`ml-3 sm:ml-4 p-1 transition-all duration-300 cursor-pointer rounded-full mt-1 ${
                       selectedImages.length > 0
                         ? 'text-green-400 hover:text-green-300'
                         : 'text-white/60 hover:text-white/80'
@@ -1532,22 +1541,31 @@ const LouisAIPage: React.FC = () => {
                         <AudioWaveform isActive={isRecording || isListening} />
                       </div>
                     ) : (
-                      /* Text Input */
-              <input
+                      /* Text Input with Auto-resize */
+                      <textarea
                 ref={inputRef}
-                type="text"
                         value={realtimeTranscript || input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                         placeholder={realtimeTranscript ? realtimeTranscript : "Message..."}
                 disabled={isLoading}
-                        className="w-full bg-transparent text-white placeholder-white/40 focus:outline-none"
+                        className="w-full bg-transparent text-white placeholder-white/40 focus:outline-none resize-none overflow-hidden min-h-[20px] max-h-[120px] leading-5"
+                        style={{
+                          height: 'auto',
+                          minHeight: '20px',
+                          maxHeight: '120px'
+                        }}
+                        onInput={(e) => {
+                          const target = e.target as HTMLTextAreaElement;
+                          target.style.height = 'auto';
+                          target.style.height = Math.min(target.scrollHeight, 120) + 'px';
+                        }}
                       />
                     )}
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex items-center gap-1 mr-2 sm:mr-3">
+                  <div className="flex items-start gap-1 mr-2 sm:mr-3 mt-1">
                     {/* Internet Search Button */}
                     <button
                       type="button"
