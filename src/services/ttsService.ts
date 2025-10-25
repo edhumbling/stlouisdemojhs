@@ -32,7 +32,7 @@ class TTSService {
   /**
    * Convert text to speech using Groq's playai-tts model
    */
-  async textToSpeech(text: string, voice: string = 'Fritz-PlayAI'): Promise<ArrayBuffer> {
+  async textToSpeech(text: string, voice: string = 'Aaliyah-PlayAI'): Promise<ArrayBuffer> {
     if (!this.apiKey) {
       throw new Error('Groq API key not found. Please set VITE_GROQ_API_KEY in your environment variables.');
     }
@@ -80,10 +80,12 @@ class TTSService {
    */
   getAvailableVoices(): string[] {
     return [
-      'Arista-PlayAI', 'Atlas-PlayAI', 'Basil-PlayAI', 'Briggs-PlayAI', 'Calum-PlayAI',
-      'Celeste-PlayAI', 'Cheyenne-PlayAI', 'Chip-PlayAI', 'Cillian-PlayAI', 'Deedee-PlayAI',
-      'Fritz-PlayAI', 'Gail-PlayAI', 'Indigo-PlayAI', 'Mamaw-PlayAI', 'Mason-PlayAI',
-      'Mikail-PlayAI', 'Mitch-PlayAI', 'Quinn-PlayAI', 'Thunder-PlayAI'
+      'Aaliyah-PlayAI', 'Adelaide-PlayAI', 'Angelo-PlayAI', 'Arista-PlayAI', 'Atlas-PlayAI',
+      'Basil-PlayAI', 'Briggs-PlayAI', 'Calum-PlayAI', 'Celeste-PlayAI', 'Cheyenne-PlayAI',
+      'Chip-PlayAI', 'Cillian-PlayAI', 'Deedee-PlayAI', 'Eleanor-PlayAI', 'Fritz-PlayAI',
+      'Gail-PlayAI', 'Indigo-PlayAI', 'Jennifer-PlayAI', 'Judy-PlayAI', 'Mamaw-PlayAI',
+      'Mason-PlayAI', 'Mikail-PlayAI', 'Mitch-PlayAI', 'Nia-PlayAI', 'Quinn-PlayAI',
+      'Ruby-PlayAI', 'Thunder-PlayAI'
     ];
   }
 
