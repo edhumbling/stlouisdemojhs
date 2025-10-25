@@ -834,7 +834,7 @@ const LouisAIPage: React.FC = () => {
       />
 
       {/* Louis AI Header */}
-      <div className="sticky top-0 z-30 bg-[#1a1a1a] border-b border-[#2a2a2a]">
+      <div className="sticky top-0 z-30 bg-[#1a1a1a] border-b border-[#2a2a2a] -mt-16 pt-16">
         <div className="max-w-3xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Left side - New Chat button (far left on desktop) */}
