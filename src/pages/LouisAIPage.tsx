@@ -839,6 +839,9 @@ const LouisAIPage: React.FC = () => {
           <div className="flex items-center justify-between">
             {/* Left side - New Chat button (far left on desktop) */}
             <div className="flex items-center">
+              <div className="relative">
+                {/* White border line above button as marking */}
+                <div className="absolute -top-5 left-0 right-0 h-0.5 bg-white border-t border-white"></div>
               <button
                 onClick={startNewConversation}
                 className="flex items-center gap-2 px-3 py-2 bg-[#2a2a2a] hover:bg-[#333333] text-white/80 rounded-lg border border-[#3a3a3a] transition-colors duration-200 text-sm"
@@ -847,6 +850,7 @@ const LouisAIPage: React.FC = () => {
                 <Plus size={16} />
                 <span className="hidden sm:inline">New Chat</span>
               </button>
+              </div>
             </div>
 
             {/* Center - Logo and Title */}
