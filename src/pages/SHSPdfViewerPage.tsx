@@ -100,9 +100,9 @@ const SHSPdfViewerPage: React.FC = () => {
           type="website"
           pageType="students-hub"
           useGalleryImages={true}
-        /
+        
         canonical="https://stlouisdemojhs.com/shs-database/pdf/not-found"
-      >
+        />
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-white mb-4">PDF Not Found</h1>

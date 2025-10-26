@@ -12,9 +12,9 @@ const PagesPage: React.FC = () => {
         type="website"
         pageType="about"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/pages"
-      >
+      
+      canonical="https://stlouisdemojhs.com/pages"
+      />
       {/* Page content will be added here */}
     </div>
   );

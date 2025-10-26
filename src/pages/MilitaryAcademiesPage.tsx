@@ -233,9 +233,9 @@ const MilitaryAcademiesPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/military-academies"
-      >
+      
+      canonical="https://stlouisdemojhs.com/military-academies"
+      />
 
       {/* Hide footer on this page */}
       <style>{`

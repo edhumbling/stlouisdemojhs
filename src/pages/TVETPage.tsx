@@ -308,9 +308,8 @@ const TVETPage: React.FC = () => {
         keywords="TVET education, vocational training, technical education, career development, skills training, vocational schools, professional development"
         canonicalUrl="https://stlouisdemojhs.com/tvet"
         ogImage="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-      /
-        canonical="https://stlouisdemojhs.com/tvetpage.tsx"
-      >
+        canonical="https://stlouisdemojhs.com/tvet"
+      />
       <div className="min-h-screen bg-black">
         <Header />
 

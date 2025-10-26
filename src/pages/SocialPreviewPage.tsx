@@ -165,9 +165,9 @@ const SocialPreviewPage: React.FC = () => {
         description="Preview how St. Louis Demonstration JHS website links will appear across different social media platforms including Facebook, Twitter, LinkedIn, and WhatsApp."
         pageType="about"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/socialpreviewpage.tsx"
-      >
+      
+      canonical="https://stlouisdemojhs.com/socialpreviewpage.tsx"
+      />
 
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-4">

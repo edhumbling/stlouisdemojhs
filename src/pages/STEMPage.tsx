@@ -1188,9 +1188,8 @@ const STEMPage: React.FC = () => {
           linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K",
           whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1McgTvUDyC0e41iyIWj2N9gloVHaOsx7JDtz8K"
         }}
-      /
         canonical="https://stlouisdemojhs.com/stem"
-      >
+      />
       <div className="min-h-screen bg-black">
       <Header />
       {/* Back Button and Title Section */}

@@ -2098,9 +2098,9 @@ const ScholarshipOpportunitiesPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/scholarship-opportunities"
-      >
+      
+      canonical="https://stlouisdemojhs.com/scholarship-opportunities"
+      />
 
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-2 sm:py-3">

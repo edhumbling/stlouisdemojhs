@@ -141,9 +141,9 @@ const MediaPage: React.FC = () => {
         type="website"
         pageType="media"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/media"
-      >
+      
+      canonical="https://stlouisdemojhs.com/media"
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

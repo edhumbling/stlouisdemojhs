@@ -480,9 +480,9 @@ const StaffResourcesPage: React.FC = () => {
         type="website"
         pageType="about"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/staff-resources"
-      >
+      
+      canonical="https://stlouisdemojhs.com/staff-resources"
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

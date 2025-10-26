@@ -58,9 +58,9 @@ const LoadingTestPage: React.FC = () => {
       <SEOHead 
         title="Loading Screen Test - St. Louis Demo JHS"
         description="Test page for the global loading screen functionality"
-      /
-        canonical="https://stlouisdemojhs.com/loadingtestpage.tsx"
-      >
+      
+      canonical="https://stlouisdemojhs.com/loadingtestpage.tsx"
+      />
       
       <div className="min-h-screen bg-black text-white p-8">
         <div className="max-w-4xl mx-auto">

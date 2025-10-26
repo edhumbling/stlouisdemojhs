@@ -3250,9 +3250,8 @@ const StudentsHubPage: React.FC = () => {
           linkedin: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881",
           whatsapp: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7296.HEIC?updatedAt=1748689144881"
         }}
-      /
         canonical="https://stlouisdemojhs.com/students-hub"
-      >
+      />
       <div className="min-h-screen bg-gradient-to-b from-silver-900 to-silver-800">
         {/* Header with Back Button - With proper spacing from header */}
         <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-2 sm:py-3 mt-4">

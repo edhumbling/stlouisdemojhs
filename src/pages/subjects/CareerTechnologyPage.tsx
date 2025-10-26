@@ -55,9 +55,9 @@ const CareerTechnologyPage: React.FC = () => {
         description="Excel in Career Technology at St. Louis Demonstration JHS. Our GES-aligned curriculum covers technical skills, vocational training, and career preparation for Basic 7-9 students."
         keywords="Career Technology, GES curriculum, technical skills, vocational training, career preparation, St. Louis Demonstration JHS, Ghana JHS Career Technology"
         canonicalUrl="https://stlouisdemojhs.com/subject/career-technology"
-      /
-        canonical="https://stlouisdemojhs.com/subjects/careertechnologypage.tsx"
-      >
+      
+      canonical="https://stlouisdemojhs.com/subjects/careertechnologypage.tsx"
+      />
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}

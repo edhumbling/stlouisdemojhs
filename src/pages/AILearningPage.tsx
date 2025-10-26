@@ -289,9 +289,10 @@ const AILearningPage: React.FC = () => {
           linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO",
           whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO"
         }}
-      /
-        canonical="https://stlouisdemojhs.com/ai"
-      >
+
+      canonical="https://stlouisdemojhs.com/ai"
+
+      />
 
       {/* Back Bar - With proper spacing from header */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4 mt-4">

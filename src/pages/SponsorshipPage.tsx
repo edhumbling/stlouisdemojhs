@@ -104,9 +104,9 @@ const SponsorshipPage: React.FC = () => {
         type="website"
         pageType="about"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/sponsorship"
-      >
+      
+      canonical="https://stlouisdemojhs.com/sponsorship"
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

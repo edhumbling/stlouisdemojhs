@@ -63,9 +63,9 @@ const TikTokSubmissionPage: React.FC = () => {
         type="website"
         pageType="media"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/tiktok-submit"
-      >
+      
+      canonical="https://stlouisdemojhs.com/tiktok-submit"
+      />
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-pink-900 via-purple-800 to-pink-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

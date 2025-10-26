@@ -4866,9 +4866,9 @@ const MoneySmartLinksPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/money-smart-links"
-      >
+      
+      canonical="https://stlouisdemojhs.com/money-smart-links"
+      />
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-2 sm:py-3">
         <div className="container mx-auto px-4">

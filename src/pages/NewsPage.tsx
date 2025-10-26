@@ -105,9 +105,8 @@ const NewsPage: React.FC = () => {
           linkedin: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7318.HEIC?updatedAt=1748688793115",
           whatsapp: "https://ik.imagekit.io/humbling/election%20st%20louis/IMG_7318.HEIC?updatedAt=1748688793115"
         }}
-      /
         canonical="https://stlouisdemojhs.com/news"
-      >
+      />
       {/* Back Button and Title Section - Below Header */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

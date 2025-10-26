@@ -384,9 +384,8 @@ const DonationPage: React.FC = () => {
           linkedin: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png",
           whatsapp: "https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/hhh.png"
         }}
-      /
         canonical="https://stlouisdemojhs.com/donate"
-      >
+      />
       {/* Silver Shimmer Loading Screen */}
       {isLoading && (
         <div className="fixed inset-0 bg-gradient-to-br from-red-900 via-red-800 to-red-900 z-50 flex items-center justify-center">

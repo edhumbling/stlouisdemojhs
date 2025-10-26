@@ -237,9 +237,10 @@ const ArtCreativeSchoolsPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/art-creative-schools"
-      >
+
+      canonical="https://stlouisdemojhs.com/art-creative-schools"
+
+      />
 
       {/* Hide footer on this page */}
       <style>{`

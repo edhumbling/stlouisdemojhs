@@ -57,9 +57,9 @@ const EnglishLanguagePage: React.FC = () => {
         description="Master English Language skills at St. Louis Demonstration JHS. Our GES-aligned curriculum covers reading, writing, speaking, listening, grammar, literature, and communication skills for Basic 7-9 students."
         keywords="English Language, GES curriculum, reading writing speaking listening, grammar literature, communication skills, St. Louis Demonstration JHS, Ghana JHS English"
         canonicalUrl="https://stlouisdemojhs.com/subject/english-language"
-      /
-        canonical="https://stlouisdemojhs.com/subjects/englishlanguagepage.tsx"
-      >
+      
+      canonical="https://stlouisdemojhs.com/subjects/englishlanguagepage.tsx"
+      />
 
       <div className="min-h-screen bg-black text-white">
         {/* Compact Mobile Header */}

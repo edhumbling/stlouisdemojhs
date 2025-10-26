@@ -270,9 +270,9 @@ const JHSTextbooksPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/jhs-textbooks"
-      >
+      
+      canonical="https://stlouisdemojhs.com/jhs-textbooks"
+      />
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 py-2 sm:py-3">
         <div className="container mx-auto px-4">

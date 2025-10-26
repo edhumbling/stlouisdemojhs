@@ -38,9 +38,9 @@ const DonateMonthly500Page: React.FC = () => {
         type="website"
         pageType="donation"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/donate-monthly-500"
-      >
+      
+      canonical="https://stlouisdemojhs.com/donate-monthly-500"
+      />
 
       <div className="min-h-screen bg-black">
 

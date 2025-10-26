@@ -651,9 +651,9 @@ const FinancialLibraryPage: React.FC = () => {
         type="article"
         pageType="stem"
         useGalleryImages={false}
-      /
-        canonical="https://stlouisdemojhs.com/financial-library"
-      >
+      
+      canonical="https://stlouisdemojhs.com/financial-library"
+      />
 
       <Header />
 

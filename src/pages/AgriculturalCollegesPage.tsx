@@ -190,9 +190,10 @@ const AgriculturalCollegesPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/agricultural-colleges"
-      >
+
+      canonical="https://stlouisdemojhs.com/agricultural-colleges"
+
+      />
 
       {/* Hide footer on this page */}
       <style>{`

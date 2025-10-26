@@ -268,28 +268,13 @@ const DonateOneDollarPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50">
       <SEOHead
         title="Choose Your Donation Amount | Support St. Louis Demonstration JHS"
-        description="Make a custom donation to support St. Louis Demonstration JHS. Choose any amount from <SEOHead
-        title="Choose Your Donation Amount | Support St. Louis Demonstration JHS"
         description="Make a custom donation to support St. Louis Demonstration JHS. Choose any amount from $1 to $1000 to help us provide quality education for our students."
         keywords="donate, custom donation, support school, Ghana education, St. Louis Demo JHS, school funding"
         url="/donate-one-dollar"
         type="website"
         pageType="donation"
-      /> to <SEOHead
-        title="Choose Your Donation Amount | Support St. Louis Demonstration JHS"
-        description="Make a custom donation to support St. Louis Demonstration JHS. Choose any amount from $1 to $1000 to help us provide quality education for our students."
-        keywords="donate, custom donation, support school, Ghana education, St. Louis Demo JHS, school funding"
-        url="/donate-one-dollar"
-        type="website"
-        pageType="donation"
-      />000 to help us provide quality education for our students."
-        keywords="donate, custom donation, support school, Ghana education, St. Louis Demo JHS, school funding"
-        url="/donate-one-dollar"
-        type="website"
-        pageType="donation"
-      /
         canonical="https://stlouisdemojhs.com/donate-one-dollar"
-      >
+      />
 
       {/* Enhanced Slider Styles */}
       <style>{`

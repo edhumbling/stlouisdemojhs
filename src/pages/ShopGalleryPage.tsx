@@ -150,9 +150,9 @@ const ShopGalleryPage: React.FC = () => {
         type="website"
         pageType="shop"
         useGalleryImages={false}
-      /
-        canonical="https://stlouisdemojhs.com/shop"
-      >
+      
+      canonical="https://stlouisdemojhs.com/shop"
+      />
 
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-indigo-900 via-purple-800 to-indigo-900 py-3 sm:py-4">

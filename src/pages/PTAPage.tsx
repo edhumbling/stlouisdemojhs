@@ -157,9 +157,9 @@ const PTAPage: React.FC = () => {
         url="/pta"
         type="website"
         pageType="pta"
-      /
-        canonical="https://stlouisdemojhs.com/pta"
-      >
+      
+      canonical="https://stlouisdemojhs.com/pta"
+      />
 
       {/* Back Bar - Donate Page Style */}
       <div className="bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-2 sm:py-3">

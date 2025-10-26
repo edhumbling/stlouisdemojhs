@@ -55,9 +55,9 @@ const FrenchPage: React.FC = () => {
         description="Excel in French Language at St. Louis Demonstration JHS. Our GES-aligned curriculum covers speaking, listening, reading, writing, and French culture for Basic 7-9 students."
         keywords="French Language, GES curriculum, foreign language, French culture, communication skills, St. Louis Demonstration JHS, Ghana JHS French"
         canonicalUrl="https://stlouisdemojhs.com/subject/french"
-      /
-        canonical="https://stlouisdemojhs.com/subjects/frenchpage.tsx"
-      >
+      
+      canonical="https://stlouisdemojhs.com/subjects/frenchpage.tsx"
+      />
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}

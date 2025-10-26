@@ -55,9 +55,9 @@ const GhanaianLanguagePage: React.FC = () => {
         description="Excel in Ghanaian Language at St. Louis Demonstration JHS. Our GES-aligned Asante Twi curriculum covers language skills, cultural heritage, and traditional values for Basic 7-9 students."
         keywords="Ghanaian Language, Asante Twi, GES curriculum, cultural heritage, traditional values, language skills, St. Louis Demonstration JHS, Ghana JHS Twi"
         canonicalUrl="https://stlouisdemojhs.com/subject/ghanaian-language"
-      /
-        canonical="https://stlouisdemojhs.com/subjects/ghanaianlanguagepage.tsx"
-      >
+      
+      canonical="https://stlouisdemojhs.com/subjects/ghanaianlanguagepage.tsx"
+      />
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}

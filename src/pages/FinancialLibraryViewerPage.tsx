@@ -466,9 +466,9 @@ const FinancialLibraryViewerPage: React.FC = () => {
           linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO",
           whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO"
         }}
-      /
-        canonical="https://stlouisdemojhs.com/financiallibraryviewerpage.tsx"
-      >
+      
+      canonical="https://stlouisdemojhs.com/financiallibraryviewerpage.tsx"
+      />
 
       {/* Header Bar */}
       <div className="bg-gradient-to-r from-yellow-900 via-yellow-800 to-yellow-900 py-3 sm:py-4 flex-shrink-0 border-b border-yellow-700/30">

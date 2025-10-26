@@ -224,9 +224,9 @@ const OnlineUniversitiesPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      /
-        canonical="https://stlouisdemojhs.com/online-universities"
-      >
+      
+      canonical="https://stlouisdemojhs.com/online-universities"
+      />
 
       {/* Hide footer on this page */}
       <style>{`

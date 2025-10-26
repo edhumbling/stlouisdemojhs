@@ -55,9 +55,9 @@ const ComputingICTPage: React.FC = () => {
         description="Excel in Computing (ICT) at St. Louis Demonstration JHS. Our GES-aligned curriculum covers digital literacy, programming, networks, and technology skills for Basic 7-9 students."
         keywords="Computing ICT, GES curriculum, digital literacy, programming, computer science, technology skills, St. Louis Demonstration JHS, Ghana JHS Computing"
         canonicalUrl="https://stlouisdemojhs.com/subject/computing-ict"
-      /
-        canonical="https://stlouisdemojhs.com/subjects/computingictpage.tsx"
-      >
+      
+      canonical="https://stlouisdemojhs.com/subjects/computingictpage.tsx"
+      />
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}

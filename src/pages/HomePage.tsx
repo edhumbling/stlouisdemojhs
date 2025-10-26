@@ -256,9 +256,8 @@ const HomePage: React.FC = () => {
         pageType="home"
         useGalleryImages={true}
         image="https://ik.imagekit.io/edhumbling/500961895_1280873750548377_8614276957752557317_n.jpg?updatedAt=1750578385825"
-      /
         canonical="https://stlouisdemojhs.com/"
-      >
+      />
 
       {/* Celebration Modal for June 24th, 2025 */}
       <CelebrationModal isOpen={showCelebration} onClose={closeCelebration} />

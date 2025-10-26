@@ -191,9 +191,10 @@ const ApplyNowPage: React.FC = () => {
           linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
           whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs"
         }}
-      /
-        canonical="https://stlouisdemojhs.com/apply-now"
-      >
+
+      canonical="https://stlouisdemojhs.com/apply-now"
+
+      />
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

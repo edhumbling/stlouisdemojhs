@@ -25,9 +25,8 @@ const FacultyPage: React.FC = () => {
         type="website"
         pageType="faculty"
         useGalleryImages={true}
-      /
         canonical="https://stlouisdemojhs.com/faculty"
-      >
+      />
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

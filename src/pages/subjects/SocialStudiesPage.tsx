@@ -55,9 +55,9 @@ const SocialStudiesPage: React.FC = () => {
         description="Excel in Social Studies at St. Louis Demonstration JHS. Our GES-aligned curriculum covers history, geography, civics, economics, and cultural studies for Basic 7-9 students."
         keywords="Social Studies, GES curriculum, history geography civics, economics culture, Ghana studies, St. Louis Demonstration JHS, Ghana JHS Social Studies"
         canonicalUrl="https://stlouisdemojhs.com/subject/social-studies"
-      /
-        canonical="https://stlouisdemojhs.com/subjects/socialstudiespage.tsx"
-      >
+      
+      canonical="https://stlouisdemojhs.com/subjects/socialstudiespage.tsx"
+      />
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}
