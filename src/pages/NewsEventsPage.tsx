@@ -11,7 +11,9 @@ const NewsEventsPage = () => (
       type="website"
       pageType="news"
       useGalleryImages={true}
-    />
+    /
+        canonical="https://stlouisdemojhs.com/news-events"
+      >
     <div className="bg-purple-700 -mt-16 z-10 relative py-6 px-4">
       <button className="bg-purple-800 text-white rounded-lg px-4 py-2 mr-4">← Back</button>
       <span className="text-white text-2xl font-bold align-middle">News/Updates</span>

@@ -55,7 +55,9 @@ const IntegratedSciencePage: React.FC = () => {
         description="Excel in Integrated Science at St. Louis Demonstration JHS. Our GES-aligned curriculum covers physics, chemistry, biology, earth science, and scientific method for Basic 7-9 students."
         keywords="Integrated Science, GES curriculum, physics chemistry biology, earth science, scientific method, St. Louis Demonstration JHS, Ghana JHS Science"
         canonicalUrl="https://stlouisdemojhs.com/subject/integrated-science"
-      />
+      /
+        canonical="https://stlouisdemojhs.com/subjects/integratedsciencepage.tsx"
+      >
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}

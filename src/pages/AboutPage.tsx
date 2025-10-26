@@ -114,7 +114,9 @@ const AboutPage: React.FC = () => {
           linkedin: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg",
           whatsapp: "https://ik.imagekit.io/edhumbling/stldjhsgallery/512748893_1304677524834666_814373992323042019_n.jpg"
         }}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/about"
+      >
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

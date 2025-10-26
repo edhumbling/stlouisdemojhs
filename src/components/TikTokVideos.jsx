@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './TikTokVideos.css';
+import ErrorHandler from '../utils/errorHandler';
 
 const TikTokVideos = () => {
   const [videos, setVideos] = useState([]);

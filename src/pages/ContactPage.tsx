@@ -164,6 +164,7 @@ St. Louis Demonstration J.H.S Website System
         keywords="contact St. Louis Demonstration JHS, school contact information, admission inquiry, visit campus, phone email address, Kumasi Ghana school"
         image="https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MpSjSHqcrmoUMKTuGeYChinNlws9Hd3XQRWBO"
         url="/contact"
+        canonical="https://stlouisdemojhs.com/contact"
         type="website"
         pageType="contact"
         useGalleryImages={false}

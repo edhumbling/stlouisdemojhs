@@ -74,7 +74,9 @@ const TermsOfServicePage: React.FC = () => {
         type="website"
         pageType="legal"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/terms-of-service"
+      >
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 py-4 pt-20 border-b border-purple-700/30">
         <div className="container mx-auto px-4">

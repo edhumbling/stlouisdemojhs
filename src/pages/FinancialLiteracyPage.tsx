@@ -301,7 +301,9 @@ const FinancialLiteracyPage: React.FC = () => {
         type="article"
         pageType="stem"
         useGalleryImages={false}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/financialliteracy"
+      >
 
       <Header />
 

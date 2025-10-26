@@ -5,6 +5,8 @@ import Footer from './Footer';
 import ScrollButton from '../common/ScrollButton';
 import UnifiedBreadcrumb from '../common/Breadcrumb';
 import ScrollProgressIndicator from '../common/ScrollProgressIndicator';
+import ErrorBoundary from '../common/ErrorBoundary';
+import PageErrorBoundary from '../common/PageErrorBoundary';
 import { useHeader } from '../../contexts/HeaderContext';
 import { useEnhancedNavigation } from '../../hooks/useEnhancedNavigation';
 import { shouldShowScrollIndicator, getScrollIndicatorColor } from '../../config/readingPages';
@@ -180,7 +182,24 @@ const Layout: React.FC = () => {
       )}
 
       <main className={`flex-grow ${shouldHavePt10 ? 'pt-10' : shouldHavePt16 ? 'pt-16' : shouldHaveTopPadding ? 'pt-16' : 'pt-0'} overflow-x-hidden`}>
-        <Outlet />
+        <ErrorBoundary
+          onError={(error, errorInfo) => {
+            console.error('Layout Error Boundary caught an error:', error, errorInfo);
+            // Log to external service in production
+            if (process.env.NODE_ENV === 'production') {
+              // Example: Sentry.captureException(error, { extra: errorInfo });
+            }
+          }}
+        >
+          <PageErrorBoundary
+            pageName={location.pathname}
+            onError={(error, errorInfo) => {
+              console.error(`Page error on ${location.pathname}:`, error, errorInfo);
+            }}
+          >
+            <Outlet />
+          </PageErrorBoundary>
+        </ErrorBoundary>
       </main>
       {shouldShowFooter && <Footer />}
 

@@ -55,7 +55,9 @@ const ReligiousMoralEducationPage: React.FC = () => {
         description="Excel in Religious & Moral Education at St. Louis Demonstration JHS. Our GES-aligned curriculum covers ethics, values, world religions, and character development for Basic 7-9 students."
         keywords="Religious Moral Education, RME, GES curriculum, ethics values character, world religions, moral development, St. Louis Demonstration JHS, Ghana JHS RME"
         canonicalUrl="https://stlouisdemojhs.com/subject/religious-moral-education"
-      />
+      /
+        canonical="https://stlouisdemojhs.com/subject/religious-moral-education"
+      >
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}

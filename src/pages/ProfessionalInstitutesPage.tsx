@@ -217,6 +217,7 @@ const ProfessionalInstitutesPage: React.FC = () => {
         description="Comprehensive directory of professional institutes and certification bodies in Ghana. Find accounting, banking, marketing, HR, and other professional qualifications."
         keywords="professional institutes Ghana, ICAG, Ghana Institute of Bankers, professional certification, accounting qualification, banking diploma"
         url="/professional-institutes"
+        canonical="https://stlouisdemojhs.com/professional-institutes"
         type="website"
         pageType="students-hub"
         useGalleryImages={true}

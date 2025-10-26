@@ -4,6 +4,7 @@ import { ArrowLeft, Play, Heart, ExternalLink } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import SEOHead from '../components/seo/SEOHead';
 import ShimmerLoader from '../components/common/ShimmerLoader';
+import ErrorHandler from '../utils/errorHandler';
 
 const TikTokPage: React.FC = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const TikTokPage: React.FC = () => {
     const fetchVideos = async () => {
       try {
         // This will be populated by our Python script
-        const response = await fetch('/tiktok-videos.json');
+        const response = await ErrorHandler.safeFetch('/tiktok-videos.json');
         if (response.ok) {
           const data = await response.json();
           setVideos(data.videos || []);
@@ -89,7 +90,9 @@ const TikTokPage: React.FC = () => {
         type="website"
         pageType="media"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/tiktok"
+      >
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-pink-900 via-purple-800 to-pink-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

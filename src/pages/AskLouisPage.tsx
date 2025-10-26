@@ -34,7 +34,9 @@ const AskLouisPage: React.FC = () => {
         type="website"
         pageType="ai-search"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/ask-louis"
+      >
       <div className="w-full bg-gradient-to-r from-green-400 via-green-300 to-yellow-300 shadow-md z-20">
         <div className="container mx-auto px-4 py-3 flex items-center">
           <button

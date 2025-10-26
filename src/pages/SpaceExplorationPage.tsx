@@ -118,7 +118,9 @@ const SpaceExplorationPage: React.FC = () => {
         description="Explore the universe with comprehensive space exploration resources covering NASA missions, SpaceX, Mars rovers, space telescopes, astronaut careers, and the future of space travel."
         keywords="space exploration, NASA missions, SpaceX, Mars exploration, space telescopes, astronaut careers, space science, astronomy, space technology"
         url="/space-exploration"
-      />
+      /
+        canonical="https://stlouisdemojhs.com/space-exploration"
+      >
       <Header />
 
       {/* Back Navigation Bar */}

@@ -253,7 +253,9 @@ const MediaFilesPage: React.FC = () => {
         type="website"
         pageType="media"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/media-files"
+      >
 
       {/* Hide footer on this page */}
       <style>{`

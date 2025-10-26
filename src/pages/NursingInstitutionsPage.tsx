@@ -221,7 +221,9 @@ const NursingInstitutionsPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/nursing-institutions"
+      >
 
       {/* Hide footer on this page */}
       <style>{`

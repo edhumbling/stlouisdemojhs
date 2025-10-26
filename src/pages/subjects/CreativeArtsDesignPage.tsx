@@ -55,7 +55,9 @@ const CreativeArtsDesignPage: React.FC = () => {
         description="Excel in Creative Arts & Design at St. Louis Demonstration JHS. Our GES-aligned curriculum covers visual arts, performing arts, and creative expression for Basic 7-9 students."
         keywords="Creative Arts Design, GES curriculum, visual arts, performing arts, creative expression, art education, St. Louis Demonstration JHS, Ghana JHS Creative Arts"
         canonicalUrl="https://stlouisdemojhs.com/subject/creative-arts-design"
-      />
+      /
+        canonical="https://stlouisdemojhs.com/subjects/creativeartsdesignpage.tsx"
+      >
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}

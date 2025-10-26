@@ -26,7 +26,9 @@ const NotFoundPage: React.FC = () => {
         type="website"
         pageType="about"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/404"
+      >
       <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

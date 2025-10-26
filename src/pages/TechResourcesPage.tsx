@@ -428,7 +428,9 @@ const TechResourcesPage: React.FC = () => {
         image="https://ik.imagekit.io/humbling/St%20Louis%20Demo%20Jhs/logo.png"
         url="/tech-resources"
         type="website"
-      />
+      /
+        canonical="https://stlouisdemojhs.com/tech-resources"
+      >
 
       <div className="min-h-screen bg-black text-white">
         {/* Back Button Bar - With proper spacing from header */}

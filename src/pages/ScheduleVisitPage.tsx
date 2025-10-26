@@ -143,7 +143,9 @@ const ScheduleVisitPage: React.FC = () => {
         type="website"
         pageType="contact"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/schedule-visit"
+      >
       {/* Back Button and Title Section */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

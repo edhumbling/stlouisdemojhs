@@ -87,7 +87,9 @@ const SitemapPage: React.FC = () => {
         type="website"
         pageType="about"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/sitemap"
+      >
       {/* Header */}
       <div className="bg-gradient-to-r from-green-900 via-green-800 to-green-900 py-4 pt-20 border-b border-green-700/30">
         <div className="container mx-auto px-4">

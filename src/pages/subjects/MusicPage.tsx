@@ -55,7 +55,9 @@ const MusicPage: React.FC = () => {
         description="Excel in Music at St. Louis Demonstration JHS. Our GES-aligned curriculum covers music theory, performance, composition, and cultural music traditions for Basic 7-9 students."
         keywords="Music education, GES curriculum, music theory, performance, composition, cultural music, St. Louis Demonstration JHS, Ghana JHS Music"
         canonicalUrl="https://stlouisdemojhs.com/subject/music"
-      />
+      /
+        canonical="https://stlouisdemojhs.com/subject/music"
+      >
 
       <div className="min-h-screen bg-black text-white">
         {/* Header - Exact Back Bar from AI Search Page */}

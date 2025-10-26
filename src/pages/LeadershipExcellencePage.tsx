@@ -56,7 +56,7 @@ const LeadershipExcellencePage: React.FC = () => {
         title="Leadership Excellence - Shaping Tomorrow's Leaders Today | St. Louis Demonstration JHS"
         description="Discover how St. Louis Demonstration JHS shapes tomorrow's leaders through comprehensive curriculum, expert faculty, innovative learning, and holistic development programs."
         keywords="leadership excellence, comprehensive curriculum, expert faculty, innovative learning, holistic development, St. Louis Demonstration JHS, Ghana education"
-        canonicalUrl="https://stlouisdemojhs.com/leadership-excellence"
+        canonical="https://stlouisdemojhs.com/leadership-excellence"
       />
 
       <div className="min-h-screen bg-black text-white">

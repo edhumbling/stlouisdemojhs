@@ -24,7 +24,9 @@ const DonateMonthly3000Page: React.FC = () => {
         type="website"
         pageType="donation"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/donate-monthly-3000"
+      >
 
       {isLoading && (
         <div className="fixed inset-0 bg-gradient-to-br from-orange-900 via-orange-800 to-orange-900 z-50 flex items-center justify-center">

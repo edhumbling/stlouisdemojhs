@@ -70,6 +70,7 @@ const MayamilesAIPage: React.FC = () => {
         description="MayaMiles AI - Experience personalized AI learning with MayaMiles. Choose Maya (lady voice) or Miles (guy voice) for voice-powered education, or use SuperChat for text-based learning. Available 24/7 for all subjects."
         keywords="MayaMiles AI, AI learning, voice learning, personalized education, AI tutor, Maya Miles, SuperChat, educational AI, student learning assistant"
         url="/mayamiles-ai"
+        canonical="https://stlouisdemojhs.com/mayamiles-ai"
         type="website"
         pageType="ai-search"
         useGalleryImages={true}

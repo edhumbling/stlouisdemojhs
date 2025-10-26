@@ -58,7 +58,9 @@ const DonateMonthly1000Page: React.FC = () => {
         type="website"
         pageType="donation"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/donate-monthly-1000"
+      >
 
       {/* Header with Back Button */}
       <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700 py-2 sm:py-3">

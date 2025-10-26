@@ -77,7 +77,9 @@ const EducationalGuidePage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/educational-guide"
+      >
 
       {/* Hide footer on this page */}
       <style>{`

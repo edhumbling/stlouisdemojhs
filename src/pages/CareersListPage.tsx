@@ -7834,7 +7834,9 @@ const CareersListPage: React.FC = () => {
         url="/careers-list"
         type="website"
         pageType="students-hub"
-      />
+      /
+        canonical="https://stlouisdemojhs.com/careers-list"
+      >
 
       {/* Back Button Bar */}
       <div className="bg-gradient-to-r from-blue-900 via-indigo-800 to-blue-900 py-3 sm:py-4 sticky top-0 z-40">

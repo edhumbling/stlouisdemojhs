@@ -204,7 +204,9 @@ const TeacherTrainingPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/teacher-training"
+      >
 
       {/* Hide footer on this page */}
       <style>{`

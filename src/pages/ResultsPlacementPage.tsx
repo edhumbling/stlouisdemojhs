@@ -88,6 +88,7 @@ const ResultsPlacementPage: React.FC = () => {
         description="Check your BECE results and SHS placement online. Access official WAEC results checker and CSSPS placement portal. Buy checker PIN through mobile money and get your results instantly."
         keywords="BECE results checker, SHS placement checker, WAEC results, CSSPS placement, Ghana education results, BECE PIN, school placement"
         url="/results-placement"
+        canonical="https://stlouisdemojhs.com/results-placement"
         type="website"
         pageType="students-hub"
         useGalleryImages={true}

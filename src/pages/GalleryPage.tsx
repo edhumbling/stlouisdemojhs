@@ -41,7 +41,9 @@ const GalleryPage: React.FC = () => {
           linkedin: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3",
           whatsapp: "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MgqIz8s7W0LQyCA6JY2x5PlO4s79mU8GbXkh3"
         }}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/gallery"
+      >
       {/* Back Button and Title Section - Original Style */}
       <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 py-3 sm:py-4">
         <div className="container mx-auto px-4">

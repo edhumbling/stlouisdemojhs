@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Mic, Plus, MicOff, Globe, Info, Copy, Volume2, VolumeX, ThumbsUp, ThumbsDown, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -37,7 +38,7 @@ const LouisAIPage: React.FC = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [currentSessionId, setCurrentSessionId] = useState<string | null>(null);
+  const [, setCurrentSessionId] = useState<string | null>(null);
   const [isListening, setIsListening] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(false);
@@ -636,7 +637,6 @@ const LouisAIPage: React.FC = () => {
     }
 
     const validFiles: File[] = [];
-    const validPreviews: string[] = [];
 
     for (const file of files) {
       const validation = groqVisionService.validateImageFile(file);
@@ -819,11 +819,6 @@ const LouisAIPage: React.FC = () => {
   };
 
 
-  const quickActions = [
-    { icon: "🔍", label: "DeepSearch", action: () => {} },
-    { icon: "🎨", label: "Create Images", action: () => {} },
-    { icon: "📁", label: "Try Projects", action: () => {} },
-  ];
 
   return (
     <div className="min-h-screen bg-[#1a1a1a]">
@@ -841,6 +836,7 @@ const LouisAIPage: React.FC = () => {
           linkedin: "/ai bot.png",
           whatsapp: "/ai bot.png"
         }}
+        canonical="https://stlouisdemojhs.com/louis-ai"
       />
 
       {/* Louis AI Header */}
@@ -1102,19 +1098,6 @@ const LouisAIPage: React.FC = () => {
                                     {children}
                                   </blockquote>
                                 ),
-                                // Math components for LaTeX rendering
-                                math: ({ children }) => {
-                                  console.log('Math component rendered:', children);
-                                  return <span className="math-inline">{children}</span>;
-                                },
-                                inlineMath: ({ children }) => {
-                                  console.log('Inline math component rendered:', children);
-                                  return <span className="math-inline">{children}</span>;
-                                },
-                                blockMath: ({ children }) => {
-                                  console.log('Block math component rendered:', children);
-                                  return <div className="math-block my-4">{children}</div>;
-                                },
                                 // Custom text component to handle LaTeX in regular text
                                 text: ({ children }) => {
                                   if (typeof children === 'string' && (children.includes('\\') || children.includes('$'))) {
@@ -1261,7 +1244,7 @@ const LouisAIPage: React.FC = () => {
                                     </svg>
                                     <span className="break-words max-w-[120px] sm:max-w-[180px]">{source.displayName}</span>
                                   </a>
-                                    {idx < message.sources.length - 1 && <span className="text-white/50">,</span>}
+                                    {idx < (message.sources?.length || 0) - 1 && <span className="text-white/50">,</span>}
                                   </React.Fragment>
                                 ))}
                               </div>
@@ -1430,7 +1413,7 @@ const LouisAIPage: React.FC = () => {
                     }`}
                     title={selectedImages.length > 0 ? `${selectedImages.length} image(s) selected - Click to add more` : 'Upload images for analysis'}
                   >
-                    <Plus size={16} weight="bold" />
+                    <Plus size={16} />
                     <input
                       id="image-upload"
                       type="file"

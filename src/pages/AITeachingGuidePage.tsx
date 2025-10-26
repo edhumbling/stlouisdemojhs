@@ -62,7 +62,9 @@ const AITeachingGuidePage: React.FC = () => {
         type="website"
         pageType="staff-resources"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/ai-teaching-guide"
+      >
       {/* Header - Enhanced Emerald Back Button (Original Design) */}
       <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 py-4 sm:py-5 shadow-2xl border-b border-emerald-700/50">
         <div className="container mx-auto px-4">

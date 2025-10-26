@@ -190,7 +190,9 @@ const BusinessSchoolsPage: React.FC = () => {
         type="website"
         pageType="students-hub"
         useGalleryImages={true}
-      />
+      /
+        canonical="https://stlouisdemojhs.com/business-schools"
+      >
 
       {/* Hide footer on this page */}
       <style>{`

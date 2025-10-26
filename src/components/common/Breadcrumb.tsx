@@ -221,6 +221,7 @@ const UnifiedBreadcrumb: React.FC<UnifiedBreadcrumbProps> = ({
       "item": {
         "@type": "WebPage",
         "@id": `https://stlouisdemojhs.com${item.path === '/' ? '' : item.path}`,
+        "id": `https://stlouisdemojhs.com${item.path === '/' ? '' : item.path}`,
         "url": `https://stlouisdemojhs.com${item.path === '/' ? '' : item.path}`,
         "name": item.name,
         "description": item.description,
