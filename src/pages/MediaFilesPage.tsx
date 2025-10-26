@@ -13,7 +13,7 @@ interface MediaVideo {
   thumbnail: string;
   duration: string;
   baseViews: number; // Base view count
-  uploadDate: string;
+  uploadTimestamp: number; // Unix timestamp in milliseconds
   category: string;
 }
 
@@ -39,43 +39,35 @@ const MediaFilesPage: React.FC = () => {
     return '/api/placeholder/320/180';
   };
 
-  // Calculate current view count with automatic daily increment
-  const calculateCurrentViews = (baseViews: number, uploadDate: string): string => {
-    // Parse upload date to determine days since upload
-    let daysSinceUpload = 0;
+  // Calculate days since upload from actual date
+  const calculateDaysAgo = (uploadTimestamp: number): string => {
+    const now = Date.now();
+    const uploadDate = uploadTimestamp;
+    const diffInMs = now - uploadDate;
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+    const diffInHours = Math.floor(diffInMs / (1000 * 60 * 60));
 
-    if (uploadDate.includes('hours ago') || uploadDate.includes('hour ago')) {
-      daysSinceUpload = 0;
-    } else if (uploadDate.includes('1 day ago')) {
-      daysSinceUpload = 1;
-    } else if (uploadDate.includes('2 days ago')) {
-      daysSinceUpload = 2;
-    } else if (uploadDate.includes('3 days ago')) {
-      daysSinceUpload = 3;
-    } else if (uploadDate.includes('4 days ago')) {
-      daysSinceUpload = 4;
-    } else if (uploadDate.includes('5 days ago')) {
-      daysSinceUpload = 5;
-    } else if (uploadDate.includes('6 days ago')) {
-      daysSinceUpload = 6;
-    } else if (uploadDate.includes('1 week ago')) {
-      daysSinceUpload = 7;
-    } else if (uploadDate.includes('2 weeks ago')) {
-      daysSinceUpload = 14;
-    } else if (uploadDate.includes('3 weeks ago')) {
-      daysSinceUpload = 21;
-    } else if (uploadDate.includes('1 month ago')) {
-      daysSinceUpload = 30;
-    } else if (uploadDate.includes('days ago')) {
-      const match = uploadDate.match(/(\d+) days ago/);
-      daysSinceUpload = match ? parseInt(match[1]) : 0;
-    } else if (uploadDate.includes('weeks ago')) {
-      const match = uploadDate.match(/(\d+) weeks ago/);
-      daysSinceUpload = match ? parseInt(match[1]) * 7 : 0;
-    } else if (uploadDate.includes('months ago')) {
-      const match = uploadDate.match(/(\d+) months ago/);
-      daysSinceUpload = match ? parseInt(match[1]) * 30 : 0;
+    if (diffInHours < 24) {
+      return `${diffInHours} hour${diffInHours !== 1 ? 's' : ''} ago`;
+    } else if (diffInDays === 1) {
+      return '1 day ago';
+    } else if (diffInDays < 7) {
+      return `${diffInDays} days ago`;
+    } else if (diffInDays < 14) {
+      const weeks = Math.floor(diffInDays / 7);
+      return `${weeks} week${weeks !== 1 ? 's' : ''} ago`;
+    } else {
+      const months = Math.floor(diffInDays / 30);
+      return `${months} month${months !== 1 ? 's' : ''} ago`;
     }
+  };
+
+  // Calculate current view count with automatic daily increment
+  const calculateCurrentViews = (baseViews: number, uploadTimestamp: number): string => {
+    // Calculate days since upload
+    const now = Date.now();
+    const diffInMs = now - uploadTimestamp;
+    const daysSinceUpload = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
 
     // Add 1K views per day since upload
     const currentViews = baseViews + (daysSinceUpload * 1000);
@@ -101,7 +93,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1EYNZ4XLCFzCaS_9p3RGsM-W8nhTNWLfo/view'),
       duration: '0:30',
       baseViews: 1200, // Base views, will auto-increment by 1K daily
-      uploadDate: '4 days ago',
+      uploadTimestamp: Date.now() - (4 * 24 * 60 * 60 * 1000), // 4 days ago
       category: 'Election Diaries 2025'
     },
     {
@@ -113,7 +105,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1KG71HVjDiSXkw9T4-QiOscqp1Vhji8bI/view?usp=drive_link'),
       duration: '0:33',
       baseViews: 856, // Base views, will auto-increment by 1K daily
-      uploadDate: '3 days ago',
+      uploadTimestamp: Date.now() - (3 * 24 * 60 * 60 * 1000), // 3 days ago
       category: 'Election Diaries 2025'
     },
     {
@@ -125,7 +117,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       duration: '0:38',
       baseViews: 2100, // Base views, will auto-increment by 1K daily
-      uploadDate: '2 days ago',
+      uploadTimestamp: Date.now() - (2 * 24 * 60 * 60 * 1000), // 2 days ago
       category: 'Election Diaries 2025'
     },
     {
@@ -137,7 +129,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1cO5KJHvRetuiuCVqF2OgBKjCI75gc3td/view?usp=drive_link'),
       duration: '0:45',
       baseViews: 1800, // Base views, will auto-increment by 1K daily
-      uploadDate: '1 day ago',
+      uploadTimestamp: Date.now() - (1 * 24 * 60 * 60 * 1000), // 1 day ago
       category: 'Election Diaries 2025'
     },
 
@@ -151,7 +143,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1ly09Lgr-tDdg262pGPvdwNn5bex-9THk/view?usp=drive_link'),
       duration: '2:15',
       baseViews: 2800, // Base views, will auto-increment by 1K daily
-      uploadDate: '1 week ago',
+      uploadTimestamp: Date.now() - (7 * 24 * 60 * 60 * 1000), // 1 week ago
       category: 'Sports Competitions'
     },
     {
@@ -163,7 +155,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1_mj1rl56w59ls8yN_Bqdviim-YGmE-AE/view?usp=drive_link'),
       duration: '3:42',
       baseViews: 3200, // Base views, will auto-increment by 1K daily
-      uploadDate: '5 days ago',
+      uploadTimestamp: Date.now() - (5 * 24 * 60 * 60 * 1000), // 5 days ago
       category: 'Sports Competitions'
     },
 
@@ -177,7 +169,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1_Q_Fahvjz_Xt3kkVnxMV-lkZg-gj96zK/view?usp=drive_link'),
       duration: '4:18',
       baseViews: 1950, // Base views, will auto-increment by 1K daily
-      uploadDate: '1 week ago',
+      uploadTimestamp: Date.now() - (7 * 24 * 60 * 60 * 1000), // 1 week ago
       category: 'Quiz Competitions'
     },
     {
@@ -189,7 +181,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: 'https://img.youtube.com/vi/c90tOBl5K6g/maxresdefault.jpg',
       duration: '4:15',
       baseViews: 3400, // Base views, will auto-increment by 1K daily
-      uploadDate: '3 weeks ago',
+      uploadTimestamp: Date.now() - (21 * 24 * 60 * 60 * 1000), // 3 weeks ago
       category: 'Quiz Competitions'
     },
     {
@@ -201,7 +193,7 @@ const MediaFilesPage: React.FC = () => {
       thumbnail: 'https://img.youtube.com/vi/vMUVyKTTFZA/maxresdefault.jpg',
       duration: '7:23',
       baseViews: 4200, // Base views, will auto-increment by 1K daily
-      uploadDate: '1 month ago',
+      uploadTimestamp: Date.now() - (30 * 24 * 60 * 60 * 1000), // 1 month ago
       category: 'Quiz Competitions'
     }
   ];
@@ -344,11 +336,11 @@ const MediaFilesPage: React.FC = () => {
                     <div className="flex items-center justify-between text-xs text-gray-400">
                       <div className="flex items-center space-x-1">
                         <Eye className="w-3 h-3" />
-                        <span className="text-xs">{calculateCurrentViews(video.baseViews, video.uploadDate)}</span>
+                        <span className="text-xs">{calculateCurrentViews(video.baseViews, video.uploadTimestamp)}</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <Calendar className="w-3 h-3" />
-                        <span className="text-xs truncate">{video.uploadDate}</span>
+                        <span className="text-xs truncate">{calculateDaysAgo(video.uploadTimestamp)}</span>
                       </div>
                     </div>
                   </div>
@@ -419,11 +411,11 @@ const MediaFilesPage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-300 mb-3">
                 <div className="flex items-center space-x-1">
                   <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span>{calculateCurrentViews(selectedVideo.baseViews, selectedVideo.uploadDate)} views</span>
+                  <span>{calculateCurrentViews(selectedVideo.baseViews, selectedVideo.uploadTimestamp)} views</span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span>{selectedVideo.uploadDate}</span>
+                  <span>{calculateDaysAgo(selectedVideo.uploadTimestamp)}</span>
                 </div>
                 <span className={`${getCategoryColor(selectedVideo.category)} text-white px-2 py-1 rounded text-xs`}>
                   {selectedVideo.category === 'Election Diaries 2025' ? 'Election' :

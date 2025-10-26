@@ -123,7 +123,8 @@ const Layout: React.FC = () => {
     '/faculty',
     '/staff-resources',
     '/alumni',
-    '/shop'
+    '/shop',
+    '/media-files'
   ];
   
   // Pages that should have pt-16 padding
