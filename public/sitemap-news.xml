@@ -2,21 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 
-  <!-- News and Events Page -->
+  <!-- Louis AI Launch Announcement -->
   <url>
-    <loc>https://stlouisdemojhs.com/news</loc>
+    <loc>https://stlouisdemojhs.com/louis-ai</loc>
     <news:news>
       <news:publication>
         <news:name>St. Louis Demonstration JHS News</news:name>
         <news:language>en</news:language>
       </news:publication>
-      <news:publication_date>2025-06-22T10:00:00+00:00</news:publication_date>
-      <news:title>Latest School News and Events - St. Louis Demonstration JHS</news:title>
-      <news:keywords>school news, Ghana education, JHS news, student achievements, school events, Kumasi education</news:keywords>
+      <news:publication_date>2025-01-27T10:00:00+00:00</news:publication_date>
+      <news:title>Louis AI - Revolutionary School Assistant Launched at St. Louis Demo JHS</news:title>
+      <news:keywords>Louis AI, AI assistant, school chatbot, educational technology, Ghana education, AI innovation, student support</news:keywords>
     </news:news>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- MayaMiles AI Integration -->
+  <url>
+    <loc>https://stlouisdemojhs.com/mayamiles-ai</loc>
+    <news:news>
+      <news:publication>
+        <news:name>St. Louis Demonstration JHS News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-01-27T09:00:00+00:00</news:publication_date>
+      <news:title>MayaMiles AI - Personalized Voice Learning Experience Now Available</news:title>
+      <news:keywords>MayaMiles AI, voice learning, personalized education, AI tutor, educational AI, student learning assistant</news:keywords>
+    </news:news>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Tools Collection -->
+  <url>
+    <loc>https://stlouisdemojhs.com/ai-search</loc>
+    <news:news>
+      <news:publication>
+        <news:name>St. Louis Demonstration JHS News</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-01-27T08:00:00+00:00</news:publication_date>
+      <news:title>Comprehensive AI Tools Collection - Empowering Digital Learning</news:title>
+      <news:keywords>AI tools, educational technology, digital learning, AI search, student resources, technology integration</news:keywords>
+    </news:news>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Results and Placement Page -->
@@ -31,7 +65,7 @@
       <news:title>BECE Results and SHS Placement Information</news:title>
       <news:keywords>BECE results, SHS placement, Ghana education results, student placement, secondary school admission</news:keywords>
     </news:news>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -48,7 +82,7 @@
       <news:title>School Events Calendar and Important Dates</news:title>
       <news:keywords>school calendar, events, important dates, academic calendar, school activities, Ghana education calendar</news:keywords>
     </news:news>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -65,7 +99,7 @@
       <news:title>Latest Scholarship Opportunities for Ghanaian Students</news:title>
       <news:keywords>scholarships Ghana, student scholarships, education funding, Ghana scholarships, international scholarships</news:keywords>
     </news:news>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -82,7 +116,7 @@
       <news:title>Alumni Success Stories and Network Updates</news:title>
       <news:keywords>alumni success, graduate achievements, school alumni, career success, professional development</news:keywords>
     </news:news>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -99,7 +133,7 @@
       <news:title>Media Coverage and Press Releases</news:title>
       <news:keywords>media coverage, press releases, school news, Ghana education news, school achievements</news:keywords>
     </news:news>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

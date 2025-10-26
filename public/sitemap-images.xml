@@ -12,7 +12,7 @@
       <image:geo_location>Kumasi, Ashanti Region, Ghana</image:geo_location>
       <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
     </image:image>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -27,7 +27,7 @@
       <image:geo_location>Kumasi, Ashanti Region, Ghana</image:geo_location>
       <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
     </image:image>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -42,7 +42,7 @@
       <image:geo_location>Accra, Ghana</image:geo_location>
       <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
     </image:image>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -57,7 +57,7 @@
       <image:geo_location>Accra, Ghana</image:geo_location>
       <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
     </image:image>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -72,7 +72,7 @@
       <image:geo_location>Accra, Ghana</image:geo_location>
       <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
     </image:image>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -87,9 +87,69 @@
       <image:geo_location>Accra, Ghana</image:geo_location>
       <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
     </image:image>
-    <lastmod>2025-10-01</lastmod>
+    <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Louis AI Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/louis-ai</loc>
+    <image:image>
+      <image:loc>https://stlouisdemojhs.com/ai bot.png</image:loc>
+      <image:title>Louis AI - Intelligent School Assistant</image:title>
+      <image:caption>Meet Louis AI, your intelligent school assistant at St. Louis Demonstration JHS</image:caption>
+      <image:geo_location>Kumasi, Ashanti Region, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Ask Louis AI Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/ask-louis</loc>
+    <image:image>
+      <image:loc>https://stlouisdemojhs.com/ai bot.png</image:loc>
+      <image:title>Ask Louis AI - Voice Assistant</image:title>
+      <image:caption>Chat with Louis AI using voice commands and get instant answers about school information</image:caption>
+      <image:geo_location>Kumasi, Ashanti Region, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- MayaMiles AI Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/mayamiles-ai</loc>
+    <image:image>
+      <image:loc>https://stlouisdemojhs.com/ai bot.png</image:loc>
+      <image:title>MayaMiles AI - Personalized Learning</image:title>
+      <image:caption>Experience personalized AI learning with Maya (lady voice) or Miles (guy voice) for voice-powered education</image:caption>
+      <image:geo_location>Kumasi, Ashanti Region, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Search Tools Page -->
+  <url>
+    <loc>https://stlouisdemojhs.com/ai-search</loc>
+    <image:image>
+      <image:loc>https://stlouisdemojhs.com/ai bot.png</image:loc>
+      <image:title>AI Search Tools</image:title>
+      <image:caption>Discover and use various AI-powered search and educational tools</image:caption>
+      <image:geo_location>Kumasi, Ashanti Region, Ghana</image:geo_location>
+      <image:license>https://stlouisdemojhs.com/terms-of-service</image:license>
+    </image:image>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
