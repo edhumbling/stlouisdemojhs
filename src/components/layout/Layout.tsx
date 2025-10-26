@@ -123,7 +123,6 @@ const Layout: React.FC = () => {
     '/faculty',
     '/staff-resources',
     '/alumni',
-    '/alumni-shop',
     '/shop'
   ];
   
