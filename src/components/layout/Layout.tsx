@@ -114,16 +114,17 @@ const Layout: React.FC = () => {
     '/ai'
   ];
   
-  // Pages that should have pt-10 padding
+    // Pages that should have pt-10 padding
   const pt10Pages = [
     '/louis-ai',
     '/about',
-    '/academics', 
+    '/academics',
     '/admissions',
     '/faculty',
     '/staff-resources',
     '/alumni',
-    '/alumni-shop'
+    '/alumni-shop',
+    '/shop'
   ];
   
   // Pages that should have pt-16 padding

@@ -345,7 +345,7 @@ const AlumniPage: React.FC = () => {
               <span className="sm:hidden">🛍️ Shop alumni merch</span>
             </span>
             <button
-              onClick={() => navigate('/alumni-shop')}
+              onClick={() => navigate('/shop')}
               className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-1.5 bg-gradient-to-r from-amber-500 to-yellow-500 text-black font-bold rounded-full text-xs hover:from-amber-400 hover:to-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <ShoppingBag className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
