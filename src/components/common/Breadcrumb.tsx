@@ -36,6 +36,7 @@ const UnifiedBreadcrumb: React.FC<UnifiedBreadcrumbProps> = ({
     '/contact': { name: 'Contact Us', path: '/contact', description: 'Contact information and school location' },
     '/gallery': { name: 'Gallery', path: '/gallery', description: 'Photo and video gallery of school activities' },
     '/news': { name: 'News & Events', path: '/news', description: 'Latest school news, events, and announcements' },
+    '/pta': { name: 'PTA', path: '/pta', description: 'Parent-Teacher Association information and activities' },
 
     // Academic Subjects & Programs
     '/core-academic': { name: 'Core Academic', path: '/core-academic', description: 'Core academic subjects and curriculum' },
