@@ -213,6 +213,7 @@ const UnifiedBreadcrumb: React.FC<UnifiedBreadcrumbProps> = ({
     "description": "Breadcrumb navigation for St. Louis Demonstration Junior High School website",
     "itemListElement": breadcrumbs.map((item, index) => ({
       "@type": "ListItem",
+      "@id": `https://stlouisdemojhs.com${item.path === '/' ? '' : item.path}#breadcrumb-${index + 1}`,
       "position": index + 1,
       "name": item.name,
       "description": item.description,
