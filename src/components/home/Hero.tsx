@@ -561,6 +561,16 @@ const Hero: React.FC = () => {
                 <span className="absolute inset-0 bg-red-500 opacity-30 rounded-lg"></span>
               </Link>
 
+              <Link
+                to="/louis-ai"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                className={getButtonClasses('yellow-500', 'yellow-600', 'rgba(234,179,8,0.8)')}
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              >
+                <span className="relative z-10 whitespace-nowrap">Chat with Louis AI</span>
+                <span className="absolute inset-0 bg-yellow-400 opacity-30 rounded-lg"></span>
+              </Link>
+
               {/* Download App Button - PWA Install with Progress */}
               {(showInstallButton || isInstalling || installComplete) && (
                 <motion.div

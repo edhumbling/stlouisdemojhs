@@ -29,7 +29,7 @@ const MediaFilesPage: React.FC = () => {
 
   // ImageKit folder mapping for Media Files
   const imageKitFolderMap: { [key: string]: string } = {
-    'All': 'stlouisdemojhs/',
+    'All': 'stlouisdemojhs/media-files/',
     'School Events': 'stlouisdemojhs/media-files/school-events/',
     'Quiz Competitions': 'stlouisdemojhs/media-files/quiz-competitions/',
     'Sports': 'stlouisdemojhs/media-files/sports/',
