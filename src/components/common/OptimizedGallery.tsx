@@ -177,7 +177,7 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
         ))}
       </div>
 
-      {/* Picasa-style Simple Preview */}
+      {/* Picasa-style Simple Preview - Full Screen Overlay */}
       <AnimatePresence>
         {previewOpen && currentImage && (
           <motion.div
@@ -185,45 +185,13 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+            className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
             onClick={closePreview}
+            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
           >
-            {/* Close Button */}
-            <button
-              onClick={closePreview}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-            >
-              <X size={24} />
-            </button>
-
-            {/* Navigation Arrows */}
-            {previewIndex > 0 && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  goToPrevious();
-                }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-              >
-                <ChevronLeft size={24} />
-              </button>
-            )}
-
-            {previewIndex < images.length - 1 && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  goToNext();
-                }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-              >
-                <ChevronRight size={24} />
-              </button>
-            )}
-
             {/* Main Image Container */}
             <div
-              className="relative max-w-[90vw] max-h-[90vh] flex items-center justify-center"
+              className="relative max-w-[95vw] max-h-[95vh] flex items-center justify-center group"
               onClick={(e) => e.stopPropagation()}
             >
               <motion.div
@@ -252,40 +220,73 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
                   onError={() => setImageLoaded(true)}
                 />
 
-                {/* Simple Image Info */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                  <h3 className="text-white text-lg font-medium mb-1">
+                {/* Close Button - Directly on top of image */}
+                <button
+                  onClick={closePreview}
+                  className="absolute top-2 right-2 p-2 rounded-full bg-black/70 text-white hover:bg-black/90 transition-colors opacity-0 group-hover:opacity-100 z-10"
+                >
+                  <X size={20} />
+                </button>
+
+                {/* Navigation Arrows - On sides of image */}
+                {previewIndex > 0 && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      goToPrevious();
+                    }}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/70 text-white hover:bg-black/90 transition-colors opacity-0 group-hover:opacity-100 z-10"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                )}
+
+                {previewIndex < images.length - 1 && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      goToNext();
+                    }}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/70 text-white hover:bg-black/90 transition-colors opacity-0 group-hover:opacity-100 z-10"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                )}
+
+                {/* Action Buttons - On bottom of image */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCopyImage(currentImage.src, e);
+                    }}
+                    className="p-2 rounded-full bg-black/70 text-white hover:bg-black/90 transition-colors"
+                    title="Copy image"
+                  >
+                    <Copy size={16} />
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDownloadImage(currentImage.src, currentImage.alt, e);
+                    }}
+                    className="p-2 rounded-full bg-black/70 text-white hover:bg-black/90 transition-colors"
+                    title="Download image"
+                  >
+                    <Download size={16} />
+                  </button>
+                </div>
+
+                {/* Image Info - Bottom overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h3 className="text-white text-sm font-medium mb-1 truncate">
                     {currentImage.alt}
                   </h3>
-                  <p className="text-white/80 text-sm">
+                  <p className="text-white/80 text-xs">
                     {previewIndex + 1} of {images.length}
                   </p>
                 </div>
               </motion.div>
-            </div>
-
-            {/* Simple Action Buttons */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleCopyImage(currentImage.src, e);
-                }}
-                className="p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-                title="Copy image"
-              >
-                <Copy size={20} />
-              </button>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleDownloadImage(currentImage.src, currentImage.alt, e);
-                }}
-                className="p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-                title="Download image"
-              >
-                <Download size={20} />
-              </button>
             </div>
           </motion.div>
         )}
