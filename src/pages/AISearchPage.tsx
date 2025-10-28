@@ -781,6 +781,17 @@ const AISearchPage: React.FC = () => {
       glowColor: '#10b981',
       hasWhiteBackground: true,
       openExternally: true
+    },
+    {
+      id: 'grokipedia',
+      name: 'Grokipedia',
+      url: 'https://grokipedia.com',
+      description: 'AI-powered encyclopedia with comprehensive knowledge and real-time information',
+      icon: <img src="https://grokipedia.com/favicon.ico" alt="Grokipedia" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/1f2937/ffffff?text=GK'; }} />,
+      color: 'from-slate-700 to-gray-800',
+      glowColor: '#1f2937',
+      hasWhiteBackground: true,
+      openExternally: true
     }
   ];
 
