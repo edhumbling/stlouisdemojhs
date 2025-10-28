@@ -29,7 +29,7 @@ const MediaFilesPage: React.FC = () => {
 
   // ImageKit folder mapping for Media Files
   const imageKitFolderMap: { [key: string]: string } = {
-    'All': 'stlouisdemojhs/media-files/',
+    'All': 'stlouisdemojhs/',
     'School Events': 'stlouisdemojhs/media-files/school-events/',
     'Quiz Competitions': 'stlouisdemojhs/media-files/quiz-competitions/',
     'Sports': 'stlouisdemojhs/media-files/sports/',
@@ -41,20 +41,37 @@ const MediaFilesPage: React.FC = () => {
       setImageKitLoading(true);
       setImageKitError(null);
 
+      // Use development server API endpoint
+      const apiUrl = process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:3001/api/imagekit-files'
+        : '/api/imagekit-files';
+        
       console.log('Fetching ImageKit images for Media Files folder:', folder);
-
-      const response = await axios.get('/api/imagekit-files', {
+      console.log('Making request to:', `${apiUrl}?folder=${encodeURIComponent(folder)}&limit=200`);
+        
+      const response = await axios.get(apiUrl, {
         params: {
           folder: folder,
           limit: 200,
         },
       });
 
-      console.log('ImageKit Media Files response:', response.data?.length, 'images found');
-      setImageKitImages(response.data || []);
+      console.log('ImageKit Media Files response:', response);
+      console.log('Response data:', response.data);
+      console.log('Response status:', response.status);
+      
+      if (response.data && Array.isArray(response.data)) {
+        console.log('ImageKit Media Files response:', response.data.length, 'images found');
+        setImageKitImages(response.data);
+      } else {
+        console.log('No valid data in response:', response.data);
+        setImageKitImages([]);
+      }
     } catch (err: any) {
       console.error('Error fetching ImageKit Media Files images:', err);
-      setImageKitError(err.response?.data?.message || 'Failed to load Media Files images');
+      console.error('Error response:', err.response);
+      console.error('Error message:', err.message);
+      setImageKitError(err.response?.data?.message || err.message || 'Failed to load Media Files images');
       setImageKitImages([]);
     } finally {
       setImageKitLoading(false);

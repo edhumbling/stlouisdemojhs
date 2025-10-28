@@ -1,24 +1,22 @@
-// api/imagekit-files.js
+import express from 'express';
+import cors from 'cors';
 import axios from 'axios';
+import dotenv from 'dotenv';
 
-export default async function handler(req, res) {
+// Load environment variables
+dotenv.config();
+
+const app = express();
+const PORT = 3001;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// ImageKit API proxy
+app.get('/api/imagekit-files', async (req, res) => {
   console.log('ImageKit API called with:', req.method, req.query);
   
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
-
-  if (req.method !== 'GET') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
   try {
     const { folder, limit = 200, skip = 0 } = req.query;
     
@@ -89,4 +87,20 @@ export default async function handler(req, res) {
       });
     }
   }
-}
+});
+
+// Test endpoint
+app.get('/api/test-env', (req, res) => {
+  const privateKey = process.env.IMAGEKIT_PRIVATE_KEY;
+  
+  res.status(200).json({
+    hasPrivateKey: !!privateKey,
+    keyLength: privateKey ? privateKey.length : 0,
+    keyPrefix: privateKey ? privateKey.substring(0, 10) + '...' : 'none'
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Development API server running on http://localhost:${PORT}`);
+  console.log(`ImageKit API available at http://localhost:${PORT}/api/imagekit-files`);
+});
