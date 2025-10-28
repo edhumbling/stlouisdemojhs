@@ -1,7 +1,8 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Loader2, ImageIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { getGalleryImagesByCategory, getGalleryCategories } from '../data';
 import OptimizedGallery from '../components/common/OptimizedGallery';
 import SEOHead from '../components/seo/SEOHead';
@@ -9,12 +10,79 @@ import SEOHead from '../components/seo/SEOHead';
 const GalleryPage: React.FC = () => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<string>('All');
+  const [imageKitImages, setImageKitImages] = useState<any[]>([]);
+  const [imageKitLoading, setImageKitLoading] = useState(false);
+  const [imageKitError, setImageKitError] = useState<string | null>(null);
+
+  // ImageKit folder mapping
+  const imageKitFolderMap: { [key: string]: string } = {
+    'All': 'stlouisdemojhs/',
+    'Academic Life': 'stlouisdemojhs/academic-life/',
+    'Campus Life': 'stlouisdemojhs/campus-life/',
+    'Graduation Pictures': 'stlouisdemojhs/graduation-pictures/',
+    'Original Hero Collection': 'stlouisdemojhs/original-hero-collection/',
+    'School Events': 'stlouisdemojhs/school-events/',
+  };
 
   // Get optimized categories (pre-indexed)
   const categories = useMemo(() => getGalleryCategories(), []);
 
   // Get filtered images using optimized indexing
   const filteredImages = useMemo(() => getGalleryImagesByCategory(filter), [filter]);
+
+  // Fetch ImageKit images
+  const fetchImageKitImages = useCallback(async (folder: string) => {
+    try {
+      setImageKitLoading(true);
+      setImageKitError(null);
+
+      const response = await axios.get('https://api.imagekit.io/v1/files', {
+        auth: {
+          username: import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY,
+          password: '',
+        },
+        params: {
+          path: folder,
+          sort: 'DESC_CREATED',
+          limit: 50,
+        },
+      });
+
+      setImageKitImages(response.data || []);
+    } catch (err: any) {
+      console.error('Error fetching ImageKit images:', err);
+      setImageKitError(err.response?.data?.message || 'Failed to load ImageKit images');
+      setImageKitImages([]);
+    } finally {
+      setImageKitLoading(false);
+    }
+  }, []);
+
+  // Fetch ImageKit images when filter changes
+  useEffect(() => {
+    const folder = imageKitFolderMap[filter];
+    if (folder) {
+      fetchImageKitImages(folder);
+    }
+  }, [filter, fetchImageKitImages]);
+
+  // Combine static and ImageKit images
+  const combinedImages = useMemo(() => {
+    const staticImages = filteredImages || [];
+    
+    // Convert ImageKit images to match OptimizedGallery interface
+    const imageKitConverted = imageKitImages.map((img, index) => ({
+      id: parseInt(img.fileId.replace(/\D/g, '')) || (Date.now() + index), // Convert fileId to number or use timestamp
+      src: `${img.url}?tr=w-800,h-800,fo-auto,q-90`, // Higher quality for lightbox
+      alt: img.name.replace(/\.[^/.]+$/, ""), // Remove file extension
+      category: filter,
+      isImageKit: true,
+      createdAt: img.createdAt,
+    }));
+    
+    // Combine with ImageKit images first (newest), then static images
+    return [...imageKitConverted, ...staticImages];
+  }, [filteredImages, imageKitImages, filter]);
 
   const handleBack = useCallback(() => {
     navigate(-1);
@@ -103,15 +171,52 @@ const GalleryPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Optimized Images Grid - Immediate visibility */}
+      {/* Optimized Images Grid - Combined Static + ImageKit */}
       <div className="container mx-auto px-2 py-2">
+        {imageKitLoading && (
+          <div className="flex items-center justify-center py-8">
+            <Loader2 className="h-6 w-6 animate-spin text-blue-400" />
+            <span className="ml-2 text-gray-300 text-sm">Loading new photos...</span>
+          </div>
+        )}
+        
+        {imageKitError && (
+          <div className="text-center py-4">
+            <ImageIcon className="h-8 w-8 mx-auto text-gray-400 mb-2" />
+            <p className="text-gray-400 text-sm">Unable to load new photos from ImageKit</p>
+            <button
+              onClick={() => {
+                const folder = imageKitFolderMap[filter];
+                if (folder) {
+                  fetchImageKitImages(folder);
+                }
+              }}
+              className="mt-2 px-3 py-1 bg-blue-600 text-white rounded text-xs hover:bg-blue-700 transition-colors"
+            >
+              Retry
+            </button>
+          </div>
+        )}
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <OptimizedGallery images={filteredImages} />
+          <OptimizedGallery images={combinedImages} />
         </motion.div>
+
+        {/* Show ImageKit count if available */}
+        {imageKitImages.length > 0 && (
+          <div className="text-center mt-4">
+            <p className="text-gray-400 text-xs">
+              Showing {imageKitImages.length} new photos from ImageKit + {filteredImages?.length || 0} existing photos
+            </p>
+            <p className="text-gray-500 text-xs mt-1">
+              Upload photos to ImageKit folders to see them appear instantly here
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
