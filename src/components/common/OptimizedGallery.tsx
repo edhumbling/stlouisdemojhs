@@ -21,12 +21,30 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewIndex, setPreviewIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [previewPosition, setPreviewPosition] = useState<'top' | 'middle' | 'bottom'>('middle');
 
   const handleImageLoad = useCallback((imageId: number) => {
     setLoadedImages(prev => new Set(prev).add(imageId));
   }, []);
 
-  const openPreview = useCallback((index: number) => {
+  const openPreview = useCallback((index: number, event: React.MouseEvent) => {
+    // Detect position based on viewport position
+    const rect = event.currentTarget.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const imageCenterY = rect.top + rect.height / 2;
+    
+    // Determine position based on where the image is located
+    let position: 'top' | 'middle' | 'bottom' = 'middle';
+    
+    if (imageCenterY < viewportHeight * 0.33) {
+      position = 'top';
+    } else if (imageCenterY > viewportHeight * 0.66) {
+      position = 'bottom';
+    } else {
+      position = 'middle';
+    }
+    
+    setPreviewPosition(position);
     setPreviewIndex(index);
     setPreviewOpen(true);
     setImageLoaded(false);
@@ -122,7 +140,7 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
               delay: Math.min(index * 0.01, 0.5)
             }}
             className="relative group cursor-pointer"
-            onClick={() => openPreview(index)}
+            onClick={(e) => openPreview(index, e)}
           >
             <div className="aspect-square relative overflow-hidden bg-gray-900 rounded-md shadow-md hover:shadow-xl transition-all duration-200 group-hover:scale-[1.02]">
               {/* Show shimmer until image loads */}
@@ -191,7 +209,11 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
           >
             {/* Main Image Container */}
             <div
-              className="relative max-w-[95vw] max-h-[95vh] flex items-center justify-center group"
+              className={`relative max-w-[95vw] max-h-[95vh] flex group ${
+                previewPosition === 'top' ? 'items-start justify-center pt-8' :
+                previewPosition === 'bottom' ? 'items-end justify-center pb-8' :
+                'items-center justify-center'
+              }`}
               onClick={(e) => e.stopPropagation()}
             >
               <motion.div
