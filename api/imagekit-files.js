@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { folder, limit = 50 } = req.query;
+    const { folder, limit = 200, skip = 0 } = req.query;
 
     if (!folder) {
       return res.status(400).json({ error: 'Folder parameter is required' });
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
-    // Make request to ImageKit API
+    // Make request to ImageKit API with higher limit
     const response = await axios.get('https://api.imagekit.io/v1/files', {
       auth: {
         username: privateKey,
@@ -41,7 +41,8 @@ export default async function handler(req, res) {
       params: {
         path: folder,
         sort: 'DESC_CREATED',
-        limit: parseInt(limit),
+        limit: Math.min(parseInt(limit), 1000), // Cap at 1000 for performance
+        skip: parseInt(skip),
       },
       headers: {
         'User-Agent': 'Mozilla/5.0 (compatible; StLouisDemoJHS/1.0)',

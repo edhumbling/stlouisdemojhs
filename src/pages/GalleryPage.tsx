@@ -24,8 +24,15 @@ const GalleryPage: React.FC = () => {
     'School Events': 'stlouisdemojhs/school-events/',
   };
 
-  // Get optimized categories (pre-indexed)
-  const categories = useMemo(() => getGalleryCategories(), []);
+  // Get optimized categories (pre-indexed) and combine with ImageKit categories
+  const staticCategories = useMemo(() => getGalleryCategories(), []);
+  const imageKitCategories = Object.keys(imageKitFolderMap);
+  
+  // Combine static and ImageKit categories, removing duplicates
+  const categories = useMemo(() => {
+    const combined = [...new Set([...imageKitCategories, ...staticCategories])];
+    return combined;
+  }, [staticCategories, imageKitCategories]);
 
   // Get filtered images using optimized indexing
   const filteredImages = useMemo(() => getGalleryImagesByCategory(filter), [filter]);
@@ -36,6 +43,8 @@ const GalleryPage: React.FC = () => {
       setImageKitLoading(true);
       setImageKitError(null);
 
+      console.log('Fetching ImageKit images for folder:', folder); // Debug log
+
       // For now, we'll use a mock approach or you can implement a server-side proxy
       // The /v1/files API requires a private key which shouldn't be exposed client-side
       
@@ -43,10 +52,11 @@ const GalleryPage: React.FC = () => {
       const response = await axios.get('/api/imagekit-files', {
         params: {
           folder: folder,
-          limit: 50,
+          limit: 200, // Increased limit to show more images
         },
       });
 
+      console.log('ImageKit response:', response.data?.length, 'images found'); // Debug log
       setImageKitImages(response.data || []);
     } catch (err: any) {
       console.error('Error fetching ImageKit images:', err);
@@ -60,8 +70,12 @@ const GalleryPage: React.FC = () => {
   // Fetch ImageKit images when filter changes
   useEffect(() => {
     const folder = imageKitFolderMap[filter];
+    console.log('Filter changed to:', filter, 'Mapped folder:', folder); // Debug log
     if (folder) {
       fetchImageKitImages(folder);
+    } else {
+      console.log('No ImageKit folder mapping for filter:', filter); // Debug log
+      setImageKitImages([]); // Clear ImageKit images if no mapping
     }
   }, [filter, fetchImageKitImages]);
 

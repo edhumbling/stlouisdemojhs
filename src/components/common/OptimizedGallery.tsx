@@ -1,8 +1,7 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Copy, Download, ZoomIn } from 'lucide-react';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
+import CustomLightbox from './CustomLightbox';
 import ShimmerLoader from './ShimmerLoader';
 
 interface GalleryImage {
@@ -34,6 +33,14 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
   const openLightbox = useCallback((index: number) => {
     setLightboxIndex(index);
     setLightboxOpen(true);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxOpen(false);
+  }, []);
+
+  const handleIndexChange = useCallback((index: number) => {
+    setLightboxIndex(index);
   }, []);
 
   const handleImageLoad = useCallback((imageId: number) => {
@@ -147,53 +154,13 @@ const OptimizedGallery: React.FC<OptimizedGalleryProps> = ({ images, className =
         ))}
       </div>
 
-      {/* Yet Another React Lightbox */}
-      <Lightbox
-        open={lightboxOpen}
-        close={() => setLightboxOpen(false)}
-        index={lightboxIndex}
-        slides={lightboxSlides}
-        animation={{ fade: 200, swipe: 300 }}
-        controller={{
-          closeOnBackdropClick: true,
-          closeOnPullDown: true,
-          closeOnPullUp: true
-        }}
-        toolbar={{
-          buttons: ["close"]
-        }}
-        render={{
-          buttonPrev: () => null,
-          buttonNext: () => null,
-        }}
-        on={{
-          view: ({ index }) => {
-            // Preload adjacent images for smoother navigation
-            const preloadIndexes = [index - 1, index + 1].filter(i =>
-              i >= 0 && i < lightboxSlides.length
-            );
-            preloadIndexes.forEach(i => {
-              const img = new Image();
-              img.src = lightboxSlides[i].src;
-            });
-          }
-        }}
-        styles={{
-          container: {
-            backgroundColor: "rgba(0, 0, 0, 0.95)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)"
-          },
-          slide: {
-            filter: "drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))"
-          }
-        }}
-        carousel={{
-          finite: false,
-          preload: 2,
-          spacing: "30%",
-          imageFit: "contain"
-        }}
+      {/* Custom Lightbox */}
+      <CustomLightbox
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+        images={lightboxSlides}
+        currentIndex={lightboxIndex}
+        onIndexChange={handleIndexChange}
       />
     </>
   );
