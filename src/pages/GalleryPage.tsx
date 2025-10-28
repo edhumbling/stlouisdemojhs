@@ -79,7 +79,7 @@ const GalleryPage: React.FC = () => {
     }
   }, [filter, fetchImageKitImages]);
 
-  // Combine static and ImageKit images
+  // Combine static and ImageKit images, sorted by creation date (newest first)
   const combinedImages = useMemo(() => {
     const staticImages = filteredImages || [];
     
@@ -93,8 +93,28 @@ const GalleryPage: React.FC = () => {
       createdAt: img.createdAt,
     }));
     
-    // Combine with ImageKit images first (newest), then static images
-    return [...imageKitConverted, ...staticImages];
+    // Add createdAt to static images if they don't have it (use a default old date)
+    const staticImagesWithDate = staticImages.map(img => ({
+      ...img,
+      createdAt: img.createdAt || '2020-01-01T00:00:00.000Z', // Default old date for static images
+    }));
+    
+    // Combine all images and sort by creation date (newest first)
+    const allImages = [...imageKitConverted, ...staticImagesWithDate];
+    
+    const sortedImages = allImages.sort((a, b) => {
+      const dateA = new Date(a.createdAt).getTime();
+      const dateB = new Date(b.createdAt).getTime();
+      return dateB - dateA; // Newest first
+    });
+    
+    console.log('Sorted images (newest first):', sortedImages.slice(0, 3).map(img => ({
+      alt: img.alt,
+      createdAt: img.createdAt,
+      isImageKit: img.isImageKit
+    }))); // Debug log
+    
+    return sortedImages;
   }, [filteredImages, imageKitImages, filter]);
 
   const handleBack = useCallback(() => {
