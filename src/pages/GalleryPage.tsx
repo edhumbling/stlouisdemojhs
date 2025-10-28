@@ -30,20 +30,19 @@ const GalleryPage: React.FC = () => {
   // Get filtered images using optimized indexing
   const filteredImages = useMemo(() => getGalleryImagesByCategory(filter), [filter]);
 
-  // Fetch ImageKit images
+  // Fetch ImageKit images - Using a different approach since /v1/files requires private key
   const fetchImageKitImages = useCallback(async (folder: string) => {
     try {
       setImageKitLoading(true);
       setImageKitError(null);
 
-      const response = await axios.get('https://api.imagekit.io/v1/files', {
-        auth: {
-          username: import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY,
-          password: '',
-        },
+      // For now, we'll use a mock approach or you can implement a server-side proxy
+      // The /v1/files API requires a private key which shouldn't be exposed client-side
+      
+      // Option 1: Use a server-side proxy endpoint
+      const response = await axios.get('/api/imagekit-files', {
         params: {
-          path: folder,
-          sort: 'DESC_CREATED',
+          folder: folder,
           limit: 50,
         },
       });

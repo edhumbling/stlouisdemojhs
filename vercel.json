@@ -14,8 +14,17 @@
   ],
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/imagekit-files.js": {
+      "maxDuration": 10
+    }
+  }
 }
