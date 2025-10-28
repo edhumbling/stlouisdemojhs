@@ -986,14 +986,21 @@ const AISearchPage: React.FC = () => {
 
 
   const handleEngineClick = (engineId: string) => {
+    const engineData = aiEngines.find(engine => engine.id === engineId);
+
+    // Check if engine should open externally
+    if (engineData?.openExternally) {
+      console.log(`${engineData.name} is configured to open externally`);
+      handleExternalLinkClick(engineData.url);
+      return;
+    }
+
     setIsLoading(true);
     setIframeError(false);
     setShowAlternatives(false);
     setConnectionRefused(false);
     setLoadAttempts(prev => prev + 1);
     setSelectedEngine(engineId);
-
-    const engineData = aiEngines.find(engine => engine.id === engineId);
 
     // List of engines that are definitely known to block iframe embedding - redirect immediately
     // Reduced list to only the most problematic ones
