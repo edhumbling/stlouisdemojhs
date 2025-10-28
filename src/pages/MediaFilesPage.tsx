@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Play, Calendar, Eye, Trophy, Brain, Vote } from 'lucide-react';
+import { ArrowLeft, Play, Calendar, Eye, Trophy, Brain, Vote, ImageIcon, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import SEOHead from '../components/seo/SEOHead';
+import OptimizedGallery from '../components/common/OptimizedGallery';
 
 interface MediaVideo {
   id: string;
@@ -20,6 +22,67 @@ interface MediaVideo {
 const MediaFilesPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedVideo, setSelectedVideo] = useState<MediaVideo | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [imageKitImages, setImageKitImages] = useState<any[]>([]);
+  const [imageKitLoading, setImageKitLoading] = useState(false);
+  const [imageKitError, setImageKitError] = useState<string | null>(null);
+
+  // ImageKit folder mapping for Media Files
+  const imageKitFolderMap: { [key: string]: string } = {
+    'All': 'stlouisdemojhs/media-files/',
+    'School Events': 'stlouisdemojhs/media-files/school-events/',
+    'Quiz Competitions': 'stlouisdemojhs/media-files/quiz-competitions/',
+    'Sports': 'stlouisdemojhs/media-files/sports/',
+  };
+
+  // Fetch ImageKit images for the selected category
+  const fetchImageKitImages = useCallback(async (folder: string) => {
+    try {
+      setImageKitLoading(true);
+      setImageKitError(null);
+
+      console.log('Fetching ImageKit images for Media Files folder:', folder);
+
+      const response = await axios.get('/api/imagekit-files', {
+        params: {
+          folder: folder,
+          limit: 200,
+        },
+      });
+
+      console.log('ImageKit Media Files response:', response.data?.length, 'images found');
+      setImageKitImages(response.data || []);
+    } catch (err: any) {
+      console.error('Error fetching ImageKit Media Files images:', err);
+      setImageKitError(err.response?.data?.message || 'Failed to load Media Files images');
+      setImageKitImages([]);
+    } finally {
+      setImageKitLoading(false);
+    }
+  }, []);
+
+  // Fetch images when category changes
+  useEffect(() => {
+    const folder = imageKitFolderMap[selectedCategory];
+    if (folder) {
+      fetchImageKitImages(folder);
+    } else {
+      console.log('No ImageKit folder mapping for Media Files category:', selectedCategory);
+      setImageKitImages([]);
+    }
+  }, [selectedCategory, fetchImageKitImages]);
+
+  // Convert ImageKit images to gallery format
+  const convertedImages = useMemo(() => {
+    return imageKitImages.map((img, index) => ({
+      id: parseInt(img.fileId.replace(/\D/g, '')) || (Date.now() + index),
+      src: `${img.url}?tr=w-800,h-800,fo-auto,q-90`,
+      alt: img.name.replace(/\.[^/.]+$/, ""),
+      category: selectedCategory,
+      isImageKit: true,
+      createdAt: img.createdAt,
+    }));
+  }, [imageKitImages, selectedCategory]);
 
   // Convert Google Drive URLs to embed format
   const convertToEmbedUrl = (driveUrl: string): string => {
@@ -83,7 +146,7 @@ const MediaFilesPage: React.FC = () => {
   };
 
   const mediaVideos: MediaVideo[] = [
-    // Election Diaries 2025
+    // School Events
     {
       id: '1',
       title: 'Election Diaries 2025 - Episode 1',
@@ -92,9 +155,9 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1EYNZ4XLCFzCaS_9p3RGsM-W8nhTNWLfo/view'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1EYNZ4XLCFzCaS_9p3RGsM-W8nhTNWLfo/view'),
       duration: '0:30',
-      baseViews: 1200, // Base views, will auto-increment by 1K daily
-      uploadTimestamp: Date.now() - (4 * 24 * 60 * 60 * 1000), // 4 days ago
-      category: 'Election Diaries 2025'
+      baseViews: 1200,
+      uploadTimestamp: Date.now() - (4 * 24 * 60 * 60 * 1000),
+      category: 'School Events'
     },
     {
       id: '2',
@@ -104,9 +167,9 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1KG71HVjDiSXkw9T4-QiOscqp1Vhji8bI/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1KG71HVjDiSXkw9T4-QiOscqp1Vhji8bI/view?usp=drive_link'),
       duration: '0:33',
-      baseViews: 856, // Base views, will auto-increment by 1K daily
-      uploadTimestamp: Date.now() - (3 * 24 * 60 * 60 * 1000), // 3 days ago
-      category: 'Election Diaries 2025'
+      baseViews: 856,
+      uploadTimestamp: Date.now() - (3 * 24 * 60 * 60 * 1000),
+      category: 'School Events'
     },
     {
       id: '3',
@@ -116,9 +179,9 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1XK4BGl_kWtEFKNWFCw_0PoBXtrxFdeww/view?usp=drive_link'),
       duration: '0:38',
-      baseViews: 2100, // Base views, will auto-increment by 1K daily
-      uploadTimestamp: Date.now() - (2 * 24 * 60 * 60 * 1000), // 2 days ago
-      category: 'Election Diaries 2025'
+      baseViews: 2100,
+      uploadTimestamp: Date.now() - (2 * 24 * 60 * 60 * 1000),
+      category: 'School Events'
     },
     {
       id: '4',
@@ -128,12 +191,12 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1cO5KJHvRetuiuCVqF2OgBKjCI75gc3td/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1cO5KJHvRetuiuCVqF2OgBKjCI75gc3td/view?usp=drive_link'),
       duration: '0:45',
-      baseViews: 1800, // Base views, will auto-increment by 1K daily
-      uploadTimestamp: Date.now() - (1 * 24 * 60 * 60 * 1000), // 1 day ago
-      category: 'Election Diaries 2025'
+      baseViews: 1800,
+      uploadTimestamp: Date.now() - (1 * 24 * 60 * 60 * 1000),
+      category: 'School Events'
     },
 
-    // Sports Competitions
+    // Sports
     {
       id: '5',
       title: 'Inter-House Sports Competition 2025',
@@ -142,9 +205,9 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1ly09Lgr-tDdg262pGPvdwNn5bex-9THk/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1ly09Lgr-tDdg262pGPvdwNn5bex-9THk/view?usp=drive_link'),
       duration: '2:15',
-      baseViews: 2800, // Base views, will auto-increment by 1K daily
-      uploadTimestamp: Date.now() - (7 * 24 * 60 * 60 * 1000), // 1 week ago
-      category: 'Sports Competitions'
+      baseViews: 2800,
+      uploadTimestamp: Date.now() - (7 * 24 * 60 * 60 * 1000),
+      category: 'Sports'
     },
     {
       id: '6',
@@ -154,9 +217,9 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1_mj1rl56w59ls8yN_Bqdviim-YGmE-AE/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1_mj1rl56w59ls8yN_Bqdviim-YGmE-AE/view?usp=drive_link'),
       duration: '3:42',
-      baseViews: 3200, // Base views, will auto-increment by 1K daily
-      uploadTimestamp: Date.now() - (5 * 24 * 60 * 60 * 1000), // 5 days ago
-      category: 'Sports Competitions'
+      baseViews: 3200,
+      uploadTimestamp: Date.now() - (5 * 24 * 60 * 60 * 1000),
+      category: 'Sports'
     },
 
     // Quiz Competitions
@@ -168,8 +231,8 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: convertToEmbedUrl('https://drive.google.com/file/d/1_Q_Fahvjz_Xt3kkVnxMV-lkZg-gj96zK/view?usp=drive_link'),
       thumbnail: generateThumbnail('https://drive.google.com/file/d/1_Q_Fahvjz_Xt3kkVnxMV-lkZg-gj96zK/view?usp=drive_link'),
       duration: '4:18',
-      baseViews: 1950, // Base views, will auto-increment by 1K daily
-      uploadTimestamp: Date.now() - (7 * 24 * 60 * 60 * 1000), // 1 week ago
+      baseViews: 1950,
+      uploadTimestamp: Date.now() - (7 * 24 * 60 * 60 * 1000),
       category: 'Quiz Competitions'
     },
     {
@@ -180,8 +243,8 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: 'https://www.youtube.com/embed/c90tOBl5K6g?rel=0&modestbranding=1&controls=1',
       thumbnail: 'https://img.youtube.com/vi/c90tOBl5K6g/maxresdefault.jpg',
       duration: '4:15',
-      baseViews: 3400, // Base views, will auto-increment by 1K daily
-      uploadTimestamp: Date.now() - (21 * 24 * 60 * 60 * 1000), // 3 weeks ago
+      baseViews: 3400,
+      uploadTimestamp: Date.now() - (21 * 24 * 60 * 60 * 1000),
       category: 'Quiz Competitions'
     },
     {
@@ -192,8 +255,8 @@ const MediaFilesPage: React.FC = () => {
       embedUrl: 'https://www.youtube.com/embed/vMUVyKTTFZA?rel=0&modestbranding=1&controls=1',
       thumbnail: 'https://img.youtube.com/vi/vMUVyKTTFZA/maxresdefault.jpg',
       duration: '7:23',
-      baseViews: 4200, // Base views, will auto-increment by 1K daily
-      uploadTimestamp: Date.now() - (30 * 24 * 60 * 60 * 1000), // 1 month ago
+      baseViews: 4200,
+      uploadTimestamp: Date.now() - (30 * 24 * 60 * 60 * 1000),
       category: 'Quiz Competitions'
     }
   ];
@@ -218,9 +281,9 @@ const MediaFilesPage: React.FC = () => {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     switch (category) {
-      case 'Election Diaries 2025':
+      case 'School Events':
         return <Vote className="w-5 h-5 text-blue-500" />;
-      case 'Sports Competitions':
+      case 'Sports':
         return <Trophy className="w-5 h-5 text-yellow-500" />;
       case 'Quiz Competitions':
         return <Brain className="w-5 h-5 text-purple-500" />;
@@ -232,9 +295,9 @@ const MediaFilesPage: React.FC = () => {
   // Get category color
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'Election Diaries 2025':
+      case 'School Events':
         return 'bg-blue-600';
-      case 'Sports Competitions':
+      case 'Sports':
         return 'bg-yellow-600';
       case 'Quiz Competitions':
         return 'bg-purple-600';
@@ -280,6 +343,55 @@ const MediaFilesPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Category Filter */}
+      <div className="bg-gray-900 py-4 px-4 sm:px-6 border-b border-gray-800">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
+          {Object.keys(imageKitFolderMap).map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                selectedCategory === category
+                  ? 'bg-red-600 text-white shadow-lg'
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* ImageKit Images Section */}
+      {selectedCategory && (
+        <div className="px-4 sm:px-6 py-6">
+          <div className="flex items-center space-x-2 mb-4">
+            <ImageIcon className="w-5 h-5 text-green-500" />
+            <h2 className="text-lg font-semibold text-white">
+              {selectedCategory} Images
+            </h2>
+            {imageKitLoading && <Loader2 className="w-4 h-4 animate-spin text-gray-400" />}
+          </div>
+
+          {imageKitError && (
+            <div className="bg-red-900/50 border border-red-700 rounded-lg p-4 mb-4">
+              <p className="text-red-300 text-sm">{imageKitError}</p>
+            </div>
+          )}
+
+          {convertedImages.length > 0 ? (
+            <OptimizedGallery images={convertedImages} className="mb-8" />
+          ) : !imageKitLoading && (
+            <div className="bg-gray-800 rounded-lg p-8 text-center">
+              <ImageIcon className="w-12 h-12 text-gray-500 mx-auto mb-3" />
+              <p className="text-gray-400">
+                No images found in {selectedCategory}. Upload some images to ImageKit to see them here!
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Categories and Videos */}
       <div className="px-4 sm:px-6 py-6 space-y-8">
         {Object.entries(videosByCategory).map(([category, videos], categoryIndex) => (
@@ -323,8 +435,8 @@ const MediaFilesPage: React.FC = () => {
 
                     {/* Category Badge */}
                     <div className={`absolute top-2 left-2 ${getCategoryColor(video.category)} text-white text-xs px-2 py-1 rounded`}>
-                      {video.category === 'Election Diaries 2025' ? 'Election' :
-                       video.category === 'Sports Competitions' ? 'Sports' :
+                      {video.category === 'School Events' ? 'Events' :
+                       video.category === 'Sports' ? 'Sports' :
                        video.category === 'Quiz Competitions' ? 'Quiz' : video.category}
                     </div>
                   </div>
@@ -420,8 +532,8 @@ const MediaFilesPage: React.FC = () => {
                   <span>{calculateDaysAgo(selectedVideo.uploadTimestamp)}</span>
                 </div>
                 <span className={`${getCategoryColor(selectedVideo.category)} text-white px-2 py-1 rounded text-xs`}>
-                  {selectedVideo.category === 'Election Diaries 2025' ? 'Election' :
-                   selectedVideo.category === 'Sports Competitions' ? 'Sports' :
+                  {selectedVideo.category === 'School Events' ? 'Events' :
+                   selectedVideo.category === 'Sports' ? 'Sports' :
                    selectedVideo.category === 'Quiz Competitions' ? 'Quiz' : selectedVideo.category}
                 </span>
               </div>
