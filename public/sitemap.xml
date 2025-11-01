@@ -9,7 +9,7 @@
   <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://stlouisdemojhs.com/</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <mobile:mobile/>
@@ -23,7 +23,7 @@
   <!-- Main Navigation Pages - High Priority -->
   <url>
     <loc>https://stlouisdemojhs.com/news</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
@@ -31,7 +31,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/stem</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
@@ -39,7 +39,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/tvet</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
@@ -47,7 +47,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/learnhub</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
@@ -55,7 +55,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/ai-search</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -63,7 +63,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/louis-ai</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
@@ -76,7 +76,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/ask-louis</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -89,7 +89,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/mayamiles-ai</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -102,7 +102,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/gallery</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -111,7 +111,7 @@
   <!-- School Information Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/about</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -119,7 +119,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/academics</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -127,7 +127,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/admissions</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -135,7 +135,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/faculty</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -143,7 +143,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/facilities</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -152,7 +152,7 @@
   <!-- Contact and Application Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/contact</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -160,7 +160,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/apply-now</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
@@ -168,7 +168,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/visit-us</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -176,7 +176,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/schedule-tour</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -184,7 +184,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/virtual-tour</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -193,7 +193,7 @@
   <!-- AI Tools and Educational Resources -->
   <url>
     <loc>https://stlouisdemojhs.com/ai-search</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -206,7 +206,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/ai-audio-tools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -219,7 +219,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/ai-video-tools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -232,7 +232,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/ai-image-tools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -245,7 +245,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/ai-text-to-speech-tools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -258,7 +258,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/career-reel-resources</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -267,7 +267,7 @@
   <!-- Support and Information Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/donate</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -275,7 +275,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-paypal</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -283,7 +283,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-us-bank</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -291,7 +291,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-uk-bank</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -299,7 +299,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-euro-bank</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -307,7 +307,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/shs-database</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -315,7 +315,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/results-placement</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -324,7 +324,7 @@
   <!-- Community and Partnership Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/alumni</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -332,7 +332,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/pta</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -340,7 +340,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/sponsorship</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -348,7 +348,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/partner</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -356,7 +356,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/media</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -364,7 +364,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/media-files</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -372,7 +372,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/tiktok</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -381,7 +381,7 @@
   <!-- Subject Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/subject/mathematics</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -389,7 +389,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/english-language</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -397,7 +397,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/integrated-science</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -405,7 +405,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/social-studies</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -413,7 +413,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/religious-moral-education</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -421,7 +421,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/ghanaian-language</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -429,7 +429,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/french</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -437,7 +437,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/career-technology</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -445,7 +445,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/computing-ict</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -453,7 +453,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/creative-arts-design</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -461,7 +461,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/subject/music</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -470,7 +470,7 @@
   <!-- Educational Resources and Guidance -->
   <url>
     <loc>https://stlouisdemojhs.com/scholarship-opportunities</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -478,7 +478,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/educational-guide</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -486,7 +486,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/educational-pathway-guide</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -494,7 +494,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/staff-resources</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -502,7 +502,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/ai-teaching-guide</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -510,7 +510,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/jhs-textbooks</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -518,7 +518,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/dream-hive-resources</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -526,7 +526,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/money-smart-links</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -535,7 +535,7 @@
   <!-- Educational Institutions -->
   <url>
     <loc>https://stlouisdemojhs.com/nursing-institutions</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -543,7 +543,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/teacher-training</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -551,7 +551,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/local-universities</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -559,7 +559,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/professional-institutes</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -567,7 +567,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/tvet-schools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -575,7 +575,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/military-academies</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -583,7 +583,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/religious-seminaries</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -591,7 +591,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/art-creative-schools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -599,7 +599,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/agricultural-colleges</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -607,7 +607,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/business-schools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -615,7 +615,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/online-universities</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -624,7 +624,7 @@
   <!-- Additional School Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/calendar</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -632,7 +632,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/advice-speeches</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -640,7 +640,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/thank-you</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <mobile:mobile/>
@@ -648,7 +648,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/schedule-visit</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -656,7 +656,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/leadership-excellence</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -664,7 +664,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/tiktok-submit</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <mobile:mobile/>
@@ -672,7 +672,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/social-preview</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -681,7 +681,7 @@
   <!-- Monthly Donation Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/donate-monthly-10</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -689,7 +689,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-monthly-30</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -697,7 +697,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-monthly-50</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -705,7 +705,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-monthly-100</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -713,7 +713,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-monthly-200</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -721,7 +721,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-monthly-500</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -729,7 +729,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-monthly-1000</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -737,7 +737,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-monthly-3000</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -745,7 +745,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-monthly-5000</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
@@ -754,7 +754,7 @@
   <!-- Utility Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/sitemap</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <mobile:mobile/>
@@ -762,7 +762,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/privacy-policy</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <mobile:mobile/>
@@ -770,7 +770,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/terms-of-service</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <mobile:mobile/>
@@ -779,7 +779,7 @@
   <!-- Missing Pages - Recently Added -->
   <url>
     <loc>https://stlouisdemojhs.com/admissions</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <mobile:mobile/>
@@ -787,7 +787,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/faculty</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -795,7 +795,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/staff-resources</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -803,7 +803,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/ai-teaching-guide</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -811,7 +811,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/jhs-textbooks</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -819,7 +819,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/dream-hive-resources</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -827,7 +827,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/money-smart-links</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -835,7 +835,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/calendar</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -843,7 +843,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/advice-speeches</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -851,7 +851,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/gallery</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -859,7 +859,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/thank-you</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <mobile:mobile/>
@@ -867,7 +867,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/schedule-visit</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -875,7 +875,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/partner</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -883,7 +883,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/alumni</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -891,7 +891,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/sponsorship</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -899,7 +899,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/pta</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -907,7 +907,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/media</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -915,7 +915,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/media-files</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -924,7 +924,7 @@
   <!-- Additional Donation Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/donate-us-bank</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -932,7 +932,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-uk-bank</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -940,7 +940,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donate-euro-bank</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -949,7 +949,7 @@
   <!-- Educational Database and Tools -->
   <url>
     <loc>https://stlouisdemojhs.com/shs-database</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -957,7 +957,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/results-placement</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -965,7 +965,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/tiktok</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -973,7 +973,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/tiktok-submit</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <mobile:mobile/>
@@ -982,7 +982,7 @@
   <!-- Educational Pathway Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/educational-pathway-guide</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -990,7 +990,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/nursing-institutions</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -998,7 +998,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/teacher-training</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -1006,7 +1006,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/local-universities</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -1014,7 +1014,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/professional-institutes</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -1022,7 +1022,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/tvet-schools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -1030,7 +1030,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/military-academies</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -1038,7 +1038,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/religious-seminaries</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -1046,7 +1046,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/art-creative-schools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -1054,7 +1054,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/agricultural-colleges</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -1062,7 +1062,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/business-schools</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -1070,7 +1070,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/online-universities</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <mobile:mobile/>
@@ -1079,7 +1079,7 @@
   <!-- Academic Area Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/character-education</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -1087,7 +1087,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/stem-education</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -1095,7 +1095,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/creative-arts</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -1103,7 +1103,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/language-communication</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -1111,7 +1111,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/core-academic</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <mobile:mobile/>
@@ -1120,7 +1120,7 @@
   <!-- Standalone Pages -->
   <url>
     <loc>https://stlouisdemojhs.com/mayamiles-ai</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <mobile:mobile/>
@@ -1128,7 +1128,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/donation-thank-you</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <mobile:mobile/>
@@ -1136,7 +1136,7 @@
 
   <url>
     <loc>https://stlouisdemojhs.com/social-preview</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <mobile:mobile/>
