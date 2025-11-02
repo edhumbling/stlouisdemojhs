@@ -7,8 +7,8 @@ const LouisAIFloatingButton: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
   
-  // Don't show the floating button on the Louis AI page itself
-  if (location.pathname === '/louis-ai') {
+  // Don't show the floating button on the Louis AI page itself or any AI Search pages/sub-pages (where Humbl AI and other AI engines are embedded)
+  if (location.pathname === '/louis-ai' || location.pathname.startsWith('/ai-search')) {
     return null;
   }
 
