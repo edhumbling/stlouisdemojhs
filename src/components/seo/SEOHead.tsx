@@ -273,6 +273,24 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
   const canonicalUrl = canonical || fullUrl;
 
+  // Cache-busting helper function for URLs and images
+  // Uses date-based versioning that changes daily to force social media platforms to refresh
+  const getCacheVersion = (): string => {
+    // Generate a version based on the date (changes daily) for cache busting
+    // Format: YYYYMMDD (e.g., 20250128) for clean, short version numbers
+    return new Date().toISOString().split('T')[0].replace(/-/g, '');
+  };
+
+  // Cache-busting helper for URLs
+  const addCacheBusterToUrl = (urlToBust: string): string => {
+    const cacheVersion = getCacheVersion();
+    const separator = urlToBust.includes('?') ? '&' : '?';
+    return `${urlToBust}${separator}v=${cacheVersion}`;
+  };
+
+  // URLs for social media (with cache busting to force refresh)
+  const socialMediaUrl = addCacheBusterToUrl(fullUrl);
+
   // Generate dynamic title and description based on page type
   const finalTitle = getPageTitle(pageType, title);
   const finalDescription = getPageDescription(pageType, description);
@@ -360,13 +378,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
   const finalStructuredData = structuredData || defaultStructuredData;
 
-  // Get optimized images for different social networks with cache busting
-  const cacheVersion = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
-  const addCacheBuster = (imageUrl: string) => {
-    if (imageUrl.includes('?')) {
-      return `${imageUrl}&v=${cacheVersion}`;
-    }
-    return `${imageUrl}?v=${cacheVersion}`;
+  // Cache-busting helper for images (uses same version as URLs for consistency)
+  const addCacheBuster = (imageUrl: string): string => {
+    const cacheVersion = getCacheVersion();
+    const separator = imageUrl.includes('?') ? '&' : '?';
+    return `${imageUrl}${separator}v=${cacheVersion}`;
   };
 
   const facebookImage = useGalleryImages ? getOptimalSocialImage(pageType, 'facebook', image, socialImagePreferences) : image;
@@ -443,7 +459,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={finalTitle} />
       <meta property="og:image:type" content="image/jpeg" />
-      <meta property="og:url" content={fullUrl} />
+      <meta property="og:url" content={socialMediaUrl} />
       <meta property="og:site_name" content="St. Louis Demo. JHS - Suame, Mbrom" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:updated_time" content={finalModifiedTime} />
