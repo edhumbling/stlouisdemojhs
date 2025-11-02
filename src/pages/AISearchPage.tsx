@@ -792,6 +792,16 @@ const AISearchPage: React.FC = () => {
       glowColor: '#1f2937',
       hasWhiteBackground: true,
       openExternally: true
+    },
+    {
+      id: 'humbl-ai',
+      name: 'Humbl AI',
+      url: 'https://humbl-ai.vercel.app',
+      description: 'Powerful AI-powered search engine powered by multiple Language Models (LLMs) for the world to use',
+      icon: <img src="/favicon.png" alt="Humbl AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/6366f1/ffffff?text=HAI'; }} />,
+      color: 'from-indigo-600 to-purple-700',
+      glowColor: '#6366f1',
+      hasWhiteBackground: true
     }
   ];
 
