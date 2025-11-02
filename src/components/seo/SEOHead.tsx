@@ -20,7 +20,7 @@ interface SEOHeadProps {
   alternateLanguages?: Array<{ hreflang: string; href: string }>;
   structuredData?: object;
   // New props for dynamic social media images
-  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'louis-ai' | 'contact' | 'about' | 'academics' | 'admissions' | 'faculty' | 'alumni' | 'media' | 'donation' | 'legal';
+  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'louis-ai' | 'contact' | 'about' | 'academics' | 'admissions' | 'faculty' | 'alumni' | 'media' | 'donation' | 'legal' | 'shop' | 'pta' | 'calendar' | 'educational' | 'staff-resources';
   useGalleryImages?: boolean;
   socialImagePreferences?: {
     facebook?: string;
@@ -29,6 +29,37 @@ interface SEOHeadProps {
     whatsapp?: string;
   };
 }
+
+// Generate unique titles based on page type
+const getPageTitle = (pageType: string, customTitle?: string): string => {
+  if (customTitle) return customTitle;
+
+  const titles: Record<string, string> = {
+    home: "St. Louis Demonstration Junior High School - Excellence in Education | Ghana",
+    'students-hub': "Students Hub - Learning Resources & Educational Tools | St. Louis Demonstration JHS",
+    stem: "STEM Education - Science, Technology, Engineering & Mathematics | St. Louis Demonstration JHS",
+    gallery: "Photo Gallery - Campus Life & Events | St. Louis Demonstration JHS",
+    news: "News & Events - Latest Updates & Announcements | St. Louis Demonstration JHS",
+    'ai-search': "AI Search - AI-Powered Learning & Educational Resources | St. Louis Demonstration JHS",
+    'louis-ai': "Louis AI - Your Intelligent School Assistant | St. Louis Demonstration JHS",
+    contact: "Contact Us - Get in Touch | St. Louis Demonstration JHS",
+    about: "About Us - Our History, Mission & Values | St. Louis Demonstration JHS",
+    academics: "Academics - Comprehensive Academic Programs | St. Louis Demonstration JHS",
+    admissions: "Admissions - Join Our School Community | St. Louis Demonstration JHS",
+    faculty: "Faculty & Staff - Meet Our Teachers | St. Louis Demonstration JHS",
+    alumni: "Alumni - Success Stories & Network | St. Louis Demonstration JHS",
+    media: "Media - Videos & Multimedia Content | St. Louis Demonstration JHS",
+    donation: "Donate - Support Excellence in Education | St. Louis Demonstration JHS",
+    legal: "Terms & Privacy Policy - Legal Information | St. Louis Demonstration JHS",
+    shop: "Shop - School Merchandise & Resources | St. Louis Demonstration JHS",
+    pta: "PTA - Parent-Teacher Association | St. Louis Demonstration JHS",
+    calendar: "School Calendar - Events & Important Dates | St. Louis Demonstration JHS",
+    educational: "Educational Resources & Learning Materials | St. Louis Demonstration JHS",
+    'staff-resources': "Staff Resources - Teacher Tools & Materials | St. Louis Demonstration JHS"
+  };
+
+  return titles[pageType] || "St. Louis Demonstration Junior High School - Excellence in Education | Ghana";
+};
 
 // Generate unique descriptions based on page type
 const getPageDescription = (pageType: string, customDescription?: string): string => {
@@ -50,7 +81,12 @@ const getPageDescription = (pageType: string, customDescription?: string): strin
     alumni: "Celebrate the achievements of St. Louis Demonstration JHS alumni. Discover success stories, career paths, and the lasting impact of our education on graduates who are making a difference in Ghana and around the world.",
     media: "Explore multimedia content from St. Louis Demonstration JHS. Watch videos, view photos, and experience the dynamic learning environment that makes our school a leader in junior high school education in Ghana.",
     donation: "Support excellence in education at St. Louis Demonstration JHS. Your generous donations help us maintain high standards, improve facilities, and provide opportunities for all students to achieve their full potential.",
-    legal: "Important legal information and policies for St. Louis Demonstration JHS. Review our terms of service, privacy policy, and other legal documents that govern our educational services and website usage."
+    legal: "Important legal information and policies for St. Louis Demonstration JHS. Review our terms of service, privacy policy, and other legal documents that govern our educational services and website usage.",
+    shop: "Browse school merchandise, textbooks, uniforms, and educational resources available at St. Louis Demonstration JHS. Support the school while getting quality materials for students.",
+    pta: "Join the Parent-Teacher Association at St. Louis Demonstration JHS. Discover how parents and teachers work together to support student success and school development.",
+    calendar: "View the school calendar for St. Louis Demonstration JHS. Stay informed about important dates, events, holidays, examinations, and school activities throughout the academic year.",
+    educational: "Access comprehensive educational resources, learning materials, study guides, and academic support tools designed for St. Louis Demonstration JHS students and teachers.",
+    'staff-resources': "Access teaching resources, staff development materials, curriculum guides, and professional development tools for faculty and staff at St. Louis Demonstration JHS."
   };
 
   return descriptions[pageType] || descriptions.home;
@@ -176,6 +212,36 @@ const getOptimalSocialImage = (
       twitter: schoolLogo,
       linkedin: schoolLogo,
       whatsapp: schoolLogo,
+    },
+    shop: {
+      facebook: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('resources'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Campus Life' && img.alt.includes('materials'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Campus Life')?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Campus Life')?.src || defaultImage,
+    },
+    pta: {
+      facebook: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('community'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('engagement'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('partnership'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'School Events')?.src || defaultImage,
+    },
+    calendar: {
+      facebook: galleryImages.find(img => img.category === 'School Events')?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('activities'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'School Events' && img.alt.includes('celebration'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'School Events')?.src || defaultImage,
+    },
+    educational: {
+      facebook: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('learning'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('resources'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('materials'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Academic Life')?.src || defaultImage,
+    },
+    'staff-resources': {
+      facebook: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('instruction'))?.src || defaultImage,
+      twitter: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('teaching'))?.src || defaultImage,
+      linkedin: galleryImages.find(img => img.category === 'Academic Life' && img.alt.includes('guidance'))?.src || defaultImage,
+      whatsapp: galleryImages.find(img => img.category === 'Academic Life')?.src || defaultImage,
     }
   };
 
@@ -183,7 +249,7 @@ const getOptimalSocialImage = (
 };
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "ST. LOUIS DEMONSTRATION J.H.S - Leading Education",
+  title,
   description,
   keywords = "St. Louis Demonstration JHS, junior high school Ghana, quality education Ghana, JHS Ghana, secondary education, academic excellence, STEM education, student resources, Ghana education",
   image = "https://6z76leifsf.ufs.sh/f/L5CIuQd9dw1MQvvu88gADpy0Zti2YukxzfHQrcTFhNmSbnIs",
@@ -207,7 +273,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
   const canonicalUrl = canonical || fullUrl;
 
-  // Generate dynamic description based on page type
+  // Generate dynamic title and description based on page type
+  const finalTitle = getPageTitle(pageType, title);
   const finalDescription = getPageDescription(pageType, description);
 
   // Default structured data for the school with enhanced logo schema
@@ -321,7 +388,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   return (
     <Helmet>
       {/* Basic Meta Tags */}
-      <title>{title}</title>
+      <title>{finalTitle}</title>
       <meta name="description" content={finalDescription} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
@@ -368,13 +435,13 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
       {/* Open Graph Meta Tags - Facebook & LinkedIn optimized */}
       <meta property="og:type" content={type} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={finalFacebookImage} />
       <meta property="og:image:secure_url" content={finalFacebookImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={title} />
+      <meta property="og:image:alt" content={finalTitle} />
       <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:site_name" content="St. Louis Demo. JHS - Suame, Mbrom" />
@@ -403,10 +470,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
       {/* Twitter Card Meta Tags - Twitter optimized */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={finalTwitterImage} />
-      <meta name="twitter:image:alt" content={title} />
+      <meta name="twitter:image:alt" content={finalTitle} />
       <meta name="twitter:site" content="@stlouisdemojhs" />
       <meta name="twitter:creator" content="@stlouisdemojhs" />
 

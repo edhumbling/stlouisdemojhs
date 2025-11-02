@@ -7,15 +7,80 @@ interface SocialMediaPreviewProps {
   title?: string;
   description?: string;
   url?: string;
-  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'contact' | 'about' | 'admissions' | 'faculty' | 'alumni' | 'pta' | 'calendar' | 'apply-now' | 'scholarship-opportunities' | 'shs-database' | 'mayamiles-ai' | 'donate';
+  pageType?: 'home' | 'students-hub' | 'stem' | 'gallery' | 'news' | 'ai-search' | 'louis-ai' | 'contact' | 'about' | 'academics' | 'admissions' | 'faculty' | 'alumni' | 'media' | 'donation' | 'legal' | 'shop' | 'pta' | 'calendar' | 'educational' | 'staff-resources';
 }
 
+// Generate unique titles based on page type
+const getPageTitle = (pageType: string, customTitle?: string): string => {
+  if (customTitle) return customTitle;
+
+  const titles: Record<string, string> = {
+    home: "St. Louis Demonstration Junior High School - Excellence in Education | Ghana",
+    'students-hub': "Students Hub - Learning Resources & Educational Tools | St. Louis Demonstration JHS",
+    stem: "STEM Education - Science, Technology, Engineering & Mathematics | St. Louis Demonstration JHS",
+    gallery: "Photo Gallery - Campus Life & Events | St. Louis Demonstration JHS",
+    news: "News & Events - Latest Updates & Announcements | St. Louis Demonstration JHS",
+    'ai-search': "AI Search - AI-Powered Learning & Educational Resources | St. Louis Demonstration JHS",
+    'louis-ai': "Louis AI - Your Intelligent School Assistant | St. Louis Demonstration JHS",
+    contact: "Contact Us - Get in Touch | St. Louis Demonstration JHS",
+    about: "About Us - Our History, Mission & Values | St. Louis Demonstration JHS",
+    academics: "Academics - Comprehensive Academic Programs | St. Louis Demonstration JHS",
+    admissions: "Admissions - Join Our School Community | St. Louis Demonstration JHS",
+    faculty: "Faculty & Staff - Meet Our Teachers | St. Louis Demonstration JHS",
+    alumni: "Alumni - Success Stories & Network | St. Louis Demonstration JHS",
+    media: "Media - Videos & Multimedia Content | St. Louis Demonstration JHS",
+    donation: "Donate - Support Excellence in Education | St. Louis Demonstration JHS",
+    legal: "Terms & Privacy Policy - Legal Information | St. Louis Demonstration JHS",
+    shop: "Shop - School Merchandise & Resources | St. Louis Demonstration JHS",
+    pta: "PTA - Parent-Teacher Association | St. Louis Demonstration JHS",
+    calendar: "School Calendar - Events & Important Dates | St. Louis Demonstration JHS",
+    educational: "Educational Resources & Learning Materials | St. Louis Demonstration JHS",
+    'staff-resources': "Staff Resources - Teacher Tools & Materials | St. Louis Demonstration JHS"
+  };
+
+  return titles[pageType] || "St. Louis Demonstration Junior High School - Excellence in Education | Ghana";
+};
+
+// Generate unique descriptions based on page type
+const getPageDescription = (pageType: string, customDescription?: string): string => {
+  if (customDescription) return customDescription;
+
+  const descriptions: Record<string, string> = {
+    home: "Welcome to St. Louis Demonstration JHS, Ghana's premier junior high school. We provide exceptional education with modern facilities, experienced teachers, and comprehensive academic programs that prepare students for success in senior high school and beyond.",
+    'students-hub': "Discover your ultimate learning companion at St. Louis Demonstration JHS Students Hub. Access curated educational resources, STEM tools, study guides, scholarship opportunities, and interactive learning materials designed specifically for junior high school success.",
+    stem: "Ignite your passion for Science, Technology, Engineering, and Mathematics at St. Louis Demonstration JHS. Explore hands-on experiments, coding tutorials, engineering challenges, and mathematical problem-solving tools designed to inspire the next generation of innovators.",
+    gallery: "Explore the vibrant life at St. Louis Demonstration JHS through our comprehensive photo gallery. Witness our students' academic achievements, campus events, modern facilities, and the dynamic learning environment that makes our school special.",
+    news: "Stay updated with the latest news, events, and achievements from St. Louis Demonstration JHS. Discover upcoming activities, academic milestones, student accomplishments, and important announcements from our school community.",
+    'ai-search': "Experience the future of learning with our AI-powered educational search platform. Find personalized study materials, academic resources, and learning tools tailored specifically for St. Louis Demonstration JHS students.",
+    'louis-ai': "Meet Louis AI - your intelligent school assistant at St. Louis Demonstration JHS. Get instant, accurate answers about admissions, academics, school life, and everything you need to know about our prestigious junior high school in Ghana.",
+    contact: "Connect with St. Louis Demonstration JHS - Ghana's leading junior high school. Find our location, contact information, admission details, and schedule a visit to experience our exceptional educational environment firsthand.",
+    about: "Learn about St. Louis Demonstration JHS - our rich history, educational mission, core values, and unwavering commitment to providing quality junior high school education that shapes future leaders in Ghana.",
+    academics: "Discover our comprehensive academic programs at St. Louis Demonstration JHS. From core subjects to specialized courses, we offer rigorous curriculum designed to challenge and inspire students while building strong foundations for future success.",
+    admissions: "Join the St. Louis Demonstration JHS family! Learn about our admission process, requirements, application deadlines, and discover how to become part of Ghana's most prestigious junior high school community.",
+    faculty: "Meet our exceptional faculty at St. Louis Demonstration JHS. Our dedicated teachers and staff bring years of experience, passion for education, and commitment to nurturing every student's potential for academic and personal growth.",
+    alumni: "Celebrate the achievements of St. Louis Demonstration JHS alumni. Discover success stories, career paths, and the lasting impact of our education on graduates who are making a difference in Ghana and around the world.",
+    media: "Explore multimedia content from St. Louis Demonstration JHS. Watch videos, view photos, and experience the dynamic learning environment that makes our school a leader in junior high school education in Ghana.",
+    donation: "Support excellence in education at St. Louis Demonstration JHS. Your generous donations help us maintain high standards, improve facilities, and provide opportunities for all students to achieve their full potential.",
+    legal: "Important legal information and policies for St. Louis Demonstration JHS. Review our terms of service, privacy policy, and other legal documents that govern our educational services and website usage.",
+    shop: "Browse school merchandise, textbooks, uniforms, and educational resources available at St. Louis Demonstration JHS. Support the school while getting quality materials for students.",
+    pta: "Join the Parent-Teacher Association at St. Louis Demonstration JHS. Discover how parents and teachers work together to support student success and school development.",
+    calendar: "View the school calendar for St. Louis Demonstration JHS. Stay informed about important dates, events, holidays, examinations, and school activities throughout the academic year.",
+    educational: "Access comprehensive educational resources, learning materials, study guides, and academic support tools designed for St. Louis Demonstration JHS students and teachers.",
+    'staff-resources': "Access teaching resources, staff development materials, curriculum guides, and professional development tools for faculty and staff at St. Louis Demonstration JHS."
+  };
+
+  return descriptions[pageType] || descriptions.home;
+};
+
 const SocialMediaPreview: React.FC<SocialMediaPreviewProps> = ({
-  title = "St. Louis Demonstration Junior High School - Excellence in Education | Ghana",
-  description = "St. Louis Demonstration JHS is a premier educational institution in Ghana, offering quality junior high school education with modern facilities, experienced teachers, and comprehensive academic programs.",
+  title,
+  description,
   url = "https://stlouisdemojhs.com",
   pageType = 'home'
 }) => {
+  // Generate dynamic title and description based on page type
+  const finalTitle = getPageTitle(pageType, title);
+  const finalDescription = getPageDescription(pageType, description);
   const [copiedUrl, setCopiedUrl] = useState(false);
 
   // Get optimized images for different networks (same logic as SEOHead)
@@ -182,7 +247,7 @@ const SocialMediaPreview: React.FC<SocialMediaPreviewProps> = ({
                 <div className="relative aspect-[1.91/1] bg-gray-200">
                   <img
                     src={preview.image}
-                    alt={title}
+                    alt={finalTitle}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -194,10 +259,10 @@ const SocialMediaPreview: React.FC<SocialMediaPreviewProps> = ({
                     {url.replace('https://', '').replace('http://', '')}
                   </div>
                   <h4 className="font-semibold text-gray-900 mb-2 leading-tight">
-                    {truncateText(title, preview.titleLimit)}
+                    {truncateText(finalTitle, preview.titleLimit)}
                   </h4>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    {truncateText(description, preview.descLimit)}
+                    {truncateText(finalDescription, preview.descLimit)}
                   </p>
                 </div>
               </div>
