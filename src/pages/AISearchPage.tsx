@@ -488,16 +488,6 @@ const AISearchPage: React.FC = () => {
       hasWhiteBackground: true
     },
     {
-      id: 'lmarena',
-      name: 'LMArena',
-      url: 'https://lmarena.ai/',
-      description: 'Multiple chatbots arena with no sign-up required for model comparison',
-      icon: <img src="https://lmarena.ai/favicon.ico" alt="LMArena" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=LM'; }} />,
-      color: 'from-yellow-500 to-orange-600',
-      glowColor: '#f59e0b',
-      hasWhiteBackground: true
-    },
-    {
       id: 'duckduckgo-ai',
       name: 'DuckDuckGo AI',
       url: 'https://duck.ai/',
@@ -802,6 +792,495 @@ const AISearchPage: React.FC = () => {
       color: 'from-indigo-600 to-purple-700',
       glowColor: '#6366f1',
       hasWhiteBackground: true
+    },
+    {
+      id: 'brave-search',
+      name: 'Brave Search',
+      url: 'https://search.brave.com/',
+      description: 'Privacy-focused search engine with AI summarization (Leo)',
+      icon: <img src="https://search.brave.com/favicon.ico" alt="Brave" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ef4444/ffffff?text=B'; }} />,
+      color: 'from-red-500 to-orange-600',
+      glowColor: '#ef4444',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'consensus',
+      name: 'Consensus',
+      url: 'https://consensus.app/',
+      description: 'AI search engine for scientific research and academic papers',
+      icon: <img src="https://consensus.app/favicon.ico" alt="Consensus" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=C'; }} />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#3b82f6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'elicit',
+      name: 'Elicit',
+      url: 'https://elicit.com/',
+      description: 'AI research assistant that helps you automate research workflows',
+      icon: <img src="https://elicit.com/favicon.ico" alt="Elicit" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=E'; }} />,
+      color: 'from-orange-500 to-amber-600',
+      glowColor: '#f97316',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'kagi',
+      name: 'Kagi',
+      url: 'https://kagi.com/',
+      description: 'Premium, privacy-focused search engine with powerful AI features',
+      icon: <img src="https://kagi.com/favicon.ico" alt="Kagi" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/fbbf24/ffffff?text=K'; }} />,
+      color: 'from-yellow-500 to-amber-500',
+      glowColor: '#fbbf24',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'iask',
+      name: 'iAsk.ai',
+      url: 'https://iask.ai/',
+      description: 'Free AI search engine that provides instant, accurate, and factual answers',
+      icon: <img src="https://iask.ai/favicon.ico" alt="iAsk" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=iA'; }} />,
+      color: 'from-blue-500 to-cyan-500',
+      glowColor: '#06b6d4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'sogou',
+      name: 'Sogou',
+      url: 'https://www.sogou.com/',
+      description: 'Popular Chinese search engine with advanced AI capabilities',
+      icon: <img src="https://www.sogou.com/favicon.ico" alt="Sogou" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ea580c/ffffff?text=S'; }} />,
+      color: 'from-orange-600 to-red-600',
+      glowColor: '#ea580c',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'shenma',
+      name: 'Shenma',
+      url: 'https://m.sm.cn/',
+      description: 'Mobile-focused AI search engine popular in China',
+      icon: <img src="https://m.sm.cn/favicon.ico" alt="Shenma" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/22c55e/ffffff?text=SM'; }} />,
+      color: 'from-green-500 to-emerald-600',
+      glowColor: '#22c55e',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'character-ai',
+      name: 'Character.AI',
+      url: 'https://character.ai',
+      description: 'Chat with open-ended conversational AI characters and personas',
+      icon: <img src="https://character.ai/favicon.ico" alt="Character.AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/4f46e5/ffffff?text=CA'; }} />,
+      color: 'from-blue-500 to-indigo-600',
+      glowColor: '#4f46e5',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'devv',
+      name: 'Devv',
+      url: 'https://devv.ai',
+      description: 'AI-powered search engine specifically designed for developers',
+      icon: <img src="https://devv.ai/favicon.ico" alt="Devv" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/0ea5e9/ffffff?text=D'; }} />,
+      color: 'from-blue-600 to-cyan-600',
+      glowColor: '#0ea5e9',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'blackbox-ai',
+      name: 'Blackbox AI',
+      url: 'https://www.blackbox.ai',
+      description: 'AI coding assistant and search engine for programmers',
+      icon: <img src="https://www.blackbox.ai/favicon.ico" alt="Blackbox" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=BB'; }} />,
+      color: 'from-gray-800 to-black',
+      glowColor: '#ffffff',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'liner',
+      name: 'Liner',
+      url: 'https://getliner.com',
+      description: 'AI workspace for research and reliable information search',
+      icon: <img src="https://getliner.com/favicon.ico" alt="Liner" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/6366f1/ffffff?text=L'; }} />,
+      color: 'from-purple-500 to-indigo-600',
+      glowColor: '#6366f1',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'zhipu-qingyan',
+      name: 'Zhipu Qingyan',
+      url: 'https://chatglm.cn',
+      description: 'Advanced bilingual (Chinese-English) AI model by Zhipu AI',
+      icon: <img src="https://chatglm.cn/favicon.ico" alt="Zhipu" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=ZQ'; }} />,
+      color: 'from-blue-500 to-purple-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'doubao',
+      name: 'Doubao',
+      url: 'https://www.doubao.com',
+      description: 'Intelligent AI assistant by ByteDance for creative and daily tasks',
+      icon: <img src="https://www.doubao.com/favicon.ico" alt="Doubao" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=DB'; }} />,
+      color: 'from-green-500 to-emerald-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'hunyuan',
+      name: 'Tencent Hunyuan',
+      url: 'https://hunyuan.tencent.com/bot/chat',
+      description: 'Large-scale foundation model by Tencent with powerful capabilities',
+      icon: <img src="https://hunyuan.tencent.com/favicon.ico" alt="Hunyuan" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/1e40af/ffffff?text=TH'; }} />,
+      color: 'from-blue-600 to-blue-800',
+      glowColor: '#1e40af',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'deepai',
+      name: 'DeepAI',
+      url: 'https://deepai.org/chat',
+      description: 'Creative AI tools for art generation and conversational chat',
+      icon: <img src="https://deepai.org/favicon.ico" alt="DeepAI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/6366f1/ffffff?text=DA'; }} />,
+      color: 'from-indigo-500 to-purple-600',
+      glowColor: '#6366f1',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'forefront',
+      name: 'Forefront',
+      url: 'https://www.forefront.ai',
+      description: 'Unified access to top AI models and custom assistants',
+      icon: <img src="https://www.forefront.ai/favicon.ico" alt="Forefront" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/c026d3/ffffff?text=FF'; }} />,
+      color: 'from-purple-600 to-fuchsia-600',
+      glowColor: '#c026d3',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'chatbox',
+      name: 'Chatbox',
+      url: 'https://web.chatboxai.app',
+      description: 'Cross-platform desktop client for OpenAI, Claude, and other models',
+      icon: <img src="https://chatboxai.app/favicon.ico" alt="Chatbox" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/4b5563/ffffff?text=CB'; }} />,
+      color: 'from-gray-600 to-gray-800',
+      glowColor: '#4b5563',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'undermind',
+      name: 'Undermind',
+      url: 'https://www.undermind.ai/',
+      description: 'Deep search AI for scientific research that mimics human discovery',
+      icon: <img src="https://www.undermind.ai/favicon.ico" alt="Undermind" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/0891b2/ffffff?text=U'; }} />,
+      color: 'from-blue-600 to-cyan-600',
+      glowColor: '#0891b2',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'system',
+      name: 'System',
+      url: 'https://system.com/',
+      description: 'Open public knowledge base powered by AI to explain how the world works',
+      icon: <img src="https://system.com/favicon.ico" alt="System" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=S'; }} />,
+      color: 'from-gray-800 to-black',
+      glowColor: '#000000',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'wikicrow',
+      name: 'WikiCrow',
+      url: 'https://wikicrow.ai/',
+      description: 'Automated scientific summaries and articles generated by AI',
+      icon: <img src="https://wikicrow.ai/favicon.ico" alt="WikiCrow" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=WC'; }} />,
+      color: 'from-emerald-500 to-teal-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'storm',
+      name: 'Storm',
+      url: 'https://storm.genie.stanford.edu/',
+      description: 'Stanford\'s knowledge curation system for grounded conversational AI',
+      icon: <img src="https://storm.genie.stanford.edu/favicon.ico" alt="Storm" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/b91c1c/ffffff?text=ST'; }} />,
+      color: 'from-red-700 to-red-900',
+      glowColor: '#b91c1c',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'semantic-scholar',
+      name: 'Semantic Scholar',
+      url: 'https://www.semanticscholar.org/',
+      description: 'AI-powered research tool for scientific literature',
+      icon: <img src="https://www.semanticscholar.org/favicon.ico" alt="Semantic Scholar" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/2563eb/ffffff?text=SS'; }} />,
+      color: 'from-blue-600 to-indigo-600',
+      glowColor: '#2563eb',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'connected-papers',
+      name: 'Connected Papers',
+      url: 'https://www.connectedpapers.com/',
+      description: 'Visual tool to explore the graph of academic papers',
+      icon: <img src="https://www.connectedpapers.com/favicon.ico" alt="Connected Papers" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/374151/ffffff?text=CP'; }} />,
+      color: 'from-gray-700 to-gray-900',
+      glowColor: '#374151',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'research-rabbit',
+      name: 'ResearchRabbit',
+      url: 'https://www.researchrabbit.ai/',
+      description: 'Spotify for research papers - discover and visualize literature',
+      icon: <img src="https://www.researchrabbit.ai/favicon.ico" alt="ResearchRabbit" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=RR'; }} />,
+      color: 'from-green-500 to-emerald-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'scholarcy',
+      name: 'Scholarcy',
+      url: 'https://www.scholarcy.com/',
+      description: 'AI-powered article summarizer and flashcard generator',
+      icon: <img src="https://www.scholarcy.com/favicon.ico" alt="Scholarcy" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/4f46e5/ffffff?text=SC'; }} />,
+      color: 'from-purple-600 to-indigo-600',
+      glowColor: '#4f46e5',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'scite',
+      name: 'Scite',
+      url: 'https://scite.ai/',
+      description: 'Smart citations to see how research has been cited',
+      icon: <img src="https://scite.ai/favicon.ico" alt="Scite" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/06b6d4/ffffff?text=SC'; }} />,
+      color: 'from-blue-500 to-cyan-500',
+      glowColor: '#06b6d4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'explainpaper',
+      name: 'Explainpaper',
+      url: 'https://www.explainpaper.com/',
+      description: 'Upload a paper, highlight text, and get an explanation',
+      icon: <img src="https://www.explainpaper.com/favicon.ico" alt="Explainpaper" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=EP'; }} />,
+      color: 'from-yellow-500 to-orange-500',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'humata',
+      name: 'Humata',
+      url: 'https://www.humata.ai/',
+      description: 'Chat with your files and extract information from PDFs',
+      icon: <img src="https://www.humata.ai/favicon.ico" alt="Humata" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/4338ca/ffffff?text=HU'; }} />,
+      color: 'from-indigo-600 to-blue-600',
+      glowColor: '#4338ca',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'chatpdf',
+      name: 'ChatPDF',
+      url: 'https://www.chatpdf.com/',
+      description: 'Chat with any PDF document using AI',
+      icon: <img src="https://www.chatpdf.com/favicon.ico" alt="ChatPDF" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/e11d48/ffffff?text=CP'; }} />,
+      color: 'from-red-500 to-rose-600',
+      glowColor: '#e11d48',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'chatsonic',
+      name: 'Chatsonic',
+      url: 'https://writesonic.com/chat',
+      description: 'AI conversational partner with real-time data and content creation',
+      icon: <img src="https://writesonic.com/favicon.ico" alt="Chatsonic" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/db2777/ffffff?text=CS'; }} />,
+      color: 'from-purple-600 to-pink-600',
+      glowColor: '#db2777',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'jasper-chat',
+      name: 'Jasper Chat',
+      url: 'https://www.jasper.ai/chat',
+      description: 'AI chat for content creators and marketers',
+      icon: <img src="https://www.jasper.ai/favicon.ico" alt="Jasper Chat" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=JC'; }} />,
+      color: 'from-purple-500 to-indigo-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'socratic',
+      name: 'Socratic',
+      url: 'https://socratic.org/',
+      description: 'Google\'s learning app that helps students understand school work',
+      icon: <img src="https://socratic.org/favicon.ico" alt="Socratic" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/14b8a6/ffffff?text=SC'; }} />,
+      color: 'from-green-500 to-teal-500',
+      glowColor: '#14b8a6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'bing-image',
+      name: 'Bing Image Creator',
+      url: 'https://www.bing.com/images/create',
+      description: 'Create images from words with AI powered by DALL-E 3',
+      icon: <img src="https://www.bing.com/favicon.ico" alt="Bing Image Creator" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ec4899/ffffff?text=BI'; }} />,
+      color: 'from-pink-500 to-rose-500',
+      glowColor: '#ec4899',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'leonardo',
+      name: 'Leonardo.ai',
+      url: 'https://leonardo.ai/',
+      description: 'Create production-quality visual assets for your projects with AI',
+      icon: <img src="https://leonardo.ai/favicon.ico" alt="Leonardo.ai" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/4c1d95/ffffff?text=LA'; }} />,
+      color: 'from-purple-600 to-indigo-900',
+      glowColor: '#4c1d95',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'dreamstudio',
+      name: 'DreamStudio',
+      url: 'https://dreamstudio.ai/',
+      description: 'Generative media platform by Stability AI',
+      icon: <img src="https://dreamstudio.ai/favicon.ico" alt="DreamStudio" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/6366f1/ffffff?text=DS'; }} />,
+      color: 'from-indigo-500 to-purple-600',
+      glowColor: '#6366f1',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'gamma',
+      name: 'Gamma',
+      url: 'https://gamma.app/',
+      description: 'A new medium for presenting ideas, powered by AI',
+      icon: <img src="https://gamma.app/favicon.ico" alt="Gamma" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/d97706/ffffff?text=GA'; }} />,
+      color: 'from-yellow-500 to-orange-600',
+      glowColor: '#d97706',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'tome',
+      name: 'Tome',
+      url: 'https://tome.app/',
+      description: 'AI-powered storytelling format for work and ideas',
+      icon: <img src="https://tome.app/favicon.ico" alt="Tome" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=TO'; }} />,
+      color: 'from-gray-800 to-black',
+      glowColor: '#000000',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'suno',
+      name: 'Suno',
+      url: 'https://suno.com',
+      description: 'Make a song about anything with AI',
+      icon: <img src="https://suno.com/favicon.ico" alt="Suno" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=SU'; }} />,
+      color: 'from-gray-800 to-black',
+      glowColor: '#000000',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'udio',
+      name: 'Udio',
+      url: 'https://www.udio.com',
+      description: 'Create music with AI',
+      icon: <img src="https://www.udio.com/favicon.ico" alt="Udio" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=UD'; }} />,
+      color: 'from-purple-600 to-indigo-600',
+      glowColor: '#4f46e5',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'runway',
+      name: 'Runway',
+      url: 'https://runwayml.com',
+      description: 'Advancing creativity with artificial intelligence',
+      icon: <img src="https://runwayml.com/favicon.ico" alt="Runway" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=RW'; }} />,
+      color: 'from-pink-500 to-rose-600',
+      glowColor: '#e11d48',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'pika',
+      name: 'Pika',
+      url: 'https://pika.art',
+      description: 'An idea-to-video platform that brings your creativity to life',
+      icon: <img src="https://pika.art/favicon.ico" alt="Pika" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=PK'; }} />,
+      color: 'from-purple-500 to-indigo-500',
+      glowColor: '#6366f1',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'luma-dream-machine',
+      name: 'Luma Dream Machine',
+      url: 'https://lumalabs.ai/dream-machine',
+      description: 'High quality, realistic video generation from text and images',
+      icon: <img src="https://lumalabs.ai/favicon.ico" alt="Luma" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=LU'; }} />,
+      color: 'from-gray-700 to-gray-900',
+      glowColor: '#374151',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'elevenlabs',
+      name: 'ElevenLabs',
+      url: 'https://elevenlabs.io',
+      description: 'The most realistic AI audio platform',
+      icon: <img src="https://elevenlabs.io/favicon.ico" alt="ElevenLabs" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=EL'; }} />,
+      color: 'from-gray-800 to-black',
+      glowColor: '#000000',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'heygen',
+      name: 'HeyGen',
+      url: 'https://www.heygen.com',
+      description: 'AI video generation platform for creating engaging videos',
+      icon: <img src="https://www.heygen.com/favicon.ico" alt="HeyGen" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/7c3aed/ffffff?text=HG'; }} />,
+      color: 'from-violet-500 to-purple-600',
+      glowColor: '#7c3aed',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'v0',
+      name: 'v0',
+      url: 'https://v0.dev',
+      description: 'Generate UI with simple text prompts',
+      icon: <img src="https://v0.dev/favicon.ico" alt="v0" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=V0'; }} />,
+      color: 'from-gray-800 to-black',
+      glowColor: '#000000',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'replit',
+      name: 'Replit',
+      url: 'https://replit.com',
+      description: 'Software development platform with AI features',
+      icon: <img src="https://replit.com/favicon.ico" alt="Replit" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=RP'; }} />,
+      color: 'from-orange-500 to-red-500',
+      glowColor: '#f97316',
+      hasWhiteBackground: true,
+      openExternally: true
+    },
+    {
+      id: 'midjourney',
+      name: 'Midjourney',
+      url: 'https://www.midjourney.com',
+      description: 'Generative artificial intelligence program and service',
+      icon: <img src="https://www.midjourney.com/favicon.ico" alt="Midjourney" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ffffff/000000?text=MJ'; }} />,
+      color: 'from-blue-800 to-indigo-900',
+      glowColor: '#1e3a8a',
+      hasWhiteBackground: true,
+      openExternally: true
     }
   ];
 
