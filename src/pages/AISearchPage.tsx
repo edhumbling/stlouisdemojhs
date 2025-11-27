@@ -485,7 +485,8 @@ const AISearchPage: React.FC = () => {
       icon: <img src="https://scira.ai/favicon.ico" alt="Scira AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=S'; }} />,
       color: 'from-purple-600 to-violet-600',
       glowColor: '#8b5cf6',
-      hasWhiteBackground: true
+      hasWhiteBackground: true,
+      openExternally: true
     },
     {
       id: 'duckduckgo-ai',
@@ -1281,6 +1282,296 @@ const AISearchPage: React.FC = () => {
       glowColor: '#1e3a8a',
       hasWhiteBackground: true,
       openExternally: true
+    },
+    {
+      id: 'openperplex',
+      name: 'OpenPerplex',
+      url: 'https://openperplex.com/',
+      description: 'Open-source AI search engine offering fast, cited answers',
+      icon: <img src="https://openperplex.com/favicon.ico" alt="OpenPerplex" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=OP'; }} />,
+      color: 'from-blue-500 to-indigo-600',
+      glowColor: '#3b82f6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'thinkany',
+      name: 'ThinkAny',
+      url: 'https://thinkany.ai/',
+      description: 'AI search engine designed for high-quality RAG-based retrieval',
+      icon: <img src="https://thinkany.ai/favicon.ico" alt="ThinkAny" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=TA'; }} />,
+      color: 'from-purple-500 to-violet-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'miku-ai',
+      name: 'Miku AI',
+      url: 'https://hellomiku.com/',
+      description: 'Personalized AI search engine for answering complex questions',
+      icon: <img src="https://hellomiku.com/favicon.ico" alt="Miku AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f472b6/ffffff?text=MK'; }} />,
+      color: 'from-pink-400 to-rose-500',
+      glowColor: '#f472b6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'gigabrain',
+      name: 'GigaBrain',
+      url: 'https://thegigabrain.com/',
+      description: 'Scans billions of online discussions to find authentic human answers',
+      icon: <img src="https://thegigabrain.com/favicon.ico" alt="GigaBrain" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=GB'; }} />,
+      color: 'from-orange-500 to-amber-600',
+      glowColor: '#f97316',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'webpilot',
+      name: 'WebPilot',
+      url: 'https://www.webpilot.ai/',
+      description: 'AI Copilot for the web to chat, write, and search freely',
+      icon: <img src="https://www.webpilot.ai/favicon.ico" alt="WebPilot" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=WP'; }} />,
+      color: 'from-blue-600 to-cyan-600',
+      glowColor: '#3b82f6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'heurist',
+      name: 'Heurist Search',
+      url: 'https://search.heurist.ai/',
+      description: 'Decentralized AI search engine for censorship-resistant information',
+      icon: <img src="https://search.heurist.ai/favicon.ico" alt="Heurist" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=HS'; }} />,
+      color: 'from-emerald-500 to-green-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'isou',
+      name: 'iSou Chat',
+      url: 'https://isou.chat/',
+      description: 'Search with AI for concise and relevant answers',
+      icon: <img src="https://isou.chat/favicon.ico" alt="iSou" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/6366f1/ffffff?text=IS'; }} />,
+      color: 'from-indigo-500 to-blue-600',
+      glowColor: '#6366f1',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'llama-researcher',
+      name: 'LlamaResearcher',
+      url: 'https://app.llamaresearcher.com/',
+      description: 'Open-source deep research agent powered by Llama models',
+      icon: <img src="https://app.llamaresearcher.com/favicon.ico" alt="LlamaResearcher" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=LR'; }} />,
+      color: 'from-amber-500 to-orange-600',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'deepchat',
+      name: 'DeepChat',
+      url: 'https://deepchat.thinkinai.xyz/',
+      description: 'AI chat interface for deep research and complex queries',
+      icon: <img src="https://deepchat.thinkinai.xyz/favicon.ico" alt="DeepChat" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/06b6d4/ffffff?text=DC'; }} />,
+      color: 'from-cyan-500 to-blue-600',
+      glowColor: '#06b6d4',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'monica',
+      name: 'Monica',
+      url: 'https://monica.so/',
+      description: 'All-in-one AI assistant for search, writing, and translation',
+      icon: <img src="https://monica.so/favicon.ico" alt="Monica" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=M'; }} />,
+      color: 'from-violet-500 to-purple-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'arc-search',
+      name: 'Arc Search',
+      url: 'https://arc.net/search',
+      description: 'Browse for me feature that summarizes web content instantly',
+      icon: <img src="https://arc.net/favicon.ico" alt="Arc Search" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f87171/ffffff?text=AS'; }} />,
+      color: 'from-red-400 to-orange-500',
+      glowColor: '#f87171',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'msty',
+      name: 'Msty',
+      url: 'https://msty.app/',
+      description: 'The easiest way to use and manage offline AI models',
+      icon: <img src="https://msty.app/favicon.ico" alt="Msty" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/14b8a6/ffffff?text=MS'; }} />,
+      color: 'from-teal-500 to-emerald-600',
+      glowColor: '#14b8a6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'xdash',
+      name: 'Xdash',
+      url: 'https://www.xdash.ai/',
+      description: 'AI-powered search engine for real-time information',
+      icon: <img src="https://www.xdash.ai/favicon.ico" alt="Xdash" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=XD'; }} />,
+      color: 'from-gray-800 to-black',
+      glowColor: '#000000',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'correkt',
+      name: 'Correkt',
+      url: 'https://correkt.ai/',
+      description: 'Fact-checking AI that verifies information across sources',
+      icon: <img src="https://correkt.ai/favicon.ico" alt="Correkt" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/22c55e/ffffff?text=CK'; }} />,
+      color: 'from-green-500 to-emerald-600',
+      glowColor: '#22c55e',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'holmesbot',
+      name: 'HolmesBot',
+      url: 'https://app.holmesbot.com/',
+      description: 'AI research assistant for deep dive investigations',
+      icon: <img src="https://app.holmesbot.com/favicon.ico" alt="HolmesBot" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/7c3aed/ffffff?text=HB'; }} />,
+      color: 'from-violet-600 to-indigo-700',
+      glowColor: '#7c3aed',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'mixmyai',
+      name: 'MixMyAI',
+      url: 'https://mixmyai.com/',
+      description: 'Access multiple top AI models in one platform',
+      icon: <img src="https://mixmyai.com/favicon.ico" alt="MixMyAI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/ec4899/ffffff?text=MM'; }} />,
+      color: 'from-pink-500 to-rose-600',
+      glowColor: '#ec4899',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'deepfind',
+      name: 'Deepfind',
+      url: 'https://www.deepfind.co/',
+      description: 'Privacy-first AI search engine for deep exploration',
+      icon: <img src="https://www.deepfind.co/favicon.ico" alt="Deepfind" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=DF'; }} />,
+      color: 'from-blue-600 to-indigo-700',
+      glowColor: '#3b82f6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'graphthem',
+      name: 'Graphthem',
+      url: 'https://graphthem.com/',
+      description: 'Visual AI search engine presenting results in graphs',
+      icon: <img src="https://graphthem.com/favicon.ico" alt="Graphthem" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f59e0b/ffffff?text=GT'; }} />,
+      color: 'from-yellow-500 to-amber-600',
+      glowColor: '#f59e0b',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'ithy',
+      name: 'Ithy',
+      url: 'https://ithy.com/',
+      description: 'AI search engine for fast and accurate information retrieval',
+      icon: <img src="https://ithy.com/favicon.ico" alt="Ithy" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/0ea5e9/ffffff?text=IT'; }} />,
+      color: 'from-sky-500 to-cyan-600',
+      glowColor: '#0ea5e9',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'colombo',
+      name: 'ColomboAI',
+      url: 'https://colomboai.com/',
+      description: 'AI research tool for finding specific information quickly',
+      icon: <img src="https://colomboai.com/favicon.ico" alt="ColomboAI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/6366f1/ffffff?text=CO'; }} />,
+      color: 'from-indigo-500 to-purple-600',
+      glowColor: '#6366f1',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'omnexio',
+      name: 'Omnexio',
+      url: 'https://omnexio.ai/',
+      description: 'Advanced AI search and discovery platform',
+      icon: <img src="https://omnexio.ai/favicon.ico" alt="Omnexio" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/10b981/ffffff?text=OM'; }} />,
+      color: 'from-emerald-500 to-teal-600',
+      glowColor: '#10b981',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'lumo',
+      name: 'Lumo',
+      url: 'https://lumo.proton.me/',
+      description: 'Privacy-focused AI assistant from Proton',
+      icon: <img src="https://proton.me/favicon.ico" alt="Lumo" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/6d28d9/ffffff?text=LM'; }} />,
+      color: 'from-purple-600 to-violet-700',
+      glowColor: '#6d28d9',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'zai',
+      name: 'Z.ai',
+      url: 'https://chat.z.ai/',
+      description: 'Advanced AI chat and search platform',
+      icon: <img src="https://chat.z.ai/favicon.ico" alt="Z.ai" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/000000/ffffff?text=Z'; }} />,
+      color: 'from-gray-800 to-black',
+      glowColor: '#000000',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'mirothinker',
+      name: 'MiroThinker',
+      url: 'https://dr.miromind.ai/',
+      description: 'Deep research AI for exploring complex topics',
+      icon: <img src="https://dr.miromind.ai/favicon.ico" alt="MiroThinker" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/3b82f6/ffffff?text=MT'; }} />,
+      color: 'from-blue-500 to-indigo-600',
+      glowColor: '#3b82f6',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'tiangong',
+      name: 'Tiangong AI',
+      url: 'https://www.tiangong.cn/',
+      description: 'Advanced Chinese AI search engine and assistant',
+      icon: <img src="https://www.tiangong.cn/favicon.ico" alt="Tiangong" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/e11d48/ffffff?text=TG'; }} />,
+      color: 'from-rose-500 to-red-600',
+      glowColor: '#e11d48',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'metaso',
+      name: 'Metaso',
+      url: 'https://metaso.cn/',
+      description: 'AI-powered search engine for discovering knowledge',
+      icon: <img src="https://metaso.cn/favicon.ico" alt="Metaso" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/0ea5e9/ffffff?text=MS'; }} />,
+      color: 'from-sky-500 to-blue-600',
+      glowColor: '#0ea5e9',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'yuewen',
+      name: 'Yuewen',
+      url: 'https://yuewen.cn/',
+      description: 'AI literary assistant and search tool',
+      icon: <img src="https://yuewen.cn/favicon.ico" alt="Yuewen" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/8b5cf6/ffffff?text=YW'; }} />,
+      color: 'from-purple-500 to-violet-600',
+      glowColor: '#8b5cf6',
+      hasWhiteBackground: true
+    },
+    {
+      id: '360ai',
+      name: '360 AI Search',
+      url: 'https://so.360.com/',
+      description: 'Intelligent search engine by 360 with AI capabilities',
+      icon: <img src="https://so.360.com/favicon.ico" alt="360AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/22c55e/ffffff?text=360'; }} />,
+      color: 'from-green-500 to-emerald-600',
+      glowColor: '#22c55e',
+      hasWhiteBackground: true
+    },
+    {
+      id: 'aoyo',
+      name: 'Aoyo AI',
+      url: 'https://aoyo.ai/',
+      description: 'AI search assistant for improved information retrieval',
+      icon: <img src="https://aoyo.ai/favicon.ico" alt="Aoyo" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/f97316/ffffff?text=AY'; }} />,
+      color: 'from-orange-500 to-red-600',
+      glowColor: '#f97316',
+      hasWhiteBackground: true
     }
   ];
 
