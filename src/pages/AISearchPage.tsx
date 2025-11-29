@@ -784,6 +784,16 @@ const AISearchPage: React.FC = () => {
       openExternally: true
     },
     {
+      id: 'chat-z-ai',
+      name: 'Chat.Z.AI',
+      url: 'https://chat.z.ai/',
+      description: 'Advanced AI chat platform with intelligent conversation capabilities and multiple model support',
+      icon: <img src="https://chat.z.ai/favicon.ico" alt="Chat.Z.AI" className="w-6 h-6 sm:w-8 sm:h-8" loading="eager" onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/32/0ea5e9/ffffff?text=Z'; }} />,
+      color: 'from-sky-500 to-blue-600',
+      glowColor: '#0ea5e9',
+      hasWhiteBackground: true
+    },
+    {
       id: 'humbl-ai',
       name: 'Humbl AI',
       url: 'https://humbl-ai.vercel.app',
